@@ -1,0 +1,3 @@
+1	/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_10.jpg	0.5872749676119764
+2	/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_12.jpg	0.5707428123540463
+3	/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_06.jpg	0.562445550758113

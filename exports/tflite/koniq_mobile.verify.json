@@ -1,0 +1,66 @@
+{
+  "preset": "koniq",
+  "model_path": "exports/tflite/koniq_mobile.tflite",
+  "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+  "source_checkpoint": "checkpoints/technical_koniq_gpu/best.weights.h5",
+  "input_details": [
+    {
+      "name": "serving_default_keras_tensor_154:0",
+      "shape": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "shape_signature": [
+        -1,
+        224,
+        224,
+        3
+      ],
+      "dtype": "float32",
+      "index": 0
+    }
+  ],
+  "output_details": [
+    {
+      "name": "StatefulPartitionedCall_1:0",
+      "shape": [
+        1,
+        1
+      ],
+      "shape_signature": [
+        -1,
+        1
+      ],
+      "dtype": "float32",
+      "index": 174
+    }
+  ],
+  "tflite_output": {
+    "raw_shape": [
+      1,
+      1
+    ],
+    "dtype": "float32",
+    "score": 43.18193054199219,
+    "plausible": true,
+    "normalized_score": 0.43181930541992186
+  },
+  "source_output": {
+    "raw_shape": [
+      1,
+      1
+    ],
+    "dtype": "float32",
+    "score": 43.18193817138672,
+    "plausible": true,
+    "normalized_score": 0.4318193817138672
+  },
+  "comparison": {
+    "max_abs_diff": 7.62939453125e-06,
+    "mean_abs_diff": 7.62939453125e-06,
+    "comparison_ok": true
+  },
+  "verification_passed": true
+}

@@ -1,0 +1,90 @@
+{
+  "preset": "nima",
+  "model_path": "exports/tflite/nima_mobile.tflite",
+  "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+  "source_checkpoint": "checkpoints/nima_ava_gpu/best.weights.h5",
+  "input_details": [
+    {
+      "name": "serving_default_keras_tensor_270:0",
+      "shape": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "shape_signature": [
+        -1,
+        224,
+        224,
+        3
+      ],
+      "dtype": "float32",
+      "index": 0
+    }
+  ],
+  "output_details": [
+    {
+      "name": "StatefulPartitionedCall_1:0",
+      "shape": [
+        1,
+        10
+      ],
+      "shape_signature": [
+        -1,
+        10
+      ],
+      "dtype": "float32",
+      "index": 533
+    }
+  ],
+  "tflite_output": {
+    "raw_shape": [
+      1,
+      10
+    ],
+    "dtype": "float32",
+    "distribution": [
+      0.013199426233768463,
+      0.023546557873487473,
+      0.04884875565767288,
+      0.11643911898136139,
+      0.2446797490119934,
+      0.25031688809394836,
+      0.14528092741966248,
+      0.08422747254371643,
+      0.04296022281050682,
+      0.030500873923301697
+    ],
+    "distribution_sum": 1.0,
+    "mean_score": 5.780332088470459,
+    "plausible": true
+  },
+  "source_output": {
+    "raw_shape": [
+      1,
+      10
+    ],
+    "dtype": "float32",
+    "distribution": [
+      0.013199985027313232,
+      0.0235477015376091,
+      0.04885144531726837,
+      0.11644373089075089,
+      0.24468503892421722,
+      0.25031179189682007,
+      0.14527486264705658,
+      0.08422625809907913,
+      0.04295894503593445,
+      0.030500326305627823
+    ],
+    "distribution_sum": 1.0000001192092896,
+    "mean_score": 5.780288219451904,
+    "plausible": true
+  },
+  "comparison": {
+    "max_abs_diff": 6.064772605895996e-06,
+    "mean_abs_diff": 2.8494746402429882e-06,
+    "comparison_ok": true
+  },
+  "verification_passed": true
+}

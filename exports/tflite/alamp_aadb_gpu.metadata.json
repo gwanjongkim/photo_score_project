@@ -1,0 +1,144 @@
+{
+  "model": {
+    "name": "alamp_aadb_gpu",
+    "task": "aesthetic_regression",
+    "variant": "A-Lamp",
+    "inputs": {
+      "global_view": {
+        "shape": [
+          1,
+          384,
+          384,
+          3
+        ],
+        "dtype": "float32",
+        "normalization": "pixel_value / 255.0",
+        "layout": "NHWC"
+      },
+      "patches": {
+        "shape": [
+          1,
+          5,
+          224,
+          224,
+          3
+        ],
+        "dtype": "float32",
+        "normalization": "pixel_value / 255.0",
+        "layout": "NTHWC"
+      }
+    },
+    "output": {
+      "shape": [
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "summary": "Single scalar A-Lamp aesthetic score."
+    }
+  },
+  "source": {
+    "checkpoint_dir": "checkpoints/alamp_aadb_gpu",
+    "weights_path": "checkpoints/alamp_aadb_gpu/best.weights.h5",
+    "keras_path": "checkpoints/alamp_aadb_gpu/final_model.keras",
+    "saved_model_dir": "checkpoints/alamp_aadb_gpu/saved_model"
+  },
+  "export": {
+    "used_export_source": "rebuild_from_weights",
+    "used_conversion_mode": "builtin",
+    "requires_select_tf_ops": false,
+    "tflite_path": "exports/tflite/alamp_aadb_gpu.tflite",
+    "tflite_size_bytes": 39158340,
+    "rebuild_attempts": [
+      {
+        "mode": "builtin",
+        "status": "success",
+        "size_bytes": 39158340
+      }
+    ],
+    "saved_model_attempts": [
+      {
+        "mode": "builtin",
+        "status": "failure",
+        "error": "ConverterError: <unknown>:0: error: loc(fused[callsite(fused[\"Cast:\", \"alamp_refined_1/layout_cues_1/Cast@__inference___call___209290\"] at callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___211883\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])), callsite(fused[\"BroadcastTo:\", \"alamp_refined_1/layout_cues_1/BroadcastTo@__inference___call___209290\"] at callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___211883\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"]))]): 'tfl.broadcast_to' op operand #0 must be tensor of 32-bit float or 32-bit signless integer or 1-bit signless integer or 4-bit signless integer or 8-bit signless integer or QI8 type or 8-bit unsigned integer or 32-bit unsigned integer or QUI8 type or 16-bit signless integer or QI16 type or 64-bit signless integer or complex type with 32-bit float elements values, but got 'tensor<1x384x384x2xf16>' <unknown>:0: note: loc(callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___211883\"] at fused[\"StatefulPartitionedCall:\", \"Statef..."
+      },
+      {
+        "mode": "select_tf_ops",
+        "status": "failure",
+        "error": "ConverterError: <unknown>:0: error: loc(fused[callsite(fused[\"Cast:\", \"alamp_refined_1/layout_cues_1/Cast@__inference___call___209290\"] at callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___211883\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])), callsite(fused[\"BroadcastTo:\", \"alamp_refined_1/layout_cues_1/BroadcastTo@__inference___call___209290\"] at callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___211883\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"]))]): 'tfl.broadcast_to' op operand #0 must be tensor of 32-bit float or 32-bit signless integer or 1-bit signless integer or 4-bit signless integer or 8-bit signless integer or QI8 type or 8-bit unsigned integer or 32-bit unsigned integer or QUI8 type or 16-bit signless integer or QI16 type or 64-bit signless integer or complex type with 32-bit float elements values, but got 'tensor<1x384x384x2xf16>' <unknown>:0: note: loc(callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___211883\"] at fused[\"StatefulPartitionedCall:\", \"Statef..."
+      }
+    ]
+  },
+  "export_adjustments": {
+    "backbone_weights_on_rebuild": null,
+    "keras_global_policy": "float32",
+    "reason": "Rebuild export uses the repo source model under float32 policy and loads checkpoint weights. This avoids the SavedModel mixed-precision layout cue BroadcastTo path that fails TFLite conversion."
+  },
+  "saved_model_signature": {
+    "inputs": {
+      "patches": {
+        "shape": [
+          null,
+          5,
+          224,
+          224,
+          3
+        ],
+        "dtype": "float32"
+      },
+      "global_view": {
+        "shape": [
+          null,
+          384,
+          384,
+          3
+        ],
+        "dtype": "float32"
+      }
+    },
+    "outputs": {
+      "output_0": {
+        "shape": [
+          null,
+          1
+        ],
+        "dtype": "float32"
+      }
+    }
+  },
+  "rebuild_model_io": {
+    "inputs": [
+      {
+        "name": "global_view",
+        "shape": [
+          null,
+          384,
+          384,
+          3
+        ],
+        "dtype": "float32"
+      },
+      {
+        "name": "patches",
+        "shape": [
+          null,
+          5,
+          224,
+          224,
+          3
+        ],
+        "dtype": "float32"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "keras_tensor_454",
+        "shape": [
+          null,
+          1
+        ],
+        "dtype": "float32"
+      }
+    ]
+  }
+}

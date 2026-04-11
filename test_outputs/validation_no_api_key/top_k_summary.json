@@ -1,0 +1,105 @@
+{
+  "schema_version": "acut_product_app.v1",
+  "generated_at": "2026-04-11T02:17:27.373937Z",
+  "ranking_stage": "post_rerank",
+  "score_semantics": "rank, selected, status, and final_score_after_rerank all reflect the same final post-rerank order because diversity reranking is disabled.",
+  "diversity_enabled": false,
+  "final_ordering_uses_diversity": false,
+  "final_score_matches_final_ranking": true,
+  "top_k": [
+    {
+      "rank": 1,
+      "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_10.jpg",
+      "image_file_name": "KakaoTalk_20260330_180646779_10.jpg",
+      "final_score_after_rerank": 0.587275,
+      "aesthetic_score": 0.573865,
+      "aesthetic_models_used": [
+        "composition_aadb",
+        "nima_ava",
+        "alamp_aadb",
+        "musiq_aadb",
+        "rgnet_aadb"
+      ],
+      "acut_short_reason": "The selector held this frame on technical quality; aesthetic score created the clearest edge."
+    },
+    {
+      "rank": 2,
+      "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_12.jpg",
+      "image_file_name": "KakaoTalk_20260330_180646779_12.jpg",
+      "final_score_after_rerank": 0.570743,
+      "aesthetic_score": 0.565582,
+      "aesthetic_models_used": [
+        "composition_aadb",
+        "nima_ava",
+        "alamp_aadb",
+        "musiq_aadb",
+        "rgnet_aadb"
+      ],
+      "acut_short_reason": "It stayed in on a narrow margin because aesthetic score barely outweighed technical quality."
+    },
+    {
+      "rank": 3,
+      "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_06.jpg",
+      "image_file_name": "KakaoTalk_20260330_180646779_06.jpg",
+      "final_score_after_rerank": 0.562446,
+      "aesthetic_score": 0.540737,
+      "aesthetic_models_used": [
+        "composition_aadb",
+        "nima_ava",
+        "alamp_aadb",
+        "musiq_aadb",
+        "rgnet_aadb"
+      ],
+      "acut_short_reason": "The A-cut kept it despite a thin margin, with technical quality just covering for aesthetic score."
+    }
+  ],
+  "selected_count": 3,
+  "rejected_count": 12,
+  "pipeline_config": {
+    "input_dir": "/home/omen_pc1/photo_score_project/test_samples",
+    "scores_jsonl": "/home/omen_pc1/photo_score_project/test_outputs/validation_no_api_key/scores.jsonl",
+    "scores_csv": "/home/omen_pc1/photo_score_project/test_outputs/validation_no_api_key/scores.csv",
+    "score_failures_json": null,
+    "num_input_images": 15,
+    "num_scored_images": 15,
+    "num_skipped_images": 0,
+    "num_recoverable_stage_failures": 0,
+    "aesthetic_scores_csv": "/home/omen_pc1/photo_score_project/test_outputs/validation_no_api_key/scores.csv",
+    "aesthetic_enabled": true,
+    "aesthetic_backend": "stage5_reference_tensorflow_bundle",
+    "aesthetic_config": "configs/stage5_reference.json",
+    "aesthetic_weight": 0.6,
+    "aesthetic_models": [
+      "aadb_model",
+      "alamp_model",
+      "musiq_model",
+      "nima_model",
+      "rgnet_model"
+    ],
+    "aesthetic_model_paths": {
+      "aadb_model": "checkpoints/composition_aadb_gpu/final_model.keras",
+      "alamp_model": "checkpoints/alamp_aadb_gpu/final_model.keras",
+      "musiq_model": "checkpoints/musiq_aadb_gpu/final_model.keras",
+      "nima_model": "checkpoints/nima_ava_gpu/final_model.keras",
+      "rgnet_model": "checkpoints/rgnet_aadb_gpu/final_model.keras"
+    },
+    "aesthetic_pairwise_model_paths": {},
+    "aesthetic_missing_model_paths": {},
+    "aesthetic_auto_resolved": true,
+    "aesthetic_disabled_reason": null,
+    "aesthetic_warnings": [],
+    "vila_scores_csv": null,
+    "top_k": 3,
+    "enable_pairwise_rerank": false,
+    "enable_vila_rerank": false,
+    "vila_rerank_weight": 0.1,
+    "enable_vila_explanations": false,
+    "enable_acut_reasoning": true,
+    "reason_reference_mode": "nearest_competitor",
+    "reason_detail_level": "full",
+    "enable_diversity": false,
+    "rerank_pool_size": null,
+    "weights_config": null,
+    "export_debug_reasoning": false
+  }
+}

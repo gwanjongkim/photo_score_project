@@ -1,0 +1,5 @@
+-r requirements.txt
+
+firebase-admin>=6.5.0
+pillow-heif>=0.17.0
+google-generativeai>=0.8.6

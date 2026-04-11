@@ -1,0 +1,118 @@
+{
+  "mode": "extended",
+  "pipeline_notes": [
+    "Resolved repo default for aadb_model: checkpoints/composition_aadb_gpu/final_model.keras",
+    "Resolved repo default for koniq_model: checkpoints/technical_koniq_gpu/final_model.keras",
+    "Resolved repo default for flive_image_model: checkpoints/technical_flive_image_gpu/final_model.keras",
+    "Resolved repo default for nima_model: checkpoints/nima_ava_gpu/final_model.keras",
+    "Resolved repo default for flive_patch_model: checkpoints/technical_flive_patch_gpu/final_model.keras",
+    "Resolved repo default for alamp_model: checkpoints/alamp_aadb_gpu/final_model.keras",
+    "Resolved repo default for musiq_model: checkpoints/musiq_aadb_gpu/final_model.keras",
+    "Resolved repo default for rgnet_model: checkpoints/rgnet_aadb_gpu/final_model.keras"
+  ],
+  "resolved_model_paths": {
+    "aadb_model": "checkpoints/composition_aadb_gpu/final_model.keras",
+    "koniq_model": "checkpoints/technical_koniq_gpu/final_model.keras",
+    "flive_image_model": "checkpoints/technical_flive_image_gpu/final_model.keras",
+    "nima_model": "checkpoints/nima_ava_gpu/final_model.keras",
+    "flive_patch_model": "checkpoints/technical_flive_patch_gpu/final_model.keras",
+    "alamp_model": "checkpoints/alamp_aadb_gpu/final_model.keras",
+    "musiq_model": "checkpoints/musiq_aadb_gpu/final_model.keras",
+    "rgnet_model": "checkpoints/rgnet_aadb_gpu/final_model.keras"
+  },
+  "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+  "final_score": 0.5722397992362579,
+  "aesthetic_score": 0.5717974608143171,
+  "technical_score": 0.5727804350852965,
+  "on_device_models_used": [
+    "aadb",
+    "koniq",
+    "flive_image"
+  ],
+  "optional_extended_models_used": [
+    "nima",
+    "flive_patch",
+    "alamp",
+    "musiq",
+    "rgnet"
+  ],
+  "per_model_scores": {
+    "aadb_score": 0.57666015625,
+    "koniq_score": 43.0625,
+    "flive_image_score": 72.4375,
+    "flive_patch_mean": 72.1500015258789,
+    "nima_mean_score": 5.869061470031738,
+    "alamp_score": 0.683251678943634,
+    "musiq_score": 0.5346168279647827,
+    "rgnet_score": 0.48014315962791443
+  },
+  "component_details": {
+    "aesthetic": {
+      "aadb_score": {
+        "raw_score": 0.57666015625,
+        "normalized_score": 0.57666015625,
+        "configured_weight": 0.55,
+        "effective_weight": 0.55,
+        "weighted_contribution": 0.31716308593750003
+      },
+      "nima_mean_score": {
+        "raw_score": 5.869061470031738,
+        "normalized_score": 0.5410068300035265,
+        "configured_weight": 0.3,
+        "effective_weight": 0.3,
+        "weighted_contribution": 0.16230204900105794
+      },
+      "alamp_score": {
+        "raw_score": 0.683251678943634,
+        "normalized_score": 0.683251678943634,
+        "configured_weight": 0.1,
+        "effective_weight": 0.1,
+        "weighted_contribution": 0.06832516789436341
+      },
+      "rgnet_score": {
+        "raw_score": 0.48014315962791443,
+        "normalized_score": 0.48014315962791443,
+        "configured_weight": 0.05,
+        "effective_weight": 0.05,
+        "weighted_contribution": 0.024007157981395723
+      }
+    },
+    "technical": {
+      "koniq_score": {
+        "raw_score": 43.0625,
+        "normalized_score": 0.430625,
+        "configured_weight": 0.45,
+        "effective_weight": 0.45,
+        "weighted_contribution": 0.19378125
+      },
+      "flive_image_score": {
+        "raw_score": 72.4375,
+        "normalized_score": 0.724375,
+        "configured_weight": 0.3,
+        "effective_weight": 0.3,
+        "weighted_contribution": 0.2173125
+      },
+      "flive_patch_mean": {
+        "raw_score": 72.1500015258789,
+        "normalized_score": 0.721500015258789,
+        "configured_weight": 0.15,
+        "effective_weight": 0.15,
+        "weighted_contribution": 0.10822500228881836
+      },
+      "musiq_score": {
+        "raw_score": 0.5346168279647827,
+        "normalized_score": 0.5346168279647827,
+        "configured_weight": 0.1,
+        "effective_weight": 0.1,
+        "weighted_contribution": 0.053461682796478276
+      }
+    }
+  },
+  "missing_mobile_aesthetic_models": [],
+  "missing_mobile_technical_models": [],
+  "notes": [
+    "Extended mode added higher-cost models to refine the score."
+  ],
+  "warnings": [],
+  "rank": 1
+}

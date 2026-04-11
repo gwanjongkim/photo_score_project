@@ -1,0 +1,955 @@
+{
+  "mode": "default_mobile",
+  "pipeline_notes": [
+    "Resolved repo default for aadb_model: checkpoints/composition_aadb_gpu/final_model.keras",
+    "Resolved repo default for koniq_model: checkpoints/technical_koniq_gpu/final_model.keras",
+    "Resolved repo default for flive_image_model: checkpoints/technical_flive_image_gpu/final_model.keras"
+  ],
+  "resolved_model_paths": {
+    "aadb_model": "checkpoints/composition_aadb_gpu/final_model.keras",
+    "koniq_model": "checkpoints/technical_koniq_gpu/final_model.keras",
+    "flive_image_model": "checkpoints/technical_flive_image_gpu/final_model.keras"
+  },
+  "input_dir": "test_samples",
+  "num_images": 15,
+  "top_k": [
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.5638193359375,
+      "aesthetic_score": 0.57666015625,
+      "technical_score": 0.548125,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.57666015625,
+        "koniq_score": 43.0625,
+        "flive_image_score": 72.4375
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.57666015625,
+            "normalized_score": 0.57666015625,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.57666015625
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 43.0625,
+            "normalized_score": 0.430625,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.25837499999999997
+          },
+          "flive_image_score": {
+            "raw_score": 72.4375,
+            "normalized_score": 0.724375,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.28975
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 1
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_11.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.56198359375,
+      "aesthetic_score": 0.548828125,
+      "technical_score": 0.5780624999999999,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.548828125,
+        "koniq_score": 48.21875,
+        "flive_image_score": 72.1875
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.548828125,
+            "normalized_score": 0.548828125,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.548828125
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 48.21875,
+            "normalized_score": 0.4821875,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.2893125
+          },
+          "flive_image_score": {
+            "raw_score": 72.1875,
+            "normalized_score": 0.721875,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.28875
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 2
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_12.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.535749609375,
+      "aesthetic_score": 0.5712890625,
+      "technical_score": 0.49231250000000004,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.5712890625,
+        "koniq_score": 36.09375,
+        "flive_image_score": 68.9375
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.5712890625,
+            "normalized_score": 0.5712890625,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.5712890625
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 36.09375,
+            "normalized_score": 0.3609375,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.21656250000000002
+          },
+          "flive_image_score": {
+            "raw_score": 68.9375,
+            "normalized_score": 0.689375,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.27575
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 3
+    }
+  ],
+  "results": [
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.5638193359375,
+      "aesthetic_score": 0.57666015625,
+      "technical_score": 0.548125,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.57666015625,
+        "koniq_score": 43.0625,
+        "flive_image_score": 72.4375
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.57666015625,
+            "normalized_score": 0.57666015625,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.57666015625
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 43.0625,
+            "normalized_score": 0.430625,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.25837499999999997
+          },
+          "flive_image_score": {
+            "raw_score": 72.4375,
+            "normalized_score": 0.724375,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.28975
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 1
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_11.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.56198359375,
+      "aesthetic_score": 0.548828125,
+      "technical_score": 0.5780624999999999,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.548828125,
+        "koniq_score": 48.21875,
+        "flive_image_score": 72.1875
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.548828125,
+            "normalized_score": 0.548828125,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.548828125
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 48.21875,
+            "normalized_score": 0.4821875,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.2893125
+          },
+          "flive_image_score": {
+            "raw_score": 72.1875,
+            "normalized_score": 0.721875,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.28875
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 2
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_12.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.535749609375,
+      "aesthetic_score": 0.5712890625,
+      "technical_score": 0.49231250000000004,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.5712890625,
+        "koniq_score": 36.09375,
+        "flive_image_score": 68.9375
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.5712890625,
+            "normalized_score": 0.5712890625,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.5712890625
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 36.09375,
+            "normalized_score": 0.3609375,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.21656250000000002
+          },
+          "flive_image_score": {
+            "raw_score": 68.9375,
+            "normalized_score": 0.689375,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.27575
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 3
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_07.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.5174195312500001,
+      "aesthetic_score": 0.513671875,
+      "technical_score": 0.522,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.513671875,
+        "koniq_score": 39.875,
+        "flive_image_score": 70.6875
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.513671875,
+            "normalized_score": 0.513671875,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.513671875
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 39.875,
+            "normalized_score": 0.39875,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.23925
+          },
+          "flive_image_score": {
+            "raw_score": 70.6875,
+            "normalized_score": 0.706875,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.28275
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 4
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_08.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.5021152343749999,
+      "aesthetic_score": 0.5322265625,
+      "technical_score": 0.46531249999999996,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.5322265625,
+        "koniq_score": 35.28125,
+        "flive_image_score": 63.40625
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.5322265625,
+            "normalized_score": 0.5322265625,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.5322265625
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 35.28125,
+            "normalized_score": 0.3528125,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.21168749999999997
+          },
+          "flive_image_score": {
+            "raw_score": 63.40625,
+            "normalized_score": 0.6340625,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.253625
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 5
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.49257578125,
+      "aesthetic_score": 0.490234375,
+      "technical_score": 0.49543750000000003,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.490234375,
+        "koniq_score": 38.53125,
+        "flive_image_score": 66.0625
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.490234375,
+            "normalized_score": 0.490234375,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.490234375
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 38.53125,
+            "normalized_score": 0.3853125,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.2311875
+          },
+          "flive_image_score": {
+            "raw_score": 66.0625,
+            "normalized_score": 0.660625,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.26425000000000004
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 6
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_13.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.4763904296875,
+      "aesthetic_score": 0.50048828125,
+      "technical_score": 0.4469375,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.50048828125,
+        "koniq_score": 32.53125,
+        "flive_image_score": 62.9375
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.50048828125,
+            "normalized_score": 0.50048828125,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.50048828125
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 32.53125,
+            "normalized_score": 0.3253125,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.19518749999999999
+          },
+          "flive_image_score": {
+            "raw_score": 62.9375,
+            "normalized_score": 0.629375,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.25175000000000003
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 7
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_02.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.47399423828125004,
+      "aesthetic_score": 0.490966796875,
+      "technical_score": 0.45325,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.490966796875,
+        "koniq_score": 32.0,
+        "flive_image_score": 65.3125
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.490966796875,
+            "normalized_score": 0.490966796875,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.490966796875
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 32.0,
+            "normalized_score": 0.32,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.192
+          },
+          "flive_image_score": {
+            "raw_score": 65.3125,
+            "normalized_score": 0.653125,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.26125
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 8
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_01.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.47374755859375006,
+      "aesthetic_score": 0.498291015625,
+      "technical_score": 0.44375,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.498291015625,
+        "koniq_score": 31.5,
+        "flive_image_score": 63.6875
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.498291015625,
+            "normalized_score": 0.498291015625,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.498291015625
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 31.5,
+            "normalized_score": 0.315,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.189
+          },
+          "flive_image_score": {
+            "raw_score": 63.6875,
+            "normalized_score": 0.636875,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.25475
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 9
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_06.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.4581318359375,
+      "aesthetic_score": 0.42822265625,
+      "technical_score": 0.4946875,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.42822265625,
+        "koniq_score": 37.65625,
+        "flive_image_score": 67.1875
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.42822265625,
+            "normalized_score": 0.42822265625,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.42822265625
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 37.65625,
+            "normalized_score": 0.3765625,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.2259375
+          },
+          "flive_image_score": {
+            "raw_score": 67.1875,
+            "normalized_score": 0.671875,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.26875
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 10
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_05.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.44743642578125004,
+      "aesthetic_score": 0.447998046875,
+      "technical_score": 0.44675,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.447998046875,
+        "koniq_score": 32.1875,
+        "flive_image_score": 63.40625
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.447998046875,
+            "normalized_score": 0.447998046875,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.447998046875
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 32.1875,
+            "normalized_score": 0.321875,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.19312500000000002
+          },
+          "flive_image_score": {
+            "raw_score": 63.40625,
+            "normalized_score": 0.6340625,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.253625
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 11
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_09.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.44165263671875,
+      "aesthetic_score": 0.446533203125,
+      "technical_score": 0.4356875,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.446533203125,
+        "koniq_score": 31.90625,
+        "flive_image_score": 61.0625
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.446533203125,
+            "normalized_score": 0.446533203125,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.446533203125
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 31.90625,
+            "normalized_score": 0.3190625,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.1914375
+          },
+          "flive_image_score": {
+            "raw_score": 61.0625,
+            "normalized_score": 0.610625,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.24425
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 12
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_04.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.43324101562500006,
+      "aesthetic_score": 0.4130859375,
+      "technical_score": 0.45787500000000003,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.4130859375,
+        "koniq_score": 34.0,
+        "flive_image_score": 63.46875
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.4130859375,
+            "normalized_score": 0.4130859375,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.4130859375
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 34.0,
+            "normalized_score": 0.34,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.20400000000000001
+          },
+          "flive_image_score": {
+            "raw_score": 63.46875,
+            "normalized_score": 0.6346875,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.253875
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 13
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_14.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.36853779296875,
+      "aesthetic_score": 0.319580078125,
+      "technical_score": 0.42837499999999995,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.319580078125,
+        "koniq_score": 32.0625,
+        "flive_image_score": 59.0
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.319580078125,
+            "normalized_score": 0.319580078125,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.319580078125
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 32.0625,
+            "normalized_score": 0.320625,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.192375
+          },
+          "flive_image_score": {
+            "raw_score": 59.0,
+            "normalized_score": 0.59,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.236
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 14
+    },
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_03.jpg",
+      "mode": "default_mobile",
+      "final_score": 0.351701171875,
+      "aesthetic_score": 0.3056640625,
+      "technical_score": 0.40796875,
+      "on_device_models_used": [
+        "aadb",
+        "koniq",
+        "flive_image"
+      ],
+      "optional_extended_models_used": [],
+      "per_model_scores": {
+        "aadb_score": 0.3056640625,
+        "koniq_score": 29.890625,
+        "flive_image_score": 57.15625
+      },
+      "component_details": {
+        "aesthetic": {
+          "aadb_score": {
+            "raw_score": 0.3056640625,
+            "normalized_score": 0.3056640625,
+            "configured_weight": 1.0,
+            "effective_weight": 1.0,
+            "weighted_contribution": 0.3056640625
+          }
+        },
+        "technical": {
+          "koniq_score": {
+            "raw_score": 29.890625,
+            "normalized_score": 0.29890625,
+            "configured_weight": 0.6,
+            "effective_weight": 0.6,
+            "weighted_contribution": 0.17934375
+          },
+          "flive_image_score": {
+            "raw_score": 57.15625,
+            "normalized_score": 0.5715625,
+            "configured_weight": 0.4,
+            "effective_weight": 0.4,
+            "weighted_contribution": 0.228625
+          }
+        }
+      },
+      "missing_mobile_aesthetic_models": [],
+      "missing_mobile_technical_models": [],
+      "notes": [
+        "Default mobile mode used only the lightweight on-device scorer subset."
+      ],
+      "warnings": [],
+      "rank": 15
+    }
+  ]
+}

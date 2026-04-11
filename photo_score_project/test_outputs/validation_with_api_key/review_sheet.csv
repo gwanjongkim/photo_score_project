@@ -1,0 +1,1 @@
+case,rank,image_path,status,base_score,aesthetic_score,aesthetic_score_contributed,aesthetic_models_used,aesthetic_backend,final_score_after_rerank,vila_score_raw,acut_short_reason,acut_detailed_reason,acut_comparison_reason,acut_rejection_reason

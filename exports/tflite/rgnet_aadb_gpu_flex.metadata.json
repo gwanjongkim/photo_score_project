@@ -1,0 +1,63 @@
+{
+  "preset": "rgnet",
+  "display_name": "RGNet AADB Regressor",
+  "task": "aesthetic_regression",
+  "input": {
+    "image_size": [
+      256,
+      256
+    ],
+    "dtype": "float32",
+    "color_format": "RGB",
+    "tensor_layout": "NHWC",
+    "normalization": "pixel_value / 255.0"
+  },
+  "output": {
+    "shape": [
+      1,
+      1
+    ],
+    "summary": "Single scalar RGNet aesthetic score.",
+    "interpretation": "Sigmoid output already in [0, 1]. Higher is better.",
+    "postprocess": "Squeeze to scalar float and optionally clip to [0, 1]."
+  },
+  "source": {
+    "checkpoint_path": "checkpoints/rgnet_aadb_gpu/final_model.keras",
+    "weights_path": "checkpoints/rgnet_aadb_gpu/best.weights.h5",
+    "saved_model_dir": "checkpoints/rgnet_aadb_gpu/saved_model"
+  },
+  "export": {
+    "requested_export_source": "saved_model",
+    "used_export_source": "saved_model",
+    "rebuild_failure": null,
+    "requested_conversion_mode": "select_tf_ops",
+    "used_conversion_mode": "select_tf_ops",
+    "requires_select_tf_ops": true,
+    "tflite_path": "exports/tflite/rgnet_aadb_gpu_flex.tflite",
+    "tflite_size_bytes": 13394408,
+    "builtin_failure": null
+  },
+  "saved_model_signature": {
+    "inputs": {
+      "keras_tensor_271": {
+        "shape": [
+          null,
+          256,
+          256,
+          3
+        ],
+        "dtype": "float32"
+      }
+    },
+    "outputs": {
+      "output_0": {
+        "shape": [
+          null,
+          1
+        ],
+        "dtype": "float32"
+      }
+    }
+  },
+  "export_model_io": null
+}

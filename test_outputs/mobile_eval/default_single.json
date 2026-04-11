@@ -1,0 +1,62 @@
+{
+  "mode": "default_mobile",
+  "pipeline_notes": [
+    "Resolved repo default for aadb_model: checkpoints/composition_aadb_gpu/final_model.keras",
+    "Resolved repo default for koniq_model: checkpoints/technical_koniq_gpu/final_model.keras",
+    "Resolved repo default for flive_image_model: checkpoints/technical_flive_image_gpu/final_model.keras"
+  ],
+  "resolved_model_paths": {
+    "aadb_model": "checkpoints/composition_aadb_gpu/final_model.keras",
+    "koniq_model": "checkpoints/technical_koniq_gpu/final_model.keras",
+    "flive_image_model": "checkpoints/technical_flive_image_gpu/final_model.keras"
+  },
+  "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+  "final_score": 0.5638193359375,
+  "aesthetic_score": 0.57666015625,
+  "technical_score": 0.548125,
+  "on_device_models_used": [
+    "aadb",
+    "koniq",
+    "flive_image"
+  ],
+  "optional_extended_models_used": [],
+  "per_model_scores": {
+    "aadb_score": 0.57666015625,
+    "koniq_score": 43.0625,
+    "flive_image_score": 72.4375
+  },
+  "component_details": {
+    "aesthetic": {
+      "aadb_score": {
+        "raw_score": 0.57666015625,
+        "normalized_score": 0.57666015625,
+        "configured_weight": 1.0,
+        "effective_weight": 1.0,
+        "weighted_contribution": 0.57666015625
+      }
+    },
+    "technical": {
+      "koniq_score": {
+        "raw_score": 43.0625,
+        "normalized_score": 0.430625,
+        "configured_weight": 0.6,
+        "effective_weight": 0.6,
+        "weighted_contribution": 0.25837499999999997
+      },
+      "flive_image_score": {
+        "raw_score": 72.4375,
+        "normalized_score": 0.724375,
+        "configured_weight": 0.4,
+        "effective_weight": 0.4,
+        "weighted_contribution": 0.28975
+      }
+    }
+  },
+  "missing_mobile_aesthetic_models": [],
+  "missing_mobile_technical_models": [],
+  "notes": [
+    "Default mobile mode used only the lightweight on-device scorer subset."
+  ],
+  "warnings": [],
+  "rank": 1
+}

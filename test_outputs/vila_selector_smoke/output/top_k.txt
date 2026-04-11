@@ -1,0 +1,2 @@
+1	data/raw/ava/images/287613.jpg	0.7583599999999999
+2	data/raw/ava/images/165180.jpg	0.6823600000000001

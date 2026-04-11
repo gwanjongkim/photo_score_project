@@ -1,0 +1,66 @@
+{
+  "preset": "flive_image",
+  "model_path": "exports/tflite/flive_image_mobile.tflite",
+  "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+  "source_checkpoint": "checkpoints/technical_flive_image_gpu/best.weights.h5",
+  "input_details": [
+    {
+      "name": "serving_default_keras_tensor_154:0",
+      "shape": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "shape_signature": [
+        -1,
+        224,
+        224,
+        3
+      ],
+      "dtype": "float32",
+      "index": 0
+    }
+  ],
+  "output_details": [
+    {
+      "name": "StatefulPartitionedCall_1:0",
+      "shape": [
+        1,
+        1
+      ],
+      "shape_signature": [
+        -1,
+        1
+      ],
+      "dtype": "float32",
+      "index": 174
+    }
+  ],
+  "tflite_output": {
+    "raw_shape": [
+      1,
+      1
+    ],
+    "dtype": "float32",
+    "score": 72.49097442626953,
+    "plausible": true,
+    "normalized_score": 0.7249097442626953
+  },
+  "source_output": {
+    "raw_shape": [
+      1,
+      1
+    ],
+    "dtype": "float32",
+    "score": 72.49097442626953,
+    "plausible": true,
+    "normalized_score": 0.7249097442626953
+  },
+  "comparison": {
+    "max_abs_diff": 0.0,
+    "mean_abs_diff": 0.0,
+    "comparison_ok": true
+  },
+  "verification_passed": true
+}

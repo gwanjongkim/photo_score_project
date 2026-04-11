@@ -1,0 +1,21 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner() {
+      return isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    match /jobs/{jobId} {
+      // Jobs are created and updated by the callable Function and the Python
+      // worker through the Admin SDK. Client apps should only read their own
+      // job documents.
+      allow read: if isOwner();
+      allow create, update, delete: if false;
+    }
+  }
+}

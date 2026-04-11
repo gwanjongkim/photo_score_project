@@ -1,0 +1,48 @@
+# Python
+.venv/
+.venv_gpu/
+.venv_vila/
+.venv_test/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Env / secrets
+.env
+.env.*
+secrets/
+serviceAccountKey.json
+
+# Outputs / cache
+outputs/
+tmp/
+.cache/
+.firebase/
+logs/
+*.log
+
+# Data
+data/
+datasets/
+
+# Models / checkpoints / large binaries
+models/
+weights/
+checkpoints/
+assets/models/
+
+*.ckpt
+*.pth
+*.pt
+*.onnx
+
+*.bin
+*.safetensors
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

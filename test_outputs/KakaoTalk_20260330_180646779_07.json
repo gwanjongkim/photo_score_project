@@ -1,0 +1,23 @@
+{
+  "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_07.jpg",
+  "aadb_score": 0.513671875,
+  "koniq_score": 39.90625,
+  "flive_image_score": 70.6875,
+  "flive_patch_scores": [
+    74.4375,
+    70.625,
+    70.3125,
+    72.5625,
+    71.375
+  ],
+  "flive_patch_mean": 71.86250305175781,
+  "flive_patch_min": 70.3125,
+  "flive_patch_std": 1.5028098821640015,
+  "aadb_norm": 0.513671875,
+  "koniq_norm": 0.3990625,
+  "flive_img_norm": 0.706875,
+  "flive_patch_mean_norm": 0.7186250305175781,
+  "flive_patch_min_norm": 0.703125,
+  "penalty": 0.0,
+  "final_score": 0.5589203186035157
+}

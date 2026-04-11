@@ -1,0 +1,40 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function jobDoc(jobId) {
+      return firestore.get(
+        /databases/(default)/documents/jobs/$(jobId)
+      );
+    }
+
+    function isJobOwner(jobId) {
+      return isSignedIn()
+        && jobDoc(jobId).data.userId == request.auth.uid;
+    }
+
+    match /acut_jobs/{jobId}/inputs/{fileName} {
+      allow write: if isSignedIn()
+        && request.resource != null
+        && request.resource.size < 20 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*')
+        && request.resource.metadata.ownerUid == request.auth.uid
+        && request.resource.metadata.jobId == jobId
+        && (resource == null || resource.metadata.ownerUid == request.auth.uid);
+      allow read: if isSignedIn() && resource.metadata.ownerUid == request.auth.uid;
+    }
+
+    match /acut_jobs/{jobId}/outputs/{fileName} {
+      allow read: if isJobOwner(jobId);
+      allow write: if false;
+    }
+
+    match /acut_jobs/{jobId}/{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

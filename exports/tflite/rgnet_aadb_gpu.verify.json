@@ -1,0 +1,66 @@
+{
+  "preset": "rgnet",
+  "model_path": "exports/tflite/rgnet_aadb_gpu.tflite",
+  "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+  "source_checkpoint": "checkpoints/rgnet_aadb_gpu/best.weights.h5",
+  "input_details": [
+    {
+      "name": "serving_default_keras_tensor_270:0",
+      "shape": [
+        1,
+        256,
+        256,
+        3
+      ],
+      "shape_signature": [
+        -1,
+        256,
+        256,
+        3
+      ],
+      "dtype": "float32",
+      "index": 0
+    }
+  ],
+  "output_details": [
+    {
+      "name": "StatefulPartitionedCall_1:0",
+      "shape": [
+        1,
+        1
+      ],
+      "shape_signature": [
+        -1,
+        1
+      ],
+      "dtype": "float32",
+      "index": 608
+    }
+  ],
+  "tflite_output": {
+    "raw_shape": [
+      1,
+      1
+    ],
+    "dtype": "float32",
+    "score": 0.3832858204841614,
+    "plausible": true,
+    "within_unit_interval": true
+  },
+  "source_output": {
+    "raw_shape": [
+      1,
+      1
+    ],
+    "dtype": "float32",
+    "score": 0.38329002261161804,
+    "plausible": true,
+    "within_unit_interval": true
+  },
+  "comparison": {
+    "max_abs_diff": 4.202127456665039e-06,
+    "mean_abs_diff": 4.202127456665039e-06,
+    "comparison_ok": true
+  },
+  "verification_passed": true
+}

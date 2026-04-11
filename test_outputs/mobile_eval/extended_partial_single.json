@@ -1,0 +1,80 @@
+{
+  "mode": "extended",
+  "pipeline_notes": [],
+  "resolved_model_paths": {
+    "aadb_model": "checkpoints/composition_aadb_gpu/final_model.keras",
+    "koniq_model": "checkpoints/technical_koniq_gpu/final_model.keras",
+    "flive_image_model": "checkpoints/technical_flive_image_gpu/final_model.keras",
+    "nima_model": "checkpoints/nima_ava_gpu/final_model.keras"
+  },
+  "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+  "final_score": 0.556898396136714,
+  "aesthetic_score": 0.5640766293394799,
+  "technical_score": 0.548125,
+  "on_device_models_used": [
+    "aadb",
+    "koniq",
+    "flive_image"
+  ],
+  "optional_extended_models_used": [
+    "nima"
+  ],
+  "per_model_scores": {
+    "aadb_score": 0.57666015625,
+    "koniq_score": 43.0625,
+    "flive_image_score": 72.4375,
+    "nima_mean_score": 5.869061470031738
+  },
+  "component_details": {
+    "aesthetic": {
+      "aadb_score": {
+        "raw_score": 0.57666015625,
+        "normalized_score": 0.57666015625,
+        "configured_weight": 0.55,
+        "effective_weight": 0.6470588235294118,
+        "weighted_contribution": 0.3731330422794118
+      },
+      "nima_mean_score": {
+        "raw_score": 5.869061470031738,
+        "normalized_score": 0.5410068300035265,
+        "configured_weight": 0.3,
+        "effective_weight": 0.3529411764705882,
+        "weighted_contribution": 0.19094358706006814
+      }
+    },
+    "technical": {
+      "koniq_score": {
+        "raw_score": 43.0625,
+        "normalized_score": 0.430625,
+        "configured_weight": 0.45,
+        "effective_weight": 0.6,
+        "weighted_contribution": 0.25837499999999997
+      },
+      "flive_image_score": {
+        "raw_score": 72.4375,
+        "normalized_score": 0.724375,
+        "configured_weight": 0.3,
+        "effective_weight": 0.39999999999999997,
+        "weighted_contribution": 0.28974999999999995
+      }
+    }
+  },
+  "missing_mobile_aesthetic_models": [
+    "alamp_score",
+    "rgnet_score"
+  ],
+  "missing_mobile_technical_models": [
+    "flive_patch_mean",
+    "musiq_score"
+  ],
+  "notes": [
+    "Extended mode added higher-cost models to refine the score."
+  ],
+  "warnings": [
+    "Optional extended model unavailable: flive_patch_model",
+    "Optional extended model unavailable: alamp_model",
+    "Optional extended model unavailable: musiq_model",
+    "Optional extended model unavailable: rgnet_model"
+  ],
+  "rank": 1
+}
