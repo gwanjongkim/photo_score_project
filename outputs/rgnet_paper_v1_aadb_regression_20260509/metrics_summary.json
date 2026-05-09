@@ -1,0 +1,198 @@
+{
+  "created_at_local": "2026-05-09T19:43:00+09:00",
+  "experiment_dir": "outputs/rgnet_paper_v1_aadb_regression_20260509",
+  "model_variant": "RGNet-paper-v1 approximation",
+  "official_reproduction": false,
+  "isolation": {
+    "v0_files_modified": false,
+    "practical_rgnet_modified": false,
+    "flutter_modified": false,
+    "forWeights_copy_performed": false,
+    "new_source_files": [
+      "src/models/rgnet_paper_v1.py",
+      "src/train/train_rgnet_paper_v1_aadb.py",
+      "src/eval/evaluate_rgnet_paper_v1_aadb.py",
+      "configs/paper_benchmarks/rgnet_paper_v1_aadb_regression.yaml"
+    ]
+  },
+  "dataset": {
+    "train_csv": "data/processed/aadb/train.csv",
+    "val_csv": "data/processed/aadb/val.csv",
+    "test_csv": "data/processed/aadb/test.csv",
+    "image_dir": "data/raw/aadb/images",
+    "image_col": "image_path",
+    "target_col": "score",
+    "score_ranges": {
+      "train": [0.0, 1.0],
+      "val": [0.0, 0.95],
+      "test": [0.05, 1.0]
+    },
+    "counts": {
+      "train": 7612,
+      "val": 846,
+      "test": 1000
+    }
+  },
+  "architecture": {
+    "backbone": "DenseNet121",
+    "context_module": "ASPP approximation",
+    "dilation_rates": [1, 3, 6, 12, 18],
+    "region_nodes": "spatial positions from post-ASPP feature map",
+    "region_dim": 256,
+    "graph_units": 256,
+    "graph_blocks": 3,
+    "graph_temperature": 0.25,
+    "adjacency": "cosine similarity with row-wise softmax normalization",
+    "region_score_head": "per-node sigmoid scalar score",
+    "aggregation": "lse",
+    "lse_r": 4.0,
+    "aggregation_formula": "(1 / r) * log(mean(exp(r * region_scores)))"
+  },
+  "forward_smoke": {
+    "input_shape": [2, 256, 256, 3],
+    "output_shape": [2, 1],
+    "prediction_min": 0.35727399587631226,
+    "prediction_max": 0.3581896424293518,
+    "all_finite": true,
+    "in_unit_range": true
+  },
+  "smoke_training": {
+    "summary_path": "outputs/rgnet_paper_v1_aadb_regression_20260509/smoke_train_v2/train_summary.json",
+    "model_path": "outputs/rgnet_paper_v1_aadb_regression_20260509/smoke_train_v2/final_model.keras",
+    "best_weights": "outputs/rgnet_paper_v1_aadb_regression_20260509/smoke_train_v2/best.weights.h5",
+    "training_history_csv": "outputs/rgnet_paper_v1_aadb_regression_20260509/smoke_train_v2/training_history.csv",
+    "train_samples": 16,
+    "val_samples": 8,
+    "image_size": 256,
+    "batch_size": 2,
+    "epochs_completed": 1,
+    "backbone_weights_requested": null,
+    "best_val_loss": 0.17236243188381195,
+    "best_val_mae": 0.3674493432044983,
+    "save_load_max_abs_diff": 0.0,
+    "tensorflow_visible_gpus": []
+  },
+  "smoke_evaluation": {
+    "summary_path": "outputs/rgnet_paper_v1_aadb_regression_20260509/smoke_eval/evaluation_summary.json",
+    "test": {
+      "num_samples": 8,
+      "srcc": -0.15569141404872364,
+      "plcc": -0.18820356670295135,
+      "mae": 0.4321957230567932,
+      "rmse": 0.45712923157078755,
+      "mse": 0.20896713435649872,
+      "seconds_per_image": 0.24405960312515163
+    },
+    "val": {
+      "num_samples": 8,
+      "srcc": -0.8263621207201486,
+      "plcc": -0.6750406450443565,
+      "mae": 0.3674493730068207,
+      "rmse": 0.4151655475636339,
+      "mse": 0.17236243188381195,
+      "seconds_per_image": 0.052651055000296765
+    }
+  },
+  "mid_training": {
+    "summary_path": "outputs/rgnet_paper_v1_aadb_regression_20260509/mid_train/train_summary.json",
+    "train_samples": 512,
+    "val_samples": 128,
+    "epochs_completed": 3,
+    "batch_size": 8,
+    "backbone_weights_requested": "imagenet",
+    "gpu_visible": true,
+    "memory_warning": "TensorFlow logged allocator memory-pressure warnings at batch size 8, but the run completed.",
+    "val_loss": [0.036103565245866776, 0.035932641476392746, 0.03285215049982071],
+    "val_mae": [0.15541210770606995, 0.15185801684856415, 0.14118336141109467],
+    "best_epoch": 3,
+    "best_val_loss": 0.03285215049982071,
+    "best_val_mae": 0.14118336141109467,
+    "save_load_max_abs_diff": 0.0
+  },
+  "full_training": {
+    "summary_path": "outputs/rgnet_paper_v1_aadb_regression_20260509/full_train/train_summary.json",
+    "model_path": "outputs/rgnet_paper_v1_aadb_regression_20260509/full_train/final_model.keras",
+    "best_weights": "outputs/rgnet_paper_v1_aadb_regression_20260509/full_train/best.weights.h5",
+    "training_history_csv": "outputs/rgnet_paper_v1_aadb_regression_20260509/full_train/training_history.csv",
+    "train_samples": 7612,
+    "val_samples": 846,
+    "epochs_requested": 20,
+    "epochs_completed": 5,
+    "batch_size": 8,
+    "backbone_weights_requested": "imagenet",
+    "gpu_visible": true,
+    "best_epoch": 2,
+    "best_val_loss": 0.022888537496328354,
+    "best_val_mae": 0.11879914253950119,
+    "save_load_max_abs_diff": 0.0,
+    "overfitting_note": "Training loss kept improving after epoch 2, while validation loss worsened through epoch 5."
+  },
+  "full_evaluation": {
+    "summary_path": "outputs/rgnet_paper_v1_aadb_regression_20260509/eval/evaluation_summary.json",
+    "test": {
+      "num_samples": 1000,
+      "srcc": 0.638855657699948,
+      "plcc": 0.6423166841140971,
+      "mae": 0.12822051346302032,
+      "rmse": 0.16023966315074326,
+      "mse": 0.025676749646663666,
+      "seconds_per_image": 0.023911475160999545,
+      "predictions_path": "outputs/rgnet_paper_v1_aadb_regression_20260509/eval/test_predictions.csv"
+    },
+    "val": {
+      "num_samples": 846,
+      "srcc": 0.5832142747791366,
+      "plcc": 0.5873551037219259,
+      "mae": 0.11880123615264893,
+      "rmse": 0.15128684218806654,
+      "mse": 0.022887708619236946,
+      "seconds_per_image": 0.013293206747046961,
+      "predictions_path": "outputs/rgnet_paper_v1_aadb_regression_20260509/eval/val_predictions.csv"
+    }
+  },
+  "comparison": {
+    "rgnet_paper_v0_full_test": {
+      "split": "AADB test full",
+      "srcc": 0.6432537443293759,
+      "plcc": 0.6499109307164675,
+      "mae": 0.1255093365907669,
+      "rmse": 0.1556738782154776
+    },
+    "rgnet_paper_v1_full_test": {
+      "split": "AADB test full",
+      "srcc": 0.638855657699948,
+      "plcc": 0.6423166841140971,
+      "mae": 0.12822051346302032,
+      "rmse": 0.16023966315074326
+    },
+    "practical_rgnet_aadb_baseline_val512": {
+      "split": "AADB val512, not directly comparable to full test",
+      "srcc": 0.4987,
+      "plcc": 0.5094,
+      "mae": 0.1304,
+      "rmse": 0.1619
+    },
+    "practical_rgnet_ava_to_aadb_finetuned_val512": {
+      "split": "AADB val512, not directly comparable to full test",
+      "srcc": 0.6749,
+      "plcc": 0.6835,
+      "mae": 0.1104,
+      "rmse": 0.1381
+    }
+  },
+  "decision": {
+    "better_than_v0": false,
+    "classification": "worse than v0 on full AADB test; worth continuing only as an ablation path with tuning",
+    "reason": "v1 added paper-aligned components but slightly reduced test SRCC and increased MAE/RMSE versus v0."
+  },
+  "validation": {
+    "py_compile": "passed",
+    "forward_smoke": "passed",
+    "smoke_train": "passed",
+    "smoke_eval": "passed",
+    "mid_train": "passed",
+    "full_train": "passed",
+    "full_eval": "passed",
+    "json_validation": "passed for train/eval summaries and metrics_summary.json"
+  }
+}

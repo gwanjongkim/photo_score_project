@@ -1,0 +1,59 @@
+# RGNet Paper-Oriented v1 AADB Regression Command Log
+
+Environment and context:
+- `pwd` -> `/home/omen_pc1/photo_score_project`
+- `date` -> `Sat May  9 19:43:00 KST 2026`
+- `./.venv_gpu/bin/python --version` -> `Python 3.12.3`
+- TensorFlow version in training/eval summaries: `2.20.0`
+- `nvidia-smi` saw NVIDIA GeForce RTX 4070 SUPER with 12282 MiB total memory.
+- Non-escalated TensorFlow checks and smoke runs logged `cuInit UNKNOWN ERROR (100)` and saw no GPU.
+- Escalated mid/full train/eval runs saw `PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')`.
+- `git status --short` showed pre-existing untracked `src/models/rgnet.py` and `forWeights/`; neither was modified or used.
+
+Commands:
+- `sed -n '1,260p' src/models/rgnet_paper.py`
+  - Result: inspected v0 model.
+- `sed -n '1,360p' src/train/train_rgnet_paper_aadb.py`
+  - Result: inspected v0 trainer.
+- `sed -n '1,320p' src/eval/evaluate_rgnet_paper_aadb.py`
+  - Result: inspected v0 evaluator.
+- `sed -n '1,220p' configs/paper_benchmarks/rgnet_paper_aadb_regression.yaml`
+  - Result: inspected v0 config.
+- `./.venv_gpu/bin/python - <<'PY' ... pandas AADB counts/ranges ... PY`
+  - Result: train `7612` rows score `0.0..1.0`; val `846` rows score `0.0..0.95`; test `1000` rows score `0.05..1.0`.
+- `python3 -m py_compile src/models/rgnet_paper_v1.py src/train/train_rgnet_paper_v1_aadb.py src/eval/evaluate_rgnet_paper_v1_aadb.py`
+  - Result: passed.
+- `./.venv_gpu/bin/python - <<'PY' ... build_rgnet_paper_v1_model(input_shape=(256,256,3), backbone_weights=None) ... PY`
+  - Result: pure forward smoke passed; output `[2,1]`, finite, in `[0,1]`.
+- `./.venv_gpu/bin/python -u -m src.train.train_rgnet_paper_v1_aadb --config configs/paper_benchmarks/rgnet_paper_v1_aadb_regression.yaml --out_dir outputs/rgnet_paper_v1_aadb_regression_20260509/smoke_train --backbone_weights none --epochs 1 --batch_size 2 --max_train_samples 16 --max_val_samples 8`
+  - Result: completed, but showed a custom-layer build warning. Superseded after adding `ASPPContextModule.build()`.
+- `python3 -m py_compile src/models/rgnet_paper_v1.py src/train/train_rgnet_paper_v1_aadb.py src/eval/evaluate_rgnet_paper_v1_aadb.py`
+  - Result: passed after adding `ASPPContextModule.build()`.
+- `./.venv_gpu/bin/python -u -m src.train.train_rgnet_paper_v1_aadb --config configs/paper_benchmarks/rgnet_paper_v1_aadb_regression.yaml --out_dir outputs/rgnet_paper_v1_aadb_regression_20260509/smoke_train_v2 --backbone_weights none --epochs 1 --batch_size 2 --max_train_samples 16 --max_val_samples 8`
+  - Result: passed. Save/load max abs diff `0.0`; wrote `smoke_train_v2/`.
+- `python3 -m json.tool outputs/rgnet_paper_v1_aadb_regression_20260509/smoke_train_v2/train_summary.json`
+  - Result: passed.
+- `./.venv_gpu/bin/python -u -m src.eval.evaluate_rgnet_paper_v1_aadb --config configs/paper_benchmarks/rgnet_paper_v1_aadb_regression.yaml --model_path outputs/rgnet_paper_v1_aadb_regression_20260509/smoke_train_v2/final_model.keras --output_dir outputs/rgnet_paper_v1_aadb_regression_20260509/smoke_eval --batch_size 2 --max_test_samples 8 --max_val_samples 8`
+  - Result: passed.
+- `python3 -m json.tool outputs/rgnet_paper_v1_aadb_regression_20260509/smoke_eval/evaluation_summary.json`
+  - Result: passed.
+- `./.venv_gpu/bin/python -u -m src.train.train_rgnet_paper_v1_aadb --config configs/paper_benchmarks/rgnet_paper_v1_aadb_regression.yaml --out_dir outputs/rgnet_paper_v1_aadb_regression_20260509/mid_train --backbone_weights imagenet --epochs 3 --batch_size 8 --max_train_samples 512 --max_val_samples 128`
+  - Result: passed with escalated GPU access. TensorFlow logged memory-pressure warnings but no fatal OOM.
+- `python3 -m json.tool outputs/rgnet_paper_v1_aadb_regression_20260509/mid_train/train_summary.json`
+  - Result: passed.
+- `./.venv_gpu/bin/python -u -m src.train.train_rgnet_paper_v1_aadb --config configs/paper_benchmarks/rgnet_paper_v1_aadb_regression.yaml --out_dir outputs/rgnet_paper_v1_aadb_regression_20260509/full_train --backbone_weights imagenet --epochs 20 --batch_size 8`
+  - Result: passed with escalated GPU access. Early stopped after 5 epochs; best epoch `2`.
+- `python3 -m json.tool outputs/rgnet_paper_v1_aadb_regression_20260509/full_train/train_summary.json`
+  - Result: passed.
+- `./.venv_gpu/bin/python -u -m src.eval.evaluate_rgnet_paper_v1_aadb --config configs/paper_benchmarks/rgnet_paper_v1_aadb_regression.yaml --model_path outputs/rgnet_paper_v1_aadb_regression_20260509/full_train/final_model.keras --output_dir outputs/rgnet_paper_v1_aadb_regression_20260509/eval --batch_size 16 --val_csv data/processed/aadb/val.csv`
+  - Result: passed with escalated GPU access. Wrote full test/val predictions and `evaluation_summary.json`.
+- `python3 -m json.tool outputs/rgnet_paper_v1_aadb_regression_20260509/eval/evaluation_summary.json`
+  - Result: passed.
+- `python3 -m json.tool outputs/rgnet_paper_v1_aadb_regression_20260509/metrics_summary.json`
+  - Result: passed after report artifacts were written.
+
+Observed warnings:
+- Sandbox TensorFlow CUDA initialization failed with `cuInit UNKNOWN ERROR (100)`.
+- Matplotlib used temporary cache directories under `/tmp` because `/home/omen_pc1/.config/matplotlib` was not writable.
+- Mid/full GPU runs logged allocator memory-pressure warnings at batch size 8, including attempted large allocations. Runs completed without fatal OOM.
+- Full epoch 1 had slow XLA compilation; later epochs were much faster.
