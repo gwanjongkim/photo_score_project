@@ -1,0 +1,64 @@
+experiment:
+  name: rgnet_paper_aadb_regression
+  label: RGNet-paper-v0 approximation
+  output_dir: outputs/rgnet_paper_aadb_regression_20260509
+  train_output_dir: outputs/rgnet_paper_aadb_regression_20260509/full_train
+  official_reproduction: false
+  note: >
+    Paper-oriented RGNet AADB regression track. This is not the official paper
+    implementation or official weights.
+
+data:
+  train_csv: data/processed/aadb/train.csv
+  val_csv: data/processed/aadb/val.csv
+  test_csv: data/processed/aadb/test.csv
+  image_dir: data/raw/aadb/images
+  image_col: image_path
+  target_col: score
+  target_scale: [0.0, 1.0]
+
+model:
+  backbone: DenseNet121
+  backbone_weights: imagenet
+  image_size: 256
+  region_node_definition: spatial positions from DenseNet121 feature map
+  region_dim: 256
+  graph_units: 256
+  graph_blocks: 2
+  graph_temperature: 0.25
+  adjacency: cosine similarity with row-wise softmax normalization
+  graph_convolution: residual graph convolution
+  regression_head: sigmoid scalar score in [0, 1]
+  approximation_note: >
+    Exact paper RegionGraph details are ambiguous in local evidence. This v0
+    approximation uses spatial feature positions as region nodes, dense cosine
+    similarity adjacency, softmax-normalized edges, and residual graph
+    convolution blocks.
+
+training:
+  loss: mse
+  metrics: [mae]
+  batch_size: 8
+  epochs: 20
+  learning_rate: 0.0001
+  patience: 3
+  early_stopping_monitor: val_loss
+  restore_best_weights: true
+  seed: 42
+  verify_save_load: true
+
+evaluation:
+  output_dir: outputs/rgnet_paper_aadb_regression_20260509/eval
+  model_name: rgnet_paper_v0_aadb_regression
+  batch_size: 16
+  metrics: [srcc, plcc, mae, rmse]
+
+smoke_test:
+  train_output_dir: outputs/rgnet_paper_aadb_regression_20260509/smoke_train
+  eval_output_dir: outputs/rgnet_paper_aadb_regression_20260509/smoke_eval
+  backbone_weights: none
+  max_train_samples: 16
+  max_val_samples: 8
+  max_test_samples: 8
+  epochs: 1
+  batch_size: 2

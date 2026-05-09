@@ -1,0 +1,53 @@
+# RGNet Paper-Oriented AADB Regression Command Log
+
+Environment and context:
+- `pwd` -> `/home/omen_pc1/photo_score_project`
+- `hostname` -> `DESKTOP-3T40JVV`
+- `date` -> `Sat May  9 18:08:01 KST 2026`
+- `whoami` -> `omen_pc1`
+- `./.venv_gpu/bin/python --version` -> `Python 3.12.3`
+- `nvidia-smi` -> NVIDIA GeForce RTX 4070 SUPER visible, 12282 MiB total, driver 591.55, CUDA 13.1.
+- `git status --short` showed many pre-existing unrelated modified/untracked files before this task; this experiment only added isolated paper-track files.
+
+Commands:
+- `python -m py_compile src/models/rgnet_paper.py src/train/train_rgnet_paper_aadb.py src/eval/evaluate_rgnet_paper_aadb.py`
+  - Result: failed because `/bin/bash: line 1: python: command not found`.
+- `python3 -m py_compile src/models/rgnet_paper.py src/train/train_rgnet_paper_aadb.py src/eval/evaluate_rgnet_paper_aadb.py`
+  - Result: passed.
+- `./.venv_gpu/bin/python -u -m src.train.train_rgnet_paper_aadb --config configs/paper_benchmarks/rgnet_paper_aadb_regression.yaml --out_dir outputs/rgnet_paper_aadb_regression_20260509/smoke_train --backbone_weights none --epochs 1 --batch_size 2 --max_train_samples 8 --max_val_samples 4`
+  - Result: completed, but superseded because the first save/load check compared against a pre-training forward pass.
+- `python3 -m py_compile src/models/rgnet_paper.py src/train/train_rgnet_paper_aadb.py src/eval/evaluate_rgnet_paper_aadb.py`
+  - Result: passed after correcting save/load check logic.
+- `./.venv_gpu/bin/python -u -m src.train.train_rgnet_paper_aadb --config configs/paper_benchmarks/rgnet_paper_aadb_regression.yaml --out_dir outputs/rgnet_paper_aadb_regression_20260509/smoke_train_v2 --backbone_weights none --epochs 1 --batch_size 2 --max_train_samples 8 --max_val_samples 4`
+  - Result: passed. Wrote `final_model.keras`, `best.weights.h5`, `training_history.csv`, and `train_summary.json`. Save/load max abs diff was `0.0`.
+- `./.venv_gpu/bin/python -u -m src.eval.evaluate_rgnet_paper_aadb --config configs/paper_benchmarks/rgnet_paper_aadb_regression.yaml --model_path outputs/rgnet_paper_aadb_regression_20260509/smoke_train_v2/final_model.keras --output_dir outputs/rgnet_paper_aadb_regression_20260509/smoke_eval_v2 --batch_size 2 --max_test_samples 8 --max_val_samples 8`
+  - Result: passed. Wrote `evaluation_summary.json`, `test_predictions.csv`, and `val_predictions.csv`.
+- `python3 -m json.tool outputs/rgnet_paper_aadb_regression_20260509/smoke_train_v2/train_summary.json`
+  - Result: passed.
+- `python3 -m json.tool outputs/rgnet_paper_aadb_regression_20260509/smoke_eval_v2/evaluation_summary.json`
+  - Result: passed.
+- `python3 -m json.tool outputs/rgnet_paper_aadb_regression_20260509/metrics_summary.json`
+  - Result: passed.
+
+Observed warnings:
+- TensorFlow in the sandbox logged `failed call to cuInit: UNKNOWN ERROR (100)` and exposed no GPUs to the smoke scripts. The small smoke train/eval completed on CPU.
+- Matplotlib used a temporary cache directory under `/tmp` because `/home/omen_pc1/.config/matplotlib` was not writable.
+
+Command to continue with a controlled full AADB run:
+```bash
+./.venv_gpu/bin/python -u -m src.train.train_rgnet_paper_aadb \
+  --config configs/paper_benchmarks/rgnet_paper_aadb_regression.yaml \
+  --out_dir outputs/rgnet_paper_aadb_regression_20260509/full_train \
+  --epochs 20 \
+  --batch_size 8 \
+  --backbone_weights imagenet
+```
+
+Command to evaluate the full AADB run:
+```bash
+./.venv_gpu/bin/python -u -m src.eval.evaluate_rgnet_paper_aadb \
+  --config configs/paper_benchmarks/rgnet_paper_aadb_regression.yaml \
+  --model_path outputs/rgnet_paper_aadb_regression_20260509/full_train/final_model.keras \
+  --output_dir outputs/rgnet_paper_aadb_regression_20260509/eval \
+  --val_csv data/processed/aadb/val.csv
+```

@@ -1,0 +1,95 @@
+{
+  "created_at_local": "2026-05-09T18:08:01+09:00",
+  "experiment_dir": "outputs/rgnet_paper_aadb_regression_20260509",
+  "model_variant": "RGNet-paper-v0 approximation",
+  "official_reproduction": false,
+  "isolation": {
+    "practical_rgnet_modified": false,
+    "flutter_modified": false,
+    "forWeights_copy_performed": false,
+    "new_source_files": [
+      "src/models/rgnet_paper.py",
+      "src/train/train_rgnet_paper_aadb.py",
+      "src/eval/evaluate_rgnet_paper_aadb.py",
+      "configs/paper_benchmarks/rgnet_paper_aadb_regression.yaml"
+    ]
+  },
+  "dataset": {
+    "train_csv": "data/processed/aadb/train.csv",
+    "val_csv": "data/processed/aadb/val.csv",
+    "test_csv": "data/processed/aadb/test.csv",
+    "image_dir": "data/raw/aadb/images",
+    "image_col": "image_path",
+    "target_col": "score",
+    "score_normalized_0_1": true,
+    "counts": {
+      "train": 7612,
+      "val": 846,
+      "test": 1000
+    }
+  },
+  "smoke_training": {
+    "summary_path": "outputs/rgnet_paper_aadb_regression_20260509/smoke_train_v2/train_summary.json",
+    "model_path": "outputs/rgnet_paper_aadb_regression_20260509/smoke_train_v2/final_model.keras",
+    "best_weights": "outputs/rgnet_paper_aadb_regression_20260509/smoke_train_v2/best.weights.h5",
+    "training_history_csv": "outputs/rgnet_paper_aadb_regression_20260509/smoke_train_v2/training_history.csv",
+    "train_samples": 8,
+    "val_samples": 4,
+    "image_size": 256,
+    "batch_size": 2,
+    "epochs_completed": 1,
+    "backbone_weights_requested": null,
+    "best_val_loss": 0.03703468665480614,
+    "best_val_mae": 0.17081350088119507,
+    "forward_output_shape": [2, 1],
+    "save_load_max_abs_diff": 0.0,
+    "tensorflow_visible_gpus": []
+  },
+  "smoke_evaluation": {
+    "summary_path": "outputs/rgnet_paper_aadb_regression_20260509/smoke_eval_v2/evaluation_summary.json",
+    "test": {
+      "num_samples": 8,
+      "srcc": -0.203596464525254,
+      "plcc": -0.31242404651323874,
+      "mae": 0.1755114048719406,
+      "rmse": 0.20520318169267343,
+      "predictions_path": "outputs/rgnet_paper_aadb_regression_20260509/smoke_eval_v2/test_predictions.csv"
+    },
+    "val": {
+      "num_samples": 8,
+      "srcc": 0.14371515142959107,
+      "plcc": 0.15893311762891194,
+      "mae": 0.17503324151039124,
+      "rmse": 0.1971614864921894,
+      "predictions_path": "outputs/rgnet_paper_aadb_regression_20260509/smoke_eval_v2/val_predictions.csv"
+    }
+  },
+  "comparison_against_existing_practical_rgnet": {
+    "current_practical_rgnet_aadb_baseline_aadb_val512": {
+      "source": "outputs/ava_retrain_rgnet_alamp_20260506/ava_retrain_report.md",
+      "srcc": 0.4987,
+      "plcc": 0.5094,
+      "mae": 0.1304,
+      "rmse": 0.1619
+    },
+    "practical_rgnet_ava_to_aadb_finetuned_aadb_val512": {
+      "source": "outputs/ava_pretrain_aadb_finetune_20260507/finetune_report.md",
+      "srcc": 0.6749,
+      "plcc": 0.6835,
+      "mae": 0.1104,
+      "rmse": 0.1381
+    },
+    "note": "The paper-oriented smoke run used only tiny subsets and random backbone weights; its smoke metrics are not comparable to these practical RGNet validation numbers."
+  },
+  "validation": {
+    "python_py_compile": "failed because `python` is not installed",
+    "python3_py_compile": "passed",
+    "smoke_train": "passed",
+    "smoke_eval": "passed",
+    "json_validation": "passed for train_summary.json, evaluation_summary.json, and metrics_summary.json"
+  },
+  "full_training_status": {
+    "run": false,
+    "reason": "Full DenseNet121 AADB training is more expensive; smoke gate passed, and the continuation command is documented in the report."
+  }
+}
