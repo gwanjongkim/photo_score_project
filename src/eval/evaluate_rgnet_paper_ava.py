@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 import yaml
+from PIL import Image
 
 from src.models.rgnet_paper_ava import MODEL_VARIANT, get_rgnet_paper_ava_custom_objects
 
@@ -68,6 +69,34 @@ def _resolve_image_paths(frame: pd.DataFrame, image_col: str, image_dir: str | N
     return frame[image_col].map(_resolve_path)
 
 
+def _verify_decodable_image(path: str) -> None:
+    with Image.open(path) as image:
+        image.convert("RGB").load()
+
+
+def _filter_decodable_images(frame: pd.DataFrame) -> pd.DataFrame:
+    kept_indices: list[int] = []
+    skipped: list[dict[str, str]] = []
+    for index, row in frame.iterrows():
+        resolved_path = str(row["_resolved_image_path"])
+        try:
+            _verify_decodable_image(resolved_path)
+        except Exception as exc:
+            skipped.append(
+                {
+                    "row_index": str(index),
+                    "image_path": str(row.get("image_path", "")),
+                    "resolved_image_path": resolved_path,
+                    "error": f"{type(exc).__name__}: {exc}",
+                }
+            )
+            continue
+        kept_indices.append(index)
+    filtered = frame.loc[kept_indices].reset_index(drop=True)
+    filtered.attrs["skipped_images"] = skipped
+    return filtered
+
+
 def _load_frame(
     csv_path: str,
     image_col: str,
@@ -89,6 +118,9 @@ def _load_frame(
     frame = frame.copy()
     frame["_resolved_image_path"] = _resolve_image_paths(frame, image_col, image_dir)
     frame["_label"] = (frame[score_col].astype("float32") >= float(label_threshold)).astype("int32")
+    frame = _filter_decodable_images(frame)
+    if frame.empty:
+        raise ValueError(f"{csv_path} produced an empty frame after image validation")
     return frame
 
 
@@ -179,6 +211,8 @@ def evaluate_split(
             "label_rule": f"label = 1 if {score_col} >= {label_threshold} else 0",
             "elapsed_seconds": float(elapsed),
             "seconds_per_image": float(elapsed / max(1, len(frame))),
+            "skipped_image_count": int(len(frame.attrs.get("skipped_images", []))),
+            "skipped_image_examples": frame.attrs.get("skipped_images", [])[:20],
         }
     )
 

@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 import yaml
+from PIL import Image
 
 from src.models.rgnet_paper_ava import (
     MODEL_VARIANT,
@@ -92,6 +93,34 @@ def _resolve_image_paths(frame: pd.DataFrame, image_col: str, image_dir: str | N
     return frame[image_col].map(_resolve)
 
 
+def _verify_decodable_image(path: str) -> None:
+    with Image.open(path) as image:
+        image.convert("RGB").load()
+
+
+def _filter_decodable_images(frame: pd.DataFrame) -> pd.DataFrame:
+    kept_indices: list[int] = []
+    skipped: list[dict[str, str]] = []
+    for index, row in frame.iterrows():
+        resolved_path = str(row["_resolved_image_path"])
+        try:
+            _verify_decodable_image(resolved_path)
+        except Exception as exc:
+            skipped.append(
+                {
+                    "row_index": str(index),
+                    "image_path": str(row.get("image_path", "")),
+                    "resolved_image_path": resolved_path,
+                    "error": f"{type(exc).__name__}: {exc}",
+                }
+            )
+            continue
+        kept_indices.append(index)
+    filtered = frame.loc[kept_indices].reset_index(drop=True)
+    filtered.attrs["skipped_images"] = skipped
+    return filtered
+
+
 def _load_frame(
     csv_path: str,
     image_col: str,
@@ -113,6 +142,9 @@ def _load_frame(
     frame = frame.copy()
     frame["_resolved_image_path"] = _resolve_image_paths(frame, image_col, image_dir)
     frame["_label"] = (frame[score_col].astype("float32") >= float(label_threshold)).astype("float32")
+    frame = _filter_decodable_images(frame)
+    if frame.empty:
+        raise ValueError(f"{csv_path} produced an empty frame after image validation")
     return frame
 
 
@@ -343,6 +375,10 @@ def main() -> None:
         "label_rule": f"label = 1 if {score_col} >= {label_threshold} else 0",
         "train_samples": int(len(train_frame)),
         "val_samples": int(len(val_frame)),
+        "train_skipped_image_count": int(len(train_frame.attrs.get("skipped_images", []))),
+        "val_skipped_image_count": int(len(val_frame.attrs.get("skipped_images", []))),
+        "train_skipped_image_examples": train_frame.attrs.get("skipped_images", [])[:20],
+        "val_skipped_image_examples": val_frame.attrs.get("skipped_images", [])[:20],
         "train_positive_count": int(train_frame["_label"].sum()),
         "val_positive_count": int(val_frame["_label"].sum()),
         "image_size": image_size,
