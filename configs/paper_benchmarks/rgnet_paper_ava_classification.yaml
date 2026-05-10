@@ -1,0 +1,97 @@
+experiment:
+  name: rgnet_paper_ava_classification
+  model_variant: rgnet_paper_ava
+  label: RGNet-paper-AVA-classification approximation
+  output_dir: outputs/rgnet_paper_ava_classification_20260510
+  train_output_dir: outputs/rgnet_paper_ava_classification_20260510/full_train/mean
+  official_reproduction: false
+  note: >
+    Paper-oriented AVA binary classification track. This is not the official
+    RGNet paper implementation and does not use official paper weights.
+
+data:
+  train_csv: data/processed/ava/train.csv
+  val_csv: data/processed/ava/val.csv
+  test_csv: data/processed/ava/test.csv
+  image_dir: data/raw/ava/images
+  image_col: image_path
+  score_col: mean_score
+  label_threshold: 5.0
+  label_rule: mean_score >= 5.0
+
+model:
+  backbone: DenseNet121
+  backbone_weights: imagenet
+  image_size: 256
+  region_node_definition: spatial positions from post-ASPP DenseNet121 feature map
+  region_dim: 256
+  graph_units: 256
+  graph_blocks: 3
+  graph_temperature: 0.25
+  graph_dropout: 0.1
+  head_dropout: 0.3
+  context_module: aspp
+  dilation_rates: [1, 3, 6, 12, 18]
+  adjacency: cosine similarity with row-wise softmax normalization
+  graph_convolution: residual graph convolution
+  region_classification_head: per-node scalar logits
+  aggregation: mean
+  lse_r: 4
+  score_activation_mode: raw_before_aggregation_then_sigmoid
+  binary_probability_head: region logits aggregated to one scalar probability in [0, 1]
+  approximation_note: >
+    Exact paper RegionGraph and DenseASPP details are not reproduced from
+    official source code. This approximation uses ASPP, spatial feature
+    positions as region nodes, dense cosine similarity adjacency,
+    softmax-normalized edges, residual graph convolution blocks, and
+    configurable region-logit aggregation.
+
+training:
+  loss: binary_crossentropy
+  metrics: [binary_accuracy, auc, precision, recall]
+  optimizer: adam
+  batch_size: 16
+  epochs: 20
+  learning_rate: 0.0001
+  early_stopping_patience: 3
+  early_stopping_monitor: val_loss
+  restore_best_weights: true
+  seed: 42
+  verify_save_load: true
+
+evaluation:
+  output_dir: outputs/rgnet_paper_ava_classification_20260510/eval/mean
+  model_name: rgnet_paper_ava_classification
+  batch_size: 16
+  metrics: [accuracy, precision, recall, f1, roc_auc, average_precision, bce_loss, confusion_matrix, seconds_per_image]
+
+smoke_test:
+  train_output_dir: outputs/rgnet_paper_ava_classification_20260510/smoke_train
+  eval_output_dir: outputs/rgnet_paper_ava_classification_20260510/smoke_eval
+  backbone_weights: none
+  max_train_samples: 64
+  max_val_samples: 32
+  max_test_samples: 64
+  epochs: 1
+  batch_size: 4
+
+mid_run:
+  max_train_samples: 4096
+  max_val_samples: 1024
+  max_test_samples: 1024
+  epochs: 3
+  batch_size: 8
+  backbone_weights: imagenet
+  candidates:
+    - name: mean
+      aggregation: mean
+      lse_r: 4
+      score_activation_mode: raw_before_aggregation_then_sigmoid
+      train_output_dir: outputs/rgnet_paper_ava_classification_20260510/mid_train/mean
+      eval_output_dir: outputs/rgnet_paper_ava_classification_20260510/mid_eval/mean
+    - name: lse_r4
+      aggregation: lse
+      lse_r: 4
+      score_activation_mode: raw_before_aggregation_then_sigmoid
+      train_output_dir: outputs/rgnet_paper_ava_classification_20260510/mid_train/lse_r4
+      eval_output_dir: outputs/rgnet_paper_ava_classification_20260510/mid_eval/lse_r4
