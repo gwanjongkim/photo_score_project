@@ -1,0 +1,24 @@
+# A-LAMP-paper-oriented approximation object graph subset configuration.
+output_root: outputs/alamp_object_graph_subset_20260511
+selected_detector: ultralytics
+version_preference: yolov11 or yolov8
+model_candidates:
+  - yolo11n.pt
+  - yolov8n.pt
+image_dir: data/raw/ava/images
+image_col: image_path
+max_images: 1024
+confidence: 0.25
+max_objects: 4
+device: auto
+batch_size: 16
+splits:
+  train:
+    csv: data/processed/ava/train.csv
+    output_jsonl: outputs/alamp_object_graph_subset_20260511/detections/train_objects_1024.jsonl
+  val:
+    csv: data/processed/ava/val.csv
+    output_jsonl: outputs/alamp_object_graph_subset_20260511/detections/val_objects_1024.jsonl
+  test:
+    csv: data/processed/ava/test.csv
+    output_jsonl: outputs/alamp_object_graph_subset_20260511/detections/test_objects_1024.jsonl
