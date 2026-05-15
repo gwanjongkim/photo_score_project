@@ -150,3 +150,17 @@
 - Direct final DAttention max diffs were `8.58306885e-05`, `1.33514404e-05`, and `2.28881836e-05`; no captured subcomponent exceeded the acceptable `1e-4` gate.
 - This supports accumulated numeric drift rather than a structural Stage 3 block `1` DAttention implementation or weight mapping bug.
 - No code modification is recommended from this diagnostic alone, and full DAT assembly should remain blocked because Stage G-2 and Stage G-3 full strict parity are still unresolved.
+
+## Stage H Full DAT Parity Context Notes
+
+- Stage H is full-model PyTorch-vs-TensorFlow output parity only; no SavedModel export, TFLite conversion, training, deployment code, or Flutter work should happen here.
+- PyTorch `DAT.forward` order is `patch_proj`, `stages[0]`, `down_projs[0]`, `stages[1]`, `down_projs[1]`, `stages[2]`, `down_projs[2]`, `stages[3]`, `cls_norm`, explicit NCHW reshape/mean pooling, `hst_head`, `hist_feature`, rearrange/squeeze, `class_head`, `class_head2`, sigmoid on each head, and concat to `[B, 2]`.
+- TensorFlow full DAT should use NHWC input/output internals and reuse `TFPatchProjection`, `TFTransformerStage0`, `TFTransformerStage1`, `TFTransformerStage2`, `TFTransformerStage3`, and `TFSoftHistogram`.
+- Score-level thresholds for Stage H are preferred `color max_abs_diff <= 1e-3` and `full mean_abs_diff <= 1e-4`; acceptable `color max_abs_diff <= 5e-3` and `full mean_abs_diff <= 1e-3`.
+- Stage G-2 and Stage G-3 full strict stage parity remain unresolved; Stage H should decide whether their accumulated feature drift materially affects final MOS/color scores.
+- Run output: `outputs/icaa_tf_native_stage_h_full_dat_20260516_040212`.
+- Stage H final output parity passed preferred thresholds for deterministic random normalized input, 16 real ICAA17K test images, and the optional 64-real-image check.
+- Final 16-real-image diffs were full max `8.94069672e-07`, full mean `1.44354999e-07`, MOS max `8.94069672e-07`, and color max `5.36441803e-07`.
+- Final optional 64-real-image diffs were full max `4.02867794e-04`, full mean `4.35148831e-06`, MOS max `4.02867794e-04`, and color max `6.08563423e-05`.
+- Intermediate drift remains visible, with largest max diffs at `stage2` for random/16-real-image cases and `stage3` for the 64-real-image case, but it did not materially affect final scores under Stage H preferred thresholds.
+- Stage H makes it safe to proceed to Stage I TensorFlow SavedModel export and later TFLite conversion planning, but no export or conversion was performed in Stage H.

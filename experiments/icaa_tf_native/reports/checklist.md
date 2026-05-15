@@ -139,3 +139,16 @@
 - [x] Verify optional debug tensor summary exists.
 - [x] Verify Markdown debug report exists.
 - [x] Confirm no model-code fix, full DAT implementation, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.
+
+# Stage H Full DAT Parity Checklist
+
+- [x] Confirm PyTorch `DAT.forward` order and full-model checkpoint groups.
+- [x] Add inference-only `tf_dat_model.py`.
+- [x] Add `stage_h_full_dat_parity.py`.
+- [x] Run `python experiments/icaa_tf_native/scripts/stage_h_full_dat_parity.py`.
+- [x] Verify Stage H JSON report exists.
+- [x] Verify Stage H predictions CSV exists.
+- [x] Verify Stage H log exists.
+- [x] Verify optional intermediate diff summary exists.
+- [x] Verify Stage H Markdown parity report exists.
+- [x] Confirm no SavedModel export, TFLite conversion, training, deployment code, official repo edits, A-cut edits, or Flutter edits were made.
