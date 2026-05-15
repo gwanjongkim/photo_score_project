@@ -85,3 +85,18 @@
 - Stage G-0 three-real-image patch-projection parity passed the acceptable threshold with max_abs_diff `1.14887953e-05` and mean_abs_diff `6.86473015e-07`.
 - The worst recorded subcomponent diffs were `block1_output` for random and real-image cases and `block1_after_attn_residual` for the random-image patch-projection case; all remained below the acceptable threshold.
 - It is safe to proceed to Stage G-1 `TransformerStage` stage `1` parity only; this does not establish full TensorFlow DAT feasibility.
+
+## Stage G-1 Context Notes
+
+- Scope is only DAT `TransformerStage` stage `1`; full DAT, stages `2`/`3`, training, and TFLite conversion remain out of scope.
+- Stage `1` uses `TransformerStage` with depth `2` and `stage_spec=["L", "S"]`.
+- Stage `1` has `proj=Identity` because `dim_in == dim_embed == 256`; DAT down projection is applied after `model.stages[1](x)` in `DAT.forward`, so it is not part of Stage G-1.
+- The expected stage input/output shape is PyTorch NCHW `[batch, 256, 28, 28]`; TensorFlow should use NHWC `[batch, 28, 28, 256]`.
+- Stage `1` block `0` uses `LocalAttention` and block `1` uses `ShiftWindowAttention` with `attn_mask` shape `[16, 49, 49]`.
+- Both stage-1 drop path modules are `DropPath` with nonzero configured probabilities, but eval mode makes them deterministic identity.
+- Final Stage G-1 run output is `outputs/icaa_tf_native_stage_g1_20260516_022555/`.
+- Stage G-1 deterministic random stage input parity passed the preferred threshold with max_abs_diff `7.62939453e-06` and mean_abs_diff `1.18373578e-06`.
+- Stage G-1 captured deterministic random-image input parity passed the preferred threshold with max_abs_diff `3.81469727e-06` and mean_abs_diff `5.34230878e-07`.
+- Stage G-1 captured three-real-image input parity passed the preferred threshold with max_abs_diff `5.24520874e-06` and mean_abs_diff `6.35120614e-07`.
+- The worst recorded subcomponent diff for all Stage G-1 cases was `block1_output`; all remained below the preferred threshold.
+- It is safe to proceed to Stage G-2 `TransformerStage` stage `2` parity only; this does not establish full TensorFlow DAT feasibility.

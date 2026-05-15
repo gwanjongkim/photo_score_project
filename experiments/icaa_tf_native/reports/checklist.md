@@ -79,3 +79,15 @@
 - [x] Verify debug tensor summary exists.
 - [x] Verify Stage G-0 Markdown report exists.
 - [x] Confirm no full DAT implementation, later stage implementation, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.
+
+# Stage G-1 Checklist
+
+- [x] Inspect PyTorch `TransformerStage` stage `1` structure and checkpoint tensor names.
+- [x] Update `tf_models/transformer_stage.py` for stage `1` only.
+- [x] Add `stage_g1_transformer_stage1_parity.py`.
+- [x] Run `python experiments/icaa_tf_native/scripts/stage_g1_transformer_stage1_parity.py`.
+- [x] Verify Stage G-1 JSON report exists.
+- [x] Verify Stage G-1 log exists.
+- [x] Verify debug tensor summary exists.
+- [x] Verify Stage G-1 Markdown report exists.
+- [x] Confirm no full DAT implementation, stage `2` or `3` implementation, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.
