@@ -100,3 +100,18 @@
 - Stage G-1 captured three-real-image input parity passed the preferred threshold with max_abs_diff `5.24520874e-06` and mean_abs_diff `6.35120614e-07`.
 - The worst recorded subcomponent diff for all Stage G-1 cases was `block1_output`; all remained below the preferred threshold.
 - It is safe to proceed to Stage G-2 `TransformerStage` stage `2` parity only; this does not establish full TensorFlow DAT feasibility.
+
+## Stage G-2 Context Notes
+
+- Scope is only DAT `TransformerStage` stage `2`; full DAT, stage `3`, training, and TFLite conversion remain out of scope.
+- Stage `2` uses `TransformerStage` with depth `18` and `stage_spec=["L", "D"] * 9`.
+- Stage `2` has `proj=Identity` because `dim_in == dim_embed == 512`; DAT down projection is applied after `model.stages[2](x)` in `DAT.forward`, so it is not part of Stage G-2.
+- The expected stage input/output shape is PyTorch NCHW `[batch, 512, 14, 14]`; TensorFlow should use NHWC `[batch, 14, 14, 512]`.
+- Stage `2` alternates `LocalAttention` and `DAttentionBaseline`; `DAttentionBaseline` blocks use `q_size=(14,14)`, `heads=16`, `n_head_channels=32`, `n_groups=4`, `offset_range_factor=2`, and `rpe_table` shape `[16,27,27]`.
+- All stage-2 drop path modules are `DropPath` with nonzero configured probabilities, but eval mode makes them deterministic identity.
+- Final Stage G-2 run output is `outputs/icaa_tf_native_stage_g2_20260516_024326/`.
+- Stage G-2 full parity failed on all three required cases: random stage input max_abs_diff `0.946899414`, captured random-image input max_abs_diff `0.0103759766`, and captured three-real-image input max_abs_diff `0.015625`.
+- First hard divergence was `block3_mlp_out` for random and real-image cases, and `block4_mlp_out` for captured random-image input.
+- The debug artifact records per-block attention outputs, after-attention residuals, MLP outputs, after-MLP residuals, final output, and DAttention `pos`/`reference` diffs.
+- Early DAttention `pos`/`reference` diffs stayed under threshold before the first MLP divergence, so the immediate blocker is accumulated drift amplified by stage-2 MLP blocks, not safe stage-2 parity.
+- It is not safe to proceed to Stage G-3 `TransformerStage` stage `3` parity from this Stage G-2 result.
