@@ -115,3 +115,15 @@
 - [x] Verify optional tensor summary exists.
 - [x] Verify Markdown debug report exists.
 - [x] Confirm no model-code fix, full DAT implementation, stage `3`, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.
+
+# Stage G-3 TransformerStage 3 Checklist
+
+- [x] Inspect PyTorch `TransformerStage` stage `3` structure and `stages.3.*` checkpoint keys.
+- [x] Add `TFTransformerStage3` only.
+- [x] Add `stage_g3_transformer_stage3_parity.py`.
+- [x] Run `python experiments/icaa_tf_native/scripts/stage_g3_transformer_stage3_parity.py`.
+- [x] Verify Stage G-3 JSON report exists.
+- [x] Verify Stage G-3 log exists.
+- [x] Verify optional debug tensor summary exists.
+- [x] Verify Stage G-3 Markdown parity report exists.
+- [x] Confirm no full DAT implementation, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.

@@ -125,3 +125,16 @@
 - Direct same-input MLP parity passed for block `3` and block `4` in all three cases: deterministic random Stage 2 input, captured random-image Stage 2 input, and captured 3-real-image Stage 2 input.
 - The first direct same-input failure is `None`; the first full-flow failure remains `block3_mlp_output`, so the diagnostic supports accumulated numeric drift and does not support an MLP implementation or weight mapping bug.
 - No model code was modified for this diagnostic; Stage G-2 should not be claimed successful from this component test alone.
+
+## Stage G-3 TransformerStage 3 Context Notes
+
+- Stage G-3 proceeds with Stage G-2 full strict parity still unresolved; this stage should not retroactively claim Stage G-2 success.
+- Direct PyTorch inspection showed `model.stages[3]` is class `TransformerStage`, input/output shape `[B, 1024, 7, 7]`, depth `2`, projection `Identity`, and stage spec `["L", "D"]`.
+- Stage `3` uses `LocalAttention` at block `0`, `DAttentionBaseline` at block `1`, two `TransformerMLP` blocks with hidden dim `4096`, and four `LayerNormProxy` modules.
+- The stage `3` deformable block uses `q_size=(7, 7)`, `kv_size=(7, 7)`, `heads=32`, `head_channels=32`, `groups=8`, `offset_range_factor=2`, and `rpe_table` shape `[32, 13, 13]`.
+- `DAT.forward` applies no down projection after `stages[3]`; `down_projs` are only used when `i < 3`.
+- Run output: `outputs/icaa_tf_native_stage_g3_20260516_033136`.
+- Stage G-3 isolated parity failed the acceptable `1e-4` max-diff gate: random Stage 3 input `2.25067139e-04`, captured random-image Stage 3 input `1.22070312e-04`, and captured 3-real-image Stage 3 input `1.22070312e-04`.
+- First divergences were block `1` DAttention output for random input, block `1` output for captured random-image input, and block `1` after-attention residual for captured real-image input.
+- Block `1` DAttention `pos` and `reference` diffs stayed within the preferred threshold in all cases, so the current evidence does not prove a sampler/reference mapping bug; no speculative model-code fix was made.
+- It is not safe to proceed to full TensorFlow DAT assembly parity from this Stage G-3 result, and Stage G-2 full strict parity remains unresolved.

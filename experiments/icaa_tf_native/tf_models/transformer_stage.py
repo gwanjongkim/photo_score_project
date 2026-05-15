@@ -1,4 +1,4 @@
-# ICAA17K DAT 0번부터 2번 TransformerStage를 TensorFlow/Keras로 구현한 모듈
+# ICAA17K DAT 0번부터 3번 TransformerStage를 TensorFlow/Keras로 구현한 모듈
 from __future__ import annotations
 
 import tensorflow as tf
@@ -462,6 +462,166 @@ class TFTransformerStage2(tf.keras.layers.Layer):
             "deformable_attention_config": {
                 "q_size": [14, 14],
                 "kv_size": [14, 14],
+                "heads": self.heads,
+                "head_channels": self.dim // self.heads,
+                "groups": self.groups,
+                "offset_range_factor": 2,
+                "use_pe": True,
+                "dwc_pe": False,
+                "fixed_pe": False,
+                "no_off": False,
+            },
+            "residual_order": [
+                "x0 = x",
+                "attn_out = attns[d](layer_norms[2*d](x))",
+                "x = drop_path[d](attn_out) + x0",
+                "x0 = x",
+                "mlp_out = mlps[d](layer_norms[2*d+1](x))",
+                "x = drop_path[d](mlp_out) + x0",
+            ],
+        }
+
+
+class TFTransformerStage3(tf.keras.layers.Layer):
+    """NHWC equivalent of PyTorch `TransformerStage` for DAT stage 3 only."""
+
+    def __init__(
+        self,
+        dim: int = 1024,
+        depth: int = 2,
+        stage_spec=("L", "D"),
+        heads: int = 32,
+        window_size: int = 7,
+        expansion: int = 4,
+        groups: int = 8,
+        epsilon: float = 1e-5,
+        name: str = "tf_transformer_stage3",
+    ) -> None:
+        super().__init__(name=name)
+        if depth != 2 or tuple(stage_spec) != ("L", "D"):
+            raise ValueError("TFTransformerStage3 intentionally supports only DAT stage 3 with stage_spec=('L', 'D').")
+        self.dim = dim
+        self.depth = depth
+        self.stage_spec = tuple(stage_spec)
+        self.heads = heads
+        self.window_size = window_size
+        self.expansion = expansion
+        self.groups = groups
+        self.epsilon = epsilon
+        self.proj = "Identity"
+        self.layer_norms = [
+            tf.keras.layers.LayerNormalization(axis=-1, epsilon=epsilon, name=f"layer_norm_{idx}")
+            for idx in range(2 * depth)
+        ]
+        head_channels = dim // heads
+        self.attns = [
+            TFLocalAttention(
+                dim=dim,
+                heads=heads,
+                window_size=window_size,
+                name="local_attention_block0",
+            ),
+            TFDAttentionBaseline(
+                q_size=(7, 7),
+                kv_size=(7, 7),
+                n_heads=heads,
+                n_head_channels=head_channels,
+                n_groups=groups,
+                stride=1,
+                offset_range_factor=2,
+                use_pe=True,
+                dwc_pe=False,
+                no_off=False,
+                fixed_pe=False,
+                stage_idx=3,
+                epsilon=epsilon,
+                name="deformable_attention_block1",
+            ),
+        ]
+        self.mlps = [
+            TFTransformerMLP(channels=dim, expansion=expansion, name=f"mlp_block{idx}")
+            for idx in range(depth)
+        ]
+
+    def call(self, inputs, training: bool = False):
+        output, _debug = self.call_with_debug(inputs, training=training)
+        return output
+
+    def call_with_debug(self, inputs, training: bool = False):
+        del training
+        x = tf.convert_to_tensor(inputs, dtype=self.compute_dtype)
+        debug = {"stage_input_after_proj": x}
+        for block_idx, spec in enumerate(self.stage_spec):
+            x0 = x
+            norm_attn = self.layer_norms[2 * block_idx](x)
+            debug[f"block{block_idx}_norm_attn"] = norm_attn
+            if spec == "D":
+                attn_out, attn_debug = self.attns[block_idx].call_with_debug(norm_attn, training=False)
+                debug[f"block{block_idx}_dattention_pos"] = attn_debug["pos"]
+                debug[f"block{block_idx}_dattention_reference"] = attn_debug["reference"]
+            else:
+                attn_out = self.attns[block_idx](norm_attn, training=False)
+            debug[f"block{block_idx}_attn_out"] = attn_out
+            x = attn_out + x0
+            debug[f"block{block_idx}_after_attn_residual"] = x
+
+            x0 = x
+            norm_mlp = self.layer_norms[2 * block_idx + 1](x)
+            debug[f"block{block_idx}_norm_mlp"] = norm_mlp
+            mlp_out = self.mlps[block_idx](norm_mlp, training=False)
+            debug[f"block{block_idx}_mlp_out"] = mlp_out
+            x = mlp_out + x0
+            debug[f"block{block_idx}_output"] = x
+        debug["stage_output"] = x
+        return x, debug
+
+    def build_for_input_shape(self, input_shape=(1, 7, 7, 1024)) -> None:
+        tokens = self.window_size * self.window_size
+        self.attns[0].relative_position_index = tf.zeros((tokens, tokens), dtype=tf.int32)
+        self(tf.zeros(input_shape, dtype=tf.float32), training=False)
+
+    def load_from_pytorch_state_dict(self, state_dict, prefix: str = "stages.3") -> None:
+        for idx, norm in enumerate(self.layer_norms):
+            norm.set_weights(
+                [
+                    _tensor_from_state(state_dict, f"{prefix}.layer_norms.{idx}.norm.weight"),
+                    _tensor_from_state(state_dict, f"{prefix}.layer_norms.{idx}.norm.bias"),
+                ]
+            )
+        for idx, attn in enumerate(self.attns):
+            attn.load_from_pytorch_state_dict(state_dict, f"{prefix}.attns.{idx}")
+        for idx, mlp in enumerate(self.mlps):
+            mlp.load_from_pytorch_state_dict(state_dict, f"{prefix}.mlps.{idx}")
+
+    def structure_summary(self) -> dict:
+        return {
+            "class_name": self.__class__.__name__,
+            "target_pytorch_module": "stages.3",
+            "input_layout": "NHWC/channels_last",
+            "proj": "Identity; no projection weights are used for stage 3",
+            "depth": self.depth,
+            "stage_spec": list(self.stage_spec),
+            "blocks": [
+                {
+                    "index": 0,
+                    "attention_type": "L",
+                    "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+                    "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+                    "layer_norms": ["layer_norm_0", "layer_norm_1"],
+                    "drop_path_eval": "identity in eval mode",
+                },
+                {
+                    "index": 1,
+                    "attention_type": "D",
+                    "attention": "TFDAttentionBaseline mapped from PyTorch DAttentionBaseline",
+                    "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+                    "layer_norms": ["layer_norm_2", "layer_norm_3"],
+                    "drop_path_eval": "identity in eval mode",
+                },
+            ],
+            "deformable_attention_config": {
+                "q_size": [7, 7],
+                "kv_size": [7, 7],
                 "heads": self.heads,
                 "head_channels": self.dim // self.heads,
                 "groups": self.groups,
