@@ -1,0 +1,81 @@
+# Stage A Checklist
+
+- [x] Create Stage A directories.
+- [x] Add `inspect_pytorch_state_dict.py`.
+- [x] Run `python experiments/icaa_tf_native/scripts/inspect_pytorch_state_dict.py`.
+- [x] Verify CSV inventory exists and is complete.
+- [x] Verify JSON summary exists.
+- [x] Verify Markdown report exists.
+- [x] Confirm no official repo, A-cut, Flutter, training, or conversion changes were made.
+
+# Stage B Checklist
+
+- [x] Create Stage B directories.
+- [x] Add `stage_b_basic_layer_parity.py`.
+- [x] Run `python experiments/icaa_tf_native/scripts/stage_b_basic_layer_parity.py`.
+- [x] Verify Stage B JSON report exists.
+- [x] Verify Stage B log exists.
+- [x] Verify Stage B Markdown report exists.
+- [x] Confirm no DAT implementation, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.
+
+# Stage C Checklist
+
+- [x] Create Stage C directories.
+- [x] Add `tf_models/patch_projection.py`.
+- [x] Add `stage_c_patch_projection_parity.py`.
+- [x] Run `python experiments/icaa_tf_native/scripts/stage_c_patch_projection_parity.py`.
+- [x] Verify Stage C JSON report exists.
+- [x] Verify Stage C log exists.
+- [x] Verify Stage C Markdown report exists.
+- [x] Confirm no later DAT stages, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.
+
+# Stage D Checklist
+
+- [x] Inspect PyTorch `SoftHistogram.py`.
+- [x] Create Stage D directories.
+- [x] Add `tf_models/soft_histogram.py`.
+- [x] Add `stage_d_soft_histogram_parity.py`.
+- [x] Run `python experiments/icaa_tf_native/scripts/stage_d_soft_histogram_parity.py`.
+- [x] Verify Stage D JSON report exists.
+- [x] Verify Stage D log exists.
+- [x] Verify captured tensor summary exists.
+- [x] Verify Stage D Markdown report exists.
+- [x] Confirm no full DAT implementation, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.
+
+# Stage E Checklist
+
+- [x] Inspect PyTorch `dat.py` and `dat_blocks.py`.
+- [x] Identify stage-0 depth-0 class names and checkpoint tensors.
+- [x] Add `tf_models/local_attention_block.py`.
+- [x] Add `stage_e_local_attention_block_parity.py`.
+- [x] Run `python experiments/icaa_tf_native/scripts/stage_e_local_attention_block_parity.py`.
+- [x] Verify Stage E JSON report exists.
+- [x] Verify Stage E log exists.
+- [x] Verify debug tensor summary exists.
+- [x] Verify Stage E Markdown report exists.
+- [x] Confirm no deformable attention, full DAT implementation, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.
+
+# Stage F Checklist
+
+- [x] Inspect PyTorch `DAttentionBaseline` implementation.
+- [x] Identify first `DAttentionBaseline` instance and checkpoint tensors.
+- [x] Add `tf_models/deformable_attention.py`.
+- [x] Add `stage_f_deformable_attention_parity.py`.
+- [x] Run `python experiments/icaa_tf_native/scripts/stage_f_deformable_attention_parity.py`.
+- [x] Verify Stage F JSON report exists.
+- [x] Verify Stage F log exists.
+- [x] Verify debug tensor summary exists.
+- [x] Verify Stage F Markdown report exists.
+- [x] Confirm no full DAT implementation, full TransformerStage implementation, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.
+
+# Stage G-0 Checklist
+
+- [x] Inspect PyTorch `TransformerStage` stage `0` structure and checkpoint tensor names.
+- [x] Add `tf_models/transformer_stage.py` for stage `0` only.
+- [x] Add `stage_g0_transformer_stage0_parity.py`.
+- [x] Run `python experiments/icaa_tf_native/scripts/stage_g0_transformer_stage0_parity.py`.
+- [x] Verify Stage G-0 JSON report exists.
+- [x] Verify Stage G-0 log exists.
+- [x] Verify debug tensor summary exists.
+- [x] Verify Stage G-0 Markdown report exists.
+- [x] Confirm no full DAT implementation, later stage implementation, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.
