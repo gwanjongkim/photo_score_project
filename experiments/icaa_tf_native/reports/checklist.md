@@ -127,3 +127,15 @@
 - [x] Verify optional debug tensor summary exists.
 - [x] Verify Stage G-3 Markdown parity report exists.
 - [x] Confirm no full DAT implementation, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.
+
+# Stage G-3 Block1 DAttention Surgical Debug Checklist
+
+- [x] Add `debug_stage_g3_block1_dattention.py`.
+- [x] Capture PyTorch Stage 3 block `1` norm-attention tensor and feed it directly to PyTorch and TensorFlow DAttention.
+- [x] Compare DAttention subcomponents from input through final output projection.
+- [x] Run `python experiments/icaa_tf_native/scripts/debug_stage_g3_block1_dattention.py`.
+- [x] Verify debug JSON report exists.
+- [x] Verify debug log exists.
+- [x] Verify optional debug tensor summary exists.
+- [x] Verify Markdown debug report exists.
+- [x] Confirm no model-code fix, full DAT implementation, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.

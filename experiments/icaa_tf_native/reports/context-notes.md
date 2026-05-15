@@ -138,3 +138,15 @@
 - First divergences were block `1` DAttention output for random input, block `1` output for captured random-image input, and block `1` after-attention residual for captured real-image input.
 - Block `1` DAttention `pos` and `reference` diffs stayed within the preferred threshold in all cases, so the current evidence does not prove a sampler/reference mapping bug; no speculative model-code fix was made.
 - It is not safe to proceed to full TensorFlow DAT assembly parity from this Stage G-3 result, and Stage G-2 full strict parity remains unresolved.
+
+## Stage G-3 Block1 DAttention Surgical Debug Context Notes
+
+- Scope is diagnostic only for Stage 3 block `1`, PyTorch `stages.3.attns.1`, and the TensorFlow Stage 3 `TFDAttentionBaseline`.
+- The critical test feeds PyTorch-captured block `1` norm-attention output into both DAttention implementations, bypassing TensorFlow block `0` and residual drift before DAttention.
+- If direct same-input DAttention parity passes, the Stage G-3 failure is evidence for accumulated numeric drift rather than a DAttention implementation or weight mapping bug.
+- If direct same-input DAttention parity fails, the first failing subcomponent should identify sampler, RPE bias, attention logits, softmax, projection, layout, or weight mapping as the likely area.
+- Run output: `outputs/icaa_tf_native_stage_g3_dattention_debug_20260516_034800`.
+- Direct same-input DAttention parity passed for all three cases: deterministic random Stage 3 input, captured random-image Stage 3 input, and captured 3-real-image Stage 3 input.
+- Direct final DAttention max diffs were `8.58306885e-05`, `1.33514404e-05`, and `2.28881836e-05`; no captured subcomponent exceeded the acceptable `1e-4` gate.
+- This supports accumulated numeric drift rather than a structural Stage 3 block `1` DAttention implementation or weight mapping bug.
+- No code modification is recommended from this diagnostic alone, and full DAT assembly should remain blocked because Stage G-2 and Stage G-3 full strict parity are still unresolved.
