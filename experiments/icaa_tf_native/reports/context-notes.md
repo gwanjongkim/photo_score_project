@@ -115,3 +115,13 @@
 - The debug artifact records per-block attention outputs, after-attention residuals, MLP outputs, after-MLP residuals, final output, and DAttention `pos`/`reference` diffs.
 - Early DAttention `pos`/`reference` diffs stayed under threshold before the first MLP divergence, so the immediate blocker is accumulated drift amplified by stage-2 MLP blocks, not safe stage-2 parity.
 - It is not safe to proceed to Stage G-3 `TransformerStage` stage `3` parity from this Stage G-2 result.
+
+## Stage G-2 MLP Surgical Debug Context Notes
+
+- Scope is diagnostic only for Stage 2 block `3` and block `4` MLP parity; no model-code fix should be made unless a clear small bug is proven.
+- The critical test is direct same-input MLP parity: feed PyTorch-captured `blockN_norm_mlp` into both PyTorch and TensorFlow block `N` MLPs to bypass accumulated pre-MLP drift.
+- If direct same-input MLP parity passes for block `3` and block `4`, the Stage G-2 full-stage failure is evidence for accumulated numeric drift rather than an MLP implementation or weight mapping bug.
+- Run output: `outputs/icaa_tf_native_stage_g2_mlp_debug_20260516_031415`.
+- Direct same-input MLP parity passed for block `3` and block `4` in all three cases: deterministic random Stage 2 input, captured random-image Stage 2 input, and captured 3-real-image Stage 2 input.
+- The first direct same-input failure is `None`; the first full-flow failure remains `block3_mlp_output`, so the diagnostic supports accumulated numeric drift and does not support an MLP implementation or weight mapping bug.
+- No model code was modified for this diagnostic; Stage G-2 should not be claimed successful from this component test alone.

@@ -103,3 +103,15 @@
 - [x] Verify debug tensor summary exists with per-block residual diffs.
 - [x] Verify Stage G-2 Markdown report exists.
 - [x] Confirm no full DAT implementation, stage `3` implementation, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.
+
+# Stage G-2 MLP Surgical Debug Checklist
+
+- [x] Add `debug_stage_g2_block_mlp.py`.
+- [x] Capture block `3` and block `4` full-flow subcomponents.
+- [x] Run direct same-input PyTorch-captured `norm2` MLP parity for block `3` and block `4`.
+- [x] Run `python experiments/icaa_tf_native/scripts/debug_stage_g2_block_mlp.py`.
+- [x] Verify debug JSON report exists.
+- [x] Verify debug log exists.
+- [x] Verify optional tensor summary exists.
+- [x] Verify Markdown debug report exists.
+- [x] Confirm no model-code fix, full DAT implementation, stage `3`, training, conversion, official repo edits, A-cut edits, or Flutter edits were made.
