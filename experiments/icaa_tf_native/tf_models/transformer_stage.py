@@ -38,9 +38,27 @@ class TFShiftWindowAttention(tf.keras.layers.Layer):
         x = tf.convert_to_tensor(inputs, dtype=self.compute_dtype)
         if self.attn_mask is None:
             raise RuntimeError("attn_mask must be loaded from the PyTorch state_dict before calling.")
-        shifted_x = tf.roll(x, shift=[-self.shift_size, -self.shift_size], axis=[1, 2])
-        shifted_output = self.local_attention(shifted_x, attention_mask=self.attn_mask, training=False)
-        return tf.roll(shifted_output, shift=[self.shift_size, self.shift_size], axis=[1, 2])
+
+        h, w = x.shape[1], x.shape[2]
+        s = self.shift_size
+
+        # Roll: shift_size만큼 순환 이동 (PyTorch roll(shift=-s) == TF roll(shift=-s))
+        if s > 0:
+            s_h = s % h
+            x = tf.concat([x[:, s_h:, :, :], x[:, :s_h, :, :]], axis=1)
+            s_w = s % w
+            x = tf.concat([x[:, :, s_w:, :], x[:, :, :s_w, :]], axis=2)
+
+        shifted_output = self.local_attention(x, attention_mask=self.attn_mask, training=False)
+
+        # Reverse Roll: shift_size만큼 반대 방향으로 순환 이동
+        if s > 0:
+            rs_h = (h - s) % h
+            shifted_output = tf.concat([shifted_output[:, rs_h:, :, :], shifted_output[:, :rs_h, :, :]], axis=1)
+            rs_w = (w - s) % w
+            shifted_output = tf.concat([shifted_output[:, :, rs_w:, :], shifted_output[:, :, :rs_w, :]], axis=2)
+
+        return shifted_output
 
     def load_from_pytorch_state_dict(self, state_dict, prefix: str) -> None:
         self.local_attention.load_from_pytorch_state_dict(state_dict, prefix)
