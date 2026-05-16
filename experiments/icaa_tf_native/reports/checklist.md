@@ -164,3 +164,17 @@
 - [x] Compare the new run against `outputs/icaa_tf_native_tflite_fp32_20260516_134634/`.
 - [x] Apply only minimal fixes if any blocker or documentation issue is found.
 - [x] Write `stage_j_codex_review.md` with the final recommendation.
+
+# Stage K FP16 TFLite Checklist
+
+- [x] Verify the known Stage I SavedModel and Stage J FP32 TFLite reference exist.
+- [x] Add `stage_k_convert_tflite_fp16.py` under the isolated experiment scripts folder.
+- [x] Convert the fixed-shape SavedModel to FP16 TFLite without INT8, representative data, or full-integer quantization.
+- [x] Verify interpreter creation, `allocate_tensors()`, and `invoke()`.
+- [x] Inspect input/output metadata, file size, builtin ops, custom ops, and Flex/SELECT_TF_OPS usage.
+- [x] Run input sensitivity on zero, one, deterministic random, and one real image.
+- [x] Compare SavedModel vs FP16 TFLite on random, 16 real images, and optional 64 real images.
+- [x] Compare FP32 TFLite vs FP16 TFLite on random, 16 real images, and optional 64 real images.
+- [x] Save JSON, CSV, log, input-sensitivity, and FP32-vs-FP16 comparison artifacts.
+- [x] Write `stage_k_tflite_fp16_conversion.md`.
+- [x] Run `py_compile`, clean generated cache, and run `git diff --check` for touched tracked files.

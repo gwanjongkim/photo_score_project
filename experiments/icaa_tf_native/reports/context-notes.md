@@ -177,3 +177,13 @@
 - Latest and previous TFLite FlatBuffers have identical size `350915988` bytes and identical SHA-256 `7a29a2de7463a27187c2d205e324c4ed0197f0009d49d1c14471e21087dcb7e7`.
 - FlatBuffer inspection found no custom operator codes and no SELECT_TF_OPS/Flex operator codes; fixed input shape remains `[1, 224, 224, 3]`.
 - Stage J is safe to build on for Stage K FP16 planning, but no Stage K, INT8, Android, Flutter, or training work was started.
+
+## Stage K FP16 TFLite Context Notes
+
+- Scope is FP16 TFLite conversion and verification only; INT8, Flutter, Android smoke testing, deployment code, training, official repo files, A-cut files, and model architecture changes remain out of scope.
+- Initial Stage K run used the user-listed SavedModel `outputs/icaa_tf_native_savedmodel_20260516_042006/saved_model`, but it failed FP32-vs-FP16 parity because that SavedModel already differed from the verified FP32 TFLite reference on 16 real images.
+- Final Stage K should use the SavedModel that actually produced the verified Stage J FP32 reference: `outputs/icaa_tf_native_savedmodel_20260516_134439/saved_model`, with FP32 reference `outputs/icaa_tf_native_tflite_fp32_20260516_140027/icaa_dat_tf_native_fp32.tflite`.
+- The fixed external TFLite contract should remain `float32` input `[1, 224, 224, 3]` to `float32` output `[1, 2]`; FP16 is for weight storage and compatible internal ops only.
+- Stage K success requires conversion, interpreter load, allocation, invoke, input sensitivity, SavedModel-vs-FP16 parity, FP32-vs-FP16 parity, and no unexpected Flex/custom ops.
+- Final successful Stage K output is `outputs/icaa_tf_native_tflite_fp16_20260516_144023/`; builtin FP16 conversion passed, file size dropped from `350915988` to `175885416` bytes, input/output stayed float32, and no SELECT_TF_OPS/Flex/custom ops were found.
+- Stage K parity passed acceptable thresholds for random, 16-real-image, and optional 64-real-image checks against both SavedModel and FP32 TFLite references.
