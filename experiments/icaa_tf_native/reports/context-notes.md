@@ -164,3 +164,16 @@
 - Final optional 64-real-image diffs were full max `4.02867794e-04`, full mean `4.35148831e-06`, MOS max `4.02867794e-04`, and color max `6.08563423e-05`.
 - Intermediate drift remains visible, with largest max diffs at `stage2` for random/16-real-image cases and `stage3` for the 64-real-image case, but it did not materially affect final scores under Stage H preferred thresholds.
 - Stage H makes it safe to proceed to Stage I TensorFlow SavedModel export and later TFLite conversion planning, but no export or conversion was performed in Stage H.
+
+## Stage J Codex Review Context Notes
+
+- Scope is review and cleanup only for FP32 TFLite conversion; Stage K FP16, INT8, Flutter, Android, training, A-cut source, and official repo files remain out of scope.
+- Allowed write area for this review is limited to `experiments/icaa_tf_native/` and `outputs/icaa_tf_native_*`.
+- Existing previous Stage J output under review is `outputs/icaa_tf_native_tflite_fp32_20260516_134634/`.
+- Initial artifact review found the previous JSON/logs passed conversion, interpreter load/allocation/invoke, input sensitivity, and SavedModel-vs-TFLite parity, with no SELECT_TF_OPS requirement.
+- The previous Markdown report needs cleanup because its real-image mean-diff value does not match the JSON artifact, and it should state fixed batch-1 inference limits and dtype/op details more explicitly.
+- Minimal script cleanup moved TensorFlow import below the already-present environment setup so CPU/no-oneDNN/log settings apply before TensorFlow initialization.
+- Final reviewed rerun is `outputs/icaa_tf_native_tflite_fp32_20260516_140027/`; it passed builtin FP32 conversion, interpreter load/allocation/invoke, input sensitivity, and SavedModel-vs-TFLite preferred parity.
+- Latest and previous TFLite FlatBuffers have identical size `350915988` bytes and identical SHA-256 `7a29a2de7463a27187c2d205e324c4ed0197f0009d49d1c14471e21087dcb7e7`.
+- FlatBuffer inspection found no custom operator codes and no SELECT_TF_OPS/Flex operator codes; fixed input shape remains `[1, 224, 224, 3]`.
+- Stage J is safe to build on for Stage K FP16 planning, but no Stage K, INT8, Android, Flutter, or training work was started.

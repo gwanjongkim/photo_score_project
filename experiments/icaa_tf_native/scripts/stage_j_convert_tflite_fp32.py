@@ -10,12 +10,13 @@ import sys
 import traceback
 import warnings
 import numpy as np
-import tensorflow as tf
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib-photo-score")
 os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "3")
 os.environ.setdefault("TF_ENABLE_ONEDNN_OPTS", "0")
+
+import tensorflow as tf
 
 sys.dont_write_bytecode = True
 

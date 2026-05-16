@@ -152,3 +152,15 @@
 - [x] Verify optional intermediate diff summary exists.
 - [x] Verify Stage H Markdown parity report exists.
 - [x] Confirm no SavedModel export, TFLite conversion, training, deployment code, official repo edits, A-cut edits, or Flutter edits were made.
+
+# Stage J Codex Review Checklist
+
+- [x] Inspect git status and diff stat before Stage J review.
+- [x] Review `stage_j_convert_tflite_fp32.py` for FP32-only SavedModel conversion behavior.
+- [x] Review previous Stage J report, JSON, CSV, log, input-sensitivity report, and TFLite file.
+- [x] Inspect previous FP32 TFLite model input/output metadata and op/custom-op summary.
+- [x] Rerun Stage J from the current working tree.
+- [x] Validate the new Stage J output artifacts.
+- [x] Compare the new run against `outputs/icaa_tf_native_tflite_fp32_20260516_134634/`.
+- [x] Apply only minimal fixes if any blocker or documentation issue is found.
+- [x] Write `stage_j_codex_review.md` with the final recommendation.
