@@ -19,6 +19,7 @@ from src.models.techiqa_guard import build_techiqa_guard_v1
 
 IMAGE_SIZE = 384
 MISSING_GUARD_SCORE = -1.0
+BACKBONE_LAYER_NAME = "techiqa_guard_backbone"
 
 
 def _set_seed(seed: int) -> None:
@@ -66,6 +67,29 @@ def _write_training_log(path: Path, rows: list[dict[str, Any]]) -> None:
         writer.writerows(rows)
 
 
+def _parse_dataset_weight_overrides(text: str | None) -> dict[str, float]:
+    if text is None or not text.strip():
+        return {}
+    overrides: dict[str, float] = {}
+    for item in text.split(","):
+        item = item.strip()
+        if not item:
+            continue
+        if "=" not in item:
+            raise ValueError(
+                "--dataset_weight_overrides entries must use name=value format."
+            )
+        key, value = item.split("=", 1)
+        key = key.strip().lower()
+        if not key:
+            raise ValueError("--dataset_weight_overrides contains an empty dataset name.")
+        weight = float(value)
+        if weight <= 0.0:
+            raise ValueError("Dataset weights must be positive.")
+        overrides[key] = weight
+    return overrides
+
+
 def _bool_series(series: pd.Series) -> pd.Series:
     if series.dtype == bool:
         return series.fillna(False)
@@ -91,6 +115,7 @@ def _load_manifest(
     csv_path: str | Path,
     target_col: str,
     dataset_col: str,
+    dataset_weight_overrides: dict[str, float] | None = None,
     max_samples: int | None = None,
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
     path = Path(csv_path)
@@ -122,10 +147,27 @@ def _load_manifest(
     else:
         df["hard_false_positive_float"] = 0.0
     df["guard_source_score_train"] = _guard_source(df)
+    if dataset_weight_overrides:
+        if dataset_col not in df.columns:
+            raise ValueError(
+                f"--dataset_weight_overrides requires dataset column {dataset_col!r}."
+            )
+        weights = (
+            df[dataset_col]
+            .astype(str)
+            .str.lower()
+            .map(dataset_weight_overrides)
+            .fillna(1.0)
+            .astype("float32")
+        )
+    else:
+        weights = pd.Series(1.0, index=df.index, dtype="float32")
+    df["sample_weight_train"] = weights
 
     if max_samples is not None and max_samples > 0:
         df = df.head(max_samples).copy()
 
+    sample_weights = df["sample_weight_train"].astype("float32")
     summary = {
         "path": str(path),
         "columns": list(pd.read_csv(path, nrows=0).columns),
@@ -135,6 +177,9 @@ def _load_manifest(
         "dropped_missing_target": int(missing_target_mask.sum()),
         "counts_by_dataset": _dataset_counts(df, dataset_col),
         "hard_false_positive_count": int(df["hard_false_positive_float"].sum()),
+        "sample_weight_min": None if len(df) == 0 else float(sample_weights.min()),
+        "sample_weight_max": None if len(df) == 0 else float(sample_weights.max()),
+        "sample_weight_mean": None if len(df) == 0 else float(sample_weights.mean()),
         "target_min": None if len(df) == 0 else float(df[target_col].min()),
         "target_max": None if len(df) == 0 else float(df[target_col].max()),
         "target_mean": None if len(df) == 0 else float(df[target_col].mean()),
@@ -171,6 +216,7 @@ def _make_regression_dataset(
             df[target_col].astype("float32").to_numpy(),
             df["hard_false_positive_float"].astype("float32").to_numpy(),
             df["guard_source_score_train"].astype("float32").to_numpy(),
+            df["sample_weight_train"].astype("float32").to_numpy(),
         )
     )
     if shuffle:
@@ -185,13 +231,15 @@ def _make_regression_dataset(
         target: tf.Tensor,
         hard_flag: tf.Tensor,
         guard_score: tf.Tensor,
-    ) -> tuple[tf.Tensor, tf.Tensor, tf.Tensor, tf.Tensor]:
+        sample_weight: tf.Tensor,
+    ) -> tuple[tf.Tensor, tf.Tensor, tf.Tensor, tf.Tensor, tf.Tensor]:
         image = _decode_resize_with_pad(path)
         return (
             image,
             tf.reshape(tf.cast(target, tf.float32), (1,)),
             tf.reshape(tf.cast(hard_flag, tf.float32), (1,)),
             tf.reshape(tf.cast(guard_score, tf.float32), (1,)),
+            tf.reshape(tf.cast(sample_weight, tf.float32), (1,)),
         )
 
     return (
@@ -267,10 +315,11 @@ def _make_pair_dataset(
 
 
 def _inspect_batch(dataset: tf.data.Dataset) -> dict[str, Any]:
-    for images, targets, hard_flags, guard_scores in dataset.take(1):
+    for images, targets, hard_flags, guard_scores, sample_weights in dataset.take(1):
         image_values = images.numpy()
         target_values = targets.numpy()
         guard_values = guard_scores.numpy()
+        weight_values = sample_weights.numpy()
         return {
             "image_shape": list(image_values.shape),
             "image_dtype": str(image_values.dtype),
@@ -284,16 +333,28 @@ def _inspect_batch(dataset: tf.data.Dataset) -> dict[str, Any]:
             "target_mean": float(np.mean(target_values)),
             "hard_false_positive_count": int(np.sum(hard_flags.numpy() > 0.5)),
             "guard_score_valid_count": int(np.sum(guard_values >= 0.0)),
+            "sample_weight_min": float(np.min(weight_values)),
+            "sample_weight_max": float(np.max(weight_values)),
+            "sample_weight_mean": float(np.mean(weight_values)),
         }
     raise RuntimeError("Dataset produced no batches.")
 
 
-def _manual_huber(y_true: tf.Tensor, y_pred: tf.Tensor, delta: float = 0.1) -> tf.Tensor:
+def _manual_huber(
+    y_true: tf.Tensor,
+    y_pred: tf.Tensor,
+    sample_weights: tf.Tensor | None = None,
+    delta: float = 0.1,
+) -> tf.Tensor:
     error = y_pred - y_true
     abs_error = tf.abs(error)
     quadratic = tf.minimum(abs_error, tf.cast(delta, tf.float32))
     linear = abs_error - quadratic
     loss = 0.5 * tf.square(quadratic) + tf.cast(delta, tf.float32) * linear
+    if sample_weights is not None:
+        weights = tf.cast(sample_weights, tf.float32)
+        weighted_loss = loss * weights
+        return tf.reduce_sum(weighted_loss) / tf.maximum(tf.reduce_sum(weights), 1.0e-6)
     return tf.reduce_mean(loss)
 
 
@@ -339,6 +400,7 @@ def _train_regression_step(
     targets: tf.Tensor,
     hard_flags: tf.Tensor,
     guard_scores: tf.Tensor,
+    sample_weights: tf.Tensor,
     huber_lambda: float,
     plcc_lambda: float,
     false_positive_lambda: float,
@@ -346,7 +408,7 @@ def _train_regression_step(
 ) -> tuple[tf.Tensor, tf.Tensor, tf.Tensor, tf.Tensor]:
     with tf.GradientTape() as tape:
         predictions = model(images, training=True)
-        huber = _manual_huber(targets, predictions)
+        huber = _manual_huber(targets, predictions, sample_weights=sample_weights)
         plcc = _plcc_loss(targets, predictions)
         false_positive = _false_positive_loss(
             y_pred=predictions,
@@ -377,6 +439,7 @@ def _train_with_pair_step(
     targets: tf.Tensor,
     hard_flags: tf.Tensor,
     guard_scores: tf.Tensor,
+    sample_weights: tf.Tensor,
     pair_images_a: tf.Tensor,
     pair_images_b: tf.Tensor,
     pair_signs: tf.Tensor,
@@ -389,7 +452,7 @@ def _train_with_pair_step(
 ) -> tuple[tf.Tensor, tf.Tensor, tf.Tensor, tf.Tensor, tf.Tensor]:
     with tf.GradientTape() as tape:
         predictions = model(images, training=True)
-        huber = _manual_huber(targets, predictions)
+        huber = _manual_huber(targets, predictions, sample_weights=sample_weights)
         plcc = _plcc_loss(targets, predictions)
         false_positive = _false_positive_loss(
             y_pred=predictions,
@@ -456,7 +519,7 @@ def _evaluate(
     targets: list[float] = []
     hard_flags: list[float] = []
     guard_scores: list[float] = []
-    for images, batch_targets, batch_hard_flags, batch_guard_scores in dataset:
+    for images, batch_targets, batch_hard_flags, batch_guard_scores, _ in dataset:
         batch_predictions = model(images, training=False).numpy().reshape(-1)
         predictions.extend(float(v) for v in batch_predictions)
         targets.extend(float(v) for v in batch_targets.numpy().reshape(-1))
@@ -520,6 +583,133 @@ def _feature_summary(model: tf.keras.Model) -> dict[str, Any]:
     }
 
 
+def _efficientnet_block_name(layer_name: str) -> str | None:
+    parts = layer_name.split("_", 1)
+    prefix = parts[0]
+    suffix = prefix[5:]
+    if (
+        prefix.startswith("block")
+        and len(suffix) >= 2
+        and suffix[:-1].isdigit()
+        and suffix[-1].isalpha()
+    ):
+        return prefix
+    return None
+
+
+def _selected_top_blocks(backbone: tf.keras.Model, count: int) -> list[str]:
+    if count <= 0:
+        return []
+    blocks: list[str] = []
+    for layer in backbone.layers:
+        block = _efficientnet_block_name(layer.name)
+        if block is not None and block not in blocks:
+            blocks.append(block)
+    if not blocks:
+        raise ValueError("No EfficientNet block layers were found in the TechIQA backbone.")
+    if count > len(blocks):
+        raise ValueError(
+            f"--unfreeze_top_blocks={count} exceeds available EfficientNet blocks ({len(blocks)})."
+        )
+    return blocks[-count:]
+
+
+def _layer_param_count(layer: tf.keras.layers.Layer) -> int:
+    return int(sum(tf.keras.backend.count_params(w) for w in layer.weights))
+
+
+def _configure_trainability(
+    model: tf.keras.Model,
+    freeze_backbone: bool,
+    unfreeze_top_blocks: int,
+    freeze_batch_norm: bool,
+) -> dict[str, Any]:
+    backbone = model.get_layer(BACKBONE_LAYER_NAME)
+    selected_blocks = _selected_top_blocks(backbone, unfreeze_top_blocks)
+    selected_block_set = set(selected_blocks)
+    partial_unfreeze = unfreeze_top_blocks > 0
+
+    for layer in model.layers:
+        if layer is not backbone:
+            layer.trainable = True
+
+    trainable_backbone_layers: list[str] = []
+    frozen_batch_norm_layers: list[str] = []
+    if partial_unfreeze:
+        backbone.trainable = True
+        for layer in backbone.layers:
+            block = _efficientnet_block_name(layer.name)
+            is_top_projection = layer.name in {"top_conv", "top_activation"}
+            should_train = (block in selected_block_set) or is_top_projection
+            if freeze_batch_norm and isinstance(layer, tf.keras.layers.BatchNormalization):
+                layer.trainable = False
+                frozen_batch_norm_layers.append(layer.name)
+            else:
+                layer.trainable = bool(should_train)
+            if layer.trainable:
+                trainable_backbone_layers.append(layer.name)
+    else:
+        backbone.trainable = not freeze_backbone
+        for layer in backbone.layers:
+            if freeze_batch_norm and isinstance(layer, tf.keras.layers.BatchNormalization):
+                layer.trainable = False
+                frozen_batch_norm_layers.append(layer.name)
+            if layer.trainable:
+                trainable_backbone_layers.append(layer.name)
+
+    trainable_layers = [
+        layer.name for layer in model.layers if layer.trainable and layer is not backbone
+    ]
+    all_trainable_names = [
+        *[f"{BACKBONE_LAYER_NAME}/{name}" for name in trainable_backbone_layers],
+        *trainable_layers,
+    ]
+    summary = {
+        "freeze_backbone": bool(freeze_backbone),
+        "partial_unfreeze": bool(partial_unfreeze),
+        "unfreeze_top_blocks": int(unfreeze_top_blocks),
+        "selected_top_blocks": selected_blocks,
+        "top_projection_trainable_when_partial": bool(partial_unfreeze),
+        "freeze_batch_norm": bool(freeze_batch_norm),
+        "batch_norm_frozen_count": int(len(frozen_batch_norm_layers)),
+        "batch_norm_trainable_count": int(
+            sum(
+                1
+                for layer in backbone.layers
+                if isinstance(layer, tf.keras.layers.BatchNormalization) and layer.trainable
+            )
+        ),
+        "trainable_backbone_layers": trainable_backbone_layers,
+        "trainable_top_level_layers": trainable_layers,
+        "trainable_layers": all_trainable_names,
+        "trainable_backbone_param_estimate": int(
+            sum(_layer_param_count(layer) for layer in backbone.layers if layer.trainable)
+        ),
+        "trainable_params": int(sum(tf.keras.backend.count_params(w) for w in model.trainable_weights)),
+        "non_trainable_params": int(sum(tf.keras.backend.count_params(w) for w in model.non_trainable_weights)),
+    }
+    print("Trainability summary:")
+    print(json.dumps(summary, indent=2, sort_keys=True))
+    return summary
+
+
+def _write_trainable_layers_report(path: Path, trainability: dict[str, Any]) -> None:
+    lines = [
+        "# TechIQA-Guard trainable layers",
+        f"partial_unfreeze={trainability['partial_unfreeze']}",
+        f"selected_top_blocks={','.join(trainability['selected_top_blocks'])}",
+        f"freeze_batch_norm={trainability['freeze_batch_norm']}",
+        f"batch_norm_frozen_count={trainability['batch_norm_frozen_count']}",
+        f"batch_norm_trainable_count={trainability['batch_norm_trainable_count']}",
+        f"trainable_params={trainability['trainable_params']}",
+        f"non_trainable_params={trainability['non_trainable_params']}",
+        "",
+        "[trainable_layers]",
+        *trainability["trainable_layers"],
+    ]
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Directly train TechIQA-Guard v1.")
     parser.add_argument("--train_csv", required=True)
@@ -530,6 +720,14 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--lr", type=float, default=1.0e-4)
     parser.add_argument("--freeze_backbone", action="store_true")
+    parser.add_argument("--init_weights")
+    parser.add_argument("--unfreeze_top_blocks", type=int, default=0)
+    parser.add_argument(
+        "--freeze_batch_norm",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+    )
+    parser.add_argument("--dataset_weight_overrides")
     parser.add_argument("--dropout", type=float, default=0.25)
     parser.add_argument("--head_units", type=int, default=256)
     parser.add_argument("--huber_lambda", type=float, default=1.0)
@@ -544,6 +742,7 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--out_dir", required=True)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--inspect_batch", action="store_true")
+    parser.add_argument("--trainable_layers_report", action="store_true")
     return parser.parse_args()
 
 
@@ -555,6 +754,8 @@ def main() -> None:
         raise ValueError("--epochs must be positive.")
     if args.tau <= 0.0:
         raise ValueError("--tau must be positive.")
+    if args.unfreeze_top_blocks < 0:
+        raise ValueError("--unfreeze_top_blocks must be non-negative.")
     if args.rank_lambda > 0.0 and not args.pair_csv:
         raise ValueError("--pair_csv is required when --rank_lambda > 0.")
 
@@ -563,17 +764,22 @@ def main() -> None:
 
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
+    dataset_weight_overrides = _parse_dataset_weight_overrides(
+        args.dataset_weight_overrides
+    )
 
     train_df, train_summary = _load_manifest(
         args.train_csv,
         target_col=args.target_col,
         dataset_col=args.dataset_col,
+        dataset_weight_overrides=dataset_weight_overrides,
     )
     val_limit = args.max_val_samples if args.max_val_samples > 0 else None
     val_df, val_summary = _load_manifest(
         args.val_csv,
         target_col=args.target_col,
         dataset_col=args.dataset_col,
+        dataset_weight_overrides={},
         max_samples=val_limit,
     )
     print("Train CSV summary:")
@@ -614,13 +820,27 @@ def main() -> None:
 
     model = build_techiqa_guard_v1(
         input_shape=(IMAGE_SIZE, IMAGE_SIZE, 3),
-        backbone_trainable=not args.freeze_backbone,
+        backbone_trainable=(not args.freeze_backbone and args.unfreeze_top_blocks == 0),
         dropout=args.dropout,
         head_units=args.head_units,
+    )
+    if args.init_weights:
+        init_weights_path = Path(args.init_weights).expanduser().resolve()
+        if not init_weights_path.is_file():
+            raise FileNotFoundError(f"Initial weights file not found: {init_weights_path}")
+        model.load_weights(str(init_weights_path))
+        print(f"Initialized model weights from {init_weights_path}")
+    trainability = _configure_trainability(
+        model=model,
+        freeze_backbone=args.freeze_backbone,
+        unfreeze_top_blocks=args.unfreeze_top_blocks,
+        freeze_batch_norm=args.freeze_batch_norm,
     )
     feature_layers = _feature_summary(model)
     with (out_dir / "model_summary.txt").open("w", encoding="utf-8") as handle:
         model.summary(print_fn=lambda line: handle.write(line + "\n"))
+    if args.trainable_layers_report:
+        _write_trainable_layers_report(out_dir / "trainable_layers.txt", trainability)
 
     run_setup = {
         "train_rows": int(len(train_df)),
@@ -628,11 +848,20 @@ def main() -> None:
         "full_steps_per_epoch": int(full_steps_per_epoch),
         "steps_per_epoch": int(steps_per_epoch),
         "freeze_backbone": bool(args.freeze_backbone),
-        "trainable_params": int(sum(tf.keras.backend.count_params(w) for w in model.trainable_weights)),
-        "non_trainable_params": int(sum(tf.keras.backend.count_params(w) for w in model.non_trainable_weights)),
+        "unfreeze_top_blocks": int(args.unfreeze_top_blocks),
+        "freeze_batch_norm": bool(args.freeze_batch_norm),
+        "trainable_params": trainability["trainable_params"],
+        "non_trainable_params": trainability["non_trainable_params"],
         "feature_layers": feature_layers,
         "rank_active": bool(args.rank_lambda > 0.0),
         "false_positive_active": bool(args.false_positive_lambda > 0.0),
+        "dataset_weight_overrides": dataset_weight_overrides,
+        "sample_weight_note": (
+            "Dataset weights are applied to Huber loss only; PLCC remains unweighted."
+            if dataset_weight_overrides
+            else None
+        ),
+        "trainability": trainability,
     }
     print("Run setup:")
     print(json.dumps(run_setup, indent=2, sort_keys=True))
@@ -655,7 +884,7 @@ def main() -> None:
         total_metric = tf.keras.metrics.Mean()
 
         for step in range(steps_per_epoch):
-            images, targets, hard_flags, guard_scores = next(train_iter)
+            images, targets, hard_flags, guard_scores, sample_weights = next(train_iter)
             if pair_iter is not None:
                 pair_images_a, pair_images_b, pair_signs = next(pair_iter)
                 huber, plcc, rank, false_positive, total = _train_with_pair_step(
@@ -665,6 +894,7 @@ def main() -> None:
                     targets=targets,
                     hard_flags=hard_flags,
                     guard_scores=guard_scores,
+                    sample_weights=sample_weights,
                     pair_images_a=pair_images_a,
                     pair_images_b=pair_images_b,
                     pair_signs=pair_signs,
@@ -683,6 +913,7 @@ def main() -> None:
                     targets=targets,
                     hard_flags=hard_flags,
                     guard_scores=guard_scores,
+                    sample_weights=sample_weights,
                     huber_lambda=args.huber_lambda,
                     plcc_lambda=args.plcc_lambda,
                     false_positive_lambda=args.false_positive_lambda,
@@ -750,6 +981,11 @@ def main() -> None:
             "training_log": str(out_dir / "training_log.csv"),
             "training_summary": str(out_dir / "training_summary.json"),
             "model_summary": str(out_dir / "model_summary.txt"),
+            "trainable_layers": (
+                str(out_dir / "trainable_layers.txt")
+                if args.trainable_layers_report
+                else None
+            ),
         },
         "best_epoch": int(best_epoch),
         "best_val_loss": float(best_val_loss),
@@ -761,6 +997,8 @@ def main() -> None:
             "trainable": run_setup["trainable_params"],
             "non_trainable": run_setup["non_trainable_params"],
         },
+        "sample_weight_note": run_setup["sample_weight_note"],
+        "trainability": trainability,
         "pair_summary": pair_summary,
         "run_setup": run_setup,
         "train_csv": train_summary,
@@ -772,6 +1010,8 @@ def main() -> None:
     print("Saved:", out_dir / "training_log.csv")
     print("Saved:", out_dir / "training_summary.json")
     print("Saved:", out_dir / "model_summary.txt")
+    if args.trainable_layers_report:
+        print("Saved:", out_dir / "trainable_layers.txt")
 
 
 if __name__ == "__main__":
