@@ -1,0 +1,88 @@
+{
+  "counts_by_dataset": {
+    "flive": 13197,
+    "hard_fp": 3,
+    "koniq": 5616,
+    "spaq": 5733
+  },
+  "counts_by_split": {
+    "hard_fp": 3,
+    "test": 6114,
+    "train": 16384,
+    "val": 2048
+  },
+  "eval_prediction_delta_candidate_count": 670,
+  "eval_prediction_strong_delta_candidate_count": 208,
+  "generated_at_utc": "2026-05-20T17:30:00.344153+00:00",
+  "hard_fp_count": 3,
+  "input_files_used": {
+    "flive_all": "data/processed/flive/labels_image_all.csv",
+    "flive_test": "data/processed/flive/image_test.csv",
+    "koniq_all": "data/processed/koniq10k/labels_all.csv",
+    "koniq_test": "data/processed/koniq10k/splits/test.csv",
+    "mixed_train": "data/processed/topiq_replacement/mixed_112_train.csv",
+    "mixed_val": "data/processed/topiq_replacement/mixed_112_val.csv",
+    "prediction_flive_existing_avg_technical": "outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/predictions_existing_avg_technical_flive.csv",
+    "prediction_flive_flive_image_mobile": "outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/predictions_flive_image_mobile_flive.csv",
+    "prediction_flive_koniq_mobile": "outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/predictions_koniq_mobile_flive.csv",
+    "prediction_flive_topiq_lite_mixed112_frozen_fp16": "outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/predictions_topiq_lite_mixed112_frozen_fp16_flive.csv",
+    "prediction_koniq_existing_avg_technical": "outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/predictions_existing_avg_technical_koniq.csv",
+    "prediction_koniq_flive_image_mobile": "outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/predictions_flive_image_mobile_koniq.csv",
+    "prediction_koniq_koniq_mobile": "outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/predictions_koniq_mobile_koniq.csv",
+    "prediction_koniq_topiq_lite_mixed112_frozen_fp16": "outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/predictions_topiq_lite_mixed112_frozen_fp16_koniq.csv",
+    "prediction_spaq_existing_avg_technical": "outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/predictions_existing_avg_technical_spaq.csv",
+    "prediction_spaq_flive_image_mobile": "outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/predictions_flive_image_mobile_spaq.csv",
+    "prediction_spaq_koniq_mobile": "outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/predictions_koniq_mobile_spaq.csv",
+    "prediction_spaq_topiq_lite_mixed112_frozen_fp16": "outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/predictions_topiq_lite_mixed112_frozen_fp16_spaq.csv",
+    "spaq_all": "data/processed/spaq/labels_all.csv",
+    "spaq_test": "data/processed/spaq/test.csv"
+  },
+  "manual_false_positive_files": {
+    "1675342165226-13.jpg": {
+      "all_matches": [
+        "outputs/test_vila_aesthetic_direct_compare_20260504_153044/thumbs/1675342165226-13.jpg",
+        "outputs/test_vila_aesthetic_direct_compare_20260504_153222/thumbs/1675342165226-13.jpg",
+        "outputs/test_vila_aesthetic_direct_compare_20260504_153546/thumbs/1675342165226-13.jpg",
+        "outputs/test_vila_aesthetic_direct_compare_20260504_153732/thumbs/1675342165226-13.jpg"
+      ],
+      "found": true,
+      "selected_path": "outputs/test_vila_aesthetic_direct_compare_20260504_153044/thumbs/1675342165226-13.jpg"
+    },
+    "1675342165226-3.jpg": {
+      "all_matches": [
+        "outputs/test_vila_aesthetic_direct_compare_20260504_153044/thumbs/1675342165226-3.jpg",
+        "outputs/test_vila_aesthetic_direct_compare_20260504_153222/thumbs/1675342165226-3.jpg",
+        "outputs/test_vila_aesthetic_direct_compare_20260504_153546/thumbs/1675342165226-3.jpg",
+        "outputs/test_vila_aesthetic_direct_compare_20260504_153732/thumbs/1675342165226-3.jpg"
+      ],
+      "found": true,
+      "selected_path": "outputs/test_vila_aesthetic_direct_compare_20260504_153044/thumbs/1675342165226-3.jpg"
+    },
+    "20230201_181300.jpg": {
+      "all_matches": [
+        "outputs/test_vila_aesthetic_direct_compare_20260504_153044/thumbs/20230201_181300.jpg",
+        "outputs/test_vila_aesthetic_direct_compare_20260504_153222/thumbs/20230201_181300.jpg",
+        "outputs/test_vila_aesthetic_direct_compare_20260504_153546/thumbs/20230201_181300.jpg",
+        "outputs/test_vila_aesthetic_direct_compare_20260504_153732/thumbs/20230201_181300.jpg"
+      ],
+      "found": true,
+      "selected_path": "outputs/test_vila_aesthetic_direct_compare_20260504_153044/thumbs/20230201_181300.jpg"
+    }
+  },
+  "manual_fp_count": 3,
+  "missing_image_count": 0,
+  "out_dir": "data/processed/techiqa_guard",
+  "row_counts": {
+    "hard_false_positive": 3,
+    "smoke_v1": 450,
+    "test_flive": 3981,
+    "test_koniq": 1008,
+    "test_spaq": 1125,
+    "train": 16384,
+    "val": 2048
+  },
+  "strong_hard_fp_count": 0,
+  "warnings": [
+    "No topiq_mixed112 comparison report/log or [TechnicalIqaCompare] file was found under data/ or outputs/"
+  ]
+}
