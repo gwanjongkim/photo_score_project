@@ -1,0 +1,59 @@
+models:
+  nima:
+    enabled: true
+    type: nima_distribution
+    model_path: models/aesthetic/nima_mobile.tflite
+    score_column: nima_score
+    input_width: 224
+    input_height: 224
+    normalization: zero_to_one
+
+  rgnet:
+    enabled: true
+    type: scalar_tflite
+    model_path: models/aesthetic/rgnet_paper_aadb_fp16.tflite
+    score_column: rgnet_score
+    input_width: 256
+    input_height: 256
+    normalization: zero_to_one
+
+  alamp:
+    enabled: true
+    type: alamp_signature
+    model_path: models/aesthetic/mobile_alamp_v2_fp16.tflite
+    score_column: alamp_score
+    global_size: 384
+    patch_size: 224
+    patch_count: 5
+    normalization: zero_to_255
+    preprocessing:
+      global: resize_with_pad
+      patches: adaptive_saliency_like
+      note: mobile_alamp_v2 export metadata says float pixels 0-255 with MobileNetV3 preprocessing inside the model.
+
+  icaa:
+    enabled: true
+    type: vector_tflite
+    model_path: models/aesthetic/icaa_dat_tf_native_fp16.tflite
+    score_column: icaa_score
+    input_width: 224
+    input_height: 224
+    normalization: zero_to_one
+    score_index: 0
+    output_labels:
+      - MOS
+      - Color
+    preprocessing:
+      note: ICAA preprocessing may differ by export. Keep zero_to_one unless the model's own metadata proves another contract.
+
+weights:
+  nima: 0.25
+  rgnet: 0.25
+  alamp: 0.25
+  icaa: 0.25
+
+report:
+  title: "A-cut Aesthetic Weight Lab forWeights2 - alternate copy"
+  thumbnail_size: 240
+  copy_original_images: true
+  enable_interactive_weight_controls: true

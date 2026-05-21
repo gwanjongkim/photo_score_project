@@ -1,0 +1,4 @@
+numpy>=1.26.0
+pillow>=10.0.0
+PyYAML>=6.0
+tensorflow>=2.16.0
