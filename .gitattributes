@@ -1,1 +1,2 @@
+models/**/*.tflite filter=lfs diff=lfs merge=lfs -text
 forWeights2/models/aesthetic/*.tflite filter=lfs diff=lfs merge=lfs -text
