@@ -405,6 +405,28 @@ def _write_model_summary(model: tf.keras.Model, path: Path) -> None:
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def _write_trainable_layers_report(path: Path, trainability: dict[str, Any]) -> None:
+    lines = [
+        "DistortionGuard-IQA v1 Stage B Trainable Layers",
+        "",
+        f"freeze_backbone: {trainability.get('freeze_backbone')}",
+        f"partial_unfreeze: {trainability.get('partial_unfreeze')}",
+        f"unfreeze_top_blocks: {trainability.get('unfreeze_top_blocks')}",
+        f"selected_top_blocks: {trainability.get('selected_top_blocks')}",
+        f"freeze_batch_norm: {trainability.get('freeze_batch_norm')}",
+        f"batch_norm_frozen_count: {trainability.get('batch_norm_frozen_count')}",
+        f"batch_norm_trainable_count: {trainability.get('batch_norm_trainable_count')}",
+        f"trainable_params: {trainability.get('trainable_params')}",
+        f"non_trainable_params: {trainability.get('non_trainable_params')}",
+        f"trainable_backbone_param_estimate: {trainability.get('trainable_backbone_param_estimate')}",
+        "",
+        "trainable_layers:",
+    ]
+    lines.extend(str(name) for name in trainability.get("trainable_layers", []))
+    lines.append("")
+    path.write_text("\n".join(lines), encoding="utf-8")
+
+
 def _compact_stageA_report(report: dict[str, Any]) -> dict[str, Any]:
     return {
         "stageA_weights": report.get("stageA_weights"),
@@ -433,6 +455,7 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--target_col", default="normalized_mos")
     parser.add_argument("--dataset_col", default="dataset")
     parser.add_argument("--stageA_weights")
+    parser.add_argument("--init_weights")
     parser.add_argument("--batch_size", type=int, default=8)
     parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--lr", type=float, default=1.0e-4)
@@ -450,6 +473,7 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--dataset_weight_overrides")
     parser.add_argument("--max_steps_per_epoch", type=int, default=500)
     parser.add_argument("--max_val_samples", type=int, default=2048)
+    parser.add_argument("--trainable_layers_report", action="store_true")
     parser.add_argument("--out_dir", required=True)
     parser.add_argument("--seed", type=int, default=42)
     return parser.parse_args()
@@ -476,6 +500,8 @@ def _validate_args(args: argparse.Namespace) -> None:
         raise ValueError("--max_steps_per_epoch must be positive.")
     if args.max_val_samples <= 0:
         raise ValueError("--max_val_samples must be positive.")
+    if args.init_weights and not Path(args.init_weights).is_file():
+        raise FileNotFoundError(f"Initial weights file not found: {args.init_weights}")
 
 
 def main() -> None:
@@ -529,6 +555,12 @@ def main() -> None:
         raise RuntimeError(f"No Stage A layers were loaded from {args.stageA_weights}")
     _write_json(out_dir / "stageA_weight_load_report.json", stageA_report)
 
+    init_weights_loaded = False
+    if args.init_weights:
+        model.load_weights(args.init_weights)
+        init_weights_loaded = True
+        print(f"Loaded initial weights from: {args.init_weights}")
+
     trainability = configure_distortionguard_trainability(
         model=model,
         freeze_backbone=args.freeze_backbone,
@@ -536,6 +568,9 @@ def main() -> None:
         freeze_batch_norm=args.freeze_batch_norm,
     )
     _write_model_summary(model, out_dir / "model_summary.txt")
+    trainable_layers_path = out_dir / "trainable_layers.txt"
+    if args.trainable_layers_report:
+        _write_trainable_layers_report(trainable_layers_path, trainability)
     print("Stage A weight load report:")
     print(json.dumps(_compact_stageA_report(stageA_report), indent=2, sort_keys=True))
     print("Trainability summary:")
@@ -640,6 +675,10 @@ def main() -> None:
         "val_csv": val_summary,
         "dataset_weight_overrides": dataset_weight_overrides,
         "stageA_weight_load_report": _compact_stageA_report(stageA_report),
+        "init_weights": {
+            "path": args.init_weights,
+            "loaded": init_weights_loaded,
+        },
         "trainability": trainability,
         "steps": {
             "full_steps_per_epoch": int(full_steps_per_epoch),
@@ -661,6 +700,7 @@ def main() -> None:
             "training_summary": str(out_dir / "training_summary.json"),
             "model_summary": str(out_dir / "model_summary.txt"),
             "stageA_weight_load_report": str(out_dir / "stageA_weight_load_report.json"),
+            "trainable_layers": str(trainable_layers_path) if args.trainable_layers_report else None,
         },
     }
     _write_json(out_dir / "training_summary.json", summary)
@@ -670,6 +710,8 @@ def main() -> None:
     print("Saved:", out_dir / "training_summary.json")
     print("Saved:", out_dir / "model_summary.txt")
     print("Saved:", out_dir / "stageA_weight_load_report.json")
+    if args.trainable_layers_report:
+        print("Saved:", trainable_layers_path)
     print("Final metrics:", json.dumps(final_metrics, sort_keys=True))
 
 
