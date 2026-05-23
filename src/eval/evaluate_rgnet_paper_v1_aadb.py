@@ -14,7 +14,11 @@ import pandas as pd
 import tensorflow as tf
 import yaml
 
-from src.models.rgnet_paper_v1 import MODEL_VARIANT, get_rgnet_paper_v1_custom_objects
+from src.models.rgnet_paper_v1 import (
+    MODEL_VARIANT,
+    build_rgnet_paper_v1_model,
+    get_rgnet_paper_v1_custom_objects,
+)
 
 
 PREPROCESS_BACKENDS = ("tf", "pil_bilinear")
@@ -41,11 +45,27 @@ def _resolve(value: Any, config: dict[str, Any], section: str, key: str, default
     return value if value is not None else _cfg(config, section, key, default)
 
 
+def _normalize_weights(value: str | None) -> str | None:
+    if value is None:
+        return None
+    if str(value).lower() in {"none", "null", "false", "random"}:
+        return None
+    return str(value)
+
+
 def _normalize_preprocess_backend(value: str | None) -> str:
     backend = "tf" if value is None else str(value).lower()
     if backend not in PREPROCESS_BACKENDS:
         raise ValueError(f"Unsupported preprocess_backend: {value}. Expected one of {PREPROCESS_BACKENDS}")
     return backend
+
+
+def _parse_int_tuple(value: str | list[int] | tuple[int, ...] | None, default: tuple[int, ...]) -> tuple[int, ...]:
+    if value is None:
+        return default
+    if isinstance(value, str):
+        return tuple(int(part.strip()) for part in value.split(",") if part.strip())
+    return tuple(int(part) for part in value)
 
 
 def _setup_tensorflow() -> dict[str, object]:
@@ -196,6 +216,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Evaluate RGNet-paper-v1 AADB regression outputs.")
     parser.add_argument("--config")
     parser.add_argument("--model_path")
+    parser.add_argument("--weights_path")
     parser.add_argument("--test_csv")
     parser.add_argument("--val_csv")
     parser.add_argument("--image_col")
@@ -215,8 +236,11 @@ def main() -> None:
     config = _read_yaml(args.config)
 
     model_path = _resolve(args.model_path, config, "evaluation", "model_path", None)
-    if model_path is None:
-        raise ValueError("--model_path is required")
+    weights_path = _resolve(args.weights_path, config, "evaluation", "weights_path", None)
+    if model_path and weights_path:
+        raise ValueError("Provide only one of --model_path or --weights_path")
+    if not model_path and not weights_path:
+        raise ValueError("One of --model_path or --weights_path is required")
     test_csv = _resolve(args.test_csv, config, "data", "test_csv", "data/processed/aadb/test.csv")
     val_csv = _resolve(args.val_csv, config, "data", "val_csv", None)
     image_col = _resolve(args.image_col, config, "data", "image_col", "image_path")
@@ -234,12 +258,40 @@ def main() -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     tf_info = _setup_tensorflow()
     print(f"preprocess_backend: {preprocess_backend}")
-    model = tf.keras.models.load_model(
-        str(model_path),
-        compile=False,
-        safe_mode=False,
-        custom_objects=get_rgnet_paper_v1_custom_objects(),
-    )
+    if model_path:
+        checkpoint_type = "full_model"
+        model = tf.keras.models.load_model(
+            str(model_path),
+            compile=False,
+            safe_mode=False,
+            custom_objects=get_rgnet_paper_v1_custom_objects(),
+        )
+    else:
+        checkpoint_type = "weights_only"
+        backbone_weights = _normalize_weights(_cfg(config, "model", "backbone_weights", "imagenet"))
+        region_dim = int(_cfg(config, "model", "region_dim", 256))
+        graph_units = int(_cfg(config, "model", "graph_units", 256))
+        graph_blocks = int(_cfg(config, "model", "graph_blocks", 3))
+        graph_temperature = float(_cfg(config, "model", "graph_temperature", 0.25))
+        graph_dropout = float(_cfg(config, "model", "graph_dropout", 0.1))
+        head_dropout = float(_cfg(config, "model", "head_dropout", 0.3))
+        dilation_rates = _parse_int_tuple(_cfg(config, "model", "dilation_rates", None), (1, 3, 6, 12, 18))
+        aggregation = str(_cfg(config, "model", "aggregation", "lse")).lower()
+        lse_r = float(_cfg(config, "model", "lse_r", 4.0))
+        model = build_rgnet_paper_v1_model(
+            input_shape=(image_size, image_size, 3),
+            backbone_weights=backbone_weights,
+            region_dim=region_dim,
+            graph_units=graph_units,
+            graph_blocks=graph_blocks,
+            graph_temperature=graph_temperature,
+            graph_dropout=graph_dropout,
+            head_dropout=head_dropout,
+            dilation_rates=dilation_rates,
+            aggregation=aggregation,
+            lse_r=lse_r,
+        )
+        model.load_weights(str(weights_path))
 
     split_metrics = {
         "test": evaluate_split(
@@ -274,7 +326,9 @@ def main() -> None:
         "model_variant": MODEL_VARIANT,
         "official_reproduction": False,
         "model_name": model_name,
-        "model_path": str(model_path),
+        "checkpoint_type": checkpoint_type,
+        "model_path": str(model_path) if model_path else None,
+        "weights_path": str(weights_path) if weights_path else None,
         "image_size": image_size,
         "preprocess_backend": preprocess_backend,
         "preprocessing": {
