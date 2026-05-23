@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from io import BytesIO
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -20,6 +21,7 @@ from src.models.rgnet_paper_v1 import (
 
 
 DEFAULT_OUTPUT_DIR = "outputs/rgnet_paper_v1_aadb_regression_20260509/full_train"
+PREPROCESS_BACKENDS = ("tf", "pil_bilinear")
 
 
 def _read_yaml(path: str | None) -> dict[str, Any]:
@@ -49,6 +51,13 @@ def _normalize_weights(value: str | None) -> str | None:
     if str(value).lower() in {"none", "null", "false", "random"}:
         return None
     return str(value)
+
+
+def _normalize_preprocess_backend(value: str | None) -> str:
+    backend = "tf" if value is None else str(value).lower()
+    if backend not in PREPROCESS_BACKENDS:
+        raise ValueError(f"Unsupported preprocess_backend: {value}. Expected one of {PREPROCESS_BACKENDS}")
+    return backend
 
 
 def _parse_int_tuple(value: str | list[int] | tuple[int, ...] | None, default: tuple[int, ...]) -> tuple[int, ...]:
@@ -89,11 +98,29 @@ def _load_frame(csv_path: str, image_col: str, target_col: str, max_samples: int
     return frame
 
 
-def _decode_image(path: tf.Tensor, image_size: int, training: bool) -> tf.Tensor:
+def _decode_image_pil_bilinear(contents: tf.Tensor, image_size: int) -> np.ndarray:
+    from PIL import Image
+
+    with Image.open(BytesIO(contents.numpy())) as image:
+        image = image.convert("RGB").resize((image_size, image_size), Image.BILINEAR)
+        return np.asarray(image, dtype=np.float32) / 255.0
+
+
+def _decode_image(path: tf.Tensor, image_size: int, training: bool, preprocess_backend: str) -> tf.Tensor:
     image = tf.io.read_file(path)
-    image = tf.image.decode_jpeg(image, channels=3)
-    image = tf.image.convert_image_dtype(image, tf.float32)
-    image = tf.image.resize(image, [image_size, image_size])
+    if preprocess_backend == "tf":
+        image = tf.image.decode_jpeg(image, channels=3)
+        image = tf.image.convert_image_dtype(image, tf.float32)
+        image = tf.image.resize(image, [image_size, image_size])
+    elif preprocess_backend == "pil_bilinear":
+        image = tf.py_function(
+            lambda contents: _decode_image_pil_bilinear(contents, image_size),
+            [image],
+            Tout=tf.float32,
+        )
+        image.set_shape([image_size, image_size, 3])
+    else:
+        raise ValueError(f"Unsupported preprocess_backend: {preprocess_backend}")
     if training:
         image = tf.image.random_flip_left_right(image)
     return image
@@ -107,6 +134,7 @@ def _make_dataset(
     batch_size: int,
     training: bool,
     shuffle: bool,
+    preprocess_backend: str,
 ) -> tf.data.Dataset:
     paths = frame[image_col].astype(str).to_numpy()
     targets = frame[target_col].astype("float32").to_numpy().reshape(-1, 1)
@@ -115,7 +143,13 @@ def _make_dataset(
         dataset = dataset.shuffle(min(len(frame), 10000), reshuffle_each_iteration=True)
 
     def _map(path: tf.Tensor, target: tf.Tensor) -> tuple[tf.Tensor, tf.Tensor]:
-        return _decode_image(path, image_size=image_size, training=training), target
+        image = _decode_image(
+            path,
+            image_size=image_size,
+            training=training,
+            preprocess_backend=preprocess_backend,
+        )
+        return image, target
 
     return dataset.map(_map, num_parallel_calls=tf.data.AUTOTUNE).batch(batch_size).prefetch(tf.data.AUTOTUNE)
 
@@ -147,6 +181,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dilation_rates")
     parser.add_argument("--aggregation")
     parser.add_argument("--lse_r", type=float)
+    parser.add_argument("--preprocess_backend", choices=PREPROCESS_BACKENDS)
     parser.add_argument("--max_train_samples", type=int)
     parser.add_argument("--max_val_samples", type=int)
     parser.add_argument("--seed", type=int)
@@ -180,6 +215,9 @@ def main() -> None:
     dilation_rates = _parse_int_tuple(_resolve(args.dilation_rates, config, "model", "dilation_rates", None), (1, 3, 6, 12, 18))
     aggregation = str(_resolve(args.aggregation, config, "model", "aggregation", "lse")).lower()
     lse_r = float(_resolve(args.lse_r, config, "model", "lse_r", 4.0))
+    preprocess_backend = _normalize_preprocess_backend(
+        _resolve(args.preprocess_backend, config, "data", "preprocess_backend", "tf")
+    )
     max_train_samples = _resolve(args.max_train_samples, config, "training", "max_train_samples", None)
     max_val_samples = _resolve(args.max_val_samples, config, "training", "max_val_samples", None)
     seed = int(_resolve(args.seed, config, "training", "seed", 42))
@@ -190,13 +228,32 @@ def main() -> None:
 
     train_frame = _load_frame(str(train_csv), image_col, target_col, max_train_samples)
     val_frame = _load_frame(str(val_csv), image_col, target_col, max_val_samples)
+    print(f"preprocess_backend: {preprocess_backend}")
     if not tf_info["visible_gpus"] and len(train_frame) > 1000 and epochs > 3 and not args.allow_cpu_full:
         raise RuntimeError(
             "GPU is not visible for a long/full run. Re-run with GPU access or pass --allow_cpu_full explicitly."
         )
 
-    train_ds = _make_dataset(train_frame, image_col, target_col, image_size, batch_size, training=True, shuffle=True)
-    val_ds = _make_dataset(val_frame, image_col, target_col, image_size, batch_size, training=False, shuffle=False)
+    train_ds = _make_dataset(
+        train_frame,
+        image_col,
+        target_col,
+        image_size,
+        batch_size,
+        training=True,
+        shuffle=True,
+        preprocess_backend=preprocess_backend,
+    )
+    val_ds = _make_dataset(
+        val_frame,
+        image_col,
+        target_col,
+        image_size,
+        batch_size,
+        training=False,
+        shuffle=False,
+        preprocess_backend=preprocess_backend,
+    )
 
     model = build_rgnet_paper_v1_model(
         input_shape=(image_size, image_size, 3),
@@ -296,6 +353,12 @@ def main() -> None:
         "train_samples": int(len(train_frame)),
         "val_samples": int(len(val_frame)),
         "image_size": image_size,
+        "preprocess_backend": preprocess_backend,
+        "preprocessing": {
+            "backend": preprocess_backend,
+            "normalization": "float32_rgb_0_1",
+            "resize": "tf.image.resize" if preprocess_backend == "tf" else "PIL.Image.BILINEAR",
+        },
         "batch_size": batch_size,
         "epochs_requested": epochs,
         "epochs_completed": int(len(history.get("loss", []))),

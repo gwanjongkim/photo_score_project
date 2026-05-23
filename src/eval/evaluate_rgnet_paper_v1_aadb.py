@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import time
+from io import BytesIO
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -14,6 +15,9 @@ import tensorflow as tf
 import yaml
 
 from src.models.rgnet_paper_v1 import MODEL_VARIANT, get_rgnet_paper_v1_custom_objects
+
+
+PREPROCESS_BACKENDS = ("tf", "pil_bilinear")
 
 
 def _read_yaml(path: str | None) -> dict[str, Any]:
@@ -35,6 +39,13 @@ def _cfg(config: dict[str, Any], section: str, key: str, default: Any) -> Any:
 
 def _resolve(value: Any, config: dict[str, Any], section: str, key: str, default: Any) -> Any:
     return value if value is not None else _cfg(config, section, key, default)
+
+
+def _normalize_preprocess_backend(value: str | None) -> str:
+    backend = "tf" if value is None else str(value).lower()
+    if backend not in PREPROCESS_BACKENDS:
+        raise ValueError(f"Unsupported preprocess_backend: {value}. Expected one of {PREPROCESS_BACKENDS}")
+    return backend
 
 
 def _setup_tensorflow() -> dict[str, object]:
@@ -66,11 +77,29 @@ def _load_frame(csv_path: str, image_col: str, target_col: str, max_samples: int
     return frame
 
 
-def _decode_image(path: tf.Tensor, image_size: int) -> tf.Tensor:
+def _decode_image_pil_bilinear(contents: tf.Tensor, image_size: int) -> np.ndarray:
+    from PIL import Image
+
+    with Image.open(BytesIO(contents.numpy())) as image:
+        image = image.convert("RGB").resize((image_size, image_size), Image.BILINEAR)
+        return np.asarray(image, dtype=np.float32) / 255.0
+
+
+def _decode_image(path: tf.Tensor, image_size: int, preprocess_backend: str) -> tf.Tensor:
     image = tf.io.read_file(path)
-    image = tf.image.decode_jpeg(image, channels=3)
-    image = tf.image.convert_image_dtype(image, tf.float32)
-    return tf.image.resize(image, [image_size, image_size])
+    if preprocess_backend == "tf":
+        image = tf.image.decode_jpeg(image, channels=3)
+        image = tf.image.convert_image_dtype(image, tf.float32)
+        return tf.image.resize(image, [image_size, image_size])
+    if preprocess_backend == "pil_bilinear":
+        image = tf.py_function(
+            lambda contents: _decode_image_pil_bilinear(contents, image_size),
+            [image],
+            Tout=tf.float32,
+        )
+        image.set_shape([image_size, image_size, 3])
+        return image
+    raise ValueError(f"Unsupported preprocess_backend: {preprocess_backend}")
 
 
 def _make_dataset(
@@ -79,13 +108,14 @@ def _make_dataset(
     target_col: str,
     image_size: int,
     batch_size: int,
+    preprocess_backend: str,
 ) -> tf.data.Dataset:
     paths = frame[image_col].astype(str).to_numpy()
     targets = frame[target_col].astype("float32").to_numpy().reshape(-1, 1)
     dataset = tf.data.Dataset.from_tensor_slices((paths, targets))
 
     def _map(path: tf.Tensor, target: tf.Tensor) -> tuple[tf.Tensor, tf.Tensor]:
-        return _decode_image(path, image_size=image_size), target
+        return _decode_image(path, image_size=image_size, preprocess_backend=preprocess_backend), target
 
     return dataset.map(_map, num_parallel_calls=tf.data.AUTOTUNE).batch(batch_size).prefetch(tf.data.AUTOTUNE)
 
@@ -129,11 +159,12 @@ def evaluate_split(
     target_col: str,
     image_size: int,
     batch_size: int,
+    preprocess_backend: str,
     max_samples: int | None,
     output_dir: Path,
 ) -> dict[str, object]:
     frame = _load_frame(csv_path, image_col, target_col, max_samples)
-    dataset = _make_dataset(frame, image_col, target_col, image_size, batch_size)
+    dataset = _make_dataset(frame, image_col, target_col, image_size, batch_size, preprocess_backend)
     started = time.perf_counter()
     predictions = np.asarray(model.predict(dataset, verbose=1), dtype=np.float32).reshape(-1)[: len(frame)]
     elapsed = time.perf_counter() - started
@@ -145,6 +176,7 @@ def evaluate_split(
             "csv": csv_path,
             "target_col": target_col,
             "image_col": image_col,
+            "preprocess_backend": preprocess_backend,
             "elapsed_seconds": float(elapsed),
             "seconds_per_image": float(elapsed / max(1, len(frame))),
         }
@@ -172,6 +204,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--batch_size", type=int)
     parser.add_argument("--output_dir")
     parser.add_argument("--model_name")
+    parser.add_argument("--preprocess_backend", choices=PREPROCESS_BACKENDS)
     parser.add_argument("--max_test_samples", type=int)
     parser.add_argument("--max_val_samples", type=int)
     return parser.parse_args()
@@ -192,11 +225,15 @@ def main() -> None:
     batch_size = int(_resolve(args.batch_size, config, "evaluation", "batch_size", 16))
     output_dir = Path(_resolve(args.output_dir, config, "evaluation", "output_dir", "outputs/rgnet_paper_v1_aadb_regression_20260509/eval"))
     model_name = _resolve(args.model_name, config, "evaluation", "model_name", "rgnet_paper_v1_aadb_regression")
+    preprocess_backend = _normalize_preprocess_backend(
+        _resolve(args.preprocess_backend, config, "evaluation", "preprocess_backend", _cfg(config, "data", "preprocess_backend", "tf"))
+    )
     max_test_samples = _resolve(args.max_test_samples, config, "evaluation", "max_test_samples", None)
     max_val_samples = _resolve(args.max_val_samples, config, "evaluation", "max_val_samples", None)
 
     output_dir.mkdir(parents=True, exist_ok=True)
     tf_info = _setup_tensorflow()
+    print(f"preprocess_backend: {preprocess_backend}")
     model = tf.keras.models.load_model(
         str(model_path),
         compile=False,
@@ -213,6 +250,7 @@ def main() -> None:
             target_col,
             image_size,
             batch_size,
+            preprocess_backend,
             max_test_samples,
             output_dir,
         )
@@ -226,6 +264,7 @@ def main() -> None:
             target_col,
             image_size,
             batch_size,
+            preprocess_backend,
             max_val_samples,
             output_dir,
         )
@@ -237,6 +276,12 @@ def main() -> None:
         "model_name": model_name,
         "model_path": str(model_path),
         "image_size": image_size,
+        "preprocess_backend": preprocess_backend,
+        "preprocessing": {
+            "backend": preprocess_backend,
+            "normalization": "float32_rgb_0_1",
+            "resize": "tf.image.resize" if preprocess_backend == "tf" else "PIL.Image.BILINEAR",
+        },
         "batch_size": batch_size,
         "tensorflow": tf_info,
         "splits": split_metrics,
