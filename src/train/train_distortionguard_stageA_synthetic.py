@@ -148,6 +148,7 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--epochs", type=int, default=5)
     parser.add_argument("--lr", type=float, default=1.0e-4)
     parser.add_argument("--freeze_backbone", action="store_true")
+    parser.add_argument("--init_weights")
     parser.add_argument("--type_lambda", type=float, default=1.0)
     parser.add_argument("--severity_lambda", type=float, default=1.0)
     parser.add_argument("--pair_lambda", type=float, default=0.1)
@@ -698,6 +699,13 @@ def _write_model_summary(model: tf.keras.Model, path: Path) -> None:
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def _args_for_summary(args: argparse.Namespace) -> dict[str, Any]:
+    payload = vars(args).copy()
+    if payload.get("init_weights") is None:
+        payload.pop("init_weights", None)
+    return payload
+
+
 def main() -> None:
     args = _parse_args()
     _validate_args(args)
@@ -763,6 +771,12 @@ def main() -> None:
         freeze_backbone=args.freeze_backbone,
         weights="imagenet",
     )
+    if args.init_weights:
+        init_weights_path = Path(args.init_weights).expanduser()
+        if not init_weights_path.is_file():
+            raise FileNotFoundError(f"Initial weights file not found: {init_weights_path}")
+        model.load_weights(str(init_weights_path))
+        print(f"Loaded initial weights from: {init_weights_path}")
     trainable_params, non_trainable_params = _count_trainable_params(model)
     _write_model_summary(model, out_dir / "model_summary.txt")
 
@@ -920,7 +934,7 @@ def main() -> None:
 
     summary = {
         "command": _command_for_summary(),
-        "args": vars(args),
+        "args": _args_for_summary(args),
         "stage": "DistortionGuard-IQA v1 Stage A synthetic pretraining",
         "not_final_iqa_regression": True,
         "not_teacher_student_distillation": True,
