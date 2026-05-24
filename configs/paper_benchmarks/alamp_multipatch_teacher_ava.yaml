@@ -1,0 +1,39 @@
+experiment:
+  name: alamp_multipatch_teacher_ava
+  model_variant: A-LAMP Multi-Patch teacher baseline
+  official_full_alamp_reproduction: false
+  note: >
+    A-LAMP Multi-Patch teacher baseline using validated external adaptive patch
+    JSONL manifests. This is not a full A-LAMP reproduction and does not
+    implement the Layout-Aware subnet or arbitrary-size aggregation pipeline.
+
+dataset:
+  train_jsonl: outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_train.jsonl
+  val_jsonl: outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_val.jsonl
+  test_jsonl: outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_test.jsonl
+  patch_box_role: external A-LAMP adaptive patch selections, not ground-truth labels
+  label_rule: mean_score > 5.0 -> 1, else 0
+  label_threshold: 5.0
+  preprocessing: tf.keras.applications.vgg16.preprocess_input
+
+model:
+  backbone: VGG16
+  backbone_weights: imagenet
+  backbone_trainable: false
+  patch_count: 5
+  patch_size: 224
+  patch_feature: global_average_pooling
+  aggregation: orderless_mean_plus_orderless_max
+  head_units: 256
+  dropout_rate: 0.5
+
+training:
+  output_dir: outputs/alamp_multipatch_teacher_ava_20260524/train
+  epochs: 10
+  batch_size: 4
+  learning_rate: 0.0001
+  loss: binary_crossentropy
+  metrics: [accuracy, auc, precision, recall]
+  monitor_metric: val_auc
+  monitor_mode: max
+  seed: 42
