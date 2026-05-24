@@ -16,6 +16,7 @@ import yaml
 
 from src.datasets.alamp_external_patch_dataset import (
     PREPROCESSING_MODE,
+    label_from_record,
     label_summary,
     load_jsonl_records,
     make_external_patch_dataset,
@@ -26,6 +27,7 @@ from src.models.alamp_multipatch_teacher import (
     REPRODUCTION_CLAIM,
     build_alamp_multipatch_teacher_model,
     get_alamp_multipatch_teacher_custom_objects,
+    normalize_unfreeze_from_layer,
     summarize_vgg16_trainability,
 )
 
@@ -73,6 +75,36 @@ def _optional_int(value: Any) -> int | None:
     if value is None:
         return None
     return int(value)
+
+
+def _optional_text(value: Any) -> str | None:
+    if value is None:
+        return None
+    text = str(value).strip()
+    return text if text else None
+
+
+def _compute_balanced_class_weights(
+    records: list[dict[str, Any]],
+    *,
+    label_threshold: float,
+) -> dict[int, float]:
+    labels = [int(float(label_from_record(record, label_threshold=label_threshold)[0]) >= 0.5) for record in records]
+    total = len(labels)
+    if total <= 0:
+        raise ValueError("Class weights require at least one training record.")
+    positive_count = int(sum(labels))
+    negative_count = int(total - positive_count)
+    if positive_count <= 0 or negative_count <= 0:
+        raise ValueError(
+            "Class weights require both positive and negative labels in the active training records. "
+            f"Got negative={negative_count}, positive={positive_count}."
+        )
+    num_classes = 2
+    return {
+        0: float(total / (num_classes * negative_count)),
+        1: float(total / (num_classes * positive_count)),
+    }
 
 
 def _setup_tensorflow(seed: int) -> dict[str, Any]:
@@ -154,6 +186,100 @@ def _best_metric(rows: list[dict[str, Any]], metric_name: str, mode: str) -> dic
     }
 
 
+def _binary_metrics_at_threshold(
+    y_true: np.ndarray,
+    y_score: np.ndarray,
+    *,
+    threshold: float,
+) -> dict[str, Any]:
+    if y_true.size <= 0:
+        return {
+            "sample_count": 0,
+            "threshold": float(threshold),
+            "accuracy_at_0_5": None,
+            "balanced_accuracy_at_0_5": None,
+            "specificity_at_0_5": None,
+            "recall_at_0_5": None,
+            "precision_at_0_5": None,
+            "f1_at_0_5": None,
+            "pred_positive_ratio_at_0_5": None,
+            "confusion_matrix_at_0_5": None,
+        }
+
+    y_true = y_true.astype(np.int32).reshape(-1)
+    y_pred = (y_score.reshape(-1) >= float(threshold)).astype(np.int32)
+    tn = int(np.sum((y_true == 0) & (y_pred == 0)))
+    fp = int(np.sum((y_true == 0) & (y_pred == 1)))
+    fn = int(np.sum((y_true == 1) & (y_pred == 0)))
+    tp = int(np.sum((y_true == 1) & (y_pred == 1)))
+    accuracy = float((tp + tn) / len(y_true))
+    specificity = float(tn / (tn + fp)) if (tn + fp) > 0 else None
+    recall = float(tp / (tp + fn)) if (tp + fn) > 0 else None
+    precision = float(tp / (tp + fp)) if (tp + fp) > 0 else None
+    f1 = (
+        float(2.0 * precision * recall / (precision + recall))
+        if precision is not None and recall is not None and (precision + recall) > 0
+        else None
+    )
+    balanced_accuracy = (
+        float((specificity + recall) / 2.0)
+        if specificity is not None and recall is not None
+        else None
+    )
+    return {
+        "sample_count": int(len(y_true)),
+        "threshold": float(threshold),
+        "accuracy_at_0_5": accuracy,
+        "balanced_accuracy_at_0_5": balanced_accuracy,
+        "specificity_at_0_5": specificity,
+        "recall_at_0_5": recall,
+        "precision_at_0_5": precision,
+        "f1_at_0_5": f1,
+        "pred_positive_ratio_at_0_5": float(np.mean(y_pred)),
+        "actual_positive_ratio": float(np.mean(y_true)),
+        "confusion_matrix_at_0_5": {"tn": tn, "fp": fp, "fn": fn, "tp": tp},
+        "pred_min": float(np.min(y_score)),
+        "pred_max": float(np.max(y_score)),
+        "pred_mean": float(np.mean(y_score)),
+        "pred_std": float(np.std(y_score)),
+    }
+
+
+def _validation_prediction_metrics(
+    model: tf.keras.Model,
+    records: list[dict[str, Any]],
+    *,
+    patch_size: int,
+    patch_count: int,
+    batch_size: int,
+    label_threshold: float,
+) -> dict[str, Any]:
+    dataset = make_external_patch_dataset(
+        records,
+        patch_size=patch_size,
+        patch_count=patch_count,
+        batch_size=batch_size,
+        label_threshold=label_threshold,
+        training=False,
+        repeat=False,
+    )
+    labels: list[np.ndarray] = []
+    scores: list[np.ndarray] = []
+    for patches, batch_labels in dataset:
+        batch_scores = model(patches, training=False).numpy().reshape(-1)
+        scores.append(batch_scores.astype(np.float32))
+        labels.append(batch_labels.numpy().reshape(-1).astype(np.int32))
+    if not labels:
+        return _binary_metrics_at_threshold(
+            np.asarray([], dtype=np.int32),
+            np.asarray([], dtype=np.float32),
+            threshold=0.5,
+        )
+    y_true = np.concatenate(labels, axis=0)
+    y_score = np.concatenate(scores, axis=0)
+    return _binary_metrics_at_threshold(y_true, y_score, threshold=0.5)
+
+
 def _count_params(weights: list[tf.Variable]) -> int:
     return int(sum(np.prod(weight.shape) for weight in weights))
 
@@ -198,6 +324,8 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--max_val_samples", type=int)
     parser.add_argument("--max_test_samples", type=int)
     parser.add_argument("--backbone_trainable", type=_parse_bool)
+    parser.add_argument("--unfreeze_from_layer")
+    parser.add_argument("--use_class_weights", type=_parse_bool)
     parser.add_argument("--learning_rate", type=float)
     parser.add_argument("--patch_count", type=int)
     parser.add_argument("--patch_size", type=int)
@@ -213,6 +341,7 @@ def main() -> None:
     args = _parse_args()
     config = _read_yaml(args.config)
 
+    experiment_name = str(_cfg(config, "experiment", "name", "alamp_multipatch_teacher_ava"))
     train_jsonl = Path(_resolve(args.train_jsonl, config, "dataset", "train_jsonl", DEFAULT_TRAIN_JSONL))
     val_jsonl = Path(_resolve(args.val_jsonl, config, "dataset", "val_jsonl", DEFAULT_VAL_JSONL))
     test_jsonl_value = _resolve(args.test_jsonl, config, "dataset", "test_jsonl", DEFAULT_TEST_JSONL)
@@ -229,6 +358,12 @@ def main() -> None:
     backbone_weights = _resolve(args.backbone_weights, config, "model", "backbone_weights", "imagenet")
     backbone_trainable = _parse_bool(
         _resolve(args.backbone_trainable, config, "model", "backbone_trainable", False)
+    )
+    unfreeze_from_layer = normalize_unfreeze_from_layer(
+        _optional_text(_resolve(args.unfreeze_from_layer, config, "model", "unfreeze_from_layer", None))
+    )
+    use_class_weights = _parse_bool(
+        _resolve(args.use_class_weights, config, "training", "use_class_weights", False)
     )
     label_threshold = float(_resolve(args.label_threshold, config, "dataset", "label_threshold", 5.0))
     max_train_samples = _optional_int(_resolve(args.max_train_samples, config, "training", "max_train_samples", None))
@@ -253,11 +388,19 @@ def main() -> None:
     train_label_summary = label_summary(train_records, label_threshold=label_threshold)
     val_label_summary = label_summary(val_records, label_threshold=label_threshold)
     test_label_summary = label_summary(test_records, label_threshold=label_threshold) if test_records else None
+    class_weights = (
+        _compute_balanced_class_weights(train_records, label_threshold=label_threshold)
+        if use_class_weights
+        else None
+    )
 
     print(f"Train records loaded: {len(train_records)}")
     print(f"Val records loaded: {len(val_records)}")
     print(f"Train labels: {train_label_summary}")
     print(f"Val labels: {val_label_summary}")
+    print(f"Class weights enabled: {use_class_weights}")
+    if class_weights is not None:
+        print(f"Class weights: {class_weights}")
     print(f"Preprocessing mode: {PREPROCESSING_MODE}")
 
     steps_per_epoch = math.ceil(len(train_records) / batch_size)
@@ -277,6 +420,7 @@ def main() -> None:
         training=True,
         repeat=train_repeat_enabled,
         shuffle_seed=seed,
+        class_weights=class_weights,
     )
     val_dataset = make_external_patch_dataset(
         val_records,
@@ -294,6 +438,7 @@ def main() -> None:
         patch_size=patch_size,
         backbone_weights=backbone_weights,
         backbone_trainable=backbone_trainable,
+        unfreeze_from_layer=unfreeze_from_layer,
         head_units=head_units,
         dropout_rate=dropout_rate,
     )
@@ -301,6 +446,8 @@ def main() -> None:
     model_info = _model_summary(model)
     print(f"Model parameter count: {model_info['parameter_count']}")
     print(f"Backbone trainable: {backbone_trainable}")
+    print(f"Unfreeze from layer: {unfreeze_from_layer}")
+    print(f"Trainable VGG16 layers: {model_info['vgg16_trainability']['trainable_layers']}")
 
     callbacks: list[tf.keras.callbacks.Callback] = [
         tf.keras.callbacks.ModelCheckpoint(
@@ -341,14 +488,32 @@ def main() -> None:
     )
     loaded_predictions = loaded_model(sample_batch, training=False).numpy()
     save_load_max_abs_diff = float(np.max(np.abs(original_predictions - loaded_predictions)))
+    val_prediction_metrics = _validation_prediction_metrics(
+        model,
+        val_records,
+        patch_size=patch_size,
+        patch_count=patch_count,
+        batch_size=batch_size,
+        label_threshold=label_threshold,
+    )
 
     summary = {
         "status": "training_completed",
+        "experiment_name": experiment_name,
         "notice": NOTICE,
         "official_full_alamp_reproduction": False,
         "model_variant": MODEL_VARIANT,
         "model_description": MODEL_DESCRIPTION,
         "reproduction_claim": REPRODUCTION_CLAIM,
+        "use_class_weights": bool(use_class_weights),
+        "class_weights": class_weights,
+        "backbone_trainable": bool(backbone_trainable),
+        "unfreeze_from_layer": unfreeze_from_layer,
+        "learning_rate": float(learning_rate),
+        "train_count": len(train_records),
+        "val_count": len(val_records),
+        "steps_per_epoch": int(steps_per_epoch),
+        "validation_steps": int(validation_steps),
         "command": _command_for_summary(),
         "config": str(args.config) if args.config else None,
         "train_jsonl": str(train_jsonl),
@@ -379,6 +544,9 @@ def main() -> None:
             "val_repeat": bool(val_repeat_enabled),
             "learning_rate": float(learning_rate),
             "backbone_trainable": bool(backbone_trainable),
+            "unfreeze_from_layer": unfreeze_from_layer,
+            "use_class_weights": bool(use_class_weights),
+            "class_weights": class_weights,
             "loss": "binary_crossentropy",
             "metrics": ["accuracy", "auc", "precision", "recall"],
             "monitor_metric": "val_auc",
@@ -390,6 +558,10 @@ def main() -> None:
         },
         "model": model_info,
         "final_metrics": _final_metrics(history_rows),
+        "validation_prediction_metrics": val_prediction_metrics,
+        "val_balanced_accuracy_at_0_5": val_prediction_metrics["balanced_accuracy_at_0_5"],
+        "val_specificity_at_0_5": val_prediction_metrics["specificity_at_0_5"],
+        "val_pred_positive_ratio_at_0_5": val_prediction_metrics["pred_positive_ratio_at_0_5"],
         "best_val_auc": _best_metric(history_rows, "val_auc", "max"),
         "best_val_loss": _best_metric(history_rows, "val_loss", "min"),
         "save_load_max_abs_diff": save_load_max_abs_diff,

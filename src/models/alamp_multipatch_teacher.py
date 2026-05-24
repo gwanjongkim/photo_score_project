@@ -19,6 +19,43 @@ def normalize_backbone_weights(weights: str | None) -> str | None:
     return str(weights)
 
 
+def normalize_unfreeze_from_layer(unfreeze_from_layer: str | None) -> str | None:
+    if unfreeze_from_layer is None:
+        return None
+    value = str(unfreeze_from_layer).strip()
+    if not value or value.lower() in {"none", "null", "false"}:
+        return None
+    return value
+
+
+def _set_vgg16_backbone_trainability(
+    backbone: tf.keras.Model,
+    *,
+    backbone_trainable: bool,
+    unfreeze_from_layer: str | None = None,
+) -> None:
+    unfreeze_from_layer = normalize_unfreeze_from_layer(unfreeze_from_layer)
+    if not backbone_trainable:
+        backbone.trainable = False
+        for layer in backbone.layers:
+            layer.trainable = False
+        return
+
+    backbone.trainable = True
+    if unfreeze_from_layer is None:
+        for layer in backbone.layers:
+            layer.trainable = True
+        return
+
+    matched_layers = 0
+    for layer in backbone.layers:
+        layer.trainable = layer.name.startswith(unfreeze_from_layer)
+        if layer.trainable:
+            matched_layers += 1
+    if matched_layers == 0:
+        raise ValueError(f"No VGG16 layers matched unfreeze_from_layer={unfreeze_from_layer!r}.")
+
+
 @tf.keras.utils.register_keras_serializable(package="photo_score_project")
 class MergePatchBatch(tf.keras.layers.Layer):
     def __init__(self, patch_count: int, patch_size: int, channels: int = 3, **kwargs: Any) -> None:
@@ -90,10 +127,12 @@ def build_alamp_multipatch_teacher_model(
     patch_size: int = 224,
     backbone_weights: str | None = "imagenet",
     backbone_trainable: bool = False,
+    unfreeze_from_layer: str | None = None,
     head_units: int = 256,
     dropout_rate: float = 0.5,
 ) -> tf.keras.Model:
     backbone_weights = normalize_backbone_weights(backbone_weights)
+    unfreeze_from_layer = normalize_unfreeze_from_layer(unfreeze_from_layer)
 
     patches = tf.keras.Input(
         shape=(patch_count, patch_size, patch_size, 3),
@@ -111,9 +150,11 @@ def build_alamp_multipatch_teacher_model(
         input_shape=(patch_size, patch_size, 3),
         name="vgg16_backbone",
     )
-    backbone.trainable = bool(backbone_trainable)
-    for layer in backbone.layers:
-        layer.trainable = bool(backbone_trainable)
+    _set_vgg16_backbone_trainability(
+        backbone,
+        backbone_trainable=bool(backbone_trainable),
+        unfreeze_from_layer=unfreeze_from_layer,
+    )
 
     x = backbone(x)
     x = tf.keras.layers.GlobalAveragePooling2D(name="patch_gap")(x)
@@ -133,6 +174,7 @@ def build_alamp_multipatch_teacher_model(
         "backbone": "VGG16",
         "backbone_weights": backbone_weights,
         "backbone_trainable": bool(backbone_trainable),
+        "unfreeze_from_layer": unfreeze_from_layer,
         "patch_feature": "VGG16 include_top=False + GlobalAveragePooling2D",
         "aggregation": "orderless mean features concatenated with orderless max features",
         "head_units": int(head_units),
@@ -143,9 +185,21 @@ def build_alamp_multipatch_teacher_model(
 
 def set_vgg16_backbone_trainable(model: tf.keras.Model, trainable: bool) -> None:
     backbone = model.get_layer("vgg16_backbone")
-    backbone.trainable = bool(trainable)
-    for layer in backbone.layers:
-        layer.trainable = bool(trainable)
+    _set_vgg16_backbone_trainability(backbone, backbone_trainable=bool(trainable))
+
+
+def set_vgg16_backbone_trainability(
+    model: tf.keras.Model,
+    *,
+    backbone_trainable: bool,
+    unfreeze_from_layer: str | None = None,
+) -> None:
+    backbone = model.get_layer("vgg16_backbone")
+    _set_vgg16_backbone_trainability(
+        backbone,
+        backbone_trainable=bool(backbone_trainable),
+        unfreeze_from_layer=unfreeze_from_layer,
+    )
 
 
 def summarize_vgg16_trainability(model: tf.keras.Model) -> dict[str, Any]:

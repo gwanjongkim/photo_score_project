@@ -161,22 +161,41 @@ def make_external_patch_dataset(
     training: bool = False,
     repeat: bool = False,
     shuffle_seed: int = 42,
+    class_weights: dict[int, float] | None = None,
 ) -> tf.data.Dataset:
-    def generator() -> Iterator[tuple[np.ndarray, np.ndarray]]:
-        yield from iter_examples(
+    normalized_class_weights = (
+        {int(label): float(weight) for label, weight in class_weights.items()}
+        if class_weights is not None
+        else None
+    )
+
+    def generator() -> Iterator[Any]:
+        for patches, label in iter_examples(
             records,
             repo_root=repo_root,
             patch_size=patch_size,
             patch_count=patch_count,
             label_threshold=label_threshold,
+        ):
+            if normalized_class_weights is None:
+                yield patches, label
+                continue
+            label_key = int(float(label[0]) >= 0.5)
+            yield patches, label, np.asarray(normalized_class_weights[label_key], dtype=np.float32)
+
+    output_signature: tuple[tf.TensorSpec, ...] = (
+        tf.TensorSpec(shape=(patch_count, patch_size, patch_size, 3), dtype=tf.float32),
+        tf.TensorSpec(shape=(1,), dtype=tf.float32),
+    )
+    if normalized_class_weights is not None:
+        output_signature = (
+            *output_signature,
+            tf.TensorSpec(shape=(), dtype=tf.float32),
         )
 
     dataset = tf.data.Dataset.from_generator(
         generator,
-        output_signature=(
-            tf.TensorSpec(shape=(patch_count, patch_size, patch_size, 3), dtype=tf.float32),
-            tf.TensorSpec(shape=(1,), dtype=tf.float32),
-        ),
+        output_signature=output_signature,
     )
     if training:
         dataset = dataset.shuffle(

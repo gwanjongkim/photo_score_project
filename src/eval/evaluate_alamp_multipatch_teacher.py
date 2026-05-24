@@ -243,6 +243,12 @@ def _compute_summary_metrics(
     tn, fp, fn, tp = confusion_matrix(y_true, y_pred, labels=[0, 1]).ravel()
     positive_count = int(np.sum(y_true))
     sample_count = int(len(y_true))
+    specificity = float(tn / (tn + fp)) if (tn + fp) > 0 else None
+    balanced_accuracy = (
+        float((recall_score(y_true, y_pred, zero_division=0) + specificity) / 2.0)
+        if specificity is not None
+        else None
+    )
 
     return {
         "sample_count": sample_count,
@@ -253,9 +259,12 @@ def _compute_summary_metrics(
         "f1": float(f1_score(y_true, y_pred, zero_division=0)),
         "precision": float(precision_score(y_true, y_pred, zero_division=0)),
         "recall": float(recall_score(y_true, y_pred, zero_division=0)),
+        "specificity": specificity,
+        "balanced_accuracy": balanced_accuracy,
         "roc_auc": _optional_score("roc_auc", y_true, y_score),
         "average_precision": _optional_score("average_precision", y_true, y_score),
         "confusion_matrix": {"tn": int(tn), "fp": int(fp), "fn": int(fn), "tp": int(tp)},
+        "pred_positive_ratio": float(np.mean(y_pred)),
         "pred_min": float(np.min(y_score)),
         "pred_max": float(np.max(y_score)),
         "pred_mean": float(np.mean(y_score)),
@@ -328,8 +337,11 @@ def _write_report(path: Path, summary: dict[str, Any]) -> None:
             f"- F1 / F-measure: {_format_metric(summary['f1'])}",
             f"- Precision: {_format_metric(summary['precision'])}",
             f"- Recall: {_format_metric(summary['recall'])}",
+            f"- Specificity / negative recall: {_format_metric(summary['specificity'])}",
+            f"- Balanced accuracy: {_format_metric(summary['balanced_accuracy'])}",
             f"- ROC-AUC: {_format_metric(summary['roc_auc'])}",
             f"- Average Precision: {_format_metric(summary['average_precision'])}",
+            f"- Predicted positive ratio: {_format_metric(summary['pred_positive_ratio'])}",
             f"- Prediction min/max/mean/std: {_format_metric(summary['pred_min'])} / {_format_metric(summary['pred_max'])} / {_format_metric(summary['pred_mean'])} / {_format_metric(summary['pred_std'])}",
             "",
             "## 5. Confusion Matrix",
