@@ -1,0 +1,51 @@
+experiment:
+  name: alamp_dual_branch_teacher_ava_4096
+  model_variant: A-LAMP Dual-Branch GCN teacher prototype
+  official_full_alamp_reproduction: false
+  note: >
+    Teacher-strengthening prototype that fuses the validated external
+    Multi-Patch teacher input path with an existing YOLO object-graph GCN
+    branch. This is not a full A-LAMP reproduction.
+
+dataset:
+  train_jsonl: outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_train.jsonl
+  val_jsonl: outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_val.jsonl
+  test_jsonl: outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_test.jsonl
+  train_graph_jsonl: outputs/alamp_object_graph_subset_20260511/graphs_conf010/train_graphs_4096.jsonl
+  val_graph_jsonl: outputs/alamp_object_graph_subset_20260511/graphs_conf010/val_graphs_4096.jsonl
+  test_graph_jsonl: outputs/alamp_object_graph_subset_20260511/graphs_conf010/test_graphs_4096.jsonl
+  patch_box_role: external A-LAMP adaptive patch selections, not ground-truth labels
+  graph_role: YOLO object graph subset, not full A-LAMP Layout-Aware ground truth
+  label_rule: mean_score > 5.0 -> 1, else 0
+  label_threshold: 5.0
+
+model:
+  backbone: VGG16
+  backbone_weights: imagenet
+  backbone_trainable: false
+  patch_count: 5
+  patch_size: 224
+  max_objects: 4
+  node_feature_dim: 15
+  patch_feature_units: 256
+  gcn_units: 64
+  fusion_units: 256
+  dropout_rate: 0.4
+  gcn_layers: 2
+  aggregation: multipatch_orderless_mean_max_plus_layout_gcn
+
+training:
+  output_dir: outputs/alamp_dual_branch_teacher_4096_20260524/train
+  epochs: 3
+  batch_size: 4
+  learning_rate: 0.0001
+  loss: binary_crossentropy
+  metrics: [accuracy, auc, precision, recall]
+  monitor_metric: val_auc
+  monitor_mode: max
+  seed: 42
+
+evaluation:
+  output_dir: outputs/alamp_dual_branch_teacher_4096_20260524/eval
+  batch_size: 4
+  metrics: [accuracy, f1, precision, recall, roc_auc, average_precision, confusion_matrix]
