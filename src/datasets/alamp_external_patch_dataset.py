@@ -159,6 +159,7 @@ def make_external_patch_dataset(
     batch_size: int = 4,
     label_threshold: float = 5.0,
     training: bool = False,
+    repeat: bool = False,
     shuffle_seed: int = 42,
 ) -> tf.data.Dataset:
     def generator() -> Iterator[tuple[np.ndarray, np.ndarray]]:
@@ -183,4 +184,7 @@ def make_external_patch_dataset(
             seed=shuffle_seed,
             reshuffle_each_iteration=True,
         )
-    return dataset.batch(batch_size).prefetch(tf.data.AUTOTUNE)
+    dataset = dataset.batch(batch_size)
+    if repeat:
+        dataset = dataset.repeat()
+    return dataset.prefetch(tf.data.AUTOTUNE)

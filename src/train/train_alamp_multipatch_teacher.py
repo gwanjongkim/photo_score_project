@@ -260,6 +260,14 @@ def main() -> None:
     print(f"Val labels: {val_label_summary}")
     print(f"Preprocessing mode: {PREPROCESSING_MODE}")
 
+    steps_per_epoch = math.ceil(len(train_records) / batch_size)
+    validation_steps = math.ceil(len(val_records) / batch_size)
+    if steps_per_epoch <= 0 or validation_steps <= 0:
+        raise ValueError("Training and validation inputs must each provide at least one batch.")
+
+    train_repeat_enabled = True
+    val_repeat_enabled = True
+
     train_dataset = make_external_patch_dataset(
         train_records,
         patch_size=patch_size,
@@ -267,6 +275,7 @@ def main() -> None:
         batch_size=batch_size,
         label_threshold=label_threshold,
         training=True,
+        repeat=train_repeat_enabled,
         shuffle_seed=seed,
     )
     val_dataset = make_external_patch_dataset(
@@ -276,6 +285,7 @@ def main() -> None:
         batch_size=batch_size,
         label_threshold=label_threshold,
         training=False,
+        repeat=val_repeat_enabled,
         shuffle_seed=seed,
     )
 
@@ -291,11 +301,6 @@ def main() -> None:
     model_info = _model_summary(model)
     print(f"Model parameter count: {model_info['parameter_count']}")
     print(f"Backbone trainable: {backbone_trainable}")
-
-    steps_per_epoch = math.ceil(len(train_records) / batch_size)
-    validation_steps = math.ceil(len(val_records) / batch_size)
-    if steps_per_epoch <= 0 or validation_steps <= 0:
-        raise ValueError("Training and validation inputs must each provide at least one batch.")
 
     callbacks: list[tf.keras.callbacks.Callback] = [
         tf.keras.callbacks.ModelCheckpoint(
@@ -365,9 +370,13 @@ def main() -> None:
         },
         "training": {
             "epochs": int(epochs),
+            "train_count": len(train_records),
+            "val_count": len(val_records),
             "batch_size": int(batch_size),
             "steps_per_epoch": int(steps_per_epoch),
             "validation_steps": int(validation_steps),
+            "train_repeat": bool(train_repeat_enabled),
+            "val_repeat": bool(val_repeat_enabled),
             "learning_rate": float(learning_rate),
             "backbone_trainable": bool(backbone_trainable),
             "loss": "binary_crossentropy",
