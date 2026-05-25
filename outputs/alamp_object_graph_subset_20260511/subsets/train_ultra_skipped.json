@@ -1,0 +1,7 @@
+[
+  {
+    "row_index": 348,
+    "image_path": "data/raw/ava/images/277832.jpg",
+    "error": "OSError('image file is truncated (59 bytes not processed)')"
+  }
+]

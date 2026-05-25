@@ -1,0 +1,89 @@
+{
+  "experiment_name": "gemma4_e4b_aesthetic3_smoke_pass2",
+  "config_path": "configs/gemma4_e4b_aesthetic3_train_smoke_pass2.json",
+  "dataset_dir": "outputs/gemma4_e4b_aesthetic3_smoke",
+  "output_dir": "outputs/gemma4_e4b_aesthetic3_smoke/train_run_pass2",
+  "python_executable": "/home/omen_pc1/photo_score_project/.venv_vila/bin/python",
+  "cwd": "/home/omen_pc1/photo_score_project",
+  "environment": {
+    "HF_HOME": "/home/omen_pc1/photo_score_project/outputs/gemma4_e4b_aesthetic3_smoke/train_run_pass2/hf_cache",
+    "HF_HUB_CACHE": "/home/omen_pc1/photo_score_project/outputs/gemma4_e4b_aesthetic3_smoke/train_run_pass2/hf_cache/hub",
+    "TRANSFORMERS_CACHE": "/home/omen_pc1/photo_score_project/outputs/gemma4_e4b_aesthetic3_smoke/train_run_pass2/hf_cache/transformers",
+    "CUDA_VISIBLE_DEVICES": null,
+    "huggingface_token_present": true
+  },
+  "manifests": {
+    "train": "outputs/gemma4_e4b_aesthetic3_smoke/train.jsonl",
+    "val": "outputs/gemma4_e4b_aesthetic3_smoke/val.jsonl",
+    "tests": {
+      "test": "outputs/gemma4_e4b_aesthetic3_smoke/test.jsonl",
+      "test_vila": "outputs/gemma4_e4b_aesthetic3_smoke/test_vila.jsonl"
+    }
+  },
+  "manifest_summary": {
+    "train": {
+      "exists": true,
+      "rows": 8
+    },
+    "val": {
+      "exists": true,
+      "rows": 3
+    },
+    "tests": {
+      "test": {
+        "exists": true,
+        "rows": 2
+      },
+      "test_vila": {
+        "exists": true,
+        "rows": 36
+      }
+    }
+  },
+  "dependencies": {
+    "torch": {
+      "available": true,
+      "version": "2.11.0+cu130"
+    },
+    "transformers": {
+      "available": true,
+      "version": "5.6.2"
+    },
+    "datasets": {
+      "available": true,
+      "version": "4.8.4"
+    },
+    "trl": {
+      "available": true,
+      "version": "1.2.0"
+    },
+    "peft": {
+      "available": true,
+      "version": "0.19.1"
+    },
+    "accelerate": {
+      "available": true,
+      "version": "1.13.0"
+    },
+    "bitsandbytes": {
+      "available": false,
+      "error": "ModuleNotFoundError: No module named 'bitsandbytes'"
+    }
+  },
+  "torch_cuda": {
+    "available": true,
+    "device_count": 1,
+    "devices": [
+      "NVIDIA GeForce RTX 4070 SUPER"
+    ]
+  },
+  "transformers_supports_gemma4": true,
+  "model_name_or_path": "google/gemma-4-E4B-it",
+  "local_model_exists": false,
+  "blocked_reasons": [],
+  "ready_to_train": true,
+  "notes": [
+    "This path expects a Gemma 4 image-text checkpoint plus TRL/PEFT/datasets in the active environment.",
+    "The current repo smoke dataset is intentionally small and is for pipeline proving, not for a production-quality student."
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "image_count": 50,
+  "valid_image_count": 50,
+  "old_model_runnable": true,
+  "stage5_student_runnable": true,
+  "stage5_reference_runnable": true,
+  "spearman_old_vs_student": 0.4520048019207683,
+  "spearman_student_vs_reference": 0.5440096038415366,
+  "spearman_old_vs_reference": 0.6383193277310925,
+  "top1_old": "1675342165226-3.jpg",
+  "top1_student": "1675564674752-17.jpg",
+  "top1_stage5_reference": "20231231_150055.jpg",
+  "top5_old": [
+    "1675342165226-3.jpg",
+    "1675342165226-13.jpg",
+    "20231231_150055.jpg",
+    "1675342165226-5.jpg",
+    "20250204_174237(0).jpg"
+  ],
+  "top5_student": [
+    "1675564674752-17.jpg",
+    "20231231_150055.jpg",
+    "1675564674752-15.jpg",
+    "20240506_140415.jpg",
+    "IMG_2729.JPG"
+  ],
+  "top5_stage5_reference": [
+    "20231231_150055.jpg",
+    "1675564423029-24.jpg",
+    "20250204_174237(0).jpg",
+    "1675342165226-3.jpg",
+    "20250204_163550.jpg"
+  ],
+  "top5_overlap_old_vs_student": 1,
+  "top5_overlap_student_vs_reference": 1,
+  "top5_overlap_old_vs_reference": 3,
+  "high_disagreement_count_old_vs_student": 27,
+  "high_disagreement_count_student_vs_reference": 22,
+  "high_disagreement_count_old_vs_reference": 19
+}

@@ -1,0 +1,6 @@
+deterministic random stage-2 input block3: direct_same_input_mlp=pass full_flow_first_failure=block3_mlp_output direct_first_failure=None
+deterministic random stage-2 input block4: direct_same_input_mlp=pass full_flow_first_failure=block4_block_input direct_first_failure=None
+captured stage-2 input from deterministic random image block3: direct_same_input_mlp=pass full_flow_first_failure=None direct_first_failure=None
+captured stage-2 input from deterministic random image block4: direct_same_input_mlp=pass full_flow_first_failure=block4_mlp_output direct_first_failure=None
+captured stage-2 input from 3 real ICAA17K images block3: direct_same_input_mlp=pass full_flow_first_failure=block3_mlp_output direct_first_failure=None
+captured stage-2 input from 3 real ICAA17K images block4: direct_same_input_mlp=pass full_flow_first_failure=block4_block_input direct_first_failure=None

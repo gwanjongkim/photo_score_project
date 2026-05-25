@@ -1,0 +1,39 @@
+{
+  "candidates": {
+    "ultralytics_yolo": {
+      "ease_of_install": "high",
+      "speed": "very_fast",
+      "gpu_support": true,
+      "api_simplicity": "high",
+      "suitability": "high"
+    },
+    "torchvision_faster_rcnn": {
+      "ease_of_install": "high",
+      "speed": "fast",
+      "gpu_support": true,
+      "api_simplicity": "low",
+      "suitability": "medium"
+    },
+    "detectron2": {
+      "ease_of_install": "low",
+      "speed": "fast",
+      "gpu_support": true,
+      "api_simplicity": "medium",
+      "suitability": "low"
+    },
+    "rt_detr": {
+      "ease_of_install": "high",
+      "speed": "fast",
+      "gpu_support": true,
+      "api_simplicity": "high",
+      "suitability": "high"
+    },
+    "groundingdino": {
+      "ease_of_install": "low",
+      "speed": "slow",
+      "gpu_support": true,
+      "api_simplicity": "low",
+      "suitability": "low"
+    }
+  }
+}

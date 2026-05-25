@@ -1,0 +1,69 @@
+{
+  "fp32_reference_tflite_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp32_20260516_140027/icaa_dat_tf_native_fp32.tflite",
+  "fp16_tflite_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp16_20260516_144023/icaa_dat_tf_native_fp16.tflite",
+  "results": [
+    {
+      "name": "random_normalized_input",
+      "status": "pass_acceptable",
+      "pass_preferred": false,
+      "pass_acceptable": true,
+      "hard_color_fail": false,
+      "full_max_abs_diff": 0.0004916191101074219,
+      "full_mean_abs_diff": 0.0003358572721481323,
+      "mos_max_abs_diff": 0.00018009543418884277,
+      "mos_mean_abs_diff": 0.00018009543418884277,
+      "color_max_abs_diff": 0.0004916191101074219,
+      "color_mean_abs_diff": 0.0004916191101074219,
+      "reference_shape": [
+        1,
+        2
+      ],
+      "candidate_shape": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "16_real_images",
+      "status": "pass_acceptable",
+      "pass_preferred": false,
+      "pass_acceptable": true,
+      "hard_color_fail": false,
+      "full_max_abs_diff": 0.0007985234260559082,
+      "full_mean_abs_diff": 0.00014095939695835114,
+      "mos_max_abs_diff": 0.0004864335060119629,
+      "mos_mean_abs_diff": 0.0001384541392326355,
+      "color_max_abs_diff": 0.0007985234260559082,
+      "color_mean_abs_diff": 0.00014346465468406677,
+      "reference_shape": [
+        16,
+        2
+      ],
+      "candidate_shape": [
+        16,
+        2
+      ]
+    },
+    {
+      "name": "64_real_images",
+      "status": "pass_acceptable",
+      "pass_preferred": false,
+      "pass_acceptable": true,
+      "hard_color_fail": false,
+      "full_max_abs_diff": 0.002588212490081787,
+      "full_mean_abs_diff": 0.00017576944082975388,
+      "mos_max_abs_diff": 0.002588212490081787,
+      "mos_mean_abs_diff": 0.00021688733249902725,
+      "color_max_abs_diff": 0.0010600090026855469,
+      "color_mean_abs_diff": 0.0001346515491604805,
+      "reference_shape": [
+        64,
+        2
+      ],
+      "candidate_shape": [
+        64,
+        2
+      ]
+    }
+  ]
+}

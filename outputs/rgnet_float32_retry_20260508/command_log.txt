@@ -1,0 +1,282 @@
+# RGNet Float32 Retry Command Log
+
+## Environment Discovery
+
+Command: `pwd`
+Output:
+```text
+/home/omen_pc1/photo_score_project
+```
+
+Command: `date`
+Output:
+```text
+Fri May  8 21:16:04 KST 2026
+```
+
+Command: `git status --short`
+Output:
+```text
+ M README.md
+ M docs/acut_product_integration.md
+ M requirements-vila.txt
+ M src/firebase/acut_job_worker.py
+ M src/infer/acut_product_export.py
+ M src/infer/generate_multimodal_explanations.py
+ M src/infer/predict_quality_bundle.py
+ M src/infer/run_acut_pipeline.py
+ M src/infer/score_image_folder.py
+ M src/infer/select_best_shots.py
+ M src/infer/smoke_test_acut_product_pipeline.py
+ M src/infer/stage5_reference.py
+ M src/vila/explain_acut_selection.py
+?? =0.45.0
+?? AGENTS.md
+?? "GEMINI - \\353\\263\\265\\354\\202\\254\\353\\263\\270.md:Zone.Identifier"
+?? GEMINI.md
+?? "TROUBLESHOOTING - \\353\\263\\265\\354\\202\\254\\353\\263\\270.md:Zone.Identifier"
+?? android_gemma_latency_harness/
+?? configs/gemma4_e4b_aesthetic3_dataset_smoke.json
+?? configs/gemma4_e4b_aesthetic3_dataset_smoke_pass2.json
+?? configs/gemma4_e4b_aesthetic3_teacher.json
+?? configs/gemma4_e4b_aesthetic3_teacher_overrides_pass2.json
+?? configs/gemma4_e4b_aesthetic3_train_smoke.json
+?? configs/gemma4_e4b_aesthetic3_train_smoke_pass2.json
+?? configs/gemma4_e4b_aesthetic3_train_smoke_pass2b.json
+?? configs/gemma4_e4b_gemini_teacher_282_train.json
+?? configs/stage5_student_server.json
+?? configs/stage5_student_server_weights.json
+?? configs/student_distill_baseline.json
+?? configs/student_distill_conservative_full_aadb_20260423.json
+?? configs/student_distill_dry_run.json
+?? configs/student_distill_full_aadb.json
+?? configs/student_distill_full_run.json
+?? configs/student_distill_teacher.json
+?? configs/student_distill_teacher_conservative_aadb.json
+?? docs/pozy_app_stage5_aesthetic_student_handoff.md
+?? docs/student_distillation_baseline.md
+?? exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.comparison.json
+?? exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.metadata.json
+?? exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.tflite
+?? exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.verify.json
+?? exports/tflite/student_conservative_aesthetic_full_aadb_20260423.metadata.json
+?? exports/tflite/student_conservative_aesthetic_full_aadb_20260423_fp16_builtin.tflite
+?? gpu_check.py
+?? pytorch_gpu_check.py
+?? requirements-gemma4-distill.txt
+?? run_evaluation.py
+?? src/distill/
+?? src/gemma_distill/
+?? src/infer/explanation_contract.py
+?? src/infer/vila_full_local_worker.py
+?? test_outputs/distill_dry_run_probe/
+?? test_vila/
+?? tools/build_acut_human_review_package.py
+?? tools/build_aesthetic_only_comparison.py
+?? tools/build_raw_aesthetic_scores_html.py
+?? tools/diagnose_gemma_visual_grounding.py
+?? tools/gemini_api_teacher_pipeline.py
+?? tools/gemma4_bnb4_quantized_save.py
+?? tools/gemma4_e4b_aesthetic3_expanded_pipeline.py
+?? tools/gemma4_latency_probe.py
+?? tools/run_aesthetic_ensemble_experiment.py
+?? tools/temp_download.py
+```
+
+Command: `./.venv_gpu/bin/python --version`
+Output:
+```text
+Python 3.12.3
+```
+
+Command: `nvidia-smi`
+Output:
+```text
+NVIDIA-SMI 590.48.01, Driver Version 591.55, CUDA Version 13.1.
+GPU 0: NVIDIA GeForce RTX 4070 family, 12282 MiB memory, visible.
+```
+
+Command: `./.venv_gpu/bin/python -c "import tensorflow as tf; from tensorflow.keras import mixed_precision; print('tensorflow', tf.__version__); print('mixed_precision_policy', mixed_precision.global_policy())"`
+Output:
+```text
+tensorflow 2.20.0
+mixed_precision_policy <DTypePolicy "float32">
+```
+
+## Setup
+
+Command: `mkdir -p outputs/rgnet_float32_retry_20260508/scripts outputs/rgnet_float32_retry_20260508/logs outputs/rgnet_float32_retry_20260508/tflite outputs/rgnet_float32_retry_20260508/eval`
+Output:
+```text
+```
+
+Command: `./.venv_gpu/bin/python -m py_compile outputs/rgnet_float32_retry_20260508/scripts/train_rgnet_float32.py outputs/rgnet_float32_retry_20260508/scripts/finetune_rgnet_float32.py outputs/rgnet_float32_retry_20260508/scripts/export_rgnet_float32_tflite.py outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py`
+Output:
+```text
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/train_rgnet_float32.py --train_csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_train_unit_smoke_128.csv --val_csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_smoke_64.csv --target_col aesthetic_unit_score --image_size 256 --batch_size 8 --epochs 1 --out_dir outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_smoke`
+Output:
+```text
+Failed before training: ModuleNotFoundError: No module named 'src'
+```
+
+Command: `./.venv_gpu/bin/python -m py_compile outputs/rgnet_float32_retry_20260508/scripts/train_rgnet_float32.py outputs/rgnet_float32_retry_20260508/scripts/finetune_rgnet_float32.py outputs/rgnet_float32_retry_20260508/scripts/export_rgnet_float32_tflite.py outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py`
+Output:
+```text
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/train_rgnet_float32.py --train_csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_train_unit_smoke_128.csv --val_csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_smoke_64.csv --target_col aesthetic_unit_score --image_size 256 --batch_size 8 --epochs 1 --out_dir outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_smoke`
+Output:
+```text
+Succeeded. Artifacts written under outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_smoke/.
+epochs_completed=1 best_val_loss=0.01752258464694023 best_val_mae=0.11260972917079926
+mixed_precision_policy=<DTypePolicy "float32"> bad_mixed_float16_layers=[] bad_non_float32_weights=[]
+Note: sandboxed TensorFlow reported cuInit UNKNOWN ERROR (100), visible_gpus=[], and ImageNet weight download failed; smoke used random-init fallback.
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/export_rgnet_float32_tflite.py --model_path outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_smoke/final_model.keras --saved_model_dir outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_smoke/saved_model --output_tflite outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_smoke.tflite --metadata_json outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_smoke.metadata.json --verify_json outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_smoke.verify.json --parity_csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_smoke_64.csv --image_size 256 --parity_count 20 --threshold 1e-4`
+Output:
+```text
+Succeeded. verification_passed=true
+input_shape=[1,256,256,3] output_shape=[1,1] flex_ops=[]
+reference_max_abs_diff=8.940696716308594e-08 multi_image_max_abs_diff=1.4901161193847656e-07
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/train_rgnet_float32.py --train_csv data/processed/ava/train_unit.csv --val_csv data/processed/ava/val_unit.csv --target_col aesthetic_unit_score --image_size 256 --batch_size 16 --epochs 10 --out_dir outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain`
+Output:
+```text
+Succeeded under escalated GPU access.
+epochs_completed=6 best_val_loss=0.005768290255218744 best_val_mae=0.05948878079652786
+mixed_precision_policy=<DTypePolicy "float32"> visible_gpus=["PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"]
+bad_mixed_float16_layers=[] bad_non_float32_weights=[]
+Artifacts written under outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain/.
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/finetune_rgnet_float32.py --source_model outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain/final_model.keras --train_csv data/processed/aadb/train.csv --val_csv data/processed/aadb/val.csv --target_col score --image_size 256 --batch_size 16 --epochs 10 --learning_rate 1e-5 --out_dir outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain_aadb_finetune`
+Output:
+```text
+Succeeded under escalated GPU access.
+epochs_completed=10 best_val_loss=0.020968850702047348 best_val_mae=0.11363933235406876
+mixed_precision_policy=<DTypePolicy "float32"> visible_gpus=["PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"]
+bad_mixed_float16_layers=[] bad_non_float32_weights=[]
+Artifacts written under outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain_aadb_finetune/.
+```
+
+## Keras Fixed-Subset Evaluation
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py --model_type keras --model_path checkpoints/rgnet_aadb_gpu/final_model.keras --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv --target_col aesthetic_unit_score --output_dir outputs/rgnet_float32_retry_20260508/eval --model_name baseline_rgnet_aadb__ava_val512 --image_size 256 --batch_size 16`
+Output:
+```text
+Failed before metrics: loaded baseline model contains mixed_float16 layer policies. Reran as historical comparison with --allow_mixed_loaded_model.
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py --model_type keras --model_path checkpoints/rgnet_aadb_gpu/final_model.keras --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv --target_col aesthetic_unit_score --output_dir outputs/rgnet_float32_retry_20260508/eval --model_name baseline_rgnet_aadb__ava_val512 --image_size 256 --batch_size 16 --allow_mixed_loaded_model`
+Output:
+```text
+SRCC=0.14077789593699444 PLCC=0.157192750712466 MAE=0.09711496531963348 RMSE=0.12031940945069132 seconds_per_image=0.019634715886718723
+metrics=outputs/rgnet_float32_retry_20260508/eval/baseline_rgnet_aadb__ava_val512_metrics.json
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py --model_type keras --model_path checkpoints/rgnet_aadb_gpu/final_model.keras --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv --target_col score --output_dir outputs/rgnet_float32_retry_20260508/eval --model_name baseline_rgnet_aadb__aadb_val512 --image_size 256 --batch_size 16 --allow_mixed_loaded_model`
+Output:
+```text
+SRCC=0.4711299568129641 PLCC=0.46697205942455955 MAE=0.13504812121391296 RMSE=0.16780081382389012 seconds_per_image=0.022207672167967374
+metrics=outputs/rgnet_float32_retry_20260508/eval/baseline_rgnet_aadb__aadb_val512_metrics.json
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py --model_type keras --model_path outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv --target_col aesthetic_unit_score --output_dir outputs/rgnet_float32_retry_20260508/eval --model_name prior_mixed_rgnet_ava_aadb__ava_val512 --image_size 256 --batch_size 16 --allow_mixed_loaded_model`
+Output:
+```text
+SRCC=0.4520509803187913 PLCC=0.46563421498619184 MAE=0.13229940831661224 RMSE=0.16232991441398958 seconds_per_image=0.019414048126952466
+metrics=outputs/rgnet_float32_retry_20260508/eval/prior_mixed_rgnet_ava_aadb__ava_val512_metrics.json
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py --model_type keras --model_path outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv --target_col score --output_dir outputs/rgnet_float32_retry_20260508/eval --model_name prior_mixed_rgnet_ava_aadb__aadb_val512 --image_size 256 --batch_size 16 --allow_mixed_loaded_model`
+Output:
+```text
+SRCC=0.580446834508655 PLCC=0.584390691147201 MAE=0.23200014233589172 RMSE=0.27029170689514653 seconds_per_image=0.02347525369335912
+metrics=outputs/rgnet_float32_retry_20260508/eval/prior_mixed_rgnet_ava_aadb__aadb_val512_metrics.json
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py --model_type keras --model_path outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain/final_model.keras --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv --target_col aesthetic_unit_score --output_dir outputs/rgnet_float32_retry_20260508/eval --model_name new_float32_rgnet_ava_pretrain__ava_val512 --image_size 256 --batch_size 16`
+Output:
+```text
+SRCC=0.4940239592379548 PLCC=0.5057546414268715 MAE=0.05581295117735863 RMSE=0.07273106568508096 seconds_per_image=0.01541781349414073
+metrics=outputs/rgnet_float32_retry_20260508/eval/new_float32_rgnet_ava_pretrain__ava_val512_metrics.json
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py --model_type keras --model_path outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain/final_model.keras --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv --target_col score --output_dir outputs/rgnet_float32_retry_20260508/eval --model_name new_float32_rgnet_ava_pretrain__aadb_val512 --image_size 256 --batch_size 16`
+Output:
+```text
+SRCC=0.2816482715043631 PLCC=0.3057276205329838 MAE=0.16346511244773865 RMSE=0.19794136863616146 seconds_per_image=0.017897538900390586
+metrics=outputs/rgnet_float32_retry_20260508/eval/new_float32_rgnet_ava_pretrain__aadb_val512_metrics.json
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py --model_type keras --model_path outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain_aadb_finetune/final_model.keras --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv --target_col aesthetic_unit_score --output_dir outputs/rgnet_float32_retry_20260508/eval --model_name new_float32_rgnet_ava_aadb__ava_val512 --image_size 256 --batch_size 16`
+Output:
+```text
+SRCC=0.45681321620707055 PLCC=0.46246555579940596 MAE=0.11959434300661087 RMSE=0.14781312379846545 seconds_per_image=0.015953166998047053
+metrics=outputs/rgnet_float32_retry_20260508/eval/new_float32_rgnet_ava_aadb__ava_val512_metrics.json
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py --model_type keras --model_path outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain_aadb_finetune/final_model.keras --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv --target_col score --output_dir outputs/rgnet_float32_retry_20260508/eval --model_name new_float32_rgnet_ava_aadb__aadb_val512 --image_size 256 --batch_size 16`
+Output:
+```text
+SRCC=0.570531093650961 PLCC=0.5728452675471378 MAE=0.22376874089241028 RMSE=0.26218480987441833 seconds_per_image=0.01788408916406148
+metrics=outputs/rgnet_float32_retry_20260508/eval/new_float32_rgnet_ava_aadb__aadb_val512_metrics.json
+```
+
+## Builtin TFLite Export and Parity
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/export_rgnet_float32_tflite.py --model_path outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain_aadb_finetune/final_model.keras --saved_model_dir outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain_aadb_finetune/saved_model --output_tflite outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_aadb_finetune.tflite --metadata_json outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_aadb_finetune.metadata.json --verify_json outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_aadb_finetune.verify.json --parity_csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv --image_size 256 --parity_count 20 --threshold 1e-4`
+Output:
+```text
+Succeeded. verification_passed=true
+conversion_status=success requires_select_tf_ops=false flex_ops=[]
+input_shape=[1,256,256,3] output_shape=[1,1] tflite_size_bytes=26050560
+reference_max_abs_diff=7.927417755126953e-06 multi_image_max_abs_diff=1.9490718841552734e-05
+```
+
+## TFLite Fixed-Subset Evaluation
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py --model_type tflite --model_path outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_aadb_finetune.tflite --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv --target_col aesthetic_unit_score --output_dir outputs/rgnet_float32_retry_20260508/eval --model_name tflite_float32_rgnet_ava_aadb__ava_val512 --image_size 256 --num_threads 1`
+Output:
+```text
+SRCC=0.4568612726384638 PLCC=0.46224949495572965 MAE=0.11947914212942123 RMSE=0.14769825564935046 seconds_per_image=0.021506484888671906
+metrics=outputs/rgnet_float32_retry_20260508/eval/tflite_float32_rgnet_ava_aadb__ava_val512_metrics.json
+```
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py --model_type tflite --model_path outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_aadb_finetune.tflite --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv --target_col score --output_dir outputs/rgnet_float32_retry_20260508/eval --model_name tflite_float32_rgnet_ava_aadb__aadb_val512 --image_size 256 --num_threads 1`
+Output:
+```text
+SRCC=0.5708929646581344 PLCC=0.5731698530014868 MAE=0.22336196899414062 RMSE=0.26178353489942735 seconds_per_image=0.023868879074218086
+metrics=outputs/rgnet_float32_retry_20260508/eval/tflite_float32_rgnet_ava_aadb__aadb_val512_metrics.json
+```
+
+## Final Report
+
+Command: `./.venv_gpu/bin/python outputs/rgnet_float32_retry_20260508/scripts/write_rgnet_float32_report.py`
+Output:
+```text
+wrote outputs/rgnet_float32_retry_20260508/rgnet_float32_report.md
+wrote outputs/rgnet_float32_retry_20260508/rgnet_float32_summary.json
+```
+
+Command: `./.venv_gpu/bin/python -m py_compile outputs/rgnet_float32_retry_20260508/scripts/train_rgnet_float32.py outputs/rgnet_float32_retry_20260508/scripts/finetune_rgnet_float32.py outputs/rgnet_float32_retry_20260508/scripts/export_rgnet_float32_tflite.py outputs/rgnet_float32_retry_20260508/scripts/evaluate_rgnet_float32.py outputs/rgnet_float32_retry_20260508/scripts/write_rgnet_float32_report.py`
+Output:
+```text
+Succeeded.
+```
+
+Command: `./.venv_gpu/bin/python -m json.tool outputs/rgnet_float32_retry_20260508/rgnet_float32_summary.json >/tmp/rgnet_float32_summary.valid.json`
+Output:
+```text
+Succeeded.
+```
+
+Command: `./.venv_gpu/bin/python -m json.tool outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_aadb_finetune.verify.json >/tmp/rgnet_float32_verify.valid.json`
+Output:
+```text
+Succeeded.
+```

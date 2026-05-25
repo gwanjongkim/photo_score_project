@@ -1,0 +1,9 @@
+image_path,keras_score,tflite_score,diff
+/home/omen_pc1/photo_score_project/data/raw/flive/blur_dataset/out_of_focus0154.jpg,64.3331527709961,64.34330940246582,0.010156631469726562
+/home/omen_pc1/photo_score_project/data/raw/flive/voc_emotic_ava/VOC2012__2012_000405.jpg,69.51772570610046,69.52331066131592,0.0055849552154541016
+/home/omen_pc1/photo_score_project/data/raw/flive/voc_emotic_ava/AVA__627738.jpg,78.14093828201294,78.13524007797241,0.005698204040527344
+/home/omen_pc1/photo_score_project/data/raw/flive/voc_emotic_ava/VOC2012__2009_002133.jpg,67.72417426109314,67.72818565368652,0.004011392593383789
+/home/omen_pc1/photo_score_project/data/raw/flive/voc_emotic_ava/EMOTIC__COCO_train2014_000000161438.jpg,76.89149379730225,76.89643502235413,0.004941225051879883
+/home/omen_pc1/photo_score_project/data/raw/flive/voc_emotic_ava/VOC2012__2009_005139.jpg,69.92179751396179,69.92484331130981,0.003045797348022461
+/home/omen_pc1/photo_score_project/data/raw/flive/voc_emotic_ava/VOC2012__2011_005090.jpg,79.02655601501465,79.02600169181824,0.0005543231964111328
+/home/omen_pc1/photo_score_project/data/raw/flive/voc_emotic_ava/VOC2012__2011_000097.jpg,70.78874111175537,70.79578638076782,0.007045269012451172

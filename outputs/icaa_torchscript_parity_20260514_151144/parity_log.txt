@@ -1,0 +1,71 @@
+official repo path: /home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code
+checkpoint path: /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+traced model path: /home/omen_pc1/photo_score_project/outputs/icaa_export_torchscript_20260514_150436/icaa_dat_traced.pt
+output dir: /home/omen_pc1/photo_score_project/outputs/icaa_torchscript_parity_20260514_151144
+device: cpu
+checkpoint key count: 487
+patch_proj.0.weight shape: (128, 3, 4, 4)
+missing keys: []
+unexpected keys: []
+original PyTorch checkpoint strict load: ok
+traced TorchScript load: ok
+csv rows read: 32
+evaluable images: 32
+missing image rows skipped: 0
+parity pass: False
+error: The following operation failed in the TorchScript interpreter.
+Traceback of TorchScript, serialized code (most recent call last):
+  File "code/__torch__.py", line 10, in forward
+    x: Tensor) -> Tensor:
+    model = self.model
+    return (model).forward(x, )
+            ~~~~~~~~~~~~~~ <--- HERE
+  File "code/__torch__/models/dat.py", line 43, in forward
+    _4 = (_00).forward((patch_proj).forward(x, ), )
+    _5 = (_1).forward((_10).forward((_0).forward(_4, ), ), )
+    _6 = (_3).forward((_2).forward((_20).forward(_5, ), ), )
+                                    ~~~~~~~~~~~~ <--- HERE
+    x0 = torch.adaptive_avg_pool2d((cls_norm).forward(_6, ), [1, 1])
+    input = torch.flatten(x0, 1)
+  File "code/__torch__/models/dat/___torch_mangle_470.py", line 201, in forward
+    _46 = (_00).forward1()
+    x0 = torch.add(_45, x)
+    _47 = (_114).forward((_212).forward(x0, ), )
+           ~~~~~~~~~~~~~ <--- HERE
+    _48 = (_113).forward()
+    x1 = torch.add(_47, x0)
+  File "code/__torch__/models/dat_blocks.py", line 388, in forward
+    _143 = [torch.lift_fresh(CONSTANTS.c9), torch.lift_fresh(CONSTANTS.c9)]
+    manu_offset_ = torch.to(torch.to(torch.cat(_143, 3), 6), dtype=6, layout=0, device=torch.device("cpu"))
+    offset0 = torch.mul(offset, manu_offset_)
+              ~~~~~~~~~ <--- HERE
+    pos = torch.mul(torch.add(offset0, reference), gate0)
+    _144 = [int(torch.mul(B, CONSTANTS.c3)), 128, _119, _122]
+
+Traceback of TorchScript, original code (most recent call last):
+/home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/models/dat_blocks.py(270): forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl
+/home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/models/dat.py(77): forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl
+/home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/models/dat.py(220): forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl
+/home/omen_pc1/photo_score_project/scripts/export_icaa_torchscript_smoke.py(123): forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/jit/_trace.py(1278): trace_module
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/jit/_trace.py(698): _trace_impl
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/jit/_trace.py(1002): trace
+/home/omen_pc1/photo_score_project/scripts/export_icaa_torchscript_smoke.py(230): main
+/home/omen_pc1/photo_score_project/scripts/export_icaa_torchscript_smoke.py(326): <module>
+RuntimeError: The size of tensor a (32) must match the size of tensor b (4) at non-singleton dimension 0
+
+parity_predictions.csv: /home/omen_pc1/photo_score_project/outputs/icaa_torchscript_parity_20260514_151144/parity_predictions.csv
+parity_report.json: /home/omen_pc1/photo_score_project/outputs/icaa_torchscript_parity_20260514_151144/parity_report.json
+parity_log.txt: /home/omen_pc1/photo_score_project/outputs/icaa_torchscript_parity_20260514_151144/parity_log.txt

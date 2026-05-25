@@ -1,0 +1,63 @@
+DistortionGuard-IQA v1 Stage B Trainable Layers
+
+freeze_backbone: False
+partial_unfreeze: True
+unfreeze_top_blocks: 3
+selected_top_blocks: ['block6f', 'block6g', 'block6h']
+freeze_batch_norm: True
+batch_norm_frozen_count: 59
+batch_norm_trainable_count: 0
+trainable_params: 2693905
+non_trainable_params: 3979968
+trainable_backbone_param_estimate: 1939344
+
+trainable_layers:
+efficientnetv2-b0/block6f_expand_conv
+efficientnetv2-b0/block6f_expand_activation
+efficientnetv2-b0/block6f_dwconv2
+efficientnetv2-b0/block6f_activation
+efficientnetv2-b0/block6f_se_squeeze
+efficientnetv2-b0/block6f_se_reshape
+efficientnetv2-b0/block6f_se_reduce
+efficientnetv2-b0/block6f_se_expand
+efficientnetv2-b0/block6f_se_excite
+efficientnetv2-b0/block6f_project_conv
+efficientnetv2-b0/block6f_drop
+efficientnetv2-b0/block6f_add
+efficientnetv2-b0/block6g_expand_conv
+efficientnetv2-b0/block6g_expand_activation
+efficientnetv2-b0/block6g_dwconv2
+efficientnetv2-b0/block6g_activation
+efficientnetv2-b0/block6g_se_squeeze
+efficientnetv2-b0/block6g_se_reshape
+efficientnetv2-b0/block6g_se_reduce
+efficientnetv2-b0/block6g_se_expand
+efficientnetv2-b0/block6g_se_excite
+efficientnetv2-b0/block6g_project_conv
+efficientnetv2-b0/block6g_drop
+efficientnetv2-b0/block6g_add
+efficientnetv2-b0/block6h_expand_conv
+efficientnetv2-b0/block6h_expand_activation
+efficientnetv2-b0/block6h_dwconv2
+efficientnetv2-b0/block6h_activation
+efficientnetv2-b0/block6h_se_squeeze
+efficientnetv2-b0/block6h_se_reshape
+efficientnetv2-b0/block6h_se_reduce
+efficientnetv2-b0/block6h_se_expand
+efficientnetv2-b0/block6h_se_excite
+efficientnetv2-b0/block6h_project_conv
+efficientnetv2-b0/block6h_drop
+efficientnetv2-b0/block6h_add
+efficientnetv2-b0/top_conv
+efficientnetv2-b0/top_activation
+image
+stagea_gap
+stagea_gmp
+stagea_pool_concat
+stagea_dense
+stagea_dropout
+stagea_embedding
+technical_head_dense
+technical_head_dropout
+technical_head_dense_half
+technical_score

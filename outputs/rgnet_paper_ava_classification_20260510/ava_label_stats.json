@@ -1,0 +1,73 @@
+{
+  "created_at_local": "2026-05-10T21:54:03.994976+09:00",
+  "dataset": "AVA",
+  "image_dir": "data/raw/ava/images",
+  "image_col": "image_path",
+  "score_col": "mean_score",
+  "label_rule": "label = 1 if mean_score >= 5.0 else 0",
+  "splits": {
+    "train": {
+      "csv": "data/processed/ava/train.csv",
+      "samples": 204406,
+      "required_columns_present": true,
+      "missing_columns": [],
+      "image_paths_checked": 204406,
+      "image_paths_resolved": 204406,
+      "missing_image_count": 0,
+      "missing_image_examples": [],
+      "mean_score": {
+        "min": 1.8089888,
+        "max": 8.571428,
+        "mean": 5.382868146622408
+      },
+      "label_rule": "mean_score >= 5.0",
+      "label_threshold": 5.0,
+      "positive_count": 145219,
+      "negative_count": 59187,
+      "positive_ratio": 0.710443920432864,
+      "negative_ratio": 0.28955607956713597
+    },
+    "val": {
+      "csv": "data/processed/ava/val.csv",
+      "samples": 25551,
+      "required_columns_present": true,
+      "missing_columns": [],
+      "image_paths_checked": 25551,
+      "image_paths_resolved": 25551,
+      "missing_image_count": 0,
+      "missing_image_examples": [],
+      "mean_score": {
+        "min": 2.1409397,
+        "max": 8.6,
+        "mean": 5.376929954220969
+      },
+      "label_rule": "mean_score >= 5.0",
+      "label_threshold": 5.0,
+      "positive_count": 18003,
+      "negative_count": 7548,
+      "positive_ratio": 0.7045908183632734,
+      "negative_ratio": 0.2954091816367265
+    },
+    "test": {
+      "csv": "data/processed/ava/test.csv",
+      "samples": 25551,
+      "required_columns_present": true,
+      "missing_columns": [],
+      "image_paths_checked": 25551,
+      "image_paths_resolved": 25551,
+      "missing_image_count": 0,
+      "missing_image_examples": [],
+      "mean_score": {
+        "min": 1.988764,
+        "max": 8.09058,
+        "mean": 5.393140088524912
+      },
+      "label_rule": "mean_score >= 5.0",
+      "label_threshold": 5.0,
+      "positive_count": 18228,
+      "negative_count": 7323,
+      "positive_ratio": 0.713396735939885,
+      "negative_ratio": 0.28660326406011505
+    }
+  }
+}

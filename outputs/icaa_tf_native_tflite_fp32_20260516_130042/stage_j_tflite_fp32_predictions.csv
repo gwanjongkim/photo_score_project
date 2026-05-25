@@ -1,0 +1,17 @@
+case,path,sm_mos,tflite_mos,sm_color,tflite_color
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg,0.019481593742966652,-inf,0.07540678232908249,inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg,0.016477365046739578,-inf,0.022190138697624207,inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg,0.02997753396630287,-inf,0.04159923642873764,inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/geelog29034161553.jpg,0.024701746180653572,-inf,0.08038637787103653,inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/117679407@N0828865500835.jpg,0.018396269530057907,inf,0.1615319401025772,inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/159973025@N0742445144115.jpg,0.036118630319833755,-inf,0.02627931348979473,-inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/139363649@N0233098198304.jpg,0.003236109158024192,-inf,0.0884486585855484,-inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/keo621918578914.jpg,0.024673637002706528,inf,0.05412578210234642,inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/146253389@N0829278222342.jpg,0.05305904150009155,-inf,0.07757797837257385,inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/peter-murrell20822874424.jpg,0.03746027871966362,inf,0.015958791598677635,-inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/28286225@N0239486212422.jpg,-0.02307211048901081,inf,0.0867350697517395,-inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/112246188@N0325165986081.jpg,0.027008850127458572,-inf,0.07719884812831879,inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/125572947@N0716737113406.jpg,0.006923367734998465,-inf,0.029186541214585304,-inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/jerry_lake38649837566.jpg,0.009672138839960098,-inf,0.1375928521156311,inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/lumenscript41873226310.jpg,0.01262250728905201,inf,0.05455305054783821,inf
+real_images,/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/yates77717355466472.jpg,0.004227890633046627,inf,0.1277286559343338,-inf

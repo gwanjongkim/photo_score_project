@@ -1,0 +1,17 @@
+{
+  "status": "batch_requests_prepared",
+  "manifest": "outputs/gemini_api_teacher_aesthetic3_highspec_100_batch_20260427/highspec_100_candidate_manifest.jsonl",
+  "model": "gemini-2.5-pro",
+  "batch_requests_jsonl": "outputs/gemini_api_teacher_aesthetic3_highspec_100_batch_20260427/gemini_batch_requests_highspec_100_20260427.jsonl",
+  "rows_loaded": 100,
+  "requests_prepared": 100,
+  "skipped_missing_image": 0,
+  "generation_config": {
+    "maxOutputTokens": 1024,
+    "temperature": 0.1,
+    "topP": 0.9,
+    "responseMimeType": "application/json",
+    "responseJsonSchema_included": false
+  },
+  "submission_policy": "request file only; no API call was made by prepare-batch"
+}

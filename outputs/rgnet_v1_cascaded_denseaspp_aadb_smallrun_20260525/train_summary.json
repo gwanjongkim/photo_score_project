@@ -1,0 +1,153 @@
+{
+  "created_at_local": "2026-05-25T22:14:37.357437+09:00",
+  "model_variant": "RGNet-paper-v1 approximation",
+  "official_reproduction": false,
+  "paper_comparability_note": "Uses DenseNet121, ASPP approximation, spatial region nodes, cosine adjacency, residual graph convolution, region-level scores, and configurable aggregation. This is not the official paper implementation.",
+  "train_csv": "data/processed/aadb/train.csv",
+  "val_csv": "data/processed/aadb/val.csv",
+  "image_col": "image_path",
+  "target_col": "score",
+  "train_samples": 1024,
+  "val_samples": 256,
+  "image_size": 256,
+  "preprocess_backend": "tf",
+  "preprocessing": {
+    "backend": "tf",
+    "normalization": "float32_rgb_0_1",
+    "resize": "tf.image.resize"
+  },
+  "batch_size": 4,
+  "epochs_requested": 5,
+  "epochs_completed": 5,
+  "learning_rate": 0.0001,
+  "early_stopping": {
+    "monitor": "val_loss",
+    "patience": 3,
+    "restore_best_weights": true
+  },
+  "model": {
+    "backbone": "DenseNet121",
+    "backbone_weights_requested": "imagenet",
+    "context_module": "cascaded DenseASPP",
+    "context_module_type": "cascaded_denseaspp",
+    "dilation_rates": [
+      1,
+      3,
+      6,
+      12,
+      18
+    ],
+    "denseaspp_rates": [
+      3,
+      6,
+      12,
+      18
+    ],
+    "denseaspp_growth_rate": 64,
+    "use_context_batchnorm": true,
+    "context_channels": 1280,
+    "region_dim": 256,
+    "graph_units": 256,
+    "graph_blocks": 3,
+    "graph_temperature": 0.25,
+    "graph_dropout": 0.1,
+    "head_dropout": 0.3,
+    "adjacency": "cosine similarity, softmax-normalized",
+    "adjacency_type": "semantic",
+    "spatial_alpha": 0.0,
+    "spatial_sigma": 0.25,
+    "feature_map_height": 8,
+    "feature_map_width": 8,
+    "feature_map_node_count": 64,
+    "graph_convolution": "residual graph convolution",
+    "region_score_head": "per-node sigmoid scalar score",
+    "aggregation": "mean",
+    "lse_r": 4.0,
+    "aggregation_formula": "(1 / r) * log(mean(exp(r * region_scores))) for aggregation=lse",
+    "output_activation": "region sigmoid before aggregation",
+    "parameter_count": 10603841,
+    "trainable_parameter_count": 10519681
+  },
+  "adjacency_diagnostic": {
+    "available": true,
+    "layer_name": "region_similarity_adjacency",
+    "final_adjacency": {
+      "row_sum_min": 0.9999998807907104,
+      "row_sum_max": 1.0000001192092896
+    },
+    "semantic_adjacency": {
+      "row_sum_min": 0.9999998807907104,
+      "row_sum_max": 1.0000001192092896
+    }
+  },
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.21.0"
+  },
+  "forward_check": {
+    "input_shape": [
+      4,
+      256,
+      256,
+      3
+    ],
+    "output_shape": [
+      4,
+      1
+    ],
+    "prediction_min": 0.3450474739074707,
+    "prediction_max": 0.6133632659912109,
+    "all_finite": true,
+    "in_unit_range": true
+  },
+  "save_load_check": {
+    "loaded_model_name": "rgnet_paper_v1_aadb_regression",
+    "loaded_output_shape": [
+      4,
+      1
+    ],
+    "max_abs_diff_vs_trained_forward_sample": 0.0
+  },
+  "outputs": {
+    "final_model": "outputs/rgnet_v1_cascaded_denseaspp_aadb_smallrun_20260525/final_model.keras",
+    "best_weights": "outputs/rgnet_v1_cascaded_denseaspp_aadb_smallrun_20260525/best.weights.h5",
+    "training_history_csv": "outputs/rgnet_v1_cascaded_denseaspp_aadb_smallrun_20260525/training_history.csv",
+    "train_summary_json": "outputs/rgnet_v1_cascaded_denseaspp_aadb_smallrun_20260525/train_summary.json"
+  },
+  "best_epoch": 3,
+  "best_val_loss": 0.024516960605978966,
+  "best_val_mae": 0.12322881072759628,
+  "history": {
+    "loss": [
+      0.03591899946331978,
+      0.024234304204583168,
+      0.02010771818459034,
+      0.015120445750653744,
+      0.01347592193633318
+    ],
+    "mae": [
+      0.15188872814178467,
+      0.12391132861375809,
+      0.11143024265766144,
+      0.09685018658638,
+      0.09101874381303787
+    ],
+    "val_loss": [
+      0.03484873101115227,
+      0.02959773689508438,
+      0.024516960605978966,
+      0.05745081230998039,
+      0.02714550867676735
+    ],
+    "val_mae": [
+      0.14847493171691895,
+      0.13788734376430511,
+      0.12322881072759628,
+      0.19393272697925568,
+      0.13298603892326355
+    ]
+  }
+}

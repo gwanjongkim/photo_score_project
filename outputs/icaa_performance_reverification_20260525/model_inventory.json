@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Official PyTorch Weights",
+    "path": "weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+    "type": "PyTorch",
+    "size_mb": 242.0,
+    "last_modified": "2026-05-16"
+  },
+  {
+    "name": "TF-native TFLite Candidate",
+    "path": "outputs/icaa_tf_native_tflite_fp16_20260516_144023/icaa_dat_tf_native_fp16.tflite",
+    "type": "TFLite (FP16)",
+    "size_mb": 11.9,
+    "last_modified": "2026-05-16"
+  }
+]

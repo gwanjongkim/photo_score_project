@@ -1,0 +1,1441 @@
+{
+  "random_stage_input": {
+    "input": {
+      "name": "random_stage_input_nchw",
+      "shape": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "dtype": "float32",
+      "min": -3.8013782501220703,
+      "max": 4.185027122497559,
+      "mean": 0.006626856047660112,
+      "std": 1.0000290870666504
+    },
+    "output_result": {
+      "name": "deterministic random stage-3 input",
+      "status": "fail",
+      "pass": false,
+      "preferred_pass": false,
+      "acceptable_pass": false,
+      "max_abs_diff": 18.013259887695312,
+      "mean_abs_diff": 0.34618449211120605,
+      "torch_output_shape": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        7,
+        7,
+        1024
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "torch_input_shape": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "tf_input_shape_nhwc": [
+        1,
+        7,
+        7,
+        1024
+      ],
+      "positions_returned": [
+        null,
+        [
+          1,
+          8,
+          7,
+          7,
+          2
+        ]
+      ],
+      "references_returned": [
+        null,
+        [
+          1,
+          8,
+          7,
+          7,
+          2
+        ]
+      ],
+      "first_diverging_block": "block1_attn_out",
+      "likely_failed_subcomponent": "block 1 attention type D"
+    },
+    "per_block_diffs": [
+      {
+        "name": "block0_norm_attn",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 4.76837158203125e-07,
+        "mean_abs_diff": 9.326217131899739e-09,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_attn_out",
+        "status": "pass_acceptable",
+        "pass": true,
+        "preferred_pass": false,
+        "acceptable_pass": true,
+        "max_abs_diff": 6.4849853515625e-05,
+        "mean_abs_diff": 3.827420300694939e-07,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_after_attn_residual",
+        "status": "pass_acceptable",
+        "pass": true,
+        "preferred_pass": false,
+        "acceptable_pass": true,
+        "max_abs_diff": 6.4849853515625e-05,
+        "mean_abs_diff": 3.823587633178249e-07,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_norm_mlp",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 1.6689300537109375e-06,
+        "mean_abs_diff": 1.0546731488147998e-07,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_mlp_out",
+        "status": "pass_acceptable",
+        "pass": true,
+        "preferred_pass": false,
+        "acceptable_pass": true,
+        "max_abs_diff": 4.57763671875e-05,
+        "mean_abs_diff": 9.463934702580445e-07,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_output",
+        "status": "pass_acceptable",
+        "pass": true,
+        "preferred_pass": false,
+        "acceptable_pass": true,
+        "max_abs_diff": 7.62939453125e-05,
+        "mean_abs_diff": 1.0331722251066822e-06,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_norm_attn",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 4.76837158203125e-06,
+        "mean_abs_diff": 1.0272488992768558e-07,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_attn_out",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 17.672903060913086,
+        "mean_abs_diff": 0.3457452058792114,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_after_attn_residual",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 17.672897338867188,
+        "mean_abs_diff": 0.3457452058792114,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_norm_mlp",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 1.2840986251831055,
+        "mean_abs_diff": 0.06494566798210144,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_mlp_out",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 7.153798580169678,
+        "mean_abs_diff": 0.04843737557530403,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_output",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 18.013259887695312,
+        "mean_abs_diff": 0.34618449211120605,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "stage_output",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 18.013259887695312,
+        "mean_abs_diff": 0.34618449211120605,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      }
+    ],
+    "dattention_position_reference_diffs": [
+      {
+        "name": "block1_dattention_pos",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 2.2649765014648438e-06,
+        "mean_abs_diff": 3.9864406176093325e-07,
+        "torch_output_shape": [
+          1,
+          8,
+          7,
+          7,
+          2
+        ],
+        "tf_output_shape": [
+          1,
+          8,
+          7,
+          7,
+          2
+        ]
+      },
+      {
+        "name": "block1_dattention_reference",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 2.0042061805725098e-06,
+        "mean_abs_diff": 4.34093720969031e-07,
+        "torch_output_shape": [
+          1,
+          8,
+          7,
+          7,
+          2
+        ],
+        "tf_output_shape": [
+          1,
+          8,
+          7,
+          7,
+          2
+        ]
+      }
+    ]
+  },
+  "captured_random_image_stage3_input": {
+    "input": {
+      "name": "captured_random_image_stage3_input_nchw",
+      "shape": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "dtype": "float32",
+      "min": -251.77166748046875,
+      "max": 485.56036376953125,
+      "mean": 0.10618241876363754,
+      "std": 14.866154670715332
+    },
+    "output_result": {
+      "name": "captured stage-3 input from deterministic random image",
+      "status": "fail",
+      "pass": false,
+      "preferred_pass": false,
+      "acceptable_pass": false,
+      "max_abs_diff": 1.001617431640625,
+      "mean_abs_diff": 0.008060568012297153,
+      "torch_output_shape": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        7,
+        7,
+        1024
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "torch_input_shape": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "tf_input_shape_nhwc": [
+        1,
+        7,
+        7,
+        1024
+      ],
+      "positions_returned": [
+        null,
+        [
+          1,
+          8,
+          7,
+          7,
+          2
+        ]
+      ],
+      "references_returned": [
+        null,
+        [
+          1,
+          8,
+          7,
+          7,
+          2
+        ]
+      ],
+      "first_diverging_block": "block1_attn_out",
+      "likely_failed_subcomponent": "block 1 attention type D"
+    },
+    "per_block_diffs": [
+      {
+        "name": "block0_norm_attn",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 3.8743019104003906e-07,
+        "mean_abs_diff": 1.4609955467648206e-09,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_attn_out",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 4.76837158203125e-06,
+        "mean_abs_diff": 1.737859989248136e-08,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_after_attn_residual",
+        "status": "pass_acceptable",
+        "pass": true,
+        "preferred_pass": false,
+        "acceptable_pass": true,
+        "max_abs_diff": 1.52587890625e-05,
+        "mean_abs_diff": 1.7244627059653794e-08,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_norm_mlp",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 8.344650268554688e-07,
+        "mean_abs_diff": 4.687877641629257e-09,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_mlp_out",
+        "status": "pass_acceptable",
+        "pass": true,
+        "preferred_pass": false,
+        "acceptable_pass": true,
+        "max_abs_diff": 4.1961669921875e-05,
+        "mean_abs_diff": 9.186534839500382e-07,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_output",
+        "status": "pass_acceptable",
+        "pass": true,
+        "preferred_pass": false,
+        "acceptable_pass": true,
+        "max_abs_diff": 6.103515625e-05,
+        "mean_abs_diff": 9.196666610478132e-07,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_norm_attn",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 7.301568984985352e-07,
+        "mean_abs_diff": 1.58103095060369e-08,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_attn_out",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 0.969815731048584,
+        "mean_abs_diff": 0.00800162460654974,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_after_attn_residual",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 0.9698486328125,
+        "mean_abs_diff": 0.008001625537872314,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_norm_mlp",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 0.007082656025886536,
+        "mean_abs_diff": 0.00025880284374579787,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_mlp_out",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 0.08024883270263672,
+        "mean_abs_diff": 0.00034570583375170827,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_output",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 1.001617431640625,
+        "mean_abs_diff": 0.008060568012297153,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "stage_output",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 1.001617431640625,
+        "mean_abs_diff": 0.008060568012297153,
+        "torch_output_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      }
+    ],
+    "dattention_position_reference_diffs": [
+      {
+        "name": "block1_dattention_pos",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 2.384185791015625e-07,
+        "mean_abs_diff": 2.1534459548888663e-08,
+        "torch_output_shape": [
+          1,
+          8,
+          7,
+          7,
+          2
+        ],
+        "tf_output_shape": [
+          1,
+          8,
+          7,
+          7,
+          2
+        ]
+      },
+      {
+        "name": "block1_dattention_reference",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 4.76837158203125e-07,
+        "mean_abs_diff": 1.570514029936021e-07,
+        "torch_output_shape": [
+          1,
+          8,
+          7,
+          7,
+          2
+        ],
+        "tf_output_shape": [
+          1,
+          8,
+          7,
+          7,
+          2
+        ]
+      }
+    ]
+  },
+  "captured_real_image_stage3_input": {
+    "input": {
+      "name": "captured_real_image_stage3_input_nchw",
+      "shape": [
+        3,
+        1024,
+        7,
+        7
+      ],
+      "dtype": "float32",
+      "min": -279.7691345214844,
+      "max": 487.1788330078125,
+      "mean": 0.10325941443443298,
+      "std": 14.9615478515625
+    },
+    "output_result": {
+      "name": "captured stage-3 input from 3 real ICAA17K images",
+      "status": "fail",
+      "pass": false,
+      "preferred_pass": false,
+      "acceptable_pass": false,
+      "max_abs_diff": 8.6573486328125,
+      "mean_abs_diff": 0.009741184301674366,
+      "torch_output_shape": [
+        3,
+        1024,
+        7,
+        7
+      ],
+      "tf_output_shape_nhwc": [
+        3,
+        7,
+        7,
+        1024
+      ],
+      "tf_output_shape_nchw": [
+        3,
+        1024,
+        7,
+        7
+      ],
+      "torch_input_shape": [
+        3,
+        1024,
+        7,
+        7
+      ],
+      "tf_input_shape_nhwc": [
+        3,
+        7,
+        7,
+        1024
+      ],
+      "positions_returned": [
+        null,
+        [
+          3,
+          8,
+          7,
+          7,
+          2
+        ]
+      ],
+      "references_returned": [
+        null,
+        [
+          3,
+          8,
+          7,
+          7,
+          2
+        ]
+      ],
+      "first_diverging_block": "block1_attn_out",
+      "likely_failed_subcomponent": "block 1 attention type D"
+    },
+    "per_block_diffs": [
+      {
+        "name": "block0_norm_attn",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 5.960464477539062e-07,
+        "mean_abs_diff": 1.592696308172492e-09,
+        "torch_output_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_attn_out",
+        "status": "pass_acceptable",
+        "pass": true,
+        "preferred_pass": false,
+        "acceptable_pass": true,
+        "max_abs_diff": 1.1444091796875e-05,
+        "mean_abs_diff": 1.9230613546028508e-08,
+        "torch_output_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_after_attn_residual",
+        "status": "pass_acceptable",
+        "pass": true,
+        "preferred_pass": false,
+        "acceptable_pass": true,
+        "max_abs_diff": 3.0517578125e-05,
+        "mean_abs_diff": 1.8984968264135205e-08,
+        "torch_output_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_norm_mlp",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 7.748603820800781e-07,
+        "mean_abs_diff": 5.282239978754433e-09,
+        "torch_output_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_mlp_out",
+        "status": "pass_acceptable",
+        "pass": true,
+        "preferred_pass": false,
+        "acceptable_pass": true,
+        "max_abs_diff": 4.00543212890625e-05,
+        "mean_abs_diff": 8.591121058998397e-07,
+        "torch_output_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block0_output",
+        "status": "pass_acceptable",
+        "pass": true,
+        "preferred_pass": false,
+        "acceptable_pass": true,
+        "max_abs_diff": 6.103515625e-05,
+        "mean_abs_diff": 8.588460218561522e-07,
+        "torch_output_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_norm_attn",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 1.0132789611816406e-06,
+        "mean_abs_diff": 1.4405472370526695e-08,
+        "torch_output_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_attn_out",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 8.51248550415039,
+        "mean_abs_diff": 0.009674050845205784,
+        "torch_output_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_after_attn_residual",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 8.51251220703125,
+        "mean_abs_diff": 0.00967427808791399,
+        "torch_output_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_norm_mlp",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 0.03529833257198334,
+        "mean_abs_diff": 0.0002301446656929329,
+        "torch_output_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_mlp_out",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 0.17790603637695312,
+        "mean_abs_diff": 0.0003285985440015793,
+        "torch_output_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "block1_output",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 8.6573486328125,
+        "mean_abs_diff": 0.009741184301674366,
+        "torch_output_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      },
+      {
+        "name": "stage_output",
+        "status": "fail",
+        "pass": false,
+        "preferred_pass": false,
+        "acceptable_pass": false,
+        "max_abs_diff": 8.6573486328125,
+        "mean_abs_diff": 0.009741184301674366,
+        "torch_output_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          7,
+          7,
+          1024
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      }
+    ],
+    "dattention_position_reference_diffs": [
+      {
+        "name": "block1_dattention_pos",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 2.980232238769531e-07,
+        "mean_abs_diff": 7.786648659191542e-09,
+        "torch_output_shape": [
+          3,
+          8,
+          7,
+          7,
+          2
+        ],
+        "tf_output_shape": [
+          3,
+          8,
+          7,
+          7,
+          2
+        ]
+      },
+      {
+        "name": "block1_dattention_reference",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 4.470348358154297e-07,
+        "mean_abs_diff": 1.1448932468738349e-07,
+        "torch_output_shape": [
+          3,
+          8,
+          7,
+          7,
+          2
+        ],
+        "tf_output_shape": [
+          3,
+          8,
+          7,
+          7,
+          2
+        ]
+      }
+    ]
+  },
+  "real_image_paths": [
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg"
+  ]
+}

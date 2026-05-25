@@ -1,0 +1,17 @@
+{
+  "manifest_sizes": {
+    "train": 84,
+    "val": 10,
+    "test": 12,
+    "test_vila": 36,
+    "dataset_all": 106
+  },
+  "balanced_training_rows_used": 106,
+  "clean_teacher_rows_available": 185,
+  "selected_counts_dataset_all": {
+    "selected": 53,
+    "not_selected": 53
+  },
+  "test_vila_policy": "reused previous strict 3-line test_vila sanity manifest; excluded from train/val/test main splits",
+  "student_prompt_policy": "no numeric scores, ranks, thresholds, or model names; only selection state and abstract visual band"
+}

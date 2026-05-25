@@ -1,0 +1,54 @@
+{
+  "status": "failed",
+  "overall_pass": false,
+  "tflite_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp32_20260516_132922/icaa_dat_tf_native_fp32.tflite",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp32_20260516_132922",
+  "tflite_size_bytes": 2428,
+  "input_sensitive": true,
+  "results": [
+    {
+      "name": "random_normalized_input",
+      "status": "fail",
+      "pass_preferred": false,
+      "pass_acceptable": false,
+      "full_max_abs_diff": 1.198865622514124e+32,
+      "full_mean_abs_diff": 6.086658613117868e+31,
+      "mos_max_abs_diff": 1.8466089531348616e+30,
+      "color_max_abs_diff": 1.198865622514124e+32,
+      "output_shape": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "16_real_images",
+      "status": "fail",
+      "pass_preferred": false,
+      "pass_acceptable": false,
+      "full_max_abs_diff": Infinity,
+      "full_mean_abs_diff": Infinity,
+      "mos_max_abs_diff": 1.4087078714327332e+32,
+      "color_max_abs_diff": Infinity,
+      "output_shape": [
+        16,
+        2
+      ]
+    }
+  ],
+  "log_lines": [
+    "Instantiating TFICAA17KDAT model",
+    "Building model with dummy input",
+    "Loading weights from /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+    "Converting to TFLite (via Concrete Function)",
+    "TFLite conversion from concrete function succeeded.",
+    "TFLite model saved to /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp32_20260516_132922/icaa_dat_tf_native_fp32.tflite",
+    "Loading TFLite Interpreter",
+    "Running Input Sensitivity Probe",
+    "Zero vs One max diff: 7.83910724e+34",
+    "Zero vs Random max diff: 1.19886562e+32",
+    "TFLite model passed input sensitivity probe.",
+    "Running Keras model vs TFLite Parity Verification",
+    "Test A (Random): fail, max_diff=1.19886562e+32",
+    "Test B (Real Images): fail, max_diff=inf"
+  ]
+}

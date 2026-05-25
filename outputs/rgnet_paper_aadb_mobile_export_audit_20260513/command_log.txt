@@ -1,0 +1,13 @@
+# Command Log: RGNet Paper AADB Mobile Export Audit
+
+[2026-05-13 21:30] Started audit.
+[2026-05-13 21:31] Comparing Practical Mobile RGNet vs Paper-Oriented AADB RGNet architectures.
+[2026-05-13 21:32] Analyzing preprocessing pipelines in src/models/rgnet_paper_v1.py.
+[2026-05-13 21:33] Checking SRCC metrics from regression benchmarks.
+[2026-05-13 21:35] Generated initial rgnet_mobile_export_audit_report.md.
+[2026-05-13 21:36] TMUX session vanished.
+[2026-05-14 11:45] Session resumed via audit agent.
+[2026-05-14 11:46] Verified process status (none found).
+[2026-05-14 11:47] Verified system integrity (no accidental exports).
+[2026-05-14 11:48] Revised rgnet_mobile_export_audit_report.md to conservative wording.
+[2026-05-14 11:49] Generated rgnet_mobile_export_audit_summary.json and resume_state_report.md.

@@ -1,0 +1,26 @@
+# Command Log
+
+Date: 2026-05-11T11:06:46.895989+09:00
+CWD: /home/omen_pc1/photo_score_project
+
+1. Verified required full-run AVA artifacts existed:
+   - outputs/rgnet_paper_ava_classification_20260510/full_train/lse_r4/train_summary.json
+   - outputs/rgnet_paper_ava_classification_20260510/eval/lse_r4/evaluation_summary.json
+   - outputs/rgnet_paper_ava_classification_20260510/eval/lse_r4/test_predictions.csv
+   - outputs/rgnet_paper_ava_classification_20260510/eval/lse_r4/val_predictions.csv
+
+2. Compiled threshold calibration script:
+   ./.venv_gpu/bin/python -m py_compile tools/calibrate_rgnet_ava_threshold.py
+
+3. Ran threshold calibration from saved prediction CSVs only:
+   ./.venv_gpu/bin/python tools/calibrate_rgnet_ava_threshold.py
+
+4. Updated AVA report and summary JSON with completed full-run lse_r4 results.
+
+5. Created consolidated RGNet paper-oriented summary artifacts:
+   - outputs/rgnet_paper_consolidated_20260511/rgnet_paper_oriented_summary.md
+   - outputs/rgnet_paper_consolidated_20260511/rgnet_paper_oriented_summary.json
+
+6. Parsed updated JSON files and confirmed expected report files exist.
+
+No model training was run. No full AVA evaluation rerun was run. Flutter, forWeights/, and src/models/rgnet.py were not modified.

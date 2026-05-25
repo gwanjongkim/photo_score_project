@@ -1,0 +1,63 @@
+{
+  "preset": "rgnet",
+  "display_name": "RGNet AADB Regressor",
+  "task": "aesthetic_regression",
+  "input": {
+    "image_size": [
+      256,
+      256
+    ],
+    "dtype": "float32",
+    "color_format": "RGB",
+    "tensor_layout": "NHWC",
+    "normalization": "pixel_value / 255.0"
+  },
+  "output": {
+    "shape": [
+      1,
+      1
+    ],
+    "summary": "Single scalar RGNet aesthetic score.",
+    "interpretation": "Sigmoid output already in [0, 1]. Higher is better.",
+    "postprocess": "Squeeze to scalar float and optionally clip to [0, 1]."
+  },
+  "source": {
+    "checkpoint_path": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+    "weights_path": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/best.weights.h5",
+    "saved_model_dir": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/saved_model"
+  },
+  "export": {
+    "requested_export_source": "saved_model",
+    "used_export_source": "saved_model",
+    "rebuild_failure": null,
+    "requested_conversion_mode": "auto",
+    "used_conversion_mode": "select_tf_ops",
+    "requires_select_tf_ops": true,
+    "tflite_path": "outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune.tflite",
+    "tflite_size_bytes": 13380644,
+    "builtin_failure": "ConverterError: Could not translate MLIR to FlatBuffer.<unknown>:0: error: loc(callsite(fused[\"Mul:\", \"rgnet_practical_1/efficientnetv2-b0_1/rescaling_1/mul@__inference___call___129180\"] at callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___130691\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"]))): 'tf.Mul' op is neither a custom op nor a flex op <unknown>:0: note: loc(callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___130691\"] at fused[\"StatefulPartitionedCall:\",..."
+  },
+  "saved_model_signature": {
+    "inputs": {
+      "input_layer_1": {
+        "shape": [
+          null,
+          256,
+          256,
+          3
+        ],
+        "dtype": "float32"
+      }
+    },
+    "outputs": {
+      "output_0": {
+        "shape": [
+          null,
+          1
+        ],
+        "dtype": "float32"
+      }
+    }
+  },
+  "export_model_io": null
+}

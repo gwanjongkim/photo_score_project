@@ -1,0 +1,30 @@
+{
+  "test": {
+    "accuracy": 0.7109375,
+    "precision": 0.7157057654075547,
+    "recall": 0.9863013698630136,
+    "specificity": 0.027210884353741496,
+    "f1": 0.8294930875576036,
+    "roc_auc": 0.5826530612244898,
+    "average_precision": 0.7637762861537754,
+    "bce_loss": 0.6976367235183716,
+    "confusion_matrix": "tn=8, fp=286, fn=10, tp=720",
+    "seconds_per_image": 0.2560261571779847,
+    "no_object_count": 161,
+    "total_count": 1024
+  },
+  "val": {
+    "accuracy": 0.7041015625,
+    "precision": 0.7080436941410129,
+    "recall": 0.9875346260387812,
+    "specificity": 0.026490066225165563,
+    "f1": 0.8247541931752458,
+    "roc_auc": 0.5980123277870522,
+    "average_precision": 0.7633738788684808,
+    "bce_loss": 0.706824004650116,
+    "confusion_matrix": "tn=8, fp=294, fn=9, tp=713",
+    "seconds_per_image": 0.25926476321183145,
+    "no_object_count": 166,
+    "total_count": 1024
+  }
+}

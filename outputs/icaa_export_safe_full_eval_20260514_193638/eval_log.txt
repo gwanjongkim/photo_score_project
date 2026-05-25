@@ -1,0 +1,32 @@
+project root: /home/omen_pc1/photo_score_project
+export-safe model package: /home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models
+checkpoint path: /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+csv path: /home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/dataset/ICAA17K/1test.csv
+image root: /home/omen_pc1/photo_score_project/data/raw/icaa17k
+output dir: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_full_eval_20260514_193638
+device: cuda
+batch_size: 1
+num_workers: 2
+limit: None
+checkpoint key count: 487
+patch_proj.0.weight shape: (128, 3, 4, 4)
+missing keys: []
+unexpected keys: []
+export-safe checkpoint strict load: ok
+csv rows read: 1617
+evaluable images: 1617
+missing image rows skipped: 0
+predictions.csv: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_full_eval_20260514_193638/predictions.csv
+metrics.json: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_full_eval_20260514_193638/metrics.json
+eval_log.txt: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_full_eval_20260514_193638/eval_log.txt
+color metrics:
+  Accuracy@0.5: 0.959802 vs official PyTorch 0.963513
+  SRCC: 0.875997 vs official PyTorch 0.880682
+  PLCC: 0.894648 vs official PyTorch 0.898182
+  MAE: 0.021573
+  RMSE: 0.030077
+MOS reference metrics:
+  SRCC: 0.904599
+  PLCC: 0.910306
+  MAE: 0.037416
+  RMSE: 0.053763

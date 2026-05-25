@@ -1,0 +1,39 @@
+{
+  "selector_name": "v4_1024_gpu_tuned_best_val_auc",
+  "test_metrics": {
+    "accuracy": 0.6748046875,
+    "precision": 0.7608409986859396,
+    "recall": 0.7931506849315069,
+    "specificity": 0.38095238095238093,
+    "f1": 0.7766599597585513,
+    "roc_auc": 0.662929829466033,
+    "average_precision": 0.8181209078767597,
+    "bce_loss": 0.7254682779312134,
+    "confusion_matrix": {
+      "tn": 112,
+      "fp": 182,
+      "fn": 151,
+      "tp": 579
+    },
+    "seconds_per_image": 0.011255954159423709,
+    "total_samples": 1024
+  },
+  "val_metrics": {
+    "accuracy": 0.67578125,
+    "precision": 0.7572559366754618,
+    "recall": 0.7950138504155124,
+    "specificity": 0.39072847682119205,
+    "f1": 0.7756756756756756,
+    "roc_auc": 0.6711030801122709,
+    "average_precision": 0.8203245829601059,
+    "bce_loss": 0.7071453332901001,
+    "confusion_matrix": {
+      "tn": 118,
+      "fp": 184,
+      "fn": 148,
+      "tp": 574
+    },
+    "seconds_per_image": 0.009320426499471068,
+    "total_samples": 1024
+  }
+}

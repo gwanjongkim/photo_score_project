@@ -1,0 +1,13 @@
+{
+  "num_samples": 24,
+  "mae": 0.05477967485785484,
+  "rmse": 0.06510403007268906,
+  "mse": 0.00423853425309062,
+  "r2": -0.251390658212044,
+  "pearson": NaN,
+  "spearman": null,
+  "pairwise_accuracy": 0.0,
+  "pairwise_pairs_scored": 50000,
+  "top_k": 10,
+  "top_k_overlap": 0.3
+}

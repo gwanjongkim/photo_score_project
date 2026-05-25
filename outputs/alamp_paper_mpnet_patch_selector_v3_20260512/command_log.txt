@@ -1,0 +1,11 @@
+export PYTHONPATH=$PYTHONPATH:.
+# 1. Generate U2Net Saliency Maps
+chmod +x tools/run_u2net_generation.sh
+./tools/run_u2net_generation.sh
+
+# 2. Run V3 Patch Selection
+chmod +x tools/run_alamp_v3_selection.sh
+./tools/run_alamp_v3_selection.sh
+
+# 3. Compare Selectors
+./.venv_gpu/bin/python tools/compare_alamp_patch_selectors_v3.py

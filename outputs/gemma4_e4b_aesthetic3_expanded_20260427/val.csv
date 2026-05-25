@@ -1,0 +1,31 @@
+id,image,image_path,split,dataset,selected,selection_bucket,teacher_comment_3line,teacher_comment_strength_line,teacher_comment_weakness_line,teacher_comment_verdict_line,teacher_source_mode,teacher_model_name
+ava__val__teacher__102__ava__646467.jpg__0bba1620__f02383a7,/home/omen_pc1/ava/images/646467.jpg,/home/omen_pc1/ava/images/646467.jpg,val,ava,True,selected_high,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.",Strength: clean subject emphasis.,Weakness: busier background.,Verdict: selected because clean subject emphasis carries the frame despite busier background.,local_vila_worker,/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b
+ava__val__teacher__103__ava__344909.jpg__a717b859__0285862c,/home/omen_pc1/ava/images/344909.jpg,/home/omen_pc1/ava/images/344909.jpg,val,ava,True,selected_high,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.",Strength: clean subject emphasis.,Weakness: busier background.,Verdict: selected because clean subject emphasis carries the frame despite busier background.,local_vila_worker,/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b
+ava__val__teacher__138__ava__294865.jpg__9590b400__8053381b,/home/omen_pc1/ava/images/294865.jpg,/home/omen_pc1/ava/images/294865.jpg,val,ava,False,rejected_low,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.",Strength: clean subject emphasis.,Weakness: busier background.,Verdict: not selected because busier background undercuts clean subject emphasis.,local_vila_worker,/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b
+ava__val__teacher__78__ava__334916.jpg__6b77e5c9__d8ab2bbd,/home/omen_pc1/ava/images/334916.jpg,/home/omen_pc1/ava/images/334916.jpg,val,ava,False,rejected_low,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.",Strength: clean subject emphasis.,Weakness: busier background.,Verdict: not selected because busier background undercuts clean subject emphasis.,local_vila_worker,/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b
+ava__val__teacher__158__ava__291639.jpg__dac6f801__e082e9a8,/home/omen_pc1/ava/images/291639.jpg,/home/omen_pc1/ava/images/291639.jpg,val,ava,False,middle_near_miss,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.",Strength: clean subject emphasis.,Weakness: busier background.,Verdict: not selected because busier background undercuts clean subject emphasis.,local_vila_worker,/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b
+ava__val__teacher__128__ava__59985.jpg__b3bc116c__ccbdde1c,/home/omen_pc1/ava/images/59985.jpg,/home/omen_pc1/ava/images/59985.jpg,val,ava,True,selected_high,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.",Strength: clean subject emphasis.,Weakness: busier background.,Verdict: selected because clean subject emphasis carries the frame despite busier background.,local_vila_worker,/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b
+aadb__val__teacher__57__aadb__farm1_383_20184947482_0d90e80db5_b.jpg__793c9fe4__8ff02a66,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_383_20184947482_0d90e80db5_b.jpg,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_383_20184947482_0d90e80db5_b.jpg,val,aadb,True,selected_high,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.",Strength: clean subject emphasis.,Weakness: busier background.,Verdict: selected because clean subject emphasis carries the frame despite busier background.,local_vila_worker,/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b
+ava__val__teacher__173__ava__3151.jpg__91601971__ef012aa1,/home/omen_pc1/ava/images/3151.jpg,/home/omen_pc1/ava/images/3151.jpg,val,ava,False,middle_near_miss,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.",Strength: clean subject emphasis.,Weakness: busier background.,Verdict: not selected because busier background undercuts clean subject emphasis.,local_vila_worker,/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b
+ava__val__teacher__94__ava__124278.jpg__f00d8ea5__ba67c927,/home/omen_pc1/ava/images/124278.jpg,/home/omen_pc1/ava/images/124278.jpg,val,ava,False,middle_near_miss,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.",Strength: clean subject emphasis.,Weakness: busier background.,Verdict: not selected because busier background undercuts clean subject emphasis.,local_vila_worker,/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b
+ava__val__teacher__193__ava__872885.jpg__9a828369__be8f8571,/home/omen_pc1/ava/images/872885.jpg,/home/omen_pc1/ava/images/872885.jpg,val,ava,False,middle_near_miss,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.",Strength: clean subject emphasis.,Weakness: busier background.,Verdict: not selected because busier background undercuts clean subject emphasis.,local_vila_worker,/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b

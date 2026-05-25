@@ -1,0 +1,1154 @@
+{
+  "schema_version": "acut_product_app.v1",
+  "generated_at": "2026-04-16T06:43:29.708691Z",
+  "ranking_stage": "post_rerank",
+  "score_semantics": "rank, selected, status, and final_score_after_rerank all reflect the same final post-rerank order because diversity reranking is disabled.",
+  "diversity_enabled": false,
+  "final_ordering_uses_diversity": false,
+  "final_score_matches_final_ranking": true,
+  "top_k": [
+    {
+      "rank": 1,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20231231_150055.jpg",
+      "image_file_name": "20231231_150055.jpg",
+      "final_score_after_rerank": 0.631035,
+      "aesthetic_score": 0.584746,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "clarity"
+      ]
+    },
+    {
+      "rank": 2,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564674752-17.jpg",
+      "image_file_name": "1675564674752-17.jpg",
+      "final_score_after_rerank": 0.605128,
+      "aesthetic_score": 0.5611,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": []
+    },
+    {
+      "rank": 3,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_170733.jpg",
+      "image_file_name": "20250204_170733.jpg",
+      "final_score_after_rerank": 0.58936,
+      "aesthetic_score": 0.522572,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "clarity"
+      ]
+    },
+    {
+      "rank": 4,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564674752-15.jpg",
+      "image_file_name": "1675564674752-15.jpg",
+      "final_score_after_rerank": 0.576039,
+      "aesthetic_score": 0.51021,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 5,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_174237(0).jpg",
+      "image_file_name": "20250204_174237(0).jpg",
+      "final_score_after_rerank": 0.569936,
+      "aesthetic_score": 0.504949,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "blur"
+      ]
+    },
+    {
+      "rank": 6,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564423029-24.jpg",
+      "image_file_name": "1675564423029-24.jpg",
+      "final_score_after_rerank": 0.564664,
+      "aesthetic_score": 0.503658,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "blur"
+      ]
+    },
+    {
+      "rank": 7,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564674752-2.jpg",
+      "image_file_name": "1675564674752-2.jpg",
+      "final_score_after_rerank": 0.558841,
+      "aesthetic_score": 0.505381,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 8,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1720499666964.jpg",
+      "image_file_name": "1720499666964.jpg",
+      "final_score_after_rerank": 0.553949,
+      "aesthetic_score": 0.465527,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 9,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1720499666985.jpg",
+      "image_file_name": "1720499666985.jpg",
+      "final_score_after_rerank": 0.552266,
+      "aesthetic_score": 0.4689,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 10,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_135520.jpg",
+      "image_file_name": "20250204_135520.jpg",
+      "final_score_after_rerank": 0.549628,
+      "aesthetic_score": 0.481131,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "background"
+      ]
+    },
+    {
+      "rank": 11,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1704296944756.jpg",
+      "image_file_name": "1704296944756.jpg",
+      "final_score_after_rerank": 0.548831,
+      "aesthetic_score": 0.458017,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 12,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564423029-9.jpg",
+      "image_file_name": "1675564423029-9.jpg",
+      "final_score_after_rerank": 0.548735,
+      "aesthetic_score": 0.485063,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "exposure"
+      ]
+    },
+    {
+      "rank": 13,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240515_092725.jpg",
+      "image_file_name": "20240515_092725.jpg",
+      "final_score_after_rerank": 0.546471,
+      "aesthetic_score": 0.456776,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "blur"
+      ]
+    },
+    {
+      "rank": 14,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240505_170541.jpg",
+      "image_file_name": "20240505_170541.jpg",
+      "final_score_after_rerank": 0.537317,
+      "aesthetic_score": 0.479954,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "blur"
+      ]
+    },
+    {
+      "rank": 15,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2781.JPG",
+      "image_file_name": "IMG_2781.JPG",
+      "final_score_after_rerank": 0.535312,
+      "aesthetic_score": 0.493602,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 16,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240510_191716.jpg",
+      "image_file_name": "20240510_191716.jpg",
+      "final_score_after_rerank": 0.535144,
+      "aesthetic_score": 0.466358,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 17,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_163550.jpg",
+      "image_file_name": "20250204_163550.jpg",
+      "final_score_after_rerank": 0.532797,
+      "aesthetic_score": 0.459012,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "blur"
+      ]
+    },
+    {
+      "rank": 18,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2785.JPG",
+      "image_file_name": "IMG_2785.JPG",
+      "final_score_after_rerank": 0.530942,
+      "aesthetic_score": 0.462191,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 19,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240509_154353.jpg",
+      "image_file_name": "20240509_154353.jpg",
+      "final_score_after_rerank": 0.52986,
+      "aesthetic_score": 0.458085,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "blur"
+      ]
+    },
+    {
+      "rank": 20,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675342165226-5.jpg",
+      "image_file_name": "1675342165226-5.jpg",
+      "final_score_after_rerank": 0.526982,
+      "aesthetic_score": 0.460498,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "exposure"
+      ]
+    },
+    {
+      "rank": 21,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250129_054504.jpg",
+      "image_file_name": "20250129_054504.jpg",
+      "final_score_after_rerank": 0.524417,
+      "aesthetic_score": 0.43197,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "clarity"
+      ]
+    },
+    {
+      "rank": 22,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2729.JPG",
+      "image_file_name": "IMG_2729.JPG",
+      "final_score_after_rerank": 0.523972,
+      "aesthetic_score": 0.509886,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "blur"
+      ]
+    },
+    {
+      "rank": 23,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564423029-6.jpg",
+      "image_file_name": "1675564423029-6.jpg",
+      "final_score_after_rerank": 0.523718,
+      "aesthetic_score": 0.443182,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "blur"
+      ]
+    },
+    {
+      "rank": 24,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675342165226-3.jpg",
+      "image_file_name": "1675342165226-3.jpg",
+      "final_score_after_rerank": 0.52343,
+      "aesthetic_score": 0.449708,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 25,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240517_060242.jpg",
+      "image_file_name": "20240517_060242.jpg",
+      "final_score_after_rerank": 0.522414,
+      "aesthetic_score": 0.459458,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 26,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240506_140415.jpg",
+      "image_file_name": "20240506_140415.jpg",
+      "final_score_after_rerank": 0.521985,
+      "aesthetic_score": 0.44582,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 27,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240506_120558.jpg",
+      "image_file_name": "20240506_120558.jpg",
+      "final_score_after_rerank": 0.521434,
+      "aesthetic_score": 0.463643,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "clarity"
+      ]
+    },
+    {
+      "rank": 28,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_20240519_215827_510.jpg",
+      "image_file_name": "IMG_20240519_215827_510.jpg",
+      "final_score_after_rerank": 0.519272,
+      "aesthetic_score": 0.450843,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "This frame cleared the cut by a small edge, mostly through technical quality.",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "aesthetic score",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 29,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675342165226-13.jpg",
+      "image_file_name": "1675342165226-13.jpg",
+      "final_score_after_rerank": 0.518911,
+      "aesthetic_score": 0.474539,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "lighting"
+      ]
+    },
+    {
+      "rank": 30,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_133404.jpg",
+      "image_file_name": "20250204_133404.jpg",
+      "final_score_after_rerank": 0.505302,
+      "aesthetic_score": 0.421752,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "background"
+      ]
+    },
+    {
+      "rank": 31,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250217_144845.jpg",
+      "image_file_name": "20250217_144845.jpg",
+      "final_score_after_rerank": 0.504024,
+      "aesthetic_score": 0.405031,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "clarity"
+      ]
+    },
+    {
+      "rank": 32,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240505_153023.jpg",
+      "image_file_name": "20240505_153023.jpg",
+      "final_score_after_rerank": 0.501563,
+      "aesthetic_score": 0.421995,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 33,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240101_143158.jpg",
+      "image_file_name": "20240101_143158.jpg",
+      "final_score_after_rerank": 0.49992,
+      "aesthetic_score": 0.38378,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "clarity"
+      ]
+    },
+    {
+      "rank": 34,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2739.JPG",
+      "image_file_name": "IMG_2739.JPG",
+      "final_score_after_rerank": 0.495335,
+      "aesthetic_score": 0.483275,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "exposure"
+      ]
+    },
+    {
+      "rank": 35,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240503_210355.jpg",
+      "image_file_name": "20240503_210355.jpg",
+      "final_score_after_rerank": 0.49503,
+      "aesthetic_score": 0.395608,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 36,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1738744324186.jpg",
+      "image_file_name": "1738744324186.jpg",
+      "final_score_after_rerank": 0.493802,
+      "aesthetic_score": 0.457298,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "exposure"
+      ]
+    },
+    {
+      "rank": 37,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2738.JPG",
+      "image_file_name": "IMG_2738.JPG",
+      "final_score_after_rerank": 0.488291,
+      "aesthetic_score": 0.478244,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 38,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240517_060245.jpg",
+      "image_file_name": "20240517_060245.jpg",
+      "final_score_after_rerank": 0.486799,
+      "aesthetic_score": 0.415632,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": []
+    },
+    {
+      "rank": 39,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250129_103313.jpg",
+      "image_file_name": "20250129_103313.jpg",
+      "final_score_after_rerank": 0.486632,
+      "aesthetic_score": 0.423679,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 40,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20230201_181300.jpg",
+      "image_file_name": "20230201_181300.jpg",
+      "final_score_after_rerank": 0.483679,
+      "aesthetic_score": 0.452578,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "background"
+      ]
+    },
+    {
+      "rank": 41,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240510_213907.jpg",
+      "image_file_name": "20240510_213907.jpg",
+      "final_score_after_rerank": 0.482113,
+      "aesthetic_score": 0.395502,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 42,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1720499657653.jpg",
+      "image_file_name": "1720499657653.jpg",
+      "final_score_after_rerank": 0.480619,
+      "aesthetic_score": 0.399314,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition"
+      ]
+    },
+    {
+      "rank": 43,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250205_072644.jpg",
+      "image_file_name": "20250205_072644.jpg",
+      "final_score_after_rerank": 0.479135,
+      "aesthetic_score": 0.435658,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "lighting"
+      ]
+    },
+    {
+      "rank": 44,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2748.JPG",
+      "image_file_name": "IMG_2748.JPG",
+      "final_score_after_rerank": 0.478237,
+      "aesthetic_score": 0.431315,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "background"
+      ]
+    },
+    {
+      "rank": 45,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1715855266134.jpg",
+      "image_file_name": "1715855266134.jpg",
+      "final_score_after_rerank": 0.474914,
+      "aesthetic_score": 0.383342,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "lighting"
+      ]
+    },
+    {
+      "rank": 46,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240515_073118.jpg",
+      "image_file_name": "20240515_073118.jpg",
+      "final_score_after_rerank": 0.472832,
+      "aesthetic_score": 0.378463,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "clarity"
+      ]
+    },
+    {
+      "rank": 47,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20230201_181510.jpg",
+      "image_file_name": "20230201_181510.jpg",
+      "final_score_after_rerank": 0.46705,
+      "aesthetic_score": 0.433977,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "background"
+      ]
+    },
+    {
+      "rank": 48,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250205_000515.jpg",
+      "image_file_name": "20250205_000515.jpg",
+      "final_score_after_rerank": 0.46462,
+      "aesthetic_score": 0.41072,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clean detail, weak subject emphasis",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "exposure"
+      ]
+    },
+    {
+      "rank": 49,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240502_193823.jpg",
+      "image_file_name": "20240502_193823.jpg",
+      "final_score_after_rerank": 0.453927,
+      "aesthetic_score": 0.398771,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "background"
+      ]
+    },
+    {
+      "rank": 50,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250129_102520.jpg",
+      "image_file_name": "20250129_102520.jpg",
+      "final_score_after_rerank": 0.438915,
+      "aesthetic_score": 0.406852,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "acut_short_reason": "selected: clear subject emphasis, soft detail",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": true,
+      "multimodal_explanations_skip_reason": null,
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "vila_full_local",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "composition",
+        "lighting"
+      ]
+    }
+  ],
+  "selected_count": 50,
+  "rejected_count": 0,
+  "multimodal_explanations_enabled": true,
+  "multimodal_explanations_attempted": true,
+  "multimodal_explanations_succeeded": true,
+  "multimodal_explanations_skip_reason": null,
+  "multimodal_explanation_model": "checkpoints/NVILA-8B",
+  "explanation_source": "vila_full_local",
+  "pipeline_config": {
+    "input_dir": "/home/omen_pc1/photo_score_project/test_vila",
+    "scores_jsonl": "outputs/test_vila_worker_verify_full_20260416/scores.jsonl",
+    "scores_csv": "outputs/test_vila_worker_verify_full_20260416/scores.csv",
+    "score_failures_json": null,
+    "num_input_images": 50,
+    "num_scored_images": 50,
+    "num_skipped_images": 0,
+    "num_recoverable_stage_failures": 0,
+    "aesthetic_scores_csv": "outputs/test_vila_worker_verify_full_20260416/scores.csv",
+    "aesthetic_enabled": true,
+    "aesthetic_backend": "stage5_student_full_aadb_tensorflow",
+    "aesthetic_config": "configs/stage5_student_server.json",
+    "aesthetic_weight": 0.6,
+    "aesthetic_models": [
+      "stage5_student_model"
+    ],
+    "aesthetic_model_paths": {
+      "stage5_student_model": "checkpoints/student_full_aadb/final_model.keras"
+    },
+    "aesthetic_pairwise_model_paths": {},
+    "aesthetic_missing_model_paths": {},
+    "aesthetic_auto_resolved": true,
+    "aesthetic_disabled_reason": null,
+    "aesthetic_warnings": [],
+    "vila_scores_csv": null,
+    "top_k": 50,
+    "enable_pairwise_rerank": false,
+    "enable_vila_rerank": false,
+    "vila_rerank_weight": 0.1,
+    "enable_vila_explanations": false,
+    "enable_acut_reasoning": true,
+    "explanation_schema_version": "acut_explanation.v1",
+    "explanation_count": 50,
+    "explanation_backend_requested": "vila_full_local",
+    "reason_reference_mode": "nearest_competitor",
+    "reason_detail_level": "full",
+    "multimodal_explanations_enabled": true,
+    "multimodal_explanations_attempted": true,
+    "multimodal_explanations_succeeded": true,
+    "multimodal_explanation_backend": "vila_full_local",
+    "multimodal_explanation_model": "checkpoints/NVILA-8B",
+    "multimodal_explanation_runtime": "local_vila_remote_code",
+    "multimodal_explanations_fallback": true,
+    "multimodal_explanations_target_count": 50,
+    "multimodal_explanations_attempted_count": 50,
+    "multimodal_explanations_succeeded_count": 49,
+    "multimodal_explanations_fallback_count": 1,
+    "multimodal_explanations_skip_reason": null,
+    "explanation_source": "vila_full_local",
+    "vila_full_python": "./.venv_vila/bin/python",
+    "vila_full_model_path": "checkpoints/NVILA-8B",
+    "vila_full_device": "cuda",
+    "vila_full_max_new_tokens": 160,
+    "enable_diversity": false,
+    "rerank_pool_size": null,
+    "weights_config": "configs/stage5_student_server_weights.json",
+    "export_debug_reasoning": false
+  }
+}

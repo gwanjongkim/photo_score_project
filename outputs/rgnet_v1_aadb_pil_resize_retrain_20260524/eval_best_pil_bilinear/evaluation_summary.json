@@ -1,0 +1,64 @@
+{
+  "created_at_local": "2026-05-24T04:39:03.362323+09:00",
+  "model_variant": "RGNet-paper-v1 approximation",
+  "official_reproduction": false,
+  "model_name": "rgnet_paper_v1_aadb_regression",
+  "checkpoint_type": "weights_only",
+  "model_path": null,
+  "weights_path": "outputs/rgnet_v1_aadb_pil_resize_retrain_20260524/best.weights.h5",
+  "image_size": 256,
+  "preprocess_backend": "pil_bilinear",
+  "preprocessing": {
+    "backend": "pil_bilinear",
+    "normalization": "float32_rgb_0_1",
+    "resize": "PIL.Image.BILINEAR"
+  },
+  "batch_size": 16,
+  "tensorflow": {
+    "visible_gpus": [],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.21.0"
+  },
+  "splits": {
+    "test": {
+      "num_samples": 1000,
+      "target_min": 0.05000000074505806,
+      "target_max": 1.0,
+      "prediction_min": 0.05549296736717224,
+      "prediction_max": 0.931490957736969,
+      "srcc": 0.6647899851650423,
+      "plcc": 0.6707976800276321,
+      "mae": 0.12189427018165588,
+      "rmse": 0.15215342198875886,
+      "mse": 0.023150663822889328,
+      "split": "test",
+      "csv": "data/processed/aadb/test.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "preprocess_backend": "pil_bilinear",
+      "elapsed_seconds": 35.89054264302831,
+      "seconds_per_image": 0.03589054264302831,
+      "predictions_path": "outputs/rgnet_v1_aadb_pil_resize_retrain_20260524/eval_best_pil_bilinear/test_predictions.csv"
+    },
+    "val": {
+      "num_samples": 846,
+      "target_min": 0.0,
+      "target_max": 0.949999988079071,
+      "prediction_min": 0.08009883761405945,
+      "prediction_max": 0.9027552008628845,
+      "srcc": 0.5930374722431988,
+      "plcc": 0.6051033009131258,
+      "mae": 0.11744911223649979,
+      "rmse": 0.14901776209232068,
+      "mse": 0.022206293419003487,
+      "split": "val",
+      "csv": "data/processed/aadb/val.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "preprocess_backend": "pil_bilinear",
+      "elapsed_seconds": 30.484685654984787,
+      "seconds_per_image": 0.03603390739359904,
+      "predictions_path": "outputs/rgnet_v1_aadb_pil_resize_retrain_20260524/eval_best_pil_bilinear/val_predictions.csv"
+    }
+  }
+}

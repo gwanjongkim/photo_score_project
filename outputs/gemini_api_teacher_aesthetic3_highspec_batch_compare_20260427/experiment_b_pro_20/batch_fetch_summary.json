@@ -1,0 +1,8 @@
+{
+  "status": "fetched_file_results",
+  "batch_state": "BATCH_STATE_SUCCEEDED",
+  "batch_job_name": "batches/r9b6dvjogggr10z9qxqwfad0ki0yuzi1fsoo",
+  "output_file": "files/batch-r9b6dvjogggr10z9qxqwfad0ki0yuzi1fsoo",
+  "raw_results_jsonl": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/experiment_b_pro_20/batch_raw_results.jsonl",
+  "bytes": 23930
+}

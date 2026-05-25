@@ -1,0 +1,81 @@
+{
+  "teacher_manifest": "outputs/gemma4_e4b_aesthetic3_smoke/test_vila.jsonl",
+  "teacher_target_format": {
+    "rows": 36,
+    "valid_rate": 1.0
+  },
+  "status": "ok",
+  "predictions_jsonl": "outputs/gemma4_e4b_aesthetic3_smoke/evaluation_pass2/predictions_all.jsonl",
+  "student_metrics": {
+    "matched_predictions": 36,
+    "format_compliance_rate": 0.972222,
+    "prefix_compliance_rate": 0.972222,
+    "role_separation_rate": 0.972222,
+    "mean_sequence_ratio": 0.343482,
+    "mean_token_f1": 0.255398,
+    "worst_examples": [
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__IMG_20240519_215827_510.jpg",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_20240519_215827_510.jpg",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "",
+        "sequence_ratio": 0.0,
+        "token_f1": 0.0,
+        "format_valid": false
+      },
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__20250205_072644.jpg",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250205_072644.jpg",
+        "teacher_comment_3line": "Strength: overall appeal.\nWeakness: detail clarity.\nVerdict: not selected because detail clarity undercuts overall appeal.",
+        "predicted_comment_3line": "Strength: Clear silhouette of a person against a bright sunset sky\nWeakness: The subject is completely silhouetted, obscuring facial features and clothing details\nVerdict: selected because the composition is dramatic and visually striking",
+        "sequence_ratio": 0.066667,
+        "token_f1": 0.208333,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__IMG_2738.JPG",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2738.JPG",
+        "teacher_comment_3line": "Strength: overall appeal.\nWeakness: detail clarity.\nVerdict: not selected because detail clarity undercuts overall appeal.",
+        "predicted_comment_3line": "Strength: Clear depiction of a large illuminated structure against a dark sky\nWeakness: Significant amount of black space in the frame\nVerdict: selected because the main subject is well-lit and visible",
+        "sequence_ratio": 0.068111,
+        "token_f1": 0.217391,
+        "format_valid": true
+      }
+    ],
+    "best_examples": [
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__20240515_092725.jpg",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240515_092725.jpg",
+        "teacher_comment_3line": "Strength: clean detail.\nWeakness: weak subject emphasis.\nVerdict: not selected because weak subject emphasis undercuts clean detail.",
+        "predicted_comment_3line": "Strength: Clear view of the climber against the rock face\nWeakness: Large expanse of empty blue sky\nVerdict: selected because the subject is clearly visible and engaging",
+        "sequence_ratio": 0.571429,
+        "token_f1": 0.272727,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__IMG_2781.JPG",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2781.JPG",
+        "teacher_comment_3line": "Strength: clear subject emphasis.\nWeakness: soft detail.\nVerdict: not selected because soft detail undercuts clear subject emphasis.",
+        "predicted_comment_3line": "Strength: Clear depiction of a hand emerging from the water\nWeakness: Large amount of empty sky in the frame\nVerdict: selected because the subject is clearly visible",
+        "sequence_ratio": 0.552189,
+        "token_f1": 0.318182,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__20231231_150055.jpg",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20231231_150055.jpg",
+        "teacher_comment_3line": "Strength: clear face detail and a lively expression.\nWeakness: the gray background feels flat.\nVerdict: selected because the clear face detail and expression carry the frame despite the flat background.",
+        "predicted_comment_3line": "Strength: The subject is clearly visible and engaging with the camera\nWeakness: The background is somewhat busy and distracting\nVerdict: selected because the subject is well-framed and expressive",
+        "sequence_ratio": 0.539043,
+        "token_f1": 0.413793,
+        "format_valid": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "rows": [
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_10.jpg",
+      "prompt": "You are the VILA-full teacher for A-cut aesthetic selection.\nThis is not captioning.\nUse the image first and the numeric context only as selection guidance.\nThe numeric context uses exactly three aesthetic inputs: NIMA unit, RGNet, and A-Lamp, plus their weighted aesthetic score.\nDo not mention technical score, final mixed score, AADB composition, captions, file names, other images, or raw numbers.\n\nReturn exactly 3 lines and nothing else:\nStrength: ...\nWeakness: ...\nVerdict: selected because ...\n\nRules:\n- Strength line: one short visible strength grounded in the image\n- Weakness line: one short visible weakness grounded in the image\n- Verdict line: one short A-cut judgment that starts with \"selected because\"\n- Use visible evidence phrases like clean framing, clearer subject emphasis, limited separation, busier background, flatter light, softer detail, cleaner background\n- Keep each line concise\n- Do not add bullets, numbering, quotes, or extra explanation\n\nSelection context:\n- selected_label: selected\n- rank_band_label: top_20_percent\n- weighted_aesthetic_score: 0.550949\n- nima_unit_score: 0.540414\n- rgnet_score: 0.479840\n- alamp_score: 0.683293"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "dummy_capture": {
+    "input": {
+      "name": "dummy_soft_histogram_input",
+      "shape": [
+        1,
+        36
+      ],
+      "dtype": "float32",
+      "min": -0.058798544108867645,
+      "max": 0.2281307429075241,
+      "mean": 0.0343618243932724,
+      "std": 0.06442244350910187
+    },
+    "output": {
+      "name": "dummy_soft_histogram_output",
+      "shape": [
+        1,
+        216,
+        1
+      ],
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 0.998264491558075,
+      "mean": 0.06709417700767517,
+      "std": 0.21509841084480286
+    }
+  },
+  "real_capture": {
+    "input": {
+      "name": "real_soft_histogram_input",
+      "shape": [
+        1,
+        36
+      ],
+      "dtype": "float32",
+      "min": -0.09909479320049286,
+      "max": 0.12603722512722015,
+      "mean": 0.009028987027704716,
+      "std": 0.04731929674744606
+    },
+    "output": {
+      "name": "real_soft_histogram_output",
+      "shape": [
+        1,
+        216,
+        1
+      ],
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 0.9334241151809692,
+      "mean": 0.03938298299908638,
+      "std": 0.152031809091568
+    }
+  },
+  "real_image_path": "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg"
+}

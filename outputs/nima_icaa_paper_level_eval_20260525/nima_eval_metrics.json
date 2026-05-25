@@ -1,0 +1,10 @@
+{
+  "dataset": "data/processed/ava/test.csv",
+  "sample_count": 2000,
+  "mean_score_mae": 0.5781141122634125,
+  "srcc": 0.34487342378959085,
+  "plcc": 0.3526976644786934,
+  "accuracy": 0.715,
+  "auc": 0.6594606312974152,
+  "mean_emd": 0.0902305617928505
+}

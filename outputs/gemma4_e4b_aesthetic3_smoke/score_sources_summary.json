@@ -1,0 +1,18 @@
+[
+  {
+    "dataset": "test_samples_nvila_probe_v9_gpu",
+    "teacher_run_path": "outputs/acut_product_nvila8b_probe_v9_gpu/app_results.json",
+    "score_csv": "outputs/acut_stage5_full_with_pairwise/scores.csv",
+    "rows_used": 15,
+    "source_score_rows": 15,
+    "top_k": 3
+  },
+  {
+    "dataset": "test_vila_nvila_20260416_gpu",
+    "teacher_run_path": "outputs/acut_transparency_test_vila_20260416_gpu/app_results.json",
+    "score_csv": "outputs/test_vila_aesthetic_ensemble_experiment_20260423/scores_with_ensemble.csv",
+    "rows_used": 50,
+    "source_score_rows": 50,
+    "top_k": 10
+  }
+]

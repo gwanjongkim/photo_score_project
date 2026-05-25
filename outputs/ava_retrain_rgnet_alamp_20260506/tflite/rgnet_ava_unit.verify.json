@@ -1,0 +1,66 @@
+{
+  "preset": "rgnet",
+  "model_path": "outputs/ava_retrain_rgnet_alamp_20260506/tflite/rgnet_ava_unit.tflite",
+  "image_path": "data/raw/ava/images/85837.jpg",
+  "source_checkpoint": "outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras",
+  "input_details": [
+    {
+      "name": "serving_default_keras_tensor_270:0",
+      "shape": [
+        1,
+        256,
+        256,
+        3
+      ],
+      "shape_signature": [
+        -1,
+        256,
+        256,
+        3
+      ],
+      "dtype": "float32",
+      "index": 0
+    }
+  ],
+  "output_details": [
+    {
+      "name": "StatefulPartitionedCall_1:0",
+      "shape": [
+        1,
+        1
+      ],
+      "shape_signature": [
+        -1,
+        1
+      ],
+      "dtype": "float32",
+      "index": 608
+    }
+  ],
+  "tflite_output": {
+    "raw_shape": [
+      1,
+      1
+    ],
+    "dtype": "float32",
+    "score": 0.4052223265171051,
+    "plausible": true,
+    "within_unit_interval": true
+  },
+  "source_output": {
+    "raw_shape": [
+      1,
+      1
+    ],
+    "dtype": "float32",
+    "score": 0.3305336833000183,
+    "plausible": true,
+    "within_unit_interval": true
+  },
+  "comparison": {
+    "max_abs_diff": 0.07468864321708679,
+    "mean_abs_diff": 0.07468864321708679,
+    "comparison_ok": false
+  },
+  "verification_passed": false
+}

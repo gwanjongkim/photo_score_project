@@ -1,0 +1,270 @@
+{
+  "teacher_manifest": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/test.jsonl",
+  "teacher_target_format": {
+    "rows": 34,
+    "json_schema_valid_rate": 1.0,
+    "flag_counts": {}
+  },
+  "status": "ok",
+  "predictions_jsonl": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/predictions/test_predictions.jsonl",
+  "student_metrics": {
+    "matched_predictions": 34,
+    "valid_json_rate": 1.0,
+    "required_fields_rate": 1.0,
+    "comment_type_valid_rate": 1.0,
+    "exact_comment_type_rate": 1.0,
+    "validation_flag_counts": {},
+    "forbidden_leakage_count": 0,
+    "fake_weakness_in_selected_count": 0,
+    "forced_praise_count": 0,
+    "near_miss_structure_fail_count": 0,
+    "mean_sequence_ratio": 0.178202,
+    "mean_token_f1": 0.406509,
+    "problem_examples": [
+      {
+        "id": "gemini__300__285__aadb__middle_near_miss__farm1_335_19915376919_d2d3da90a3_b.jpg__ed1eedd850",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_335_19915376919_d2d3da90a3_b.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The grand scale and moody atmosphere are compelling, but the overexposed, blown-out sky is a significant technical flaw.",
+          "detailed_reason": "This is a great capture of a majestic landscape, and the composition effectively conveys the scale of the mountains against the water. The misty clouds add a wonderful, moody atmosphere to the scene. However, the sky is severely overexposed, resulting in large areas of pure white with no detail, which is distracting. Reducing the exposure to retain detail in the highlights would have made this a much stronger photograph.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong, dramatic composition, but the lighting is too harsh and flat, which detracts from the scene's potential.",
+          "detailed_reason": "The composition is very strong, with the subject centered and the framing creating a sense of depth. However, the lighting is too harsh and flat, which makes the scene look less dynamic and less interesting. The harsh shadows and bright highlights are distracting, and the image would benefit from a more diffused or directional light source to create more mood and visual interest.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The image has a strong, dramatic composition, but the lighting is too harsh and flat, which detracts from the scene's potential.\", \"detailed_reason\": \"The composition is very strong, with the subject centered and the framing creating a sense of depth. However, the lighting is too harsh and flat, which makes the scene look less dynamic and less interesting. The harsh shadows and bright highlights are distracting, and the image would benefit from a more diffused or directional light source to create more mood and visual interest.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.104265,
+        "token_f1": 0.360656,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__248__ava__middle_near_miss__399032.jpg__89cd24ef67",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/399032.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The silhouette is strong, but the overall image is too dark and the color palette is muted.",
+          "detailed_reason": "This is a well-composed image with a striking tree silhouette as the main subject. The moody atmosphere is effective. However, the overall scene is very dark, and the sky lacks the brightness or color needed to make the silhouette truly pop. Shooting this during a more vibrant sunrise or sunset would have provided better contrast and visual interest.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong, dramatic composition, but the harsh lighting and high contrast make the scene feel a bit too stylized and less natural.",
+          "detailed_reason": "The composition is very strong, with the subject placed effectively in the frame and the dramatic lighting creating a moody atmosphere. However, the harsh, high-contrast lighting casts very deep shadows and bright highlights, which can feel a bit overdone and less natural. A slight adjustment to the lighting to soften the shadows and bring a bit more detail into the mid-tones would make the image feel more balanced and less stylized.",
+          "comparison_reason": null
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The image has a strong, dramatic composition, but the harsh lighting and high contrast make the scene feel a bit too stylized and less natural.\", \"detailed_reason\": \"The composition is very strong, with the subject placed effectively in the frame and the dramatic lighting creating a moody atmosphere. However, the harsh, high-contrast lighting casts very deep shadows and bright highlights, which can feel a bit overdone and less natural. A slight adjustment to the lighting to soften the shadows and bring a bit more detail into the mid-tones would make the image feel more balanced and less stylized.\", \"comparison_reason\": null}",
+        "sequence_ratio": 0.108327,
+        "token_f1": 0.393443,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__76__ava__middle_near_miss__230632.jpg__c9cf3f93bd",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/230632.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The strong composition and lighting are compelling, but the overwhelming monochromatic color cast holds the image back.",
+          "detailed_reason": "This photograph has excellent compositional elements, with strong leading lines and a repeating pattern that creates a great sense of depth. The dramatic lighting from the floor is also very effective. However, the entire scene is washed in an extremely intense and uniform yellow light, which feels unnatural and detracts from the architectural details. A more balanced color palette or a reduced color cast would have made the strong composition even more impactful.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The composition is strong, but the image lacks a clear focal point and the lighting is too flat.",
+          "detailed_reason": "The wide-angle view of the landscape is well-composed, with the foreground elements framing the scene nicely. However, the image is a bit flat because of the even lighting, and the lack of a strong focal point makes it feel like a generic landscape shot. Adding some contrast or a more dramatic element would make this a much stronger image.",
+          "comparison_reason": null
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The composition is strong, but the image lacks a clear focal point and the lighting is too flat.\", \"detailed_reason\": \"The wide-angle view of the landscape is well-composed, with the foreground elements framing the scene nicely. However, the image is a bit flat because of the even lighting, and the lack of a strong focal point makes it feel like a generic landscape shot. Adding some contrast or a more dramatic element would make this a much stronger image.\", \"comparison_reason\": null}",
+        "sequence_ratio": 0.119548,
+        "token_f1": 0.391061,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__16__aadb__middle_near_miss__farm1_420_20202994131_c7e499327e_b.jpg__278b58c780",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_420_20202994131_c7e499327e_b.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The subject's expression is compelling, but the unbalanced composition with excessive empty space weakens the overall impact.",
+          "detailed_reason": "The emotional expression on the girl's face is very strong and creates a powerful focal point. However, the composition feels unbalanced due to the large amount of empty, negative space on the right side of the frame. A tighter crop focusing more on the subject would eliminate the distracting empty space and strengthen the emotional impact of the photograph.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong composition and a clear subject, but the lighting is too flat and lacks visual interest.",
+          "detailed_reason": "The composition is well-balanced, with the subject centered and the framing tight enough to create a sense of intimacy. However, the lighting is very flat, which makes the scene feel dull and uninteresting. Adding some contrast or a more dramatic light source would have made the image much stronger.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The image has a strong composition and a clear subject, but the lighting is too flat and lacks visual interest.\", \"detailed_reason\": \"The composition is well-balanced, with the subject centered and the framing tight enough to create a sense of intimacy. However, the lighting is very flat, which makes the scene feel dull and uninteresting. Adding some contrast or a more dramatic light source would have made the image much stronger.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.120939,
+        "token_f1": 0.407643,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__250__ava__middle_near_miss__173845.jpg__d95bb78674",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/173845.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The surreal concept and atmospheric long exposure are excellent, but the composition is cluttered and the lighting on the subject is flat.",
+          "detailed_reason": "This is a wonderfully creative and surreal concept. The use of a long exposure to capture star trails complements the theme of time, and the cool, blue lighting creates a strong, mysterious mood. However, the composition is held back by the busy, dark foliage on the left, which competes for attention with the main subject. Using a different angle to isolate the tree with the clocks or adding a subtle light source to make them pop would create a more focused and impactful image.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong, dramatic composition, but the harsh lighting and high contrast make the scene feel a bit too stylized and less natural.",
+          "detailed_reason": "The composition is very strong, with the subject placed effectively in the frame and the dramatic lighting creating a clear mood. However, the harsh, high-contrast lighting is almost too stylized, making the scene feel a bit artificial. A slight adjustment to the lighting could have made the image feel more natural and less like a staged photograph.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The image has a strong, dramatic composition, but the harsh lighting and high contrast make the scene feel a bit too stylized and less natural.\", \"detailed_reason\": \"The composition is very strong, with the subject placed effectively in the frame and the dramatic lighting creating a clear mood. However, the harsh, high-contrast lighting is almost too stylized, making the scene feel a bit artificial. A slight adjustment to the lighting could have made the image feel more natural and less like a staged photograph.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.13273,
+        "token_f1": 0.4,
+        "valid_json": true,
+        "validation_flags": []
+      }
+    ],
+    "sample_outputs": [
+      {
+        "id": "gemini__300__285__aadb__middle_near_miss__farm1_335_19915376919_d2d3da90a3_b.jpg__ed1eedd850",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_335_19915376919_d2d3da90a3_b.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The grand scale and moody atmosphere are compelling, but the overexposed, blown-out sky is a significant technical flaw.",
+          "detailed_reason": "This is a great capture of a majestic landscape, and the composition effectively conveys the scale of the mountains against the water. The misty clouds add a wonderful, moody atmosphere to the scene. However, the sky is severely overexposed, resulting in large areas of pure white with no detail, which is distracting. Reducing the exposure to retain detail in the highlights would have made this a much stronger photograph.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong, dramatic composition, but the lighting is too harsh and flat, which detracts from the scene's potential.",
+          "detailed_reason": "The composition is very strong, with the subject centered and the framing creating a sense of depth. However, the lighting is too harsh and flat, which makes the scene look less dynamic and less interesting. The harsh shadows and bright highlights are distracting, and the image would benefit from a more diffused or directional light source to create more mood and visual interest.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The image has a strong, dramatic composition, but the lighting is too harsh and flat, which detracts from the scene's potential.\", \"detailed_reason\": \"The composition is very strong, with the subject centered and the framing creating a sense of depth. However, the lighting is too harsh and flat, which makes the scene look less dynamic and less interesting. The harsh shadows and bright highlights are distracting, and the image would benefit from a more diffused or directional light source to create more mood and visual interest.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.104265,
+        "token_f1": 0.360656,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__248__ava__middle_near_miss__399032.jpg__89cd24ef67",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/399032.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The silhouette is strong, but the overall image is too dark and the color palette is muted.",
+          "detailed_reason": "This is a well-composed image with a striking tree silhouette as the main subject. The moody atmosphere is effective. However, the overall scene is very dark, and the sky lacks the brightness or color needed to make the silhouette truly pop. Shooting this during a more vibrant sunrise or sunset would have provided better contrast and visual interest.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong, dramatic composition, but the harsh lighting and high contrast make the scene feel a bit too stylized and less natural.",
+          "detailed_reason": "The composition is very strong, with the subject placed effectively in the frame and the dramatic lighting creating a moody atmosphere. However, the harsh, high-contrast lighting casts very deep shadows and bright highlights, which can feel a bit overdone and less natural. A slight adjustment to the lighting to soften the shadows and bring a bit more detail into the mid-tones would make the image feel more balanced and less stylized.",
+          "comparison_reason": null
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The image has a strong, dramatic composition, but the harsh lighting and high contrast make the scene feel a bit too stylized and less natural.\", \"detailed_reason\": \"The composition is very strong, with the subject placed effectively in the frame and the dramatic lighting creating a moody atmosphere. However, the harsh, high-contrast lighting casts very deep shadows and bright highlights, which can feel a bit overdone and less natural. A slight adjustment to the lighting to soften the shadows and bring a bit more detail into the mid-tones would make the image feel more balanced and less stylized.\", \"comparison_reason\": null}",
+        "sequence_ratio": 0.108327,
+        "token_f1": 0.393443,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__76__ava__middle_near_miss__230632.jpg__c9cf3f93bd",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/230632.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The strong composition and lighting are compelling, but the overwhelming monochromatic color cast holds the image back.",
+          "detailed_reason": "This photograph has excellent compositional elements, with strong leading lines and a repeating pattern that creates a great sense of depth. The dramatic lighting from the floor is also very effective. However, the entire scene is washed in an extremely intense and uniform yellow light, which feels unnatural and detracts from the architectural details. A more balanced color palette or a reduced color cast would have made the strong composition even more impactful.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The composition is strong, but the image lacks a clear focal point and the lighting is too flat.",
+          "detailed_reason": "The wide-angle view of the landscape is well-composed, with the foreground elements framing the scene nicely. However, the image is a bit flat because of the even lighting, and the lack of a strong focal point makes it feel like a generic landscape shot. Adding some contrast or a more dramatic element would make this a much stronger image.",
+          "comparison_reason": null
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The composition is strong, but the image lacks a clear focal point and the lighting is too flat.\", \"detailed_reason\": \"The wide-angle view of the landscape is well-composed, with the foreground elements framing the scene nicely. However, the image is a bit flat because of the even lighting, and the lack of a strong focal point makes it feel like a generic landscape shot. Adding some contrast or a more dramatic element would make this a much stronger image.\", \"comparison_reason\": null}",
+        "sequence_ratio": 0.119548,
+        "token_f1": 0.391061,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__19__ava__rejected_low__197848.jpg__98819a623a",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/197848.jpg",
+        "teacher_json": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The flat lighting and dull color palette result in a low-impact image.",
+          "detailed_reason": "The lighting on the sculpture is diffuse and flat, which fails to create depth or interesting shadows to define the subjects' features. This lack of contrast makes the image appear muted and uninteresting. The monochromatic and cool color tone further contributes to the photograph's overall lack of visual appeal.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and lacks contrast, making it difficult to see the details of the subject.",
+          "detailed_reason": "The low exposure and dark tones obscure the details of the subject, which is a small, dark bird. The lack of contrast and detail makes the image appear muddy and unappealing.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"rejection_reason\", \"short_reason\": \"The image is too dark and lacks contrast, making it difficult to see the details of the subject.\", \"detailed_reason\": \"The low exposure and dark tones obscure the details of the subject, which is a small, dark bird. The lack of contrast and detail makes the image appear muddy and unappealing.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.269142,
+        "token_f1": 0.459016,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__231__aadb__rejected_low__farm1_266_19564878823_99f867d7c8_b.jpg__7b8c6b141c",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_266_19564878823_99f867d7c8_b.jpg",
+        "teacher_json": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The subject is an underexposed silhouette, which obscures all of its detail.",
+          "detailed_reason": "The strong backlighting renders the main subject, a small figurine, as a dark silhouette with no visible detail. This severe underexposure makes the subject unclear and uninteresting. The out-of-focus background elements are somewhat distracting and do not contribute to a compelling composition.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and lacks contrast, making it difficult to see the details of the subject.",
+          "detailed_reason": "The low exposure and dark tones obscure the details of the subject, which is a large, dark-colored bird. The lack of contrast makes the image appear muddy and unappealing.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"rejection_reason\", \"short_reason\": \"The image is too dark and lacks contrast, making it difficult to see the details of the subject.\", \"detailed_reason\": \"The low exposure and dark tones obscure the details of the subject, which is a large, dark-colored bird. The lack of contrast makes the image appear muddy and unappealing.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.233766,
+        "token_f1": 0.371681,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__149__ava__selected_high__799446.jpg__e15072ca74",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/799446.jpg",
+        "teacher_json": {
+          "comment_type": "selected_explanation",
+          "short_reason": "This is an excellent abstract macro photograph that uses black and white tones, strong lines, and beautiful textures to create a compelling composition.",
+          "detailed_reason": "The composition is strong, with the central vein of the leaf creating a powerful diagonal line that guides the viewer's eye through the frame. Soft, diffused lighting beautifully highlights the intricate textures and three-dimensional form of the leaf. The choice of black and white is highly effective, stripping away color to emphasize the fundamental elements of line, shape, and pattern, resulting in a sophisticated and artistic image.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "selected_explanation",
+          "short_reason": "This is a compelling and well-composed photo that captures a beautiful moment of a bird in flight.",
+          "detailed_reason": "The composition is strong, with the bird positioned in the upper right quadrant, which creates a sense of dynamic movement and leaves plenty of negative space to draw the viewer's eye. The bird is sharp and well-lit, making it the clear focal point. The soft, diffused background provides a beautiful contrast and context, while the bright, clear sky adds a sense of openness and tranquility to the scene.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"selected_explanation\", \"short_reason\": \"This is a compelling and well-composed photo that captures a beautiful moment of a bird in flight.\", \"detailed_reason\": \"The composition is strong, with the bird positioned in the upper right quadrant, which creates a sense of dynamic movement and leaves plenty of negative space to draw the viewer's eye. The bird is sharp and well-lit, making it the clear focal point. The soft, diffused background provides a beautiful contrast and context, while the bright, clear sky adds a sense of openness and tranquility to the scene.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.231884,
+        "token_f1": 0.459893,
+        "valid_json": true,
+        "validation_flags": []
+      }
+    ]
+  }
+}

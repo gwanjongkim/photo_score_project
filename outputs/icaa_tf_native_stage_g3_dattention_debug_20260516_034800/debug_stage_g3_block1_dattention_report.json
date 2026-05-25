@@ -1,0 +1,1246 @@
+{
+  "status": "ok",
+  "command_used": "python experiments/icaa_tf_native/scripts/debug_stage_g3_block1_dattention.py",
+  "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+  "pytorch_reference_model_path": "/home/omen_pc1/photo_score_project/experiments/icaa_export_safe_v3/export_safe_models",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_g3_dattention_debug_20260516_034800",
+  "report_path": "/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/reports/stage_g3_block1_dattention_surgical_debug.md",
+  "seed": 123,
+  "thresholds": {
+    "preferred_max_abs_diff": 1e-05,
+    "acceptable_max_abs_diff": 0.0001
+  },
+  "state_dict_confirmation": "checkpoint object is an OrderedDict state_dict",
+  "strict_load": {
+    "success": true,
+    "missing_keys": [],
+    "unexpected_keys": []
+  },
+  "target": {
+    "stage": 3,
+    "block": 1,
+    "pytorch_module": "stages.3.attns.1",
+    "tensorflow_module": "TFTransformerStage3.attns[1]"
+  },
+  "checkpoint_keys_used": [
+    "stages.3.attns.1.rpe_table",
+    "stages.3.attns.1.conv_offset.0.weight",
+    "stages.3.attns.1.conv_offset.0.bias",
+    "stages.3.attns.1.conv_offset.1.norm.weight",
+    "stages.3.attns.1.conv_offset.1.norm.bias",
+    "stages.3.attns.1.conv_offset.3.weight",
+    "stages.3.attns.1.proj_q.weight",
+    "stages.3.attns.1.proj_q.bias",
+    "stages.3.attns.1.proj_k.weight",
+    "stages.3.attns.1.proj_k.bias",
+    "stages.3.attns.1.proj_v.weight",
+    "stages.3.attns.1.proj_v.bias",
+    "stages.3.attns.1.proj_out.weight",
+    "stages.3.attns.1.proj_out.bias",
+    "stages.3.attns.1.ref_point14.weight",
+    "stages.3.attns.1.ref_point14.bias",
+    "stages.3.attns.1.ref_gate.weight",
+    "stages.3.attns.1.ref_gate.bias"
+  ],
+  "case_results": [
+    {
+      "name": "deterministic random stage-3 input",
+      "stage_input_shape_nchw": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "direct_input_shape_nchw": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "direct_input_shape_nhwc": [
+        1,
+        7,
+        7,
+        1024
+      ],
+      "direct_same_input_dattention_pass": true,
+      "direct_same_input_dattention_preferred_pass": false,
+      "final_output_max_abs_diff": 8.58306884765625e-05,
+      "final_output_mean_abs_diff": 1.2686795116678695e-06,
+      "first_diverging_subcomponent": null,
+      "likely_failed_subcomponent": null,
+      "manual_pytorch_reconstruction": {
+        "name": "pytorch_manual_final_vs_module_final",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "torch_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_shape": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      "comparisons": [
+        {
+          "name": "block1_dattention_input",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "torch_shape": [
+            1,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            1,
+            1024,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "q",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 3.814697265625e-06,
+          "mean_abs_diff": 2.651156592037296e-07,
+          "torch_shape": [
+            1,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            1,
+            1024,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "offset",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 2.942979335784912e-07,
+          "mean_abs_diff": 1.5347342952054532e-08,
+          "torch_shape": [
+            8,
+            7,
+            7,
+            2
+          ],
+          "tf_shape": [
+            8,
+            7,
+            7,
+            2
+          ]
+        },
+        {
+          "name": "pos",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 9.5367431640625e-07,
+          "mean_abs_diff": 1.074180815407999e-07,
+          "torch_shape": [
+            8,
+            7,
+            7,
+            2
+          ],
+          "tf_shape": [
+            8,
+            7,
+            7,
+            2
+          ]
+        },
+        {
+          "name": "reference",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 9.238719940185547e-07,
+          "mean_abs_diff": 1.1552438650141994e-07,
+          "torch_shape": [
+            8,
+            7,
+            7,
+            2
+          ],
+          "tf_shape": [
+            8,
+            7,
+            7,
+            2
+          ]
+        },
+        {
+          "name": "sampled_feature",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 6.198883056640625e-06,
+          "mean_abs_diff": 6.295898202779426e-08,
+          "torch_shape": [
+            8,
+            128,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            8,
+            7,
+            7,
+            128
+          ],
+          "tf_shape_nchw": [
+            8,
+            128,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "k",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 8.940696716308594e-06,
+          "mean_abs_diff": 5.434956733552099e-07,
+          "torch_shape": [
+            32,
+            32,
+            49
+          ],
+          "tf_shape": [
+            32,
+            32,
+            49
+          ]
+        },
+        {
+          "name": "v",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 6.4820051193237305e-06,
+          "mean_abs_diff": 2.2158735646371497e-07,
+          "torch_shape": [
+            32,
+            32,
+            49
+          ],
+          "tf_shape": [
+            32,
+            32,
+            49
+          ]
+        },
+        {
+          "name": "attention_logits_before_bias",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 4.458427429199219e-05,
+          "mean_abs_diff": 2.310573336217203e-06,
+          "torch_shape": [
+            32,
+            49,
+            49
+          ],
+          "tf_shape": [
+            32,
+            49,
+            49
+          ]
+        },
+        {
+          "name": "relative_position_bias",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 4.291534423828125e-05,
+          "mean_abs_diff": 7.288520578185853e-07,
+          "torch_shape": [
+            32,
+            49,
+            49
+          ],
+          "tf_shape": [
+            32,
+            49,
+            49
+          ]
+        },
+        {
+          "name": "attention_logits_after_bias",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 4.38690185546875e-05,
+          "mean_abs_diff": 2.530998926886241e-06,
+          "torch_shape": [
+            32,
+            49,
+            49
+          ],
+          "tf_shape": [
+            32,
+            49,
+            49
+          ]
+        },
+        {
+          "name": "softmax_attention",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.0579824447631836e-05,
+          "mean_abs_diff": 9.113045962294564e-08,
+          "torch_shape": [
+            32,
+            49,
+            49
+          ],
+          "tf_shape": [
+            32,
+            49,
+            49
+          ]
+        },
+        {
+          "name": "weighted_attention_output_before_projection",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.1458992958068848e-05,
+          "mean_abs_diff": 3.9715416733088205e-07,
+          "torch_shape": [
+            1,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            1,
+            1024,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "output_projection",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 8.58306884765625e-05,
+          "mean_abs_diff": 1.2686795116678695e-06,
+          "torch_shape": [
+            1,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            1,
+            1024,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "final_dattention_output",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 8.58306884765625e-05,
+          "mean_abs_diff": 1.2686795116678695e-06,
+          "torch_shape": [
+            1,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            1,
+            1024,
+            7,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "name": "captured stage-3 input from deterministic random image",
+      "stage_input_shape_nchw": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "direct_input_shape_nchw": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "direct_input_shape_nhwc": [
+        1,
+        7,
+        7,
+        1024
+      ],
+      "direct_same_input_dattention_pass": true,
+      "direct_same_input_dattention_preferred_pass": false,
+      "final_output_max_abs_diff": 1.33514404296875e-05,
+      "final_output_mean_abs_diff": 5.7590693103293233e-08,
+      "first_diverging_subcomponent": null,
+      "likely_failed_subcomponent": null,
+      "manual_pytorch_reconstruction": {
+        "name": "pytorch_manual_final_vs_module_final",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "torch_shape": [
+          1,
+          1024,
+          7,
+          7
+        ],
+        "tf_shape": [
+          1,
+          1024,
+          7,
+          7
+        ]
+      },
+      "comparisons": [
+        {
+          "name": "block1_dattention_input",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "torch_shape": [
+            1,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            1,
+            1024,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "q",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 4.76837158203125e-07,
+          "mean_abs_diff": 2.604027571351253e-08,
+          "torch_shape": [
+            1,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            1,
+            1024,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "offset",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.4901161193847656e-07,
+          "mean_abs_diff": 1.1261755084035485e-08,
+          "torch_shape": [
+            8,
+            7,
+            7,
+            2
+          ],
+          "tf_shape": [
+            8,
+            7,
+            7,
+            2
+          ]
+        },
+        {
+          "name": "pos",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 2.384185791015625e-07,
+          "mean_abs_diff": 1.6991885232187087e-08,
+          "torch_shape": [
+            8,
+            7,
+            7,
+            2
+          ],
+          "tf_shape": [
+            8,
+            7,
+            7,
+            2
+          ]
+        },
+        {
+          "name": "reference",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 3.5762786865234375e-07,
+          "mean_abs_diff": 4.3810175043290656e-08,
+          "torch_shape": [
+            8,
+            7,
+            7,
+            2
+          ],
+          "tf_shape": [
+            8,
+            7,
+            7,
+            2
+          ]
+        },
+        {
+          "name": "sampled_feature",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 7.748603820800781e-07,
+          "mean_abs_diff": 8.047690291945742e-10,
+          "torch_shape": [
+            8,
+            128,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            8,
+            7,
+            7,
+            128
+          ],
+          "tf_shape_nchw": [
+            8,
+            128,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "k",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 6.332993507385254e-07,
+          "mean_abs_diff": 2.6891347815194422e-08,
+          "torch_shape": [
+            32,
+            32,
+            49
+          ],
+          "tf_shape": [
+            32,
+            32,
+            49
+          ]
+        },
+        {
+          "name": "v",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 9.5367431640625e-07,
+          "mean_abs_diff": 1.2668833981877015e-08,
+          "torch_shape": [
+            32,
+            32,
+            49
+          ],
+          "tf_shape": [
+            32,
+            32,
+            49
+          ]
+        },
+        {
+          "name": "attention_logits_before_bias",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.8030405044555664e-06,
+          "mean_abs_diff": 8.523388572712065e-08,
+          "torch_shape": [
+            32,
+            49,
+            49
+          ],
+          "tf_shape": [
+            32,
+            49,
+            49
+          ]
+        },
+        {
+          "name": "relative_position_bias",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.52587890625e-05,
+          "mean_abs_diff": 7.932153067713443e-08,
+          "torch_shape": [
+            32,
+            49,
+            49
+          ],
+          "tf_shape": [
+            32,
+            49,
+            49
+          ]
+        },
+        {
+          "name": "attention_logits_after_bias",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.52587890625e-05,
+          "mean_abs_diff": 1.4578451157376549e-07,
+          "torch_shape": [
+            32,
+            49,
+            49
+          ],
+          "tf_shape": [
+            32,
+            49,
+            49
+          ]
+        },
+        {
+          "name": "softmax_attention",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.1026859283447266e-06,
+          "mean_abs_diff": 3.5403548981349786e-09,
+          "torch_shape": [
+            32,
+            49,
+            49
+          ],
+          "tf_shape": [
+            32,
+            49,
+            49
+          ]
+        },
+        {
+          "name": "weighted_attention_output_before_projection",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 8.940696716308594e-07,
+          "mean_abs_diff": 8.629569059337427e-09,
+          "torch_shape": [
+            1,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            1,
+            1024,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "output_projection",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.33514404296875e-05,
+          "mean_abs_diff": 5.7590693103293233e-08,
+          "torch_shape": [
+            1,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            1,
+            1024,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "final_dattention_output",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.33514404296875e-05,
+          "mean_abs_diff": 5.7590693103293233e-08,
+          "torch_shape": [
+            1,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            1,
+            1024,
+            7,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "name": "captured stage-3 input from 3 real ICAA17K images",
+      "stage_input_shape_nchw": [
+        3,
+        1024,
+        7,
+        7
+      ],
+      "direct_input_shape_nchw": [
+        3,
+        1024,
+        7,
+        7
+      ],
+      "direct_input_shape_nhwc": [
+        3,
+        7,
+        7,
+        1024
+      ],
+      "direct_same_input_dattention_pass": true,
+      "direct_same_input_dattention_preferred_pass": false,
+      "final_output_max_abs_diff": 2.288818359375e-05,
+      "final_output_mean_abs_diff": 9.750579721412578e-08,
+      "first_diverging_subcomponent": null,
+      "likely_failed_subcomponent": null,
+      "manual_pytorch_reconstruction": {
+        "name": "pytorch_manual_final_vs_module_final",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "torch_shape": [
+          3,
+          1024,
+          7,
+          7
+        ],
+        "tf_shape": [
+          3,
+          1024,
+          7,
+          7
+        ]
+      },
+      "comparisons": [
+        {
+          "name": "block1_dattention_input",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "torch_shape": [
+            3,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            3,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            3,
+            1024,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "q",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 7.152557373046875e-07,
+          "mean_abs_diff": 3.522470493066976e-08,
+          "torch_shape": [
+            3,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            3,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            3,
+            1024,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "offset",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 3.203749656677246e-07,
+          "mean_abs_diff": 1.4459032193769872e-08,
+          "torch_shape": [
+            24,
+            7,
+            7,
+            2
+          ],
+          "tf_shape": [
+            24,
+            7,
+            7,
+            2
+          ]
+        },
+        {
+          "name": "pos",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 2.980232238769531e-07,
+          "mean_abs_diff": 6.8681318410313e-09,
+          "torch_shape": [
+            24,
+            7,
+            7,
+            2
+          ],
+          "tf_shape": [
+            24,
+            7,
+            7,
+            2
+          ]
+        },
+        {
+          "name": "reference",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.7881393432617188e-07,
+          "mean_abs_diff": 4.2926366461415455e-08,
+          "torch_shape": [
+            24,
+            7,
+            7,
+            2
+          ],
+          "tf_shape": [
+            24,
+            7,
+            7,
+            2
+          ]
+        },
+        {
+          "name": "sampled_feature",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 3.3527612686157227e-07,
+          "mean_abs_diff": 1.6599993601928986e-10,
+          "torch_shape": [
+            24,
+            128,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            24,
+            7,
+            7,
+            128
+          ],
+          "tf_shape_nchw": [
+            24,
+            128,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "k",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 4.76837158203125e-07,
+          "mean_abs_diff": 6.549502984398714e-08,
+          "torch_shape": [
+            96,
+            32,
+            49
+          ],
+          "tf_shape": [
+            96,
+            32,
+            49
+          ]
+        },
+        {
+          "name": "v",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 7.748603820800781e-07,
+          "mean_abs_diff": 2.5529779179578327e-08,
+          "torch_shape": [
+            96,
+            32,
+            49
+          ],
+          "tf_shape": [
+            96,
+            32,
+            49
+          ]
+        },
+        {
+          "name": "attention_logits_before_bias",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.430511474609375e-06,
+          "mean_abs_diff": 1.64343603614725e-07,
+          "torch_shape": [
+            96,
+            49,
+            49
+          ],
+          "tf_shape": [
+            96,
+            49,
+            49
+          ]
+        },
+        {
+          "name": "relative_position_bias",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.049041748046875e-05,
+          "mean_abs_diff": 2.509968055619538e-08,
+          "torch_shape": [
+            96,
+            49,
+            49
+          ],
+          "tf_shape": [
+            96,
+            49,
+            49
+          ]
+        },
+        {
+          "name": "attention_logits_after_bias",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.049041748046875e-05,
+          "mean_abs_diff": 1.8200869078555115e-07,
+          "torch_shape": [
+            96,
+            49,
+            49
+          ],
+          "tf_shape": [
+            96,
+            49,
+            49
+          ]
+        },
+        {
+          "name": "softmax_attention",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 7.897615432739258e-07,
+          "mean_abs_diff": 3.755041166897399e-09,
+          "torch_shape": [
+            96,
+            49,
+            49
+          ],
+          "tf_shape": [
+            96,
+            49,
+            49
+          ]
+        },
+        {
+          "name": "weighted_attention_output_before_projection",
+          "status": "pass_preferred",
+          "pass": true,
+          "preferred_pass": true,
+          "acceptable_pass": true,
+          "max_abs_diff": 1.9073486328125e-06,
+          "mean_abs_diff": 1.8351347108591654e-08,
+          "torch_shape": [
+            3,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            3,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            3,
+            1024,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "output_projection",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 2.288818359375e-05,
+          "mean_abs_diff": 9.750579721412578e-08,
+          "torch_shape": [
+            3,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            3,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            3,
+            1024,
+            7,
+            7
+          ]
+        },
+        {
+          "name": "final_dattention_output",
+          "status": "pass_acceptable",
+          "pass": true,
+          "preferred_pass": false,
+          "acceptable_pass": true,
+          "max_abs_diff": 2.288818359375e-05,
+          "mean_abs_diff": 9.750579721412578e-08,
+          "torch_shape": [
+            3,
+            1024,
+            7,
+            7
+          ],
+          "tf_shape_nhwc": [
+            3,
+            7,
+            7,
+            1024
+          ],
+          "tf_shape_nchw": [
+            3,
+            1024,
+            7,
+            7
+          ]
+        }
+      ]
+    }
+  ],
+  "all_direct_same_input_dattention_pass": true,
+  "supports_numeric_drift": true,
+  "supports_implementation_bug": false,
+  "code_modification_recommended": false,
+  "full_dat_assembly_should_remain_blocked": true,
+  "decision_note": "Direct same-input DAttention passed; this supports accumulated numeric drift before or around Stage G-3 rather than a structural Stage 3 block1 DAttention implementation bug.",
+  "real_images_performed": true,
+  "real_image_paths": [
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg"
+  ],
+  "warnings": [
+    "debug_stage_g3_block1_dattention.py:112: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+    "__init__.py:49: Importing from timm.models.layers is deprecated, please import via timm.layers",
+    "functional.py:534: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)",
+    "layer.py:424: `build()` was called on layer 'tf_transformer_stage3', however the layer does not have a `build()` method implemented and it looks like it has unbuilt state. This will cause the layer to be marked as built, despite not being actually built, which may cause failures down the line. Make sure to implement a proper `build()` method."
+  ],
+  "errors": [],
+  "log_lines": [
+    "deterministic random stage-3 input: direct_same_input_dattention=True max_abs_diff=8.58306885e-05 mean_abs_diff=1.26867951e-06 first_diverging_subcomponent=None",
+    "captured stage-3 input from deterministic random image: direct_same_input_dattention=True max_abs_diff=1.33514404e-05 mean_abs_diff=5.75906931e-08 first_diverging_subcomponent=None",
+    "captured stage-3 input from 3 real ICAA17K images: direct_same_input_dattention=True max_abs_diff=2.28881836e-05 mean_abs_diff=9.75057972e-08 first_diverging_subcomponent=None"
+  ],
+  "json_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_g3_dattention_debug_20260516_034800/debug_stage_g3_block1_dattention_report.json",
+  "log_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_g3_dattention_debug_20260516_034800/debug_stage_g3_block1_dattention_log.txt",
+  "debug_tensors_summary_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_g3_dattention_debug_20260516_034800/optional_debug_tensors_summary.json",
+  "captured_output": [
+    "deterministic random stage-3 input: direct_same_input_dattention=True max_abs_diff=8.58306885e-05 mean_abs_diff=1.26867951e-06 first_diverging_subcomponent=None",
+    "captured stage-3 input from deterministic random image: direct_same_input_dattention=True max_abs_diff=1.33514404e-05 mean_abs_diff=5.75906931e-08 first_diverging_subcomponent=None",
+    "captured stage-3 input from 3 real ICAA17K images: direct_same_input_dattention=True max_abs_diff=2.28881836e-05 mean_abs_diff=9.75057972e-08 first_diverging_subcomponent=None"
+  ]
+}

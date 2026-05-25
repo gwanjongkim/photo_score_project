@@ -1,0 +1,102 @@
+{
+  "status": "completed",
+  "timestamp_utc": "2026-04-29T03:44:49Z",
+  "command": [
+    "/home/omen_pc1/photo_score_project/.venv_vila/bin/python",
+    "tools/gemma4_bnb4_quantized_save.py",
+    "--model",
+    "outputs/gemma4_mobile_export_probe_20260429/merged_gemini_teacher_282",
+    "--output_dir",
+    "outputs/gemma4_mobile_export_probe_20260429/quantized_bnb4_merged_gemini_teacher_282",
+    "--hf_home",
+    "outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache",
+    "--device_map",
+    "cuda",
+    "--require_cuda"
+  ],
+  "cwd": "/home/omen_pc1/photo_score_project",
+  "source_model": "outputs/gemma4_mobile_export_probe_20260429/merged_gemini_teacher_282",
+  "output_dir": "outputs/gemma4_mobile_export_probe_20260429/quantized_bnb4_merged_gemini_teacher_282",
+  "format": "huggingface_transformers_bitsandbytes",
+  "quantization_type": "nf4_4bit_double_quant",
+  "runtime_required": "Python + PyTorch + Transformers + BitsAndBytes CUDA",
+  "android_flutter_realistic": false,
+  "android_blocker": "BitsAndBytes is a CUDA/PyTorch runtime path, not a LiteRT/TFLite, MediaPipe, or llama.cpp Android artifact.",
+  "hf_environment": {
+    "HF_HOME": "/home/omen_pc1/photo_score_project/outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache",
+    "HF_HUB_CACHE": "/home/omen_pc1/photo_score_project/outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache/hub",
+    "TRANSFORMERS_CACHE": "/home/omen_pc1/photo_score_project/outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache/transformers",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "local_files_only": true
+  },
+  "dependencies": {
+    "torch": {
+      "available": true,
+      "version": "2.11.0+cu130"
+    },
+    "transformers": {
+      "available": true,
+      "version": "5.6.2"
+    },
+    "bitsandbytes": {
+      "available": true,
+      "version": "0.49.2"
+    },
+    "accelerate": {
+      "available": true,
+      "version": "1.13.0"
+    },
+    "safetensors": {
+      "available": true,
+      "version": "0.7.0"
+    }
+  },
+  "torch_cuda": {
+    "available": true,
+    "torch_cuda_version": "13.0",
+    "device_count": 1,
+    "devices": [
+      "NVIDIA GeForce RTX 4070 SUPER"
+    ]
+  },
+  "load_seconds": 4.616872,
+  "model_hf_device_map": null,
+  "save_seconds": 11.874214,
+  "artifact_bytes": 9333879270,
+  "files": [
+    {
+      "path": "outputs/gemma4_mobile_export_probe_20260429/quantized_bnb4_merged_gemini_teacher_282/chat_template.jinja",
+      "bytes": 16317
+    },
+    {
+      "path": "outputs/gemma4_mobile_export_probe_20260429/quantized_bnb4_merged_gemini_teacher_282/config.json",
+      "bytes": 5656
+    },
+    {
+      "path": "outputs/gemma4_mobile_export_probe_20260429/quantized_bnb4_merged_gemini_teacher_282/generation_config.json",
+      "bytes": 203
+    },
+    {
+      "path": "outputs/gemma4_mobile_export_probe_20260429/quantized_bnb4_merged_gemini_teacher_282/model.safetensors",
+      "bytes": 9301680673
+    },
+    {
+      "path": "outputs/gemma4_mobile_export_probe_20260429/quantized_bnb4_merged_gemini_teacher_282/processor_config.json",
+      "bytes": 1689
+    },
+    {
+      "path": "outputs/gemma4_mobile_export_probe_20260429/quantized_bnb4_merged_gemini_teacher_282/quantize_summary.json",
+      "bytes": 2133
+    },
+    {
+      "path": "outputs/gemma4_mobile_export_probe_20260429/quantized_bnb4_merged_gemini_teacher_282/tokenizer.json",
+      "bytes": 32169781
+    },
+    {
+      "path": "outputs/gemma4_mobile_export_probe_20260429/quantized_bnb4_merged_gemini_teacher_282/tokenizer_config.json",
+      "bytes": 2818
+    }
+  ],
+  "elapsed_seconds": 20.084168
+}

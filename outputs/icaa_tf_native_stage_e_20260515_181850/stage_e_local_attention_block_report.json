@@ -1,0 +1,241 @@
+{
+  "status": "ok",
+  "command_used": "python experiments/icaa_tf_native/scripts/stage_e_local_attention_block_parity.py",
+  "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+  "pytorch_reference_model_path": "/home/omen_pc1/photo_score_project/experiments/icaa_export_safe_v3/export_safe_models",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_e_20260515_181850",
+  "report_path": "/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/reports/stage_e_local_attention_block_parity.md",
+  "seed": 123,
+  "thresholds": {
+    "preferred_max_abs_diff": 1e-05,
+    "acceptable_max_abs_diff": 0.0001
+  },
+  "state_dict_confirmation": "checkpoint object is an OrderedDict state_dict",
+  "strict_load": {
+    "success": true,
+    "missing_keys": [],
+    "unexpected_keys": []
+  },
+  "pytorch_block_inspection": {
+    "stage_class": "TransformerStage",
+    "stage_proj_class": "Identity",
+    "stage_depths": 2,
+    "target_depth_index": 0,
+    "attention_class": "LocalAttention",
+    "mlp_class": "TransformerMLP",
+    "layer_norm_proxy_class": "LayerNormProxy",
+    "inner_layer_norm_class": "LayerNorm",
+    "drop_path_class": "Identity",
+    "drop_path_eval_behavior": "Identity for stage 0 block 0 because the first drop_path_rate is 0.0",
+    "residual_order": [
+      "x0 = x",
+      "attn_out = attns[0](layer_norms[0](x))",
+      "x = drop_path[0](attn_out) + x0",
+      "x0 = x",
+      "mlp_out = mlps[0](layer_norms[1](x))",
+      "x = drop_path[0](mlp_out) + x0"
+    ],
+    "attention_window_size": [
+      7,
+      7
+    ],
+    "attention_heads": 4,
+    "attention_scale": 0.1767766952966369
+  },
+  "checkpoint_tensors_used": [
+    "stages.0.layer_norms.0.norm.weight",
+    "stages.0.layer_norms.0.norm.bias",
+    "stages.0.attns.0.relative_position_bias_table",
+    "stages.0.attns.0.relative_position_index",
+    "stages.0.attns.0.proj_qkv.weight",
+    "stages.0.attns.0.proj_qkv.bias",
+    "stages.0.attns.0.proj_out.weight",
+    "stages.0.attns.0.proj_out.bias",
+    "stages.0.layer_norms.1.norm.weight",
+    "stages.0.layer_norms.1.norm.bias",
+    "stages.0.mlps.0.chunk.linear1.weight",
+    "stages.0.mlps.0.chunk.linear1.bias",
+    "stages.0.mlps.0.chunk.linear2.weight",
+    "stages.0.mlps.0.chunk.linear2.bias"
+  ],
+  "tf_block_structure": {
+    "class_name": "TFFirstLocalAttentionBlock",
+    "input_layout": "NHWC/channels_last",
+    "target_pytorch_block": "stages.0 depth index 0",
+    "layers": [
+      {
+        "name": "layer_norm_0",
+        "pytorch_class": "LayerNormProxy",
+        "tf_layer": "tf.keras.layers.LayerNormalization(axis=-1, epsilon=1e-5)"
+      },
+      {
+        "name": "local_attention",
+        "pytorch_class": "LocalAttention",
+        "heads": 4,
+        "window_size": [
+          7,
+          7
+        ],
+        "qkv_projection": "Dense mapped from proj_qkv Linear",
+        "relative_position_bias": "gather table with relative_position_index"
+      },
+      {
+        "name": "residual_0",
+        "operation": "attn_out + block_input",
+        "drop_path": "identity for stage 0 block 0"
+      },
+      {
+        "name": "layer_norm_1",
+        "pytorch_class": "LayerNormProxy",
+        "tf_layer": "tf.keras.layers.LayerNormalization(axis=-1, epsilon=1e-5)"
+      },
+      {
+        "name": "mlp",
+        "pytorch_class": "TransformerMLP",
+        "operation": "Dense -> exact GELU -> Dense, dropout omitted in eval"
+      },
+      {
+        "name": "residual_1",
+        "operation": "mlp_out + after_attn_residual",
+        "drop_path": "identity for stage 0 block 0"
+      }
+    ]
+  },
+  "block_input_shape_nchw": [
+    1,
+    128,
+    56,
+    56
+  ],
+  "block_input_shape_nhwc": [
+    1,
+    56,
+    56,
+    128
+  ],
+  "block_output_shape_nchw": [
+    1,
+    128,
+    56,
+    56
+  ],
+  "block_output_shape_nhwc": [
+    1,
+    56,
+    56,
+    128
+  ],
+  "results": [
+    {
+      "name": "random block input",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 9.5367431640625e-06,
+      "mean_abs_diff": 6.46088381017762e-07,
+      "torch_output_shape": [
+        1,
+        128,
+        56,
+        56
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        56,
+        56,
+        128
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        128,
+        56,
+        56
+      ],
+      "likely_failed_subcomponent": null
+    },
+    {
+      "name": "patch projection output from deterministic random image",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 6.198883056640625e-06,
+      "mean_abs_diff": 5.734470960305771e-07,
+      "torch_output_shape": [
+        1,
+        128,
+        56,
+        56
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        56,
+        56,
+        128
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        128,
+        56,
+        56
+      ],
+      "likely_failed_subcomponent": null
+    },
+    {
+      "name": "patch projection output from 3 real ICAA17K images",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 6.198883056640625e-06,
+      "mean_abs_diff": 4.2349398654550896e-07,
+      "torch_output_shape": [
+        3,
+        128,
+        56,
+        56
+      ],
+      "tf_output_shape_nhwc": [
+        3,
+        56,
+        56,
+        128
+      ],
+      "tf_output_shape_nchw": [
+        3,
+        128,
+        56,
+        56
+      ],
+      "likely_failed_subcomponent": null
+    }
+  ],
+  "real_images_performed": true,
+  "real_image_paths": [
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg"
+  ],
+  "safe_to_proceed_to_stage_f_deformable_delegate_attention_parity": true,
+  "unresolved_issues": [],
+  "warnings": [
+    "stage_e_local_attention_block_parity.py:124: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+    "__init__.py:49: Importing from timm.models.layers is deprecated, please import via timm.layers",
+    "functional.py:534: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)"
+  ],
+  "errors": [],
+  "log_lines": [
+    "random block input: status=pass_preferred max_abs_diff=9.53674316e-06 mean_abs_diff=6.46088381e-07 torch_shape=[1, 128, 56, 56] tf_nhwc_shape=[1, 56, 56, 128] tf_nchw_shape=[1, 128, 56, 56]",
+    "patch projection output from deterministic random image: status=pass_preferred max_abs_diff=6.19888306e-06 mean_abs_diff=5.73447096e-07 torch_shape=[1, 128, 56, 56] tf_nhwc_shape=[1, 56, 56, 128] tf_nchw_shape=[1, 128, 56, 56]",
+    "patch projection output from 3 real ICAA17K images: status=pass_preferred max_abs_diff=6.19888306e-06 mean_abs_diff=4.23493987e-07 torch_shape=[3, 128, 56, 56] tf_nhwc_shape=[3, 56, 56, 128] tf_nchw_shape=[3, 128, 56, 56]"
+  ],
+  "json_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_e_20260515_181850/stage_e_local_attention_block_report.json",
+  "log_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_e_20260515_181850/stage_e_local_attention_block_log.txt",
+  "debug_tensors_summary_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_e_20260515_181850/optional_debug_tensors_summary.json",
+  "captured_output": [
+    "random block input: status=pass_preferred max_abs_diff=9.53674316e-06 mean_abs_diff=6.46088381e-07 torch_shape=[1, 128, 56, 56] tf_nhwc_shape=[1, 56, 56, 128] tf_nchw_shape=[1, 128, 56, 56]",
+    "patch projection output from deterministic random image: status=pass_preferred max_abs_diff=6.19888306e-06 mean_abs_diff=5.73447096e-07 torch_shape=[1, 128, 56, 56] tf_nhwc_shape=[1, 56, 56, 128] tf_nchw_shape=[1, 128, 56, 56]",
+    "patch projection output from 3 real ICAA17K images: status=pass_preferred max_abs_diff=6.19888306e-06 mean_abs_diff=4.23493987e-07 torch_shape=[3, 128, 56, 56] tf_nhwc_shape=[3, 56, 56, 128] tf_nchw_shape=[3, 128, 56, 56]"
+  ]
+}

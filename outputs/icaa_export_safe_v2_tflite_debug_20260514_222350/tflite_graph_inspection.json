@@ -1,0 +1,511 @@
+{
+  "model_path": "outputs/icaa_tflite_conversion_v2_no_flex_20260514_220549/icaa_dat_export_safe_v2_float32.tflite",
+  "subgraph_count": 1,
+  "tensor_count": 5986,
+  "operator_count": 3879,
+  "input_tensors": [
+    0
+  ],
+  "output_tensors": [
+    5848
+  ],
+  "op_histogram": {
+    "ABS": 1,
+    "ADD": 626,
+    "BATCH_MATMUL": 124,
+    "CAST": 80,
+    "CONCATENATION": 39,
+    "CONV_2D": 74,
+    "DEPTHWISE_CONV_2D": 12,
+    "DIV": 63,
+    "FLOOR": 40,
+    "FULLY_CONNECTED": 3,
+    "GATHER": 120,
+    "GELU": 34,
+    "GREATER_EQUAL": 80,
+    "LESS": 80,
+    "LESS_EQUAL": 110,
+    "LOGICAL_AND": 200,
+    "LOGISTIC": 12,
+    "MEAN": 127,
+    "MINIMUM": 76,
+    "MUL": 523,
+    "RELU": 77,
+    "RELU6": 4,
+    "RESHAPE": 590,
+    "SELECT": 80,
+    "SELECT_V2": 110,
+    "SLICE": 16,
+    "SOFTMAX": 24,
+    "SPLIT": 54,
+    "SQRT": 63,
+    "SUB": 153,
+    "TANH": 20,
+    "TILE": 20,
+    "TRANSPOSE": 244
+  },
+  "input_connected_to_output_forward": true,
+  "output_depends_on_input_backward": true,
+  "reachable_tensor_count_from_input": 3948,
+  "reachable_op_count_from_input": 3879,
+  "backward_tensor_count_from_output": 5986,
+  "backward_op_count_from_output": 3879,
+  "intersection_reachable_backward_ops": 3879,
+  "output_producers": {
+    "5848": {
+      "index": 3878,
+      "op_type": "CONCATENATION",
+      "inputs": [
+        5846,
+        5847
+      ],
+      "outputs": [
+        5848
+      ]
+    }
+  },
+  "first_20_ops": [
+    {
+      "index": 0,
+      "op_type": "CONV_2D",
+      "inputs": [
+        0,
+        325,
+        326
+      ],
+      "outputs": [
+        327
+      ]
+    },
+    {
+      "index": 1,
+      "op_type": "MEAN",
+      "inputs": [
+        327,
+        329
+      ],
+      "outputs": [
+        330
+      ]
+    },
+    {
+      "index": 2,
+      "op_type": "SUB",
+      "inputs": [
+        327,
+        330
+      ],
+      "outputs": [
+        331
+      ]
+    },
+    {
+      "index": 3,
+      "op_type": "MUL",
+      "inputs": [
+        331,
+        331
+      ],
+      "outputs": [
+        332
+      ]
+    },
+    {
+      "index": 4,
+      "op_type": "MEAN",
+      "inputs": [
+        332,
+        329
+      ],
+      "outputs": [
+        333
+      ]
+    },
+    {
+      "index": 5,
+      "op_type": "ADD",
+      "inputs": [
+        333,
+        334
+      ],
+      "outputs": [
+        335
+      ]
+    },
+    {
+      "index": 6,
+      "op_type": "SQRT",
+      "inputs": [
+        335
+      ],
+      "outputs": [
+        336
+      ]
+    },
+    {
+      "index": 7,
+      "op_type": "DIV",
+      "inputs": [
+        337,
+        336
+      ],
+      "outputs": [
+        338
+      ]
+    },
+    {
+      "index": 8,
+      "op_type": "MUL",
+      "inputs": [
+        331,
+        338
+      ],
+      "outputs": [
+        339
+      ]
+    },
+    {
+      "index": 9,
+      "op_type": "MUL",
+      "inputs": [
+        339,
+        1
+      ],
+      "outputs": [
+        340
+      ]
+    },
+    {
+      "index": 10,
+      "op_type": "ADD",
+      "inputs": [
+        340,
+        2
+      ],
+      "outputs": [
+        328
+      ]
+    },
+    {
+      "index": 11,
+      "op_type": "MEAN",
+      "inputs": [
+        328,
+        342
+      ],
+      "outputs": [
+        343
+      ]
+    },
+    {
+      "index": 12,
+      "op_type": "SUB",
+      "inputs": [
+        328,
+        343
+      ],
+      "outputs": [
+        344
+      ]
+    },
+    {
+      "index": 13,
+      "op_type": "MUL",
+      "inputs": [
+        344,
+        344
+      ],
+      "outputs": [
+        345
+      ]
+    },
+    {
+      "index": 14,
+      "op_type": "MEAN",
+      "inputs": [
+        345,
+        342
+      ],
+      "outputs": [
+        346
+      ]
+    },
+    {
+      "index": 15,
+      "op_type": "ADD",
+      "inputs": [
+        346,
+        347
+      ],
+      "outputs": [
+        348
+      ]
+    },
+    {
+      "index": 16,
+      "op_type": "SQRT",
+      "inputs": [
+        348
+      ],
+      "outputs": [
+        349
+      ]
+    },
+    {
+      "index": 17,
+      "op_type": "DIV",
+      "inputs": [
+        350,
+        349
+      ],
+      "outputs": [
+        351
+      ]
+    },
+    {
+      "index": 18,
+      "op_type": "MUL",
+      "inputs": [
+        344,
+        351
+      ],
+      "outputs": [
+        352
+      ]
+    },
+    {
+      "index": 19,
+      "op_type": "MUL",
+      "inputs": [
+        352,
+        3
+      ],
+      "outputs": [
+        353
+      ]
+    }
+  ],
+  "last_20_ops": [
+    {
+      "index": 3859,
+      "op_type": "ADD",
+      "inputs": [
+        5815,
+        324
+      ],
+      "outputs": [
+        5803
+      ]
+    },
+    {
+      "index": 3860,
+      "op_type": "MEAN",
+      "inputs": [
+        5803,
+        5817
+      ],
+      "outputs": [
+        5816
+      ]
+    },
+    {
+      "index": 3861,
+      "op_type": "RESHAPE",
+      "inputs": [
+        5816,
+        5819
+      ],
+      "outputs": [
+        5818
+      ]
+    },
+    {
+      "index": 3862,
+      "op_type": "FULLY_CONNECTED",
+      "inputs": [
+        5818,
+        5821,
+        5822
+      ],
+      "outputs": [
+        5820
+      ]
+    },
+    {
+      "index": 3863,
+      "op_type": "TRANSPOSE",
+      "inputs": [
+        5820,
+        5824
+      ],
+      "outputs": [
+        5823
+      ]
+    },
+    {
+      "index": 3864,
+      "op_type": "RESHAPE",
+      "inputs": [
+        5823,
+        5981
+      ],
+      "outputs": [
+        5826
+      ]
+    },
+    {
+      "index": 3865,
+      "op_type": "DEPTHWISE_CONV_2D",
+      "inputs": [
+        5826,
+        5827,
+        5828
+      ],
+      "outputs": [
+        5829
+      ]
+    },
+    {
+      "index": 3866,
+      "op_type": "RESHAPE",
+      "inputs": [
+        5829,
+        5983
+      ],
+      "outputs": [
+        5825
+      ]
+    },
+    {
+      "index": 3867,
+      "op_type": "ABS",
+      "inputs": [
+        5825
+      ],
+      "outputs": [
+        5830
+      ]
+    },
+    {
+      "index": 3868,
+      "op_type": "RESHAPE",
+      "inputs": [
+        5830,
+        5982
+      ],
+      "outputs": [
+        5832
+      ]
+    },
+    {
+      "index": 3869,
+      "op_type": "DEPTHWISE_CONV_2D",
+      "inputs": [
+        5832,
+        5833,
+        5834
+      ],
+      "outputs": [
+        5835
+      ]
+    },
+    {
+      "index": 3870,
+      "op_type": "RESHAPE",
+      "inputs": [
+        5835,
+        5984
+      ],
+      "outputs": [
+        5831
+      ]
+    },
+    {
+      "index": 3871,
+      "op_type": "RELU",
+      "inputs": [
+        5831
+      ],
+      "outputs": [
+        5836
+      ]
+    },
+    {
+      "index": 3872,
+      "op_type": "TRANSPOSE",
+      "inputs": [
+        5836,
+        5838
+      ],
+      "outputs": [
+        5837
+      ]
+    },
+    {
+      "index": 3873,
+      "op_type": "RESHAPE",
+      "inputs": [
+        5837,
+        5985
+      ],
+      "outputs": [
+        5839
+      ]
+    },
+    {
+      "index": 3874,
+      "op_type": "FULLY_CONNECTED",
+      "inputs": [
+        5839,
+        5841,
+        5842
+      ],
+      "outputs": [
+        5840
+      ]
+    },
+    {
+      "index": 3875,
+      "op_type": "FULLY_CONNECTED",
+      "inputs": [
+        5839,
+        5844,
+        5845
+      ],
+      "outputs": [
+        5843
+      ]
+    },
+    {
+      "index": 3876,
+      "op_type": "LOGISTIC",
+      "inputs": [
+        5840
+      ],
+      "outputs": [
+        5846
+      ]
+    },
+    {
+      "index": 3877,
+      "op_type": "LOGISTIC",
+      "inputs": [
+        5843
+      ],
+      "outputs": [
+        5847
+      ]
+    },
+    {
+      "index": 3878,
+      "op_type": "CONCATENATION",
+      "inputs": [
+        5846,
+        5847
+      ],
+      "outputs": [
+        5848
+      ]
+    }
+  ]
+}

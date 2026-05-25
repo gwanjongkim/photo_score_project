@@ -1,0 +1,107 @@
+{
+  "created_at_local": "2026-05-07T22:32:28.870400+09:00",
+  "experiment_dir": "outputs/rgnet_tflite_retry_20260507",
+  "input_model": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+  "reference_image": "data/raw/ava/images/85837.jpg",
+  "flutter_copy_performed": false,
+  "src_modified": false,
+  "reference_keras": {
+    "preprocessing": "RGB, resize 256x256, float32 / 255.0",
+    "score": 0.46629470586776733
+  },
+  "existing_failure_diagnosis": {
+    "savedmodel_export_used_conversion_mode": "select_tf_ops",
+    "savedmodel_requires_select_tf_ops": true,
+    "savedmodel_builtin_failure": "ConverterError: Could not translate MLIR to FlatBuffer.<unknown>:0: error: loc(callsite(fused[\"Mul:\", \"rgnet_practical_1/efficientnetv2-b0_1/rescaling_1/mul@__inference___call___129180\"] at callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___130691\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"]))): 'tf.Mul' op is neither a custom op nor a flex op <unknown>:0: note: loc(callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___130691\"] at fused[\"StatefulPartitionedCall:\",...",
+    "savedmodel_vs_checkpoint_max_diff": 5.841255187988281e-06,
+    "requested_tflite_allocation_error": "Select TensorFlow op(s), included in the given model, is(are) not supported by this interpreter. Make sure you apply/link the Flex delegate before inference. For the Android, it can be resolved by adding \"org.tensorflow:tensorflow-lite-select-tf-ops\" dependency. See instructions: https://www.tensorflow.org/lite/guide/ops_selectNode number 1 (FlexMul) failed to prepare.",
+    "rebuild_weights_vs_checkpoint_max_diff": 0.17772206664085388,
+    "rebuild_tflite_vs_checkpoint_max_diff": 0.17774948477745056,
+    "diagnosis": [
+      "SavedModel path required Select TF ops because the saved mixed-float16 graph leaves float16 TensorFlow ops such as Mul/Conv2D/BatchMatMulV2 in the MLIR conversion path.",
+      "The prior builtin rebuild failure is not primarily a TFLite conversion issue: a pure float32 rebuild already differs from the original Keras checkpoint before conversion.",
+      "Strict v2 copied all 373 weights with matching shapes and zero post-copy weight diff, but still failed Keras-vs-Keras parity, pointing to dtype-policy/compute-path mismatch rather than missing weights."
+    ]
+  },
+  "attempts": {
+    "direct_keras_builtin": {
+      "conversion_ok": false,
+      "verification_passed": false,
+      "keras_reference_score": 0.46629470586776733,
+      "error_type": "ConverterError",
+      "error_summary": "Could not translate MLIR to FlatBuffer./home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py:696:1: error: 'tf.Mul' op is neither a custom op nor a flex op self._concrete_variable_creation_fn = tracing_compilation.trace_function( ^ /home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/tracing_compilation.py:178:1: note: called from concrete_function = _maybe_define_function( ^ /home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/tracing_compilation.py:283:1: note: called from concrete_function = _create_concrete_function( ^ /home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/tracing_compilation.py:310:1: n..."
+    },
+    "strict_float32_rebuild_builtin_v1": {
+      "conversion_ok": false,
+      "verification_passed": false,
+      "error_type": "AttributeError",
+      "error_summary": "'str' object has no attribute 'name'",
+      "note": "Experiment-script dtype reporting bug; no TFLite was written."
+    },
+    "strict_float32_rebuild_builtin_v2": {
+      "conversion_ok": false,
+      "verification_passed": false,
+      "weight_coverage_ok": true,
+      "weight_count": 373,
+      "max_weight_abs_diff_after_copy": 0.0,
+      "rebuild_vs_original_max_abs_diff": 0.33626319468021393,
+      "rebuild_vs_original_mean_abs_diff": 0.19821138679981232,
+      "smoke_diff": 0.17772197723388672,
+      "error_type": "RuntimeError",
+      "error_summary": "Rebuild Keras parity failed before TFLite conversion; refusing to export."
+    },
+    "mixed_policy_rebuild_builtin": {
+      "conversion_ok": false,
+      "verification_passed": false,
+      "pre_tflite_rebuild_parity_passed": true,
+      "pre_tflite_rebuild_max_abs_diff": 0.0,
+      "pre_tflite_rebuild_mean_abs_diff": 0.0,
+      "error_type": "ConverterError",
+      "error_summary": "Could not translate MLIR to FlatBuffer.<unknown>:0: error: loc(callsite(fused[\"Mul:\", \"rgnet_practical_1/efficientnetv2-b0_1/rescaling_1/mul@__inference_function_123465\"] at callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_124976\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"]))): 'tf.Mul' op is neither a custom op nor a flex op <unknown>:0: note: loc(callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_124976\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): called from <unknown>:0: note: loc(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"]): called from <unknown>:0: note: loc(callsite(fused[\"Mul:\", \"rgnet_practical_1/efficientnetv2-b0_1/rescaling_1/mul@__inference_function_123465\"] at callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPar..."
+    },
+    "select_tf_ops_diagnostic": {
+      "conversion_ok": true,
+      "allocation_ok": false,
+      "verification_passed": false,
+      "requires_select_tf_ops": true,
+      "preferred_for_deployment": false,
+      "tflite_path": "outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_select_tf_ops_diagnostic.tflite",
+      "tflite_size_bytes": 13380084,
+      "allocation_error": "Select TensorFlow op(s), included in the given model, is(are) not supported by this interpreter. Make sure you apply/link the Flex delegate before inference. For the Android, it can be resolved by adding \"org.tensorflow:tensorflow-lite-select-tf-ops\" dependency. See instructions: https://www.tensorflow.org/lite/guide/ops_selectNode number 1 (FlexMul) failed to prepare."
+    }
+  },
+  "successful_builtin_candidate": null,
+  "fixed_subset_evaluation": {
+    "status": "skipped",
+    "reason": "No builtin TFLite candidate passed Keras-vs-TFLite numeric parity.",
+    "reference_keras_finetuned_metrics_from_previous_run": {
+      "ava_val512": {
+        "srcc": 0.48653126867704927,
+        "plcc": 0.5168676245372462,
+        "mae": 0.1510574370622635,
+        "rmse": 0.180808406593621
+      },
+      "aadb_val512": {
+        "srcc": 0.6749177647031382,
+        "plcc": 0.6835216300102603,
+        "mae": 0.11035995185375214,
+        "rmse": 0.13806612393297327
+      }
+    }
+  },
+  "deployment_decision": {
+    "classification": [
+      "not deployment-ready",
+      "teacher-only",
+      "needs source/export fix"
+    ],
+    "deployment_ready": false,
+    "reason": "No standard builtin TFLite artifact both loads and matches the fine-tuned Keras checkpoint within 1e-4.",
+    "recommendations": [
+      "Do not deploy the existing RGNet TFLite files.",
+      "Do not copy any retry artifact into Flutter.",
+      "For RGNet mobile deployment, either retrain/fine-tune under a float32 export-compatible policy and revalidate metrics, or implement an export-specific architecture that preserves mixed-policy numerics while lowering to builtin TFLite.",
+      "Continue to treat the fine-tuned Keras checkpoint as teacher-only until a parity-passing builtin TFLite exists."
+    ]
+  }
+}

@@ -1,0 +1,977 @@
+teacher_subset_id,image_path,dataset_source,teacher_subset_bucket,selected,line_count,prefix_ok,role_separation_ok,verdict_polarity_ok,leakage,generic,teacher_generation_error,clean_before_repair,clean_after_repair,teacher_comment_3line,repaired_teacher_comment_3line
+teacher__0__aadb__farm1_474_20027389138_2f1107b868_b.jpg__0c57ad9e,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_474_20027389138_2f1107b868_b.jpg,aadb,rejected_low,False,0,False,False,True,False,False,TypeError: 'NoneType' object is not subscriptable,False,False,,"Strength: clear subject emphasis.
+Weakness: weak subject separation.
+Verdict: not selected because weak subject separation undercuts clear subject emphasis."
+teacher__1__aadb__farm1_353_20095467761_c375760394_b.jpg__3848deea,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_353_20095467761_c375760394_b.jpg,aadb,selected_high,True,0,False,False,True,False,False,TypeError: 'NoneType' object is not subscriptable,False,False,,"Strength: clear subject emphasis.
+Weakness: a distracting background.
+Verdict: selected because clear subject emphasis carries the frame despite a distracting background."
+teacher__2__ava__10183.jpg__99564622,/home/omen_pc1/ava/images/10183.jpg,ava,middle_near_miss,False,0,False,False,True,False,False,TypeError: 'NoneType' object is not subscriptable,False,False,,"Strength: clear subject emphasis.
+Weakness: weak subject separation.
+Verdict: not selected because weak subject separation undercuts clear subject emphasis."
+teacher__3__ava__757187.jpg__5975de81,/home/omen_pc1/ava/images/757187.jpg,ava,middle_near_miss,False,0,False,False,True,False,False,TypeError: 'NoneType' object is not subscriptable,False,False,,"Strength: clear subject emphasis.
+Weakness: weak subject separation.
+Verdict: not selected because weak subject separation undercuts clear subject emphasis."
+teacher__4__ava__112278.jpg__848125f4,/home/omen_pc1/ava/images/112278.jpg,ava,middle_near_miss,False,0,False,False,True,False,False,TypeError: 'NoneType' object is not subscriptable,False,False,,"Strength: clear subject emphasis.
+Weakness: weak subject separation.
+Verdict: not selected because weak subject separation undercuts clear subject emphasis."
+teacher__5__aadb__farm1_292_20113399322_a9144d46bb_b.jpg__938e1617,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_292_20113399322_a9144d46bb_b.jpg,aadb,rejected_low,False,0,False,False,True,False,False,TypeError: 'NoneType' object is not subscriptable,False,False,,"Strength: clear subject emphasis.
+Weakness: weak subject separation.
+Verdict: not selected because weak subject separation undercuts clear subject emphasis."
+teacher__6__ava__457724.jpg__7639f7a7,/home/omen_pc1/ava/images/457724.jpg,ava,rejected_low,False,0,False,False,True,False,False,TypeError: 'NoneType' object is not subscriptable,False,False,,"Strength: clear subject emphasis.
+Weakness: weak subject separation.
+Verdict: not selected because weak subject separation undercuts clear subject emphasis."
+teacher__7__ava__272648.jpg__c31e9fd9,/home/omen_pc1/ava/images/272648.jpg,ava,rejected_low,False,0,False,False,True,False,False,TypeError: 'NoneType' object is not subscriptable,False,False,,"Strength: clear subject emphasis.
+Weakness: weak subject separation.
+Verdict: not selected because weak subject separation undercuts clear subject emphasis."
+teacher__8__aadb__farm1_354_20269637891_830acdc8fc_b.jpg__8b66ef96,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_354_20269637891_830acdc8fc_b.jpg,aadb,selected_high,True,0,False,False,True,False,False,TypeError: 'NoneType' object is not subscriptable,False,False,,"Strength: clear subject emphasis.
+Weakness: a distracting background.
+Verdict: selected because clear subject emphasis carries the frame despite a distracting background."
+teacher__9__ava__489791.jpg__a4bb9626,/home/omen_pc1/ava/images/489791.jpg,ava,rejected_low,False,0,False,False,True,False,False,TypeError: 'NoneType' object is not subscriptable,False,False,,"Strength: clear subject emphasis.
+Weakness: weak subject separation.
+Verdict: not selected because weak subject separation undercuts clear subject emphasis."
+teacher__10__ava__772147.jpg__00e6a1f1,/home/omen_pc1/ava/images/772147.jpg,ava,middle_near_miss,False,0,False,False,True,False,False,TypeError: 'NoneType' object is not subscriptable,False,False,,"Strength: clear subject emphasis.
+Weakness: weak subject separation.
+Verdict: not selected because weak subject separation undercuts clear subject emphasis."
+teacher__11__ava__140804.jpg__a0f8455a,/home/omen_pc1/ava/images/140804.jpg,ava,rejected_low,False,0,False,False,True,False,False,"RuntimeError: Given normalized_shape=[13824], expected input with shape [*, 13824], but got input of size[1, 256, 4608]",False,False,,"Strength: clear subject emphasis.
+Weakness: weak subject separation.
+Verdict: not selected because weak subject separation undercuts clear subject emphasis."
+teacher__12__ava__339919.jpg__cba8a43c,/home/omen_pc1/ava/images/339919.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: the image captures a tender moment between two children, showcasing the bond and care shared by siblings.
+Weakness: strength: The image captures a tender moment between two children, showcasing the bond and care shared by siblings. Weakness: The overall composition of the image is cluttered with various objects, which distracts from the main subjects and detracts from.
+Verdict: not selected because Strength: The image captures a tender moment between two children, showcasing the bond and care shared by siblings. Weakness: The overall composition of the image is cluttered with various objects, which distracts from the main subjects and detracts from undercuts The image captures a tender moment between two children, showcasing the bond and care shared by siblings.","Strength: the image captures a tender moment between two children, showcasing the bond and care shared by siblings.
+Weakness: strength: The image captures a tender moment between two children, showcasing the bond and care shared by siblings. Weakness: The overall composition of the image is cluttered with various objects, which distracts from the main subjects and detracts from.
+Verdict: not selected because Strength: The image captures a tender moment between two children, showcasing the bond and care shared by siblings. Weakness: The overall composition of the image is cluttered with various objects, which distracts from the main subjects and detracts from undercuts The image captures a tender moment between two children, showcasing the bond and care shared by siblings."
+teacher__13__ava__111392.jpg__d2c8fe85,/home/omen_pc1/ava/images/111392.jpg,ava,rejected_low,False,3,True,True,True,True,False,,False,False,"Strength: 3
+Weakness: 2
+Verdict: not selected because the pen is on a newspaper.","Strength: clear subject emphasis.
+Weakness: weak subject separation.
+Verdict: not selected because weak subject separation undercuts clear subject emphasis."
+teacher__14__ava__252135.jpg__065ca00b,/home/omen_pc1/ava/images/252135.jpg,ava,selected_high,True,3,True,False,True,False,False,,False,False,"Strength: ...
+Weakness: ...
+Verdict: selected because the image is a close-up of water with a drop in it.","Strength: clear subject emphasis.
+Weakness: a distracting background.
+Verdict: selected because clear subject emphasis carries the frame despite a distracting background."
+teacher__15__ava__699705.jpg__ea135814,/home/omen_pc1/ava/images/699705.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: selected: clean subject emphasis, busier background.
+Weakness: 'Clean subject emphasis. Busier background.
+Verdict: selected because selected: clean subject emphasis, busier background carries the frame despite 'Clean subject emphasis. Busier background.","Strength: selected: clean subject emphasis, busier background.
+Weakness: 'Clean subject emphasis. Busier background.
+Verdict: selected because selected: clean subject emphasis, busier background carries the frame despite 'Clean subject emphasis. Busier background."
+teacher__16__ava__812121.jpg__b41893a5,/home/omen_pc1/ava/images/812121.jpg,ava,selected_high,True,3,True,True,True,False,True,,False,False,"Strength: ""Clean subject emphasis. Busier background.
+Weakness: weaker secondary cues.
+Verdict: selected because ""Clean subject emphasis. Busier background carries the frame despite weaker secondary cues.","Strength: ""Clean subject emphasis. Busier background.
+Weakness: weaker secondary cues.
+Verdict: selected because ""Clean subject emphasis. Busier background carries the frame despite weaker secondary cues."
+teacher__17__ava__468537.jpg__5278d8a8,/home/omen_pc1/ava/images/468537.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__18__ava__912077.jpg__bd56aa4f,/home/omen_pc1/ava/images/912077.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__19__ava__898944.jpg__f97e4af3,/home/omen_pc1/ava/images/898944.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__20__ava__90567.jpg__9220cca8,/home/omen_pc1/ava/images/90567.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__21__ava__234740.jpg__246899c9,/home/omen_pc1/ava/images/234740.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__22__aadb__farm1_456_19997008730_88ecb9ab04_b.jpg__c5d9d502,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_456_19997008730_88ecb9ab04_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__23__aadb__farm1_341_19711219273_c56cef839b_b.jpg__7a9afe82,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_341_19711219273_c56cef839b_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__24__aadb__farm1_436_19928660899_cabcb63b83_b.jpg__0091d9fa,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_436_19928660899_cabcb63b83_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__25__ava__190297.jpg__4f35346e,/home/omen_pc1/ava/images/190297.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__26__aadb__farm1_390_20199257905_b8d9d83e8a_b.jpg__d9ced350,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_390_20199257905_b8d9d83e8a_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__27__ava__635840.jpg__aa3a0d24,/home/omen_pc1/ava/images/635840.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__28__ava__85289.jpg__437a3854,/home/omen_pc1/ava/images/85289.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__29__ava__9512.jpg__63654cef,/home/omen_pc1/ava/images/9512.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__30__ava__724283.jpg__4892732d,/home/omen_pc1/ava/images/724283.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__31__ava__372695.jpg__77e07a74,/home/omen_pc1/ava/images/372695.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__32__aadb__farm1_346_20011469250_1f4b77f915_b.jpg__4706ddb0,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_346_20011469250_1f4b77f915_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__33__ava__694248.jpg__1cf49c9b,/home/omen_pc1/ava/images/694248.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__34__aadb__farm1_341_19588090384_7f76bee6f4_b.jpg__d500e4c5,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_341_19588090384_7f76bee6f4_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__35__ava__739415.jpg__49088a38,/home/omen_pc1/ava/images/739415.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__36__aadb__farm1_347_19998876171_8cbce20f74_b.jpg__fd803459,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_347_19998876171_8cbce20f74_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__37__ava__105248.jpg__d90cb552,/home/omen_pc1/ava/images/105248.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__38__ava__137047.jpg__780d24f8,/home/omen_pc1/ava/images/137047.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__39__aadb__farm1_359_20208322391_1ea7059c05_b.jpg__e111c746,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_359_20208322391_1ea7059c05_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__40__aadb__farm1_259_19573465643_c3cfa19e63_b.jpg__af5a2e2a,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_259_19573465643_c3cfa19e63_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__41__ava__314495.jpg__56369938,/home/omen_pc1/ava/images/314495.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__42__ava__946808.jpg__570b57e0,/home/omen_pc1/ava/images/946808.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__43__aadb__farm1_282_20106795651_b191635c96_b.jpg__356afdf5,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_282_20106795651_b191635c96_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__44__ava__293868.jpg__2454333f,/home/omen_pc1/ava/images/293868.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__45__ava__677071.jpg__e7a601a9,/home/omen_pc1/ava/images/677071.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__46__ava__892957.jpg__c197a4b2,/home/omen_pc1/ava/images/892957.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__47__ava__450575.jpg__a2db801a,/home/omen_pc1/ava/images/450575.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__48__aadb__farm1_270_19798314148_7edc49d610_b.jpg__95b1d7d4,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_270_19798314148_7edc49d610_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__49__ava__421076.jpg__38041988,/home/omen_pc1/ava/images/421076.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__50__ava__719800.jpg__48d626a1,/home/omen_pc1/ava/images/719800.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__51__ava__829708.jpg__e540e3ae,/home/omen_pc1/ava/images/829708.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__52__aadb__farm1_395_20022784108_4ab87e2dac_b.jpg__5e5f196a,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_395_20022784108_4ab87e2dac_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__53__ava__677843.jpg__71dfc20c,/home/omen_pc1/ava/images/677843.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__54__aadb__farm1_387_20160784366_84c00a0d0a_b.jpg__4f55b367,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_387_20160784366_84c00a0d0a_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__55__ava__88928.jpg__2205bede,/home/omen_pc1/ava/images/88928.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__56__aadb__farm1_363_19653498564_03bc775fb8_b.jpg__cd2520fe,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_363_19653498564_03bc775fb8_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__57__aadb__farm1_383_20184947482_0d90e80db5_b.jpg__793c9fe4,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_383_20184947482_0d90e80db5_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__58__aadb__farm1_347_19657069024_522e022970_b.jpg__9b15efb0,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_347_19657069024_522e022970_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__59__aadb__farm1_255_19662764583_8e52368f78_b.jpg__7cdc4255,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_255_19662764583_8e52368f78_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__60__aadb__farm1_439_20120932302_29f76898e2_b.jpg__cc29fb29,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_439_20120932302_29f76898e2_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__61__ava__756190.jpg__614edc13,/home/omen_pc1/ava/images/756190.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__62__aadb__farm1_414_20009306060_264a7c1b0d_b.jpg__c5dd2fc4,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_414_20009306060_264a7c1b0d_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__63__ava__779836.jpg__66f4efb0,/home/omen_pc1/ava/images/779836.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__64__ava__412308.jpg__5792c22a,/home/omen_pc1/ava/images/412308.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__65__ava__236271.jpg__b3d31e35,/home/omen_pc1/ava/images/236271.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__66__ava__206524.jpg__24ef012a,/home/omen_pc1/ava/images/206524.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__67__ava__659660.jpg__5218df89,/home/omen_pc1/ava/images/659660.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__68__ava__186823.jpg__5738b10d,/home/omen_pc1/ava/images/186823.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__69__ava__684174.jpg__cb2d6895,/home/omen_pc1/ava/images/684174.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__70__aadb__farm1_386_20189395322_4e0eccdefe_b.jpg__a5c8ac87,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_386_20189395322_4e0eccdefe_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__71__aadb__farm4_3728_20261663345_195e193913_b.jpg__a8b4e6a6,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm4_3728_20261663345_195e193913_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__72__ava__23968.jpg__5b81cd78,/home/omen_pc1/ava/images/23968.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__73__ava__91372.jpg__765a23a1,/home/omen_pc1/ava/images/91372.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__74__ava__551330.jpg__e31cfa84,/home/omen_pc1/ava/images/551330.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__75__aadb__farm1_426_20179170345_140c768e97_b.jpg__ea77b9c2,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_426_20179170345_140c768e97_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__76__ava__827658.jpg__b098dc1f,/home/omen_pc1/ava/images/827658.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__77__ava__546643.jpg__298d2eb4,/home/omen_pc1/ava/images/546643.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__78__ava__334916.jpg__6b77e5c9,/home/omen_pc1/ava/images/334916.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__79__ava__921261.jpg__4920e85f,/home/omen_pc1/ava/images/921261.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__80__ava__952167.jpg__3bbf278c,/home/omen_pc1/ava/images/952167.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__81__ava__330773.jpg__d8df7d23,/home/omen_pc1/ava/images/330773.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__82__ava__488759.jpg__5c2d3077,/home/omen_pc1/ava/images/488759.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__83__aadb__farm1_384_20009567880_f091d304ae_b.jpg__afdf6734,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_384_20009567880_f091d304ae_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__84__ava__294971.jpg__c133fb6c,/home/omen_pc1/ava/images/294971.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__85__aadb__farm1_386_19946308978_de7f5d63bb_b.jpg__d3a1843d,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_386_19946308978_de7f5d63bb_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__86__ava__550326.jpg__787eb463,/home/omen_pc1/ava/images/550326.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__87__ava__197160.jpg__d6cd376a,/home/omen_pc1/ava/images/197160.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__88__ava__153203.jpg__3f6856a2,/home/omen_pc1/ava/images/153203.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__89__ava__841498.jpg__aa8c7414,/home/omen_pc1/ava/images/841498.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__90__ava__300533.jpg__7eaaff03,/home/omen_pc1/ava/images/300533.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__91__aadb__farm1_307_20118493121_1714474325_b.jpg__34757e16,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_307_20118493121_1714474325_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__92__ava__236478.jpg__0ee94ba4,/home/omen_pc1/ava/images/236478.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__93__ava__424154.jpg__02b60f85,/home/omen_pc1/ava/images/424154.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__94__ava__124278.jpg__f00d8ea5,/home/omen_pc1/ava/images/124278.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__95__ava__783224.jpg__2066d440,/home/omen_pc1/ava/images/783224.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__96__ava__651664.jpg__6cbdd471,/home/omen_pc1/ava/images/651664.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__97__aadb__farm1_288_19943225839_d4afcd8941_b.jpg__fed326c5,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_288_19943225839_d4afcd8941_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__98__ava__921646.jpg__6265a5a1,/home/omen_pc1/ava/images/921646.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__99__aadb__farm1_305_19998360805_ddbb341e7e_b.jpg__5dfe2018,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_305_19998360805_ddbb341e7e_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__100__aadb__farm1_362_19544622863_ee9f72631c_b.jpg__eba77705,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_362_19544622863_ee9f72631c_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__101__ava__2349.jpg__1e0d76c2,/home/omen_pc1/ava/images/2349.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__102__ava__646467.jpg__0bba1620,/home/omen_pc1/ava/images/646467.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__103__ava__344909.jpg__a717b859,/home/omen_pc1/ava/images/344909.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__104__ava__578909.jpg__7dbdcce3,/home/omen_pc1/ava/images/578909.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__105__aadb__farm1_380_20016667010_ff2dcb3bed_b.jpg__fe6b9e59,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_380_20016667010_ff2dcb3bed_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__106__ava__96871.jpg__357a3c3f,/home/omen_pc1/ava/images/96871.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__107__ava__661189.jpg__a9f83641,/home/omen_pc1/ava/images/661189.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__108__ava__60482.jpg__fb547771,/home/omen_pc1/ava/images/60482.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__109__ava__510775.jpg__0d37177c,/home/omen_pc1/ava/images/510775.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__110__ava__41906.jpg__392d45e4,/home/omen_pc1/ava/images/41906.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__111__ava__232598.jpg__9558d03b,/home/omen_pc1/ava/images/232598.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__112__ava__824762.jpg__f66ae4fb,/home/omen_pc1/ava/images/824762.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__113__ava__648495.jpg__a4c32b48,/home/omen_pc1/ava/images/648495.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__114__ava__175944.jpg__3f9087ab,/home/omen_pc1/ava/images/175944.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__115__ava__164983.jpg__a340a405,/home/omen_pc1/ava/images/164983.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__116__ava__270454.jpg__d56b81c5,/home/omen_pc1/ava/images/270454.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__117__ava__96544.jpg__548a105d,/home/omen_pc1/ava/images/96544.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__118__aadb__farm1_302_19959273166_97984aa5f3_b.jpg__3f61f43b,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_302_19959273166_97984aa5f3_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__119__ava__738145.jpg__78fd7731,/home/omen_pc1/ava/images/738145.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__120__ava__91062.jpg__eb680481,/home/omen_pc1/ava/images/91062.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__121__ava__828277.jpg__83faf77b,/home/omen_pc1/ava/images/828277.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__122__aadb__farm1_377_19533066754_5a45600dfc_b.jpg__47d3c30b,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_377_19533066754_5a45600dfc_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__123__ava__938379.jpg__c4a500f0,/home/omen_pc1/ava/images/938379.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__124__aadb__farm1_382_19438108523_392540e917_b.jpg__c8652fcc,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_382_19438108523_392540e917_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__125__ava__516379.jpg__ad1dec83,/home/omen_pc1/ava/images/516379.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__126__aadb__farm1_320_20081432532_dbffd1f16a_b.jpg__dad537cf,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_320_20081432532_dbffd1f16a_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__127__aadb__farm1_373_20080558272_fe85ded511_b.jpg__3aab2b93,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_373_20080558272_fe85ded511_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__128__ava__59985.jpg__b3bc116c,/home/omen_pc1/ava/images/59985.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__129__ava__17867.jpg__4d788d77,/home/omen_pc1/ava/images/17867.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__130__ava__594561.jpg__cecdb0a8,/home/omen_pc1/ava/images/594561.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__131__ava__319695.jpg__4b31aa70,/home/omen_pc1/ava/images/319695.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__132__aadb__farm1_359_20007098569_a212f4bc7a_b.jpg__2b777042,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_359_20007098569_a212f4bc7a_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__133__ava__251358.jpg__30c5b873,/home/omen_pc1/ava/images/251358.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__134__aadb__farm1_331_19997404570_7ef1a79e6d_b.jpg__9fd3d129,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_331_19997404570_7ef1a79e6d_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__135__aadb__farm1_491_20022503368_5b46ff9615_b.jpg__87713b46,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_491_20022503368_5b46ff9615_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__136__aadb__farm1_374_19913351290_3ed1a18c3b_b.jpg__b2865474,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_374_19913351290_3ed1a18c3b_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__137__ava__521528.jpg__b1a98ed1,/home/omen_pc1/ava/images/521528.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__138__ava__294865.jpg__9590b400,/home/omen_pc1/ava/images/294865.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__139__ava__779780.jpg__6ba60e80,/home/omen_pc1/ava/images/779780.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__140__aadb__farm1_291_19659282193_dcaf7ab9c2_b.jpg__6194d9e4,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_291_19659282193_dcaf7ab9c2_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__141__aadb__farm1_365_19520253064_4d3e500442_b.jpg__32733ccc,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_365_19520253064_4d3e500442_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__142__aadb__farm1_450_19998788828_a78f8f7994_b.jpg__0c3c5ef8,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_450_19998788828_a78f8f7994_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__143__aadb__farm1_264_20277268102_732fe55bca_b.jpg__48a3686a,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_264_20277268102_732fe55bca_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__144__ava__421006.jpg__9d319577,/home/omen_pc1/ava/images/421006.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__145__aadb__farm1_319_19509354484_984af09794_b.jpg__f5457919,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_319_19509354484_984af09794_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__146__ava__898264.jpg__7b6e8b01,/home/omen_pc1/ava/images/898264.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__147__ava__289019.jpg__d25269ce,/home/omen_pc1/ava/images/289019.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__148__ava__461205.jpg__c921a172,/home/omen_pc1/ava/images/461205.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__149__ava__447638.jpg__4feb144b,/home/omen_pc1/ava/images/447638.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__150__aadb__farm1_269_19640488263_22fa55674e_b.jpg__ca09cc0c,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_269_19640488263_22fa55674e_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__151__ava__254810.jpg__42252d40,/home/omen_pc1/ava/images/254810.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__152__aadb__farm1_349_19990647665_9beef8995f_b.jpg__35f15d02,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_349_19990647665_9beef8995f_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__153__aadb__farm1_267_20193145045_87cb15bb0a_b.jpg__f41d12c5,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_267_20193145045_87cb15bb0a_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__154__ava__874795.jpg__04947122,/home/omen_pc1/ava/images/874795.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__155__ava__192806.jpg__4894f836,/home/omen_pc1/ava/images/192806.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__156__aadb__farm1_265_19914286819_ff6af3a57f_b.jpg__688f89d1,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_265_19914286819_ff6af3a57f_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__157__aadb__farm1_428_20181897726_29f617fa6f_b.jpg__64b2dec7,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_428_20181897726_29f617fa6f_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: { ""reason"": ""rejected: clean subject emphasis.
+Weakness: The background is busy with people watching the game."".
+Verdict: not selected because The background is busy with people watching the game."" undercuts { ""reason"": ""rejected: clean subject emphasis.","Strength: { ""reason"": ""rejected: clean subject emphasis.
+Weakness: The background is busy with people watching the game."".
+Verdict: not selected because The background is busy with people watching the game."" undercuts { ""reason"": ""rejected: clean subject emphasis."
+teacher__158__ava__291639.jpg__dac6f801,/home/omen_pc1/ava/images/291639.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__159__aadb__farm1_351_19994987098_4c45ea8372_b.jpg__a269e64d,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_351_19994987098_4c45ea8372_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__160__ava__933890.jpg__3b3938f1,/home/omen_pc1/ava/images/933890.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__161__ava__48030.jpg__3a8fb226,/home/omen_pc1/ava/images/48030.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__162__ava__369804.jpg__22437a41,/home/omen_pc1/ava/images/369804.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__163__ava__14843.jpg__60a8f2ce,/home/omen_pc1/ava/images/14843.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__164__ava__574619.jpg__4b9c8ab2,/home/omen_pc1/ava/images/574619.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__165__ava__771080.jpg__5c814eda,/home/omen_pc1/ava/images/771080.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__166__ava__561740.jpg__b4ebf98b,/home/omen_pc1/ava/images/561740.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__167__ava__37042.jpg__275c5458,/home/omen_pc1/ava/images/37042.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__168__ava__867456.jpg__eee86404,/home/omen_pc1/ava/images/867456.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__169__ava__682044.jpg__a93dac99,/home/omen_pc1/ava/images/682044.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__170__ava__831461.jpg__9d9d002c,/home/omen_pc1/ava/images/831461.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__171__aadb__farm1_329_20260447712_1bb50f84cc_b.jpg__8025e6e9,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_329_20260447712_1bb50f84cc_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__172__ava__924964.jpg__6910f393,/home/omen_pc1/ava/images/924964.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__173__ava__3151.jpg__91601971,/home/omen_pc1/ava/images/3151.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__174__aadb__farm1_344_19649388044_e0a6d08b42_b.jpg__05c1c6e4,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_344_19649388044_e0a6d08b42_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__175__ava__540024.jpg__6542f8d5,/home/omen_pc1/ava/images/540024.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__176__aadb__farm1_374_20018733649_e62e43330f_b.jpg__336613ab,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_374_20018733649_e62e43330f_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__177__aadb__farm1_454_20188212845_aa4244c4fa_b.jpg__a753aa6e,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_454_20188212845_aa4244c4fa_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__178__ava__605719.jpg__8d0f35ac,/home/omen_pc1/ava/images/605719.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__179__ava__402813.jpg__90fe6466,/home/omen_pc1/ava/images/402813.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__180__ava__69831.jpg__e6f6af7f,/home/omen_pc1/ava/images/69831.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__181__aadb__farm1_299_20130600365_e38e272927_b.jpg__539b7130,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_299_20130600365_e38e272927_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__182__ava__303348.jpg__3a23f79f,/home/omen_pc1/ava/images/303348.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__183__aadb__farm1_265_20176633085_27e18a5955_b.jpg__b48b4559,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_265_20176633085_27e18a5955_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__184__ava__290371.jpg__2015d102,/home/omen_pc1/ava/images/290371.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__185__ava__896194.jpg__b39eb9dd,/home/omen_pc1/ava/images/896194.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__186__aadb__farm1_497_20012809309_7def33309a_b.jpg__c427d70e,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_497_20012809309_7def33309a_b.jpg,aadb,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__187__ava__7370.jpg__9b40e95e,/home/omen_pc1/ava/images/7370.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__188__ava__702991.jpg__175f3839,/home/omen_pc1/ava/images/702991.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__189__ava__778117.jpg__85879680,/home/omen_pc1/ava/images/778117.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__190__ava__624250.jpg__9f72d37d,/home/omen_pc1/ava/images/624250.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__191__ava__263174.jpg__5d55caac,/home/omen_pc1/ava/images/263174.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__192__ava__334979.jpg__4b852b84,/home/omen_pc1/ava/images/334979.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__193__ava__872885.jpg__9a828369,/home/omen_pc1/ava/images/872885.jpg,ava,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__194__aadb__farm1_294_19548808114_3be4e22808_b.jpg__58b24730,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_294_19548808114_3be4e22808_b.jpg,aadb,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__195__ava__446123.jpg__aab6b9b0,/home/omen_pc1/ava/images/446123.jpg,ava,rejected_low,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__196__aadb__farm4_3705_20179405396_b6d72b9e55_b.jpg__4885fd6a,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm4_3705_20179405396_b6d72b9e55_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__197__ava__855816.jpg__51066f96,/home/omen_pc1/ava/images/855816.jpg,ava,selected_high,True,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: selected because clean subject emphasis carries the frame despite busier background."
+teacher__198__aadb__farm1_282_20263115322_dd66563c65_b.jpg__88ae5cfd,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_282_20263115322_dd66563c65_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."
+teacher__199__aadb__farm1_386_20144642626_a3cd591c61_b.jpg__a956adb4,/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_386_20144642626_a3cd591c61_b.jpg,aadb,middle_near_miss,False,3,True,True,True,False,False,,True,True,"Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis.","Strength: clean subject emphasis.
+Weakness: busier background.
+Verdict: not selected because busier background undercuts clean subject emphasis."

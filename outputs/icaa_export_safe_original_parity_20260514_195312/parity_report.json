@@ -1,0 +1,7 @@
+{
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "pass_threshold_1e-5": true,
+  "pass_threshold_1e-4": true,
+  "num_samples": 256
+}

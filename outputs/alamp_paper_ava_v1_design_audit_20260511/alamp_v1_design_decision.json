@@ -1,0 +1,5 @@
+{
+  "decision": "v1_layout",
+  "reasoning": "True object attribute graphs and semantic saliency maps are unavailable in the current offline environment without heavy external dependencies. The most pragmatic structural improvement to address v0's low specificity is enhancing the Layout-Aware Subnet to utilize self-attention over the geometric properties of the currently extracted heuristic patches.",
+  "status": "Ready for implementation"
+}

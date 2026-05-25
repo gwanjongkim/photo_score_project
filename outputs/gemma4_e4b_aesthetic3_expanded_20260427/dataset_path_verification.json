@@ -1,0 +1,225 @@
+{
+  "ava_csvs": [
+    {
+      "path": "data/processed/ava/train.csv",
+      "exists": true,
+      "rows": 204406
+    },
+    {
+      "path": "data/processed/ava/val.csv",
+      "exists": true,
+      "rows": 25551
+    },
+    {
+      "path": "data/processed/ava/test.csv",
+      "exists": true,
+      "rows": 25551
+    }
+  ],
+  "aadb_csvs": [
+    {
+      "path": "data/processed/aadb/train.csv",
+      "exists": true,
+      "rows": 7612
+    },
+    {
+      "path": "data/processed/aadb/val.csv",
+      "exists": true,
+      "rows": 846
+    },
+    {
+      "path": "data/processed/aadb/test.csv",
+      "exists": true,
+      "rows": 1000
+    }
+  ],
+  "ava_raw_images_path": "/home/omen_pc1/ava/images",
+  "ava_raw_images_exists": true,
+  "aadb_raw_images_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images",
+  "aadb_raw_images_exists": true,
+  "test_vila_path": "/home/omen_pc1/photo_score_project/test_vila",
+  "test_vila_exists": true,
+  "test_vila_image_count": 50,
+  "sample_image_checks": [
+    {
+      "dataset": "ava",
+      "csv": "data/processed/ava/train.csv",
+      "image_path": "/home/omen_pc1/ava/images/165180.jpg",
+      "ok": true,
+      "width": 640,
+      "height": 522
+    },
+    {
+      "dataset": "ava",
+      "csv": "data/processed/ava/train.csv",
+      "image_path": "/home/omen_pc1/ava/images/287613.jpg",
+      "ok": true,
+      "width": 640,
+      "height": 371
+    },
+    {
+      "dataset": "ava",
+      "csv": "data/processed/ava/train.csv",
+      "image_path": "/home/omen_pc1/ava/images/377303.jpg",
+      "ok": true,
+      "width": 640,
+      "height": 427
+    },
+    {
+      "dataset": "ava",
+      "csv": "data/processed/ava/val.csv",
+      "image_path": "/home/omen_pc1/ava/images/85837.jpg",
+      "ok": true,
+      "width": 640,
+      "height": 425
+    },
+    {
+      "dataset": "ava",
+      "csv": "data/processed/ava/val.csv",
+      "image_path": "/home/omen_pc1/ava/images/861325.jpg",
+      "ok": true,
+      "width": 760,
+      "height": 634
+    },
+    {
+      "dataset": "ava",
+      "csv": "data/processed/ava/val.csv",
+      "image_path": "/home/omen_pc1/ava/images/209262.jpg",
+      "ok": true,
+      "width": 640,
+      "height": 480
+    },
+    {
+      "dataset": "ava",
+      "csv": "data/processed/ava/test.csv",
+      "image_path": "/home/omen_pc1/ava/images/342907.jpg",
+      "ok": true,
+      "width": 640,
+      "height": 384
+    },
+    {
+      "dataset": "ava",
+      "csv": "data/processed/ava/test.csv",
+      "image_path": "/home/omen_pc1/ava/images/458422.jpg",
+      "ok": true,
+      "width": 700,
+      "height": 652
+    },
+    {
+      "dataset": "ava",
+      "csv": "data/processed/ava/test.csv",
+      "image_path": "/home/omen_pc1/ava/images/167448.jpg",
+      "ok": true,
+      "width": 640,
+      "height": 380
+    },
+    {
+      "dataset": "aadb",
+      "csv": "data/processed/aadb/train.csv",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_460_19917748118_4395936834_b.jpg",
+      "ok": true,
+      "width": 1024,
+      "height": 683
+    },
+    {
+      "dataset": "aadb",
+      "csv": "data/processed/aadb/train.csv",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_464_19642533584_225eae1cbe_b.jpg",
+      "ok": true,
+      "width": 1024,
+      "height": 683
+    },
+    {
+      "dataset": "aadb",
+      "csv": "data/processed/aadb/train.csv",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_314_20150354226_3d5f321dc8_b.jpg",
+      "ok": true,
+      "width": 800,
+      "height": 545
+    },
+    {
+      "dataset": "aadb",
+      "csv": "data/processed/aadb/val.csv",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_319_19982213545_f2c6a56ea7_b.jpg",
+      "ok": true,
+      "width": 1024,
+      "height": 683
+    },
+    {
+      "dataset": "aadb",
+      "csv": "data/processed/aadb/val.csv",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_316_20145499186_18fcea17fd_b.jpg",
+      "ok": true,
+      "width": 1024,
+      "height": 683
+    },
+    {
+      "dataset": "aadb",
+      "csv": "data/processed/aadb/val.csv",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_292_20177190071_ed73bfdf45_b.jpg",
+      "ok": true,
+      "width": 1024,
+      "height": 683
+    },
+    {
+      "dataset": "aadb",
+      "csv": "data/processed/aadb/test.csv",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_286_20013434330_d99ab6b9a0_b.jpg",
+      "ok": true,
+      "width": 1024,
+      "height": 491
+    },
+    {
+      "dataset": "aadb",
+      "csv": "data/processed/aadb/test.csv",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_273_19900479178_9c64cca006_b.jpg",
+      "ok": true,
+      "width": 1024,
+      "height": 747
+    },
+    {
+      "dataset": "aadb",
+      "csv": "data/processed/aadb/test.csv",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_285_19484842833_2ebfbc985e_b.jpg",
+      "ok": true,
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "dataset": "test_vila",
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675342165226-13.jpg",
+      "ok": true,
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "dataset": "test_vila",
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675342165226-3.jpg",
+      "ok": true,
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "dataset": "test_vila",
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675342165226-5.jpg",
+      "ok": true,
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "dataset": "test_vila",
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564423029-24.jpg",
+      "ok": true,
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "dataset": "test_vila",
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564423029-6.jpg",
+      "ok": true,
+      "width": 3024,
+      "height": 4032
+    }
+  ],
+  "all_lightweight_checks_ok": true
+}

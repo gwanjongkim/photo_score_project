@@ -1,0 +1,117 @@
+{
+  "created_at_local": "2026-05-09T20:48:39.759816+09:00",
+  "model_variant": "RGNet-paper-v1 approximation",
+  "official_reproduction": false,
+  "paper_comparability_note": "Uses DenseNet121, ASPP approximation, spatial region nodes, cosine adjacency, residual graph convolution, region-level scores, and configurable aggregation. This is not the official paper implementation.",
+  "train_csv": "data/processed/aadb/train.csv",
+  "val_csv": "data/processed/aadb/val.csv",
+  "image_col": "image_path",
+  "target_col": "score",
+  "train_samples": 1024,
+  "val_samples": 256,
+  "image_size": 256,
+  "batch_size": 8,
+  "epochs_requested": 5,
+  "epochs_completed": 5,
+  "learning_rate": 0.0001,
+  "early_stopping": {
+    "monitor": "val_loss",
+    "patience": 3,
+    "restore_best_weights": true
+  },
+  "model": {
+    "backbone": "DenseNet121",
+    "backbone_weights_requested": "imagenet",
+    "context_module": "ASPP approximation",
+    "dilation_rates": [
+      1,
+      3,
+      6,
+      12,
+      18
+    ],
+    "region_dim": 256,
+    "graph_units": 256,
+    "graph_blocks": 3,
+    "graph_temperature": 0.25,
+    "graph_dropout": 0.1,
+    "head_dropout": 0.3,
+    "adjacency": "cosine similarity, softmax-normalized",
+    "graph_convolution": "residual graph convolution",
+    "region_score_head": "per-node sigmoid scalar score",
+    "aggregation": "lse",
+    "lse_r": 4.0,
+    "aggregation_formula": "(1 / r) * log(mean(exp(r * region_scores))) for aggregation=lse",
+    "output_activation": "raw_before_aggregation_then_sigmoid"
+  },
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.20.0"
+  },
+  "forward_check": {
+    "input_shape": [
+      8,
+      256,
+      256,
+      3
+    ],
+    "output_shape": [
+      8,
+      1
+    ],
+    "prediction_min": 0.5155539512634277,
+    "prediction_max": 0.6075731515884399,
+    "all_finite": true,
+    "in_unit_range": true
+  },
+  "save_load_check": {
+    "loaded_model_name": "rgnet_paper_v1_aadb_regression",
+    "loaded_output_shape": [
+      8,
+      1
+    ],
+    "max_abs_diff_vs_trained_forward_sample": 0.0
+  },
+  "outputs": {
+    "final_model": "outputs/rgnet_paper_v1_ablation_20260509/mid/raw_lse_then_sigmoid/final_model.keras",
+    "best_weights": "outputs/rgnet_paper_v1_ablation_20260509/mid/raw_lse_then_sigmoid/best.weights.h5",
+    "training_history_csv": "outputs/rgnet_paper_v1_ablation_20260509/mid/raw_lse_then_sigmoid/training_history.csv",
+    "train_summary_json": "outputs/rgnet_paper_v1_ablation_20260509/mid/raw_lse_then_sigmoid/train_summary.json"
+  },
+  "best_epoch": 2,
+  "best_val_loss": 0.026975564658641815,
+  "best_val_mae": 0.13091742992401123,
+  "history": {
+    "loss": [
+      0.03245516121387482,
+      0.019861731678247452,
+      0.013672797940671444,
+      0.010727117769420147,
+      0.010351711884140968
+    ],
+    "mae": [
+      0.1435711681842804,
+      0.11089290678501129,
+      0.09185833483934402,
+      0.08132770657539368,
+      0.08074630796909332
+    ],
+    "val_loss": [
+      0.03505516052246094,
+      0.026975564658641815,
+      0.030682718381285667,
+      0.030583756044507027,
+      0.027175892144441605
+    ],
+    "val_mae": [
+      0.15084506571292877,
+      0.13091742992401123,
+      0.14162705838680267,
+      0.13774460554122925,
+      0.13363654911518097
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "gemma4_e4b_aesthetic3_teacher_v1",
+  "description": "Three-model aesthetic-only teacher for Gemma 4 E4B. This pass uses exactly NIMA unit, RGNet, and A-Lamp. The weights are the conservative four-model aesthetic ensemble rebased after removing AADB composition: RGNet 0.35/0.70, A-Lamp 0.20/0.70, NIMA 0.15/0.70.",
+  "score_weights": {
+    "nima_unit_score": 0.214286,
+    "rgnet_score": 0.5,
+    "alamp_score": 0.285714
+  },
+  "weight_formula_text": "weighted_aesthetic_score = 0.214286 * nima_unit_score + 0.500000 * rgnet_score + 0.285714 * alamp_score",
+  "normalization_notes": {
+    "nima_unit_score": "clip((nima_mean_score - 1.0) / 9.0, 0, 1)",
+    "rgnet_score": "clip(rgnet_score, 0, 1)",
+    "alamp_score": "clip(alamp_score, 0, 1)"
+  }
+}

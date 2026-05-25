@@ -1,0 +1,35 @@
+{
+  "runtime": "local_vila_remote_code",
+  "model_name": "/home/omen_pc1/photo_score_project/checkpoints/NVILA-8B",
+  "loader": "llava.remote_code.AutoModelForCausalLM",
+  "device": "cuda",
+  "converted_model_dir": "/tmp/photo_score_project_vila_remote/nvila-8b_71dd3f8593",
+  "conv_mode": null,
+  "results": [
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_292_20113399322_a9144d46bb_b.jpg",
+      "error": "TypeError: 'NoneType' object is not subscriptable",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 970, in main\n    response_text = _generate_response_text(\n                    ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 606, in _generate_response_text\n    media = _process_image_media(model, media, media_config)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 512, in _process_image_media\n    images, block_sizes = mm_utils.process_image(media[\"image\"][0], config, None, enable_dynamic_s2=True)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/photo_score_project_hf_cache/modules/transformers_modules/nvila_hyphen_8b_71dd3f8593/mm_utils.py\", line 460, in process_image\n    assert crop_size[\"height\"] == crop_size[\"width\"]\n           ~~~~~~~~~^^^^^^^^^^\nTypeError: 'NoneType' object is not subscriptable\n"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/457724.jpg",
+      "error": "TypeError: 'NoneType' object is not subscriptable",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 970, in main\n    response_text = _generate_response_text(\n                    ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 606, in _generate_response_text\n    media = _process_image_media(model, media, media_config)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 512, in _process_image_media\n    images, block_sizes = mm_utils.process_image(media[\"image\"][0], config, None, enable_dynamic_s2=True)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/photo_score_project_hf_cache/modules/transformers_modules/nvila_hyphen_8b_71dd3f8593/mm_utils.py\", line 460, in process_image\n    assert crop_size[\"height\"] == crop_size[\"width\"]\n           ~~~~~~~~~^^^^^^^^^^\nTypeError: 'NoneType' object is not subscriptable\n"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/272648.jpg",
+      "error": "TypeError: 'NoneType' object is not subscriptable",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 970, in main\n    response_text = _generate_response_text(\n                    ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 606, in _generate_response_text\n    media = _process_image_media(model, media, media_config)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 512, in _process_image_media\n    images, block_sizes = mm_utils.process_image(media[\"image\"][0], config, None, enable_dynamic_s2=True)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/photo_score_project_hf_cache/modules/transformers_modules/nvila_hyphen_8b_71dd3f8593/mm_utils.py\", line 460, in process_image\n    assert crop_size[\"height\"] == crop_size[\"width\"]\n           ~~~~~~~~~^^^^^^^^^^\nTypeError: 'NoneType' object is not subscriptable\n"
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_354_20269637891_830acdc8fc_b.jpg",
+      "error": "TypeError: 'NoneType' object is not subscriptable",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 970, in main\n    response_text = _generate_response_text(\n                    ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 606, in _generate_response_text\n    media = _process_image_media(model, media, media_config)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 512, in _process_image_media\n    images, block_sizes = mm_utils.process_image(media[\"image\"][0], config, None, enable_dynamic_s2=True)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/photo_score_project_hf_cache/modules/transformers_modules/nvila_hyphen_8b_71dd3f8593/mm_utils.py\", line 460, in process_image\n    assert crop_size[\"height\"] == crop_size[\"width\"]\n           ~~~~~~~~~^^^^^^^^^^\nTypeError: 'NoneType' object is not subscriptable\n"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/489791.jpg",
+      "error": "TypeError: 'NoneType' object is not subscriptable",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 970, in main\n    response_text = _generate_response_text(\n                    ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 606, in _generate_response_text\n    media = _process_image_media(model, media, media_config)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/src/infer/vila_full_local_worker.py\", line 512, in _process_image_media\n    images, block_sizes = mm_utils.process_image(media[\"image\"][0], config, None, enable_dynamic_s2=True)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/photo_score_project_hf_cache/modules/transformers_modules/nvila_hyphen_8b_71dd3f8593/mm_utils.py\", line 460, in process_image\n    assert crop_size[\"height\"] == crop_size[\"width\"]\n           ~~~~~~~~~^^^^^^^^^^\nTypeError: 'NoneType' object is not subscriptable\n"
+    }
+  ]
+}

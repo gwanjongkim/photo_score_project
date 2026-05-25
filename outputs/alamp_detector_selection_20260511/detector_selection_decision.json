@@ -1,0 +1,8 @@
+{
+  "selected_detector": "ultralytics",
+  "version_preference": "yolov11 or yolov8",
+  "reason": "Simplest API, fastest inference, and easiest JSON serialization for standard COCO bounding boxes without custom boilerplate.",
+  "install_command": "pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121 && pip install ultralytics",
+  "next_action": "implement_extraction_script",
+  "delay_full_run": true
+}

@@ -1,0 +1,7 @@
+1. find outputs docs models src configs -type f | rg -i "v0_a|v0_b|lse_r4|agg_mean_full"
+2. cat outputs/rgnet_paper_consolidated_20260511/rgnet_paper_oriented_summary.json
+3. cat outputs/rgnet_paper_ava_classification_20260510/eval/lse_r4/evaluation_summary.json
+4. cat outputs/alamp_paper_ava_classification_20260511/mid_eval/v0_b_fixed/evaluation_summary.json
+5. cat outputs/alamp_paper_ava_classification_20260511/mid_eval/v0_a/evaluation_summary.json
+6. find models/aesthetic -type f
+7. rg "rgnet_aadb_gpu" configs/stage5_reference.json

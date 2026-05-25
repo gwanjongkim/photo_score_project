@@ -1,0 +1,7 @@
+{
+  "max_abs_diff": 0.022830188274383545,
+  "mean_abs_diff": 0.005445142742246389,
+  "pass_threshold_1e-5": false,
+  "pass_threshold_1e-4": false,
+  "num_samples": 32
+}

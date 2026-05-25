@@ -1,0 +1,5 @@
+{
+  "decision": "D",
+  "reason": "The external repository is unofficial, incomplete (missing the Layout-Aware Subnet entirely), contains non-commercial licensing restrictions on the saliency pipeline, and provides no actual graph construction logic. Our local codebase is already superior for the Multi-Patch Subnet.",
+  "action": "Ignore external repo and build our own detector/graph pipeline."
+}

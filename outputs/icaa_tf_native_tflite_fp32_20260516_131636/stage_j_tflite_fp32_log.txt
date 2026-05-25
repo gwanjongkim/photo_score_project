@@ -1,0 +1,13 @@
+Instantiating and building TFICAA17KDAT model
+Loading weights from /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+Converting to TFLite (via Concrete Function)
+TFLite conversion from concrete function succeeded.
+TFLite model saved to /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp32_20260516_131636/icaa_dat_tf_native_fp32.tflite
+Loading TFLite Interpreter
+Running Input Sensitivity Probe
+Zero vs One max diff: nan
+Zero vs Random max diff: nan
+ERROR: TFLite model failed input sensitivity probe or produced NaNs.
+Running Keras model vs TFLite Parity Verification
+Test A (Random): fail, max_diff=nan
+Test B (Real Images): fail, max_diff=nan

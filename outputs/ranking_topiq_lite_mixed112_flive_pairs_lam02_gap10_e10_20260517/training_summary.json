@@ -1,0 +1,81 @@
+{
+  "args": {
+    "batch_size": 4,
+    "epochs": 10,
+    "flive_pair_source_csv": null,
+    "freeze_backbone": true,
+    "init_weights": "outputs/mixed_replay_topiq_lite_112_frozen_e15_20260517/best.weights.h5",
+    "lr": 1e-05,
+    "make_pairs": false,
+    "max_pairs": 10000,
+    "max_steps_per_epoch": 300,
+    "max_val_samples": 1024,
+    "min_pair_gap": 0.05,
+    "out_dir": "outputs/ranking_topiq_lite_mixed112_flive_pairs_lam02_gap10_e10_20260517",
+    "pair_batch_size": 4,
+    "pair_csv": "data/processed/topiq_replacement/flive_pairs_gap010_10k.csv",
+    "quick_flive_limit": 1024,
+    "ranking_lambda": 0.2,
+    "regression_train_csv": "data/processed/topiq_replacement/mixed_112_train.csv",
+    "regression_val_csv": "data/processed/topiq_replacement/mixed_112_val.csv",
+    "seed": 42,
+    "target_col": "normalized_mos",
+    "tau": 0.1
+  },
+  "artifacts": {
+    "best_weights": "outputs/ranking_topiq_lite_mixed112_flive_pairs_lam02_gap10_e10_20260517/best.weights.h5",
+    "final_model": "outputs/ranking_topiq_lite_mixed112_flive_pairs_lam02_gap10_e10_20260517/final_model.keras",
+    "training_log": "outputs/ranking_topiq_lite_mixed112_flive_pairs_lam02_gap10_e10_20260517/training_log.csv",
+    "training_summary": "outputs/ranking_topiq_lite_mixed112_flive_pairs_lam02_gap10_e10_20260517/training_summary.json"
+  },
+  "best_epoch": 1,
+  "best_val_reg_loss": 0.002921409672126174,
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python src/train/train_topiq_lite_ranking.py --pair_csv data/processed/topiq_replacement/flive_pairs_gap010_10k.csv --regression_train_csv data/processed/topiq_replacement/mixed_112_train.csv --regression_val_csv data/processed/topiq_replacement/mixed_112_val.csv --target_col normalized_mos --batch_size 4 --pair_batch_size 4 --epochs 10 --lr 1e-5 --ranking_lambda 0.2 --tau 0.1 --freeze_backbone --init_weights outputs/mixed_replay_topiq_lite_112_frozen_e15_20260517/best.weights.h5 --max_steps_per_epoch 300 --max_val_samples 1024 --quick_flive_limit 1024 --out_dir outputs/ranking_topiq_lite_mixed112_flive_pairs_lam02_gap10_e10_20260517",
+  "final_metrics": {
+    "epoch": 10,
+    "quick_flive_possible_mode_collapse": false,
+    "quick_flive_pred_std": 0.13419575989246368,
+    "quick_flive_val_srcc": 0.5032364235390887,
+    "rank_loss": 0.2702239155769348,
+    "reg_loss": 0.004703224636614323,
+    "total_loss": 0.05874801054596901,
+    "val_reg_loss": 0.004802692215889692,
+    "val_reg_loss_samples": 1024
+  },
+  "final_quick_flive_val": {
+    "correlation_error": null,
+    "possible_mode_collapse": false,
+    "pred_max": 0.9133989810943604,
+    "pred_mean": 0.6780295372009277,
+    "pred_min": 0.04268885403871536,
+    "pred_std": 0.13419575989246368,
+    "sample_count": 1024,
+    "source": "flive_subset",
+    "srcc": 0.5032364235390887,
+    "target_std": 0.06539670377969742
+  },
+  "pair_count": 10000,
+  "pair_summary": null,
+  "train_csv": {
+    "csv_path": "/home/omen_pc1/photo_score_project/data/processed/topiq_replacement/mixed_112_train.csv",
+    "image_col": "image_path",
+    "row_count": 16384,
+    "target_col": "normalized_mos",
+    "target_max": 0.9300000071525574,
+    "target_mean": 0.6339408755302429,
+    "target_min": 0.03400000184774399,
+    "target_std": 0.16529132425785065,
+    "validated_paths": false
+  },
+  "val_csv": {
+    "csv_path": "/home/omen_pc1/photo_score_project/data/processed/topiq_replacement/mixed_112_val.csv",
+    "image_col": "image_path",
+    "row_count": 2048,
+    "target_col": "normalized_mos",
+    "target_max": 0.9053076505661011,
+    "target_mean": 0.6238111853599548,
+    "target_min": 0.04800000041723251,
+    "target_std": 0.17574390769004822,
+    "validated_paths": false
+  }
+}

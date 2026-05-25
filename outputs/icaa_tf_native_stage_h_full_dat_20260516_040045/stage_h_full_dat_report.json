@@ -1,0 +1,1363 @@
+{
+  "status": "ok",
+  "overall_preferred": true,
+  "overall_acceptable": true,
+  "command_used": "python experiments/icaa_tf_native/scripts/stage_h_full_dat_parity.py",
+  "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+  "pytorch_reference_model_path": "/home/omen_pc1/photo_score_project/experiments/icaa_export_safe_v3/export_safe_models",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_h_full_dat_20260516_040045",
+  "report_path": "/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/reports/stage_h_full_dat_parity.md",
+  "seed": 123,
+  "thresholds": {
+    "preferred": {
+      "color_max_abs_diff": 0.001,
+      "full_mean_abs_diff": 0.0001
+    },
+    "acceptable": {
+      "color_max_abs_diff": 0.005,
+      "full_mean_abs_diff": 0.001
+    },
+    "diagnose_if_color_max_abs_diff_gt": 0.01
+  },
+  "state_dict_confirmation": "checkpoint object is an OrderedDict state_dict",
+  "strict_load": {
+    "success": true,
+    "missing_keys": [],
+    "unexpected_keys": []
+  },
+  "pytorch_forward_order_confirmed": [
+    "patch_proj",
+    "stages[0]",
+    "down_projs[0]",
+    "stages[1]",
+    "down_projs[1]",
+    "stages[2]",
+    "down_projs[2]",
+    "stages[3]",
+    "cls_norm",
+    "reshape NCHW to [B, C, H*W] and mean over spatial axis",
+    "hst_head",
+    "hist_feature",
+    "rearrange 'b p w -> w p b'",
+    "squeeze dim 2",
+    "class_head + sigmoid",
+    "class_head2 + sigmoid",
+    "concat [MOS, color] to [B, 2]"
+  ],
+  "tf_model_structure": {
+    "class_name": "TFICAA17KDAT",
+    "input_layout": "NHWC/channels_last [B, 224, 224, 3]",
+    "inference_only": true,
+    "forward_order": [
+      "patch_proj",
+      "stage0",
+      "down_proj0",
+      "stage1",
+      "down_proj1",
+      "stage2",
+      "down_proj2",
+      "stage3",
+      "cls_norm",
+      "spatial mean over NHWC H/W",
+      "hst_head",
+      "TFSoftHistogram",
+      "transpose/squeeze histogram to [B, 216]",
+      "sigmoid(class_head)",
+      "sigmoid(class_head2)",
+      "concat [mos, color] -> [B, 2]"
+    ],
+    "components": {
+      "patch_proj": {
+        "input_layout": "NHWC/channels_last",
+        "layers": [
+          {
+            "name": "patch_proj_conv",
+            "type": "tf.keras.layers.Conv2D",
+            "filters": 128,
+            "kernel_size": [
+              4,
+              4
+            ],
+            "strides": [
+              4,
+              4
+            ],
+            "padding": "valid",
+            "use_bias": true
+          },
+          {
+            "name": "patch_proj_norm",
+            "type": "tf.keras.layers.LayerNormalization",
+            "axis": -1,
+            "epsilon": 1e-05
+          }
+        ]
+      },
+      "stage0": {
+        "class_name": "TFTransformerStage0",
+        "target_pytorch_module": "stages.0",
+        "input_layout": "NHWC/channels_last",
+        "proj": "Identity; no projection weights are used for stage 0",
+        "depth": 2,
+        "stage_spec": [
+          "L",
+          "S"
+        ],
+        "blocks": [
+          {
+            "index": 0,
+            "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_0",
+              "layer_norm_1"
+            ],
+            "drop_path_eval": "identity"
+          },
+          {
+            "index": 1,
+            "attention": "TFShiftWindowAttention mapped from PyTorch ShiftWindowAttention",
+            "shift_size": 4,
+            "attn_mask": "direct copy from stages.0.attns.1.attn_mask",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_2",
+              "layer_norm_3"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          }
+        ],
+        "residual_order": [
+          "x0 = x",
+          "attn_out = attns[d](layer_norms[2*d](x))",
+          "x = drop_path[d](attn_out) + x0",
+          "x0 = x",
+          "mlp_out = mlps[d](layer_norms[2*d+1](x))",
+          "x = drop_path[d](mlp_out) + x0"
+        ]
+      },
+      "down_proj0": {
+        "class_name": "TFDownProjection",
+        "conv": {
+          "type": "tf.keras.layers.Conv2D",
+          "filters": 256,
+          "kernel_size": [
+            2,
+            2
+          ],
+          "strides": [
+            2,
+            2
+          ],
+          "padding": "valid",
+          "use_bias": false
+        },
+        "norm": {
+          "type": "tf.keras.layers.LayerNormalization",
+          "axis": -1,
+          "epsilon": 1e-05
+        }
+      },
+      "stage1": {
+        "class_name": "TFTransformerStage1",
+        "target_pytorch_module": "stages.1",
+        "input_layout": "NHWC/channels_last",
+        "proj": "Identity; no projection weights are used for stage 1",
+        "depth": 2,
+        "stage_spec": [
+          "L",
+          "S"
+        ],
+        "blocks": [
+          {
+            "index": 0,
+            "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_0",
+              "layer_norm_1"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 1,
+            "attention": "TFShiftWindowAttention mapped from PyTorch ShiftWindowAttention",
+            "shift_size": 4,
+            "attn_mask": "direct copy from stages.1.attns.1.attn_mask",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_2",
+              "layer_norm_3"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          }
+        ],
+        "residual_order": [
+          "x0 = x",
+          "attn_out = attns[d](layer_norms[2*d](x))",
+          "x = drop_path[d](attn_out) + x0",
+          "x0 = x",
+          "mlp_out = mlps[d](layer_norms[2*d+1](x))",
+          "x = drop_path[d](mlp_out) + x0"
+        ]
+      },
+      "down_proj1": {
+        "class_name": "TFDownProjection",
+        "conv": {
+          "type": "tf.keras.layers.Conv2D",
+          "filters": 512,
+          "kernel_size": [
+            2,
+            2
+          ],
+          "strides": [
+            2,
+            2
+          ],
+          "padding": "valid",
+          "use_bias": false
+        },
+        "norm": {
+          "type": "tf.keras.layers.LayerNormalization",
+          "axis": -1,
+          "epsilon": 1e-05
+        }
+      },
+      "stage2": {
+        "class_name": "TFTransformerStage2",
+        "target_pytorch_module": "stages.2",
+        "input_layout": "NHWC/channels_last",
+        "proj": "Identity; no projection weights are used for stage 2",
+        "depth": 18,
+        "stage_spec": [
+          "L",
+          "D",
+          "L",
+          "D",
+          "L",
+          "D",
+          "L",
+          "D",
+          "L",
+          "D",
+          "L",
+          "D",
+          "L",
+          "D",
+          "L",
+          "D",
+          "L",
+          "D"
+        ],
+        "blocks": [
+          {
+            "index": 0,
+            "attention_type": "L",
+            "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_0",
+              "layer_norm_1"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 1,
+            "attention_type": "D",
+            "attention": "TFDAttentionBaseline mapped from PyTorch DAttentionBaseline",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_2",
+              "layer_norm_3"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 2,
+            "attention_type": "L",
+            "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_4",
+              "layer_norm_5"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 3,
+            "attention_type": "D",
+            "attention": "TFDAttentionBaseline mapped from PyTorch DAttentionBaseline",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_6",
+              "layer_norm_7"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 4,
+            "attention_type": "L",
+            "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_8",
+              "layer_norm_9"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 5,
+            "attention_type": "D",
+            "attention": "TFDAttentionBaseline mapped from PyTorch DAttentionBaseline",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_10",
+              "layer_norm_11"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 6,
+            "attention_type": "L",
+            "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_12",
+              "layer_norm_13"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 7,
+            "attention_type": "D",
+            "attention": "TFDAttentionBaseline mapped from PyTorch DAttentionBaseline",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_14",
+              "layer_norm_15"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 8,
+            "attention_type": "L",
+            "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_16",
+              "layer_norm_17"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 9,
+            "attention_type": "D",
+            "attention": "TFDAttentionBaseline mapped from PyTorch DAttentionBaseline",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_18",
+              "layer_norm_19"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 10,
+            "attention_type": "L",
+            "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_20",
+              "layer_norm_21"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 11,
+            "attention_type": "D",
+            "attention": "TFDAttentionBaseline mapped from PyTorch DAttentionBaseline",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_22",
+              "layer_norm_23"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 12,
+            "attention_type": "L",
+            "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_24",
+              "layer_norm_25"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 13,
+            "attention_type": "D",
+            "attention": "TFDAttentionBaseline mapped from PyTorch DAttentionBaseline",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_26",
+              "layer_norm_27"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 14,
+            "attention_type": "L",
+            "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_28",
+              "layer_norm_29"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 15,
+            "attention_type": "D",
+            "attention": "TFDAttentionBaseline mapped from PyTorch DAttentionBaseline",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_30",
+              "layer_norm_31"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 16,
+            "attention_type": "L",
+            "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_32",
+              "layer_norm_33"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 17,
+            "attention_type": "D",
+            "attention": "TFDAttentionBaseline mapped from PyTorch DAttentionBaseline",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_34",
+              "layer_norm_35"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          }
+        ],
+        "deformable_attention_config": {
+          "q_size": [
+            14,
+            14
+          ],
+          "kv_size": [
+            14,
+            14
+          ],
+          "heads": 16,
+          "head_channels": 32,
+          "groups": 4,
+          "offset_range_factor": 2,
+          "use_pe": true,
+          "dwc_pe": false,
+          "fixed_pe": false,
+          "no_off": false
+        },
+        "residual_order": [
+          "x0 = x",
+          "attn_out = attns[d](layer_norms[2*d](x))",
+          "x = drop_path[d](attn_out) + x0",
+          "x0 = x",
+          "mlp_out = mlps[d](layer_norms[2*d+1](x))",
+          "x = drop_path[d](mlp_out) + x0"
+        ]
+      },
+      "down_proj2": {
+        "class_name": "TFDownProjection",
+        "conv": {
+          "type": "tf.keras.layers.Conv2D",
+          "filters": 1024,
+          "kernel_size": [
+            2,
+            2
+          ],
+          "strides": [
+            2,
+            2
+          ],
+          "padding": "valid",
+          "use_bias": false
+        },
+        "norm": {
+          "type": "tf.keras.layers.LayerNormalization",
+          "axis": -1,
+          "epsilon": 1e-05
+        }
+      },
+      "stage3": {
+        "class_name": "TFTransformerStage3",
+        "target_pytorch_module": "stages.3",
+        "input_layout": "NHWC/channels_last",
+        "proj": "Identity; no projection weights are used for stage 3",
+        "depth": 2,
+        "stage_spec": [
+          "L",
+          "D"
+        ],
+        "blocks": [
+          {
+            "index": 0,
+            "attention_type": "L",
+            "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_0",
+              "layer_norm_1"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          },
+          {
+            "index": 1,
+            "attention_type": "D",
+            "attention": "TFDAttentionBaseline mapped from PyTorch DAttentionBaseline",
+            "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+            "layer_norms": [
+              "layer_norm_2",
+              "layer_norm_3"
+            ],
+            "drop_path_eval": "identity in eval mode"
+          }
+        ],
+        "deformable_attention_config": {
+          "q_size": [
+            7,
+            7
+          ],
+          "kv_size": [
+            7,
+            7
+          ],
+          "heads": 32,
+          "head_channels": 32,
+          "groups": 8,
+          "offset_range_factor": 2,
+          "use_pe": true,
+          "dwc_pe": false,
+          "fixed_pe": false,
+          "no_off": false
+        },
+        "residual_order": [
+          "x0 = x",
+          "attn_out = attns[d](layer_norms[2*d](x))",
+          "x = drop_path[d](attn_out) + x0",
+          "x0 = x",
+          "mlp_out = mlps[d](layer_norms[2*d+1](x))",
+          "x = drop_path[d](mlp_out) + x0"
+        ]
+      },
+      "soft_histogram": {
+        "class_name": "TFSoftHistogram",
+        "constructor_args": {
+          "n_features": 36,
+          "n_examples": 6,
+          "num_bins": 6,
+          "quantiles": false
+        },
+        "input_shape": "[batch, n_features]",
+        "output_shape_when_quantiles_false": "[1, n_features * num_bins, batch]",
+        "math": [
+          "transpose input [batch, features] -> [features, batch]",
+          "repeat each feature row num_bins times to emulate grouped Conv1d expansion",
+          "expanded * bin_centers_conv.weight + bin_centers_conv.bias",
+          "abs",
+          "value * bin_widths_conv.weight + bin_widths_conv.bias",
+          "relu"
+        ],
+        "variables": [
+          {
+            "name": "centers",
+            "trainable": true,
+            "used_in_forward": false
+          },
+          {
+            "name": "bin_centers_conv_weight",
+            "trainable": false,
+            "used_in_forward": true
+          },
+          {
+            "name": "bin_centers_conv_bias",
+            "trainable": true,
+            "used_in_forward": true
+          },
+          {
+            "name": "bin_widths_conv_weight",
+            "trainable": true,
+            "used_in_forward": true
+          },
+          {
+            "name": "bin_widths_conv_bias",
+            "trainable": false,
+            "used_in_forward": true
+          }
+        ]
+      }
+    },
+    "heads": {
+      "cls_norm": "LayerNormalization(axis=-1, epsilon=1e-5)",
+      "hst_head": "Dense(36), mapped from PyTorch hst_head",
+      "class_head": "Dense(1) + sigmoid, mapped from PyTorch class_head",
+      "class_head2": "Dense(1) + sigmoid, mapped from PyTorch class_head2",
+      "cls_head": "Present in PyTorch state_dict but unused by DAT.forward and intentionally not used in TF forward."
+    }
+  },
+  "checkpoint_group_counts": {
+    "patch_proj": 4,
+    "stages.0": 29,
+    "down_projs.0": 3,
+    "stages.1": 29,
+    "down_projs.1": 3,
+    "stages.2": 360,
+    "down_projs.2": 3,
+    "stages.3": 40,
+    "cls_norm": 2,
+    "hst_head": 2,
+    "hist_feature": 6,
+    "class_head": 2,
+    "class_head2": 2
+  },
+  "mapped_checkpoint_keys": [
+    "patch_proj.0.weight",
+    "patch_proj.0.bias",
+    "patch_proj.1.norm.weight",
+    "patch_proj.1.norm.bias",
+    "stages.0.layer_norms.0.norm.weight",
+    "stages.0.layer_norms.0.norm.bias",
+    "stages.0.layer_norms.1.norm.weight",
+    "stages.0.layer_norms.1.norm.bias",
+    "stages.0.layer_norms.2.norm.weight",
+    "stages.0.layer_norms.2.norm.bias",
+    "stages.0.layer_norms.3.norm.weight",
+    "stages.0.layer_norms.3.norm.bias",
+    "stages.0.mlps.0.chunk.linear1.weight",
+    "stages.0.mlps.0.chunk.linear1.bias",
+    "stages.0.mlps.0.chunk.linear2.weight",
+    "stages.0.mlps.0.chunk.linear2.bias",
+    "stages.0.mlps.1.chunk.linear1.weight",
+    "stages.0.mlps.1.chunk.linear1.bias",
+    "stages.0.mlps.1.chunk.linear2.weight",
+    "stages.0.mlps.1.chunk.linear2.bias",
+    "stages.0.attns.0.relative_position_bias_table",
+    "stages.0.attns.0.relative_position_index",
+    "stages.0.attns.0.proj_qkv.weight",
+    "stages.0.attns.0.proj_qkv.bias",
+    "stages.0.attns.0.proj_out.weight",
+    "stages.0.attns.0.proj_out.bias",
+    "stages.0.attns.1.relative_position_bias_table",
+    "stages.0.attns.1.relative_position_index",
+    "stages.0.attns.1.attn_mask",
+    "stages.0.attns.1.proj_qkv.weight",
+    "stages.0.attns.1.proj_qkv.bias",
+    "stages.0.attns.1.proj_out.weight",
+    "stages.0.attns.1.proj_out.bias",
+    "stages.1.layer_norms.0.norm.weight",
+    "stages.1.layer_norms.0.norm.bias",
+    "stages.1.layer_norms.1.norm.weight",
+    "stages.1.layer_norms.1.norm.bias",
+    "stages.1.layer_norms.2.norm.weight",
+    "stages.1.layer_norms.2.norm.bias",
+    "stages.1.layer_norms.3.norm.weight",
+    "stages.1.layer_norms.3.norm.bias",
+    "stages.1.mlps.0.chunk.linear1.weight",
+    "stages.1.mlps.0.chunk.linear1.bias",
+    "stages.1.mlps.0.chunk.linear2.weight",
+    "stages.1.mlps.0.chunk.linear2.bias",
+    "stages.1.mlps.1.chunk.linear1.weight",
+    "stages.1.mlps.1.chunk.linear1.bias",
+    "stages.1.mlps.1.chunk.linear2.weight",
+    "stages.1.mlps.1.chunk.linear2.bias",
+    "stages.1.attns.0.relative_position_bias_table",
+    "stages.1.attns.0.relative_position_index",
+    "stages.1.attns.0.proj_qkv.weight",
+    "stages.1.attns.0.proj_qkv.bias",
+    "stages.1.attns.0.proj_out.weight",
+    "stages.1.attns.0.proj_out.bias",
+    "stages.1.attns.1.relative_position_bias_table",
+    "stages.1.attns.1.relative_position_index",
+    "stages.1.attns.1.attn_mask",
+    "stages.1.attns.1.proj_qkv.weight",
+    "stages.1.attns.1.proj_qkv.bias",
+    "stages.1.attns.1.proj_out.weight",
+    "stages.1.attns.1.proj_out.bias",
+    "stages.2.layer_norms.0.norm.weight",
+    "stages.2.layer_norms.0.norm.bias",
+    "stages.2.layer_norms.1.norm.weight",
+    "stages.2.layer_norms.1.norm.bias",
+    "stages.2.layer_norms.2.norm.weight",
+    "stages.2.layer_norms.2.norm.bias",
+    "stages.2.layer_norms.3.norm.weight",
+    "stages.2.layer_norms.3.norm.bias",
+    "stages.2.layer_norms.4.norm.weight",
+    "stages.2.layer_norms.4.norm.bias",
+    "stages.2.layer_norms.5.norm.weight",
+    "stages.2.layer_norms.5.norm.bias",
+    "stages.2.layer_norms.6.norm.weight",
+    "stages.2.layer_norms.6.norm.bias",
+    "stages.2.layer_norms.7.norm.weight",
+    "stages.2.layer_norms.7.norm.bias",
+    "stages.2.layer_norms.8.norm.weight",
+    "stages.2.layer_norms.8.norm.bias",
+    "stages.2.layer_norms.9.norm.weight",
+    "stages.2.layer_norms.9.norm.bias",
+    "stages.2.layer_norms.10.norm.weight",
+    "stages.2.layer_norms.10.norm.bias",
+    "stages.2.layer_norms.11.norm.weight",
+    "stages.2.layer_norms.11.norm.bias",
+    "stages.2.layer_norms.12.norm.weight",
+    "stages.2.layer_norms.12.norm.bias",
+    "stages.2.layer_norms.13.norm.weight",
+    "stages.2.layer_norms.13.norm.bias",
+    "stages.2.layer_norms.14.norm.weight",
+    "stages.2.layer_norms.14.norm.bias",
+    "stages.2.layer_norms.15.norm.weight",
+    "stages.2.layer_norms.15.norm.bias",
+    "stages.2.layer_norms.16.norm.weight",
+    "stages.2.layer_norms.16.norm.bias",
+    "stages.2.layer_norms.17.norm.weight",
+    "stages.2.layer_norms.17.norm.bias",
+    "stages.2.layer_norms.18.norm.weight",
+    "stages.2.layer_norms.18.norm.bias",
+    "stages.2.layer_norms.19.norm.weight",
+    "stages.2.layer_norms.19.norm.bias",
+    "stages.2.layer_norms.20.norm.weight",
+    "stages.2.layer_norms.20.norm.bias",
+    "stages.2.layer_norms.21.norm.weight",
+    "stages.2.layer_norms.21.norm.bias",
+    "stages.2.layer_norms.22.norm.weight",
+    "stages.2.layer_norms.22.norm.bias",
+    "stages.2.layer_norms.23.norm.weight",
+    "stages.2.layer_norms.23.norm.bias",
+    "stages.2.layer_norms.24.norm.weight",
+    "stages.2.layer_norms.24.norm.bias",
+    "stages.2.layer_norms.25.norm.weight",
+    "stages.2.layer_norms.25.norm.bias",
+    "stages.2.layer_norms.26.norm.weight",
+    "stages.2.layer_norms.26.norm.bias",
+    "stages.2.layer_norms.27.norm.weight",
+    "stages.2.layer_norms.27.norm.bias",
+    "stages.2.layer_norms.28.norm.weight",
+    "stages.2.layer_norms.28.norm.bias",
+    "stages.2.layer_norms.29.norm.weight",
+    "stages.2.layer_norms.29.norm.bias",
+    "stages.2.layer_norms.30.norm.weight",
+    "stages.2.layer_norms.30.norm.bias",
+    "stages.2.layer_norms.31.norm.weight",
+    "stages.2.layer_norms.31.norm.bias",
+    "stages.2.layer_norms.32.norm.weight",
+    "stages.2.layer_norms.32.norm.bias",
+    "stages.2.layer_norms.33.norm.weight",
+    "stages.2.layer_norms.33.norm.bias",
+    "stages.2.layer_norms.34.norm.weight",
+    "stages.2.layer_norms.34.norm.bias",
+    "stages.2.layer_norms.35.norm.weight",
+    "stages.2.layer_norms.35.norm.bias",
+    "stages.2.mlps.0.chunk.linear1.weight",
+    "stages.2.mlps.0.chunk.linear1.bias",
+    "stages.2.mlps.0.chunk.linear2.weight",
+    "stages.2.mlps.0.chunk.linear2.bias",
+    "stages.2.mlps.1.chunk.linear1.weight",
+    "stages.2.mlps.1.chunk.linear1.bias",
+    "stages.2.mlps.1.chunk.linear2.weight",
+    "stages.2.mlps.1.chunk.linear2.bias",
+    "stages.2.mlps.2.chunk.linear1.weight",
+    "stages.2.mlps.2.chunk.linear1.bias",
+    "stages.2.mlps.2.chunk.linear2.weight",
+    "stages.2.mlps.2.chunk.linear2.bias",
+    "stages.2.mlps.3.chunk.linear1.weight",
+    "stages.2.mlps.3.chunk.linear1.bias",
+    "stages.2.mlps.3.chunk.linear2.weight",
+    "stages.2.mlps.3.chunk.linear2.bias",
+    "stages.2.mlps.4.chunk.linear1.weight",
+    "stages.2.mlps.4.chunk.linear1.bias",
+    "stages.2.mlps.4.chunk.linear2.weight",
+    "stages.2.mlps.4.chunk.linear2.bias",
+    "stages.2.mlps.5.chunk.linear1.weight",
+    "stages.2.mlps.5.chunk.linear1.bias",
+    "stages.2.mlps.5.chunk.linear2.weight",
+    "stages.2.mlps.5.chunk.linear2.bias",
+    "stages.2.mlps.6.chunk.linear1.weight",
+    "stages.2.mlps.6.chunk.linear1.bias",
+    "stages.2.mlps.6.chunk.linear2.weight",
+    "stages.2.mlps.6.chunk.linear2.bias",
+    "stages.2.mlps.7.chunk.linear1.weight",
+    "stages.2.mlps.7.chunk.linear1.bias",
+    "stages.2.mlps.7.chunk.linear2.weight",
+    "stages.2.mlps.7.chunk.linear2.bias",
+    "stages.2.mlps.8.chunk.linear1.weight",
+    "stages.2.mlps.8.chunk.linear1.bias",
+    "stages.2.mlps.8.chunk.linear2.weight",
+    "stages.2.mlps.8.chunk.linear2.bias",
+    "stages.2.mlps.9.chunk.linear1.weight",
+    "stages.2.mlps.9.chunk.linear1.bias",
+    "stages.2.mlps.9.chunk.linear2.weight",
+    "stages.2.mlps.9.chunk.linear2.bias",
+    "stages.2.mlps.10.chunk.linear1.weight",
+    "stages.2.mlps.10.chunk.linear1.bias",
+    "stages.2.mlps.10.chunk.linear2.weight",
+    "stages.2.mlps.10.chunk.linear2.bias",
+    "stages.2.mlps.11.chunk.linear1.weight",
+    "stages.2.mlps.11.chunk.linear1.bias",
+    "stages.2.mlps.11.chunk.linear2.weight",
+    "stages.2.mlps.11.chunk.linear2.bias",
+    "stages.2.mlps.12.chunk.linear1.weight",
+    "stages.2.mlps.12.chunk.linear1.bias",
+    "stages.2.mlps.12.chunk.linear2.weight",
+    "stages.2.mlps.12.chunk.linear2.bias",
+    "stages.2.mlps.13.chunk.linear1.weight",
+    "stages.2.mlps.13.chunk.linear1.bias",
+    "stages.2.mlps.13.chunk.linear2.weight",
+    "stages.2.mlps.13.chunk.linear2.bias",
+    "stages.2.mlps.14.chunk.linear1.weight",
+    "stages.2.mlps.14.chunk.linear1.bias",
+    "stages.2.mlps.14.chunk.linear2.weight",
+    "stages.2.mlps.14.chunk.linear2.bias",
+    "stages.2.mlps.15.chunk.linear1.weight",
+    "stages.2.mlps.15.chunk.linear1.bias",
+    "stages.2.mlps.15.chunk.linear2.weight",
+    "stages.2.mlps.15.chunk.linear2.bias",
+    "stages.2.mlps.16.chunk.linear1.weight",
+    "stages.2.mlps.16.chunk.linear1.bias",
+    "stages.2.mlps.16.chunk.linear2.weight",
+    "stages.2.mlps.16.chunk.linear2.bias",
+    "stages.2.mlps.17.chunk.linear1.weight",
+    "stages.2.mlps.17.chunk.linear1.bias",
+    "stages.2.mlps.17.chunk.linear2.weight",
+    "stages.2.mlps.17.chunk.linear2.bias",
+    "stages.2.attns.0.relative_position_bias_table",
+    "stages.2.attns.0.relative_position_index",
+    "stages.2.attns.0.proj_qkv.weight",
+    "stages.2.attns.0.proj_qkv.bias",
+    "stages.2.attns.0.proj_out.weight",
+    "stages.2.attns.0.proj_out.bias",
+    "stages.2.attns.1.rpe_table",
+    "stages.2.attns.1.conv_offset.0.weight",
+    "stages.2.attns.1.conv_offset.0.bias",
+    "stages.2.attns.1.conv_offset.1.norm.weight",
+    "stages.2.attns.1.conv_offset.1.norm.bias",
+    "stages.2.attns.1.conv_offset.3.weight",
+    "stages.2.attns.1.proj_q.weight",
+    "stages.2.attns.1.proj_q.bias",
+    "stages.2.attns.1.proj_k.weight",
+    "stages.2.attns.1.proj_k.bias",
+    "stages.2.attns.1.proj_v.weight",
+    "stages.2.attns.1.proj_v.bias",
+    "stages.2.attns.1.proj_out.weight",
+    "stages.2.attns.1.proj_out.bias",
+    "stages.2.attns.1.ref_point14.weight",
+    "stages.2.attns.1.ref_point14.bias",
+    "stages.2.attns.1.ref_gate.weight",
+    "stages.2.attns.1.ref_gate.bias",
+    "stages.2.attns.2.relative_position_bias_table",
+    "stages.2.attns.2.relative_position_index",
+    "stages.2.attns.2.proj_qkv.weight",
+    "stages.2.attns.2.proj_qkv.bias",
+    "stages.2.attns.2.proj_out.weight",
+    "stages.2.attns.2.proj_out.bias",
+    "stages.2.attns.3.rpe_table",
+    "stages.2.attns.3.conv_offset.0.weight",
+    "stages.2.attns.3.conv_offset.0.bias",
+    "stages.2.attns.3.conv_offset.1.norm.weight",
+    "stages.2.attns.3.conv_offset.1.norm.bias",
+    "stages.2.attns.3.conv_offset.3.weight",
+    "stages.2.attns.3.proj_q.weight",
+    "stages.2.attns.3.proj_q.bias",
+    "stages.2.attns.3.proj_k.weight",
+    "stages.2.attns.3.proj_k.bias",
+    "stages.2.attns.3.proj_v.weight",
+    "stages.2.attns.3.proj_v.bias",
+    "stages.2.attns.3.proj_out.weight",
+    "stages.2.attns.3.proj_out.bias",
+    "stages.2.attns.3.ref_point14.weight",
+    "stages.2.attns.3.ref_point14.bias",
+    "stages.2.attns.3.ref_gate.weight",
+    "stages.2.attns.3.ref_gate.bias",
+    "stages.2.attns.4.relative_position_bias_table",
+    "stages.2.attns.4.relative_position_index",
+    "stages.2.attns.4.proj_qkv.weight",
+    "stages.2.attns.4.proj_qkv.bias",
+    "stages.2.attns.4.proj_out.weight",
+    "stages.2.attns.4.proj_out.bias",
+    "stages.2.attns.5.rpe_table",
+    "stages.2.attns.5.conv_offset.0.weight",
+    "stages.2.attns.5.conv_offset.0.bias",
+    "stages.2.attns.5.conv_offset.1.norm.weight",
+    "stages.2.attns.5.conv_offset.1.norm.bias",
+    "stages.2.attns.5.conv_offset.3.weight",
+    "stages.2.attns.5.proj_q.weight",
+    "stages.2.attns.5.proj_q.bias",
+    "stages.2.attns.5.proj_k.weight",
+    "stages.2.attns.5.proj_k.bias",
+    "stages.2.attns.5.proj_v.weight",
+    "stages.2.attns.5.proj_v.bias",
+    "stages.2.attns.5.proj_out.weight",
+    "stages.2.attns.5.proj_out.bias",
+    "stages.2.attns.5.ref_point14.weight",
+    "stages.2.attns.5.ref_point14.bias",
+    "stages.2.attns.5.ref_gate.weight",
+    "stages.2.attns.5.ref_gate.bias",
+    "stages.2.attns.6.relative_position_bias_table",
+    "stages.2.attns.6.relative_position_index",
+    "stages.2.attns.6.proj_qkv.weight",
+    "stages.2.attns.6.proj_qkv.bias",
+    "stages.2.attns.6.proj_out.weight",
+    "stages.2.attns.6.proj_out.bias",
+    "stages.2.attns.7.rpe_table",
+    "stages.2.attns.7.conv_offset.0.weight",
+    "stages.2.attns.7.conv_offset.0.bias",
+    "stages.2.attns.7.conv_offset.1.norm.weight",
+    "stages.2.attns.7.conv_offset.1.norm.bias",
+    "stages.2.attns.7.conv_offset.3.weight",
+    "stages.2.attns.7.proj_q.weight",
+    "stages.2.attns.7.proj_q.bias",
+    "stages.2.attns.7.proj_k.weight",
+    "stages.2.attns.7.proj_k.bias",
+    "stages.2.attns.7.proj_v.weight",
+    "stages.2.attns.7.proj_v.bias",
+    "stages.2.attns.7.proj_out.weight",
+    "stages.2.attns.7.proj_out.bias",
+    "stages.2.attns.7.ref_point14.weight",
+    "stages.2.attns.7.ref_point14.bias",
+    "stages.2.attns.7.ref_gate.weight",
+    "stages.2.attns.7.ref_gate.bias",
+    "stages.2.attns.8.relative_position_bias_table",
+    "stages.2.attns.8.relative_position_index",
+    "stages.2.attns.8.proj_qkv.weight",
+    "stages.2.attns.8.proj_qkv.bias",
+    "stages.2.attns.8.proj_out.weight",
+    "stages.2.attns.8.proj_out.bias",
+    "stages.2.attns.9.rpe_table",
+    "stages.2.attns.9.conv_offset.0.weight",
+    "stages.2.attns.9.conv_offset.0.bias",
+    "stages.2.attns.9.conv_offset.1.norm.weight",
+    "stages.2.attns.9.conv_offset.1.norm.bias",
+    "stages.2.attns.9.conv_offset.3.weight",
+    "stages.2.attns.9.proj_q.weight",
+    "stages.2.attns.9.proj_q.bias",
+    "stages.2.attns.9.proj_k.weight",
+    "stages.2.attns.9.proj_k.bias",
+    "stages.2.attns.9.proj_v.weight",
+    "stages.2.attns.9.proj_v.bias",
+    "stages.2.attns.9.proj_out.weight",
+    "stages.2.attns.9.proj_out.bias",
+    "stages.2.attns.9.ref_point14.weight",
+    "stages.2.attns.9.ref_point14.bias",
+    "stages.2.attns.9.ref_gate.weight",
+    "stages.2.attns.9.ref_gate.bias",
+    "stages.2.attns.10.relative_position_bias_table",
+    "stages.2.attns.10.relative_position_index",
+    "stages.2.attns.10.proj_qkv.weight",
+    "stages.2.attns.10.proj_qkv.bias",
+    "stages.2.attns.10.proj_out.weight",
+    "stages.2.attns.10.proj_out.bias",
+    "stages.2.attns.11.rpe_table",
+    "stages.2.attns.11.conv_offset.0.weight",
+    "stages.2.attns.11.conv_offset.0.bias",
+    "stages.2.attns.11.conv_offset.1.norm.weight",
+    "stages.2.attns.11.conv_offset.1.norm.bias",
+    "stages.2.attns.11.conv_offset.3.weight",
+    "stages.2.attns.11.proj_q.weight",
+    "stages.2.attns.11.proj_q.bias",
+    "stages.2.attns.11.proj_k.weight",
+    "stages.2.attns.11.proj_k.bias",
+    "stages.2.attns.11.proj_v.weight",
+    "stages.2.attns.11.proj_v.bias",
+    "stages.2.attns.11.proj_out.weight",
+    "stages.2.attns.11.proj_out.bias",
+    "stages.2.attns.11.ref_point14.weight",
+    "stages.2.attns.11.ref_point14.bias",
+    "stages.2.attns.11.ref_gate.weight",
+    "stages.2.attns.11.ref_gate.bias",
+    "stages.2.attns.12.relative_position_bias_table",
+    "stages.2.attns.12.relative_position_index",
+    "stages.2.attns.12.proj_qkv.weight",
+    "stages.2.attns.12.proj_qkv.bias",
+    "stages.2.attns.12.proj_out.weight",
+    "stages.2.attns.12.proj_out.bias",
+    "stages.2.attns.13.rpe_table",
+    "stages.2.attns.13.conv_offset.0.weight",
+    "stages.2.attns.13.conv_offset.0.bias",
+    "stages.2.attns.13.conv_offset.1.norm.weight",
+    "stages.2.attns.13.conv_offset.1.norm.bias",
+    "stages.2.attns.13.conv_offset.3.weight",
+    "stages.2.attns.13.proj_q.weight",
+    "stages.2.attns.13.proj_q.bias",
+    "stages.2.attns.13.proj_k.weight",
+    "stages.2.attns.13.proj_k.bias",
+    "stages.2.attns.13.proj_v.weight",
+    "stages.2.attns.13.proj_v.bias",
+    "stages.2.attns.13.proj_out.weight",
+    "stages.2.attns.13.proj_out.bias",
+    "stages.2.attns.13.ref_point14.weight",
+    "stages.2.attns.13.ref_point14.bias",
+    "stages.2.attns.13.ref_gate.weight",
+    "stages.2.attns.13.ref_gate.bias",
+    "stages.2.attns.14.relative_position_bias_table",
+    "stages.2.attns.14.relative_position_index",
+    "stages.2.attns.14.proj_qkv.weight",
+    "stages.2.attns.14.proj_qkv.bias",
+    "stages.2.attns.14.proj_out.weight",
+    "stages.2.attns.14.proj_out.bias",
+    "stages.2.attns.15.rpe_table",
+    "stages.2.attns.15.conv_offset.0.weight",
+    "stages.2.attns.15.conv_offset.0.bias",
+    "stages.2.attns.15.conv_offset.1.norm.weight",
+    "stages.2.attns.15.conv_offset.1.norm.bias",
+    "stages.2.attns.15.conv_offset.3.weight",
+    "stages.2.attns.15.proj_q.weight",
+    "stages.2.attns.15.proj_q.bias",
+    "stages.2.attns.15.proj_k.weight",
+    "stages.2.attns.15.proj_k.bias",
+    "stages.2.attns.15.proj_v.weight",
+    "stages.2.attns.15.proj_v.bias",
+    "stages.2.attns.15.proj_out.weight",
+    "stages.2.attns.15.proj_out.bias",
+    "stages.2.attns.15.ref_point14.weight",
+    "stages.2.attns.15.ref_point14.bias",
+    "stages.2.attns.15.ref_gate.weight",
+    "stages.2.attns.15.ref_gate.bias",
+    "stages.2.attns.16.relative_position_bias_table",
+    "stages.2.attns.16.relative_position_index",
+    "stages.2.attns.16.proj_qkv.weight",
+    "stages.2.attns.16.proj_qkv.bias",
+    "stages.2.attns.16.proj_out.weight",
+    "stages.2.attns.16.proj_out.bias",
+    "stages.2.attns.17.rpe_table",
+    "stages.2.attns.17.conv_offset.0.weight",
+    "stages.2.attns.17.conv_offset.0.bias",
+    "stages.2.attns.17.conv_offset.1.norm.weight",
+    "stages.2.attns.17.conv_offset.1.norm.bias",
+    "stages.2.attns.17.conv_offset.3.weight",
+    "stages.2.attns.17.proj_q.weight",
+    "stages.2.attns.17.proj_q.bias",
+    "stages.2.attns.17.proj_k.weight",
+    "stages.2.attns.17.proj_k.bias",
+    "stages.2.attns.17.proj_v.weight",
+    "stages.2.attns.17.proj_v.bias",
+    "stages.2.attns.17.proj_out.weight",
+    "stages.2.attns.17.proj_out.bias",
+    "stages.2.attns.17.ref_point14.weight",
+    "stages.2.attns.17.ref_point14.bias",
+    "stages.2.attns.17.ref_gate.weight",
+    "stages.2.attns.17.ref_gate.bias",
+    "stages.3.layer_norms.0.norm.weight",
+    "stages.3.layer_norms.0.norm.bias",
+    "stages.3.layer_norms.1.norm.weight",
+    "stages.3.layer_norms.1.norm.bias",
+    "stages.3.layer_norms.2.norm.weight",
+    "stages.3.layer_norms.2.norm.bias",
+    "stages.3.layer_norms.3.norm.weight",
+    "stages.3.layer_norms.3.norm.bias",
+    "stages.3.mlps.0.chunk.linear1.weight",
+    "stages.3.mlps.0.chunk.linear1.bias",
+    "stages.3.mlps.0.chunk.linear2.weight",
+    "stages.3.mlps.0.chunk.linear2.bias",
+    "stages.3.mlps.1.chunk.linear1.weight",
+    "stages.3.mlps.1.chunk.linear1.bias",
+    "stages.3.mlps.1.chunk.linear2.weight",
+    "stages.3.mlps.1.chunk.linear2.bias",
+    "stages.3.attns.0.relative_position_bias_table",
+    "stages.3.attns.0.relative_position_index",
+    "stages.3.attns.0.proj_qkv.weight",
+    "stages.3.attns.0.proj_qkv.bias",
+    "stages.3.attns.0.proj_out.weight",
+    "stages.3.attns.0.proj_out.bias",
+    "stages.3.attns.1.rpe_table",
+    "stages.3.attns.1.conv_offset.0.weight",
+    "stages.3.attns.1.conv_offset.0.bias",
+    "stages.3.attns.1.conv_offset.1.norm.weight",
+    "stages.3.attns.1.conv_offset.1.norm.bias",
+    "stages.3.attns.1.conv_offset.3.weight",
+    "stages.3.attns.1.proj_q.weight",
+    "stages.3.attns.1.proj_q.bias",
+    "stages.3.attns.1.proj_k.weight",
+    "stages.3.attns.1.proj_k.bias",
+    "stages.3.attns.1.proj_v.weight",
+    "stages.3.attns.1.proj_v.bias",
+    "stages.3.attns.1.proj_out.weight",
+    "stages.3.attns.1.proj_out.bias",
+    "stages.3.attns.1.ref_point14.weight",
+    "stages.3.attns.1.ref_point14.bias",
+    "stages.3.attns.1.ref_gate.weight",
+    "stages.3.attns.1.ref_gate.bias",
+    "down_projs.0.0.weight",
+    "down_projs.0.1.norm.weight",
+    "down_projs.0.1.norm.bias",
+    "down_projs.1.0.weight",
+    "down_projs.1.1.norm.weight",
+    "down_projs.1.1.norm.bias",
+    "down_projs.2.0.weight",
+    "down_projs.2.1.norm.weight",
+    "down_projs.2.1.norm.bias",
+    "cls_norm.norm.weight",
+    "cls_norm.norm.bias",
+    "hst_head.weight",
+    "hst_head.bias",
+    "hist_feature.centers",
+    "hist_feature.widths",
+    "hist_feature.bin_centers_conv.weight",
+    "hist_feature.bin_centers_conv.bias",
+    "hist_feature.bin_widths_conv.weight",
+    "hist_feature.bin_widths_conv.bias",
+    "class_head.weight",
+    "class_head.bias",
+    "class_head2.weight",
+    "class_head2.bias"
+  ],
+  "results": [
+    {
+      "status": "pass_preferred",
+      "pass_preferred": true,
+      "pass_acceptable": true,
+      "needs_diagnosis": false,
+      "full_max_abs_diff": 5.960464477539063e-08,
+      "full_mean_abs_diff": 2.9802322387695312e-08,
+      "mos_max_abs_diff": 0.0,
+      "mos_mean_abs_diff": 0.0,
+      "color_max_abs_diff": 5.960464477539063e-08,
+      "color_mean_abs_diff": 5.960464477539063e-08,
+      "torch_output_shape": [
+        1,
+        2
+      ],
+      "tf_output_shape": [
+        1,
+        2
+      ],
+      "name": "deterministic random normalized image input",
+      "batch_size": 1,
+      "image_paths": [
+        "random_normalized_image"
+      ],
+      "torch_input_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "tf_input_shape_nhwc": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "intermediate_max_abs_diff": 0.0294189453125,
+      "intermediate_mean_abs_diff_max": 5.025777863920666e-05
+    },
+    {
+      "status": "pass_preferred",
+      "pass_preferred": true,
+      "pass_acceptable": true,
+      "needs_diagnosis": false,
+      "full_max_abs_diff": 8.940696716308594e-07,
+      "full_mean_abs_diff": 1.4435499906539917e-07,
+      "mos_max_abs_diff": 8.940696716308594e-07,
+      "mos_mean_abs_diff": 1.5087425708770752e-07,
+      "color_max_abs_diff": 5.364418029785156e-07,
+      "color_mean_abs_diff": 1.3783574104309082e-07,
+      "torch_output_shape": [
+        16,
+        2
+      ],
+      "tf_output_shape": [
+        16,
+        2
+      ],
+      "name": "16 real ICAA17K test images",
+      "batch_size": 16,
+      "image_paths": [
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/geelog29034161553.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/117679407@N0828865500835.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/159973025@N0742445144115.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/139363649@N0233098198304.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/keo621918578914.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/146253389@N0829278222342.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/peter-murrell20822874424.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/28286225@N0239486212422.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/112246188@N0325165986081.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/125572947@N0716737113406.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/jerry_lake38649837566.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/lumenscript41873226310.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/yates77717355466472.jpg"
+      ],
+      "torch_input_shape": [
+        16,
+        3,
+        224,
+        224
+      ],
+      "tf_input_shape_nhwc": [
+        16,
+        224,
+        224,
+        3
+      ],
+      "intermediate_max_abs_diff": 0.06884765625,
+      "intermediate_mean_abs_diff_max": 6.824255251558498e-05
+    },
+    {
+      "status": "pass_preferred",
+      "pass_preferred": true,
+      "pass_acceptable": true,
+      "needs_diagnosis": false,
+      "full_max_abs_diff": 0.00040286779403686523,
+      "full_mean_abs_diff": 4.3514883145689964e-06,
+      "mos_max_abs_diff": 0.00040286779403686523,
+      "mos_mean_abs_diff": 7.2552356868982315e-06,
+      "color_max_abs_diff": 6.085634231567383e-05,
+      "color_mean_abs_diff": 1.4477409422397614e-06,
+      "torch_output_shape": [
+        64,
+        2
+      ],
+      "tf_output_shape": [
+        64,
+        2
+      ],
+      "name": "64 real ICAA17K test images",
+      "batch_size": 64,
+      "image_paths": [
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/geelog29034161553.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/117679407@N0828865500835.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/159973025@N0742445144115.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/139363649@N0233098198304.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/keo621918578914.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/146253389@N0829278222342.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/peter-murrell20822874424.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/28286225@N0239486212422.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/112246188@N0325165986081.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/125572947@N0716737113406.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/jerry_lake38649837566.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/lumenscript41873226310.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/yates77717355466472.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/42766545@N0733776788255.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/dave_whatt30579750216.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/26081675@N0625951356884.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/alexhaeusler24609170851.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/martinhewer30288978388.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/gcampbellphoto39690980691.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/127449667@N0337518686571.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/91820810@N0540624490983.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/kuen-cherng28051533001.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/124733025@N0817382815878.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/jmahto44481647871.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/132644004@N0519675120222.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/todoe30562564656.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/146057066@N0832203074590.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/127102752@N0627540799727.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/142957381@N0428642307022.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/rcb4j30420344820.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/8843323@N0821730327949.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/54842937@N0017266957000.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/quentin-ozanne-photographies30880045506.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/97062902@N0832592404848.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/gert5535813510832.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/marvindeneke26123835096.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0645520251552.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/164494354@N0440457826723.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/63428607@N0529568181460.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/bautisterias43081108062.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/janlupus31506148928.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/collingwoodbarry30019405096.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/43808281@N0037953021332.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/camdiary29342824505.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/124733025@N0816297785724.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/61206119@N0528747911990.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/xiaoping9837848126262.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/132594746@N0325036949366.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/soniaadammurray22482829739.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/grahamvphoto30774754242.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/133916597@N0621538948542.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/manoncmmrs22448452332.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/maureenpp34314439965.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/ntrinkhaus26482713596.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/30957107@N0229889594153.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/jrrondeau20347616636.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/russellcharters26883975021.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/skipplitt19781512672.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/rebel_82nd16670293614.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/129863077@N0743533476300.jpg",
+        "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/51199609@N0229775127896.jpg"
+      ],
+      "torch_input_shape": [
+        64,
+        3,
+        224,
+        224
+      ],
+      "tf_input_shape_nhwc": [
+        64,
+        224,
+        224,
+        3
+      ],
+      "intermediate_max_abs_diff": 19.19842529296875,
+      "intermediate_mean_abs_diff_max": 0.001144198002293706
+    }
+  ],
+  "real_image_input_count": 16,
+  "real_image_paths": [
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/geelog29034161553.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/117679407@N0828865500835.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/159973025@N0742445144115.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/139363649@N0233098198304.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/keo621918578914.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/146253389@N0829278222342.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/peter-murrell20822874424.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/28286225@N0239486212422.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/112246188@N0325165986081.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/125572947@N0716737113406.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/jerry_lake38649837566.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/lumenscript41873226310.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/yates77717355466472.jpg"
+  ],
+  "optional_64_real_images_performed": true,
+  "stage_g2_g3_drift_significantly_affects_final_scores": false,
+  "drift_impact_interpretation": "Accumulated Stage G-2/G-3 feature drift did not materially affect final scores under preferred thresholds.",
+  "safe_to_proceed_to_stage_i_savedmodel_export": true,
+  "safe_to_proceed_to_tflite_conversion_later": true,
+  "unresolved_issues": [],
+  "warnings": [
+    "stage_h_full_dat_parity.py:132: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+    "__init__.py:49: Importing from timm.models.layers is deprecated, please import via timm.layers",
+    "functional.py:534: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)",
+    "layer.py:424: `build()` was called on layer 'stage2', however the layer does not have a `build()` method implemented and it looks like it has unbuilt state. This will cause the layer to be marked as built, despite not being actually built, which may cause failures down the line. Make sure to implement a proper `build()` method.",
+    "layer.py:424: `build()` was called on layer 'stage3', however the layer does not have a `build()` method implemented and it looks like it has unbuilt state. This will cause the layer to be marked as built, despite not being actually built, which may cause failures down the line. Make sure to implement a proper `build()` method."
+  ],
+  "errors": [],
+  "log_lines": [
+    "deterministic random normalized image input: status=pass_preferred full_max_abs_diff=5.96046448e-08 full_mean_abs_diff=2.98023224e-08 mos_max_abs_diff=0 color_max_abs_diff=5.96046448e-08",
+    "16 real ICAA17K test images: status=pass_preferred full_max_abs_diff=8.94069672e-07 full_mean_abs_diff=1.44354999e-07 mos_max_abs_diff=8.94069672e-07 color_max_abs_diff=5.36441803e-07",
+    "64 real ICAA17K test images: status=pass_preferred full_max_abs_diff=0.000402867794 full_mean_abs_diff=4.35148831e-06 mos_max_abs_diff=0.000402867794 color_max_abs_diff=6.08563423e-05"
+  ],
+  "json_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_h_full_dat_20260516_040045/stage_h_full_dat_report.json",
+  "predictions_csv_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_h_full_dat_20260516_040045/stage_h_full_dat_predictions.csv",
+  "log_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_h_full_dat_20260516_040045/stage_h_full_dat_log.txt",
+  "intermediate_diff_summary_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_h_full_dat_20260516_040045/optional_intermediate_diff_summary.json",
+  "captured_output": [
+    "deterministic random normalized image input: status=pass_preferred full_max_abs_diff=5.96046448e-08 full_mean_abs_diff=2.98023224e-08 mos_max_abs_diff=0 color_max_abs_diff=5.96046448e-08",
+    "16 real ICAA17K test images: status=pass_preferred full_max_abs_diff=8.94069672e-07 full_mean_abs_diff=1.44354999e-07 mos_max_abs_diff=8.94069672e-07 color_max_abs_diff=5.36441803e-07",
+    "64 real ICAA17K test images: status=pass_preferred full_max_abs_diff=0.000402867794 full_mean_abs_diff=4.35148831e-06 mos_max_abs_diff=0.000402867794 color_max_abs_diff=6.08563423e-05"
+  ]
+}

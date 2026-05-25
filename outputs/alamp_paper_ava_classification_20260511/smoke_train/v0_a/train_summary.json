@@ -1,0 +1,138 @@
+{
+  "created_at_local": "2026-05-11T11:47:41.989666+09:00",
+  "model_variant": "A-LAMP-paper-AVA-v0",
+  "model_variant_full": "A-LAMP-paper-AVA-v0-v0-a",
+  "description": "A-LAMP-paper-oriented approximation",
+  "style_description": "A-LAMP-style AVA classification model",
+  "official_reproduction": false,
+  "paper_comparability_note": "A-LAMP-paper-oriented approximation using shared VGG16 patch columns, adaptive patch selection approximation, and a binary AVA classifier head. Exact object/global attribute graph is not implemented in v0. Exact saliency-map pipeline and official author weights are not available locally.",
+  "train_csv": "data/processed/ava/train.csv",
+  "val_csv": "data/processed/ava/val.csv",
+  "image_dir": "data/raw/ava/images",
+  "image_col": "image_path",
+  "score_col": "mean_score",
+  "label_rule": "paper_strict",
+  "label_rule_text": "label = 1 if mean_score > 5.0 else 0",
+  "label_threshold": 5.0,
+  "train_samples": 64,
+  "val_samples": 32,
+  "train_skipped_image_count": 0,
+  "val_skipped_image_count": 0,
+  "train_skipped_image_examples": [],
+  "val_skipped_image_examples": [],
+  "train_positive_count": 47,
+  "train_negative_count": 17,
+  "val_positive_count": 20,
+  "val_negative_count": 12,
+  "batch_size": 2,
+  "epochs_requested": 1,
+  "epochs_completed": 1,
+  "learning_rate": 0.0001,
+  "early_stopping": {
+    "monitor": "val_loss",
+    "patience": 3,
+    "restore_best_weights": true
+  },
+  "model": {
+    "model_variant": "A-LAMP-paper-AVA-v0",
+    "variant": "v0_a",
+    "description": "A-LAMP-paper-oriented approximation",
+    "style": "A-LAMP-style AVA classification model",
+    "backbone": "VGG16",
+    "backbone_weights_requested": null,
+    "train_backbone": false,
+    "patch_count": 5,
+    "image_size_patch": 224,
+    "image_size_global": 384,
+    "shared_patch_backbone": true,
+    "include_global_branch": false,
+    "include_layout_features": false,
+    "layout_feature_dim": 0,
+    "exact_object_global_attribute_graph": "not implemented in v0",
+    "exact_saliency_map_pipeline": "not implemented in v0",
+    "dropout": 0.3,
+    "feature_dim": 256,
+    "loss": "binary_crossentropy",
+    "metrics": [
+      "binary_accuracy",
+      "auc",
+      "precision",
+      "recall"
+    ],
+    "optimizer": "adam",
+    "patch_selection": "deterministic adaptive approximation using edge strength, luminance variance, color variance, and non-max overlap reduction from native-size images"
+  },
+  "tensorflow": {
+    "visible_gpus": [],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.20.0"
+  },
+  "forward_check": {
+    "input_shapes": {
+      "patches": [
+        2,
+        5,
+        224,
+        224,
+        3
+      ]
+    },
+    "output_shape": [
+      2,
+      1
+    ],
+    "prediction_min": 0.5700374245643616,
+    "prediction_max": 0.5700972676277161,
+    "all_finite": true,
+    "in_unit_range": true
+  },
+  "save_load_check": {
+    "loaded_model_name": "alamp_paper_ava_v0_a",
+    "loaded_output_shape": [
+      2,
+      1
+    ],
+    "max_abs_diff_vs_trained_forward_sample": 0.0
+  },
+  "outputs": {
+    "final_model": "outputs/alamp_paper_ava_classification_20260511/smoke_train/v0_a/final_model.keras",
+    "best_weights": "outputs/alamp_paper_ava_classification_20260511/smoke_train/v0_a/best.weights.h5",
+    "training_history_csv": "outputs/alamp_paper_ava_classification_20260511/smoke_train/v0_a/training_history.csv",
+    "train_summary_json": "outputs/alamp_paper_ava_classification_20260511/smoke_train/v0_a/train_summary.json"
+  },
+  "best_epoch": 1,
+  "best_val_loss": 0.6574724912643433,
+  "final_train_loss": 0.6062828302383423,
+  "history": {
+    "accuracy": [
+      0.734375
+    ],
+    "auc": [
+      0.4724655747413635
+    ],
+    "loss": [
+      0.6062828302383423
+    ],
+    "precision": [
+      0.734375
+    ],
+    "recall": [
+      1.0
+    ],
+    "val_accuracy": [
+      0.625
+    ],
+    "val_auc": [
+      0.625
+    ],
+    "val_loss": [
+      0.6574724912643433
+    ],
+    "val_precision": [
+      0.625
+    ],
+    "val_recall": [
+      1.0
+    ]
+  }
+}

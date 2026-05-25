@@ -1,0 +1,3 @@
+deterministic random normalized image input: status=pass_preferred full_max_abs_diff=5.96046448e-08 full_mean_abs_diff=2.98023224e-08 mos_max_abs_diff=0 color_max_abs_diff=5.96046448e-08
+16 real ICAA17K test images: status=pass_preferred full_max_abs_diff=8.94069672e-07 full_mean_abs_diff=1.44354999e-07 mos_max_abs_diff=8.94069672e-07 color_max_abs_diff=5.36441803e-07
+64 real ICAA17K test images: status=pass_preferred full_max_abs_diff=0.000402867794 full_mean_abs_diff=4.35148831e-06 mos_max_abs_diff=0.000402867794 color_max_abs_diff=6.08563423e-05

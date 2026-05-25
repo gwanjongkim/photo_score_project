@@ -1,0 +1,361 @@
+{
+  "expanded_test_existing_metrics": {
+    "matched_predictions": 12,
+    "format_compliance_rate": 1.0,
+    "prefix_compliance_rate": 1.0,
+    "role_separation_rate": 1.0,
+    "mean_sequence_ratio": 0.265452,
+    "mean_token_f1": 0.107597,
+    "worst_examples": [
+      {
+        "id": "ava__test__teacher__77__ava__546643.jpg__298d2eb4__1fed7a99",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/546643.jpg",
+        "teacher_comment_3line": "Strength: clean subject emphasis.\nWeakness: busier background.\nVerdict: selected because clean subject emphasis carries the frame despite busier background.",
+        "predicted_comment_3line": "Strength:The image is a high-quality, well-lit close-up of crinkled gold foil, providing strong visual texture and reflectivity.\nWeakness:The composition is very dense, with no clear focal point or negative space to give the image breathing room.\nVerdict:selected because the strong visual texture and high quality of the subject matter make it a strong visual candidate.",
+        "sequence_ratio": 0.072106,
+        "token_f1": 0.081081,
+        "format_valid": true
+      },
+      {
+        "id": "ava__test__teacher__149__ava__447638.jpg__4feb144b__61971a22",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/447638.jpg",
+        "teacher_comment_3line": "Strength: clean subject emphasis.\nWeakness: busier background.\nVerdict: selected because clean subject emphasis carries the frame despite busier background.",
+        "predicted_comment_3line": "Strength:The composition features a strong contrast between the vibrant sunset sky and the silhouette of the lighthouse.\nWeakness:The foreground rocks are somewhat cluttered and dominate the lower portion of the frame.\nVerdict:selected because the strong visual candidate quality is evident in the dramatic lighting and subject matter.",
+        "sequence_ratio": 0.077393,
+        "token_f1": 0.090909,
+        "format_valid": true
+      },
+      {
+        "id": "aadb__test__teacher__157__aadb__farm1_428_20181897726_29f617fa6f_b.jpg__64b2dec7__b58fb4d7",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_428_20181897726_29f617fa6f_b.jpg",
+        "teacher_comment_3line": "Strength: { \"reason\": \"rejected: clean subject emphasis.\nWeakness: The background is busy with people watching the game.\".\nVerdict: not selected because The background is busy with people watching the game.\" undercuts { \"reason\": \"rejected: clean subject emphasis.",
+        "predicted_comment_3line": "Strength:The image is well-lit and captures a large crowd in an indoor arena.\nWeakness:The composition is very wide, making the central action small relative to the frame.\nVerdict:not selected becauseThe frame is too wide and the central action is not sufficiently emphasized.",
+        "sequence_ratio": 0.077778,
+        "token_f1": 0.177215,
+        "format_valid": true
+      }
+    ],
+    "best_examples": [
+      {
+        "id": "ava__test__teacher__63__ava__779836.jpg__66f4efb0__4d672b10",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/779836.jpg",
+        "teacher_comment_3line": "Strength: clean subject emphasis.\nWeakness: busier background.\nVerdict: not selected because busier background undercuts clean subject emphasis.",
+        "predicted_comment_3line": "Strength:Visible texture and detail in the image\nWeakness:Low contrast and muted colors\nVerdict:not selected becauselow contrast and muted colors",
+        "sequence_ratio": 0.539792,
+        "token_f1": 0.055556,
+        "format_valid": true
+      },
+      {
+        "id": "ava__test__teacher__180__ava__69831.jpg__e6f6af7f__25830471",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/69831.jpg",
+        "teacher_comment_3line": "Strength: clean subject emphasis.\nWeakness: busier background.\nVerdict: not selected because busier background undercuts clean subject emphasis.",
+        "predicted_comment_3line": "Strength: The image is sharp and well-exposed.\nWeakness: The composition is cluttered with multiple objects.\nVerdict: not selected because the composition is cluttered with multiple objects.",
+        "sequence_ratio": 0.502994,
+        "token_f1": 0.27907,
+        "format_valid": true
+      },
+      {
+        "id": "aadb__test__teacher__126__aadb__farm1_320_20081432532_dbffd1f16a_b.jpg__dad537cf__0305311f",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_320_20081432532_dbffd1f16a_b.jpg",
+        "teacher_comment_3line": "Strength: clean subject emphasis.\nWeakness: busier background.\nVerdict: selected because clean subject emphasis carries the frame despite busier background.",
+        "predicted_comment_3line": "Strength:The bird is sharply in focus and well-lit.\nWeakness:The background is slightly distracting.\nVerdict:selected because the bird is sharply in focus and well-lit.",
+        "sequence_ratio": 0.469136,
+        "token_f1": 0.095238,
+        "format_valid": true
+      }
+    ]
+  },
+  "test_vila_existing_metrics": {
+    "matched_predictions": 36,
+    "format_compliance_rate": 0.972222,
+    "prefix_compliance_rate": 0.972222,
+    "role_separation_rate": 0.972222,
+    "mean_sequence_ratio": 0.199749,
+    "mean_token_f1": 0.143651,
+    "worst_examples": [
+      {
+        "id": "test_vila_sanity_previous_pass__test_vila__IMG_20240519_215827_510.jpg__d7932244",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_20240519_215827_510.jpg",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "",
+        "sequence_ratio": 0.0,
+        "token_f1": 0.0,
+        "format_valid": false
+      },
+      {
+        "id": "test_vila_sanity_previous_pass__test_vila__20250204_174237_0_.jpg__29510ecf",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_174237(0).jpg",
+        "teacher_comment_3line": "Strength: layered cloud texture and warm sunset color.\nWeakness: the person sits very small at the bottom edge.\nVerdict: selected because the dramatic sky and sunset color carry the frame despite the small subject.",
+        "predicted_comment_3line": "Strength:The composition is balanced with the sky and beach elements.\nWeakness:The horizon line is slightly low, which can make the foreground feel empty.\nVerdict:selected because the composition is balanced with the sky and beach elements.",
+        "sequence_ratio": 0.057269,
+        "token_f1": 0.231884,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_sanity_previous_pass__test_vila__IMG_2748.JPG__47f0827d",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2748.JPG",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "Strength:The image captures a vibrant street scene with illuminated signs and architectural details.\nWeakness:The composition is heavily divided, with a large dark area dominating the lower half of the frame.\nVerdict:not selected because the large dark area dominates the lower half of the frame.",
+        "sequence_ratio": 0.066986,
+        "token_f1": 0.067797,
+        "format_valid": true
+      }
+    ],
+    "best_examples": [
+      {
+        "id": "test_vila_sanity_previous_pass__test_vila__20231231_150055.jpg__35614917",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20231231_150055.jpg",
+        "teacher_comment_3line": "Strength: clear face detail and a lively expression.\nWeakness: the gray background feels flat.\nVerdict: selected because the clear face detail and expression carry the frame despite the flat background.",
+        "predicted_comment_3line": "Strength:The subject is well-lit and the composition is engaging.\nWeakness:The background is somewhat distracting.\nVerdict:selected because the subject is well-lit and the composition is engaging.",
+        "sequence_ratio": 0.522613,
+        "token_f1": 0.254545,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_sanity_previous_pass__test_vila__20240510_213907.jpg__6f406942",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240510_213907.jpg",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "Strength:The subject is well-lit and in focus.\nWeakness:The composition is cluttered with multiple subjects.\nVerdict:not selected becauseThe composition is cluttered with multiple subjects.",
+        "sequence_ratio": 0.495177,
+        "token_f1": 0.052632,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_sanity_previous_pass__test_vila__1720499657653.jpg__eb28bd20",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/1720499657653.jpg",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "Strength:The subject is well-lit and centered in the frame.\nWeakness:The background is cluttered with many elements.\nVerdict:not selected becauseThe background is cluttered with many elements.",
+        "sequence_ratio": 0.484076,
+        "token_f1": 0.05,
+        "format_valid": true
+      }
+    ]
+  },
+  "strict_prediction_audit": {
+    "test": {
+      "rows": 12,
+      "format_valid": 12,
+      "blank_or_error": 0,
+      "leakage_rows": 0,
+      "hidden_context_rows": 6,
+      "verdict_polarity_match": 12,
+      "samples": [
+        {
+          "id": "ava__test__teacher__192__ava__334979.jpg__4b852b84__b700a704",
+          "selected": true,
+          "prediction": "Strength:The image has a strong composition with the plant and vase as the main subjects against a rich background.\nWeakness:The lighting is somewhat uneven, creating some harsh highlights on the golden curtain.\nVerdict:selected because the image is a strong visual candidate."
+        },
+        {
+          "id": "aadb__test__teacher__126__aadb__farm1_320_20081432532_dbffd1f16a_b.jpg__dad537cf__0305311f",
+          "selected": true,
+          "prediction": "Strength:The bird is sharply in focus and well-lit.\nWeakness:The background is slightly distracting.\nVerdict:selected because the bird is sharply in focus and well-lit."
+        },
+        {
+          "id": "ava__test__teacher__139__ava__779780.jpg__6ba60e80__2e30f1d5",
+          "selected": true,
+          "prediction": "Strength:The image has a clear composition with foreground, middle ground, and background elements.\nWeakness:The sky takes up a large portion of the frame, which could be distracting.\nVerdict:selected because the image has a clear composition with foreground, middle ground, and background elements."
+        },
+        {
+          "id": "ava__test__teacher__149__ava__447638.jpg__4feb144b__61971a22",
+          "selected": true,
+          "prediction": "Strength:The composition features a strong contrast between the vibrant sunset sky and the silhouette of the lighthouse.\nWeakness:The foreground rocks are somewhat cluttered and dominate the lower portion of the frame.\nVerdict:selected because the strong visual candidate quality is evident in the dramatic lighting and subject matter."
+        },
+        {
+          "id": "ava__test__teacher__63__ava__779836.jpg__66f4efb0__4d672b10",
+          "selected": false,
+          "prediction": "Strength:Visible texture and detail in the image\nWeakness:Low contrast and muted colors\nVerdict:not selected becauselow contrast and muted colors"
+        }
+      ],
+      "format_valid_rate": 1.0,
+      "blank_or_error_rate": 0.0,
+      "leakage_rows_rate": 0.0,
+      "hidden_context_rows_rate": 0.5,
+      "verdict_polarity_match_rate": 1.0
+    },
+    "test_vila": {
+      "rows": 36,
+      "format_valid": 35,
+      "blank_or_error": 1,
+      "leakage_rows": 5,
+      "hidden_context_rows": 0,
+      "verdict_polarity_match": 35,
+      "samples": [
+        {
+          "id": "test_vila_sanity_previous_pass__test_vila__20231231_150055.jpg__35614917",
+          "selected": true,
+          "prediction": "Strength:The subject is well-lit and the composition is engaging.\nWeakness:The background is somewhat distracting.\nVerdict:selected because the subject is well-lit and the composition is engaging."
+        },
+        {
+          "id": "test_vila_sanity_previous_pass__test_vila__20250204_174237_0_.jpg__29510ecf",
+          "selected": true,
+          "prediction": "Strength:The composition is balanced with the sky and beach elements.\nWeakness:The horizon line is slightly low, which can make the foreground feel empty.\nVerdict:selected because the composition is balanced with the sky and beach elements."
+        },
+        {
+          "id": "test_vila_sanity_previous_pass__test_vila__1675564423029-24.jpg__c3cb8330",
+          "selected": true,
+          "prediction": "Strength:The image has a dramatic night cityscape with bright lights and a strong sense of scale.\nWeakness:The composition is very busy with many elements competing for attention.\nVerdict:selected because the dramatic lighting and scale create a compelling visual impact."
+        },
+        {
+          "id": "test_vila_sanity_previous_pass__test_vila__1675564423029-6.jpg__c3a1b56f",
+          "selected": false,
+          "prediction": "Strength:The image captures a dramatic night skyline with prominent illuminated skyscrapers.\nWeakness:The composition is heavily dominated by the buildings, leaving little foreground interest.\nVerdict:not selected becauseThe framing is too busy and lacks a clear focal point despite the impressive subject matter."
+        },
+        {
+          "id": "test_vila_sanity_previous_pass__test_vila__20240505_153023.jpg__0580e776",
+          "selected": false,
+          "prediction": "Strength:The composition is strong with leading lines created by the stairs and tunnel structure.\nWeakness:The lighting is very high contrast, with the bright exit washing out detail.\nVerdict:not selected becauseThe high contrast and blown-out highlights detract from the overall image quality."
+        }
+      ],
+      "format_valid_rate": 0.972222,
+      "blank_or_error_rate": 0.027778,
+      "leakage_rows_rate": 0.138889,
+      "hidden_context_rows_rate": 0.0,
+      "verdict_polarity_match_rate": 0.972222
+    }
+  },
+  "pass2b_reference": {
+    "test_postprocessed": {
+      "matched_predictions": 2,
+      "format_compliance_rate": 1.0,
+      "prefix_compliance_rate": 1.0,
+      "role_separation_rate": 1.0,
+      "mean_sequence_ratio": 0.283469,
+      "mean_token_f1": 0.332755,
+      "worst_examples": [
+        {
+          "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_14.jpg",
+          "split": "test",
+          "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_14.jpg",
+          "teacher_comment_3line": "Strength: cleaner background and lighting.\nWeakness: subject emphasis and overall appeal.\nVerdict: not selected because subject emphasis and overall appeal undercuts cleaner background and lighting.",
+          "predicted_comment_3line": "Strength: Clear view of the subject water and sky.\nWeakness: Subject is partially obscured and composition is unbalanced.\nVerdict: not selected because Subject is partially obscured and composition is unbalanced undercuts Clear view of the subject water and sky.",
+          "sequence_ratio": 0.056522,
+          "token_f1": 0.40625,
+          "format_valid": true
+        },
+        {
+          "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_09.jpg",
+          "split": "test",
+          "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_09.jpg",
+          "teacher_comment_3line": "Strength: cleaner background and composition.\nWeakness: detail clarity and subject emphasis.\nVerdict: not selected because detail clarity and subject emphasis undercuts cleaner background and composition.",
+          "predicted_comment_3line": "Strength: Visible human hand in water.\nWeakness: Low contrast in the water area.\nVerdict: not selected because Low contrast in the water area undercuts Visible human hand in water.",
+          "sequence_ratio": 0.510417,
+          "token_f1": 0.259259,
+          "format_valid": true
+        }
+      ],
+      "best_examples": [
+        {
+          "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_09.jpg",
+          "split": "test",
+          "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_09.jpg",
+          "teacher_comment_3line": "Strength: cleaner background and composition.\nWeakness: detail clarity and subject emphasis.\nVerdict: not selected because detail clarity and subject emphasis undercuts cleaner background and composition.",
+          "predicted_comment_3line": "Strength: Visible human hand in water.\nWeakness: Low contrast in the water area.\nVerdict: not selected because Low contrast in the water area undercuts Visible human hand in water.",
+          "sequence_ratio": 0.510417,
+          "token_f1": 0.259259,
+          "format_valid": true
+        },
+        {
+          "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_14.jpg",
+          "split": "test",
+          "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_14.jpg",
+          "teacher_comment_3line": "Strength: cleaner background and lighting.\nWeakness: subject emphasis and overall appeal.\nVerdict: not selected because subject emphasis and overall appeal undercuts cleaner background and lighting.",
+          "predicted_comment_3line": "Strength: Clear view of the subject water and sky.\nWeakness: Subject is partially obscured and composition is unbalanced.\nVerdict: not selected because Subject is partially obscured and composition is unbalanced undercuts Clear view of the subject water and sky.",
+          "sequence_ratio": 0.056522,
+          "token_f1": 0.40625,
+          "format_valid": true
+        }
+      ]
+    },
+    "test_vila_postprocessed": {
+      "matched_predictions": 36,
+      "format_compliance_rate": 0.972222,
+      "prefix_compliance_rate": 0.972222,
+      "role_separation_rate": 0.972222,
+      "mean_sequence_ratio": 0.13412,
+      "mean_token_f1": 0.261193,
+      "worst_examples": [
+        {
+          "id": "test_vila_nvila_20260416_gpu__test_vila__IMG_20240519_215827_510.jpg",
+          "split": "test_vila",
+          "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_20240519_215827_510.jpg",
+          "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+          "predicted_comment_3line": "",
+          "sequence_ratio": 0.0,
+          "token_f1": 0.0,
+          "format_valid": false
+        },
+        {
+          "id": "test_vila_nvila_20260416_gpu__test_vila__20240506_120558.jpg",
+          "split": "test_vila",
+          "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240506_120558.jpg",
+          "teacher_comment_3line": "Strength: overall appeal.\nWeakness: detail clarity.\nVerdict: not selected because detail clarity undercuts overall appeal.",
+          "predicted_comment_3line": "Strength: The image captures a grand interior with detailed architectural elements and a large central painting.\nWeakness: The composition is heavily dominated by the architecture, making the central subject matter somewhat framed by the surrounding structure.\nVerdict: not selected because The composition is heavily dominated by the architecture, making the central subject matter somewhat framed by the surrounding structure undercuts The image captures a grand interior with detailed architectural elements and a large central painting.",
+          "sequence_ratio": 0.042296,
+          "token_f1": 0.155556,
+          "format_valid": true
+        },
+        {
+          "id": "test_vila_nvila_20260416_gpu__test_vila__20231231_150055.jpg",
+          "split": "test_vila",
+          "image_path": "/home/omen_pc1/photo_score_project/test_vila/20231231_150055.jpg",
+          "teacher_comment_3line": "Strength: clear face detail and a lively expression.\nWeakness: the gray background feels flat.\nVerdict: selected because the clear face detail and expression carry the frame despite the flat background.",
+          "predicted_comment_3line": "Strength: The subject is clearly visible and smiling in the frame.\nWeakness: The background is somewhat busy and out of focus.\nVerdict: selected because The subject is clearly visible and smiling in the frame carries the frame despite The background is somewhat busy and out of focus.",
+          "sequence_ratio": 0.053498,
+          "token_f1": 0.363636,
+          "format_valid": true
+        }
+      ],
+      "best_examples": [
+        {
+          "id": "test_vila_nvila_20260416_gpu__test_vila__IMG_2781.JPG",
+          "split": "test_vila",
+          "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2781.JPG",
+          "teacher_comment_3line": "Strength: clear subject emphasis.\nWeakness: soft detail.\nVerdict: not selected because soft detail undercuts clear subject emphasis.",
+          "predicted_comment_3line": "Strength: Visible hand sculpture in water.\nWeakness: Large amount of empty sky in the frame.\nVerdict: not selected because Large amount of empty sky in the frame undercuts Visible hand sculpture in water.",
+          "sequence_ratio": 0.339286,
+          "token_f1": 0.28,
+          "format_valid": true
+        },
+        {
+          "id": "test_vila_nvila_20260416_gpu__test_vila__IMG_2748.JPG",
+          "split": "test_vila",
+          "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2748.JPG",
+          "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+          "predicted_comment_3line": "Strength: Brightly lit commercial area with clear signage.\nWeakness: Dark foreground obscuring lower details.\nVerdict: not selected because Dark foreground obscuring lower details undercuts Brightly lit commercial area with clear signage.",
+          "sequence_ratio": 0.316667,
+          "token_f1": 0.304348,
+          "format_valid": true
+        },
+        {
+          "id": "test_vila_nvila_20260416_gpu__test_vila__20240506_140415.jpg",
+          "split": "test_vila",
+          "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240506_140415.jpg",
+          "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+          "predicted_comment_3line": "Strength: Clear view of historical architecture under a bright sky.\nWeakness: Some people are visible in the frame.\nVerdict: not selected because Some people are visible in the frame undercuts Clear view of historical architecture under a bright sky.",
+          "sequence_ratio": 0.306452,
+          "token_f1": 0.259259,
+          "format_valid": true
+        }
+      ]
+    }
+  },
+  "comparison_vs_pass2b": {
+    "test_vila_format_rate_delta": 0.0,
+    "test_vila_sequence_ratio_delta": 0.065629,
+    "test_vila_token_f1_delta": -0.117542,
+    "decision": "not_better_than_pass2b",
+    "reason": "Format compliance ties pass2b on test_vila, sequence ratio improves, but token-F1 drops and one blank test_vila output remains; expanded test also shows prompt-language bleed."
+  }
+}

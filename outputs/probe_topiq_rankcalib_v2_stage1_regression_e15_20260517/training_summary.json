@@ -1,0 +1,189 @@
+{
+  "args": {
+    "batch_size": 8,
+    "calib_lambda": 0.0,
+    "dataset_col": "dataset",
+    "dropout": 0.3,
+    "epochs": 15,
+    "freeze_backbone": true,
+    "head_units": 256,
+    "inspect_batch": false,
+    "list_layers": false,
+    "lr": 0.0001,
+    "max_steps_per_epoch": 500,
+    "max_val_samples": 2048,
+    "out_dir": "outputs/probe_topiq_rankcalib_v2_stage1_regression_e15_20260517",
+    "seed": 42,
+    "target_col": "normalized_mos",
+    "train_csv": "data/processed/topiq_replacement/mixed_112_train.csv",
+    "val_csv": "data/processed/topiq_replacement/mixed_112_val.csv"
+  },
+  "artifacts": {
+    "best_weights": "/home/omen_pc1/photo_score_project/outputs/probe_topiq_rankcalib_v2_stage1_regression_e15_20260517/best.weights.h5",
+    "final_model": "/home/omen_pc1/photo_score_project/outputs/probe_topiq_rankcalib_v2_stage1_regression_e15_20260517/final_model.keras",
+    "model_summary": "/home/omen_pc1/photo_score_project/outputs/probe_topiq_rankcalib_v2_stage1_regression_e15_20260517/model_summary.txt",
+    "training_log": "/home/omen_pc1/photo_score_project/outputs/probe_topiq_rankcalib_v2_stage1_regression_e15_20260517/training_log.csv",
+    "training_summary": "/home/omen_pc1/photo_score_project/outputs/probe_topiq_rankcalib_v2_stage1_regression_e15_20260517/training_summary.json"
+  },
+  "best_epoch": 15,
+  "best_val_loss": 0.0031712378601912042,
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python src/train/train_topiq_rankcalib_stage1.py --train_csv data/processed/topiq_replacement/mixed_112_train.csv --val_csv data/processed/topiq_replacement/mixed_112_val.csv --target_col normalized_mos --dataset_col dataset --batch_size 8 --epochs 15 --lr 1e-4 --freeze_backbone --max_steps_per_epoch 500 --max_val_samples 2048 --calib_lambda 0.0 --out_dir outputs/probe_topiq_rankcalib_v2_stage1_regression_e15_20260517",
+  "feature_layers": {
+    "high": {
+      "layer_name": "top_activation",
+      "shape": [
+        12,
+        12,
+        1280
+      ]
+    },
+    "low": {
+      "layer_name": "block3b_add",
+      "shape": [
+        48,
+        48,
+        48
+      ]
+    },
+    "mid": {
+      "layer_name": "block5c_add",
+      "shape": [
+        24,
+        24,
+        112
+      ]
+    }
+  },
+  "final_epoch_metrics": {
+    "epoch": 15,
+    "mode_collapse": false,
+    "pred_mean": 0.6262938976287842,
+    "pred_std": 0.15182308852672577,
+    "target_mean": 0.6238111853599548,
+    "target_std": 0.17574390769004822,
+    "train_calib_loss": 0.0,
+    "train_loss": 0.0049942731857299805,
+    "train_specific_loss": 0.0020763827487826347,
+    "train_unified_loss": 0.002917891601100564,
+    "val_flive_mae": 0.038610294461250305,
+    "val_flive_sample_count": 1024,
+    "val_flive_srcc": 0.43665999402274736,
+    "val_koniq_mae": 0.06001487001776695,
+    "val_koniq_sample_count": 512,
+    "val_koniq_srcc": 0.8414156408609664,
+    "val_loss": 0.0031712378601912042,
+    "val_spaq_mae": 0.09513527899980545,
+    "val_spaq_sample_count": 512,
+    "val_spaq_srcc": 0.8689910314325527,
+    "val_unified_mae": 0.06433797627687454,
+    "val_unified_plcc": 0.8684717416763306,
+    "val_unified_rmse": 0.08716215938329697,
+    "val_unified_srcc": 0.7419708408563738
+  },
+  "final_validation_metrics": {
+    "dataset_metrics": {
+      "flive": {
+        "flive_correlation_error": null,
+        "flive_mae": 0.038610294461250305,
+        "flive_mode_collapse": false,
+        "flive_plcc": 0.5328876972198486,
+        "flive_pred_max": 0.815573513507843,
+        "flive_pred_mean": 0.7235515117645264,
+        "flive_pred_min": 0.43265119194984436,
+        "flive_pred_std": 0.04078437387943268,
+        "flive_pred_std_over_target_std": 0.6236457118209419,
+        "flive_rmse": 0.055809538811445236,
+        "flive_sample_count": 1024,
+        "flive_srcc": 0.43665999402274736,
+        "flive_target_max": 0.9053076505661011,
+        "flive_target_mean": 0.7194033861160278,
+        "flive_target_min": 0.09655935317277908,
+        "flive_target_std": 0.06539670377969742
+      },
+      "koniq": {
+        "koniq_correlation_error": null,
+        "koniq_mae": 0.06001487001776695,
+        "koniq_mode_collapse": false,
+        "koniq_plcc": 0.8794431090354919,
+        "koniq_pred_max": 0.8599701523780823,
+        "koniq_pred_mean": 0.5859010219573975,
+        "koniq_pred_min": 0.0994684025645256,
+        "koniq_pred_std": 0.14845725893974304,
+        "koniq_pred_std_over_target_std": 0.9292603364936411,
+        "koniq_rmse": 0.07651469856500626,
+        "koniq_sample_count": 512,
+        "koniq_srcc": 0.8414156408609664,
+        "koniq_target_max": 0.8281880617141724,
+        "koniq_target_mean": 0.5830357074737549,
+        "koniq_target_min": 0.11520642042160034,
+        "koniq_target_std": 0.159758523106575
+      },
+      "spaq": {
+        "spaq_correlation_error": null,
+        "spaq_mae": 0.09513527899980545,
+        "spaq_mode_collapse": false,
+        "spaq_plcc": 0.8625586032867432,
+        "spaq_pred_max": 0.8715003132820129,
+        "spaq_pred_mean": 0.5210128426551819,
+        "spaq_pred_min": 0.12260261178016663,
+        "spaq_pred_std": 0.18114128708839417,
+        "spaq_pred_std_over_target_std": 0.8363769990762565,
+        "spaq_rmse": 0.11961009353399277,
+        "spaq_sample_count": 512,
+        "spaq_srcc": 0.8689910314325527,
+        "spaq_target_max": 0.9049999713897705,
+        "spaq_target_mean": 0.47340232133865356,
+        "spaq_target_min": 0.04800000041723251,
+        "spaq_target_std": 0.21657851338386536
+      }
+    },
+    "loss": 0.0031712378601912042,
+    "unified_correlation_error": null,
+    "unified_mae": 0.06433797627687454,
+    "unified_mode_collapse": false,
+    "unified_plcc": 0.8684717416763306,
+    "unified_pred_max": 0.8451361656188965,
+    "unified_pred_mean": 0.6262938976287842,
+    "unified_pred_min": 0.07286568731069565,
+    "unified_pred_std": 0.15182308852672577,
+    "unified_pred_std_over_target_std": 0.863888202568532,
+    "unified_rmse": 0.08716215938329697,
+    "unified_sample_count": 2048,
+    "unified_srcc": 0.7419708408563738,
+    "unified_target_max": 0.9053076505661011,
+    "unified_target_mean": 0.6238111853599548,
+    "unified_target_min": 0.04800000041723251,
+    "unified_target_std": 0.17574390769004822
+  },
+  "mode_collapse": false,
+  "train_csv": {
+    "csv_path": "/home/omen_pc1/photo_score_project/data/processed/topiq_replacement/mixed_112_train.csv",
+    "dataset_col": "dataset",
+    "dataset_counts": {
+      "flive": 8192,
+      "koniq": 4096,
+      "spaq": 4096
+    },
+    "row_count": 16384,
+    "target_col": "normalized_mos",
+    "target_max": 0.9300000071525574,
+    "target_mean": 0.6339408755302429,
+    "target_min": 0.03400000184774399,
+    "target_std": 0.16529132425785065
+  },
+  "val_csv": {
+    "csv_path": "/home/omen_pc1/photo_score_project/data/processed/topiq_replacement/mixed_112_val.csv",
+    "dataset_col": "dataset",
+    "dataset_counts": {
+      "flive": 1024,
+      "koniq": 512,
+      "spaq": 512
+    },
+    "row_count": 2048,
+    "target_col": "normalized_mos",
+    "target_max": 0.9053076505661011,
+    "target_mean": 0.6238111853599548,
+    "target_min": 0.04800000041723251,
+    "target_std": 0.17574390769004822
+  }
+}

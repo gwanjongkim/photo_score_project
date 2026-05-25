@@ -1,0 +1,77 @@
+# RGNet TFLite Retry Command Log
+
+Experiment directory: `outputs/rgnet_tflite_retry_20260507`
+
+## Step 1. Environment Check
+
+```text
+pwd
+/home/omen_pc1/photo_score_project
+
+date
+Thu May  7 22:20:28 KST 2026
+
+./.venv_gpu/bin/python --version
+Python 3.12.3
+
+ls -lh outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras
+-rw-r--r-- 1 omen_pc1 omen_pc1 126M May  7 21:18 outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras
+```
+
+`git status --short` was dirty before this retry; unrelated changes were left untouched.
+
+## Step 2-4. Direct Keras Built-in Attempt
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -u outputs/rgnet_tflite_retry_20260507/scripts/direct_keras_builtin_export.py --model_path outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras --reference_image data/raw/ava/images/85837.jpg --output_tflite outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_direct_keras_builtin.tflite --output_json outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_direct_keras_builtin.verify.json --parity_csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv --parity_limit 20 --image_size 256
+```
+
+Result: failed builtin conversion; no direct TFLite was written.
+
+## Step 5. Strict Float32 Rebuild Attempts
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -u outputs/rgnet_tflite_retry_20260507/scripts/strict_rebuild_builtin_export.py --model_path outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras --reference_image data/raw/ava/images/85837.jpg --output_tflite outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_strict_rebuild_builtin_v2.tflite --output_metadata outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_strict_rebuild_builtin_v2.metadata.json --output_json outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_strict_rebuild_builtin_v2.verify.json --parity_csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv --parity_limit 20 --image_size 256 --global_policy float32
+```
+
+Result: all 373 weights copied with matching shapes and zero post-copy weight diff, but rebuild Keras parity failed before conversion. Smoke diff was 0.17772197723388672 and 21-image max diff was 0.33626319468021393. No v2 TFLite was written.
+
+## Step 5b. Mixed-Policy Rebuild Built-in Attempt
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -u outputs/rgnet_tflite_retry_20260507/scripts/strict_rebuild_builtin_export.py --model_path outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras --reference_image data/raw/ava/images/85837.jpg --output_tflite outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_mixed_rebuild_builtin.tflite --output_metadata outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_mixed_rebuild_builtin.metadata.json --output_json outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_mixed_rebuild_builtin.verify.json --parity_csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv --parity_limit 20 --image_size 256 --global_policy mixed_float16
+```
+
+Result: rebuild Keras parity passed before conversion with max diff 0.0 on 21 images, but builtin TFLite conversion failed because float16 TensorFlow ops require Flex. No mixed builtin TFLite was written.
+
+## Step 6. Select TF Ops Diagnostic
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -u outputs/rgnet_tflite_retry_20260507/scripts/select_tf_ops_diagnostic.py --model_path outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras --reference_image data/raw/ava/images/85837.jpg --output_tflite outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_select_tf_ops_diagnostic.tflite --output_metadata outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_select_tf_ops_diagnostic.metadata.json --output_json outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_select_tf_ops_diagnostic.verify.json --image_size 256
+```
+
+Result: diagnostic Select TF ops TFLite was written, but local standard interpreter allocation failed at `FlexMul`; artifact is not deployment-ready.
+
+## Step 7. Fixed-Subset Evaluation
+
+Skipped because no builtin TFLite candidate passed numeric parity.
+
+## Step 8. Final Artifacts
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -u outputs/rgnet_tflite_retry_20260507/scripts/write_retry_report.py
+```
+
+## Final Sanity Check
+
+```text
+./.venv_gpu/bin/python -m json.tool outputs/rgnet_tflite_retry_20260507/rgnet_tflite_retry_summary.json
+./.venv_gpu/bin/python -m json.tool outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_select_tf_ops_diagnostic.verify.json
+./.venv_gpu/bin/python -c "..."
+```
+
+Result:
+
+```text
+sanity=pass no_builtin_candidate deployment_ready=False flutter_copy=False src_modified=False
+```

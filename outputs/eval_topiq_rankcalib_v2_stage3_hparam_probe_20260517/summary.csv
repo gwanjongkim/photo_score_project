@@ -1,0 +1,4 @@
+probe,mos_lambda,distill_lambda,rank_lambda,best_epoch,mixed_loss_init,mixed_loss_final,mixed_mae100_init,mixed_mae100_final,flive_srcc_init,flive_srcc_final
+A,1.0,0.3,0.005,2,0.002776,0.002774,5.929,5.948,0.4171,0.4387
+B,1.0,0.5,0.005,2,0.002776,0.002781,5.929,5.964,0.4171,0.4393
+C,1.0,0.3,0.0,2,0.002776,0.002763,5.929,5.919,0.4171,0.4208

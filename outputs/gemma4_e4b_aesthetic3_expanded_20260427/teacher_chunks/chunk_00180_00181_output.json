@@ -1,0 +1,34 @@
+{
+  "runtime": "local_vila_remote_code",
+  "model_name": "/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b",
+  "loader": "llava.remote_code.AutoModelForCausalLM",
+  "device": "cuda",
+  "converted_model_dir": "/tmp/photo_score_project_vila_remote/vila1_5-3b_a17fdc55f9",
+  "conv_mode": "vicuna_v1",
+  "results": [
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_282_20263115322_dd66563c65_b.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis is strong. The man's jacket and hat are well-focused against the busy background.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. The man's jacket and hat are well-focused against the busy background.\\n\\nComparison reason: Clean subject emphasizes the man in the foreground while the background is blurred. This results in a less interesting composition with less separation between subjects.\"],",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. The man's jacket and hat are well-focused against the busy background.\\n\\nComparison reason: Clean subject emphasizes the man in the foreground while the background is blurred. This results in a less interesting composition with less separation between subjects.\"],"
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_386_20144642626_a3cd591c61_b.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis is strong. Busy background distracts from the building's details.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the building's details.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong subject emphasis in foreground with weaker background\"\n},\n{\n\t\"short",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the building's details.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong subject emphasis in foreground with weaker background\"\n},\n{\n\t\"short"
+    }
+  ]
+}

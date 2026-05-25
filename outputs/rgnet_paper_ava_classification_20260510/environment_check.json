@@ -1,0 +1,40 @@
+{
+  "created_at_local": "2026-05-10T21:54:00.290017+09:00",
+  "checks": {
+    "pwd": {
+      "command": "pwd",
+      "returncode": 0,
+      "stdout": "/home/omen_pc1/photo_score_project",
+      "stderr": ""
+    },
+    "date": {
+      "command": "date",
+      "returncode": 0,
+      "stdout": "Sun May 10 21:54:00 KST 2026",
+      "stderr": ""
+    },
+    "git_status_short": {
+      "command": "git status --short",
+      "returncode": 0,
+      "stdout": "M .gitignore\n M README.md\n M docs/acut_product_integration.md\n M requirements-vila.txt\n M requirements.txt\n M src/firebase/acut_job_worker.py\n M src/infer/acut_product_export.py\n M src/infer/generate_multimodal_explanations.py\n M src/infer/predict_quality_bundle.py\n M src/infer/run_acut_pipeline.py\n M src/infer/score_image_folder.py\n M src/infer/select_best_shots.py\n M src/infer/smoke_test_acut_product_pipeline.py\n M src/infer/stage5_reference.py\n M src/models/rgnet_paper_v1.py\n M src/train/train_rgnet_paper_v1_aadb.py\n M src/vila/explain_acut_selection.py\n?? .gitattributes\n?? =0.45.0\n?? AGENTS.md\n?? \"GEMINI - \\353\\263\\265\\354\\202\\254\\353\\263\\270.md:Zone.Identifier\"\n?? GEMINI.md\n?? \"TROUBLESHOOTING - \\353\\263\\265\\354\\202\\254\\353\\263\\270.md:Zone.Identifier\"\n?? analyze_datasets.py\n?? android_gemma_latency_harness/\n?? configs/aesthetic_weight_lab.yaml\n?? configs/aesthetic_weight_lab_alamp_finetuned.yaml\n?? configs/gemma4_e4b_aesthetic3_dataset_smoke.json\n?? configs/gemma4_e4b_aesthetic3_dataset_smoke_pass2.json\n?? configs/gemma4_e4b_aesthetic3_teacher.json\n?? configs/gemma4_e4b_aesthetic3_teacher_overrides_pass2.json\n?? configs/gemma4_e4b_aesthetic3_train_smoke.json\n?? configs/gemma4_e4b_aesthetic3_train_smoke_pass2.json\n?? configs/gemma4_e4b_aesthetic3_train_smoke_pass2b.json\n?? configs/gemma4_e4b_gemini_teacher_282_train.json\n?? configs/paper_benchmarks/rgnet_v1_ablations/\n?? configs/paper_benchmarks/rgnet_v1_full_candidates/\n?? configs/stage5_student_server.json\n?? configs/stage5_student_server_weights.json\n?? configs/student_distill_baseline.json\n?? configs/student_distill_conservative_full_aadb_20260423.json\n?? configs/student_distill_dry_run.json\n?? configs/student_distill_full_aadb.json\n?? configs/student_distill_full_run.json\n?? configs/student_distill_teacher.json\n?? configs/student_distill_teacher_conservative_aadb.json\n?? docs/icaa_official_repo_dataset_audit.md\n?? docs/pozy_app_stage5_aesthetic_student_handoff.md\n?? docs/student_distillation_baseline.md\n?? exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.comparison.json\n?? exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.metadata.json\n?? exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.tflite\n?? exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.verify.json\n?? exports/tflite/student_conservative_aesthetic_full_aadb_20260423.metadata.json\n?? exports/tflite/student_conservative_aesthetic_full_aadb_20260423_fp16_builtin.tflite\n?? external/\n?? forWeights/\n?? gpu_check.py\n?? models/\n?? pytorch_gpu_check.py\n?? requirements-gemma4-distill.txt\n?? run_evaluation.py\n?? src/distill/\n?? src/gemma_distill/\n?? src/infer/explanation_contract.py\n?? src/infer/vila_full_local_worker.py\n?? src/models/aesthetic_nima.py\n?? src/models/alamp.py\n?? src/models/musiq.py\n?? src/models/nima_distribution.py\n?? src/models/pairwise_comparator.py\n?? src/models/rgnet.py\n?? src/models/technical_regressor.py\n?? test_images/\n?? test_outputs/distill_dry_run_probe/\n?? test_vila/\n?? tools/aesthetic_weight_lab/\n?? tools/build_acut_human_review_package.py\n?? tools/build_aesthetic_only_comparison.py\n?? tools/build_raw_aesthetic_scores_html.py\n?? tools/compile_ablation_results.py\n?? tools/diagnose_gemma_visual_grounding.py\n?? tools/gemini_api_teacher_pipeline.py\n?? tools/gemma4_bnb4_quantized_save.py\n?? tools/gemma4_e4b_aesthetic3_expanded_pipeline.py\n?? tools/gemma4_latency_probe.py\n?? tools/run_aesthetic_ensemble_experiment.py\n?? tools/run_eval_only.py\n?? tools/run_rgnet_paper_v1_ablation.py\n?? tools/temp_download.py",
+      "stderr": ""
+    },
+    "python_version": {
+      "command": "./.venv_gpu/bin/python --version",
+      "returncode": 0,
+      "stdout": "Python 3.12.3",
+      "stderr": ""
+    },
+    "nvidia_smi": {
+      "command": "nvidia-smi",
+      "returncode": 127,
+      "stdout": "",
+      "stderr": "nvidia-smi not found on PATH"
+    }
+  },
+  "tensorflow": {
+    "version": "2.20.0",
+    "visible_gpus": [],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">"
+  }
+}

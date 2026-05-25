@@ -1,0 +1,3 @@
+random DAttentionBaseline input: status=fail max_abs_diff=0.78684938 mean_abs_diff=0.0277994499 torch_shape=[1, 512, 14, 14] tf_nhwc_shape=[1, 14, 14, 512] tf_nchw_shape=[1, 512, 14, 14]
+captured random-image DAttentionBaseline input: status=pass_preferred max_abs_diff=4.66406345e-06 mean_abs_diff=7.68889038e-07 torch_shape=[1, 512, 14, 14] tf_nhwc_shape=[1, 14, 14, 512] tf_nchw_shape=[1, 512, 14, 14]
+captured 3-real-image DAttentionBaseline input: status=fail max_abs_diff=1.53720427 mean_abs_diff=0.0951927155 torch_shape=[3, 512, 14, 14] tf_nhwc_shape=[3, 14, 14, 512] tf_nchw_shape=[3, 512, 14, 14]

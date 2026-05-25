@@ -1,0 +1,440 @@
+{
+  "status": "ok",
+  "overall_pass": true,
+  "command_used": "python experiments/icaa_tf_native/scripts/stage_g1_transformer_stage1_parity.py",
+  "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+  "pytorch_reference_model_path": "/home/omen_pc1/photo_score_project/experiments/icaa_export_safe_v3/export_safe_models",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_g1_20260516_022555",
+  "report_path": "/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/reports/stage_g1_transformer_stage1_parity.md",
+  "seed": 123,
+  "thresholds": {
+    "preferred_max_abs_diff": 1e-05,
+    "acceptable_max_abs_diff": 0.0001
+  },
+  "state_dict_confirmation": "checkpoint object is an OrderedDict state_dict",
+  "strict_load": {
+    "success": true,
+    "missing_keys": [],
+    "unexpected_keys": []
+  },
+  "pytorch_stage_inspection": {
+    "class_name": "TransformerStage",
+    "stage_index": 1,
+    "stage_input_shape_nchw": [
+      null,
+      256,
+      28,
+      28
+    ],
+    "stage_output_shape_nchw": [
+      null,
+      256,
+      28,
+      28
+    ],
+    "depth": 2,
+    "stage_spec": [
+      "L",
+      "S"
+    ],
+    "proj_class": "Identity",
+    "attention_blocks": [
+      {
+        "index": 0,
+        "class_name": "LocalAttention",
+        "window_size": [
+          7,
+          7
+        ],
+        "heads": 8,
+        "scale": 0.1767766952966369
+      },
+      {
+        "index": 1,
+        "class_name": "ShiftWindowAttention",
+        "window_size": [
+          7,
+          7
+        ],
+        "heads": 8,
+        "scale": 0.1767766952966369
+      }
+    ],
+    "shift_window_details": {
+      "shift_size": 4,
+      "fmap_size": [
+        28,
+        28
+      ],
+      "attn_mask_shape": [
+        16,
+        49,
+        49
+      ],
+      "attn_mask_min": -100.0,
+      "attn_mask_max": 0.0
+    },
+    "mlp_blocks": [
+      {
+        "index": 0,
+        "class_name": "TransformerMLP",
+        "hidden_dim": 1024
+      },
+      {
+        "index": 1,
+        "class_name": "TransformerMLP",
+        "hidden_dim": 1024
+      }
+    ],
+    "layer_norms": [
+      {
+        "index": 0,
+        "class_name": "LayerNormProxy",
+        "inner_class_name": "LayerNorm",
+        "normalized_shape": [
+          256
+        ],
+        "eps": 1e-05
+      },
+      {
+        "index": 1,
+        "class_name": "LayerNormProxy",
+        "inner_class_name": "LayerNorm",
+        "normalized_shape": [
+          256
+        ],
+        "eps": 1e-05
+      },
+      {
+        "index": 2,
+        "class_name": "LayerNormProxy",
+        "inner_class_name": "LayerNorm",
+        "normalized_shape": [
+          256
+        ],
+        "eps": 1e-05
+      },
+      {
+        "index": 3,
+        "class_name": "LayerNormProxy",
+        "inner_class_name": "LayerNorm",
+        "normalized_shape": [
+          256
+        ],
+        "eps": 1e-05
+      }
+    ],
+    "drop_path": [
+      {
+        "index": 0,
+        "class_name": "DropPath",
+        "drop_prob": 0.043478261679410934
+      },
+      {
+        "index": 1,
+        "class_name": "DropPath",
+        "drop_prob": 0.06521739065647125
+      }
+    ],
+    "drop_path_eval_behavior": "Both stage-1 drop_path modules are DropPath with nonzero configured probabilities, but eval mode disables them and makes them identity.",
+    "residual_order": [
+      "x = proj(x)",
+      "x0 = x",
+      "attn_out = attns[d](layer_norms[2*d](x))",
+      "x = drop_path[d](attn_out) + x0",
+      "x0 = x",
+      "mlp_out = mlps[d](layer_norms[2*d+1](x))",
+      "x = drop_path[d](mlp_out) + x0"
+    ],
+    "down_projection_relationship": {
+      "is_part_of_stage1": false,
+      "dat_forward_order": "DAT.forward calls model.stages[1](x), then applies model.down_projs[1](x) outside the stage when i < 3.",
+      "down_proj1_class": "Sequential"
+    }
+  },
+  "checkpoint_tensors_used": [
+    "stages.1.layer_norms.0.norm.weight",
+    "stages.1.layer_norms.0.norm.bias",
+    "stages.1.layer_norms.1.norm.weight",
+    "stages.1.layer_norms.1.norm.bias",
+    "stages.1.layer_norms.2.norm.weight",
+    "stages.1.layer_norms.2.norm.bias",
+    "stages.1.layer_norms.3.norm.weight",
+    "stages.1.layer_norms.3.norm.bias",
+    "stages.1.mlps.0.chunk.linear1.weight",
+    "stages.1.mlps.0.chunk.linear1.bias",
+    "stages.1.mlps.0.chunk.linear2.weight",
+    "stages.1.mlps.0.chunk.linear2.bias",
+    "stages.1.mlps.1.chunk.linear1.weight",
+    "stages.1.mlps.1.chunk.linear1.bias",
+    "stages.1.mlps.1.chunk.linear2.weight",
+    "stages.1.mlps.1.chunk.linear2.bias",
+    "stages.1.attns.0.relative_position_bias_table",
+    "stages.1.attns.0.relative_position_index",
+    "stages.1.attns.0.proj_qkv.weight",
+    "stages.1.attns.0.proj_qkv.bias",
+    "stages.1.attns.0.proj_out.weight",
+    "stages.1.attns.0.proj_out.bias",
+    "stages.1.attns.1.relative_position_bias_table",
+    "stages.1.attns.1.relative_position_index",
+    "stages.1.attns.1.attn_mask",
+    "stages.1.attns.1.proj_qkv.weight",
+    "stages.1.attns.1.proj_qkv.bias",
+    "stages.1.attns.1.proj_out.weight",
+    "stages.1.attns.1.proj_out.bias"
+  ],
+  "tf_stage_structure": {
+    "class_name": "TFTransformerStage1",
+    "target_pytorch_module": "stages.1",
+    "input_layout": "NHWC/channels_last",
+    "proj": "Identity; no projection weights are used for stage 1",
+    "depth": 2,
+    "stage_spec": [
+      "L",
+      "S"
+    ],
+    "blocks": [
+      {
+        "index": 0,
+        "attention": "TFLocalAttention mapped from PyTorch LocalAttention",
+        "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+        "layer_norms": [
+          "layer_norm_0",
+          "layer_norm_1"
+        ],
+        "drop_path_eval": "identity in eval mode"
+      },
+      {
+        "index": 1,
+        "attention": "TFShiftWindowAttention mapped from PyTorch ShiftWindowAttention",
+        "shift_size": 4,
+        "attn_mask": "direct copy from stages.1.attns.1.attn_mask",
+        "mlp": "TFTransformerMLP mapped from PyTorch TransformerMLP",
+        "layer_norms": [
+          "layer_norm_2",
+          "layer_norm_3"
+        ],
+        "drop_path_eval": "identity in eval mode"
+      }
+    ],
+    "residual_order": [
+      "x0 = x",
+      "attn_out = attns[d](layer_norms[2*d](x))",
+      "x = drop_path[d](attn_out) + x0",
+      "x0 = x",
+      "mlp_out = mlps[d](layer_norms[2*d+1](x))",
+      "x = drop_path[d](mlp_out) + x0"
+    ]
+  },
+  "test_input_generation": {
+    "random_stage_input": {
+      "distribution": "numpy randn",
+      "seed": 123
+    },
+    "captured_random_image_stage1_input": {
+      "distribution": "numpy randn image passed through PyTorch patch_proj, stage 0, and down_projs[0]",
+      "seed": 123
+    },
+    "captured_real_image_stage1_input": {
+      "source": "external/icaa_official_repo/ICAA17K_code/dataset/ICAA17K/1test.csv",
+      "preprocessing": "PIL bilinear resize to 224x224, RGB [0,1], ImageNet mean/std normalization, then PyTorch patch_proj, stage 0, and down_projs[0]"
+    }
+  },
+  "stage_input_shape_nchw": [
+    1,
+    256,
+    28,
+    28
+  ],
+  "stage_input_shape_nhwc": [
+    1,
+    28,
+    28,
+    256
+  ],
+  "stage_output_shape_nchw": [
+    1,
+    256,
+    28,
+    28
+  ],
+  "stage_output_shape_nhwc": [
+    1,
+    28,
+    28,
+    256
+  ],
+  "results": [
+    {
+      "name": "deterministic random stage-1 input",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 7.62939453125e-06,
+      "mean_abs_diff": 1.1837357760668965e-06,
+      "torch_output_shape": [
+        1,
+        256,
+        28,
+        28
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        28,
+        28,
+        256
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        256,
+        28,
+        28
+      ],
+      "torch_input_shape": [
+        1,
+        256,
+        28,
+        28
+      ],
+      "tf_input_shape_nhwc": [
+        1,
+        28,
+        28,
+        256
+      ],
+      "positions_returned": [
+        null,
+        null
+      ],
+      "references_returned": [
+        null,
+        null
+      ],
+      "likely_failed_subcomponent": null
+    },
+    {
+      "name": "captured stage-1 input from deterministic random image",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 5.342308782019245e-07,
+      "torch_output_shape": [
+        1,
+        256,
+        28,
+        28
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        28,
+        28,
+        256
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        256,
+        28,
+        28
+      ],
+      "torch_input_shape": [
+        1,
+        256,
+        28,
+        28
+      ],
+      "tf_input_shape_nhwc": [
+        1,
+        28,
+        28,
+        256
+      ],
+      "positions_returned": [
+        null,
+        null
+      ],
+      "references_returned": [
+        null,
+        null
+      ],
+      "likely_failed_subcomponent": null
+    },
+    {
+      "name": "captured stage-1 input from 3 real ICAA17K images",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 5.245208740234375e-06,
+      "mean_abs_diff": 6.351206138788257e-07,
+      "torch_output_shape": [
+        3,
+        256,
+        28,
+        28
+      ],
+      "tf_output_shape_nhwc": [
+        3,
+        28,
+        28,
+        256
+      ],
+      "tf_output_shape_nchw": [
+        3,
+        256,
+        28,
+        28
+      ],
+      "torch_input_shape": [
+        3,
+        256,
+        28,
+        28
+      ],
+      "tf_input_shape_nhwc": [
+        3,
+        28,
+        28,
+        256
+      ],
+      "positions_returned": [
+        null,
+        null
+      ],
+      "references_returned": [
+        null,
+        null
+      ],
+      "likely_failed_subcomponent": null
+    }
+  ],
+  "real_images_performed": true,
+  "real_image_paths": [
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg"
+  ],
+  "safe_to_proceed_to_stage_g2_transformerstage2_parity": true,
+  "unresolved_issues": [],
+  "warnings": [
+    "stage_g1_transformer_stage1_parity.py:107: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+    "__init__.py:49: Importing from timm.models.layers is deprecated, please import via timm.layers",
+    "functional.py:534: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)"
+  ],
+  "errors": [],
+  "log_lines": [
+    "deterministic random stage-1 input: status=pass_preferred max_abs_diff=7.62939453e-06 mean_abs_diff=1.18373578e-06 torch_input_shape=[1, 256, 28, 28] torch_output_shape=[1, 256, 28, 28] tf_input_shape=[1, 28, 28, 256] tf_output_shape=[1, 28, 28, 256]",
+    "captured stage-1 input from deterministic random image: status=pass_preferred max_abs_diff=3.81469727e-06 mean_abs_diff=5.34230878e-07 torch_input_shape=[1, 256, 28, 28] torch_output_shape=[1, 256, 28, 28] tf_input_shape=[1, 28, 28, 256] tf_output_shape=[1, 28, 28, 256]",
+    "captured stage-1 input from 3 real ICAA17K images: status=pass_preferred max_abs_diff=5.24520874e-06 mean_abs_diff=6.35120614e-07 torch_input_shape=[3, 256, 28, 28] torch_output_shape=[3, 256, 28, 28] tf_input_shape=[3, 28, 28, 256] tf_output_shape=[3, 28, 28, 256]"
+  ],
+  "json_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_g1_20260516_022555/stage_g1_transformer_stage1_report.json",
+  "log_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_g1_20260516_022555/stage_g1_transformer_stage1_log.txt",
+  "debug_tensors_summary_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_g1_20260516_022555/optional_debug_tensors_summary.json",
+  "captured_output": [
+    "deterministic random stage-1 input: status=pass_preferred max_abs_diff=7.62939453e-06 mean_abs_diff=1.18373578e-06 torch_input_shape=[1, 256, 28, 28] torch_output_shape=[1, 256, 28, 28] tf_input_shape=[1, 28, 28, 256] tf_output_shape=[1, 28, 28, 256]",
+    "captured stage-1 input from deterministic random image: status=pass_preferred max_abs_diff=3.81469727e-06 mean_abs_diff=5.34230878e-07 torch_input_shape=[1, 256, 28, 28] torch_output_shape=[1, 256, 28, 28] tf_input_shape=[1, 28, 28, 256] tf_output_shape=[1, 28, 28, 256]",
+    "captured stage-1 input from 3 real ICAA17K images: status=pass_preferred max_abs_diff=5.24520874e-06 mean_abs_diff=6.35120614e-07 torch_input_shape=[3, 256, 28, 28] torch_output_shape=[3, 256, 28, 28] tf_input_shape=[3, 28, 28, 256] tf_output_shape=[3, 28, 28, 256]"
+  ]
+}

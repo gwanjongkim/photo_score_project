@@ -1,0 +1,8 @@
+{
+  "decision": "proceed",
+  "reasoning": "The v2_graph_lite experiment demonstrated that adding an explicit YOLO COCO object graph without semantic aesthetic context harmed performance (ROC-AUC dropped to 0.5826 vs v0_b_fixed's 0.6645). Therefore, the graph approach is paused. To follow the A-LAMP paper direction more fundamentally, we should implement the New-MP-Net (Multi-Patch Subnet) first. This requires building a faithful approximation of the adaptive patch selector using OpenCV/spectral residual saliency, isolating the patch extraction, and saving the boxes offline before attempting model training.",
+  "target": "A-LAMP-paper-MPNet",
+  "first_implementation_step": "Patch selector + patch box JSONL generation (Stage 1 & 2)",
+  "codex_needed": "yes",
+  "delay_full_ava": true
+}

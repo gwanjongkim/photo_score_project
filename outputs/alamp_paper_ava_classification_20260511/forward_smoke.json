@@ -1,0 +1,60 @@
+{
+  "created_at_local": "2026-05-11T11:47:08.701078+09:00",
+  "tensorflow_version": "2.20.0",
+  "visible_gpus": [],
+  "variants": {
+    "v0_a": {
+      "model_name": "alamp_paper_ava_v0_a",
+      "input_shapes": {
+        "patches": [
+          2,
+          5,
+          224,
+          224,
+          3
+        ]
+      },
+      "output_shape": [
+        2,
+        1
+      ],
+      "prediction_min": 0.49713200330734253,
+      "prediction_max": 0.4974307417869568,
+      "finite_predictions": true,
+      "predictions_in_unit_range": true,
+      "parameter_count": 14846786
+    },
+    "v0_b": {
+      "model_name": "alamp_paper_ava_v0_b",
+      "input_shapes": {
+        "patches": [
+          2,
+          5,
+          224,
+          224,
+          3
+        ],
+        "global_view": [
+          2,
+          384,
+          384,
+          3
+        ],
+        "layout_features": [
+          2,
+          5,
+          10
+        ]
+      },
+      "output_shape": [
+        2,
+        1
+      ],
+      "prediction_min": 0.02862308919429779,
+      "prediction_max": 0.03030199185013771,
+      "finite_predictions": true,
+      "predictions_in_unit_range": true,
+      "parameter_count": 15016130
+    }
+  }
+}

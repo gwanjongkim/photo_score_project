@@ -1,0 +1,9 @@
+checkpoint path: /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+state_dict confirmation: checkpoint object is an OrderedDict state_dict
+strict load missing keys: []
+strict load unexpected keys: []
+torch version: 2.5.1+cu121
+tensorflow version: 2.21.0
+numpy version: 1.26.4
+Random input patch projection: status=pass_preferred max_abs_diff=3.81469727e-06 mean_abs_diff=8.1713118e-08 torch_shape=[1, 128, 56, 56] tf_nhwc_shape=[1, 56, 56, 128] tf_nchw_shape=[1, 128, 56, 56]
+Real ICAA17K image patch projection: status=pass_preferred max_abs_diff=1.90734863e-06 mean_abs_diff=4.95252301e-08 torch_shape=[3, 128, 56, 56] tf_nhwc_shape=[3, 56, 56, 128] tf_nchw_shape=[3, 128, 56, 56]

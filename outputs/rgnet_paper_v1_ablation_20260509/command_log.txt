@@ -1,0 +1,10 @@
+pwd && date +"%Y%m%d" && git status --short
+ls -la src/models/rgnet_paper_v1.py src/train/train_rgnet_paper_v1_aadb.py src/eval/evaluate_rgnet_paper_v1_aadb.py configs/paper_benchmarks/rgnet_paper_v1_aadb_regression.yaml 2>/dev/null
+mkdir -p configs/paper_benchmarks/rgnet_v1_ablations
+.venv_gpu/bin/python tools/run_rgnet_paper_v1_ablation.py --stage smoke
+tail -n 20 src/train/train_rgnet_paper_v1_aadb.py
+sed -n '320,335p' src/train/train_rgnet_paper_v1_aadb.py
+sed -n '170,185p' src/train/train_rgnet_paper_v1_aadb.py
+.venv_gpu/bin/python tools/run_rgnet_paper_v1_ablation.py --stage mid
+.venv_gpu/bin/python tools/run_eval_only.py
+cat outputs/rgnet_paper_v1_ablation_20260509/ablation_summary.json

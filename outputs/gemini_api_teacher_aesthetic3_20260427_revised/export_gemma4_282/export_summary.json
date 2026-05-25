@@ -1,0 +1,184 @@
+{
+  "train_output_dir": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282",
+  "output_dir": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/export_gemma4_282",
+  "export_mode": "adapter_bundle_only_unless_quantized_artifact_exists",
+  "quantization_target": "mobile_candidate_not_completed",
+  "status": "adapter_export_only",
+  "quantized_export_completed": false,
+  "blocked_reasons": [
+    "Fine-tuned adapter exists, but no quantized export artifact was produced in this retry."
+  ],
+  "train_preflight": {
+    "experiment_name": "gemma4_e4b_gemini_teacher_282",
+    "config_path": "configs/gemma4_e4b_gemini_teacher_282_train.json",
+    "dataset_dir": "outputs/gemini_api_teacher_aesthetic3_20260427_revised",
+    "output_dir": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282",
+    "python_executable": "/home/omen_pc1/photo_score_project/.venv_vila/bin/python",
+    "cwd": "/home/omen_pc1/photo_score_project",
+    "environment": {
+      "HF_HOME": "/home/omen_pc1/photo_score_project/outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache",
+      "HF_HUB_CACHE": "/home/omen_pc1/photo_score_project/outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache/hub",
+      "TRANSFORMERS_CACHE": "/home/omen_pc1/photo_score_project/outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache/transformers",
+      "CUDA_VISIBLE_DEVICES": null,
+      "huggingface_token_present": true
+    },
+    "manifests": {
+      "train": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/train.jsonl",
+      "val": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/val.jsonl",
+      "tests": {
+        "test": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/test.jsonl"
+      }
+    },
+    "manifest_summary": {
+      "train": {
+        "exists": true,
+        "rows": 223
+      },
+      "val": {
+        "exists": true,
+        "rows": 25
+      },
+      "tests": {
+        "test": {
+          "exists": true,
+          "rows": 34
+        }
+      }
+    },
+    "target_validation": {
+      "train": {
+        "exists": true,
+        "rows": 223,
+        "assistant_json_valid_rows": 223,
+        "teacher_comment_json_valid_rows": 223,
+        "missing_required_field_rows": 0,
+        "invalid_comment_type_rows": 0,
+        "ready": true
+      },
+      "val": {
+        "exists": true,
+        "rows": 25,
+        "assistant_json_valid_rows": 25,
+        "teacher_comment_json_valid_rows": 25,
+        "missing_required_field_rows": 0,
+        "invalid_comment_type_rows": 0,
+        "ready": true
+      },
+      "tests": {
+        "test": {
+          "exists": true,
+          "rows": 34,
+          "assistant_json_valid_rows": 34,
+          "teacher_comment_json_valid_rows": 34,
+          "missing_required_field_rows": 0,
+          "invalid_comment_type_rows": 0,
+          "ready": true
+        }
+      }
+    },
+    "dependencies": {
+      "torch": {
+        "available": true,
+        "version": "2.11.0+cu130"
+      },
+      "transformers": {
+        "available": true,
+        "version": "5.6.2"
+      },
+      "datasets": {
+        "available": true,
+        "version": "4.8.4"
+      },
+      "trl": {
+        "available": true,
+        "version": "1.2.0"
+      },
+      "peft": {
+        "available": true,
+        "version": "0.19.1"
+      },
+      "accelerate": {
+        "available": true,
+        "version": "1.13.0"
+      },
+      "bitsandbytes": {
+        "available": true,
+        "version": "0.49.2"
+      }
+    },
+    "torch_cuda": {
+      "available": true,
+      "device_count": 1,
+      "devices": [
+        "NVIDIA GeForce RTX 4070 SUPER"
+      ]
+    },
+    "transformers_supports_gemma4": true,
+    "model_access_check": {
+      "attempted": true,
+      "processor_load_ok": true
+    },
+    "model_name_or_path": "google/gemma-4-E4B-it",
+    "local_model_exists": false,
+    "blocked_reasons": [],
+    "ready_to_train": true,
+    "notes": [
+      "This path expects a Gemma 4 image-text checkpoint plus TRL/PEFT/datasets in the active environment.",
+      "The current repo smoke dataset is intentionally small and is for pipeline proving, not for a production-quality student."
+    ]
+  },
+  "resolved_train_config": {
+    "experiment_name": "gemma4_e4b_gemini_teacher_282",
+    "dataset_dir": "outputs/gemini_api_teacher_aesthetic3_20260427_revised",
+    "train_manifest": "train.jsonl",
+    "val_manifest": "val.jsonl",
+    "test_manifests": {
+      "test": "test.jsonl"
+    },
+    "output_dir": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282",
+    "model_name_or_path": "google/gemma-4-E4B-it",
+    "processor_name_or_path": "google/gemma-4-E4B-it",
+    "base_adapter_dir": null,
+    "allow_remote_model_download": true,
+    "lora": {
+      "enabled": true,
+      "r": 8,
+      "alpha": 16,
+      "dropout": 0.05,
+      "target_modules": ".*language_model\\.layers\\.\\d+\\.(self_attn\\.(q_proj|k_proj|v_proj|o_proj)|mlp\\.(gate_proj|up_proj|down_proj))"
+    },
+    "quantization": {
+      "load_in_4bit": true,
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_compute_dtype": "bfloat16",
+      "bnb_4bit_use_double_quant": true,
+      "device_map": "auto"
+    },
+    "training": {
+      "num_train_epochs": 3,
+      "per_device_train_batch_size": 1,
+      "per_device_eval_batch_size": 1,
+      "gradient_accumulation_steps": 8,
+      "learning_rate": 0.0001,
+      "lr_scheduler_type": "cosine",
+      "warmup_ratio": 0.05,
+      "logging_steps": 1,
+      "logging_first_step": true,
+      "save_steps": 10,
+      "eval_steps": 10,
+      "save_total_limit": 2,
+      "max_grad_norm": 1.0,
+      "weight_decay": 0.0,
+      "optim": "paged_adamw_8bit",
+      "seed": 42,
+      "max_length": null,
+      "resume_from_checkpoint": null
+    }
+  },
+  "adapter_export_artifacts": [
+    "outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/final_adapter"
+  ],
+  "exported_artifacts": [
+    "outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/final_adapter"
+  ]
+}

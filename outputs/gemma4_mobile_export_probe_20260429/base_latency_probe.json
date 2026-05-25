@@ -1,0 +1,108 @@
+{
+  "label": "base_gemma4_e4b_bnb4",
+  "timestamp_utc": "2026-04-29T03:43:28Z",
+  "command": [
+    "/home/omen_pc1/photo_score_project/.venv_vila/bin/python",
+    "tools/gemma4_latency_probe.py",
+    "--label",
+    "base_gemma4_e4b_bnb4",
+    "--base_model",
+    "google/gemma-4-E4B-it",
+    "--hf_home",
+    "outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache",
+    "--manifest",
+    "outputs/gemini_api_teacher_aesthetic3_20260427_revised/test.jsonl",
+    "--output_json",
+    "outputs/gemma4_mobile_export_probe_20260429/base_latency_probe.json",
+    "--max_new_tokens",
+    "120",
+    "--load_in_4bit"
+  ],
+  "cwd": "/home/omen_pc1/photo_score_project",
+  "base_model": "google/gemma-4-E4B-it",
+  "adapter_dir": null,
+  "manifest": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/test.jsonl",
+  "row_index": 0,
+  "row_id": "gemini__300__104__ava__selected_high__289024.jpg__5ba80932bc",
+  "image_path": "/home/omen_pc1/ava/images/289024.jpg",
+  "prompt_source": "manifest_messages_first_two",
+  "max_new_tokens": 120,
+  "device": "cpu",
+  "dtype": "float32",
+  "quantization": {
+    "enabled": true,
+    "type": "bitsandbytes_nf4_4bit",
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "bnb_4bit_use_double_quant": true,
+    "device_map": "auto"
+  },
+  "hf_environment": {
+    "HF_HOME": "/home/omen_pc1/photo_score_project/outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache",
+    "HF_HUB_CACHE": "/home/omen_pc1/photo_score_project/outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache/hub",
+    "TRANSFORMERS_CACHE": "/home/omen_pc1/photo_score_project/outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache/transformers",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "local_files_only": true
+  },
+  "timing": {
+    "load_seconds": 88.426343,
+    "first_token_latency_seconds": 100.014301,
+    "generation_seconds": 652.903688,
+    "generated_token_count": 108,
+    "tokens_per_second": 0.165415,
+    "streamer_token_callback_count": 108
+  },
+  "processor_input_summary": {
+    "input_ids": [
+      1,
+      410
+    ],
+    "attention_mask": [
+      1,
+      410
+    ],
+    "mm_token_type_ids": [
+      1,
+      410
+    ],
+    "pixel_values": [
+      1,
+      2520,
+      768
+    ],
+    "image_position_ids": [
+      1,
+      2520,
+      2
+    ]
+  },
+  "gpu_snapshots": [
+    {
+      "label": "start",
+      "available": false
+    },
+    {
+      "label": "after_load",
+      "available": false
+    },
+    {
+      "label": "after_generate",
+      "available": false
+    }
+  ],
+  "raw_prediction": "{\n  \"comment_type\": \"miss\",\n  \"short_reason\": \"The image is mostly uniform gray with minimal visual information.\",\n  \"detailed_reason\": \"The vast majority of the image consists of a solid gray tone, and the few discernible elements are small, indistinct artifacts that do not convey significant visual content or action.\",\n  \"comparison_reason\": \"Compared to frames with clear subjects or dynamic content, this frame lacks sufficient visual interest or information to meet the A-cut criteria.\"\n}",
+  "prediction_json": {
+    "comment_type": "miss",
+    "short_reason": "The image is mostly uniform gray with minimal visual information.",
+    "detailed_reason": "The vast majority of the image consists of a solid gray tone, and the few discernible elements are small, indistinct artifacts that do not convey significant visual content or action.",
+    "comparison_reason": "Compared to frames with clear subjects or dynamic content, this frame lacks sufficient visual interest or information to meet the A-cut criteria."
+  },
+  "parse_error": null,
+  "validation": {
+    "is_valid": false,
+    "flags": [
+      "invalid_comment_type",
+      "fake_weakness_in_selected"
+    ]
+  }
+}

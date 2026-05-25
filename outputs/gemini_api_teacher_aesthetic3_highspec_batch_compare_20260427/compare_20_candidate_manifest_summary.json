@@ -1,0 +1,24 @@
+{
+  "status": "highspec_candidate_manifest_created",
+  "output_dir": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427",
+  "scored_pool": "outputs/gemma4_e4b_aesthetic3_expanded_20260427/scored_pool.csv",
+  "requested_rows": 20,
+  "created_rows": 20,
+  "jsonl": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/compare_20_candidate_manifest.jsonl",
+  "csv": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/compare_20_candidate_manifest.csv",
+  "selection_band_counts": {
+    "middle_near_miss": 8,
+    "selected_high": 6,
+    "rejected_low": 6
+  },
+  "selection_state_counts": {
+    "near_miss": 8,
+    "selected": 6,
+    "not_selected": 6
+  },
+  "dataset_counts": {
+    "ava": 13,
+    "aadb": 7
+  },
+  "test_vila_policy": "excluded from the high-specificity batch candidate manifest"
+}

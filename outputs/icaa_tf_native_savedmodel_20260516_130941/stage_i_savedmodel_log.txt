@@ -1,0 +1,8 @@
+Loading checkpoint from /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+Instantiating TFICAA17KDAT model
+Exporting to SavedModel
+SavedModel exported to /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_130941/saved_model
+Reloading SavedModel for parity verification
+Running parity tests
+Test A (Random): pass_preferred, max_diff=9.53674316e-07
+Test B (Real Images): pass_preferred, max_diff=7.15255737e-07

@@ -1,0 +1,2 @@
+mkdir -p outputs/eval_topiq_unified_full_flive_replacement_20260517/
+./.venv_gpu/bin/python outputs/eval_topiq_unified_full_flive_replacement_20260517/eval.py

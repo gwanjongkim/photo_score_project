@@ -1,0 +1,41 @@
+{
+  "max_abs_diff_overall": 0.00010722875595092773,
+  "mean_abs_diff_overall": 0.00028095245361328127,
+  "samples": [
+    {
+      "image": "test_samples/KakaoTalk_20260330_180646779_07.jpg",
+      "keras_mean": 5.522148132324219,
+      "tflite_mean": 5.522205352783203,
+      "abs_diff_mean": 5.7220458984375e-05,
+      "max_abs_diff_dist": 4.51505184173584e-05
+    },
+    {
+      "image": "test_samples/KakaoTalk_20260330_180646779_01.jpg",
+      "keras_mean": 4.6721086502075195,
+      "tflite_mean": 4.672255039215088,
+      "abs_diff_mean": 0.00014638900756835938,
+      "max_abs_diff_dist": 1.697242259979248e-05
+    },
+    {
+      "image": "test_samples/KakaoTalk_20260330_180646779_13.jpg",
+      "keras_mean": 5.7638020515441895,
+      "tflite_mean": 5.763983249664307,
+      "abs_diff_mean": 0.0001811981201171875,
+      "max_abs_diff_dist": 5.041062831878662e-05
+    },
+    {
+      "image": "test_samples/KakaoTalk_20260330_180646779_06.jpg",
+      "keras_mean": 5.032276153564453,
+      "tflite_mean": 5.031318187713623,
+      "abs_diff_mean": 0.0009579658508300781,
+      "max_abs_diff_dist": 0.00010722875595092773
+    },
+    {
+      "image": "test_samples/KakaoTalk_20260330_180646779_08.jpg",
+      "keras_mean": 4.954608917236328,
+      "tflite_mean": 4.9546709060668945,
+      "abs_diff_mean": 6.198883056640625e-05,
+      "max_abs_diff_dist": 3.337860107421875e-05
+    }
+  ]
+}

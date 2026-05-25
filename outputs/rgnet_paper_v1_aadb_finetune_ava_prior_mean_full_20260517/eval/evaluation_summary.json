@@ -1,0 +1,56 @@
+{
+  "created_at_local": "2026-05-17T22:15:03.446969+09:00",
+  "model_variant": "RGNet-paper-v1 approximation",
+  "official_reproduction": false,
+  "model_name": "rgnet_paper_v1_aadb_regression",
+  "model_path": "outputs/rgnet_paper_v1_aadb_finetune_ava_prior_mean_full_20260517/final_model.keras",
+  "image_size": 256,
+  "batch_size": 16,
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.21.0"
+  },
+  "splits": {
+    "test": {
+      "num_samples": 1000,
+      "target_min": 0.05000000074505806,
+      "target_max": 1.0,
+      "prediction_min": 0.2259337306022644,
+      "prediction_max": 0.9108812808990479,
+      "srcc": 0.6492569917728546,
+      "plcc": 0.6623735287122372,
+      "mae": 0.12230552732944489,
+      "rmse": 0.1524850911040465,
+      "mse": 0.02325170300900936,
+      "split": "test",
+      "csv": "data/processed/aadb/test.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "elapsed_seconds": 41.477651508990675,
+      "seconds_per_image": 0.04147765150899067,
+      "predictions_path": "outputs/rgnet_paper_v1_aadb_finetune_ava_prior_mean_full_20260517/eval/test_predictions.csv"
+    },
+    "val": {
+      "num_samples": 846,
+      "target_min": 0.0,
+      "target_max": 0.949999988079071,
+      "prediction_min": 0.2566426396369934,
+      "prediction_max": 0.92177414894104,
+      "srcc": 0.5699621547618313,
+      "plcc": 0.5779609191390841,
+      "mae": 0.11811377853155136,
+      "rmse": 0.15152800231296423,
+      "mse": 0.022960735484957695,
+      "split": "val",
+      "csv": "data/processed/aadb/val.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "elapsed_seconds": 24.772288564010523,
+      "seconds_per_image": 0.02928166496927958,
+      "predictions_path": "outputs/rgnet_paper_v1_aadb_finetune_ava_prior_mean_full_20260517/eval/val_predictions.csv"
+    }
+  }
+}

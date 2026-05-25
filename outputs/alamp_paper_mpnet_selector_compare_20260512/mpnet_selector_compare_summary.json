@@ -1,0 +1,23 @@
+{
+  "strict": {
+    "test_auc": 0.58416,
+    "test_bce": 0.60879,
+    "test_accuracy": 0.7070,
+    "specificity": 0.0,
+    "val_auc": 0.59118
+  },
+  "v4": {
+    "test_auc": 0.62328,
+    "test_bce": 0.59665,
+    "test_accuracy": 0.7070,
+    "specificity": 0.0,
+    "val_auc": 0.61384
+  },
+  "v0_a_ref": {
+    "accuracy": 0.7236,
+    "roc_auc": 0.6679,
+    "specificity": 0.1224
+  },
+  "final_decision": "B. V4 selector improves enough to expand V4 MPNet to 4096.",
+  "interpretation": "The A-LAMP idea worked better with a modern U2Net component-aware selector (V4). It achieved higher ROC-AUC and lower BCE loss than the strict paper-style selector on the 256-sample comparison subset."
+}

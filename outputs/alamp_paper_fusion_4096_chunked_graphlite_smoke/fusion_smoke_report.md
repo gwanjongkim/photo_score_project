@@ -1,0 +1,632 @@
+# MPNet + Layout Graph Fusion Smoke Report
+
+This branch is a paper-oriented approximation, not an official or exact A-LAMP reproduction.
+
+## Files Changed
+
+- `src/models/alamp_paper_fusion.py`
+- `src/train/train_alamp_paper_mpnet_graph_fusion.py`
+- `checklist.md`
+- `context-notes.md`
+
+## Data Files Required
+
+- train patch JSONL: `outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/train_patch_boxes_4096_v4.jsonl`
+- val patch JSONL: `outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/val_patch_boxes_4096_v4.jsonl`
+- train graph JSONL: `outputs/alamp_object_graph_subset_20260511/graphs_conf010/train_graphs_4096.jsonl`
+- val graph JSONL: `outputs/alamp_object_graph_subset_20260511/graphs_conf010/val_graphs_4096.jsonl`
+- MPNet checkpoint: `outputs/alamp_paper_mpnet_4096_expansion/v4_4096/final_model.keras`
+
+## Feature Extraction
+
+```json
+{
+  "feature_batch_size_images": 16,
+  "force_reextract_features": false,
+  "train_feature_cache": {
+    "metadata": {
+      "feature_shape": [
+        128,
+        256
+      ],
+      "mpnet_model_path": "outputs/alamp_paper_mpnet_4096_expansion/v4_4096/final_model.keras",
+      "patch_count": 5,
+      "patch_size": 224,
+      "sample_count": 128,
+      "skipped_bad_crop": 0,
+      "source_jsonl_path": "outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/train_patch_boxes_4096_v4.jsonl",
+      "source_sample_count": 128,
+      "valid_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127
+      ]
+    },
+    "path": "outputs/alamp_paper_fusion_4096_chunked_graphlite_smoke/features/train_mpnet_features.npz",
+    "status": "extracted"
+  },
+  "val_feature_cache": {
+    "metadata": {
+      "feature_shape": [
+        64,
+        256
+      ],
+      "mpnet_model_path": "outputs/alamp_paper_mpnet_4096_expansion/v4_4096/final_model.keras",
+      "patch_count": 5,
+      "patch_size": 224,
+      "sample_count": 64,
+      "skipped_bad_crop": 0,
+      "source_jsonl_path": "outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/val_patch_boxes_4096_v4.jsonl",
+      "source_sample_count": 64,
+      "valid_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ]
+    },
+    "path": "outputs/alamp_paper_fusion_4096_chunked_graphlite_smoke/features/val_mpnet_features.npz",
+    "status": "extracted"
+  }
+}
+```
+
+## Tensor Shapes
+
+```json
+{
+  "train": {
+    "adjacency": [
+      128,
+      4,
+      4
+    ],
+    "crops": [
+      128,
+      5,
+      224,
+      224,
+      3
+    ],
+    "feature_cache": {
+      "metadata": {
+        "feature_shape": [
+          128,
+          256
+        ],
+        "mpnet_model_path": "outputs/alamp_paper_mpnet_4096_expansion/v4_4096/final_model.keras",
+        "patch_count": 5,
+        "patch_size": 224,
+        "sample_count": 128,
+        "skipped_bad_crop": 0,
+        "source_jsonl_path": "outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/train_patch_boxes_4096_v4.jsonl",
+        "source_sample_count": 128,
+        "valid_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127
+        ]
+      },
+      "path": "outputs/alamp_paper_fusion_4096_chunked_graphlite_smoke/features/train_mpnet_features.npz",
+      "status": "extracted"
+    },
+    "graph_match_summary": {
+      "matched_count": 128,
+      "missing_count": 0,
+      "skipped_count": 0,
+      "total_count": 128
+    },
+    "graph_vectors": [
+      128,
+      100
+    ],
+    "labels": [
+      128,
+      1
+    ],
+    "mpnet_features": [
+      128,
+      256
+    ],
+    "node_features": [
+      128,
+      4,
+      15
+    ],
+    "object_mask": [
+      128,
+      4
+    ],
+    "patch_records": 128,
+    "records": 128,
+    "skipped_bad_crop": 0,
+    "skipped_missing_graph": 0
+  },
+  "val": {
+    "adjacency": [
+      64,
+      4,
+      4
+    ],
+    "crops": [
+      64,
+      5,
+      224,
+      224,
+      3
+    ],
+    "feature_cache": {
+      "metadata": {
+        "feature_shape": [
+          64,
+          256
+        ],
+        "mpnet_model_path": "outputs/alamp_paper_mpnet_4096_expansion/v4_4096/final_model.keras",
+        "patch_count": 5,
+        "patch_size": 224,
+        "sample_count": 64,
+        "skipped_bad_crop": 0,
+        "source_jsonl_path": "outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/val_patch_boxes_4096_v4.jsonl",
+        "source_sample_count": 64,
+        "valid_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63
+        ]
+      },
+      "path": "outputs/alamp_paper_fusion_4096_chunked_graphlite_smoke/features/val_mpnet_features.npz",
+      "status": "extracted"
+    },
+    "graph_match_summary": {
+      "matched_count": 64,
+      "missing_count": 0,
+      "skipped_count": 0,
+      "total_count": 64
+    },
+    "graph_vectors": [
+      64,
+      100
+    ],
+    "labels": [
+      64,
+      1
+    ],
+    "mpnet_features": [
+      64,
+      256
+    ],
+    "node_features": [
+      64,
+      4,
+      15
+    ],
+    "object_mask": [
+      64,
+      4
+    ],
+    "patch_records": 64,
+    "records": 64,
+    "skipped_bad_crop": 0,
+    "skipped_missing_graph": 0
+  }
+}
+```
+
+## GraphGCN Status
+
+not_requested_in_this_run
+
+## Smoke Command
+
+```bash
+PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python src/train/train_alamp_paper_mpnet_graph_fusion.py --fusion_mode graphlite --mpnet_model_path outputs/alamp_paper_mpnet_4096_expansion/v4_4096/final_model.keras --train_patch_jsonl outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/train_patch_boxes_4096_v4.jsonl --val_patch_jsonl outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/val_patch_boxes_4096_v4.jsonl --train_graph_jsonl outputs/alamp_object_graph_subset_20260511/graphs_conf010/train_graphs_4096.jsonl --val_graph_jsonl outputs/alamp_object_graph_subset_20260511/graphs_conf010/val_graphs_4096.jsonl --out_dir outputs/alamp_paper_fusion_4096_chunked_graphlite_smoke --max_train_samples 128 --max_val_samples 64 --feature_batch_size 16 --batch_size 8 --epochs 1 --save_model --allow_val_selected_mpnet
+```
+
+## Smoke Result
+
+```json
+{
+  "graphlite": {
+    "history": {
+      "accuracy": [
+        0.5078125
+      ],
+      "auc": [
+        0.6473684310913086
+      ],
+      "loss": [
+        0.9247788190841675
+      ],
+      "val_accuracy": [
+        0.609375
+      ],
+      "val_auc": [
+        0.593181848526001
+      ],
+      "val_loss": [
+        0.7291053533554077
+      ]
+    },
+    "saved_model": "outputs/alamp_paper_fusion_4096_chunked_graphlite_smoke/graphlite/final_model.keras"
+  }
+}
+```
+
+## Risks And Unknowns
+
+- Graph cache comes from object detector outputs, not an official A-LAMP detector reproduction.
+- GraphLite vectorization is an approximation over fixed graph fields.
+- Fusion branch is not yet validated by full 1024 training/evaluation.
+- MPNet features are frozen extracted features; this script does not fine-tune MPNet jointly.
+- If a validation-selected MPNet checkpoint is explicitly allowed for non-smoke training, validation metrics should not be treated as final.

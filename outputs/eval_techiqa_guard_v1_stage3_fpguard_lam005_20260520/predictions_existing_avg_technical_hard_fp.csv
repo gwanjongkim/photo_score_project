@@ -1,0 +1,4 @@
+image_path,y_true_k,y_pred_k,y_true_f,y_pred_f,y_pred,y_true
+/home/omen_pc1/photo_score_project/outputs/test_vila_aesthetic_direct_compare_20260504_153044/thumbs/1675342165226-13.jpg,,21.84695625305176,,70.01971435546875,45.933335304260254,
+/home/omen_pc1/photo_score_project/outputs/test_vila_aesthetic_direct_compare_20260504_153044/thumbs/1675342165226-3.jpg,,26.0979061126709,,70.96263885498047,48.530272483825684,
+/home/omen_pc1/photo_score_project/outputs/test_vila_aesthetic_direct_compare_20260504_153044/thumbs/20230201_181300.jpg,,15.44578456878662,,61.49674224853516,38.47126340866089,

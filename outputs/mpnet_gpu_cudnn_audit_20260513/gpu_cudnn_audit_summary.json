@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-05-13T11:37:30",
+  "tensorflow_version": "2.20.0",
+  "cudnn_runtime_version": "9.3.0.75",
+  "cudnn_compiled_version": "9.3.0",
+  "gpu_conv_works": true,
+  "train_on_batch_works": true,
+  "pytorch_compatibility_maintained": true,
+  "root_cause": "TensorFlow 2.20.0 requires cuDNN >= 9.3.0, but the environment had nvidia-cudnn-cu12==9.1.0.70 installed (likely due to PyTorch 2.5.1 dependencies).",
+  "fix_action": "Upgraded nvidia-cudnn-cu12 to 9.3.0.75 via pip."
+}

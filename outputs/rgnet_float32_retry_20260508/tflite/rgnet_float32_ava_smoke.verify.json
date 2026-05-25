@@ -1,0 +1,734 @@
+{
+  "script": "/home/omen_pc1/photo_score_project/outputs/rgnet_float32_retry_20260508/scripts/export_rgnet_float32_tflite.py",
+  "args": {
+    "model_path": "outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_smoke/final_model.keras",
+    "saved_model_dir": "outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_smoke/saved_model",
+    "output_tflite": "outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_smoke.tflite",
+    "metadata_json": "outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_smoke.metadata.json",
+    "verify_json": "outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_smoke.verify.json",
+    "image_path": null,
+    "parity_csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_smoke_64.csv",
+    "image_size": 256,
+    "parity_count": 20,
+    "threshold": 0.0001,
+    "num_threads": 1,
+    "overwrite": false
+  },
+  "verification_passed": true,
+  "failure_stage": null,
+  "threshold": 0.0001,
+  "num_images": 20,
+  "input_details": [
+    {
+      "name": "serving_default_input_layer_2:0",
+      "shape": [
+        1,
+        256,
+        256,
+        3
+      ],
+      "shape_signature": [
+        -1,
+        256,
+        256,
+        3
+      ],
+      "dtype": "float32",
+      "index": 0
+    }
+  ],
+  "output_details": [
+    {
+      "name": "StatefulPartitionedCall_1:0",
+      "shape": [
+        1,
+        1
+      ],
+      "shape_signature": [
+        -1,
+        1
+      ],
+      "dtype": "float32",
+      "index": 608
+    }
+  ],
+  "op_list": [
+    "MUL",
+    "SUB",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "L2_NORMALIZATION",
+    "BATCH_MATMUL",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "RESHAPE",
+    "CONCATENATION",
+    "FILL",
+    "MATRIX_DIAG",
+    "MUL",
+    "SOFTMAX",
+    "ADD",
+    "SUM",
+    "MAXIMUM",
+    "DIV",
+    "BATCH_MATMUL",
+    "FULLY_CONNECTED",
+    "ADD",
+    "MEAN",
+    "NEG",
+    "SQUARED_DIFFERENCE",
+    "MEAN",
+    "ADD",
+    "RSQRT",
+    "MUL",
+    "MUL",
+    "ADD",
+    "MUL",
+    "ADD",
+    "BATCH_MATMUL",
+    "FULLY_CONNECTED",
+    "ADD",
+    "MEAN",
+    "NEG",
+    "SQUARED_DIFFERENCE",
+    "MEAN",
+    "ADD",
+    "RSQRT",
+    "MUL",
+    "MUL",
+    "ADD",
+    "MUL",
+    "ADD",
+    "CONCATENATION",
+    "FULLY_CONNECTED",
+    "TANH",
+    "TRANSPOSE",
+    "SOFTMAX",
+    "TRANSPOSE",
+    "MUL",
+    "SUM",
+    "CONCATENATION",
+    "FULLY_CONNECTED",
+    "FULLY_CONNECTED",
+    "LOGISTIC",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE"
+  ],
+  "flex_ops": [],
+  "reference_image": {
+    "index": 0,
+    "image_path": "data/raw/ava/images/218188.jpg",
+    "keras_output": [
+      0.378876656293869
+    ],
+    "tflite_output": [
+      0.3788767457008362
+    ],
+    "max_abs_diff": 8.940696716308594e-08,
+    "mean_abs_diff": 8.940696716308594e-08,
+    "saved_model_output": [
+      0.378876656293869
+    ],
+    "saved_model_error": null
+  },
+  "comparison": {
+    "reference_max_abs_diff": 8.940696716308594e-08,
+    "reference_mean_abs_diff": 8.940696716308594e-08,
+    "multi_image_max_abs_diff": 1.4901161193847656e-07,
+    "multi_image_mean_abs_diff": 5.513429641723633e-08,
+    "comparison_ok": true,
+    "shape_ok": true
+  },
+  "per_image": [
+    {
+      "index": 0,
+      "image_path": "data/raw/ava/images/218188.jpg",
+      "keras_output": [
+        0.378876656293869
+      ],
+      "tflite_output": [
+        0.3788767457008362
+      ],
+      "max_abs_diff": 8.940696716308594e-08,
+      "mean_abs_diff": 8.940696716308594e-08
+    },
+    {
+      "index": 1,
+      "image_path": "data/raw/ava/images/768562.jpg",
+      "keras_output": [
+        0.37919703125953674
+      ],
+      "tflite_output": [
+        0.3791970908641815
+      ],
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 5.960464477539063e-08
+    },
+    {
+      "index": 2,
+      "image_path": "data/raw/ava/images/139982.jpg",
+      "keras_output": [
+        0.3791234493255615
+      ],
+      "tflite_output": [
+        0.3791234493255615
+      ],
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0
+    },
+    {
+      "index": 3,
+      "image_path": "data/raw/ava/images/45729.jpg",
+      "keras_output": [
+        0.3792708218097687
+      ],
+      "tflite_output": [
+        0.37927067279815674
+      ],
+      "max_abs_diff": 1.4901161193847656e-07,
+      "mean_abs_diff": 1.4901161193847656e-07
+    },
+    {
+      "index": 4,
+      "image_path": "data/raw/ava/images/132483.jpg",
+      "keras_output": [
+        0.3789506256580353
+      ],
+      "tflite_output": [
+        0.3789505064487457
+      ],
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 1.1920928955078125e-07
+    },
+    {
+      "index": 5,
+      "image_path": "data/raw/ava/images/502348.jpg",
+      "keras_output": [
+        0.3788084089756012
+      ],
+      "tflite_output": [
+        0.3788083791732788
+      ],
+      "max_abs_diff": 2.9802322387695312e-08,
+      "mean_abs_diff": 2.9802322387695312e-08
+    },
+    {
+      "index": 6,
+      "image_path": "data/raw/ava/images/209497.jpg",
+      "keras_output": [
+        0.3792042136192322
+      ],
+      "tflite_output": [
+        0.3792042136192322
+      ],
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0
+    },
+    {
+      "index": 7,
+      "image_path": "data/raw/ava/images/420945.jpg",
+      "keras_output": [
+        0.37887606024742126
+      ],
+      "tflite_output": [
+        0.3788760304450989
+      ],
+      "max_abs_diff": 2.9802322387695312e-08,
+      "mean_abs_diff": 2.9802322387695312e-08
+    },
+    {
+      "index": 8,
+      "image_path": "data/raw/ava/images/338146.jpg",
+      "keras_output": [
+        0.3790130019187927
+      ],
+      "tflite_output": [
+        0.3790130019187927
+      ],
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0
+    },
+    {
+      "index": 9,
+      "image_path": "data/raw/ava/images/748041.jpg",
+      "keras_output": [
+        0.37913623452186584
+      ],
+      "tflite_output": [
+        0.37913620471954346
+      ],
+      "max_abs_diff": 2.9802322387695312e-08,
+      "mean_abs_diff": 2.9802322387695312e-08
+    },
+    {
+      "index": 10,
+      "image_path": "data/raw/ava/images/857778.jpg",
+      "keras_output": [
+        0.37891143560409546
+      ],
+      "tflite_output": [
+        0.37891143560409546
+      ],
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0
+    },
+    {
+      "index": 11,
+      "image_path": "data/raw/ava/images/464720.jpg",
+      "keras_output": [
+        0.3788115382194519
+      ],
+      "tflite_output": [
+        0.37881144881248474
+      ],
+      "max_abs_diff": 8.940696716308594e-08,
+      "mean_abs_diff": 8.940696716308594e-08
+    },
+    {
+      "index": 12,
+      "image_path": "data/raw/ava/images/695776.jpg",
+      "keras_output": [
+        0.3785502314567566
+      ],
+      "tflite_output": [
+        0.3785501718521118
+      ],
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 5.960464477539063e-08
+    },
+    {
+      "index": 13,
+      "image_path": "data/raw/ava/images/764357.jpg",
+      "keras_output": [
+        0.37889349460601807
+      ],
+      "tflite_output": [
+        0.3788934350013733
+      ],
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 5.960464477539063e-08
+    },
+    {
+      "index": 14,
+      "image_path": "data/raw/ava/images/198756.jpg",
+      "keras_output": [
+        0.37928834557533264
+      ],
+      "tflite_output": [
+        0.37928834557533264
+      ],
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0
+    },
+    {
+      "index": 15,
+      "image_path": "data/raw/ava/images/308981.jpg",
+      "keras_output": [
+        0.37924638390541077
+      ],
+      "tflite_output": [
+        0.379246324300766
+      ],
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 5.960464477539063e-08
+    },
+    {
+      "index": 16,
+      "image_path": "data/raw/ava/images/24334.jpg",
+      "keras_output": [
+        0.3786848187446594
+      ],
+      "tflite_output": [
+        0.3786848187446594
+      ],
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0
+    },
+    {
+      "index": 17,
+      "image_path": "data/raw/ava/images/552318.jpg",
+      "keras_output": [
+        0.3790309727191925
+      ],
+      "tflite_output": [
+        0.37903088331222534
+      ],
+      "max_abs_diff": 8.940696716308594e-08,
+      "mean_abs_diff": 8.940696716308594e-08
+    },
+    {
+      "index": 18,
+      "image_path": "data/raw/ava/images/15653.jpg",
+      "keras_output": [
+        0.3791850209236145
+      ],
+      "tflite_output": [
+        0.37918490171432495
+      ],
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 1.1920928955078125e-07
+    },
+    {
+      "index": 19,
+      "image_path": "data/raw/ava/images/878770.jpg",
+      "keras_output": [
+        0.3787490427494049
+      ],
+      "tflite_output": [
+        0.37874892354011536
+      ],
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 1.1920928955078125e-07
+    }
+  ]
+}

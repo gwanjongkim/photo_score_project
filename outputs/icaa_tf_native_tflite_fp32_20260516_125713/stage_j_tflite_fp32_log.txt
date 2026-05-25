@@ -1,0 +1,16 @@
+Latest SavedModel found: /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_125701/saved_model
+Loading SavedModel from /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_125701/saved_model
+Converting to TFLite (Forcing SELECT_TF_OPS)
+TFLite conversion with SELECT_TF_OPS succeeded.
+TFLite model saved to /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp32_20260516_125713/icaa_dat_tf_native_fp32_select_tf_ops.tflite
+TFLite model size: 0.01 MB
+Loading TFLite Interpreter
+Input details: [{'name': 'serving_default_image:0', 'index': 0, 'shape': array([  1, 224, 224,   3], dtype=int32), 'shape_signature': array([ -1, 224, 224,   3], dtype=int32), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0), 'quantization_parameters': {'scales': array([], dtype=float32), 'zero_points': array([], dtype=int32), 'quantized_dimension': 0, 'block_size': 0}, 'sparsity_parameters': {}}]
+Output details: [{'name': 'StatefulPartitionedCall:0', 'index': 38, 'shape': array([1, 2], dtype=int32), 'shape_signature': array([-1,  2], dtype=int32), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0), 'quantization_parameters': {'scales': array([], dtype=float32), 'zero_points': array([], dtype=int32), 'quantized_dimension': 0, 'block_size': 0}, 'sparsity_parameters': {}}]
+Running Input Sensitivity Probe
+Zero vs One max diff: nan
+Zero vs Random max diff: nan
+ERROR: TFLite model is not input sensitive or producing NaNs!
+Running SavedModel vs TFLite Parity Verification
+Test A (Random): fail, max_diff=nan
+Test B (Real Images): fail, max_diff=nan

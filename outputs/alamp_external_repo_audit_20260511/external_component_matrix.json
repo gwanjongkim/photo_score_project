@@ -1,0 +1,40 @@
+{
+  "components": {
+    "multi_patch_subnet": {
+      "implemented": true,
+      "quality": "moderate",
+      "reusable": false,
+      "notes": "Basic VGG16 with Avg/Max pooling. Our local implementation is better."
+    },
+    "adaptive_patch_selection": {
+      "implemented": true,
+      "quality": "moderate",
+      "reusable": false,
+      "notes": "Uses Graph-Based Manifold Ranking which has a non-commercial license."
+    },
+    "orderless_aggregation": {
+      "implemented": true,
+      "quality": "basic",
+      "reusable": false,
+      "notes": "Concatenation of Average and Maximum pooling."
+    },
+    "layout_aware_subnet": {
+      "implemented": false,
+      "quality": "none",
+      "reusable": false,
+      "notes": "File layout_aware_subnet.py is 0 bytes."
+    },
+    "object_global_attribute_graph": {
+      "implemented": false,
+      "quality": "none",
+      "reusable": false,
+      "notes": "No graph logic implemented."
+    },
+    "salient_object_detection": {
+      "implemented": true,
+      "quality": "moderate",
+      "reusable": false,
+      "notes": "TF2 port of an older algorithm; non-commercial license."
+    }
+  }
+}

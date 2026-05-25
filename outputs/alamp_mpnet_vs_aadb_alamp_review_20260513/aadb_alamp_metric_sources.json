@@ -1,0 +1,37 @@
+{
+  "existing_aadb_alamp_metrics": {
+    "source_file": "outputs/ava_retrain_rgnet_alamp_20260506/baseline_eval/alamp_aadb_on_aadb_val512_metrics.json",
+    "metrics": {
+      "srcc_spearman": 0.5843108869358908,
+      "plcc_pearson": 0.5859304368880826,
+      "mae": 0.12918773293495178,
+      "rmse": 0.15944221705984685,
+      "pairwise_accuracy": 0.7080008626266983,
+      "num_samples": 512,
+      "dataset": "AADB validation subset"
+    },
+    "model_info": {
+      "model_name": "alamp_aadb_gpu",
+      "model_path": "checkpoints/alamp_aadb_gpu/final_model.keras",
+      "tflite_path": "models/aesthetic/alamp_aadb_gpu.tflite"
+    }
+  },
+  "alamp_paper_mpnet_metrics": {
+    "source_file": "outputs/alamp_paper_mpnet_selector_compare_20260512/eval/v4_1024_gpu_tuned/v4_1024_gpu_tuned/threshold_calibration_summary.json",
+    "metrics_at_threshold_0.61": {
+      "accuracy": 0.671875,
+      "balanced_accuracy": 0.6246109402665176,
+      "precision": 0.7897058823529411,
+      "recall": 0.7356164383561644,
+      "specificity": 0.5136054421768708,
+      "f1": 0.7617021276595745,
+      "roc_auc": 0.6629251700680272,
+      "average_precision": 0.8181074862860868,
+      "dataset": "AVA test (1024 samples)"
+    },
+    "model_info": {
+      "model_name": "v4_1024_gpu_tuned",
+      "selector": "V4-U2Net"
+    }
+  }
+}

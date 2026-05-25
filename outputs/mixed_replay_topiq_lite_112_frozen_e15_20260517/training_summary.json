@@ -1,0 +1,84 @@
+{
+  "artifacts": {
+    "best_weights": "outputs/mixed_replay_topiq_lite_112_frozen_e15_20260517/best.weights.h5",
+    "final_model": "outputs/mixed_replay_topiq_lite_112_frozen_e15_20260517/final_model.keras",
+    "saved_model": "outputs/mixed_replay_topiq_lite_112_frozen_e15_20260517/saved_model",
+    "training_log": "outputs/mixed_replay_topiq_lite_112_frozen_e15_20260517/training_log.csv"
+  },
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python src/train/train_topiq_lite.py --train_csv data/processed/topiq_replacement/mixed_112_train.csv --val_csv data/processed/topiq_replacement/mixed_112_val.csv --target_col normalized_mos --batch_size 8 --epochs 15 --lr 1e-5 --freeze_backbone --init_weights outputs/full_topiq_lite_spaq_to_koniq_frozen_e30_20260517/best.weights.h5 --out_dir outputs/mixed_replay_topiq_lite_112_frozen_e15_20260517",
+  "feature_layers": {
+    "high": {
+      "layer_name": "top_activation",
+      "shape": [
+        12,
+        12,
+        1280
+      ]
+    },
+    "low": {
+      "layer_name": "block3b_add",
+      "shape": [
+        48,
+        48,
+        48
+      ]
+    },
+    "mid": {
+      "layer_name": "block5c_add",
+      "shape": [
+        24,
+        24,
+        112
+      ]
+    }
+  },
+  "final_metrics": {
+    "loss": 0.0024031216744333506,
+    "mae": 0.05537940189242363,
+    "rmse": 0.07371901720762253,
+    "val_loss": 0.002785234246402979,
+    "val_mae": 0.05962003767490387,
+    "val_rmse": 0.08040846139192581
+  },
+  "init_weights": "outputs/full_topiq_lite_spaq_to_koniq_frozen_e30_20260517/best.weights.h5",
+  "prediction_diagnostics": {
+    "correlation_error": null,
+    "mae_100": 5.82629919052124,
+    "plcc": 0.8995299339294434,
+    "possible_mode_collapse": false,
+    "pred_max": 0.7883780598640442,
+    "pred_mean": 0.6238777041435242,
+    "pred_min": 0.13611924648284912,
+    "pred_std": 0.15179823338985443,
+    "pred_std_over_target_std": 0.8892109552250688,
+    "rmse_100": 7.475126266479492,
+    "sample_count": 128,
+    "srcc": 0.7613857944205775,
+    "target_max": 0.9049999713897705,
+    "target_mean": 0.6286698579788208,
+    "target_min": 0.11100000143051147,
+    "target_std": 0.17071115970611572
+  },
+  "train_csv": {
+    "csv_path": "/home/omen_pc1/photo_score_project/data/processed/topiq_replacement/mixed_112_train.csv",
+    "image_col": "image_path",
+    "row_count": 16384,
+    "target_col": "normalized_mos",
+    "target_max": 0.9300000071525574,
+    "target_mean": 0.6339408755302429,
+    "target_min": 0.03400000184774399,
+    "target_std": 0.16529132425785065,
+    "validated_paths": false
+  },
+  "val_csv": {
+    "csv_path": "/home/omen_pc1/photo_score_project/data/processed/topiq_replacement/mixed_112_val.csv",
+    "image_col": "image_path",
+    "row_count": 2048,
+    "target_col": "normalized_mos",
+    "target_max": 0.9053076505661011,
+    "target_mean": 0.6238111853599548,
+    "target_min": 0.04800000041723251,
+    "target_std": 0.17574390769004822,
+    "validated_paths": false
+  }
+}

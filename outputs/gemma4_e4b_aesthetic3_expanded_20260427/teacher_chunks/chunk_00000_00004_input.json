@@ -1,0 +1,24 @@
+{
+  "rows": [
+    {
+      "image_path": "/home/omen_pc1/ava/images/772147.jpg",
+      "prompt": "You are the VILA-full teacher for visual A-cut selection.\nUse the image first. The hidden context only controls whether the verdict is selected or not selected.\nDo not mention scores, ranks, thresholds, model names, datasets, file names, or hidden context.\n\nReturn exactly 3 lines and nothing else:\nStrength: ...\nWeakness: ...\nVerdict: not selected because ...\n\nRules:\n- Strength: one visible strength grounded in the image\n- Weakness: one visible weakness grounded in the image\n- Verdict: one concise A-cut judgment that starts with \"not selected because\"\n- Keep wording specific to visible evidence such as framing, light, subject separation, background, expression, texture, color, clutter, blur, or exposure\n- No bullets, numbering, quotes, extra lines, raw numbers, score words, or rank words\n\nHidden verdict context: not selected"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/140804.jpg",
+      "prompt": "You are the VILA-full teacher for visual A-cut selection.\nUse the image first. The hidden context only controls whether the verdict is selected or not selected.\nDo not mention scores, ranks, thresholds, model names, datasets, file names, or hidden context.\n\nReturn exactly 3 lines and nothing else:\nStrength: ...\nWeakness: ...\nVerdict: not selected because ...\n\nRules:\n- Strength: one visible strength grounded in the image\n- Weakness: one visible weakness grounded in the image\n- Verdict: one concise A-cut judgment that starts with \"not selected because\"\n- Keep wording specific to visible evidence such as framing, light, subject separation, background, expression, texture, color, clutter, blur, or exposure\n- No bullets, numbering, quotes, extra lines, raw numbers, score words, or rank words\n\nHidden verdict context: not selected"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/339919.jpg",
+      "prompt": "You are the VILA-full teacher for visual A-cut selection.\nUse the image first. The hidden context only controls whether the verdict is selected or not selected.\nDo not mention scores, ranks, thresholds, model names, datasets, file names, or hidden context.\n\nReturn exactly 3 lines and nothing else:\nStrength: ...\nWeakness: ...\nVerdict: not selected because ...\n\nRules:\n- Strength: one visible strength grounded in the image\n- Weakness: one visible weakness grounded in the image\n- Verdict: one concise A-cut judgment that starts with \"not selected because\"\n- Keep wording specific to visible evidence such as framing, light, subject separation, background, expression, texture, color, clutter, blur, or exposure\n- No bullets, numbering, quotes, extra lines, raw numbers, score words, or rank words\n\nHidden verdict context: not selected"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/111392.jpg",
+      "prompt": "You are the VILA-full teacher for visual A-cut selection.\nUse the image first. The hidden context only controls whether the verdict is selected or not selected.\nDo not mention scores, ranks, thresholds, model names, datasets, file names, or hidden context.\n\nReturn exactly 3 lines and nothing else:\nStrength: ...\nWeakness: ...\nVerdict: not selected because ...\n\nRules:\n- Strength: one visible strength grounded in the image\n- Weakness: one visible weakness grounded in the image\n- Verdict: one concise A-cut judgment that starts with \"not selected because\"\n- Keep wording specific to visible evidence such as framing, light, subject separation, background, expression, texture, color, clutter, blur, or exposure\n- No bullets, numbering, quotes, extra lines, raw numbers, score words, or rank words\n\nHidden verdict context: not selected"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/252135.jpg",
+      "prompt": "You are the VILA-full teacher for visual A-cut selection.\nUse the image first. The hidden context only controls whether the verdict is selected or not selected.\nDo not mention scores, ranks, thresholds, model names, datasets, file names, or hidden context.\n\nReturn exactly 3 lines and nothing else:\nStrength: ...\nWeakness: ...\nVerdict: selected because ...\n\nRules:\n- Strength: one visible strength grounded in the image\n- Weakness: one visible weakness grounded in the image\n- Verdict: one concise A-cut judgment that starts with \"selected because\"\n- Keep wording specific to visible evidence such as framing, light, subject separation, background, expression, texture, color, clutter, blur, or exposure\n- No bullets, numbering, quotes, extra lines, raw numbers, score words, or rank words\n\nHidden verdict context: selected"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "selector_name": "v4_1024_gpu_tuned",
+  "model_variant": "A-LAMP-paper-MPNet",
+  "official_reproduction": false,
+  "label_rule": "paper_strict",
+  "training_mode": "two_phase_freeze_block5",
+  "epochs_completed": 12,
+  "batch_size": 4,
+  "learning_rate": 0.0001,
+  "phase1_settings": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "freeze_vgg16_backbone": true
+  },
+  "phase2_settings": {
+    "epochs": 8,
+    "learning_rate": 1e-05,
+    "unfreeze_vgg16_block5_only": true
+  },
+  "class_weight": {
+    "enabled": true,
+    "weights": {
+      "0": 2.4,
+      "1": 1.0
+    },
+    "negative_setting": "2.4",
+    "auto_negative": false
+  },
+  "train_label_counts": {
+    "total": 1024,
+    "positive": 729,
+    "negative": 295,
+    "label_threshold": 5.0
+  },
+  "frozen_unfrozen_layer_summary": {
+    "phase1_frozen_backbone": {
+      "backbone_name": "vgg16_backbone",
+      "trainable_layer_count": 0,
+      "frozen_layer_count": 20,
+      "trainable_layers": [],
+      "frozen_layers": [
+        "input_layer",
+        "block1_conv1",
+        "block1_conv2",
+        "block1_pool",
+        "block2_conv1",
+        "block2_conv2",
+        "block2_pool",
+        "block3_conv1",
+        "block3_conv2",
+        "block3_conv3",
+        "block3_pool",
+        "block4_conv1",
+        "block4_conv2",
+        "block4_conv3",
+        "block4_pool",
+        "block5_conv1",
+        "block5_conv2",
+        "block5_conv3",
+        "block5_pool",
+        "global_average_pooling2d"
+      ],
+      "model_trainable_weight_count": 4,
+      "model_non_trainable_weight_count": 26
+    },
+    "phase2_block5_unfrozen": {
+      "backbone_name": "vgg16_backbone",
+      "trainable_layer_count": 4,
+      "frozen_layer_count": 16,
+      "trainable_layers": [
+        "block5_conv1",
+        "block5_conv2",
+        "block5_conv3",
+        "block5_pool"
+      ],
+      "frozen_layers": [
+        "input_layer",
+        "block1_conv1",
+        "block1_conv2",
+        "block1_pool",
+        "block2_conv1",
+        "block2_conv2",
+        "block2_pool",
+        "block3_conv1",
+        "block3_conv2",
+        "block3_conv3",
+        "block3_pool",
+        "block4_conv1",
+        "block4_conv2",
+        "block4_conv3",
+        "block4_pool",
+        "global_average_pooling2d"
+      ],
+      "model_trainable_weight_count": 10,
+      "model_non_trainable_weight_count": 20
+    }
+  },
+  "best_val_auc": 0.6705091595649719,
+  "best_val_auc_epoch": 9,
+  "best_val_loss": 0.7071476578712463,
+  "best_val_loss_epoch": 9,
+  "monitor_metric": "val_auc",
+  "monitor_mode": "max",
+  "best_weights_alias_source": "outputs/alamp_paper_mpnet_selector_compare_20260512/train/v4_1024_gpu_tuned/v4_1024_gpu_tuned/best_val_auc.weights.h5",
+  "final_train_loss": 0.27060937881469727,
+  "final_val_loss": 0.770749568939209,
+  "visible_gpus": [
+    "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+  ],
+  "save_load_max_abs_diff": 0.0,
+  "save_load_max_diff": 0.0,
+  "tensorflow_info": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "tensorflow_version": "2.20.0"
+  }
+}

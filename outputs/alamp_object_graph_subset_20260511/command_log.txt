@@ -1,0 +1,3 @@
+# Log updated manually based on successful offline detection run.
+# Prior missing YOLO weights issue resolved.
+# Detection and graph generation run successfully for conf=0.10 on 1024 sample subsets.

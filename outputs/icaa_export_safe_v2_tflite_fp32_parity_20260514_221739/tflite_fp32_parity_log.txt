@@ -1,0 +1,20 @@
+checkpoint path: /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+checkpoint key count: 487
+strict load result: <All keys matched successfully>
+TFLite model path: /home/omen_pc1/photo_score_project/outputs/icaa_tflite_conversion_v2_no_flex_20260514_220549/icaa_dat_export_safe_v2_float32.tflite
+TFLite input details: [{'name': 'image', 'index': 0, 'shape': [1, 224, 224, 3], 'shape_signature': [1, 224, 224, 3], 'dtype': "<class 'numpy.float32'>"}]
+TFLite output details: [{'name': 'scores', 'index': 5848, 'shape': [1, 2], 'shape_signature': [1, 2], 'dtype': "<class 'numpy.float32'>"}]
+csv rows read: 32
+evaluable images: 32
+missing image rows skipped: 0
+full tensor max_abs_diff: 0.2552648187
+full tensor mean_abs_diff: 0.0865777805
+MOS max_abs_diff: 0.2549756169
+MOS mean_abs_diff: 0.0868746340
+color max_abs_diff: 0.2552648187
+color mean_abs_diff: 0.0862809271
+TFLite FP32 parity pass: False
+error: TFLite FP32 parity failed thresholds.
+tflite_fp32_parity_report.json: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_tflite_fp32_parity_20260514_221739/tflite_fp32_parity_report.json
+tflite_fp32_parity_predictions.csv: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_tflite_fp32_parity_20260514_221739/tflite_fp32_parity_predictions.csv
+tflite_fp32_parity_log.txt: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_tflite_fp32_parity_20260514_221739/tflite_fp32_parity_log.txt

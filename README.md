@@ -1,6 +1,28 @@
 # photo_score_project
 
-`photo_score_project`를 다른 컴퓨터에서 재현 가능하게 실행하기 위한 기준 문서입니다.
+이 저장소는 A-cut 캡스톤 프로젝트의 Python 기반 사진 품질 및 미학(Aesthetics) 평가, 모델 학습, 추론, 변환 실험을 위한 저장소입니다.
+
+**주의 사항:**
+- **데이터셋은 본 저장소에 포함되지 않습니다.** 데이터셋은 로컬 환경이나 외부 스토리지에서 별도로 다운로드하여 사용해야 합니다.
+- **모델 가중치, TFLite, outputs, reports** 등은 사용자의 정책상 저장소에 포함될 수 있습니다. 
+- 단, 100MB를 초과하는 대용량 모델 파일(`*.keras`, `*.h5`, `*.pth`, `*.tflite`, `*.safetensors` 등)을 업로드할 경우 **Git LFS(Large File Storage)** 사용을 적극 권장합니다.
+
+## 데이터셋 다운로드 안내
+
+아래는 본 프로젝트 실험에 사용되는 데이터셋 목록입니다. 원본 이미지와 라벨을 로컬의 `data/raw/` 또는 지정된 경로에 배치해야 합니다.
+
+| Dataset | Purpose | Expected local path | Download / Reference |
+|---|---|---|---|
+| AVA | 미학 점수 1~10 분포 학습 | `data/raw/ava/` | [AVA Dataset](https://github.com/mtobeiyf/ava) |
+| AADB | 미학 점수 회귀 / 쌍 비교 학습 | `data/raw/aadb/` | [AADB Dataset](https://github.com/vivoutlaw/AADB) |
+| ICAA17K | 색상 기반 미학 평가 학습 | `data/raw/icaa17k/` | [ICAA Official Repo](https://github.com/woshidandan/Image-Color-Aesthetics-and-Quality-Assessment) |
+| SPAQ | 스마트폰 사진 품질/미학 평가 | `data/raw/spaq/` | [SPAQ Dataset](https://github.com/huster-szq/SPAQ) |
+| KonIQ-10k | 기술적 이미지 품질 평가 | `data/raw/koniq10k/` | [KonIQ-10k](http://database.mmk.ai.tum.de/koniq-10k/) |
+| FLIVE | in-the-wild 기술적 품질 평가 | `data/raw/flive/` | [FLIVE Database](https://live.ece.utexas.edu/research/ChallengeDB/index.html) |
+| PAQ2PIQ | 로컬 패치 기반 품질 평가 | `data/raw/paq2piq/` | [PAQ2PIQ](https://github.com/baidut/paq2piq) |
+
+---
+
 이 문서는 아래 3가지 실행 모드를 분리해서 제공합니다.
 
 - 모드 1: 로컬 점수 계산만

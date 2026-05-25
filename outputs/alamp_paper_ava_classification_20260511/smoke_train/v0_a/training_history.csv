@@ -1,0 +1,2 @@
+epoch,accuracy,auc,loss,precision,recall,val_accuracy,val_auc,val_loss,val_precision,val_recall
+0,0.734375,0.4724655747413635,0.6062828302383423,0.734375,1.0,0.625,0.625,0.6574724912643433,0.625,1.0

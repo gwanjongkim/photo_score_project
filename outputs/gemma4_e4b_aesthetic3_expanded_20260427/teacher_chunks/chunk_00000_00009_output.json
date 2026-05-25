@@ -1,0 +1,130 @@
+{
+  "runtime": "local_vila_remote_code",
+  "model_name": "/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b",
+  "loader": "llava.remote_code.AutoModelForCausalLM",
+  "device": "cuda",
+  "converted_model_dir": "/tmp/photo_score_project_vila_remote/vila1_5-3b_a17fdc55f9",
+  "conv_mode": "vicuna_v1",
+  "results": [
+    {
+      "image_path": "/home/omen_pc1/ava/images/912077.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis. Busier background.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"strong light, limited separation\",\n\"long\": \"busy street scene with cars and a bridge overpass in the foreground.\"\n},\n{\n\t\"short\": null,\n\t\"",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"strong light, limited separation\",\n\"long\": \"busy street scene with cars and a bridge overpass in the foreground.\"\n},\n{\n\t\"short\": null,\n\t\""
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/898944.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis. Busier background.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"selected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"busier background\", \n\"long\": \"This image has a more distracting background than the other one.\"\n},\n{\n\t\"short\": null, \n\t\"long\": null",
+      "normalized_text": "{\n\"short_reason\": \"selected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"busier background\", \n\"long\": \"This image has a more distracting background than the other one.\"\n},\n{\n\t\"short\": null, \n\t\"long\": null"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/90567.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis is strong. Busy background distracts from the main subject.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the main subject.\"],\n\"comparison_reason\": [\n{\n\"reason\": \"clean subject emphasis\",\n\"reason_strength\": 1,\n\"reason\\_weakness\": \"busy background\"\n},\n{",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the main subject.\"],\n\"comparison_reason\": [\n{\n\"reason\": \"clean subject emphasis\",\n\"reason_strength\": 1,\n\"reason\\_weakness\": \"busy background\"\n},\n{"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/234740.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis. Busier background.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"selected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"busy background\",\n\t\"long\": \"The image has a busy background that takes away from the main subject of the photo.\"\n},\n{\n\t\"short\": null,\n\t\"medium\":",
+      "normalized_text": "{\n\"short_reason\": \"selected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"busy background\",\n\t\"long\": \"The image has a busy background that takes away from the main subject of the photo.\"\n},\n{\n\t\"short\": null,\n\t\"medium\":"
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_456_19997008730_88ecb9ab04_b.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis. Busier background.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"selected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"shortReason\": \"busier background\", \n\"dDetailReason\": [\"Busier background.\"]\n},\n{\n\t\"shortReaon\": \"clean subject emphasis.\",\n\t\"dDetail",
+      "normalized_text": "{\n\"short_reason\": \"selected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"shortReason\": \"busier background\", \n\"dDetailReason\": [\"Busier background.\"]\n},\n{\n\t\"shortReaon\": \"clean subject emphasis.\",\n\t\"dDetail"
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_341_19711219273_c56cef839b_b.jpg",
+      "short_reason": "selected: clean subject emphasis, busier background",
+      "detailed_reason": "'Clean subject emphasis. Busier background.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "strict_json",
+      "parse_warning": null,
+      "raw_text": "{\n\"short_reason\": \"selected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"busier background\", \n\"long\": \"clean subject emphasis.\"\n},\n{\n\t\"short\": null,\n\t\"long\": null\n}\n]\n}",
+      "normalized_text": "{\n\"short_reason\": \"selected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"busier background\", \n\"long\": \"clean subject emphasis.\"\n},\n{\n\t\"short\": null,\n\t\"long\": null\n}\n]\n}"
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_436_19928660899_cabcb63b83_b.jpg",
+      "short_reason": null,
+      "detailed_reason": "{ \"short_reason\": \"rejected: clean subject emphasis, busier background\", \"detailed_reason\": [\"Clean subject emphasis is strong. The children are sitting on the floor in a room with a table and chairs nearby.\\n\\nBackground:\\nThe children are sitting in front of a table covered with a white cloth. There are other people seated at tables around them.\\n\\nthey are wearing color",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "plain_text_fallback",
+      "parse_warning": "Recovered plain-text local output without full JSON.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. The children are sitting on the floor in a room with a table and chairs nearby.\\n\\nBackground:\\nThe children are sitting in front of a table covered with a white cloth. There are other people seated at tables around them.\\n\\nthey are wearing color",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. The children are sitting on the floor in a room with a table and chairs nearby.\\n\\nBackground:\\nThe children are sitting in front of a table covered with a white cloth. There are other people seated at tables around them.\\n\\nthey are wearing color"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/190297.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis is strong. Busy background distracts from the main subject.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the main subject.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong lighting and composition with a clear focus on the subject\"\n},\n{\n\t\"short\":",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the main subject.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong lighting and composition with a clear focus on the subject\"\n},\n{\n\t\"short\":"
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_390_20199257905_b8d9d83e8a_b.jpg",
+      "short_reason": null,
+      "detailed_reason": "{ \"short_reason\": \"rejected: clean subject emphasis, busier background\", \"detailed_reason\": [\"Clean subject emphasis is strong. The image has a clear and well-defined subject in the foreground with good separation from the background.\\n\\nBackground:\\nThe background of this photo is quite busy. There are multiple people standing around on the field, which can be distracting to the viewer. Additionally,",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "plain_text_fallback",
+      "parse_warning": "Recovered plain-text local output without full JSON.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. The image has a clear and well-defined subject in the foreground with good separation from the background.\\n\\nBackground:\\nThe background of this photo is quite busy. There are multiple people standing around on the field, which can be distracting to the viewer. Additionally,",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. The image has a clear and well-defined subject in the foreground with good separation from the background.\\n\\nBackground:\\nThe background of this photo is quite busy. There are multiple people standing around on the field, which can be distracting to the viewer. Additionally,"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/635840.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis is strong. Busy background distracts from the main subject.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the main subject.\"],\n\"comparison_reason\": [\n{\n\"short\": \"rejection of distraction in foreground\",\n\"long\": \"The image has a lot of distractions in the foreground that take away from the",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the main subject.\"],\n\"comparison_reason\": [\n{\n\"short\": \"rejection of distraction in foreground\",\n\"long\": \"The image has a lot of distractions in the foreground that take away from the"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "a_lamp_track": {
+    "v0_a": {
+      "source": "outputs/alamp_paper_ava_classification_20260511/mid_eval/v0_a/evaluation_summary.json",
+      "task": "AVA Classification (>5.0)",
+      "metrics": {
+        "accuracy": 0.7236328125,
+        "recall": 0.9657534246575342,
+        "f1": 0.8328411104548139,
+        "roc_auc": 0.6678897738456726,
+        "ap": 0.8199383020401001,
+        "specificity": 0.12244897959183673
+      }
+    },
+    "v0_b_fixed": {
+      "source": "outputs/alamp_paper_ava_classification_20260511/mid_eval/v0_b_fixed/evaluation_summary.json",
+      "task": "AVA Classification (>5.0)",
+      "metrics": {
+        "accuracy": 0.71875,
+        "recall": 0.952054794520548,
+        "f1": 0.8283671036948749,
+        "roc_auc": 0.664537250995636,
+        "ap": 0.8180224299430847,
+        "specificity": 0.13945578231292516
+      }
+    },
+    "mpnet_v4_1024_tuned": {
+      "source": "outputs/alamp_paper_mpnet_selector_compare_20260512/eval/v4_1024_gpu_tuned/v4_1024_gpu_tuned/threshold_calibration_summary.json",
+      "task": "AVA Classification (>=5.0)",
+      "metrics_at_0_61": {
+        "accuracy": 0.671875,
+        "balanced_accuracy": 0.6246109402665176,
+        "specificity": 0.5136054421768708,
+        "recall": 0.7356164383561644,
+        "f1": 0.7617021276595745,
+        "roc_auc": 0.6629251700680272
+      }
+    },
+    "practical_aadb_alamp": {
+      "source": "outputs/ava_retrain_rgnet_alamp_20260506/baseline_eval/alamp_aadb_on_aadb_val512_metrics.json",
+      "task": "AADB Regression",
+      "metrics": {
+        "srcc": 0.5843108869358908,
+        "plcc": 0.5859304368880826,
+        "mae": 0.12918773293495178,
+        "pairwise_accuracy": 0.7080008626266983
+      }
+    }
+  },
+  "rgnet_track": {
+    "paper_ava_lse_r4": {
+      "source": "outputs/rgnet_paper_ava_classification_20260510/eval/lse_r4/evaluation_summary.json",
+      "task": "AVA Classification (>=5.0)",
+      "metrics": {
+        "accuracy": 0.7696583036518063,
+        "precision": 0.8057275925283655,
+        "recall": 0.8922418522989136,
+        "f1": 0.8467807024395324,
+        "roc_auc": 0.7979061007499695,
+        "ap": 0.9018764495849609,
+        "specificity": 0.46456369001775225
+      }
+    },
+    "practical_aadb_rgnet": {
+      "source": "outputs/rgnet_paper_consolidated_20260511/rgnet_paper_oriented_summary.json",
+      "task": "AADB Regression",
+      "metrics": {
+        "srcc": 0.6818650940218989,
+        "plcc": 0.6877526576657776,
+        "mae": 0.11975742876529694
+      }
+    }
+  }
+}

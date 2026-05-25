@@ -1,0 +1,4 @@
+./tools/run_v2_smoke.sh > outputs/alamp_paper_ava_v2_graph_lite_20260511/run.log 2>&1
+export TF_CUDNN_USE_AUTOTUNE=0
+export CUDA_VISIBLE_DEVICES=""
+./.venv_gpu/bin/python -m src.eval.evaluate_alamp_paper_ava_v2_graph_lite     --config configs/paper_benchmarks/alamp_paper_ava_v2_graph_lite.yaml     --model_path outputs/alamp_paper_ava_v2_graph_lite_20260511/mid_train/final_model.keras     --output_dir outputs/alamp_paper_ava_v2_graph_lite_20260511/eval_mid     --batch_size 4

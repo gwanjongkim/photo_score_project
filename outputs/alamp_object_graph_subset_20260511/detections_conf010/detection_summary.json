@@ -1,0 +1,317 @@
+{
+  "confidence": 0.1,
+  "max_objects": 4,
+  "model": "models/detectors/yolo11n.pt",
+  "model_file": "models/detectors/yolo11n.pt",
+  "selected_detector": "ultralytics",
+  "splits": {
+    "test": {
+      "avg_objects_per_image": 1.975342,
+      "batch_size": 16,
+      "confidence": 0.1,
+      "csv": "outputs/alamp_object_graph_subset_20260511/subsets/test_ultra_valid_4096.csv",
+      "device": "0",
+      "image_col": "image_path",
+      "image_dir": "/home/omen_pc1/photo_score_project",
+      "max_objects": 4,
+      "model": "models/detectors/yolo11n.pt",
+      "model_file": "models/detectors/yolo11n.pt",
+      "no_object": 661,
+      "output_jsonl": "outputs/alamp_object_graph_subset_20260511/detections_conf010/test_objects_4096.jsonl",
+      "processed": 4096,
+      "records_written": 4096,
+      "requested": 4096,
+      "skipped": 0,
+      "skipped_examples": [],
+      "split": "test",
+      "top_classes": [
+        {
+          "class_name": "person",
+          "count": 2179
+        },
+        {
+          "class_name": "bird",
+          "count": 697
+        },
+        {
+          "class_name": "car",
+          "count": 266
+        },
+        {
+          "class_name": "vase",
+          "count": 263
+        },
+        {
+          "class_name": "bench",
+          "count": 189
+        },
+        {
+          "class_name": "boat",
+          "count": 183
+        },
+        {
+          "class_name": "clock",
+          "count": 171
+        },
+        {
+          "class_name": "apple",
+          "count": 169
+        },
+        {
+          "class_name": "dog",
+          "count": 166
+        },
+        {
+          "class_name": "orange",
+          "count": 150
+        },
+        {
+          "class_name": "potted plant",
+          "count": 144
+        },
+        {
+          "class_name": "banana",
+          "count": 142
+        },
+        {
+          "class_name": "tie",
+          "count": 133
+        },
+        {
+          "class_name": "umbrella",
+          "count": 121
+        },
+        {
+          "class_name": "dining table",
+          "count": 116
+        },
+        {
+          "class_name": "scissors",
+          "count": 111
+        },
+        {
+          "class_name": "bottle",
+          "count": 111
+        },
+        {
+          "class_name": "cup",
+          "count": 102
+        },
+        {
+          "class_name": "bed",
+          "count": 102
+        },
+        {
+          "class_name": "chair",
+          "count": 100
+        }
+      ]
+    },
+    "train": {
+      "avg_objects_per_image": 1.99585,
+      "batch_size": 16,
+      "confidence": 0.1,
+      "csv": "outputs/alamp_object_graph_subset_20260511/subsets/train_ultra_valid_4096.csv",
+      "device": "0",
+      "image_col": "image_path",
+      "image_dir": "/home/omen_pc1/photo_score_project",
+      "max_objects": 4,
+      "model": "models/detectors/yolo11n.pt",
+      "model_file": "models/detectors/yolo11n.pt",
+      "no_object": 641,
+      "output_jsonl": "outputs/alamp_object_graph_subset_20260511/detections_conf010/train_objects_4096.jsonl",
+      "processed": 4096,
+      "records_written": 4096,
+      "requested": 4096,
+      "skipped": 0,
+      "skipped_examples": [],
+      "split": "train",
+      "top_classes": [
+        {
+          "class_name": "person",
+          "count": 2220
+        },
+        {
+          "class_name": "bird",
+          "count": 649
+        },
+        {
+          "class_name": "vase",
+          "count": 252
+        },
+        {
+          "class_name": "car",
+          "count": 245
+        },
+        {
+          "class_name": "boat",
+          "count": 185
+        },
+        {
+          "class_name": "bench",
+          "count": 169
+        },
+        {
+          "class_name": "banana",
+          "count": 168
+        },
+        {
+          "class_name": "potted plant",
+          "count": 160
+        },
+        {
+          "class_name": "clock",
+          "count": 147
+        },
+        {
+          "class_name": "dog",
+          "count": 146
+        },
+        {
+          "class_name": "apple",
+          "count": 146
+        },
+        {
+          "class_name": "cat",
+          "count": 132
+        },
+        {
+          "class_name": "bottle",
+          "count": 128
+        },
+        {
+          "class_name": "bed",
+          "count": 128
+        },
+        {
+          "class_name": "orange",
+          "count": 122
+        },
+        {
+          "class_name": "umbrella",
+          "count": 121
+        },
+        {
+          "class_name": "cup",
+          "count": 116
+        },
+        {
+          "class_name": "cake",
+          "count": 115
+        },
+        {
+          "class_name": "tie",
+          "count": 106
+        },
+        {
+          "class_name": "chair",
+          "count": 101
+        }
+      ]
+    },
+    "val": {
+      "avg_objects_per_image": 1.989258,
+      "batch_size": 16,
+      "confidence": 0.1,
+      "csv": "outputs/alamp_object_graph_subset_20260511/subsets/val_ultra_valid_4096.csv",
+      "device": "0",
+      "image_col": "image_path",
+      "image_dir": "/home/omen_pc1/photo_score_project",
+      "max_objects": 4,
+      "model": "models/detectors/yolo11n.pt",
+      "model_file": "models/detectors/yolo11n.pt",
+      "no_object": 683,
+      "output_jsonl": "outputs/alamp_object_graph_subset_20260511/detections_conf010/val_objects_4096.jsonl",
+      "processed": 4096,
+      "records_written": 4096,
+      "requested": 4096,
+      "skipped": 0,
+      "skipped_examples": [],
+      "split": "val",
+      "top_classes": [
+        {
+          "class_name": "person",
+          "count": 2133
+        },
+        {
+          "class_name": "bird",
+          "count": 713
+        },
+        {
+          "class_name": "vase",
+          "count": 263
+        },
+        {
+          "class_name": "boat",
+          "count": 235
+        },
+        {
+          "class_name": "car",
+          "count": 222
+        },
+        {
+          "class_name": "banana",
+          "count": 201
+        },
+        {
+          "class_name": "clock",
+          "count": 174
+        },
+        {
+          "class_name": "bench",
+          "count": 173
+        },
+        {
+          "class_name": "potted plant",
+          "count": 153
+        },
+        {
+          "class_name": "dog",
+          "count": 152
+        },
+        {
+          "class_name": "apple",
+          "count": 152
+        },
+        {
+          "class_name": "cup",
+          "count": 122
+        },
+        {
+          "class_name": "dining table",
+          "count": 118
+        },
+        {
+          "class_name": "cake",
+          "count": 118
+        },
+        {
+          "class_name": "orange",
+          "count": 117
+        },
+        {
+          "class_name": "umbrella",
+          "count": 115
+        },
+        {
+          "class_name": "bottle",
+          "count": 111
+        },
+        {
+          "class_name": "book",
+          "count": 110
+        },
+        {
+          "class_name": "tie",
+          "count": 107
+        },
+        {
+          "class_name": "chair",
+          "count": 106
+        }
+      ]
+    }
+  },
+  "status": "available",
+  "updated_at": "2026-05-14T04:15:46.325143+00:00"
+}

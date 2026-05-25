@@ -1,13 +1,16 @@
-# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+
 .venv/
 .venv_gpu/
 .venv_vila/
 .venv_test/
 venv/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+env/
 
 # Env / secrets
 .env
@@ -15,34 +18,214 @@ __pycache__/
 secrets/
 serviceAccountKey.json
 
-# Outputs / cache
-outputs/
-tmp/
-.cache/
-.firebase/
-logs/
-*.log
-
-# Data
-data/
-datasets/
-
-# Models / checkpoints / large binaries
-models/
-weights/
-checkpoints/
-assets/models/
-
-*.ckpt
-*.pth
-*.pt
-*.onnx
-
-*.bin
-*.safetensors
-
 # OS / editor
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
+
+# Cache
+tmp/
+.cache/
+.firebase/
+
+# Dataset files only
+data/raw/
+data/datasets/
+datasets/
+dataset/
+raw_images/
+downloads/
+data/processed/ava/*.csv
+data/processed/ava/*.txt
+data/processed/ava_captions/*.csv
+data/processed/distortionguard_iqa_v1/*.csv
+data/processed/distortionguard_iqa_v1/**/*.jpg
+data/processed/paq2piq/*.csv
+data/processed/smoke/*.csv
+data/processed/spaq/*.csv
+data/processed/techiqa_guard/*.csv
+data/processed/aadb/*.csv
+data/processed/flive/
+data/processed/koniq10k/
+
+# --- Large external model caches / artifacts ---
+# Hugging Face / local model caches
+**/hf_cache/
+**/.cache/
+**/hub/models--*/
+
+# Huge local LLM/VLM artifacts
+outputs/**/merged_model/
+outputs/**/merged_gemini_teacher_*/
+outputs/**/quantized_bnb4_merged_gemini_teacher_*/
+outputs/**/model.safetensors
+
+# External large VLM/LLM checkpoints
+checkpoints/VILA1.5-3b/
+checkpoints/NVILA-8B/
+models/litert/gemma-4-E4B-it-litert-lm/
+
+# --- Do not upload generated outputs / logs / experiment artifacts ---
+runs/
+logs/
+wandb/
+tmp/
+.cache/
+.firebase/
+
+# --- Do not upload Python virtual environments ---
+.venv/
+.venv_gpu/
+.venv_vila/
+.venv_test/
+venv/
+env/
+
+# --- Do not upload model/checkpoint directories ---
+
+# --- Do not upload large model binaries / converted artifacts ---
+*.tflite
+*.h5
+*.weights.h5
+*.keras
+*.ckpt
+*.ckpt.*
+*.pt
+*.pth
+*.onnx
+*.pb
+*.bin
+*.safetensors
+*.litertlm
+
+# --- Do not upload archives / dumped arrays ---
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+*.npy
+*.npz
+
+# --- Dataset files ---
+data/raw/
+data/datasets/
+datasets/
+dataset/
+raw_images/
+downloads/
+data/processed/ava/
+data/processed/ava_captions/
+data/processed/distortionguard_iqa_v1/
+data/processed/paq2piq/
+data/processed/smoke/
+data/processed/spaq/
+data/processed/techiqa_guard/
+data/processed/aadb/
+data/processed/flive/
+data/processed/koniq10k/
+
+# --- Project upload policy ---
+# Upload source/config/docs.
+# Do not upload datasets, virtualenvs, large model binaries, or external model caches.
+# Keep lightweight reports from outputs.
+
+# Python virtual environments
+.venv/
+.venv_gpu/
+.venv_vila/
+.venv_test/
+venv/
+env/
+
+# Cache / temporary files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+Thumbs.db
+tmp/
+.cache/
+.firebase/
+wandb/
+logs/
+runs/
+*.log
+
+# Datasets
+data/raw/
+data/datasets/
+datasets/
+dataset/
+raw_images/
+downloads/
+data/processed/ava/
+data/processed/ava_captions/
+data/processed/distortionguard_iqa_v1/
+data/processed/paq2piq/
+data/processed/smoke/
+data/processed/spaq/
+data/processed/techiqa_guard/
+data/processed/aadb/
+data/processed/flive/
+data/processed/koniq10k/
+data/processed/topiq_replacement/
+
+# Root-level model/checkpoint/weight stores only.
+# Do not use "models/" without leading slash because it can ignore src/models/.
+/models/
+/weights/
+/checkpoints/
+/assets/models/
+
+# Keep reports from outputs, but ignore large generated artifacts.
+outputs/**
+!outputs/**/
+!outputs/**/*.md
+!outputs/**/*.txt
+!outputs/**/*.json
+!outputs/**/*.csv
+
+# Large model binaries / converted artifacts
+*.tflite
+*.h5
+*.weights.h5
+*.keras
+*.ckpt
+*.ckpt.*
+*.pt
+*.pth
+*.onnx
+*.pb
+*.bin
+*.safetensors
+*.litertlm
+
+# Archives / dumped arrays
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+*.npy
+*.npz
+
+# Hugging Face / external model caches
+**/hf_cache/
+**/hub/models--*/
+
+
+# --- Allow selected Flutter integration TFLite models ---
+# General rule may ignore *.tflite, but these app-side A-cut models are allowed.
+!exports/tflite/
+!exports/tflite/*nima*.tflite
+!exports/tflite/*rgnet*.tflite
+!assets/
+!assets/models/
+!assets/models/*nima*.tflite
+!assets/models/*rgnet*.tflite

@@ -1,0 +1,56 @@
+{
+  "created_at_local": "2026-05-10T21:24:32.754861+09:00",
+  "model_variant": "RGNet-paper-v1 approximation",
+  "official_reproduction": false,
+  "model_name": "rgnet_paper_v1_aadb_regression",
+  "model_path": "outputs/rgnet_paper_v1_ablation_full_candidates_20260510/full_train/agg_mean_full/final_model.keras",
+  "image_size": 256,
+  "batch_size": 16,
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.20.0"
+  },
+  "splits": {
+    "test": {
+      "num_samples": 1000,
+      "target_min": 0.05000000074505806,
+      "target_max": 1.0,
+      "prediction_min": 0.08281935751438141,
+      "prediction_max": 0.955298900604248,
+      "srcc": 0.6818650940218989,
+      "plcc": 0.6877526576657776,
+      "mae": 0.11975742876529694,
+      "rmse": 0.14860332788070868,
+      "mse": 0.022082949057221413,
+      "split": "test",
+      "csv": "data/processed/aadb/test.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "elapsed_seconds": 24.17577127700497,
+      "seconds_per_image": 0.02417577127700497,
+      "predictions_path": "outputs/rgnet_paper_v1_ablation_full_candidates_20260510/eval/agg_mean_full/test_predictions.csv"
+    },
+    "val": {
+      "num_samples": 846,
+      "target_min": 0.0,
+      "target_max": 0.949999988079071,
+      "prediction_min": 0.13933031260967255,
+      "prediction_max": 0.9156452417373657,
+      "srcc": 0.5955909101933303,
+      "plcc": 0.5998565240168143,
+      "mae": 0.11605210602283478,
+      "rmse": 0.1495797354518738,
+      "mse": 0.022374097257852554,
+      "split": "val",
+      "csv": "data/processed/aadb/val.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "elapsed_seconds": 10.84679877499002,
+      "seconds_per_image": 0.012821275147742341,
+      "predictions_path": "outputs/rgnet_paper_v1_ablation_full_candidates_20260510/eval/agg_mean_full/val_predictions.csv"
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "epochs": [
+    {
+      "epoch": 1,
+      "num_samples": 24,
+      "mae": 0.045180510729551315,
+      "rmse": 0.05586015433073044,
+      "mse": 0.0031203569378703833,
+      "r2": -0.010544115234148776,
+      "pearson": NaN,
+      "spearman": null,
+      "pairwise_accuracy": 0.0,
+      "pairwise_pairs_scored": 50000,
+      "top_k": 10,
+      "top_k_overlap": 0.2
+    },
+    {
+      "epoch": 2,
+      "num_samples": 24,
+      "mae": 0.045176733285188675,
+      "rmse": 0.05585899576544762,
+      "mse": 0.0031202274840325117,
+      "r2": -0.010502190922310639,
+      "pearson": NaN,
+      "spearman": null,
+      "pairwise_accuracy": 0.0,
+      "pairwise_pairs_scored": 50000,
+      "top_k": 10,
+      "top_k_overlap": 0.2
+    },
+    {
+      "epoch": 3,
+      "num_samples": 24,
+      "mae": 0.04524095728993416,
+      "rmse": 0.05587896704673767,
+      "mse": 0.0031224589329212904,
+      "r2": -0.011224857477447392,
+      "pearson": null,
+      "spearman": null,
+      "pairwise_accuracy": 0.0,
+      "pairwise_pairs_scored": 50000,
+      "top_k": 10,
+      "top_k_overlap": 0.2
+    },
+    {
+      "epoch": 4,
+      "num_samples": 24,
+      "mae": 0.045267749577760696,
+      "rmse": 0.05588749423623085,
+      "mse": 0.0031234119087457657,
+      "r2": -0.0115335088859434,
+      "pearson": null,
+      "spearman": null,
+      "pairwise_accuracy": 0.0,
+      "pairwise_pairs_scored": 50000,
+      "top_k": 10,
+      "top_k_overlap": 0.2
+    },
+    {
+      "epoch": 5,
+      "num_samples": 24,
+      "mae": 0.04528833553195,
+      "rmse": 0.055894117802381516,
+      "mse": 0.0031241525430232286,
+      "r2": -0.011773392358474855,
+      "pearson": null,
+      "spearman": null,
+      "pairwise_accuracy": 0.0,
+      "pairwise_pairs_scored": 50000,
+      "top_k": 10,
+      "top_k_overlap": 0.2
+    },
+    {
+      "epoch": 6,
+      "num_samples": 24,
+      "mae": 0.04529322311282158,
+      "rmse": 0.05589570477604866,
+      "mse": 0.003124329959973693,
+      "r2": -0.011830799509696677,
+      "pearson": null,
+      "spearman": null,
+      "pairwise_accuracy": 0.0,
+      "pairwise_pairs_scored": 50000,
+      "top_k": 10,
+      "top_k_overlap": 0.2
+    }
+  ]
+}

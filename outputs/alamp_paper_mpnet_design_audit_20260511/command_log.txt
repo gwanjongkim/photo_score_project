@@ -1,0 +1,3 @@
+chmod +x tools/run_alamp_paper_mpnet_patch_generation.sh
+bash tools/run_alamp_paper_mpnet_patch_generation.sh
+./.venv_gpu/bin/python -c "import json; ... "  # to generate statistics for the report

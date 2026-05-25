@@ -1,0 +1,83 @@
+{
+  "created_at_local": "2026-05-07T21:18:52.251992+09:00",
+  "model": "rgnet",
+  "initial_model": "outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras",
+  "train_csv": "data/processed/aadb/train.csv",
+  "val_csv": "data/processed/aadb/val.csv",
+  "target_col": "score",
+  "image_size": 256,
+  "batch_size": 16,
+  "epochs_requested": 10,
+  "learning_rate": 1e-05,
+  "early_stopping": {
+    "monitor": "val_loss",
+    "patience": 3,
+    "restore_best_weights": true
+  },
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "mixed_float16"
+  },
+  "outputs": {
+    "best_weights": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/best.weights.h5",
+    "final_model": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+    "saved_model": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/saved_model",
+    "training_history_csv": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/training_history.csv"
+  },
+  "epochs_completed": 10,
+  "best_epoch": 10,
+  "best_val_loss": 0.019849520176649094,
+  "best_val_mae": 0.11031755805015564,
+  "history": {
+    "loss": [
+      0.028149500489234924,
+      0.023451942950487137,
+      0.021744271740317345,
+      0.020737864077091217,
+      0.020224543288350105,
+      0.019582917913794518,
+      0.01876750960946083,
+      0.018197542056441307,
+      0.017792455852031708,
+      0.01703551970422268
+    ],
+    "mae": [
+      0.13456885516643524,
+      0.12136086076498032,
+      0.11585870385169983,
+      0.11312322318553925,
+      0.11152969300746918,
+      0.10926348716020584,
+      0.10719174146652222,
+      0.10594736784696579,
+      0.10475123673677444,
+      0.1023954451084137
+    ],
+    "val_loss": [
+      0.03448839113116264,
+      0.025665948167443275,
+      0.025663411244750023,
+      0.025403685867786407,
+      0.020992515608668327,
+      0.022189876064658165,
+      0.021183334290981293,
+      0.020453326404094696,
+      0.022273844107985497,
+      0.019849520176649094
+    ],
+    "val_mae": [
+      0.15188442170619965,
+      0.12716549634933472,
+      0.1262294352054596,
+      0.12591898441314697,
+      0.11362886428833008,
+      0.11678280681371689,
+      0.11362401396036148,
+      0.11112625896930695,
+      0.1160094141960144,
+      0.11031755805015564
+    ]
+  }
+}

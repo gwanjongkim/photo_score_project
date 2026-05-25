@@ -1,0 +1,200 @@
+{
+  "answers": {
+    "best_validation_balanced_accuracy_threshold": 0.7,
+    "best_validation_f1_threshold": 0.41,
+    "false_positive_reduction": {
+      "best_validation_balanced_accuracy": {
+        "test_fp_delta_vs_0_50": -2065,
+        "threshold": 0.7,
+        "validation_fp_delta_vs_0_50": -2157
+      },
+      "best_validation_youden_j": {
+        "test_fp_delta_vs_0_50": -2065,
+        "threshold": 0.7,
+        "validation_fp_delta_vs_0_50": -2157
+      }
+    },
+    "higher_threshold_reduces_false_positives": "Yes, selected thresholds above 0.50 reduce false positives relative to 0.50.",
+    "threshold_0_50_already_good": "Yes, threshold 0.50 is a strong baseline, but validation F1 improves by 0.003517 at threshold 0.41.",
+    "validation_balanced_accuracy_delta_vs_0_50": 0.04412421503323016
+  },
+  "calibration_method": {
+    "selected_thresholds": [
+      "threshold_0_50_baseline",
+      "best_validation_f1",
+      "best_validation_balanced_accuracy",
+      "best_validation_youden_j"
+    ],
+    "selection_split": "validation",
+    "threshold_range": "0.01..0.99",
+    "threshold_step": 0.01
+  },
+  "inputs": {
+    "test_csv": "outputs/rgnet_paper_ava_classification_20260510/eval/lse_r4/test_predictions.csv",
+    "test_label_column": "label",
+    "test_probability_column": "prediction_prob",
+    "test_rows": 25549,
+    "validation_csv": "outputs/rgnet_paper_ava_classification_20260510/eval/lse_r4/val_predictions.csv",
+    "validation_label_column": "label",
+    "validation_probability_column": "prediction_prob",
+    "validation_rows": 25551
+  },
+  "selections": {
+    "best_validation_balanced_accuracy": {
+      "test": {
+        "accuracy": 0.7132960194136757,
+        "balanced_accuracy": 0.7232430597853143,
+        "confusion_matrix": {
+          "fn": 5469,
+          "fp": 1856,
+          "tn": 5467,
+          "tp": 12757
+        },
+        "f1": 0.7769420506105547,
+        "negative_predictions": 10936,
+        "positive_predictions": 14613,
+        "precision": 0.8729898035995347,
+        "recall": 0.6999341599912213,
+        "specificity": 0.7465519595794073,
+        "threshold": 0.7,
+        "youden_j": 0.44648611957062867
+      },
+      "threshold": 0.7,
+      "validation": {
+        "accuracy": 0.716879965559078,
+        "balanced_accuracy": 0.7271894248856421,
+        "confusion_matrix": {
+          "fn": 5365,
+          "fp": 1869,
+          "tn": 5679,
+          "tp": 12638
+        },
+        "f1": 0.7774838511227314,
+        "negative_predictions": 11044,
+        "positive_predictions": 14507,
+        "precision": 0.8711656441717791,
+        "recall": 0.701994112092429,
+        "specificity": 0.7523847376788553,
+        "threshold": 0.7,
+        "youden_j": 0.4543788497712842
+      }
+    },
+    "best_validation_f1": {
+      "test": {
+        "accuracy": 0.7683275274961838,
+        "balanced_accuracy": 0.644875980862612,
+        "confusion_matrix": {
+          "fn": 1200,
+          "fp": 4719,
+          "tn": 2604,
+          "tp": 17026
+        },
+        "f1": 0.8519176402892097,
+        "negative_predictions": 3804,
+        "positive_predictions": 21745,
+        "precision": 0.7829845941595769,
+        "recall": 0.9341599912213322,
+        "specificity": 0.35559197050389185,
+        "threshold": 0.41,
+        "youden_j": 0.289751961725224
+      },
+      "threshold": 0.41,
+      "validation": {
+        "accuracy": 0.7685413486751986,
+        "balanced_accuracy": 0.6518266099794179,
+        "confusion_matrix": {
+          "fn": 1133,
+          "fp": 4781,
+          "tn": 2767,
+          "tp": 16870
+        },
+        "f1": 0.8508599384677459,
+        "negative_predictions": 3900,
+        "positive_predictions": 21651,
+        "precision": 0.779178790817976,
+        "recall": 0.9370660445481309,
+        "specificity": 0.36658717541070485,
+        "threshold": 0.41,
+        "youden_j": 0.30365321995883576
+      }
+    },
+    "best_validation_youden_j": {
+      "test": {
+        "accuracy": 0.7132960194136757,
+        "balanced_accuracy": 0.7232430597853143,
+        "confusion_matrix": {
+          "fn": 5469,
+          "fp": 1856,
+          "tn": 5467,
+          "tp": 12757
+        },
+        "f1": 0.7769420506105547,
+        "negative_predictions": 10936,
+        "positive_predictions": 14613,
+        "precision": 0.8729898035995347,
+        "recall": 0.6999341599912213,
+        "specificity": 0.7465519595794073,
+        "threshold": 0.7,
+        "youden_j": 0.44648611957062867
+      },
+      "threshold": 0.7,
+      "validation": {
+        "accuracy": 0.716879965559078,
+        "balanced_accuracy": 0.7271894248856421,
+        "confusion_matrix": {
+          "fn": 5365,
+          "fp": 1869,
+          "tn": 5679,
+          "tp": 12638
+        },
+        "f1": 0.7774838511227314,
+        "negative_predictions": 11044,
+        "positive_predictions": 14507,
+        "precision": 0.8711656441717791,
+        "recall": 0.701994112092429,
+        "specificity": 0.7523847376788553,
+        "threshold": 0.7,
+        "youden_j": 0.4543788497712842
+      }
+    },
+    "threshold_0_50_baseline": {
+      "test": {
+        "accuracy": 0.7696583036518063,
+        "balanced_accuracy": 0.6784027778495797,
+        "confusion_matrix": {
+          "fn": 1964,
+          "fp": 3921,
+          "tn": 3402,
+          "tp": 16262
+        },
+        "f1": 0.8467807024395324,
+        "negative_predictions": 5366,
+        "positive_predictions": 20183,
+        "precision": 0.8057275925283655,
+        "recall": 0.8922418522989136,
+        "specificity": 0.4645637034002458,
+        "threshold": 0.5,
+        "youden_j": 0.3568055556991594
+      },
+      "threshold": 0.5,
+      "validation": {
+        "accuracy": 0.7716332041798756,
+        "balanced_accuracy": 0.6830652098524119,
+        "confusion_matrix": {
+          "fn": 1809,
+          "fp": 4026,
+          "tn": 3522,
+          "tp": 16194
+        },
+        "f1": 0.8473432226669806,
+        "negative_predictions": 5331,
+        "positive_predictions": 20220,
+        "precision": 0.8008902077151335,
+        "recall": 0.8995167472087985,
+        "specificity": 0.4666136724960254,
+        "threshold": 0.5,
+        "youden_j": 0.36613041970482385
+      }
+    }
+  }
+}

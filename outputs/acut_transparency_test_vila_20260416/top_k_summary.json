@@ -1,0 +1,655 @@
+{
+  "schema_version": "acut_product_app.v1",
+  "generated_at": "2026-04-16T11:43:13.738400Z",
+  "ranking_stage": "post_diversity",
+  "score_semantics": "rank, selected, and status reflect the canonical final post-diversity order. final_score_after_rerank remains the pre-diversity score after pairwise and VILA rerank.",
+  "diversity_enabled": true,
+  "final_ordering_uses_diversity": true,
+  "final_score_matches_final_ranking": false,
+  "top_k": [
+    {
+      "rank": 1,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20231231_150055.jpg",
+      "image_file_name": "20231231_150055.jpg",
+      "final_score_after_rerank": 0.631271,
+      "final_score": 0.631271,
+      "technical_score": 0.700633,
+      "technical_koniq_score": 58.15625,
+      "technical_flive_image_score": 81.125,
+      "technical_flive_patch_mean": 74.599998,
+      "technical_flive_patch_min": 71.375,
+      "aesthetic_score": 0.58503,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "technical_reason": "Technical quality is solid at 0.701 (KoNIQ 58.156, FLIVE image 81.125, patch mean 74.600, patch min 71.375).",
+      "aesthetic_reason": "Aesthetic quality is solid at 0.585 from stage5_student_full_aadb_tensorflow.",
+      "final_outcome_reason": "Rank 1 is selected with final score 0.631 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "The selector held this frame on technical quality; aesthetic score created the clearest edge.",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "local_vila_runtime_failed",
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "aesthetic score",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 2,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564674752-17.jpg",
+      "image_file_name": "1675564674752-17.jpg",
+      "final_score_after_rerank": 0.604863,
+      "final_score": 0.604863,
+      "technical_score": 0.671311,
+      "technical_koniq_score": 49.875,
+      "technical_flive_image_score": 74.3125,
+      "technical_flive_patch_mean": 78.775002,
+      "technical_flive_patch_min": 77.4375,
+      "aesthetic_score": 0.560564,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "technical_reason": "Technical quality is solid at 0.671 (KoNIQ 49.875, FLIVE image 74.312, patch mean 78.775, patch min 77.438).",
+      "aesthetic_reason": "Aesthetic quality is mixed at 0.561 from stage5_student_full_aadb_tensorflow.",
+      "final_outcome_reason": "Rank 2 is selected with final score 0.605 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "The selector held this frame on technical quality; aesthetic score created the clearest edge.",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "local_vila_runtime_failed",
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "aesthetic score",
+        "technical quality",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 3,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_170733.jpg",
+      "image_file_name": "20250204_170733.jpg",
+      "final_score_after_rerank": 0.589181,
+      "final_score": 0.589181,
+      "technical_score": 0.689208,
+      "technical_koniq_score": 57.03125,
+      "technical_flive_image_score": 72.75,
+      "technical_flive_patch_mean": 77.9375,
+      "technical_flive_patch_min": 76.4375,
+      "aesthetic_score": 0.522495,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "technical_reason": "Technical quality is solid at 0.689 (KoNIQ 57.031, FLIVE image 72.750, patch mean 77.938, patch min 76.438).",
+      "aesthetic_reason": "Aesthetic quality is mixed at 0.522 from stage5_student_full_aadb_tensorflow.",
+      "final_outcome_reason": "Rank 3 is selected with final score 0.589 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "Selected on technical consistency, with aesthetic score keeping it ahead of nearby alternatives.",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "local_vila_runtime_failed",
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "aesthetic score",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 4,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564674752-15.jpg",
+      "image_file_name": "1675564674752-15.jpg",
+      "final_score_after_rerank": 0.576154,
+      "final_score": 0.576154,
+      "technical_score": 0.674561,
+      "technical_koniq_score": 50.25,
+      "technical_flive_image_score": 74.125,
+      "technical_flive_patch_mean": 79.525002,
+      "technical_flive_patch_min": 77.875,
+      "aesthetic_score": 0.51055,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "technical_reason": "Technical quality is solid at 0.675 (KoNIQ 50.250, FLIVE image 74.125, patch mean 79.525, patch min 77.875).",
+      "aesthetic_reason": "Aesthetic quality is mixed at 0.511 from stage5_student_full_aadb_tensorflow.",
+      "final_outcome_reason": "Rank 4 is selected with final score 0.576 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "The selector held this frame on technical quality; aesthetic score created the clearest edge.",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "local_vila_runtime_failed",
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "aesthetic score",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 5,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_174237(0).jpg",
+      "image_file_name": "20250204_174237(0).jpg",
+      "final_score_after_rerank": 0.569786,
+      "final_score": 0.569786,
+      "technical_score": 0.667836,
+      "technical_koniq_score": 51.3125,
+      "technical_flive_image_score": 73.6875,
+      "technical_flive_patch_mean": 76.762497,
+      "technical_flive_patch_min": 75.9375,
+      "aesthetic_score": 0.504419,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "technical_reason": "Technical quality is solid at 0.668 (KoNIQ 51.312, FLIVE image 73.688, patch mean 76.762, patch min 75.938).",
+      "aesthetic_reason": "Aesthetic quality is mixed at 0.504 from stage5_student_full_aadb_tensorflow.",
+      "final_outcome_reason": "Rank 5 is selected with final score 0.570 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "Selected on technical consistency, with aesthetic score keeping it ahead of nearby alternatives.",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "local_vila_runtime_failed",
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "aesthetic score",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 6,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564423029-24.jpg",
+      "image_file_name": "1675564423029-24.jpg",
+      "final_score_after_rerank": 0.564688,
+      "final_score": 0.564688,
+      "technical_score": 0.656425,
+      "technical_koniq_score": 48.34375,
+      "technical_flive_image_score": 73.4375,
+      "technical_flive_patch_mean": 77.162498,
+      "technical_flive_patch_min": 75.0625,
+      "aesthetic_score": 0.50353,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "technical_reason": "Technical quality is solid at 0.656 (KoNIQ 48.344, FLIVE image 73.438, patch mean 77.162, patch min 75.062).",
+      "aesthetic_reason": "Aesthetic quality is mixed at 0.504 from stage5_student_full_aadb_tensorflow.",
+      "final_outcome_reason": "Rank 6 is selected with final score 0.565 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "Selected because technical consistency stayed ahead of nearby alternatives.",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "local_vila_runtime_failed",
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "aesthetic score",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 7,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564674752-2.jpg",
+      "image_file_name": "1675564674752-2.jpg",
+      "final_score_after_rerank": 0.558745,
+      "final_score": 0.558745,
+      "technical_score": 0.638919,
+      "technical_koniq_score": 42.03125,
+      "technical_flive_image_score": 72.0,
+      "technical_flive_patch_mean": 79.762497,
+      "technical_flive_patch_min": 76.875,
+      "aesthetic_score": 0.505296,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "technical_reason": "Technical quality is solid at 0.639 (KoNIQ 42.031, FLIVE image 72.000, patch mean 79.762, patch min 76.875).",
+      "aesthetic_reason": "Aesthetic quality is mixed at 0.505 from stage5_student_full_aadb_tensorflow.",
+      "final_outcome_reason": "Rank 7 is selected with final score 0.559 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "The A-cut kept it despite a thin margin, with aesthetic score just covering for technical quality.",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "local_vila_runtime_failed",
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "aesthetic score",
+        "technical quality",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 8,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1720499666964.jpg",
+      "image_file_name": "1720499666964.jpg",
+      "final_score_after_rerank": 0.553819,
+      "final_score": 0.553819,
+      "technical_score": 0.686469,
+      "technical_koniq_score": 56.84375,
+      "technical_flive_image_score": 73.5,
+      "technical_flive_patch_mean": 76.987503,
+      "technical_flive_patch_min": 75.125,
+      "aesthetic_score": 0.465385,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "technical_reason": "Technical quality is solid at 0.686 (KoNIQ 56.844, FLIVE image 73.500, patch mean 76.988, patch min 75.125).",
+      "aesthetic_reason": "Aesthetic quality is mixed at 0.465 from stage5_student_full_aadb_tensorflow.",
+      "final_outcome_reason": "Rank 8 is selected with final score 0.554 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "This frame cleared the cut by a small edge, mostly through technical quality.",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "local_vila_runtime_failed",
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "aesthetic score",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 9,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_135520.jpg",
+      "image_file_name": "20250204_135520.jpg",
+      "final_score_after_rerank": 0.550405,
+      "final_score": 0.550405,
+      "technical_score": 0.652317,
+      "technical_koniq_score": 48.0625,
+      "technical_flive_image_score": 75.6875,
+      "technical_flive_patch_mean": 74.800003,
+      "technical_flive_patch_min": 72.5625,
+      "aesthetic_score": 0.482465,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "technical_reason": "Technical quality is solid at 0.652 (KoNIQ 48.062, FLIVE image 75.688, patch mean 74.800, patch min 72.562).",
+      "aesthetic_reason": "Aesthetic quality is mixed at 0.482 from stage5_student_full_aadb_tensorflow.",
+      "final_outcome_reason": "Rank 9 is selected with final score 0.550 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "The A-cut kept it despite a thin margin, with aesthetic score just covering for technical quality.",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "local_vila_runtime_failed",
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "aesthetic score",
+        "technical quality",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 10,
+      "image_path": "/home/omen_pc1/photo_score_project/test_vila/1704296944756.jpg",
+      "image_file_name": "1704296944756.jpg",
+      "final_score_after_rerank": 0.548668,
+      "final_score": 0.548668,
+      "technical_score": 0.684939,
+      "technical_koniq_score": 56.09375,
+      "technical_flive_image_score": 74.1875,
+      "technical_flive_patch_mean": 77.349998,
+      "technical_flive_patch_min": 73.9375,
+      "aesthetic_score": 0.457821,
+      "aesthetic_models_used": [
+        "stage5_student_full_aadb"
+      ],
+      "technical_reason": "Technical quality is solid at 0.685 (KoNIQ 56.094, FLIVE image 74.188, patch mean 77.350, patch min 73.938).",
+      "aesthetic_reason": "Aesthetic quality is mixed at 0.458 from stage5_student_full_aadb_tensorflow.",
+      "final_outcome_reason": "Rank 10 is selected with final score 0.549 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "This frame cleared the cut by a small edge, mostly through technical quality.",
+      "multimodal_explanations_enabled": true,
+      "multimodal_explanations_attempted": true,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "local_vila_runtime_failed",
+      "multimodal_explanation_model": "checkpoints/NVILA-8B",
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "aesthetic score",
+        "selector_reasoning"
+      ]
+    }
+  ],
+  "selected_count": 10,
+  "rejected_count": 40,
+  "multimodal_explanations_enabled": true,
+  "multimodal_explanations_attempted": true,
+  "multimodal_explanations_succeeded": false,
+  "multimodal_explanations_skip_reason": "local_vila_runtime_failed",
+  "multimodal_explanation_model": "checkpoints/NVILA-8B",
+  "explanation_source": "baseline_acut",
+  "pipeline_config": {
+    "input_dir": "/home/omen_pc1/photo_score_project/test_vila",
+    "scores_jsonl": "outputs/acut_transparency_test_vila_20260416/scores.jsonl",
+    "scores_csv": "outputs/acut_transparency_test_vila_20260416/scores.csv",
+    "score_failures_json": null,
+    "num_input_images": 50,
+    "num_scored_images": 50,
+    "num_skipped_images": 0,
+    "num_recoverable_stage_failures": 0,
+    "aesthetic_scores_csv": "outputs/acut_transparency_test_vila_20260416/scores.csv",
+    "aesthetic_enabled": true,
+    "aesthetic_backend": "stage5_student_full_aadb_tensorflow",
+    "aesthetic_config": "configs/stage5_student_server.json",
+    "aesthetic_weight": 0.6,
+    "technical_weight": 0.4,
+    "score_component_mix": {
+      "aesthetic": 0.6,
+      "technical": 0.4
+    },
+    "score_component_weights": {
+      "aesthetic": {
+        "aadb_score": 0.0,
+        "nima_mean_score": 0.0,
+        "alamp_score": 0.0,
+        "rgnet_score": 0.0,
+        "pairwise_recovered_score": 0.0,
+        "stage5_student_aesthetic_score": 1.0
+      },
+      "technical": {
+        "koniq_score": 0.32,
+        "flive_image_score": 0.24,
+        "flive_patch_mean": 0.22,
+        "flive_patch_min": 0.12,
+        "musiq_score": 0.1
+      },
+      "pairwise_rerank": {
+        "enabled": false,
+        "weight": 0.15,
+        "pool_size": 10.0
+      },
+      "vila_rerank": {
+        "enabled": false,
+        "weight": 0.1,
+        "pool_size": 10.0
+      }
+    },
+    "technical_score_formula": "technical_score is the selector technical_component: each available technical signal is normalized to [0,1], configured technical weights are re-normalized over available signals, then the weighted average is used. Current stage5-student server signals are koniq_score, flive_image_score, flive_patch_mean, flive_patch_min, and musiq_score when available.",
+    "combined_score_formula": "base_score = aesthetic_weight * aesthetic_score + technical_weight * technical_score when both components exist; if one component is missing, base_score falls back to the available component. final_score_after_rerank then reflects optional pairwise/VILA rerank deltas. When diversity is enabled, final_score is the post-diversity ranking score and final_score_after_rerank remains pre-diversity.",
+    "aesthetic_models": [
+      "stage5_student_model"
+    ],
+    "aesthetic_model_paths": {
+      "stage5_student_model": "checkpoints/student_full_aadb/final_model.keras"
+    },
+    "aesthetic_pairwise_model_paths": {},
+    "aesthetic_missing_model_paths": {},
+    "aesthetic_auto_resolved": true,
+    "aesthetic_disabled_reason": null,
+    "aesthetic_warnings": [],
+    "vila_scores_csv": null,
+    "top_k": 10,
+    "enable_pairwise_rerank": false,
+    "enable_vila_rerank": false,
+    "vila_rerank_weight": 0.1,
+    "enable_vila_explanations": false,
+    "enable_acut_reasoning": true,
+    "explanation_schema_version": "acut_explanation.v1",
+    "explanation_count": 20,
+    "explanation_target_strategy": "selection_review",
+    "explanation_selected_count": 10,
+    "explanation_near_miss_count": 5,
+    "explanation_bottom_count": 5,
+    "explanation_target_ranks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      46,
+      47,
+      48,
+      49,
+      50
+    ],
+    "explanation_target_case_counts": {
+      "selected_top": 10,
+      "near_miss_rejected": 5,
+      "bottom_ranked": 5
+    },
+    "explanation_target_rows": [
+      {
+        "rank": 1,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20231231_150055.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 2,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564674752-17.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 3,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_170733.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 4,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564674752-15.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 5,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_174237(0).jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 6,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564423029-24.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 7,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564674752-2.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 8,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/1720499666964.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 9,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_135520.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 10,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/1704296944756.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 11,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564423029-9.jpg",
+        "selected": false,
+        "target_case": "near_miss_rejected",
+        "target_cases": [
+          "near_miss_rejected"
+        ]
+      },
+      {
+        "rank": 12,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240515_092725.jpg",
+        "selected": false,
+        "target_case": "near_miss_rejected",
+        "target_cases": [
+          "near_miss_rejected"
+        ]
+      },
+      {
+        "rank": 13,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240505_170541.jpg",
+        "selected": false,
+        "target_case": "near_miss_rejected",
+        "target_cases": [
+          "near_miss_rejected"
+        ]
+      },
+      {
+        "rank": 14,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240510_191716.jpg",
+        "selected": false,
+        "target_case": "near_miss_rejected",
+        "target_cases": [
+          "near_miss_rejected"
+        ]
+      },
+      {
+        "rank": 15,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2781.JPG",
+        "selected": false,
+        "target_case": "near_miss_rejected",
+        "target_cases": [
+          "near_miss_rejected"
+        ]
+      },
+      {
+        "rank": 46,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240502_193823.jpg",
+        "selected": false,
+        "target_case": "bottom_ranked",
+        "target_cases": [
+          "bottom_ranked"
+        ]
+      },
+      {
+        "rank": 47,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250129_102520.jpg",
+        "selected": false,
+        "target_case": "bottom_ranked",
+        "target_cases": [
+          "bottom_ranked"
+        ]
+      },
+      {
+        "rank": 48,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/1720499666985.jpg",
+        "selected": false,
+        "target_case": "bottom_ranked",
+        "target_cases": [
+          "bottom_ranked"
+        ]
+      },
+      {
+        "rank": 49,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675564423029-6.jpg",
+        "selected": false,
+        "target_case": "bottom_ranked",
+        "target_cases": [
+          "bottom_ranked"
+        ]
+      },
+      {
+        "rank": 50,
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/1675342165226-3.jpg",
+        "selected": false,
+        "target_case": "bottom_ranked",
+        "target_cases": [
+          "bottom_ranked"
+        ]
+      }
+    ],
+    "explanation_backend_requested": "vila_full_local",
+    "reason_reference_mode": "nearest_competitor",
+    "reason_detail_level": "full",
+    "multimodal_explanations_enabled": true,
+    "multimodal_explanations_attempted": true,
+    "multimodal_explanations_succeeded": false,
+    "multimodal_explanation_backend": "vila_full_local",
+    "multimodal_explanation_model": "checkpoints/NVILA-8B",
+    "multimodal_explanation_runtime": "local_subprocess",
+    "multimodal_explanations_fallback": true,
+    "multimodal_explanations_target_count": 20,
+    "multimodal_explanations_attempted_count": 20,
+    "multimodal_explanations_succeeded_count": 0,
+    "multimodal_explanations_fallback_count": 20,
+    "multimodal_explanations_skip_reason": "local_vila_runtime_failed",
+    "explanation_source": "baseline_acut",
+    "vila_full_python": "./.venv_vila/bin/python",
+    "vila_full_model_path": "checkpoints/NVILA-8B",
+    "vila_full_device": "cuda",
+    "vila_full_max_new_tokens": 160,
+    "enable_diversity": true,
+    "rerank_pool_size": null,
+    "weights_config": "configs/stage5_student_server_weights.json",
+    "export_debug_reasoning": false
+  }
+}

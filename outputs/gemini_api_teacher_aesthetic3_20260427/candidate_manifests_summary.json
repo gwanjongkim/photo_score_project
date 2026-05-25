@@ -1,0 +1,78 @@
+{
+  "output_dir": "outputs/gemini_api_teacher_aesthetic3_20260427",
+  "scored_pool": "outputs/gemma4_e4b_aesthetic3_expanded_20260427/scored_pool.csv",
+  "scored_rows_available": 3000,
+  "primary_formula": "weighted_aesthetic_score = 0.10 * nima_unit_score + 0.40 * rgnet_score + 0.50 * alamp_score",
+  "comparison_formula": "balanced_comparison_score = 0.15 * nima_unit_score + 0.45 * rgnet_score + 0.40 * alamp_score",
+  "selection_band_rule": "weighted_aesthetic_score top 30% selected_high, middle 40% middle_near_miss, bottom 30% rejected_low",
+  "test_vila_policy": "kept separate; not sampled into Gemini training candidates",
+  "stages": {
+    "stage_a_300": {
+      "requested_rows": 300,
+      "created_rows": 300,
+      "csv": "outputs/gemini_api_teacher_aesthetic3_20260427/stage_a_300_candidate_manifest.csv",
+      "jsonl": "outputs/gemini_api_teacher_aesthetic3_20260427/stage_a_300_candidate_manifest.jsonl",
+      "selection_band_counts": {
+        "middle_near_miss": 120,
+        "rejected_low": 90,
+        "selected_high": 90
+      },
+      "selection_state_counts": {
+        "near_miss": 120,
+        "not_selected": 90,
+        "selected": 90
+      },
+      "dataset_counts": {
+        "ava": 200,
+        "aadb": 100
+      }
+    },
+    "stage_b_1000": {
+      "requested_rows": 1000,
+      "created_rows": 1000,
+      "csv": "outputs/gemini_api_teacher_aesthetic3_20260427/stage_b_1000_candidate_manifest.csv",
+      "jsonl": "outputs/gemini_api_teacher_aesthetic3_20260427/stage_b_1000_candidate_manifest.jsonl",
+      "selection_band_counts": {
+        "middle_near_miss": 400,
+        "rejected_low": 300,
+        "selected_high": 300
+      },
+      "selection_state_counts": {
+        "near_miss": 400,
+        "not_selected": 300,
+        "selected": 300
+      },
+      "dataset_counts": {
+        "ava": 667,
+        "aadb": 333
+      }
+    },
+    "stage_c_3000": {
+      "requested_rows": 3000,
+      "created_rows": 3000,
+      "csv": "outputs/gemini_api_teacher_aesthetic3_20260427/stage_c_3000_candidate_manifest.csv",
+      "jsonl": "outputs/gemini_api_teacher_aesthetic3_20260427/stage_c_3000_candidate_manifest.jsonl",
+      "selection_band_counts": {
+        "middle_near_miss": 1200,
+        "selected_high": 900,
+        "rejected_low": 900
+      },
+      "selection_state_counts": {
+        "near_miss": 1200,
+        "selected": 900,
+        "not_selected": 900
+      },
+      "dataset_counts": {
+        "ava": 2000,
+        "aadb": 1000
+      }
+    },
+    "stage_d_10000": {
+      "requested_rows": 10000,
+      "created_rows": 0,
+      "status": "not_created_insufficient_scored_rows",
+      "required_scored_rows": 10000,
+      "available_scored_rows": 3000
+    }
+  }
+}

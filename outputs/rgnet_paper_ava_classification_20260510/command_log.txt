@@ -1,0 +1,115 @@
+# RGNet Paper AVA Classification Command Log
+
+Output root: outputs/rgnet_paper_ava_classification_20260510
+Created: 2026-05-10T22:02:20.768801+09:00
+
+1. pwd
+   returncode: 0
+   stdout: /home/omen_pc1/photo_score_project
+
+2. date
+   returncode: 0
+   stdout: Sun May 10 21:54:00 KST 2026
+
+3. git status --short
+   returncode: 0
+   status_lines: 90
+
+4. ./.venv_gpu/bin/python --version
+   returncode: 0
+   stdout: Python 3.12.3
+
+5. nvidia-smi
+   returncode: 127
+   stderr: nvidia-smi not found on PATH
+
+6. ./.venv_gpu/bin/python -c "import tensorflow as tf; print(tf.__version__); print(tf.config.list_physical_devices('GPU'))"
+   TensorFlow: 2.20.0
+   visible_gpus: []
+
+7. Dataset stats writer
+   output: outputs/rgnet_paper_ava_classification_20260510/ava_label_stats.json
+   train/val/test counts: 204406/25551/25551
+
+8. python3 -m py_compile src/models/rgnet_paper_ava.py src/train/train_rgnet_paper_ava.py src/eval/evaluate_rgnet_paper_ava.py
+   returncode: 0
+
+9. Forward smoke build/predict
+   output: outputs/rgnet_paper_ava_classification_20260510/forward_smoke.json
+   result: passed
+
+10. ./.venv_gpu/bin/python -m src.train.train_rgnet_paper_ava --config configs/paper_benchmarks/rgnet_paper_ava_classification.yaml --out_dir outputs/rgnet_paper_ava_classification_20260510/smoke_train --epochs 1 --batch_size 4 --max_train_samples 64 --max_val_samples 32 --backbone_weights none
+   returncode: 0
+   output: outputs/rgnet_paper_ava_classification_20260510/smoke_train/train_summary.json
+
+11. ./.venv_gpu/bin/python -m src.eval.evaluate_rgnet_paper_ava --config configs/paper_benchmarks/rgnet_paper_ava_classification.yaml --model_path outputs/rgnet_paper_ava_classification_20260510/smoke_train/final_model.keras --output_dir outputs/rgnet_paper_ava_classification_20260510/smoke_eval --max_test_samples 64 --max_val_samples 64 --batch_size 4
+   returncode: 0
+   output: outputs/rgnet_paper_ava_classification_20260510/smoke_eval/evaluation_summary.json
+
+12. ./.venv_gpu/bin/python -m src.train.train_rgnet_paper_ava --config configs/paper_benchmarks/rgnet_paper_ava_classification.yaml --out_dir outputs/rgnet_paper_ava_classification_20260510/mid_train/mean --epochs 3 --batch_size 8 --max_train_samples 4096 --max_val_samples 1024 --backbone_weights imagenet --aggregation mean --score_activation_mode raw_before_aggregation_then_sigmoid
+   returncode: 1
+   result: blocked by no-visible-GPU guard
+
+13. ./.venv_gpu/bin/python -m src.train.train_rgnet_paper_ava --config configs/paper_benchmarks/rgnet_paper_ava_classification.yaml --out_dir outputs/rgnet_paper_ava_classification_20260510/mid_train/lse_r4 --epochs 3 --batch_size 8 --max_train_samples 4096 --max_val_samples 1024 --backbone_weights imagenet --aggregation lse --score_activation_mode raw_before_aggregation_then_sigmoid
+   returncode: 1
+   result: blocked by no-visible-GPU guard
+
+14. Report/summary writer
+   outputs: outputs/rgnet_paper_ava_classification_20260510/rgnet_paper_ava_report.md, outputs/rgnet_paper_ava_classification_20260510/ava_classification_summary.json, outputs/rgnet_paper_ava_classification_20260510/command_log.txt
+
+15. git add src/models/rgnet_paper_ava.py src/train/train_rgnet_paper_ava.py src/eval/evaluate_rgnet_paper_ava.py configs/paper_benchmarks/rgnet_paper_ava_classification.yaml
+   returncode: 0
+   note: staged only the four new Track A source/config files
+
+16. git commit -m "Add RGNet paper AVA classification track"
+   returncode: 0
+   commit: 6bebb9a
+
+
+# Rerun Mid Comparison, 2026-05-10T22:55:15.173022+09:00
+
+17. ./.venv_gpu/bin/python -c "import tensorflow as tf; print('TF:', tf.__version__); print('GPUs:', tf.config.list_physical_devices('GPU'))"
+   result: TF 2.20.0; GPUs ["PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"]
+
+18. ./.venv_gpu/bin/python -m py_compile src/models/rgnet_paper_ava.py src/train/train_rgnet_paper_ava.py src/eval/evaluate_rgnet_paper_ava.py
+   returncode: 0
+
+19. mean mid train
+   command: ./.venv_gpu/bin/python -m src.train.train_rgnet_paper_ava --config configs/paper_benchmarks/rgnet_paper_ava_classification.yaml --out_dir outputs/rgnet_paper_ava_classification_20260510/mid_train/mean --epochs 3 --batch_size 8 --max_train_samples 4096 --max_val_samples 1024 --backbone_weights imagenet --aggregation mean --score_activation_mode raw_before_aggregation_then_sigmoid
+   result: completed; train_samples 4095; skipped_train_images 1; best_val_loss 0.5591564774513245
+
+20. mean mid eval
+   command: ./.venv_gpu/bin/python -m src.eval.evaluate_rgnet_paper_ava --config configs/paper_benchmarks/rgnet_paper_ava_classification.yaml --model_path outputs/rgnet_paper_ava_classification_20260510/mid_train/mean/final_model.keras --output_dir outputs/rgnet_paper_ava_classification_20260510/mid_eval/mean --max_test_samples 1024 --max_val_samples 1024 --batch_size 8
+   result: completed; test_accuracy 0.740234375; test_f1 0.8288288288288289; test_roc_auc 0.7200108766555786; test_ap 0.8470951318740845
+
+21. lse_r4 mid train
+   command: ./.venv_gpu/bin/python -m src.train.train_rgnet_paper_ava --config configs/paper_benchmarks/rgnet_paper_ava_classification.yaml --out_dir outputs/rgnet_paper_ava_classification_20260510/mid_train/lse_r4 --epochs 3 --batch_size 8 --max_train_samples 4096 --max_val_samples 1024 --backbone_weights imagenet --aggregation lse --lse_r 4 --score_activation_mode raw_before_aggregation_then_sigmoid
+   result: completed; train_samples 4095; skipped_train_images 1; best_val_loss 0.5250413417816162
+
+22. lse_r4 mid eval
+   command: ./.venv_gpu/bin/python -m src.eval.evaluate_rgnet_paper_ava --config configs/paper_benchmarks/rgnet_paper_ava_classification.yaml --model_path outputs/rgnet_paper_ava_classification_20260510/mid_train/lse_r4/final_model.keras --output_dir outputs/rgnet_paper_ava_classification_20260510/mid_eval/lse_r4 --max_test_samples 1024 --max_val_samples 1024 --batch_size 8
+   result: completed; test_accuracy 0.74609375; test_f1 0.8364779874213836; test_roc_auc 0.7438617944717407; test_ap 0.8671004772186279
+
+23. report/summary update
+   result: updated rgnet_paper_ava_report.md, ava_classification_summary.json, command_log.txt
+
+24. git add src/train/train_rgnet_paper_ava.py src/eval/evaluate_rgnet_paper_ava.py
+   returncode: 0
+   note: staged only the invalid-image filtering fix for isolated AVA loaders
+
+25. git commit -m "Skip invalid AVA images in paper classification loaders"
+   returncode: 0
+   commit: 4454096
+
+
+# Full Run Reporting Finalization, 2026-05-11T11:06:46.896035+09:00
+
+26. Verified required full-run files existed under full_train/lse_r4 and eval/lse_r4.
+27. Updated rgnet_paper_ava_report.md with completed full AVA lse_r4 training/evaluation sections.
+28. Updated ava_classification_summary.json full_run.status to completed and recommended_candidate to lse_r4.
+29. Compiled and ran tools/calibrate_rgnet_ava_threshold.py using saved val/test prediction CSVs only.
+30. Created threshold calibration outputs under threshold_calibration/.
+31. Created consolidated RGNet paper-oriented summary under outputs/rgnet_paper_consolidated_20260511/.
+32. Parsed updated JSON files and confirmed expected report files exist.
+33. Updated reporting checklist and context notes.
+No training, full evaluation rerun, Flutter modification, forWeights modification, or src/models/rgnet.py modification was performed.

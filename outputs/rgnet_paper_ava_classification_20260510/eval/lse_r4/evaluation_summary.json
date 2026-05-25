@@ -1,0 +1,95 @@
+{
+  "created_at_local": "2026-05-11T10:49:51.530216+09:00",
+  "model_variant": "RGNet-paper-AVA-classification approximation",
+  "official_reproduction": false,
+  "model_name": "rgnet_paper_ava_classification",
+  "model_path": "outputs/rgnet_paper_ava_classification_20260510/full_train/lse_r4/final_model.keras",
+  "image_size": 256,
+  "batch_size": 8,
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.20.0"
+  },
+  "splits": {
+    "test": {
+      "num_samples": 25549,
+      "positive_count": 18226,
+      "negative_count": 7323,
+      "prediction_positive_count": 20183,
+      "prediction_negative_count": 5366,
+      "prediction_prob_min": 1.1669942068692762e-05,
+      "prediction_prob_max": 0.9999361038208008,
+      "accuracy": 0.7696583036518063,
+      "precision": 0.8057275925283655,
+      "recall": 0.8922418522989136,
+      "f1": 0.8467807024395324,
+      "roc_auc": 0.7979061007499695,
+      "average_precision": 0.9018764495849609,
+      "bce_loss": 0.48181851459492275,
+      "confusion_matrix": {
+        "tn": 3402,
+        "fp": 3921,
+        "fn": 1964,
+        "tp": 16262
+      },
+      "split": "test",
+      "csv": "data/processed/ava/test.csv",
+      "score_col": "mean_score",
+      "image_col": "image_path",
+      "label_rule": "label = 1 if mean_score >= 5.0 else 0",
+      "elapsed_seconds": 59.58369408399449,
+      "seconds_per_image": 0.0023321340985555006,
+      "skipped_image_count": 2,
+      "skipped_image_examples": [
+        {
+          "row_index": "11028",
+          "image_path": "data/raw/ava/images/729377.jpg",
+          "resolved_image_path": "data/raw/ava/images/729377.jpg",
+          "error": "OSError: image file is truncated (12 bytes not processed)"
+        },
+        {
+          "row_index": "20655",
+          "image_path": "data/raw/ava/images/230701.jpg",
+          "resolved_image_path": "data/raw/ava/images/230701.jpg",
+          "error": "OSError: image file is truncated (11 bytes not processed)"
+        }
+      ],
+      "predictions_path": "outputs/rgnet_paper_ava_classification_20260510/eval/lse_r4/test_predictions.csv"
+    },
+    "val": {
+      "num_samples": 25551,
+      "positive_count": 18003,
+      "negative_count": 7548,
+      "prediction_positive_count": 20220,
+      "prediction_negative_count": 5331,
+      "prediction_prob_min": 0.00011436215572757646,
+      "prediction_prob_max": 0.9999951124191284,
+      "accuracy": 0.7716332041798756,
+      "precision": 0.8008902077151335,
+      "recall": 0.8995167472087985,
+      "f1": 0.8473432226669806,
+      "roc_auc": 0.80144864320755,
+      "average_precision": 0.8979836702346802,
+      "bce_loss": 0.481744761458676,
+      "confusion_matrix": {
+        "tn": 3522,
+        "fp": 4026,
+        "fn": 1809,
+        "tp": 16194
+      },
+      "split": "val",
+      "csv": "data/processed/ava/val.csv",
+      "score_col": "mean_score",
+      "image_col": "image_path",
+      "label_rule": "label = 1 if mean_score >= 5.0 else 0",
+      "elapsed_seconds": 46.6433981230075,
+      "seconds_per_image": 0.0018255018638412392,
+      "skipped_image_count": 0,
+      "skipped_image_examples": [],
+      "predictions_path": "outputs/rgnet_paper_ava_classification_20260510/eval/lse_r4/val_predictions.csv"
+    }
+  }
+}

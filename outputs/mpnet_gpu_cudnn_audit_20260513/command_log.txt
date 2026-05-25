@@ -1,0 +1,45 @@
+# Command Log - MPNet GPU cuDNN Audit
+# 2026-05-13
+
+# 1. Diagnostic: Check current environment
+echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
+echo "LD_LIBRARY_PATH: $LD_LIBRARY_PATH"
+/usr/lib/wsl/lib/nvidia-smi || nvidia-smi
+
+# 2. Diagnostic: Check TensorFlow GPU status and run Conv2D probe
+./.venv_gpu/bin/python - <<'PY'
+import os
+import tensorflow as tf
+print("TF:", tf.__version__)
+print("GPUs:", tf.config.list_physical_devices("GPU"))
+try:
+    with tf.device('/GPU:0'):
+        x = tf.random.normal([1,224,224,3])
+        y = tf.keras.layers.Conv2D(16, 3)(x)
+        print("conv ok", y.shape)
+except Exception as e:
+    print("conv failed:", repr(e))
+PY
+
+# 3. Diagnostic: Check pip package versions
+./.venv_gpu/bin/python -m pip show tensorflow nvidia-cudnn-cu12
+
+# 4. Fix: Upgrade cuDNN to version required by TF 2.20.0
+./.venv_gpu/bin/python -m pip install nvidia-cudnn-cu12==9.3.0.75
+
+# 5. Verification: Re-run Conv2D probe
+./.venv_gpu/bin/python - <<'PY'
+import tensorflow as tf
+with tf.device('/GPU:0'):
+    x = tf.random.normal([1,224,224,3])
+    y = tf.keras.layers.Conv2D(16, 3)(x)
+    print("conv ok", y.shape)
+PY
+
+# 6. Verification: Check PyTorch compatibility
+./.venv_gpu/bin/python - <<'PY'
+import torch
+x = torch.randn(1, 3, 224, 224).cuda()
+y = torch.nn.Conv2d(3, 16, 3).cuda()(x)
+print("torch conv ok", y.shape)
+PY

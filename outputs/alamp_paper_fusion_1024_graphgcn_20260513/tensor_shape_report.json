@@ -1,0 +1,90 @@
+{
+  "train": {
+    "adjacency": [
+      1024,
+      4,
+      4
+    ],
+    "crops": [
+      1024,
+      5,
+      224,
+      224,
+      3
+    ],
+    "graph_match_summary": {
+      "matched_count": 1024,
+      "missing_count": 0,
+      "skipped_count": 0,
+      "total_count": 1024
+    },
+    "graph_vectors": [
+      1024,
+      100
+    ],
+    "labels": [
+      1024,
+      1
+    ],
+    "mpnet_features": [
+      1024,
+      256
+    ],
+    "node_features": [
+      1024,
+      4,
+      15
+    ],
+    "object_mask": [
+      1024,
+      4
+    ],
+    "records": 1024,
+    "skipped_bad_crop": 0,
+    "skipped_missing_graph": 0
+  },
+  "val": {
+    "adjacency": [
+      1024,
+      4,
+      4
+    ],
+    "crops": [
+      1024,
+      5,
+      224,
+      224,
+      3
+    ],
+    "graph_match_summary": {
+      "matched_count": 1024,
+      "missing_count": 0,
+      "skipped_count": 0,
+      "total_count": 1024
+    },
+    "graph_vectors": [
+      1024,
+      100
+    ],
+    "labels": [
+      1024,
+      1
+    ],
+    "mpnet_features": [
+      1024,
+      256
+    ],
+    "node_features": [
+      1024,
+      4,
+      15
+    ],
+    "object_mask": [
+      1024,
+      4
+    ],
+    "records": 1024,
+    "skipped_bad_crop": 0,
+    "skipped_missing_graph": 0
+  }
+}

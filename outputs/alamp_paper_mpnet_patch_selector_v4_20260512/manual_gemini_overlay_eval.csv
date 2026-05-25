@@ -1,0 +1,51 @@
+filename,grade,short_reason,fail_type,batch
+viz_10906.jpg,A,Excellent subject capture and context split.,none,1
+viz_11204.jpg,A,Primary subject well centered; useful context.,none,1
+viz_126453.jpg,A,Good flower detail and background representation.,none,1
+viz_131875.jpg,A,Perfect salient centering with diverse views.,none,1
+viz_165180.jpg,A,Clear subject-context distinction.,none,1
+viz_202988.jpg,A,Captures jetski and splash detail perfectly.,none,1
+viz_203153.jpg,A,Both subjects captured with central context.,none,1
+viz_214474.jpg,A,Precise subject placement and broad context.,none,1
+viz_223003.jpg,A,Great balance of foreground and water background.,none,1
+viz_257093.jpg,A,Excellent portrait closeup and detail coverage.,none,1
+viz_285311.jpg,A,Deer subject captured with forest context.,none,2
+viz_287266.jpg,A,Good capture of cliff salience and sea background.,none,2
+viz_287613.jpg,A,Kid and dog well captured with landscape detail.,none,2
+viz_318334.jpg,A,Strong subject capture on architectural structure.,none,2
+viz_340445.jpg,A,Perfect rabbit closeup and grass context.,none,2
+viz_372785.jpg,A,Accurate salient block centering.,none,2
+viz_374509.jpg,A,Good silhouette detail and sky context.,none,2
+viz_377303.jpg,A,Excellent canoe centering and sunset context.,none,2
+viz_394171.jpg,B,Subject hit; some patches on less useful ceiling.,none,2
+viz_435009.jpg,A,Clear subject closeup with bloody shirt detail.,none,2
+viz_437448.jpg,A,Vending machine interaction well captured.,none,3
+viz_442655.jpg,A,Good street depth and architectural context.,none,3
+viz_504558.jpg,A,Complex roller coaster structure well sampled.,none,3
+viz_524152.jpg,A,Excellent architectural detail centering.,none,3
+viz_55678.jpg,A,Stop sign detail and sky background split.,none,3
+viz_576480.jpg,B,Subject captured; patches slightly redundant.,none,3
+viz_657031.jpg,B,Lightning bolt hit; context is slightly dark.,none,3
+viz_688389.jpg,A,Precise portrait capture for both subjects.,none,3
+viz_697063.jpg,A,Bridge and river context well balanced.,none,3
+viz_708090.jpg,A,Perfect dog closeup and toy detail.,none,3
+viz_715274.jpg,A,Fawn subject perfectly centered.,none,4
+viz_726888.jpg,A,Girl and globe interaction well captured.,none,4
+viz_756757.jpg,A,Street scene with diverse subject focus.,none,4
+viz_757844.jpg,A,Excellent high-detail portrait capture.,none,4
+viz_78337.jpg,A,Good overhead object distribution.,none,4
+viz_802475.jpg,A,Precise eye and face detail in portrait.,none,4
+viz_803087.jpg,A,Harmonica player subject well covered.,none,4
+viz_812916.jpg,B,Subjectless cloud photo; distributed patches acceptable.,none,4
+viz_816164.jpg,A,Butterfly and flower perfectly captured.,none,4
+viz_829430.jpg,A,Orchid flower detail is precise.,none,4
+viz_84787.jpg,A,Sprout on log captured with water background.,none,5
+viz_8513.jpg,A,Small electronic component well centered.,none,5
+viz_857358.jpg,A,Portrait in snow captures subject well.,none,5
+viz_869987.jpg,A,Macro pin detail and object context split.,none,5
+viz_909282.jpg,B,Texture-based cloud photo; usable for MPNet.,none,5
+viz_913387.jpg,A,Dog in garden well covered.,none,5
+viz_947139.jpg,A,Perfect baby portrait closeup.,none,5
+viz_949283.jpg,A,Precise capture of facial features.,none,5
+viz_956859.jpg,A,Good distribution over shelf objects.,none,5
+viz_99507.jpg,A,Tennis player silhouette captured with ball.,none,5

@@ -1,0 +1,124 @@
+{
+  "options": [
+    {
+      "option": "Current NIMA + RGNet + A-LAMP ensemble",
+      "accuracy_potential": "medium",
+      "evidence_strength": "high",
+      "implementation_difficulty": "low",
+      "training_cost": "low",
+      "tflite_risk": "medium",
+      "mobile_latency_risk": "medium",
+      "recommended": false,
+      "reason": "Confirmed active Flutter aesthetic path, but it runs three aesthetic models and local evidence shows an A-LAMP preprocessing mismatch."
+    },
+    {
+      "option": "Current ensemble but fix A-LAMP preprocessing mismatch",
+      "accuracy_potential": "medium",
+      "evidence_strength": "medium",
+      "implementation_difficulty": "medium",
+      "training_cost": "low",
+      "tflite_risk": "low",
+      "mobile_latency_risk": "medium",
+      "recommended": true,
+      "reason": "Best backup if the app remains on the existing ensemble because it addresses a verified training-runtime preprocessing mismatch without retraining."
+    },
+    {
+      "option": "Retrain RGNet and A-LAMP on AVA",
+      "accuracy_potential": "unknown",
+      "evidence_strength": "low",
+      "implementation_difficulty": "medium",
+      "training_cost": "high",
+      "tflite_risk": "medium",
+      "mobile_latency_risk": "medium",
+      "recommended": false,
+      "reason": "AVA data exists and scripts can read CSV targets, but no local experiment proves improvement and current scalar outputs require normalized 0..1 AVA labels."
+    },
+    {
+      "option": "AVA pretrain then AADB fine-tune for RGNet/A-LAMP",
+      "accuracy_potential": "unknown",
+      "evidence_strength": "low",
+      "implementation_difficulty": "high",
+      "training_cost": "high",
+      "tflite_risk": "medium",
+      "mobile_latency_risk": "medium",
+      "recommended": false,
+      "reason": "Potentially useful but train scripts do not expose resume/load-weights arguments in the inspected parser lines, so implementation work and controlled evaluation are required."
+    },
+    {
+      "option": "Add MUSIQ as a fourth aesthetic model",
+      "accuracy_potential": "unknown",
+      "evidence_strength": "low",
+      "implementation_difficulty": "high",
+      "training_cost": "high",
+      "tflite_risk": "high",
+      "mobile_latency_risk": "high",
+      "recommended": false,
+      "reason": "MUSIQ code/checkpoints exist, but no MUSIQ TFLite export, verification, Flutter asset, or latency evidence was found."
+    },
+    {
+      "option": "Replace ensemble with MUSIQ",
+      "accuracy_potential": "unknown",
+      "evidence_strength": "low",
+      "implementation_difficulty": "high",
+      "training_cost": "high",
+      "tflite_risk": "high",
+      "mobile_latency_risk": "high",
+      "recommended": false,
+      "reason": "Not locally supported because MUSIQ mobile export and runtime behavior are unproven."
+    },
+    {
+      "option": "Use MUSIQ only as teacher/offline evaluator",
+      "accuracy_potential": "medium",
+      "evidence_strength": "medium",
+      "implementation_difficulty": "medium",
+      "training_cost": "medium",
+      "tflite_risk": "low",
+      "mobile_latency_risk": "low",
+      "recommended": false,
+      "reason": "A safer MUSIQ role because it avoids on-device TFLite risk, but teacher value still requires local benchmark evidence."
+    },
+    {
+      "option": "Use existing Stage 5 smaller student model",
+      "accuracy_potential": "high",
+      "evidence_strength": "medium",
+      "implementation_difficulty": "medium",
+      "training_cost": "low",
+      "tflite_risk": "low",
+      "mobile_latency_risk": "low",
+      "recommended": true,
+      "reason": "Existing local handoff reports a 3.41 MB built-in-only TFLite artifact with strong local ranking/parity evidence; Flutter integration and target-device smoke testing are still required."
+    },
+    {
+      "option": "Keep KonIQ + FLIVE for technical quality unchanged",
+      "accuracy_potential": "medium",
+      "evidence_strength": "high",
+      "implementation_difficulty": "low",
+      "training_cost": "low",
+      "tflite_risk": "low",
+      "mobile_latency_risk": "low",
+      "recommended": true,
+      "reason": "Current technical models have local TFLite metadata/contracts and replacing them has no supporting local evidence."
+    },
+    {
+      "option": "Replace or retrain technical quality models",
+      "accuracy_potential": "unknown",
+      "evidence_strength": "low",
+      "implementation_difficulty": "high",
+      "training_cost": "high",
+      "tflite_risk": "high",
+      "mobile_latency_risk": "medium",
+      "recommended": false,
+      "reason": "No local audit evidence shows a technical-quality failure that justifies retraining or replacement before the aesthetic path is stabilized."
+    }
+  ],
+  "final_recommendation": {
+    "primary": "Use the existing Stage 5 aesthetic student model as the next mobile aesthetic model after Flutter integration and target-device smoke/latency testing; keep KonIQ + FLIVE unchanged for technical quality.",
+    "backup": "Keep the current NIMA + RGNet + A-LAMP ensemble, but fix A-LAMP preprocessing mismatch before using ensemble scores as the stable production path.",
+    "not_recommended_now": [
+      "Add MUSIQ as an on-device Flutter model",
+      "Replace the aesthetic ensemble with MUSIQ",
+      "Retrain or replace the technical quality models without a new local benchmark",
+      "Claim AVA improves RGNet or A-LAMP before controlled local experiments"
+    ]
+  }
+}

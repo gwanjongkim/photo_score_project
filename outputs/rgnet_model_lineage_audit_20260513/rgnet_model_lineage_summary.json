@@ -1,0 +1,17 @@
+{
+  "audit_date": "2026-05-13",
+  "ava_rgnet_lse_r4": {
+    "keras_path": "outputs/rgnet_paper_ava_classification_20260510/full_train/lse_r4/final_model.keras",
+    "initialization": "imagenet",
+    "roc_auc": 0.7979
+  },
+  "practical_aadb_rgnet": {
+    "keras_path": "checkpoints/rgnet_aadb_gpu/final_model.keras",
+    "tflite_path": "models/aesthetic/rgnet_aadb_gpu.tflite",
+    "initialization": "AVA pretrain (implied)",
+    "status": "deployed"
+  },
+  "lineage_conclusion": "Separate tracks. AVA was NOT initialized from AADB.",
+  "recommended_app_model": "models/aesthetic/rgnet_aadb_gpu.tflite",
+  "recommended_paper_model": "outputs/rgnet_paper_ava_classification_20260510/full_train/lse_r4/final_model.keras"
+}

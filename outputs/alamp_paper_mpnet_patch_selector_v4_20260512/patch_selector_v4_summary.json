@@ -1,0 +1,20 @@
+{
+  "selector_version": "v4",
+  "status": "success",
+  "saliency_method": "u2net_component",
+  "diversity_method": "role_aware_weighted_objective",
+  "patch_count": 5,
+  "metrics_summary": {
+    "mean_patch_score": 0.6168,
+    "mean_pairwise_iou": 0.0589,
+    "object_coverage": 0.573,
+    "main_object_coverage": 0.643
+  },
+  "outputs": {
+    "train": "outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/train_patch_boxes_1024_v4.jsonl",
+    "val": "outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/val_patch_boxes_1024_v4.jsonl",
+    "test": "outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/test_patch_boxes_1024_v4.jsonl",
+    "visualizations": "outputs/alamp_paper_mpnet_patch_selector_v4_20260512/patch_visualizations/train/"
+  },
+  "decision": "V4 achieved a massive jump in subject coverage (8.4% -> 57.3%) while maintaining spatial diversity. Manual quality gate (40/50) needs confirmation."
+}

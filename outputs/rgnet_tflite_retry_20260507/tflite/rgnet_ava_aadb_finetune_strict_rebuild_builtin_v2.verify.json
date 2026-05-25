@@ -1,0 +1,171 @@
+{
+  "created_at_local": "2026-05-07T22:24:47.409756+09:00",
+  "attempt": "strict_rebuild_builtin",
+  "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+  "reference_image": "data/raw/ava/images/85837.jpg",
+  "output_tflite": "outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_strict_rebuild_builtin_v2.tflite",
+  "output_metadata": "outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_strict_rebuild_builtin_v2.metadata.json",
+  "image_size": 256,
+  "conversion_ok": false,
+  "verification_passed": false,
+  "original_policy_after_load": "<DTypePolicy \"float32\">",
+  "rebuild_policy": "<DTypePolicy \"float32\">",
+  "layer_coverage": {
+    "original_layer_count": 16,
+    "rebuild_layer_count": 16,
+    "paired_layer_count": 16,
+    "mismatch_count": 0,
+    "mismatches": [],
+    "coverage_ok": true
+  },
+  "weight_coverage_before_copy": {
+    "original_weight_count": 373,
+    "rebuild_weight_count": 373,
+    "paired_weight_count": 373,
+    "comparable_weight_count": 373,
+    "shape_mismatch_count": 0,
+    "shape_mismatches": [],
+    "extra_original_weights": [],
+    "extra_rebuild_weights": [],
+    "max_pre_copy_abs_diff_for_matching_shapes": 1420.046630859375,
+    "coverage_ok": true
+  },
+  "max_weight_abs_diff_after_copy": 0.0,
+  "rebuild_vs_original": {
+    "num_images": 21,
+    "max_abs_diff": 0.33626319468021393,
+    "mean_abs_diff": 0.19821138679981232,
+    "passed": false,
+    "rows": [
+      {
+        "image_path": "data/raw/ava/images/85837.jpg",
+        "original_keras_score": 0.46629470586776733,
+        "rebuild_keras_score": 0.644016683101654,
+        "abs_diff": 0.17772197723388672
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_316_20145499186_18fcea17fd_b.jpg",
+        "original_keras_score": 0.7035551071166992,
+        "rebuild_keras_score": 0.7943368554115295,
+        "abs_diff": 0.09078174829483032
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_292_20177190071_ed73bfdf45_b.jpg",
+        "original_keras_score": 0.34110531210899353,
+        "rebuild_keras_score": 0.45205849409103394,
+        "abs_diff": 0.1109531819820404
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_295_19542413113_995218a1dc_b.jpg",
+        "original_keras_score": 0.21288278698921204,
+        "rebuild_keras_score": 0.538364052772522,
+        "abs_diff": 0.32548126578330994
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_342_20268387925_8b3e3ed659_b.jpg",
+        "original_keras_score": 0.19240014255046844,
+        "rebuild_keras_score": 0.5286633372306824,
+        "abs_diff": 0.33626319468021393
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_307_20167913586_46cdb89136_b.jpg",
+        "original_keras_score": 0.36628013849258423,
+        "rebuild_keras_score": 0.5467830300331116,
+        "abs_diff": 0.18050289154052734
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_325_20140979326_04d47e3633_b.jpg",
+        "original_keras_score": 0.18760333955287933,
+        "rebuild_keras_score": 0.4467187523841858,
+        "abs_diff": 0.25911541283130646
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_337_20180466022_6cfcf337ed_b.jpg",
+        "original_keras_score": 0.3346034586429596,
+        "rebuild_keras_score": 0.6204819679260254,
+        "abs_diff": 0.2858785092830658
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_375_20318477612_6070ea9775_b.jpg",
+        "original_keras_score": 0.34832414984703064,
+        "rebuild_keras_score": 0.538616418838501,
+        "abs_diff": 0.19029226899147034
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_375_19992327020_c83fa1ee09_b.jpg",
+        "original_keras_score": 0.7978980541229248,
+        "rebuild_keras_score": 0.7506402730941772,
+        "abs_diff": 0.04725778102874756
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_467_20115649945_789c038be8_b.jpg",
+        "original_keras_score": 0.38087719678878784,
+        "rebuild_keras_score": 0.6134899258613586,
+        "abs_diff": 0.2326127290725708
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_401_20119453585_9ae520005a_b.jpg",
+        "original_keras_score": 0.2838590443134308,
+        "rebuild_keras_score": 0.5519624352455139,
+        "abs_diff": 0.26810339093208313
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_325_20016613898_58c7fbdc1f_b.jpg",
+        "original_keras_score": 0.24334950745105743,
+        "rebuild_keras_score": 0.48397117853164673,
+        "abs_diff": 0.2406216710805893
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_379_19665518553_5a0d7a2b25_b.jpg",
+        "original_keras_score": 0.24230515956878662,
+        "rebuild_keras_score": 0.42299920320510864,
+        "abs_diff": 0.18069404363632202
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm4_3801_19559973383_26dd16ebc3_b.jpg",
+        "original_keras_score": 0.5619409084320068,
+        "rebuild_keras_score": 0.6010311245918274,
+        "abs_diff": 0.03909021615982056
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_331_20171741416_266a97673d_b.jpg",
+        "original_keras_score": 0.33505749702453613,
+        "rebuild_keras_score": 0.5939105749130249,
+        "abs_diff": 0.25885307788848877
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_318_20077285545_a085e14492_b.jpg",
+        "original_keras_score": 0.2684338688850403,
+        "rebuild_keras_score": 0.4105936884880066,
+        "abs_diff": 0.1421598196029663
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_347_19483246264_8ce8e98300_b.jpg",
+        "original_keras_score": 0.24838876724243164,
+        "rebuild_keras_score": 0.5284671187400818,
+        "abs_diff": 0.28007835149765015
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_460_19988549819_6b9ab33ecd_b.jpg",
+        "original_keras_score": 0.27050092816352844,
+        "rebuild_keras_score": 0.3599609434604645,
+        "abs_diff": 0.08946001529693604
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_271_20063205446_7f017d0198_b.jpg",
+        "original_keras_score": 0.6408059597015381,
+        "rebuild_keras_score": 0.7564398050308228,
+        "abs_diff": 0.11563384532928467
+      },
+      {
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_421_19463089073_aee5044e4f_b.jpg",
+        "original_keras_score": 0.1794120967388153,
+        "rebuild_keras_score": 0.4902958273887634,
+        "abs_diff": 0.3108837306499481
+      }
+    ]
+  },
+  "error_type": "RuntimeError",
+  "error": "Rebuild Keras parity failed before TFLite conversion; refusing to export.",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/omen_pc1/photo_score_project/outputs/rgnet_tflite_retry_20260507/scripts/strict_rebuild_builtin_export.py\", line 293, in main\n    raise RuntimeError(\"Rebuild Keras parity failed before TFLite conversion; refusing to export.\")\nRuntimeError: Rebuild Keras parity failed before TFLite conversion; refusing to export.\n"
+}

@@ -1,0 +1,24 @@
+{
+  "manifest": "outputs/gemma4_e4b_aesthetic3_smoke/dataset_all.jsonl",
+  "row_csv": "outputs/gemma4_e4b_aesthetic3_smoke/audit_pass2/teacher_audit_rows.csv",
+  "summary_counts": {
+    "rows": 49,
+    "numeric_rubric_row_count": 0,
+    "generic_baseline_row_count": 31,
+    "grounding_fail_row_count": 0,
+    "verdict_rewritable_without_numeric_row_count": 7
+  },
+  "literal_numeric_rubric_counts": {
+    "score": 0,
+    "threshold": 0,
+    "weighted_aesthetic_score": 0,
+    "rank": 0,
+    "top_k_style": 0
+  },
+  "sample_problem_rows": [],
+  "notes": [
+    "generic_baseline_row_count uses broad abstract/template phrase matching such as overall appeal, weaker secondary cues, and higher-ranked frame.",
+    "grounding_fail_row_count uses a stricter subset focused on visibly ungrounded placeholders or malformed verdict wording.",
+    "proposed_visible_verdict_line is a deterministic A-cut rewrite tied only to the current Strength and Weakness lines."
+  ]
+}

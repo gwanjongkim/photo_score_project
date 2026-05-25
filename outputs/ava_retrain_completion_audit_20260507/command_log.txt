@@ -1,0 +1,47 @@
+pwd
+date
+hostname
+whoami
+git status --short
+./.venv_gpu/bin/python --version || python3 --version
+nvidia-smi || true
+ps aux | grep -Ei "train_rgnet|train_alamp|ava_retrain|tensorflow|python" | grep -v grep || true
+find outputs -maxdepth 4 -type d \( -iname '*ava*' -o -iname '*rgnet*' -o -iname '*alamp*' \) | sort
+find outputs -maxdepth 5 -type f \( -iname '*ava*' -o -iname '*rgnet*' -o -iname '*alamp*' -o -iname '*train*' -o -iname '*log*' -o -iname '*metrics*' -o -iname '*.json' -o -iname '*.csv' -o -iname '*.keras' -o -iname '*.h5' -o -iname '*.tflite' \) | sort
+find checkpoints exports -maxdepth 4 -type f \( -iname '*ava*' -o -iname '*rgnet*' -o -iname '*alamp*' \) | sort
+find outputs/ava_retrain_rgnet_alamp_20260506 -type f -printf '%p %s %TY-%Tm-%Td %TH:%TM:%TS\n' | sort
+python3 - <<'PY'
+import csv, glob
+for p in sorted(glob.glob("data/processed/ava/*unit*.csv")):
+    with open(p, 'r') as f:
+        reader = csv.reader(f)
+        header = next(reader)
+        if "aesthetic_unit_score" in header:
+            idx = header.index("aesthetic_unit_score")
+            vals = []
+            for row in reader:
+                try: vals.append(float(row[idx]))
+                except: pass
+            if vals: print(p, "min", min(vals), "max", max(vals))
+PY
+./.venv_gpu/bin/python - <<'PY'
+import os, glob
+import tensorflow as tf
+for p in sorted(glob.glob("outputs/ava_retrain_rgnet_alamp_20260506/**/*final_model.keras", recursive=True)):
+    print("MODEL", p)
+    try: tf.keras.models.load_model(p, compile=False)
+    except Exception as e: print("LOAD_FAILED")
+PY
+./.venv_gpu/bin/python - <<'PY'
+import os, glob
+import tensorflow as tf
+for p in sorted(glob.glob("outputs/ava_retrain_rgnet_alamp_20260506/**/*.tflite", recursive=True)):
+    print("TFLITE", p)
+    try:
+        inter = tf.lite.Interpreter(model_path=p)
+        inter.allocate_tensors()
+    except Exception as e: print("FAILED")
+PY
+cat outputs/ava_retrain_rgnet_alamp_20260506/ava_retrain_report.md
+cat outputs/ava_retrain_rgnet_alamp_20260506/metrics_summary.json
+find outputs/ava_retrain_rgnet_alamp_20260506 -type f -name "*.json" | grep tflite

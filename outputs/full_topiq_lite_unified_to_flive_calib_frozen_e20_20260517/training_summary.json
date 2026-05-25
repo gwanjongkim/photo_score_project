@@ -1,0 +1,84 @@
+{
+  "artifacts": {
+    "best_weights": "outputs/full_topiq_lite_unified_to_flive_calib_frozen_e20_20260517/best.weights.h5",
+    "final_model": "outputs/full_topiq_lite_unified_to_flive_calib_frozen_e20_20260517/final_model.keras",
+    "saved_model": "outputs/full_topiq_lite_unified_to_flive_calib_frozen_e20_20260517/saved_model",
+    "training_log": "outputs/full_topiq_lite_unified_to_flive_calib_frozen_e20_20260517/training_log.csv"
+  },
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python src/train/train_topiq_lite.py --train_csv data/processed/flive/image_train.csv --val_csv data/processed/flive/image_val.csv --target_col normalized_mos --batch_size 8 --epochs 20 --lr 1e-5 --freeze_backbone --init_weights outputs/full_topiq_lite_spaq_to_koniq_frozen_e30_20260517/best.weights.h5 --out_dir outputs/full_topiq_lite_unified_to_flive_calib_frozen_e20_20260517",
+  "feature_layers": {
+    "high": {
+      "layer_name": "top_activation",
+      "shape": [
+        12,
+        12,
+        1280
+      ]
+    },
+    "low": {
+      "layer_name": "block3b_add",
+      "shape": [
+        48,
+        48,
+        48
+      ]
+    },
+    "mid": {
+      "layer_name": "block5c_add",
+      "shape": [
+        24,
+        24,
+        112
+      ]
+    }
+  },
+  "final_metrics": {
+    "loss": 0.0009896716801449656,
+    "mae": 0.03376469761133194,
+    "rmse": 0.04620687663555145,
+    "val_loss": 0.001031090971082449,
+    "val_mae": 0.034015774726867676,
+    "val_rmse": 0.04729944095015526
+  },
+  "init_weights": "outputs/full_topiq_lite_spaq_to_koniq_frozen_e30_20260517/best.weights.h5",
+  "prediction_diagnostics": {
+    "correlation_error": null,
+    "mae_100": 3.3665223121643066,
+    "plcc": 0.6277554631233215,
+    "possible_mode_collapse": false,
+    "pred_max": 0.7906807661056519,
+    "pred_mean": 0.7131016254425049,
+    "pred_min": 0.5274322628974915,
+    "pred_std": 0.042665161192417145,
+    "pred_std_over_target_std": 0.7612891269489234,
+    "rmse_100": 4.463376522064209,
+    "sample_count": 128,
+    "srcc": 0.5531267167185496,
+    "target_max": 0.8673397898674011,
+    "target_mean": 0.7188507914543152,
+    "target_min": 0.47245073318481445,
+    "target_std": 0.05604330822825432
+  },
+  "train_csv": {
+    "csv_path": "/home/omen_pc1/photo_score_project/data/processed/flive/image_train.csv",
+    "image_col": "image_path",
+    "row_count": 31848,
+    "target_col": "normalized_mos",
+    "target_max": 0.943332314491272,
+    "target_mean": 0.7213712334632874,
+    "target_min": 0.0,
+    "target_std": 0.061495307832956314,
+    "validated_paths": false
+  },
+  "val_csv": {
+    "csv_path": "/home/omen_pc1/photo_score_project/data/processed/flive/image_val.csv",
+    "image_col": "image_path",
+    "row_count": 3981,
+    "target_col": "normalized_mos",
+    "target_max": 0.9053076505661011,
+    "target_mean": 0.7204550504684448,
+    "target_min": 0.09655935317277908,
+    "target_std": 0.0637158527970314,
+    "validated_paths": false
+  }
+}

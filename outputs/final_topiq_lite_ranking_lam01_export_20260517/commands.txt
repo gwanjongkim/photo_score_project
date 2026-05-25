@@ -1,0 +1,2 @@
+# TFLite Export Commands
+PYTHONPATH=. ./.venv_gpu/bin/python scripts/export_topiq_lite_ranking_lam01.py

@@ -1,0 +1,44 @@
+{
+  "inventory": [
+    {
+      "name": "Official PyTorch Weights",
+      "path": "weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+      "size_mb": 242.0
+    },
+    {
+      "name": "TF-native TFLite Candidate",
+      "path": "outputs/icaa_tf_native_tflite_fp16_20260516_144023/icaa_dat_tf_native_fp16.tflite",
+      "size_mb": 11.9
+    },
+    {
+      "name": "Deployment Candidate (Copy)",
+      "path": "forWeights2/models/aesthetic/icaa_dat_tf_native_fp16.tflite",
+      "size_mb": 11.9
+    }
+  ],
+  "hashes": {
+    "outputs_fp16": "10ae68a3283bdabf05ecfa8b679e1e89865f3c960687ce5495500455bbd111ff",
+    "forWeights2_fp16": "10ae68a3283bdabf05ecfa8b679e1e89865f3c960687ce5495500455bbd111ff"
+  },
+  "metrics": {
+    "Full_Test_1617": {
+      "color_srcc": 0.8790617000553665,
+      "color_plcc": 0.8957717013166686,
+      "color_mae": 0.0213714448922888,
+      "mos_srcc": 0.9058089086206074
+    },
+    "Seed42_500": {
+      "color_srcc": 0.8851628675783761,
+      "color_plcc": 0.9025444266320908
+    },
+    "Seed999_500": {
+      "color_srcc": 0.8751938728685504,
+      "color_plcc": 0.900996606175414
+    }
+  },
+  "paper_target": {
+    "srcc": 0.8811,
+    "tlcc": 0.8981
+  },
+  "verdict": "Performance Confirmed. High reliability for color aesthetic assessment."
+}

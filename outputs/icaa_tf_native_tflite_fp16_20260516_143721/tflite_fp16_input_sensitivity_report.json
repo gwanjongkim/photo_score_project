@@ -1,0 +1,32 @@
+{
+  "zero_output": [
+    [
+      0.2576129734516144,
+      0.46318355202674866
+    ]
+  ],
+  "one_output": [
+    [
+      0.27009379863739014,
+      0.4736000895500183
+    ]
+  ],
+  "random_output": [
+    [
+      0.20574581623077393,
+      0.4142095446586609
+    ]
+  ],
+  "real_output": [
+    [
+      0.6749370098114014,
+      0.5958452224731445
+    ]
+  ],
+  "real_path": "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+  "zero_vs_one_max_diff": 0.012480825185775757,
+  "zero_vs_random_max_diff": 0.051867157220840454,
+  "random_vs_real_max_diff": 0.46919119358062744,
+  "sensitivity_epsilon": 1e-06,
+  "input_sensitive": true
+}

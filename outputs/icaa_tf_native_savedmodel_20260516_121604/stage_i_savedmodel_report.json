@@ -1,0 +1,79 @@
+{
+  "status": "ok",
+  "overall_pass": true,
+  "command_used": "python experiments/icaa_tf_native/scripts/stage_i_export_savedmodel.py",
+  "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+  "saved_model_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_121604/saved_model",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_121604",
+  "seed": 123,
+  "thresholds": {
+    "preferred": 1e-06,
+    "acceptable": 1e-05
+  },
+  "serving_signature": {
+    "input": "image [None, 224, 224, 3] tf.float32",
+    "output": "scores [None, 2] tf.float32"
+  },
+  "results": [
+    {
+      "name": "random_normalized_input",
+      "status": "pass_preferred",
+      "pass_preferred": true,
+      "pass_acceptable": true,
+      "full_max_abs_diff": 5.960464477539063e-08,
+      "full_mean_abs_diff": 2.9802322387695312e-08,
+      "mos_max_abs_diff": 0.0,
+      "mos_mean_abs_diff": 0.0,
+      "color_max_abs_diff": 5.960464477539063e-08,
+      "color_mean_abs_diff": 5.960464477539063e-08,
+      "output_shape": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "16_real_images",
+      "status": "pass_preferred",
+      "pass_preferred": true,
+      "pass_acceptable": true,
+      "full_max_abs_diff": 5.960464477539063e-08,
+      "full_mean_abs_diff": 1.30385160446167e-08,
+      "mos_max_abs_diff": 5.960464477539063e-08,
+      "mos_mean_abs_diff": 1.4901161193847656e-08,
+      "color_max_abs_diff": 5.960464477539063e-08,
+      "color_mean_abs_diff": 1.1175870895385742e-08,
+      "output_shape": [
+        16,
+        2
+      ]
+    }
+  ],
+  "real_image_paths": [
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/geelog29034161553.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/117679407@N0828865500835.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/159973025@N0742445144115.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/139363649@N0233098198304.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/keo621918578914.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/146253389@N0829278222342.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/peter-murrell20822874424.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/28286225@N0239486212422.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/112246188@N0325165986081.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/125572947@N0716737113406.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/jerry_lake38649837566.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/lumenscript41873226310.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/yates77717355466472.jpg"
+  ],
+  "log_lines": [
+    "Loading checkpoint from /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+    "Instantiating TFICAA17KDAT model",
+    "Exporting to SavedModel",
+    "SavedModel exported to /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_121604/saved_model",
+    "Reloading SavedModel for parity verification",
+    "Running parity tests",
+    "Test A (Random): pass_preferred, max_diff=5.96046448e-08",
+    "Test B (Real Images): pass_preferred, max_diff=5.96046448e-08"
+  ]
+}

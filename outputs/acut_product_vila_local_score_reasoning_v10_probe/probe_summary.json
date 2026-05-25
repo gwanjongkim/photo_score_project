@@ -1,0 +1,140 @@
+{
+  "source_csv": "outputs/acut_stage5_full_with_pairwise/scores.csv",
+  "vila_merge_summary": {
+    "vila_scores_csv": "outputs/vila_scores_run/vila_scores.csv",
+    "source_rows": 15,
+    "usable_rows": 15,
+    "matched_records": 15,
+    "unmatched_records": 0
+  },
+  "multimodal_status": {
+    "requested": true,
+    "attempted": true,
+    "succeeded": true,
+    "backend_id": "vila_full_local",
+    "model": "checkpoints/VILA1.5-3b",
+    "runtime": "local_vila_remote_code",
+    "skip_reason": null,
+    "target_count": 3,
+    "attempted_count": 3,
+    "succeeded_count": 3,
+    "fallback_count": 0,
+    "fallback_occurred": false
+  },
+  "exports": {
+    "explanation_records_jsonl": "/home/omen_pc1/photo_score_project/outputs/acut_product_vila_local_score_reasoning_v10_probe/explanation_records.jsonl",
+    "explanation_comparison_csv": "/home/omen_pc1/photo_score_project/outputs/acut_product_vila_local_score_reasoning_v10_probe/explanation_comparison.csv"
+  },
+  "probe_rows": [
+    {
+      "rank": 1,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+      "selected": true,
+      "baseline": {
+        "short_reason": "Composition carried this frame into the A-cut, helped by technical quality.",
+        "detailed_reason": "Ranked #1 with a final score of 0.597, staying 0.040 above the cut line. The comparison was mostly won on composition-side evidence rather than raw score spread alone. KakaoTalk_20260330_180646779_12.jpg stayed closest in rank, yet composition and technical quality kept this frame ahead, although subject clarity was weaker. VILA mostly backed the decision through composition, with lighting and background cleanliness still softer.",
+        "comparison_reason": "KakaoTalk_20260330_180646779_12.jpg stayed closest in rank, yet composition and technical quality kept this frame ahead, although subject clarity was weaker.",
+        "tags": [
+          "technical",
+          "composition",
+          "technical quality",
+          "overall image appeal",
+          "subject clarity",
+          "background cleanliness",
+          "lighting",
+          "selector_reasoning"
+        ]
+      },
+      "vila_full_local": {
+        "short_reason": "selected: technical held above cut line rank #3 by +0.029 rejected: aesthetic lagged nearby ranks",
+        "detailed_reason": "selected: technical held above cut line rank #3 by +0.029 rejected: aesthetic lagged nearby ranks",
+        "comparison_reason": null,
+        "tags": [],
+        "confidence": null,
+        "status": "generated",
+        "metadata": {
+          "runtime": "local_vila_remote_code",
+          "loader": "llava.remote_code.AutoModelForCausalLM",
+          "parse_mode": "plain_text_fallback",
+          "parse_warning": "Recovered plain-text local output without full JSON.",
+          "raw_text": "selected: technical held above cut line rank #3 by +0.029\nrejected: aesthetic lagged nearby ranks",
+          "normalized_text": "selected: technical held above cut line rank #3 by +0.029\nrejected: aesthetic lagged nearby ranks"
+        }
+      }
+    },
+    {
+      "rank": 2,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_12.jpg",
+      "selected": true,
+      "baseline": {
+        "short_reason": "A balanced score profile kept this frame above the cut, led by subject clarity and background cleanliness.",
+        "detailed_reason": "Ranked #2 with a final score of 0.583, staying 0.026 above the cut line. The selector did not rely on one spike; it held together through subject clarity and background cleanliness. The selector stayed balanced between aesthetic (0.560) and technical (0.579) components. KakaoTalk_20260330_180646779_10.jpg stayed closest in rank, yet subject clarity and background cleanliness kept this frame ahead, although composition was weaker.",
+        "comparison_reason": "KakaoTalk_20260330_180646779_10.jpg stayed closest in rank, yet subject clarity and background cleanliness kept this frame ahead, although composition was weaker. Against KakaoTalk_20260330_180646779_08.jpg, the clearest edges were composition and aesthetic score, and the VILA score was lower by 0.051.",
+        "tags": [
+          "balanced",
+          "subject clarity",
+          "background cleanliness",
+          "composition",
+          "technical quality",
+          "overall image appeal",
+          "lighting",
+          "selector_reasoning"
+        ]
+      },
+      "vila_full_local": {
+        "short_reason": "selected: technical held above cut; aesthetic lagged nearby ranks",
+        "detailed_reason": "selected: technical held above cut; aesthetic lagged nearby ranks",
+        "comparison_reason": null,
+        "tags": [],
+        "confidence": null,
+        "status": "generated",
+        "metadata": {
+          "runtime": "local_vila_remote_code",
+          "loader": "llava.remote_code.AutoModelForCausalLM",
+          "parse_mode": "plain_text_fallback",
+          "parse_warning": "Recovered plain-text local output without full JSON.",
+          "raw_text": "selected: technical held above cut; aesthetic lagged nearby ranks",
+          "normalized_text": "selected: technical held above cut; aesthetic lagged nearby ranks"
+        }
+      }
+    },
+    {
+      "rank": 3,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_08.jpg",
+      "selected": true,
+      "baseline": {
+        "short_reason": "It stayed in on a narrow margin because background cleanliness and composition barely outweighed technical quality and aesthetic score.",
+        "detailed_reason": "Ranked #3 with a final score of 0.568, staying 0.011 above the cut line. It survived the cut line by holding a small edge on background cleanliness and composition while technical quality and aesthetic score stayed softer. Relative to KakaoTalk_20260330_180646779_07.jpg, the score edge was slightly higher by 0.011, driven mostly by background cleanliness and overall image appeal, although technical quality was weaker. On the VILA side, composition supported the pick more than lighting and overall image quality hurt it.",
+        "comparison_reason": "Relative to KakaoTalk_20260330_180646779_07.jpg, the score edge was slightly higher by 0.011, driven mostly by background cleanliness and overall image appeal, although technical quality was weaker. The nearby comparison with KakaoTalk_20260330_180646779_12.jpg tilted on background cleanliness and overall image appeal, and the VILA score was higher by 0.051.",
+        "tags": [
+          "technical",
+          "background cleanliness",
+          "overall image appeal",
+          "composition",
+          "technical quality",
+          "aesthetic score",
+          "subject clarity",
+          "lighting",
+          "overall image quality",
+          "selector_reasoning"
+        ]
+      },
+      "vila_full_local": {
+        "short_reason": "selected: technical held above cut, aesthetic lagged nearby ranks.",
+        "detailed_reason": "selected: technical held above cut, aesthetic lagged nearby ranks.",
+        "comparison_reason": null,
+        "tags": [],
+        "confidence": null,
+        "status": "generated",
+        "metadata": {
+          "runtime": "local_vila_remote_code",
+          "loader": "llava.remote_code.AutoModelForCausalLM",
+          "parse_mode": "plain_text_fallback",
+          "parse_warning": "Recovered plain-text local output without full JSON.",
+          "raw_text": "selected: technical held above cut, aesthetic lagged nearby ranks.",
+          "normalized_text": "selected: technical held above cut, aesthetic lagged nearby ranks."
+        }
+      }
+    }
+  ]
+}

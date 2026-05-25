@@ -1,0 +1,36 @@
+{
+  "created_at_local": "2026-05-07T22:29:51.256105+09:00",
+  "attempt": "select_tf_ops_diagnostic",
+  "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+  "reference_image": "data/raw/ava/images/85837.jpg",
+  "output_tflite": "outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_select_tf_ops_diagnostic.tflite",
+  "requires_select_tf_ops": true,
+  "preferred_for_deployment": false,
+  "conversion_ok": true,
+  "allocation_ok": false,
+  "verification_passed": false,
+  "keras_reference_score": 0.46628883481025696,
+  "model_policy": "<DTypePolicy \"mixed_float16\">",
+  "tflite_size_bytes": 13380084,
+  "input_details_before_allocate": [
+    {
+      "name": "serving_default_input_layer_1:0",
+      "shape": [
+        1,
+        256,
+        256,
+        3
+      ],
+      "shape_signature": [
+        -1,
+        256,
+        256,
+        3
+      ],
+      "dtype": "float32",
+      "index": 0
+    }
+  ],
+  "allocation_error_type": "RuntimeError",
+  "allocation_error": "Select TensorFlow op(s), included in the given model, is(are) not supported by this interpreter. Make sure you apply/link the Flex delegate before inference. For the Android, it can be resolved by adding \"org.tensorflow:tensorflow-lite-select-tf-ops\" dependency. See instructions: https://www.tensorflow.org/lite/guide/ops_selectNode number 1 (FlexMul) failed to prepare."
+}

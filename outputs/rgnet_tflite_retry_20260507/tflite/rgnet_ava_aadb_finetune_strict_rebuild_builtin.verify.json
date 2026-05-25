@@ -1,0 +1,24 @@
+{
+  "created_at_local": "2026-05-07T22:24:14.756012+09:00",
+  "attempt": "strict_rebuild_builtin",
+  "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+  "reference_image": "data/raw/ava/images/85837.jpg",
+  "output_tflite": "outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_strict_rebuild_builtin.tflite",
+  "output_metadata": "outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_strict_rebuild_builtin.metadata.json",
+  "image_size": 256,
+  "conversion_ok": false,
+  "verification_passed": false,
+  "original_policy_after_load": "<DTypePolicy \"float32\">",
+  "rebuild_policy": "<DTypePolicy \"float32\">",
+  "layer_coverage": {
+    "original_layer_count": 16,
+    "rebuild_layer_count": 16,
+    "paired_layer_count": 16,
+    "mismatch_count": 0,
+    "mismatches": [],
+    "coverage_ok": true
+  },
+  "error_type": "AttributeError",
+  "error": "'str' object has no attribute 'name'",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/omen_pc1/photo_score_project/outputs/rgnet_tflite_retry_20260507/scripts/strict_rebuild_builtin_export.py\", line 279, in main\n    result[\"weight_coverage_before_copy\"] = summarize_weight_coverage(original, rebuild)\n                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/outputs/rgnet_tflite_retry_20260507/scripts/strict_rebuild_builtin_export.py\", line 83, in summarize_weight_coverage\n    \"original_dtype\": orig_var.dtype.name,\n                      ^^^^^^^^^^^^^^^^^^^\nAttributeError: 'str' object has no attribute 'name'\n"
+}

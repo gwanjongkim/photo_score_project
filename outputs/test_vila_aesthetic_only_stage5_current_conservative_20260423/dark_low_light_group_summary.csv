@@ -1,0 +1,4 @@
+low_light_group,image_count,stage5_mean,current_mean,conservative_mean,stage5_best_rank,current_best_rank,conservative_best_rank,stage5_top10_count,current_top10_count,conservative_top10_count
+night_city_landmark,6,0.48230138421058655,0.5275074377655983,0.5304390149811903,5,3,2,3,3,2
+silhouette_dramatic_low_light,10,0.4576399326324463,0.5448984195788701,0.5358399329086144,3,2,3,3,4,4
+star_sky_astro_like,2,0.4345956891775131,0.43393632670243576,0.4332958330710729,24,38,38,0,0,0

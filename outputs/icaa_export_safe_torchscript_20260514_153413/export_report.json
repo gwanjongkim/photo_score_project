@@ -1,0 +1,11 @@
+{
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "pass_threshold_1e-5": true,
+  "pass_threshold_1e-4": true,
+  "num_samples": 32,
+  "tracer_warnings": [
+    "torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.",
+    "Converting a tensor to a Python float might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!"
+  ]
+}

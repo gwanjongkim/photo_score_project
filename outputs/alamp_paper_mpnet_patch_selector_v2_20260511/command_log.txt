@@ -1,0 +1,5 @@
+./.venv_gpu/bin/python -c "import cv2; print('saliency' in dir(cv2))"
+cat src/datasets/alamp_paper_patch_selector.py
+chmod +x tools/run_alamp_paper_mpnet_patch_generation_v2.sh
+./tools/run_alamp_paper_mpnet_patch_generation_v2.sh
+./.venv_gpu/bin/python tools/compare_alamp_patch_selectors.py

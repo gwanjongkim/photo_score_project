@@ -1,0 +1,2 @@
+./.venv_gpu/bin/python tools/audit_patch_sizes.py
+# (Audit was performed by comparing V1, V3, and V4 JSONL files for Train subsets)

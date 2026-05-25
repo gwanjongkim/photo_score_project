@@ -1,0 +1,8 @@
+{
+  "primary_choice": "U²-Net",
+  "fallback_choice": "IS-Net (DIS)",
+  "feasibility": "High",
+  "gpu_available": true,
+  "next_step": "Implement Patch Selector V3 with U²-Net saliency map integration.",
+  "reasoning": "U²-Net provides a good balance between speed, mask quality, and ease of integration. It is licensed under Apache 2.0, making it suitable for this project. Torch and CUDA are already confirmed in the environment."
+}

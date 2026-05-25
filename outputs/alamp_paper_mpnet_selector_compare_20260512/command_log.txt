@@ -1,0 +1,15 @@
+# 1. Implementation
+# Create models/alamp_paper_mpnet.py (PatchReshape, PatchAggregation, VggPreprocess layers)
+# Create src/train/train_alamp_paper_mpnet_ava.py
+# Create src/eval/evaluate_alamp_paper_mpnet_ava.py
+
+# 2. Syntax Check
+./.venv_gpu/bin/python -m py_compile src/models/alamp_paper_mpnet.py src/train/train_alamp_paper_mpnet_ava.py src/eval/evaluate_alamp_paper_mpnet_ava.py
+
+# 3. Training & Evaluation (256 sample comparison)
+export PYTHONPATH=.
+export CUDA_VISIBLE_DEVICES=""
+./.venv_gpu/bin/python src/train/train_alamp_paper_mpnet_ava.py --selector_name strict --max_train_samples 256 ...
+./.venv_gpu/bin/python src/eval/evaluate_alamp_paper_mpnet_ava.py --selector_name strict ...
+./.venv_gpu/bin/python src/train/train_alamp_paper_mpnet_ava.py --selector_name v4 --max_train_samples 256 ...
+./.venv_gpu/bin/python src/eval/evaluate_alamp_paper_mpnet_ava.py --selector_name v4 ...

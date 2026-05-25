@@ -1,0 +1,947 @@
+{
+  "deterministic random normalized image input": [
+    {
+      "name": "patch_proj",
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.4965027617108717e-07,
+      "torch_shape": [
+        1,
+        128,
+        56,
+        56
+      ],
+      "tf_shape_nhwc": [
+        1,
+        56,
+        56,
+        128
+      ],
+      "tf_shape_nchw": [
+        1,
+        128,
+        56,
+        56
+      ]
+    },
+    {
+      "name": "stage0",
+      "max_abs_diff": 5.9604644775390625e-06,
+      "mean_abs_diff": 7.81924597959005e-07,
+      "torch_shape": [
+        1,
+        128,
+        56,
+        56
+      ],
+      "tf_shape_nhwc": [
+        1,
+        56,
+        56,
+        128
+      ],
+      "tf_shape_nchw": [
+        1,
+        128,
+        56,
+        56
+      ]
+    },
+    {
+      "name": "down_proj0",
+      "max_abs_diff": 1.430511474609375e-05,
+      "mean_abs_diff": 5.789577244286193e-07,
+      "torch_shape": [
+        1,
+        256,
+        28,
+        28
+      ],
+      "tf_shape_nhwc": [
+        1,
+        28,
+        28,
+        256
+      ],
+      "tf_shape_nchw": [
+        1,
+        256,
+        28,
+        28
+      ]
+    },
+    {
+      "name": "stage1",
+      "max_abs_diff": 1.52587890625e-05,
+      "mean_abs_diff": 1.0195616368946503e-06,
+      "torch_shape": [
+        1,
+        256,
+        28,
+        28
+      ],
+      "tf_shape_nhwc": [
+        1,
+        28,
+        28,
+        256
+      ],
+      "tf_shape_nchw": [
+        1,
+        256,
+        28,
+        28
+      ]
+    },
+    {
+      "name": "down_proj1",
+      "max_abs_diff": 1.52587890625e-05,
+      "mean_abs_diff": 7.536600037383323e-07,
+      "torch_shape": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "tf_shape_nhwc": [
+        1,
+        14,
+        14,
+        512
+      ],
+      "tf_shape_nchw": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "name": "stage2",
+      "max_abs_diff": 0.0294189453125,
+      "mean_abs_diff": 5.025777863920666e-05,
+      "torch_shape": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "tf_shape_nhwc": [
+        1,
+        14,
+        14,
+        512
+      ],
+      "tf_shape_nchw": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "name": "down_proj2",
+      "max_abs_diff": 0.0008087158203125,
+      "mean_abs_diff": 1.6212595710385358e-06,
+      "torch_shape": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "tf_shape_nhwc": [
+        1,
+        7,
+        7,
+        1024
+      ],
+      "tf_shape_nchw": [
+        1,
+        1024,
+        7,
+        7
+      ]
+    },
+    {
+      "name": "stage3",
+      "max_abs_diff": 0.000823974609375,
+      "mean_abs_diff": 2.217586597907939e-06,
+      "torch_shape": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "tf_shape_nhwc": [
+        1,
+        7,
+        7,
+        1024
+      ],
+      "tf_shape_nchw": [
+        1,
+        1024,
+        7,
+        7
+      ]
+    },
+    {
+      "name": "cls_norm",
+      "max_abs_diff": 2.518296241760254e-06,
+      "mean_abs_diff": 8.445560695236054e-08,
+      "torch_shape": [
+        1,
+        1024,
+        7,
+        7
+      ],
+      "tf_shape_nhwc": [
+        1,
+        7,
+        7,
+        1024
+      ],
+      "tf_shape_nchw": [
+        1,
+        1024,
+        7,
+        7
+      ]
+    },
+    {
+      "name": "pooled_feature",
+      "max_abs_diff": 4.1909515857696533e-07,
+      "mean_abs_diff": 5.8035261929489934e-08,
+      "torch_shape": [
+        1,
+        1024
+      ],
+      "tf_shape": [
+        1,
+        1024
+      ]
+    },
+    {
+      "name": "hst_head",
+      "max_abs_diff": 1.8067657947540283e-07,
+      "mean_abs_diff": 6.477866065779381e-08,
+      "torch_shape": [
+        1,
+        36
+      ],
+      "tf_shape": [
+        1,
+        36
+      ]
+    },
+    {
+      "name": "soft_histogram_raw",
+      "max_abs_diff": 1.6987323760986328e-06,
+      "mean_abs_diff": 8.609559642991371e-08,
+      "torch_shape": [
+        1,
+        216,
+        1
+      ],
+      "tf_shape": [
+        1,
+        216,
+        1
+      ]
+    },
+    {
+      "name": "soft_histogram",
+      "max_abs_diff": 1.6987323760986328e-06,
+      "mean_abs_diff": 8.609559642991371e-08,
+      "torch_shape": [
+        1,
+        216
+      ],
+      "tf_shape": [
+        1,
+        216
+      ]
+    },
+    {
+      "name": "mos",
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "torch_shape": [
+        1,
+        1
+      ],
+      "tf_shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "color",
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 5.960464477539063e-08,
+      "torch_shape": [
+        1,
+        1
+      ],
+      "tf_shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "final_output",
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 2.9802322387695312e-08,
+      "torch_shape": [
+        1,
+        2
+      ],
+      "tf_shape": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "pytorch_manual_final_vs_module_final",
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "torch_shape": [
+        1,
+        2
+      ],
+      "tf_shape": [
+        1,
+        2
+      ]
+    }
+  ],
+  "16 real ICAA17K test images": [
+    {
+      "name": "patch_proj",
+      "max_abs_diff": 1.9073486328125e-06,
+      "mean_abs_diff": 5.221278698286369e-08,
+      "torch_shape": [
+        16,
+        128,
+        56,
+        56
+      ],
+      "tf_shape_nhwc": [
+        16,
+        56,
+        56,
+        128
+      ],
+      "tf_shape_nchw": [
+        16,
+        128,
+        56,
+        56
+      ]
+    },
+    {
+      "name": "stage0",
+      "max_abs_diff": 1.430511474609375e-05,
+      "mean_abs_diff": 7.153901151468745e-07,
+      "torch_shape": [
+        16,
+        128,
+        56,
+        56
+      ],
+      "tf_shape_nhwc": [
+        16,
+        56,
+        56,
+        128
+      ],
+      "tf_shape_nchw": [
+        16,
+        128,
+        56,
+        56
+      ]
+    },
+    {
+      "name": "down_proj0",
+      "max_abs_diff": 2.384185791015625e-05,
+      "mean_abs_diff": 8.549034191673854e-07,
+      "torch_shape": [
+        16,
+        256,
+        28,
+        28
+      ],
+      "tf_shape_nhwc": [
+        16,
+        28,
+        28,
+        256
+      ],
+      "tf_shape_nchw": [
+        16,
+        256,
+        28,
+        28
+      ]
+    },
+    {
+      "name": "stage1",
+      "max_abs_diff": 2.6702880859375e-05,
+      "mean_abs_diff": 1.65834705967427e-06,
+      "torch_shape": [
+        16,
+        256,
+        28,
+        28
+      ],
+      "tf_shape_nhwc": [
+        16,
+        28,
+        28,
+        256
+      ],
+      "tf_shape_nchw": [
+        16,
+        256,
+        28,
+        28
+      ]
+    },
+    {
+      "name": "down_proj1",
+      "max_abs_diff": 2.6702880859375e-05,
+      "mean_abs_diff": 1.1216345683351392e-06,
+      "torch_shape": [
+        16,
+        512,
+        14,
+        14
+      ],
+      "tf_shape_nhwc": [
+        16,
+        14,
+        14,
+        512
+      ],
+      "tf_shape_nchw": [
+        16,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "name": "stage2",
+      "max_abs_diff": 0.06884765625,
+      "mean_abs_diff": 6.824255251558498e-05,
+      "torch_shape": [
+        16,
+        512,
+        14,
+        14
+      ],
+      "tf_shape_nhwc": [
+        16,
+        14,
+        14,
+        512
+      ],
+      "tf_shape_nchw": [
+        16,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "name": "down_proj2",
+      "max_abs_diff": 0.00201416015625,
+      "mean_abs_diff": 3.739817202585982e-06,
+      "torch_shape": [
+        16,
+        1024,
+        7,
+        7
+      ],
+      "tf_shape_nhwc": [
+        16,
+        7,
+        7,
+        1024
+      ],
+      "tf_shape_nchw": [
+        16,
+        1024,
+        7,
+        7
+      ]
+    },
+    {
+      "name": "stage3",
+      "max_abs_diff": 0.010986328125,
+      "mean_abs_diff": 5.018426236347295e-06,
+      "torch_shape": [
+        16,
+        1024,
+        7,
+        7
+      ],
+      "tf_shape_nhwc": [
+        16,
+        7,
+        7,
+        1024
+      ],
+      "tf_shape_nchw": [
+        16,
+        1024,
+        7,
+        7
+      ]
+    },
+    {
+      "name": "cls_norm",
+      "max_abs_diff": 1.531839370727539e-05,
+      "mean_abs_diff": 1.6971860361536528e-07,
+      "torch_shape": [
+        16,
+        1024,
+        7,
+        7
+      ],
+      "tf_shape_nhwc": [
+        16,
+        7,
+        7,
+        1024
+      ],
+      "tf_shape_nchw": [
+        16,
+        1024,
+        7,
+        7
+      ]
+    },
+    {
+      "name": "pooled_feature",
+      "max_abs_diff": 1.3567041605710983e-06,
+      "mean_abs_diff": 8.950733842993941e-08,
+      "torch_shape": [
+        16,
+        1024
+      ],
+      "tf_shape": [
+        16,
+        1024
+      ]
+    },
+    {
+      "name": "hst_head",
+      "max_abs_diff": 6.7148357629776e-07,
+      "mean_abs_diff": 8.590015454501554e-08,
+      "torch_shape": [
+        16,
+        36
+      ],
+      "tf_shape": [
+        16,
+        36
+      ]
+    },
+    {
+      "name": "soft_histogram_raw",
+      "max_abs_diff": 6.8247318267822266e-06,
+      "mean_abs_diff": 8.933636053143346e-08,
+      "torch_shape": [
+        1,
+        216,
+        16
+      ],
+      "tf_shape": [
+        1,
+        216,
+        16
+      ]
+    },
+    {
+      "name": "soft_histogram",
+      "max_abs_diff": 6.8247318267822266e-06,
+      "mean_abs_diff": 8.933636053143346e-08,
+      "torch_shape": [
+        16,
+        216
+      ],
+      "tf_shape": [
+        16,
+        216
+      ]
+    },
+    {
+      "name": "mos",
+      "max_abs_diff": 8.940696716308594e-07,
+      "mean_abs_diff": 1.5087425708770752e-07,
+      "torch_shape": [
+        16,
+        1
+      ],
+      "tf_shape": [
+        16,
+        1
+      ]
+    },
+    {
+      "name": "color",
+      "max_abs_diff": 5.364418029785156e-07,
+      "mean_abs_diff": 1.3783574104309082e-07,
+      "torch_shape": [
+        16,
+        1
+      ],
+      "tf_shape": [
+        16,
+        1
+      ]
+    },
+    {
+      "name": "final_output",
+      "max_abs_diff": 8.940696716308594e-07,
+      "mean_abs_diff": 1.4435499906539917e-07,
+      "torch_shape": [
+        16,
+        2
+      ],
+      "tf_shape": [
+        16,
+        2
+      ]
+    },
+    {
+      "name": "pytorch_manual_final_vs_module_final",
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "torch_shape": [
+        16,
+        2
+      ],
+      "tf_shape": [
+        16,
+        2
+      ]
+    }
+  ],
+  "64 real ICAA17K test images": [
+    {
+      "name": "patch_proj",
+      "max_abs_diff": 2.86102294921875e-06,
+      "mean_abs_diff": 5.299295580130092e-08,
+      "torch_shape": [
+        64,
+        128,
+        56,
+        56
+      ],
+      "tf_shape_nhwc": [
+        64,
+        56,
+        56,
+        128
+      ],
+      "tf_shape_nchw": [
+        64,
+        128,
+        56,
+        56
+      ]
+    },
+    {
+      "name": "stage0",
+      "max_abs_diff": 2.2649765014648438e-05,
+      "mean_abs_diff": 7.296339390450157e-07,
+      "torch_shape": [
+        64,
+        128,
+        56,
+        56
+      ],
+      "tf_shape_nhwc": [
+        64,
+        56,
+        56,
+        128
+      ],
+      "tf_shape_nchw": [
+        64,
+        128,
+        56,
+        56
+      ]
+    },
+    {
+      "name": "down_proj0",
+      "max_abs_diff": 2.47955322265625e-05,
+      "mean_abs_diff": 8.725031648282311e-07,
+      "torch_shape": [
+        64,
+        256,
+        28,
+        28
+      ],
+      "tf_shape_nhwc": [
+        64,
+        28,
+        28,
+        256
+      ],
+      "tf_shape_nchw": [
+        64,
+        256,
+        28,
+        28
+      ]
+    },
+    {
+      "name": "stage1",
+      "max_abs_diff": 3.999471664428711e-05,
+      "mean_abs_diff": 1.7143775039585307e-06,
+      "torch_shape": [
+        64,
+        256,
+        28,
+        28
+      ],
+      "tf_shape_nhwc": [
+        64,
+        28,
+        28,
+        256
+      ],
+      "tf_shape_nchw": [
+        64,
+        256,
+        28,
+        28
+      ]
+    },
+    {
+      "name": "down_proj1",
+      "max_abs_diff": 3.24249267578125e-05,
+      "mean_abs_diff": 1.1328143045830075e-06,
+      "torch_shape": [
+        64,
+        512,
+        14,
+        14
+      ],
+      "tf_shape_nhwc": [
+        64,
+        14,
+        14,
+        512
+      ],
+      "tf_shape_nchw": [
+        64,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "name": "stage2",
+      "max_abs_diff": 8.0496826171875,
+      "mean_abs_diff": 0.001144198002293706,
+      "torch_shape": [
+        64,
+        512,
+        14,
+        14
+      ],
+      "tf_shape_nhwc": [
+        64,
+        14,
+        14,
+        512
+      ],
+      "tf_shape_nchw": [
+        64,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "name": "down_proj2",
+      "max_abs_diff": 1.243804931640625,
+      "mean_abs_diff": 6.08108784945216e-05,
+      "torch_shape": [
+        64,
+        1024,
+        7,
+        7
+      ],
+      "tf_shape_nhwc": [
+        64,
+        7,
+        7,
+        1024
+      ],
+      "tf_shape_nchw": [
+        64,
+        1024,
+        7,
+        7
+      ]
+    },
+    {
+      "name": "stage3",
+      "max_abs_diff": 19.19842529296875,
+      "mean_abs_diff": 0.00021769307204522192,
+      "torch_shape": [
+        64,
+        1024,
+        7,
+        7
+      ],
+      "tf_shape_nhwc": [
+        64,
+        7,
+        7,
+        1024
+      ],
+      "tf_shape_nchw": [
+        64,
+        1024,
+        7,
+        7
+      ]
+    },
+    {
+      "name": "cls_norm",
+      "max_abs_diff": 0.017560090869665146,
+      "mean_abs_diff": 5.747263912780909e-06,
+      "torch_shape": [
+        64,
+        1024,
+        7,
+        7
+      ],
+      "tf_shape_nhwc": [
+        64,
+        7,
+        7,
+        1024
+      ],
+      "tf_shape_nchw": [
+        64,
+        1024,
+        7,
+        7
+      ]
+    },
+    {
+      "name": "pooled_feature",
+      "max_abs_diff": 0.0010703206062316895,
+      "mean_abs_diff": 3.941878276236821e-06,
+      "torch_shape": [
+        64,
+        1024
+      ],
+      "tf_shape": [
+        64,
+        1024
+      ]
+    },
+    {
+      "name": "hst_head",
+      "max_abs_diff": 0.0008105002343654633,
+      "mean_abs_diff": 5.134357706992887e-06,
+      "torch_shape": [
+        64,
+        36
+      ],
+      "tf_shape": [
+        64,
+        36
+      ]
+    },
+    {
+      "name": "soft_histogram_raw",
+      "max_abs_diff": 0.009677320718765259,
+      "mean_abs_diff": 4.097392320545623e-06,
+      "torch_shape": [
+        1,
+        216,
+        64
+      ],
+      "tf_shape": [
+        1,
+        216,
+        64
+      ]
+    },
+    {
+      "name": "soft_histogram",
+      "max_abs_diff": 0.009677320718765259,
+      "mean_abs_diff": 4.097392320545623e-06,
+      "torch_shape": [
+        64,
+        216
+      ],
+      "tf_shape": [
+        64,
+        216
+      ]
+    },
+    {
+      "name": "mos",
+      "max_abs_diff": 0.00040286779403686523,
+      "mean_abs_diff": 7.2552356868982315e-06,
+      "torch_shape": [
+        64,
+        1
+      ],
+      "tf_shape": [
+        64,
+        1
+      ]
+    },
+    {
+      "name": "color",
+      "max_abs_diff": 6.085634231567383e-05,
+      "mean_abs_diff": 1.4477409422397614e-06,
+      "torch_shape": [
+        64,
+        1
+      ],
+      "tf_shape": [
+        64,
+        1
+      ]
+    },
+    {
+      "name": "final_output",
+      "max_abs_diff": 0.00040286779403686523,
+      "mean_abs_diff": 4.3514883145689964e-06,
+      "torch_shape": [
+        64,
+        2
+      ],
+      "tf_shape": [
+        64,
+        2
+      ]
+    },
+    {
+      "name": "pytorch_manual_final_vs_module_final",
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "torch_shape": [
+        64,
+        2
+      ],
+      "tf_shape": [
+        64,
+        2
+      ]
+    }
+  ]
+}

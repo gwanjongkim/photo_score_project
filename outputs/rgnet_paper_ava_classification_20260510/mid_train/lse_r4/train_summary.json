@@ -1,0 +1,154 @@
+{
+  "created_at_local": "2026-05-10T22:52:57.060947+09:00",
+  "model_variant": "RGNet-paper-AVA-classification approximation",
+  "official_reproduction": false,
+  "paper_comparability_note": "Uses DenseNet121, ASPP approximation, spatial region nodes, cosine adjacency, residual graph convolution, region-level logits, and configurable aggregation. This is not the official paper implementation.",
+  "train_csv": "data/processed/ava/train.csv",
+  "val_csv": "data/processed/ava/val.csv",
+  "image_dir": "data/raw/ava/images",
+  "image_col": "image_path",
+  "score_col": "mean_score",
+  "label_rule": "label = 1 if mean_score >= 5.0 else 0",
+  "train_samples": 4095,
+  "val_samples": 1024,
+  "train_skipped_image_count": 1,
+  "val_skipped_image_count": 0,
+  "train_skipped_image_examples": [
+    {
+      "row_index": "348",
+      "image_path": "data/raw/ava/images/277832.jpg",
+      "resolved_image_path": "data/raw/ava/images/277832.jpg",
+      "error": "OSError: image file is truncated (59 bytes not processed)"
+    }
+  ],
+  "val_skipped_image_examples": [],
+  "train_positive_count": 2935,
+  "val_positive_count": 729,
+  "image_size": 256,
+  "batch_size": 8,
+  "epochs_requested": 3,
+  "epochs_completed": 3,
+  "learning_rate": 0.0001,
+  "early_stopping": {
+    "monitor": "val_loss",
+    "patience": 3,
+    "restore_best_weights": true
+  },
+  "model": {
+    "backbone": "DenseNet121",
+    "backbone_weights_requested": "imagenet",
+    "context_module": "ASPP approximation",
+    "dilation_rates": [
+      1,
+      3,
+      6,
+      12,
+      18
+    ],
+    "region_dim": 256,
+    "graph_units": 256,
+    "graph_blocks": 3,
+    "graph_temperature": 0.25,
+    "graph_dropout": 0.1,
+    "head_dropout": 0.3,
+    "adjacency": "cosine similarity, softmax-normalized",
+    "graph_convolution": "residual graph convolution",
+    "region_classification_head": "per-node scalar logits",
+    "aggregation": "lse",
+    "lse_r": 4.0,
+    "score_activation_mode": "raw_before_aggregation_then_sigmoid",
+    "aggregation_formula": "(1 / r) * log(mean(exp(r * values))) for aggregation=lse"
+  },
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.20.0"
+  },
+  "forward_check": {
+    "input_shape": [
+      8,
+      256,
+      256,
+      3
+    ],
+    "output_shape": [
+      8,
+      1
+    ],
+    "prediction_min": 0.6350774168968201,
+    "prediction_max": 0.7340501546859741,
+    "all_finite": true,
+    "in_unit_range": true
+  },
+  "save_load_check": {
+    "loaded_model_name": "rgnet_paper_ava_classification",
+    "loaded_output_shape": [
+      8,
+      1
+    ],
+    "max_abs_diff_vs_trained_forward_sample": 0.0
+  },
+  "outputs": {
+    "final_model": "outputs/rgnet_paper_ava_classification_20260510/mid_train/lse_r4/final_model.keras",
+    "best_weights": "outputs/rgnet_paper_ava_classification_20260510/mid_train/lse_r4/best.weights.h5",
+    "training_history_csv": "outputs/rgnet_paper_ava_classification_20260510/mid_train/lse_r4/training_history.csv",
+    "train_summary_json": "outputs/rgnet_paper_ava_classification_20260510/mid_train/lse_r4/train_summary.json"
+  },
+  "best_epoch": 3,
+  "best_val_loss": 0.5250413417816162,
+  "final_train_loss": 0.5044878721237183,
+  "history": {
+    "accuracy": [
+      0.716239333152771,
+      0.7482295632362366,
+      0.7633699774742126
+    ],
+    "auc": [
+      0.6318290829658508,
+      0.7273381948471069,
+      0.7623327374458313
+    ],
+    "loss": [
+      0.5867305994033813,
+      0.5295336246490479,
+      0.5044878721237183
+    ],
+    "precision": [
+      0.7404393553733826,
+      0.7769051790237427,
+      0.7946642637252808
+    ],
+    "recall": [
+      0.9301533102989197,
+      0.9100511074066162,
+      0.9032368063926697
+    ],
+    "val_accuracy": [
+      0.736328125,
+      0.6689453125,
+      0.7548828125
+    ],
+    "val_auc": [
+      0.7144055962562561,
+      0.730622410774231,
+      0.7358396053314209
+    ],
+    "val_loss": [
+      0.5474240779876709,
+      0.6190268993377686,
+      0.5250413417816162
+    ],
+    "val_precision": [
+      0.778181791305542,
+      0.8293918967247009,
+      0.7792056202888489
+    ],
+    "val_recall": [
+      0.8806584477424622,
+      0.6735253930091858,
+      0.9149519801139832
+    ]
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "enabled": true,
+  "fallback_reason": null,
+  "config": {
+    "diversity_threshold": 0.82,
+    "hard_duplicate_threshold": 0.88,
+    "diversity_penalty_strength": 0.12,
+    "thumbnail_size": 32,
+    "hash_size": 16,
+    "histogram_bins": 8
+  },
+  "feature_stats": {
+    "num_images": 15,
+    "num_featured_images": 15,
+    "num_failures": 0
+  },
+  "feature_failures": [],
+  "duplicate_groups": [
+    {
+      "group_id": 1,
+      "leader_image": "test_samples/KakaoTalk_20260330_180646779_04.jpg",
+      "group_size": 2,
+      "max_pair_similarity": 0.9008426606655122,
+      "members": [
+        {
+          "image_path": "test_samples/KakaoTalk_20260330_180646779_04.jpg",
+          "base_rank": 12,
+          "rank": 9,
+          "base_score": 0.47554190569877625,
+          "final_score": 0.47554190569877625,
+          "diversity_penalty": 0.0,
+          "similarity_to_group_leader": 1.0
+        },
+        {
+          "image_path": "test_samples/KakaoTalk_20260330_180646779_09.jpg",
+          "base_rank": 13,
+          "rank": 15,
+          "base_score": 0.4743556725454331,
+          "final_score": 0.3543556725454331,
+          "diversity_penalty": 0.12,
+          "similarity_to_group_leader": 0.9008426606655122
+        }
+      ]
+    }
+  ],
+  "selection_trace": [
+    {
+      "rank": 1,
+      "base_rank": 1,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+      "base_score": 0.5698630999090671,
+      "final_score": 0.5698630999090671,
+      "diversity_penalty": 0.0,
+      "similarity_to_higher_ranked": null,
+      "most_similar_higher_ranked_image": null,
+      "reason_selected": "Highest base score seeded the diversity-aware ranking."
+    },
+    {
+      "rank": 2,
+      "base_rank": 3,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_07.jpg",
+      "base_score": 0.5424479736454487,
+      "final_score": 0.5424479736454487,
+      "diversity_penalty": 0.0,
+      "similarity_to_higher_ranked": 0.7228643670678139,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+      "reason_selected": "Selected on base score because the strongest similarity to a higher-ranked image (0.723) stayed below the diversity threshold."
+    },
+    {
+      "rank": 3,
+      "base_rank": 4,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_11.jpg",
+      "base_score": 0.5412736187460423,
+      "final_score": 0.5376788769247531,
+      "diversity_penalty": 0.0035947418212891567,
+      "similarity_to_higher_ranked": 0.8217973709106445,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+      "reason_selected": "Selected after a diversity penalty of 0.004; the strongest similarity to a higher-ranked image was 0.822."
+    },
+    {
+      "rank": 4,
+      "base_rank": 5,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_08.jpg",
+      "base_score": 0.5237332439231873,
+      "final_score": 0.5237332439231873,
+      "diversity_penalty": 0.0,
+      "similarity_to_higher_ranked": 0.7960894629359246,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779_07.jpg",
+      "reason_selected": "Selected on base score because the strongest similarity to a higher-ranked image (0.796) stayed below the diversity threshold."
+    },
+    {
+      "rank": 5,
+      "base_rank": 6,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_13.jpg",
+      "base_score": 0.5229375837135315,
+      "final_score": 0.5229375837135315,
+      "diversity_penalty": 0.0,
+      "similarity_to_higher_ranked": 0.7052028134465218,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779_08.jpg",
+      "reason_selected": "Selected on base score because the strongest similarity to a higher-ranked image (0.705) stayed below the diversity threshold."
+    },
+    {
+      "rank": 6,
+      "base_rank": 7,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779.jpg",
+      "base_score": 0.5114992731251716,
+      "final_score": 0.5114992731251716,
+      "diversity_penalty": 0.0,
+      "similarity_to_higher_ranked": 0.8050488442182541,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779_11.jpg",
+      "reason_selected": "Selected on base score because the strongest similarity to a higher-ranked image (0.805) stayed below the diversity threshold."
+    },
+    {
+      "rank": 7,
+      "base_rank": 10,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_06.jpg",
+      "base_score": 0.4932599264621734,
+      "final_score": 0.4932599264621734,
+      "diversity_penalty": 0.0,
+      "similarity_to_higher_ranked": 0.7811427742242814,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779_07.jpg",
+      "reason_selected": "Selected on base score because the strongest similarity to a higher-ranked image (0.781) stayed below the diversity threshold."
+    },
+    {
+      "rank": 8,
+      "base_rank": 11,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_05.jpg",
+      "base_score": 0.49029743137836457,
+      "final_score": 0.49029743137836457,
+      "diversity_penalty": 0.0,
+      "similarity_to_higher_ranked": 0.8055408954620362,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779_07.jpg",
+      "reason_selected": "Selected on base score because the strongest similarity to a higher-ranked image (0.806) stayed below the diversity threshold."
+    },
+    {
+      "rank": 9,
+      "base_rank": 12,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_04.jpg",
+      "base_score": 0.47554190569877625,
+      "final_score": 0.47554190569877625,
+      "diversity_penalty": 0.0,
+      "similarity_to_higher_ranked": 0.7742603123188019,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779_08.jpg",
+      "reason_selected": "Selected on base score because the strongest similarity to a higher-ranked image (0.774) stayed below the diversity threshold."
+    },
+    {
+      "rank": 10,
+      "base_rank": 2,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_12.jpg",
+      "base_score": 0.5562675329346658,
+      "final_score": 0.4563317533631325,
+      "diversity_penalty": 0.09993577957153334,
+      "similarity_to_higher_ranked": 0.8699678897857667,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+      "reason_selected": "Selected after a diversity penalty of 0.100; the strongest similarity to a higher-ranked image was 0.870."
+    },
+    {
+      "rank": 11,
+      "base_rank": 15,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_03.jpg",
+      "base_score": 0.4412483342456818,
+      "final_score": 0.4412483342456818,
+      "diversity_penalty": 0.0,
+      "similarity_to_higher_ranked": 0.816935458779335,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779_04.jpg",
+      "reason_selected": "Selected on base score because the strongest similarity to a higher-ranked image (0.817) stayed below the diversity threshold."
+    },
+    {
+      "rank": 12,
+      "base_rank": 8,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_02.jpg",
+      "base_score": 0.5002836495957375,
+      "final_score": 0.41872369292593004,
+      "diversity_penalty": 0.08155995666980745,
+      "similarity_to_higher_ranked": 0.8607799783349037,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779.jpg",
+      "reason_selected": "Selected after a diversity penalty of 0.082; the strongest similarity to a higher-ranked image was 0.861."
+    },
+    {
+      "rank": 13,
+      "base_rank": 9,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_01.jpg",
+      "base_score": 0.4973280131292343,
+      "final_score": 0.4045419120264053,
+      "diversity_penalty": 0.09278610110282895,
+      "similarity_to_higher_ranked": 0.8663930505514145,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779_08.jpg",
+      "reason_selected": "Selected after a diversity penalty of 0.093; the strongest similarity to a higher-ranked image was 0.866."
+    },
+    {
+      "rank": 14,
+      "base_rank": 14,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_14.jpg",
+      "base_score": 0.44206440502643585,
+      "final_score": 0.37429300540924054,
+      "diversity_penalty": 0.06777139961719529,
+      "similarity_to_higher_ranked": 0.8538856998085976,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779_04.jpg",
+      "reason_selected": "Selected after a diversity penalty of 0.068; the strongest similarity to a higher-ranked image was 0.854."
+    },
+    {
+      "rank": 15,
+      "base_rank": 13,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_09.jpg",
+      "base_score": 0.4743556725454331,
+      "final_score": 0.3543556725454331,
+      "diversity_penalty": 0.12,
+      "similarity_to_higher_ranked": 0.9008426606655122,
+      "most_similar_higher_ranked_image": "test_samples/KakaoTalk_20260330_180646779_04.jpg",
+      "reason_selected": "Selected after a near-duplicate penalty of 0.120; the strongest similarity to a higher-ranked image was 0.901."
+    }
+  ]
+}

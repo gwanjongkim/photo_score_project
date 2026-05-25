@@ -1,0 +1,16 @@
+ONNX model: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v3_onnx_20260515_171049/icaa_dat_export_safe_v3.onnx
+onnx2tf command: /home/omen_pc1/photo_score_project/.venv_gpu/bin/onnx2tf -i /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v3_onnx_20260515_171049/icaa_dat_export_safe_v3.onnx -o /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v3_tflite_probe_20260515_171113/onnx2tf_no_flex -tb flatbuffer_direct -n
+onnx2tf return code: 0
+onnx2tf produced float16 sidecar(s); this script does not probe or use them.
+float32 TFLite model: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v3_tflite_probe_20260515_171113/onnx2tf_no_flex/icaa_dat_export_safe_v3_float32.tflite
+TFLite input details: [{'name': 'image', 'index': 0, 'shape': [1, 224, 224, 3], 'shape_signature': [1, 224, 224, 3], 'dtype': "<class 'numpy.float32'>"}]
+TFLite output details: [{'name': 'scores', 'index': 5850, 'shape': [1, 2], 'shape_signature': [1, 2], 'dtype': "<class 'numpy.float32'>"}]
+zero output: [[0.5152620077133179, 0.5379891395568848]]
+one output: [[0.5152620077133179, 0.5379891395568848]]
+random output: [[0.5152620077133179, 0.5379891395568848]]
+real image output: [[0.5152620077133179, 0.5379891395568848]]
+max non-zero-input diff vs zero: 0.0000000000
+TFLite input-sensitive: False
+error: Generated FP32 TFLite output is effectively constant.
+tflite_probe_report.json: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v3_tflite_probe_20260515_171113/tflite_probe_report.json
+tflite_probe_log.txt: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v3_tflite_probe_20260515_171113/tflite_probe_log.txt

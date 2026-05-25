@@ -1,0 +1,13 @@
+{
+  "model": "rgnet",
+  "source_checkpoint": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+  "conversion_mode": "select_tf_ops",
+  "requires_select_tf_ops": true,
+  "preferred_for_deployment": false,
+  "deployment_ready": false,
+  "reason": "Diagnostic only; final solution should be builtin TFLite with numeric parity.",
+  "tflite_path": "outputs/rgnet_tflite_retry_20260507/tflite/rgnet_ava_aadb_finetune_select_tf_ops_diagnostic.tflite",
+  "tflite_size_bytes": 13380084,
+  "allocation_ok": false,
+  "verification_passed": false
+}

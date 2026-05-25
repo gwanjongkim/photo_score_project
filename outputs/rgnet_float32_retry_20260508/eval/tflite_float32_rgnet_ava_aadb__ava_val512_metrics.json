@@ -1,0 +1,64 @@
+{
+  "num_samples": 512,
+  "target_min": 0.200453519821167,
+  "target_max": 0.7435896992683411,
+  "prediction_min": 0.13884782791137695,
+  "prediction_max": 0.8257639408111572,
+  "mae": 0.11947914212942123,
+  "mse": 0.021814774721860886,
+  "rmse": 0.14769825564935046,
+  "plcc": 0.46224949495572965,
+  "srcc": 0.4568612726384638,
+  "top_k": 50,
+  "top_k_overlap": 0.34,
+  "pairwise_pairs_scored": 4999,
+  "pairwise_accuracy": 0.6583316663332667,
+  "model_name": "tflite_float32_rgnet_ava_aadb__ava_val512",
+  "model_type": "tflite",
+  "model_path": "outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_aadb_finetune.tflite",
+  "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv",
+  "target_col": "aesthetic_unit_score",
+  "seconds_per_image": 0.021506484888671906,
+  "runtime_details": {
+    "load_seconds": 0.02058361400031572,
+    "inference_seconds": 11.011320263000016,
+    "input_details": [
+      {
+        "name": "serving_default_input_layer_1:0",
+        "shape": [
+          1,
+          256,
+          256,
+          3
+        ],
+        "shape_signature": [
+          -1,
+          256,
+          256,
+          3
+        ],
+        "dtype": "float32",
+        "index": 0
+      }
+    ],
+    "output_details": [
+      {
+        "name": "StatefulPartitionedCall_1:0",
+        "shape": [
+          1,
+          1
+        ],
+        "shape_signature": [
+          -1,
+          1
+        ],
+        "dtype": "float32",
+        "index": 608
+      }
+    ]
+  },
+  "mixed_precision_policy": "<DTypePolicy \"float32\">",
+  "tensorflow_version": "2.20.0",
+  "metrics_path": "outputs/rgnet_float32_retry_20260508/eval/tflite_float32_rgnet_ava_aadb__ava_val512_metrics.json",
+  "predictions_path": "outputs/rgnet_float32_retry_20260508/eval/tflite_float32_rgnet_ava_aadb__ava_val512_predictions.csv"
+}

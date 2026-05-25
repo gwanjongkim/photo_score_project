@@ -1,0 +1,14 @@
+# TOPIQ-lite Replacement Evaluation Artifacts
+
+Output Directory: outputs/eval_full_topiq_lite_spaq_replacement_20260517/
+
+| File | Size | Description |
+| :--- | :--- | :--- |
+| summary.csv | 1.3 KB | Summary metrics for TOPIQ-lite vs mobile baselines. |
+| report.md | 3.4 KB | Detailed replacement evaluation report. |
+| commands.txt | 1.0 KB | Commands used for training and evaluation. |
+| predictions_spaq_test_topiq_full_spaq.csv | 27.9 KB | Sample predictions on full SPAQ test set. |
+| predictions_spaq_test_mobile_koniq.csv | 18.3 KB | Baseline KonIQ predictions on SPAQ test set. |
+| predictions_spaq_test_mobile_flive.csv | 17.9 KB | Baseline FLIVE predictions on SPAQ test set. |
+| predictions_koniq_1024_topiq_full_spaq.csv | 4.4 KB | Cross-dataset check: SPAQ model on KonIQ subset. |
+| predictions_flive_1024_topiq_full_spaq.csv | 4.6 KB | Cross-dataset check: SPAQ model on FLIVE subset. |

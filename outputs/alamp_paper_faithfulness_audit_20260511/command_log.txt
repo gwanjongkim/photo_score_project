@@ -1,0 +1,10 @@
+1. pwd
+2. date
+3. git status --short
+4. find . -maxdepth 3 -type f | rg -i "alamp|a-lamp|lamp|composition|aesthetic|ava|aadb|paper|report|audit"
+5. rg -n "A-LAMP|ALAMP|a-lamp|alamp|lamp|patch|patches|global_view|layout|attribute|object|VGG16|MobileNet|EfficientNet|saliency|adaptive" src tools configs docs outputs models external 2>/dev/null
+6. find . -type f | rg -i "alamp|a-lamp|adaptive layout aware|layout aware|aesthetic|iccv|wacv|paper|pdf|md"
+7. read_file on generated output logs to inspect file locations.
+8. read_file on src/models/alamp.py
+9. cat outputs/paper_faithful_audit_20260509/paper_faithful_audit_report.md outputs/audit_model_paper_basis_20260506/audit_report.md docs/icaa_official_repo_dataset_audit.md > /home/omen_pc1/.gemini/tmp/photo-score-project/alamp_paper_audits.txt
+10. read_file on the combined audits text file to gather existing A-LAMP audit logic.

@@ -1,0 +1,10 @@
+{
+  "generated_jsonl": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/experiment_a_flash_20/gemini_teacher_generation.jsonl",
+  "rows_audited": 20,
+  "specificity_pass_rows": 16,
+  "specificity_fail_rows": 4,
+  "specificity_pass_rate": 0.8,
+  "visible_anchor_count_average": 3.4,
+  "generic_phrase_count_average": 0.15,
+  "specificity_rows_csv": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/experiment_a_flash_20/teacher_specificity_rows.csv"
+}

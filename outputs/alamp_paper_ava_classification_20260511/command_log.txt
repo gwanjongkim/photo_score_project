@@ -1,0 +1,84 @@
+# Command Log
+
+Date: 2026-05-11T11:52:45.402590+09:00
+CWD: /home/omen_pc1/photo_score_project
+
+1. Inspected read-only files:
+   - src/models/alamp.py
+   - src/train/train_alamp.py
+   - src/datasets/native_size_dataset.py
+   - src/models/rgnet_paper_ava.py
+   - src/train/train_rgnet_paper_ava.py
+   - src/eval/evaluate_rgnet_paper_ava.py
+
+2. Created isolated files:
+   - src/models/alamp_paper_ava.py
+   - src/train/train_alamp_paper_ava.py
+   - src/eval/evaluate_alamp_paper_ava.py
+   - configs/paper_benchmarks/alamp_paper_ava_classification.yaml
+
+3. Ran py_compile:
+   ./.venv_gpu/bin/python -m py_compile src/models/alamp_paper_ava.py src/train/train_alamp_paper_ava.py src/eval/evaluate_alamp_paper_ava.py
+   result: passed
+
+4. Checked TensorFlow GPU visibility:
+   ./.venv_gpu/bin/python - <<'PY'
+   import tensorflow as tf
+   print("TF:", tf.__version__)
+   print("GPUs:", tf.config.list_physical_devices("GPU"))
+   PY
+   result: TF 2.20.0; GPUs []
+
+5. Ran forward smoke for v0_a and v0_b with random tensors and backbone_weights none:
+   output: outputs/alamp_paper_ava_classification_20260511/forward_smoke.json
+   result: passed
+
+6. Ran v0_a tiny smoke train:
+   ./.venv_gpu/bin/python -m src.train.train_alamp_paper_ava --config configs/paper_benchmarks/alamp_paper_ava_classification.yaml --out_dir outputs/alamp_paper_ava_classification_20260511/smoke_train/v0_a --epochs 1 --batch_size 2 --max_train_samples 64 --max_val_samples 32 --backbone_weights none --variant v0_a --label_rule paper_strict
+   result: passed
+
+7. Ran v0_a tiny smoke eval:
+   ./.venv_gpu/bin/python -m src.eval.evaluate_alamp_paper_ava --config configs/paper_benchmarks/alamp_paper_ava_classification.yaml --model_path outputs/alamp_paper_ava_classification_20260511/smoke_train/v0_a/final_model.keras --output_dir outputs/alamp_paper_ava_classification_20260511/smoke_eval/v0_a --max_test_samples 64 --max_val_samples 64 --batch_size 2 --variant v0_a --label_rule paper_strict
+   result: passed
+
+8. Ran optional v0_b tiny smoke train. First attempt exposed a v0_b config-override bug; fixed src/models/alamp_paper_ava.py so v0_b always includes global/layout inputs. Rerun passed.
+
+9. Ran optional v0_b tiny smoke eval:
+   result: passed
+
+10. Invoked v0_a mid-run command:
+   ./.venv_gpu/bin/python -m src.train.train_alamp_paper_ava --config configs/paper_benchmarks/alamp_paper_ava_classification.yaml --out_dir outputs/alamp_paper_ava_classification_20260511/mid_train/v0_a --epochs 3 --batch_size 4 --max_train_samples 4096 --max_val_samples 1024 --backbone_weights imagenet --variant v0_a --label_rule paper_strict
+   result: blocked before training because TensorFlow visible_gpus was empty. CPU override was not used.
+
+11. Final validation:
+   - py_compile passed after the v0_b builder fix.
+   - alamp_paper_ava_summary.json and smoke JSON summaries parsed successfully.
+   - alamp_paper_ava_report.md and command_log.txt exist.
+
+No full AVA training was run. No long CPU mid-run was started. Flutter, forWeights/, src/models/alamp.py, practical A-LAMP training code, RGNet files, and app assets were not modified.
+## 2026-05-11 v0_b_fixed XLA failure fix
+
+1. Inspected current files and prior artifacts for `A-LAMP-paper-AVA-v0_b`.
+2. Ran in-memory v0_b train_on_batch before the patch; default sandbox TensorFlow had no visible GPU, so the user-reported GPU/XLA failure could not be reproduced there.
+3. Patched `src/models/alamp_paper_ava.py` to remove the v0_b dynamic per-patch context/attention path and use fixed reshape/flatten/dense fusion.
+4. Patched `src/train/train_alamp_paper_ava.py` to compile with `jit_compile=False` when supported.
+5. Patched `src/eval/evaluate_alamp_paper_ava.py` to report specificity.
+6. Patched `configs/paper_benchmarks/alamp_paper_ava_classification.yaml` with `v0_b_fixed` train/eval output directories.
+7. Ran py_compile:
+   ./.venv_gpu/bin/python -m py_compile src/models/alamp_paper_ava.py src/train/train_alamp_paper_ava.py src/eval/evaluate_alamp_paper_ava.py
+   result: passed
+8. Ran v0_b_fixed forward smoke with batch size 2:
+   output: outputs/alamp_paper_ava_classification_20260511/forward_smoke_v0_b_fixed.json
+   result: passed, output shape [2, 1], finite predictions in [0,1], no TimeDistributed layer in the fixed v0_b model.
+9. Ran v0_b_fixed tiny smoke train:
+   MPLCONFIGDIR=/tmp ./.venv_gpu/bin/python -m src.train.train_alamp_paper_ava --config configs/paper_benchmarks/alamp_paper_ava_classification.yaml --out_dir outputs/alamp_paper_ava_classification_20260511/smoke_train/v0_b_fixed --epochs 1 --batch_size 2 --max_train_samples 64 --max_val_samples 32 --backbone_weights none --variant v0_b --label_rule paper_strict
+   result: passed, best val loss 0.663689, save/load max diff 0.000000
+10. Ran v0_b_fixed mid-train. First sandbox attempt stopped before training because TensorFlow reported no visible GPU. Escalated rerun used GPU and passed:
+   MPLCONFIGDIR=/tmp ./.venv_gpu/bin/python -m src.train.train_alamp_paper_ava --config configs/paper_benchmarks/alamp_paper_ava_classification.yaml --out_dir outputs/alamp_paper_ava_classification_20260511/mid_train/v0_b_fixed --epochs 3 --batch_size 4 --max_train_samples 4096 --max_val_samples 1024 --backbone_weights imagenet --variant v0_b --label_rule paper_strict
+   result: passed, 3 epochs, best val loss 0.555022
+11. Ran v0_b_fixed mid-eval with GPU:
+   MPLCONFIGDIR=/tmp ./.venv_gpu/bin/python -m src.eval.evaluate_alamp_paper_ava --config configs/paper_benchmarks/alamp_paper_ava_classification.yaml --model_path outputs/alamp_paper_ava_classification_20260511/mid_train/v0_b_fixed/final_model.keras --output_dir outputs/alamp_paper_ava_classification_20260511/mid_eval/v0_b_fixed --max_test_samples 1024 --max_val_samples 1024 --batch_size 4 --variant v0_b --label_rule paper_strict
+   result: passed; see outputs/alamp_paper_ava_classification_20260511/mid_eval/v0_b_fixed/evaluation_summary.json
+12. Updated report and summary:
+   - outputs/alamp_paper_ava_classification_20260511/alamp_paper_ava_report.md
+   - outputs/alamp_paper_ava_classification_20260511/alamp_paper_ava_summary.json

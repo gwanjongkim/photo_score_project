@@ -1,0 +1,114 @@
+{
+  "created_at_local": "2026-05-11T11:06:46.895819+09:00",
+  "title": "RGNet Paper-Oriented Experiment Summary",
+  "scope": {
+    "official_reproduction": false,
+    "wording": "paper-oriented approximation",
+    "practical_app_rgnet_untouched": true,
+    "flutter_untouched": true,
+    "forWeights_untouched": true
+  },
+  "aadb_regression_result": {
+    "candidate": "RGNet-paper-v1 agg_mean_full",
+    "split": "AADB full test",
+    "srcc": 0.6818650940218989,
+    "plcc": 0.6877526576657776,
+    "mae": 0.11975742876529694,
+    "rmse": 0.14860332788070868,
+    "interpretation": "Mean aggregation was the best observed regression operating point, consistent with scalar image-level aesthetic score regression benefiting from stable region averaging."
+  },
+  "ava_classification_result": {
+    "candidate": "RGNet-paper-AVA lse_r4 full-run",
+    "train_summary_path": "outputs/rgnet_paper_ava_classification_20260510/full_train/lse_r4/train_summary.json",
+    "evaluation_summary_path": "outputs/rgnet_paper_ava_classification_20260510/eval/lse_r4/evaluation_summary.json",
+    "test": {
+      "num_samples": 25549,
+      "positive_count": 18226,
+      "negative_count": 7323,
+      "prediction_positive_count": 20183,
+      "prediction_negative_count": 5366,
+      "prediction_prob_min": 1.1669942068692762e-05,
+      "prediction_prob_max": 0.9999361038208008,
+      "accuracy": 0.7696583036518063,
+      "precision": 0.8057275925283655,
+      "recall": 0.8922418522989136,
+      "f1": 0.8467807024395324,
+      "roc_auc": 0.7979061007499695,
+      "average_precision": 0.9018764495849609,
+      "bce_loss": 0.48181851459492275,
+      "confusion_matrix": {
+        "tn": 3402,
+        "fp": 3921,
+        "fn": 1964,
+        "tp": 16262
+      },
+      "elapsed_seconds": 59.58369408399449,
+      "seconds_per_image": 0.0023321340985555006,
+      "skipped_image_count": 2,
+      "skipped_image_examples": [
+        {
+          "row_index": "11028",
+          "image_path": "data/raw/ava/images/729377.jpg",
+          "resolved_image_path": "data/raw/ava/images/729377.jpg",
+          "error": "OSError: image file is truncated (12 bytes not processed)"
+        },
+        {
+          "row_index": "20655",
+          "image_path": "data/raw/ava/images/230701.jpg",
+          "resolved_image_path": "data/raw/ava/images/230701.jpg",
+          "error": "OSError: image file is truncated (11 bytes not processed)"
+        }
+      ],
+      "predictions_path": "outputs/rgnet_paper_ava_classification_20260510/eval/lse_r4/test_predictions.csv"
+    },
+    "val": {
+      "num_samples": 25551,
+      "positive_count": 18003,
+      "negative_count": 7548,
+      "prediction_positive_count": 20220,
+      "prediction_negative_count": 5331,
+      "prediction_prob_min": 0.00011436215572757646,
+      "prediction_prob_max": 0.9999951124191284,
+      "accuracy": 0.7716332041798756,
+      "precision": 0.8008902077151335,
+      "recall": 0.8995167472087985,
+      "f1": 0.8473432226669806,
+      "roc_auc": 0.80144864320755,
+      "average_precision": 0.8979836702346802,
+      "bce_loss": 0.481744761458676,
+      "confusion_matrix": {
+        "tn": 3522,
+        "fp": 4026,
+        "fn": 1809,
+        "tp": 16194
+      },
+      "elapsed_seconds": 46.6433981230075,
+      "seconds_per_image": 0.0018255018638412392,
+      "skipped_image_count": 0,
+      "skipped_image_examples": [],
+      "predictions_path": "outputs/rgnet_paper_ava_classification_20260510/eval/lse_r4/val_predictions.csv"
+    },
+    "threshold_calibration_summary_path": "outputs/rgnet_paper_ava_classification_20260510/threshold_calibration/threshold_calibration_summary.json",
+    "interpretation": "LSE r=4 was the best observed AVA classification direction because classification can benefit from stronger localized positive region evidence instead of pure mean smoothing."
+  },
+  "regression_vs_classification_insight": "AADB regression favored mean aggregation while AVA classification favored LSE r=4, which is consistent with scalar score regression and region evidence classification behaving differently.",
+  "paper_direction": "The RGNet paper direction covers AADB regression and AVA classification; this project has now run both as approximations.",
+  "remaining_gap_to_official_paper": [
+    "exact DenseASPP not implemented",
+    "exact RegionGraph not implemented",
+    "no official author code or weights",
+    "input size and hyperparameters may differ",
+    "binary label threshold may be simplified"
+  ],
+  "recommended_next_steps": [
+    "Finish threshold calibration decision using the generated calibration outputs.",
+    "Preserve RGNet AADB/AVA results as the current baseline.",
+    "Start A-LAMP-paper-AVA track.",
+    "Start color aesthetics D0/D1 separately."
+  ],
+  "source_reports": {
+    "ava_report": "outputs/rgnet_paper_ava_classification_20260510/rgnet_paper_ava_report.md",
+    "ava_summary_json": "outputs/rgnet_paper_ava_classification_20260510/ava_classification_summary.json",
+    "threshold_calibration_report": "outputs/rgnet_paper_ava_classification_20260510/threshold_calibration/threshold_calibration_report.md"
+  }
+}

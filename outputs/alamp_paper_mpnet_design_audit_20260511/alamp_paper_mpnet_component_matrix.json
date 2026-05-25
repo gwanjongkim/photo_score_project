@@ -1,0 +1,37 @@
+{
+  "Adaptive_Patch_Selection": {
+    "paper_detail": "Saliency-map-based adaptive patch selection with pattern diversity constraint.",
+    "current_implementation": "Dynamic TF data pipeline heuristic (edge + luminance/color variance).",
+    "target_implementation": "Offline script `src/datasets/alamp_paper_patch_selector.py` approximating saliency via OpenCV (if available) or spectral residual + pattern diversity."
+  },
+  "Overlap_Constraint": {
+    "paper_detail": "Spatial distance / overlap constraint enforced between patches.",
+    "current_implementation": "IoU non-maximum suppression (threshold 0.35).",
+    "target_implementation": "IoU non-maximum suppression or explicit distance penalty."
+  },
+  "Patch_Count": {
+    "paper_detail": "5 patches.",
+    "current_implementation": "5 patches.",
+    "target_implementation": "5 patches."
+  },
+  "Patch_Size": {
+    "paper_detail": "224x224.",
+    "current_implementation": "224x224.",
+    "target_implementation": "224x224."
+  },
+  "Shared_CNN_Backbone": {
+    "paper_detail": "Shared VGG16 backbone.",
+    "current_implementation": "Shared VGG16 backbone (`v0_a`).",
+    "target_implementation": "Shared VGG16 backbone (ImageNet weights, fc-equivalent pooling)."
+  },
+  "Orderless_Aggregation": {
+    "paper_detail": "Orderless/statistical aggregation over patch features.",
+    "current_implementation": "Attention-based weighted sum (`v0_a`).",
+    "target_implementation": "Global average/max pooling or attention-based pooling across the patch axis."
+  },
+  "AVA_Label_Rule": {
+    "paper_detail": "Classification (good > 5).",
+    "current_implementation": "Classification (mean_score > 5.0).",
+    "target_implementation": "label = 1 if mean_score > 5.0 else 0 (paper_strict)."
+  }
+}

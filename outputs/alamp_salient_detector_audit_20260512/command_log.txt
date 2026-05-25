@@ -1,0 +1,7 @@
+pwd
+date
+git status --short
+./.venv_gpu/bin/python --version
+./.venv_gpu/bin/python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
+df -h .
+mkdir -p outputs/alamp_salient_detector_audit_20260512

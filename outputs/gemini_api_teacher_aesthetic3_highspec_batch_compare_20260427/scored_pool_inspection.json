@@ -1,0 +1,21 @@
+{
+  "scored_pool": "outputs/gemma4_e4b_aesthetic3_expanded_20260427/scored_pool.csv",
+  "rows": 3000,
+  "required_columns_present": [
+    "alamp_score",
+    "dataset_source",
+    "image_path",
+    "nima_unit_score",
+    "rgnet_score",
+    "weighted_aesthetic_score"
+  ],
+  "has_balanced_comparison_score": true,
+  "repair_actions": [],
+  "regenerated_scoring": false,
+  "primary_formula": "weighted_aesthetic_score = 0.10 * nima_unit_score + 0.40 * rgnet_score + 0.50 * alamp_score",
+  "comparison_formula": "balanced_comparison_score = 0.15 * nima_unit_score + 0.45 * rgnet_score + 0.40 * alamp_score",
+  "dataset_counts": {
+    "ava": 2000,
+    "aadb": 1000
+  }
+}

@@ -1,0 +1,356 @@
+{
+  "original_no_flex": {
+    "path": "outputs/icaa_tflite_conversion_v2_no_flex_20260514_220549/icaa_dat_export_safe_v2_float32.tflite",
+    "exists": true,
+    "input_shape": [
+      1,
+      224,
+      224,
+      3
+    ],
+    "output_shape": [
+      1,
+      2
+    ],
+    "outputs": {
+      "zero": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "one": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "random": [
+        [
+          0.5152620077133179,
+          0.5379891991615295
+        ]
+      ],
+      "real_image": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ]
+    },
+    "diffs": {
+      "zero": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      },
+      "one": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      },
+      "random": {
+        "max_abs_diff_vs_zero": 5.960464477539063e-08,
+        "mean_abs_diff_vs_zero": 2.9802322387695312e-08
+      },
+      "real_image": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      }
+    },
+    "input_sensitive": false
+  },
+  "flatbuffer_no_onnxsim": {
+    "path": "outputs/icaa_export_safe_v2_tflite_debug_20260514_222350/attempt_flatbuffer_no_onnxsim/icaa_dat_export_safe_v2_float32.tflite",
+    "exists": true,
+    "input_shape": [
+      1,
+      224,
+      224,
+      3
+    ],
+    "output_shape": [
+      1,
+      2
+    ],
+    "outputs": {
+      "zero": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "one": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "random": [
+        [
+          0.5152620077133179,
+          0.5379891991615295
+        ]
+      ],
+      "real_image": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ]
+    },
+    "diffs": {
+      "zero": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      },
+      "one": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      },
+      "random": {
+        "max_abs_diff_vs_zero": 5.960464477539063e-08,
+        "mean_abs_diff_vs_zero": 2.9802322387695312e-08
+      },
+      "real_image": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      }
+    },
+    "input_sensitive": false
+  },
+  "flatbuffer_keep_nchw": {
+    "path": "outputs/icaa_export_safe_v2_tflite_debug_20260514_222350/attempt_flatbuffer_keep_nchw/icaa_dat_export_safe_v2_float32.tflite",
+    "exists": true,
+    "input_shape": [
+      1,
+      3,
+      224,
+      224
+    ],
+    "output_shape": [
+      1,
+      2
+    ],
+    "outputs": {
+      "zero": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "one": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "random": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "real_image": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ]
+    },
+    "diffs": {
+      "zero": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      },
+      "one": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      },
+      "random": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      },
+      "real_image": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      }
+    },
+    "input_sensitive": false
+  },
+  "flatbuffer_keep_nhwc": {
+    "path": "outputs/icaa_export_safe_v2_tflite_debug_20260514_222350/attempt_flatbuffer_keep_nhwc/icaa_dat_export_safe_v2_float32.tflite",
+    "exists": true,
+    "input_shape": [
+      1,
+      3,
+      224,
+      224
+    ],
+    "output_shape": [
+      1,
+      2
+    ],
+    "outputs": {
+      "zero": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "one": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "random": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "real_image": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ]
+    },
+    "diffs": {
+      "zero": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      },
+      "one": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      },
+      "random": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      },
+      "real_image": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      }
+    },
+    "input_sensitive": false
+  },
+  "flatbuffer_saved_model_partial": {
+    "path": "outputs/icaa_export_safe_v2_tflite_debug_20260514_222350/attempt_flatbuffer_saved_model/icaa_dat_export_safe_v2_float32.tflite",
+    "exists": true,
+    "input_shape": [
+      1,
+      224,
+      224,
+      3
+    ],
+    "output_shape": [
+      1,
+      2
+    ],
+    "outputs": {
+      "zero": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "one": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "random": [
+        [
+          0.5152620077133179,
+          0.5379891991615295
+        ]
+      ],
+      "real_image": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ]
+    },
+    "diffs": {
+      "zero": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      },
+      "one": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      },
+      "random": {
+        "max_abs_diff_vs_zero": 5.960464477539063e-08,
+        "mean_abs_diff_vs_zero": 2.9802322387695312e-08
+      },
+      "real_image": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      }
+    },
+    "input_sensitive": false
+  },
+  "flatbuffer_saved_model_pseudo_gelu_partial": {
+    "path": "outputs/icaa_export_safe_v2_tflite_debug_20260514_222350/attempt_flatbuffer_saved_model_pseudo_gelu/icaa_dat_export_safe_v2_float32.tflite",
+    "exists": true,
+    "input_shape": [
+      1,
+      224,
+      224,
+      3
+    ],
+    "output_shape": [
+      1,
+      2
+    ],
+    "outputs": {
+      "zero": [
+        [
+          0.5152620673179626,
+          0.5379891395568848
+        ]
+      ],
+      "one": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "random": [
+        [
+          0.5152620077133179,
+          0.5379891395568848
+        ]
+      ],
+      "real_image": [
+        [
+          0.5152620673179626,
+          0.5379891991615295
+        ]
+      ]
+    },
+    "diffs": {
+      "zero": {
+        "max_abs_diff_vs_zero": 0.0,
+        "mean_abs_diff_vs_zero": 0.0
+      },
+      "one": {
+        "max_abs_diff_vs_zero": 5.960464477539063e-08,
+        "mean_abs_diff_vs_zero": 2.9802322387695312e-08
+      },
+      "random": {
+        "max_abs_diff_vs_zero": 5.960464477539063e-08,
+        "mean_abs_diff_vs_zero": 2.9802322387695312e-08
+      },
+      "real_image": {
+        "max_abs_diff_vs_zero": 5.960464477539063e-08,
+        "mean_abs_diff_vs_zero": 2.9802322387695312e-08
+      }
+    },
+    "input_sensitive": false
+  }
+}

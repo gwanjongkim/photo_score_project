@@ -1,0 +1,19 @@
+Using chat template: vicuna_v1
+{"runtime": "local_vila_remote_code", "model_name": "/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b", "loader": "llava.remote_code.AutoModelForCausalLM", "device": "cuda", "converted_model_dir": "/tmp/photo_score_project_vila_remote/vila1_5-3b_a17fdc55f9", "conv_mode": "vicuna_v1", "results": [{"image_path": "/home/omen_pc1/ava/images/468537.jpg", "short_reason": null, "detailed_reason": "\"Clean subject emphasis is strong. Busy background distracts from the clarity of the image.", "comparison_reason": null, "tags": [], "confidence": null, "parse_mode": "field_recovery", "parse_warning": "Recovered labeled fields from non-JSON output.", "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the clarity of the image.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong subject emphasis in a clear photo with no distractions\"\n},\n{", "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the clarity of the image.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong subject emphasis in a clear photo with no distractions\"\n},\n{"}]}
+
+
+Loading weights:   0%|          | 0/6 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 6/6 [00:00<00:00, 7632.95it/s]
+
+Loading weights:   0%|          | 0/448 [00:00<?, ?it/s]
+Loading weights:  73%|███████▎  | 327/448 [00:00<00:00, 3265.15it/s]
+Loading weights: 100%|██████████| 448/448 [00:00<00:00, 3479.83it/s]
+
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/291 [00:00<00:29,  9.91it/s]
+Loading weights:  18%|█▊        | 53/291 [00:00<00:00, 308.09it/s]
+Loading weights:  38%|███▊      | 110/291 [00:00<00:00, 425.35it/s]
+Loading weights:  56%|█████▋    | 164/291 [00:00<00:00, 468.65it/s]
+Loading weights:  73%|███████▎  | 211/291 [00:00<00:00, 458.50it/s]
+Loading weights:  89%|████████▊ | 258/291 [00:00<00:00, 460.01it/s]
+Loading weights: 100%|██████████| 291/291 [00:00<00:00, 436.46it/s]

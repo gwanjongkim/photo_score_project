@@ -1,0 +1,606 @@
+{
+  "input_shape": [
+    1,
+    224,
+    224,
+    3
+  ],
+  "operator_count": 6558,
+  "changing_op_count_zero_vs_real": 6218,
+  "first_10_changing_ops": [
+    {
+      "index": 0,
+      "op_name": "CONV_2D",
+      "max_abs_diff": 3.2697019577026367,
+      "outputs": [
+        {
+          "tensor": 327,
+          "name": "wa/model/patch_proj/patch_proj.0/Conv_output_nhwc",
+          "shape": [
+            1,
+            56,
+            56,
+            128
+          ],
+          "max_abs_diff": 3.2697019577026367,
+          "mean_abs_diff": 0.2897869944572449
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "op_name": "MEAN",
+      "max_abs_diff": 2.4838063716888428,
+      "outputs": [
+        {
+          "tensor": 330,
+          "name": "wa/model/patch_proj/patch_proj.1/norm/LayerNormalization_layernorm_mean",
+          "shape": [
+            1,
+            1,
+            1,
+            128
+          ],
+          "max_abs_diff": 2.4838063716888428,
+          "mean_abs_diff": 0.24869060516357422
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "op_name": "SUB",
+      "max_abs_diff": 3.869072198867798,
+      "outputs": [
+        {
+          "tensor": 331,
+          "name": "wa/model/patch_proj/patch_proj.1/norm/LayerNormalization_layernorm_centered",
+          "shape": [
+            1,
+            56,
+            56,
+            128
+          ],
+          "max_abs_diff": 3.869072198867798,
+          "mean_abs_diff": 0.1063840314745903
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "op_name": "MUL",
+      "max_abs_diff": 14.969840049743652,
+      "outputs": [
+        {
+          "tensor": 332,
+          "name": "wa/model/patch_proj/patch_proj.1/norm/LayerNormalization_layernorm_squared",
+          "shape": [
+            1,
+            56,
+            56,
+            128
+          ],
+          "max_abs_diff": 14.969840049743652,
+          "mean_abs_diff": 0.05527124181389809
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "op_name": "MEAN",
+      "max_abs_diff": 0.7930955290794373,
+      "outputs": [
+        {
+          "tensor": 333,
+          "name": "wa/model/patch_proj/patch_proj.1/norm/LayerNormalization_layernorm_var",
+          "shape": [
+            1,
+            1,
+            1,
+            128
+          ],
+          "max_abs_diff": 0.7930955290794373,
+          "mean_abs_diff": 0.05527123436331749
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "op_name": "ADD",
+      "max_abs_diff": 0.7930955290794373,
+      "outputs": [
+        {
+          "tensor": 335,
+          "name": "wa/model/patch_proj/patch_proj.1/norm/LayerNormalization_layernorm_var_eps",
+          "shape": [
+            1,
+            1,
+            1,
+            128
+          ],
+          "max_abs_diff": 0.7930955290794373,
+          "mean_abs_diff": 0.05527123436331749
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "op_name": "SQRT",
+      "max_abs_diff": 0.887402355670929,
+      "outputs": [
+        {
+          "tensor": 336,
+          "name": "wa/model/patch_proj/patch_proj.1/norm/LayerNormalization_layernorm_std",
+          "shape": [
+            1,
+            1,
+            1,
+            128
+          ],
+          "max_abs_diff": 0.887402355670929,
+          "mean_abs_diff": 0.18601493537425995
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "op_name": "DIV",
+      "max_abs_diff": 315.1011047363281,
+      "outputs": [
+        {
+          "tensor": 338,
+          "name": "wa/model/patch_proj/patch_proj.1/norm/LayerNormalization_layernorm_inv_std",
+          "shape": [
+            1,
+            1,
+            1,
+            128
+          ],
+          "max_abs_diff": 315.1011047363281,
+          "mean_abs_diff": 308.7989501953125
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "op_name": "MUL",
+      "max_abs_diff": 12.897282600402832,
+      "outputs": [
+        {
+          "tensor": 339,
+          "name": "wa/model/patch_proj/patch_proj.1/norm/LayerNormalization_layernorm_normalized",
+          "shape": [
+            1,
+            56,
+            56,
+            128
+          ],
+          "max_abs_diff": 12.897282600402832,
+          "mean_abs_diff": 0.5341964960098267
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "op_name": "MUL",
+      "max_abs_diff": 47.113975524902344,
+      "outputs": [
+        {
+          "tensor": 340,
+          "name": "wa/model/patch_proj/patch_proj.1/norm/LayerNormalization_layernorm_scaled",
+          "shape": [
+            1,
+            56,
+            56,
+            128
+          ],
+          "max_abs_diff": 47.113975524902344,
+          "mean_abs_diff": 0.8338019847869873
+        }
+      ]
+    }
+  ],
+  "last_20_changing_ops": [
+    {
+      "index": 6530,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 6579.65234375,
+      "outputs": [
+        {
+          "tensor": 5806,
+          "name": "wa/model/cls_norm/norm/LayerNormalization_layernorm_centered",
+          "shape": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "max_abs_diff": 6579.65234375,
+          "mean_abs_diff": 24.816503524780273
+        }
+      ]
+    },
+    {
+      "index": 6531,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 41282572.0,
+      "outputs": [
+        {
+          "tensor": 5807,
+          "name": "wa/model/cls_norm/norm/LayerNormalization_layernorm_squared",
+          "shape": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "max_abs_diff": 41282572.0,
+          "mean_abs_diff": 10175.96875
+        }
+      ]
+    },
+    {
+      "index": 6532,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 247319.0,
+      "outputs": [
+        {
+          "tensor": 5808,
+          "name": "wa/model/cls_norm/norm/LayerNormalization_layernorm_var",
+          "shape": [
+            1,
+            1,
+            1,
+            1024
+          ],
+          "max_abs_diff": 247319.0,
+          "mean_abs_diff": 1062.63427734375
+        }
+      ]
+    },
+    {
+      "index": 6533,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 247319.0,
+      "outputs": [
+        {
+          "tensor": 5810,
+          "name": "wa/model/cls_norm/norm/LayerNormalization_layernorm_var_eps",
+          "shape": [
+            1,
+            1,
+            1,
+            1024
+          ],
+          "max_abs_diff": 247319.0,
+          "mean_abs_diff": 1062.63427734375
+        }
+      ]
+    },
+    {
+      "index": 6534,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 112.5589599609375,
+      "outputs": [
+        {
+          "tensor": 5811,
+          "name": "wa/model/cls_norm/norm/LayerNormalization_layernorm_std",
+          "shape": [
+            1,
+            1,
+            1,
+            1024
+          ],
+          "max_abs_diff": 112.5589599609375,
+          "mean_abs_diff": 6.8290252685546875
+        }
+      ]
+    },
+    {
+      "index": 6535,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 0.25561368465423584,
+      "outputs": [
+        {
+          "tensor": 5813,
+          "name": "wa/model/cls_norm/norm/LayerNormalization_layernorm_inv_std",
+          "shape": [
+            1,
+            1,
+            1,
+            1024
+          ],
+          "max_abs_diff": 0.25561368465423584,
+          "mean_abs_diff": 0.015282969921827316
+        }
+      ]
+    },
+    {
+      "index": 6536,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 7.242142677307129,
+      "outputs": [
+        {
+          "tensor": 5814,
+          "name": "wa/model/cls_norm/norm/LayerNormalization_layernorm_normalized",
+          "shape": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "max_abs_diff": 7.242142677307129,
+          "mean_abs_diff": 0.6953704357147217
+        }
+      ]
+    },
+    {
+      "index": 6537,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 8.123847961425781,
+      "outputs": [
+        {
+          "tensor": 5815,
+          "name": "wa/model/cls_norm/norm/LayerNormalization_layernorm_scaled",
+          "shape": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "max_abs_diff": 8.123847961425781,
+          "mean_abs_diff": 0.49871763586997986
+        }
+      ]
+    },
+    {
+      "index": 6538,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 8.123847961425781,
+      "outputs": [
+        {
+          "tensor": 5803,
+          "name": "wa/model/cls_norm/norm/LayerNormalization_output_0",
+          "shape": [
+            1,
+            7,
+            7,
+            1024
+          ],
+          "max_abs_diff": 8.123847961425781,
+          "mean_abs_diff": 0.49871763586997986
+        }
+      ]
+    },
+    {
+      "index": 6539,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 6.407499313354492e-07,
+      "outputs": [
+        {
+          "tensor": 5816,
+          "name": "wa/model/GlobalAveragePool_output_0",
+          "shape": [
+            1,
+            1,
+            1,
+            1024
+          ],
+          "max_abs_diff": 6.407499313354492e-07,
+          "mean_abs_diff": 4.1414025986341585e-08
+        }
+      ]
+    },
+    {
+      "index": 6540,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 6.407499313354492e-07,
+      "outputs": [
+        {
+          "tensor": 5818,
+          "name": "wa/model/Flatten_output_0",
+          "shape": [
+            1,
+            1024
+          ],
+          "max_abs_diff": 6.407499313354492e-07,
+          "mean_abs_diff": 4.1414025986341585e-08
+        }
+      ]
+    },
+    {
+      "index": 6544,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 1.1920928955078125e-07,
+      "outputs": [
+        {
+          "tensor": 5829,
+          "name": "wa/model/hist_feature/bin_centers_conv/Conv_output_nhwc",
+          "shape": [
+            1,
+            1,
+            1,
+            216
+          ],
+          "max_abs_diff": 1.1920928955078125e-07,
+          "mean_abs_diff": 2.7594742491032775e-08
+        }
+      ]
+    },
+    {
+      "index": 6545,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 1.1920928955078125e-07,
+      "outputs": [
+        {
+          "tensor": 5825,
+          "name": "wa/model/hist_feature/bin_centers_conv/Conv_output_0",
+          "shape": [
+            1,
+            216,
+            1
+          ],
+          "max_abs_diff": 1.1920928955078125e-07,
+          "mean_abs_diff": 2.7594742491032775e-08
+        }
+      ]
+    },
+    {
+      "index": 6546,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 1.1920928955078125e-07,
+      "outputs": [
+        {
+          "tensor": 5830,
+          "name": "wa/model/hist_feature/Abs_output_0",
+          "shape": [
+            1,
+            216,
+            1
+          ],
+          "max_abs_diff": 1.1920928955078125e-07,
+          "mean_abs_diff": 2.7594742491032775e-08
+        }
+      ]
+    },
+    {
+      "index": 6547,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 1.1920928955078125e-07,
+      "outputs": [
+        {
+          "tensor": 5832,
+          "name": "wa/model/hist_feature/bin_widths_conv/Conv_input_nhwc",
+          "shape": [
+            1,
+            1,
+            1,
+            216
+          ],
+          "max_abs_diff": 1.1920928955078125e-07,
+          "mean_abs_diff": 2.7594742491032775e-08
+        }
+      ]
+    },
+    {
+      "index": 6548,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 1.9073486328125e-06,
+      "outputs": [
+        {
+          "tensor": 5835,
+          "name": "wa/model/hist_feature/bin_widths_conv/Conv_output_nhwc",
+          "shape": [
+            1,
+            1,
+            1,
+            216
+          ],
+          "max_abs_diff": 1.9073486328125e-06,
+          "mean_abs_diff": 3.473121807928692e-07
+        }
+      ]
+    },
+    {
+      "index": 6549,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 1.9073486328125e-06,
+      "outputs": [
+        {
+          "tensor": 5831,
+          "name": "wa/model/hist_feature/bin_widths_conv/Conv_output_0",
+          "shape": [
+            1,
+            216,
+            1
+          ],
+          "max_abs_diff": 1.9073486328125e-06,
+          "mean_abs_diff": 3.473121807928692e-07
+        }
+      ]
+    },
+    {
+      "index": 6550,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 5.364418029785156e-07,
+      "outputs": [
+        {
+          "tensor": 5836,
+          "name": "wa/model/hist_feature/Relu_output_0",
+          "shape": [
+            1,
+            216,
+            1
+          ],
+          "max_abs_diff": 5.364418029785156e-07,
+          "mean_abs_diff": 9.106265075331521e-09
+        }
+      ]
+    },
+    {
+      "index": 6551,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 5.364418029785156e-07,
+      "outputs": [
+        {
+          "tensor": 5837,
+          "name": "wa/model/Transpose_output_0",
+          "shape": [
+            1,
+            216,
+            1
+          ],
+          "max_abs_diff": 5.364418029785156e-07,
+          "mean_abs_diff": 9.106265075331521e-09
+        }
+      ]
+    },
+    {
+      "index": 6552,
+      "op_name": "DELEGATE",
+      "max_abs_diff": 5.364418029785156e-07,
+      "outputs": [
+        {
+          "tensor": 5839,
+          "name": "wa/model/Squeeze_output_0",
+          "shape": [
+            1,
+            216
+          ],
+          "max_abs_diff": 5.364418029785156e-07,
+          "mean_abs_diff": 9.106265075331521e-09
+        }
+      ]
+    }
+  ],
+  "last_changing_op": {
+    "index": 6552,
+    "op_name": "DELEGATE",
+    "max_abs_diff": 5.364418029785156e-07,
+    "outputs": [
+      {
+        "tensor": 5839,
+        "name": "wa/model/Squeeze_output_0",
+        "shape": [
+          1,
+          216
+        ],
+        "max_abs_diff": 5.364418029785156e-07,
+        "mean_abs_diff": 9.106265075331521e-09
+      }
+    ]
+  },
+  "final_output": {
+    "zero": [
+      [
+        0.5152620077133179,
+        0.5379891395568848
+      ]
+    ],
+    "real": [
+      [
+        0.5152620077133179,
+        0.5379891395568848
+      ]
+    ]
+  }
+}

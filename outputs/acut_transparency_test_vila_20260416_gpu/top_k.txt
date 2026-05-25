@@ -1,0 +1,10 @@
+1	/home/omen_pc1/photo_score_project/test_vila/20231231_150055.jpg	0.6310254781193203
+2	/home/omen_pc1/photo_score_project/test_vila/1675564674752-17.jpg	0.6051611093733046
+3	/home/omen_pc1/photo_score_project/test_vila/20250204_170733.jpg	0.5893332834879558
+4	/home/omen_pc1/photo_score_project/test_vila/1675564674752-15.jpg	0.5761457069926792
+5	/home/omen_pc1/photo_score_project/test_vila/20250204_174237(0).jpg	0.5698806543032328
+6	/home/omen_pc1/photo_score_project/test_vila/1675564423029-24.jpg	0.5648223233964709
+7	/home/omen_pc1/photo_score_project/test_vila/1675564674752-2.jpg	0.558890951538086
+8	/home/omen_pc1/photo_score_project/test_vila/1720499666964.jpg	0.5539273868136936
+9	/home/omen_pc1/photo_score_project/test_vila/20250204_135520.jpg	0.5496362017366621
+10	/home/omen_pc1/photo_score_project/test_vila/1704296944756.jpg	0.548916433678733

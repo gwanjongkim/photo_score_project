@@ -1,0 +1,21 @@
+{
+  "conversion": {
+    "total_samples": 254509,
+    "unique_image_ids": 254509,
+    "manifest_matches": 254509,
+    "split_counts": {
+      "train": 203617,
+      "val": 25447,
+      "test": 25445
+    }
+  },
+  "validation_subset": {
+    "images_validated": 200,
+    "boxes_validated": 1000,
+    "boxes_needing_clipping": 5,
+    "crop_failures": 0,
+    "failed_images": 0
+  },
+  "readiness": "READY",
+  "notes": "100% manifest alignment. Negligible clipping required (0.5% of boxes). Split-specific JSONL manifests generated."
+}

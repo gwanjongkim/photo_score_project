@@ -1,0 +1,84 @@
+{
+  "status": "failed",
+  "overall_pass": false,
+  "command_used": "python experiments/icaa_tf_native/scripts/stage_j_convert_tflite_fp32.py",
+  "saved_model_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_125620/saved_model",
+  "tflite_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp32_20260516_125633/icaa_dat_tf_native_fp32_select_tf_ops.tflite",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp32_20260516_125633",
+  "tflite_size_bytes": 677380,
+  "builtin_success": false,
+  "select_tf_ops_required": true,
+  "input_details": [
+    "{'name': 'serving_default_image:0', 'index': 0, 'shape': array([  1, 224, 224,   3], dtype=int32), 'shape_signature': array([ -1, 224, 224,   3], dtype=int32), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0), 'quantization_parameters': {'scales': array([], dtype=float32), 'zero_points': array([], dtype=int32), 'quantized_dimension': 0, 'block_size': 0}, 'sparsity_parameters': {}}"
+  ],
+  "output_details": [
+    "{'name': 'StatefulPartitionedCall:0', 'index': 303, 'shape': array([1, 2], dtype=int32), 'shape_signature': array([-1,  2], dtype=int32), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0), 'quantization_parameters': {'scales': array([], dtype=float32), 'zero_points': array([], dtype=int32), 'quantized_dimension': 0, 'block_size': 0}, 'sparsity_parameters': {}}"
+  ],
+  "input_sensitive": false,
+  "probe_results": {
+    "zero_vs_one_max_diff": NaN,
+    "zero_vs_random_max_diff": NaN
+  },
+  "thresholds": {
+    "preferred": {
+      "max": 0.0001,
+      "mean": 1e-05
+    },
+    "acceptable": {
+      "max": 0.001,
+      "mean": 0.0001
+    }
+  },
+  "results": [
+    {
+      "name": "random_normalized_input",
+      "status": "fail",
+      "pass_preferred": false,
+      "pass_acceptable": false,
+      "full_max_abs_diff": NaN,
+      "full_mean_abs_diff": NaN,
+      "mos_max_abs_diff": NaN,
+      "mos_mean_abs_diff": NaN,
+      "color_max_abs_diff": NaN,
+      "color_mean_abs_diff": NaN,
+      "output_shape": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "16_real_images",
+      "status": "fail",
+      "pass_preferred": false,
+      "pass_acceptable": false,
+      "full_max_abs_diff": NaN,
+      "full_mean_abs_diff": NaN,
+      "mos_max_abs_diff": NaN,
+      "mos_mean_abs_diff": NaN,
+      "color_max_abs_diff": NaN,
+      "color_mean_abs_diff": NaN,
+      "output_shape": [
+        16,
+        2
+      ]
+    }
+  ],
+  "log_lines": [
+    "Latest SavedModel found: /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_125620/saved_model",
+    "Loading SavedModel from /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_125620/saved_model",
+    "Converting to TFLite (Forcing SELECT_TF_OPS)",
+    "TFLite conversion with SELECT_TF_OPS succeeded.",
+    "TFLite model saved to /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp32_20260516_125633/icaa_dat_tf_native_fp32_select_tf_ops.tflite",
+    "TFLite model size: 0.65 MB",
+    "Loading TFLite Interpreter",
+    "Input details: [{'name': 'serving_default_image:0', 'index': 0, 'shape': array([  1, 224, 224,   3], dtype=int32), 'shape_signature': array([ -1, 224, 224,   3], dtype=int32), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0), 'quantization_parameters': {'scales': array([], dtype=float32), 'zero_points': array([], dtype=int32), 'quantized_dimension': 0, 'block_size': 0}, 'sparsity_parameters': {}}]",
+    "Output details: [{'name': 'StatefulPartitionedCall:0', 'index': 303, 'shape': array([1, 2], dtype=int32), 'shape_signature': array([-1,  2], dtype=int32), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0), 'quantization_parameters': {'scales': array([], dtype=float32), 'zero_points': array([], dtype=int32), 'quantized_dimension': 0, 'block_size': 0}, 'sparsity_parameters': {}}]",
+    "Running Input Sensitivity Probe",
+    "Zero vs One max diff: nan",
+    "Zero vs Random max diff: nan",
+    "ERROR: TFLite model is not input sensitive or producing NaNs!",
+    "Running SavedModel vs TFLite Parity Verification",
+    "Test A (Random): fail, max_diff=nan",
+    "Test B (Real Images): fail, max_diff=nan"
+  ]
+}

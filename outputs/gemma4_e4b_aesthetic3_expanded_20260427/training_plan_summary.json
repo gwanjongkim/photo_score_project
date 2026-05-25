@@ -1,0 +1,7 @@
+{
+  "clean_teacher_rows": 185,
+  "dataset_all_rows": 106,
+  "run_strength": "short_real",
+  "training_config": "outputs/gemma4_e4b_aesthetic3_expanded_20260427/gemma_train_config.json",
+  "can_train": true
+}

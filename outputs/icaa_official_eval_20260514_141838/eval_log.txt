@@ -1,0 +1,33 @@
+project root: /home/omen_pc1/photo_score_project
+official repo path: /home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code
+csv path: /home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/dataset/ICAA17K/1test.csv
+image root: /home/omen_pc1/photo_score_project/data/raw/icaa17k
+checkpoint path: /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+output dir: /home/omen_pc1/photo_score_project/outputs/icaa_official_eval_20260514_141838
+device: cpu
+batch_size: 8
+num_workers: 0
+limit: 16
+checkpoint key count: 487
+patch_proj.0.weight shape: (128, 3, 4, 4)
+missing keys: []
+unexpected keys: []
+strict load result: <All keys matched successfully>
+checkpoint loaded successfully: yes
+csv rows read: 16
+evaluable images: 16
+missing image rows skipped: 0
+predictions.csv: /home/omen_pc1/photo_score_project/outputs/icaa_official_eval_20260514_141838/predictions.csv
+metrics.json: /home/omen_pc1/photo_score_project/outputs/icaa_official_eval_20260514_141838/metrics.json
+eval_log.txt: /home/omen_pc1/photo_score_project/outputs/icaa_official_eval_20260514_141838/eval_log.txt
+final color summary:
+  measured Accuracy@0.5: 1.000000 vs filename tacc0.9622
+  measured SRCC: 0.808824 vs filename srcc0.8811
+  measured PLCC: 0.933536 vs filename tlcc0.8981
+  measured MAE: 0.022100
+  measured RMSE: 0.030717
+MOS reference summary:
+  SRCC: 0.944118
+  PLCC: 0.973037
+  MAE: 0.024451
+  RMSE: 0.028590

@@ -1,0 +1,8 @@
+{
+  "rows": [
+    {
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+      "prompt": "\nAnalyze this image for an automatic photo selection system (A-cut).\n\nReturn exactly one valid JSON object.\n- No markdown\n- No code fences\n- No commentary before or after the JSON\n- No field labels inside the values\n- Use double-quoted JSON keys\n- The first character must be { and the last character must be }\n\nUse this exact schema:\n{\"short_reason\": \"...\", \"detailed_reason\": \"...\", \"comparison_reason\": \"...\", \"tags\": [\"...\"], \"confidence\": null}\n\nRules:\n- Keep the entire JSON under 55 words\n- short_reason: 4 to 10 words\n- detailed_reason: exactly 1 short sentence, at most 18 words, grounded in visible image content\n- comparison_reason: exactly 1 short sentence, at most 14 words, or null\n- tags: JSON array with 0 to 3 short lowercase cue labels; use [] if none\n- confidence: number from 0 to 1, or null\n- If you are unsure, use null or [] rather than extra prose\n- Prefer null over a long comparison_reason\n- Output JSON only\n\nImage Metadata:\n- Rank: 1\n- Status: Selected\n- Final Score After Rerank: N/A\n- Aesthetic Score: N/A\n- Technical Score: N/A\n- Composition Tags: N/A\n- Photo Type Mode: N/A\n- Baseline Selector Reason: N/A\n"
+    }
+  ]
+}

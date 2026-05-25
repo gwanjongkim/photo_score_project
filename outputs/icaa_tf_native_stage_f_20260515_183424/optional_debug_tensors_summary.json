@@ -1,0 +1,355 @@
+{
+  "random_module_input": {
+    "input": {
+      "name": "random_module_input_nchw",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "dtype": "float32",
+      "min": -4.4069342613220215,
+      "max": 4.185027122497559,
+      "mean": 0.0012623162474483252,
+      "std": 0.999353289604187
+    },
+    "output_result": {
+      "name": "random DAttentionBaseline input",
+      "status": "fail",
+      "pass": false,
+      "preferred_pass": false,
+      "acceptable_pass": false,
+      "max_abs_diff": 0.00016185641288757324,
+      "mean_abs_diff": 8.67745347932214e-06,
+      "torch_output_shape": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        14,
+        14,
+        512
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "likely_failed_subcomponent": "bilinear sampler, q/k/v projection, attention logits, softmax, relative position bias, output projection, or layout"
+    },
+    "pos_reference_diffs": {
+      "pos_diff": {
+        "name": "random DAttentionBaseline input pos",
+        "status": "pass_preferred",
+        "pass": true,
+        "max_abs_diff": 7.897615432739258e-07,
+        "mean_abs_diff": 6.497697313534445e-08,
+        "torch_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ],
+        "tf_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ]
+      },
+      "reference_diff": {
+        "name": "random DAttentionBaseline input reference",
+        "status": "pass_preferred",
+        "pass": true,
+        "max_abs_diff": 7.82310962677002e-07,
+        "mean_abs_diff": 1.1498975283075197e-07,
+        "torch_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ],
+        "tf_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ]
+      },
+      "input_summary": {
+        "name": "random DAttentionBaseline input input_nchw",
+        "shape": [
+          1,
+          512,
+          14,
+          14
+        ],
+        "dtype": "float32",
+        "min": -4.4069342613220215,
+        "max": 4.185027122497559,
+        "mean": 0.0012623162474483252,
+        "std": 0.999353289604187
+      },
+      "output_summary": {
+        "name": "random DAttentionBaseline input output_nchw",
+        "shape": [
+          1,
+          512,
+          14,
+          14
+        ],
+        "dtype": "float32",
+        "min": -12.544795989990234,
+        "max": 12.815656661987305,
+        "mean": -0.09173329174518585,
+        "std": 1.9251253604888916
+      }
+    }
+  },
+  "captured_random_image_input": {
+    "input": {
+      "name": "captured_random_image_input_nchw",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "dtype": "float32",
+      "min": -4.132547378540039,
+      "max": 1.127016305923462,
+      "mean": -0.008103773929178715,
+      "std": 0.2788029611110687
+    },
+    "output_result": {
+      "name": "captured random-image DAttentionBaseline input",
+      "status": "fail",
+      "pass": false,
+      "preferred_pass": false,
+      "acceptable_pass": false,
+      "max_abs_diff": 0.0002676248550415039,
+      "mean_abs_diff": 5.677040462614968e-06,
+      "torch_output_shape": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        14,
+        14,
+        512
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "likely_failed_subcomponent": "bilinear sampler, q/k/v projection, attention logits, softmax, relative position bias, output projection, or layout"
+    },
+    "pos_reference_diffs": {
+      "pos_diff": {
+        "name": "captured random-image DAttentionBaseline input pos",
+        "status": "pass_acceptable",
+        "pass": true,
+        "max_abs_diff": 7.37309455871582e-05,
+        "mean_abs_diff": 2.8983137667637493e-07,
+        "torch_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ],
+        "tf_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ]
+      },
+      "reference_diff": {
+        "name": "captured random-image DAttentionBaseline input reference",
+        "status": "pass_preferred",
+        "pass": true,
+        "max_abs_diff": 3.5762786865234375e-07,
+        "mean_abs_diff": 8.186373179341899e-08,
+        "torch_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ],
+        "tf_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ]
+      },
+      "input_summary": {
+        "name": "captured random-image DAttentionBaseline input input_nchw",
+        "shape": [
+          1,
+          512,
+          14,
+          14
+        ],
+        "dtype": "float32",
+        "min": -4.132547378540039,
+        "max": 1.127016305923462,
+        "mean": -0.008103773929178715,
+        "std": 0.2788029611110687
+      },
+      "output_summary": {
+        "name": "captured random-image DAttentionBaseline input output_nchw",
+        "shape": [
+          1,
+          512,
+          14,
+          14
+        ],
+        "dtype": "float32",
+        "min": -4.300487518310547,
+        "max": 2.920321464538574,
+        "mean": -0.007967048324644566,
+        "std": 0.9646478295326233
+      }
+    }
+  },
+  "captured_real_image_input": {
+    "input": {
+      "name": "captured_real_image_input_nchw",
+      "shape": [
+        3,
+        512,
+        14,
+        14
+      ],
+      "dtype": "float32",
+      "min": -4.278566360473633,
+      "max": 1.8557018041610718,
+      "mean": -0.014746088534593582,
+      "std": 0.29888948798179626
+    },
+    "output_result": {
+      "name": "captured 3-real-image DAttentionBaseline input",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 8.106231689453125e-06,
+      "mean_abs_diff": 4.832071454075049e-07,
+      "torch_output_shape": [
+        3,
+        512,
+        14,
+        14
+      ],
+      "tf_output_shape_nhwc": [
+        3,
+        14,
+        14,
+        512
+      ],
+      "tf_output_shape_nchw": [
+        3,
+        512,
+        14,
+        14
+      ],
+      "likely_failed_subcomponent": null
+    },
+    "pos_reference_diffs": {
+      "pos_diff": {
+        "name": "captured 3-real-image DAttentionBaseline input pos",
+        "status": "pass_preferred",
+        "pass": true,
+        "max_abs_diff": 6.258487701416016e-07,
+        "mean_abs_diff": 4.979093759516218e-08,
+        "torch_output_shape": [
+          3,
+          4,
+          14,
+          14,
+          2
+        ],
+        "tf_output_shape": [
+          3,
+          4,
+          14,
+          14,
+          2
+        ]
+      },
+      "reference_diff": {
+        "name": "captured 3-real-image DAttentionBaseline input reference",
+        "status": "pass_preferred",
+        "pass": true,
+        "max_abs_diff": 5.960464477539062e-07,
+        "mean_abs_diff": 7.180736361078743e-08,
+        "torch_output_shape": [
+          3,
+          4,
+          14,
+          14,
+          2
+        ],
+        "tf_output_shape": [
+          3,
+          4,
+          14,
+          14,
+          2
+        ]
+      },
+      "input_summary": {
+        "name": "captured 3-real-image DAttentionBaseline input input_nchw",
+        "shape": [
+          3,
+          512,
+          14,
+          14
+        ],
+        "dtype": "float32",
+        "min": -4.278566360473633,
+        "max": 1.8557018041610718,
+        "mean": -0.014746088534593582,
+        "std": 0.29888948798179626
+      },
+      "output_summary": {
+        "name": "captured 3-real-image DAttentionBaseline input output_nchw",
+        "shape": [
+          3,
+          512,
+          14,
+          14
+        ],
+        "dtype": "float32",
+        "min": -6.047595024108887,
+        "max": 4.626108646392822,
+        "mean": -0.021741243079304695,
+        "std": 0.7937869429588318
+      }
+    }
+  },
+  "real_image_paths": [
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg"
+  ]
+}

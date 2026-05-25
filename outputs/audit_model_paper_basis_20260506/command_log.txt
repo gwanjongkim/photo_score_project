@@ -1,0 +1,377 @@
+Audit command log for A-cut model paper-basis audit
+Date: 2026-05-06
+Primary WSL project: /home/omen_pc1/photo_score_project
+Primary Flutter project: /mnt/c/Users/OMEN PC1/StudioProjects/pozy_app
+
+Environment commands requested by user
+======================================
+
+$ pwd
+/home/omen_pc1/photo_score_project
+
+$ hostname
+DESKTOP-3T40JVV
+
+$ date
+Wed May  6 14:13:54 KST 2026
+
+$ whoami
+omen_pc1
+
+$ ls ~
+Capstone
+ava
+dataset_zips
+nima_env
+nima_project
+photo_score_project
+pozy_app
+pozy_app_reapply
+snap
+test.py
+tid2013
+tid2013.rar
+
+$ find ~ -maxdepth 4 -type d -iname "photo_score_project" 2>/dev/null
+/home/omen_pc1/photo_score_project
+/home/omen_pc1/photo_score_project/photo_score_project
+
+$ find ~ -maxdepth 5 -type d -iname "pozy_app" 2>/dev/null
+/home/omen_pc1/pozy_app
+
+$ python --version || true
+/bin/bash: line 1: python: command not found
+
+$ python3 --version
+Python 3.12.3
+
+$ nvidia-smi || true
+NVIDIA-SMI 590.48.01; CUDA Version 13.1; one NVIDIA GPU visible.
+
+Additional path discovery
+=========================
+
+$ find /mnt/c/Users -maxdepth 5 -type d -iname pozy_app 2>/dev/null
+/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app
+
+$ find /Users/gwanjung_mac/StudioProjects -maxdepth 2 -type d -iname pozy_app 2>/dev/null
+No output. Command exited 1 because the path is not visible.
+
+WSL git state
+=============
+
+$ git rev-parse HEAD
+76239f61f03fdf172d8ceb3b384be126cf887085
+
+$ git log -1 --oneline
+76239f6 Initial commit
+
+$ git status --short
+Dirty working tree with many modified/untracked files. Full output not copied into this report because source code was not modified by the audit.
+
+Flutter repository discovery and state
+======================================
+
+Secondary checkout:
+$ git branch --show-current
+feature/firebase-acut-merge
+
+$ git rev-parse HEAD
+99921ebbe43d4f1686e2cf6f7442639d19f89897
+
+$ git log -1 --oneline
+99921eb Integrate Firebase A-cut result parsing and UI rendering
+
+Primary checkout used:
+$ git remote -v
+origin  https://github.com/Mobile-Capstone-HS/pozy_app.git (fetch)
+origin  https://github.com/Mobile-Capstone-HS/pozy_app.git (push)
+
+$ git branch --show-current
+feat/acut
+
+$ git branch --all --list '*feat/acut*'
+* feat/acut
+  remotes/origin/feat/acut
+
+$ git rev-parse HEAD
+8d31cb394fb83baaf43ed84582b0068ae9c1b20e
+
+$ git log -1 --oneline
+8d31cb3 Merge pull request #30 from Mobile-Capstone-HS/fix/#10
+
+$ git status --short | wc -l
+626
+
+$ git status --short | sed -n '1,40p'
+ M .env.example
+ M .gitignore
+ M .metadata
+ M .vscode/settings.json
+ M README.md
+ M analysis_options.yaml
+ M android/.gitignore
+ M android/app/build.gradle.kts
+ M android/app/google-services.json
+ M android/app/proguard-rules.pro
+ M android/app/src/debug/AndroidManifest.xml
+ M android/app/src/main/AndroidManifest.xml
+ M android/app/src/main/kotlin/com/example/pose_camera_app/MainActivity.kt
+ M android/app/src/main/kotlin/com/example/pose_camera_app/NativeFastScnnEngine.kt
+ M android/app/src/main/res/drawable-v21/launch_background.xml
+ M android/app/src/main/res/drawable/launch_background.xml
+ M android/app/src/main/res/values-night/styles.xml
+ M android/app/src/main/res/values/styles.xml
+ M android/app/src/profile/AndroidManifest.xml
+ M android/build.gradle.kts
+ M android/gradle.properties
+ M android/gradle/wrapper/gradle-wrapper.properties
+ M android/settings.gradle.kts
+ M assets/config/spot_theme_rules.json
+ M assets/models/composition_aadb_gpu.metadata.json
+ M assets/models/composition_aadb_gpu.verify.json
+ M assets/models/flive_image_mobile.metadata.json
+ M assets/models/koniq_mobile.metadata.json
+ M assets/models/lighting_labels.txt
+ M assets/models/stage5_student_full_aadb_aesthetic_mobile_fp32.comparison.json
+ M assets/models/stage5_student_full_aadb_aesthetic_mobile_fp32.metadata.json
+ M assets/models/stage5_student_full_aadb_aesthetic_mobile_fp32.verify.json
+ M assets/models/student_conservative_aesthetic_full_aadb_20260423.metadata.json
+ M docs/fastscnn_native_migration_plan.md
+ M docs/naver_directions_setup.md
+ M firebase.json
+ M functions/.gitignore
+ M functions/index.js
+ M functions/package-lock.json
+ M functions/package.json
+
+Artifact search commands
+========================
+
+$ find /home/omen_pc1/photo_score_project/checkpoints -maxdepth 2 -type f \( -name 'best.weights.h5' -o -name 'final_model.keras' \) -printf ... | rg 'nima|rgnet|alamp|musiq|technical_flive|technical_koniq'
+/home/omen_pc1/photo_score_project/checkpoints/alamp_aadb_gpu/best.weights.h5 191494712 2026-03-31 20:00:27 KST
+/home/omen_pc1/photo_score_project/checkpoints/alamp_aadb_gpu/final_model.keras 191908754 2026-03-31 20:04:00 KST
+/home/omen_pc1/photo_score_project/checkpoints/musiq_aadb_gpu/best.weights.h5 13474736 2026-03-31 19:47:09 KST
+/home/omen_pc1/photo_score_project/checkpoints/musiq_aadb_gpu/final_model.keras 13519919 2026-03-31 19:49:43 KST
+/home/omen_pc1/photo_score_project/checkpoints/nima_ava_gpu/best.weights.h5 125104184 2026-03-31 19:26:18 KST
+/home/omen_pc1/photo_score_project/checkpoints/nima_ava_gpu/final_model.keras 125352765 2026-03-31 19:34:11 KST
+/home/omen_pc1/photo_score_project/checkpoints/rgnet_aadb_gpu/best.weights.h5 131695520 2026-03-31 20:08:00 KST
+/home/omen_pc1/photo_score_project/checkpoints/rgnet_aadb_gpu/final_model.keras 131951528 2026-03-31 20:08:40 KST
+/home/omen_pc1/photo_score_project/checkpoints/technical_flive_image_gpu/best.weights.h5 48574040 2026-03-30 17:37:55 KST
+/home/omen_pc1/photo_score_project/checkpoints/technical_flive_image_gpu/final_model.keras 48725759 2026-03-30 17:39:07 KST
+/home/omen_pc1/photo_score_project/checkpoints/technical_flive_patch_gpu/best.weights.h5 48574040 2026-03-30 17:48:20 KST
+/home/omen_pc1/photo_score_project/checkpoints/technical_flive_patch_gpu/final_model.keras 48725759 2026-03-30 17:51:16 KST
+/home/omen_pc1/photo_score_project/checkpoints/technical_koniq_gpu/best.weights.h5 48574040 2026-03-28 20:17:53 KST
+/home/omen_pc1/photo_score_project/checkpoints/technical_koniq_gpu/final_model.keras 48725759 2026-03-28 20:18:04 KST
+
+$ find /home/omen_pc1/photo_score_project/checkpoints /home/omen_pc1/photo_score_project/exports/tflite ... \( -iname '*nima*' -o -iname '*rgnet*' -o -iname '*alamp*' -o -iname '*flive*' -o -iname '*koniq*' -o -iname '*musiq*' \)
+/home/omen_pc1/photo_score_project/exports/tflite/alamp_aadb_gpu.metadata.json 5429 2026-04-04 21:17:49 KST
+/home/omen_pc1/photo_score_project/exports/tflite/alamp_aadb_gpu.tflite 39158340 2026-04-04 21:17:47 KST
+/home/omen_pc1/photo_score_project/exports/tflite/alamp_aadb_gpu.verify.json 2982 2026-04-04 21:22:05 KST
+/home/omen_pc1/photo_score_project/exports/tflite/flive_image_mobile.metadata.json 1676 2026-04-01 11:44:46 KST
+/home/omen_pc1/photo_score_project/exports/tflite/flive_image_mobile.tflite 9545852 2026-04-01 11:44:46 KST
+/home/omen_pc1/photo_score_project/exports/tflite/flive_image_mobile.verify.json 1274 2026-04-01 11:44:58 KST
+/home/omen_pc1/photo_score_project/exports/tflite/koniq_mobile.metadata.json 1649 2026-04-01 11:43:51 KST
+/home/omen_pc1/photo_score_project/exports/tflite/koniq_mobile.tflite 9545852 2026-04-01 11:43:51 KST
+/home/omen_pc1/photo_score_project/exports/tflite/koniq_mobile.verify.json 1285 2026-04-01 11:44:37 KST
+/home/omen_pc1/photo_score_project/exports/tflite/nima_mobile.metadata.json 1621 2026-04-01 11:45:41 KST
+/home/omen_pc1/photo_score_project/exports/tflite/nima_mobile.tflite 24765068 2026-04-01 11:45:41 KST
+/home/omen_pc1/photo_score_project/exports/tflite/nima_mobile.verify.json 1882 2026-04-01 11:45:50 KST
+/home/omen_pc1/photo_score_project/exports/tflite/rgnet_aadb_gpu.metadata.json 1554 2026-04-04 21:41:08 KST
+/home/omen_pc1/photo_score_project/exports/tflite/rgnet_aadb_gpu.tflite 26085072 2026-04-04 21:41:08 KST
+/home/omen_pc1/photo_score_project/exports/tflite/rgnet_aadb_gpu.verify.json 1272 2026-04-04 21:41:38 KST
+/home/omen_pc1/photo_score_project/exports/tflite/rgnet_aadb_gpu_flex.metadata.json 1538 2026-04-04 21:42:15 KST
+/home/omen_pc1/photo_score_project/exports/tflite/rgnet_aadb_gpu_flex.tflite 13394408 2026-04-04 21:42:15 KST
+
+$ find /home/omen_pc1/photo_score_project -path '*/.venv*' -prune -o -iname '*musiq*.tflite' -print
+No output.
+
+$ find '/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app/assets/models' -maxdepth 1 -iname '*musiq*' -print
+No output.
+
+Flutter asset commands
+======================
+
+$ nl -ba pubspec.yaml | sed -n '1,62p'
+Relevant lines:
+25 flutter_litert: ^2.0.7
+26 flutter_litert_flex: ^0.0.5
+57 assets:
+58 - .env
+59 - lib/assets/
+60 - assets/config/
+61 - assets/models/
+62 - assets/images/
+
+$ find assets/models -maxdepth 1 -type f -printf ...
+assets/models/alamp_aadb_gpu.tflite 39158340 2026-04-29 20:08:13 KST
+assets/models/composition_aadb_gpu.metadata.json 1639 2026-04-29 20:08:13 KST
+assets/models/composition_aadb_gpu.tflite 24096512 2026-04-29 20:08:13 KST
+assets/models/composition_aadb_gpu.verify.json 1349 2026-04-29 20:08:13 KST
+assets/models/fastscnn_cityscapes_float16.tflite 2346756 2026-04-29 20:08:13 KST
+assets/models/flive_image_mobile.metadata.json 1740 2026-04-29 20:08:13 KST
+assets/models/flive_image_mobile.tflite 9545852 2026-04-29 20:08:13 KST
+assets/models/koniq_mobile.metadata.json 1713 2026-04-29 20:08:13 KST
+assets/models/koniq_mobile.tflite 9545852 2026-04-29 20:08:13 KST
+assets/models/lighting_labels.txt 61 2026-04-29 20:08:13 KST
+assets/models/lighting_model.tflite 2696464 2026-04-29 20:08:13 KST
+assets/models/nima_mobile.tflite 24765068 2026-04-29 20:08:13 KST
+assets/models/rgnet_aadb_gpu.tflite 26085072 2026-04-29 20:08:14 KST
+assets/models/stage5_student_full_aadb_aesthetic_mobile_fp32.comparison.json 7551 2026-04-29 20:08:14 KST
+assets/models/stage5_student_full_aadb_aesthetic_mobile_fp32.metadata.json 2615 2026-04-29 20:08:14 KST
+assets/models/stage5_student_full_aadb_aesthetic_mobile_fp32.tflite 3411060 2026-04-29 20:08:14 KST
+assets/models/stage5_student_full_aadb_aesthetic_mobile_fp32.verify.json 14507 2026-04-29 20:08:14 KST
+assets/models/student_conservative_aesthetic_full_aadb_20260423.metadata.json 2995 2026-04-29 20:08:14 KST
+assets/models/student_conservative_aesthetic_full_aadb_20260423_fp16_builtin.tflite 1738468 2026-04-29 20:08:14 KST
+assets/models/yolo11n.tflite 5406462 2026-04-29 20:08:14 KST
+assets/models/yolov8n-pose_float16.tflite 6787353 2026-04-29 20:08:14 KST
+
+$ find android/app/src/main/assets -maxdepth 1 -type f -printf ...
+android/app/src/main/assets/yolo11n.tflite 5406462 2026-04-29 20:08:13 KST
+android/app/src/main/assets/yolov8n-pose_float16.tflite 6787353 2026-04-29 20:08:13 KST
+
+Code search commands
+====================
+
+$ rg -n "Tflite|Interpreter|fromAsset|loadModel|nima|rgnet|alamp|flive|koniq|musiq|aesthetic|quality|ensemble|score|preprocess|PhotoEvaluation|Aesthetic|stage5|student" lib pubspec.yaml assets/models
+Key confirmed hits are cited in audit_report.md. Important hits:
+- lib/feature/a_cut/layer/inference/aesthetic_model_contract.dart defines KonIQ, FLIVE, NIMA, RGNet, A-LAMP, active ensemble, stage5 student, and comparison contracts.
+- lib/feature/a_cut/layer/inference/tflite_aesthetic_service.dart runs tensor/signature contracts and blends scores.
+- lib/feature/a_cut/layer/evaluation/photo_evaluation_service.dart combines technical and aesthetic scores.
+- lib/feature/a_cut/layer/evaluation/aesthetic_ensemble_scoring_service.dart runs NIMA/RGNet/A-LAMP ensemble.
+- lib/screen/a_cut_result_screen.dart uses OnDeviceImageScoreService with HybridPhotoEvaluationService.
+
+$ rg -n "AestheticScoreComparisonService|compare\(" lib
+Only definition hits were found; no app call site was found.
+
+TFLite inspection command
+=========================
+
+Interpreter command used:
+./.venv_gpu/bin/python - <<'PY'
+import os, glob, json, time
+import tensorflow as tf
+root = '/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app/assets/models'
+for p in sorted(glob.glob(root + '/*.tflite')):
+    ...
+PY
+
+TensorFlow emitted warnings:
+- oneDNN custom operations are on.
+- /home/omen_pc1/.config/matplotlib is not writable, so temporary cache directories were created under /tmp.
+- tf.lite.Interpreter is deprecated in TF 2.20.
+
+Compact inspection output:
+
+alamp_aadb_gpu.tflite:
+- size 39158340
+- mtime 2026-04-29 20:08:13 +0900
+- allocate ok
+- inputs:
+  - serving_default_global_view:0 [1,384,384,3] float32 quant [0.0,0]
+  - serving_default_patches:0 [1,5,224,224,3] float32 quant [0.0,0]
+- output:
+  - StatefulPartitionedCall_1:0 [1,1] float32 quant [0.0,0]
+- unique ops include ADD, BROADCAST_TO, CAST, CONCATENATION, CONV_2D, DEPTHWISE_CONV_2D, FULLY_CONNECTED, LOGISTIC, MEAN, SOFTMAX, SUM, TANH, TRANSPOSE
+- op count 717
+
+composition_aadb_gpu.tflite:
+- size 24096512
+- input [1,224,224,3] float32
+- output [1,1] float32
+- op count 352
+
+flive_image_mobile.tflite:
+- size 9545852
+- input serving_default_keras_tensor_154:0 [1,224,224,3] float32 quant [0.0,0]
+- output StatefulPartitionedCall_1:0 [1,1] float32 quant [0.0,0]
+- unique ops ADD, CONV_2D, DELEGATE, DEPTHWISE_CONV_2D, FULLY_CONNECTED, MEAN
+- op count 66
+
+koniq_mobile.tflite:
+- size 9545852
+- input serving_default_keras_tensor_154:0 [1,224,224,3] float32 quant [0.0,0]
+- output StatefulPartitionedCall_1:0 [1,1] float32 quant [0.0,0]
+- unique ops ADD, CONV_2D, DELEGATE, DEPTHWISE_CONV_2D, FULLY_CONNECTED, MEAN
+- op count 66
+
+nima_mobile.tflite:
+- size 24765068
+- input serving_default_keras_tensor_270:0 [1,224,224,3] float32 quant [0.0,0]
+- output StatefulPartitionedCall_1:0 [1,10] float32 quant [0.0,0]
+- unique ops include ADD, CONV_2D, DEPTHWISE_CONV_2D, FULLY_CONNECTED, LOGISTIC, MEAN, SOFTMAX
+- op count 352
+
+rgnet_aadb_gpu.tflite:
+- size 26085072
+- input serving_default_keras_tensor_270:0 [1,256,256,3] float32 quant [0.0,0]
+- output StatefulPartitionedCall_1:0 [1,1] float32 quant [0.0,0]
+- unique ops include BATCH_MATMUL, L2_NORMALIZATION, MATRIX_DIAG, SOFTMAX, SQUARED_DIFFERENCE, TANH
+- op count 410
+
+stage5_student_full_aadb_aesthetic_mobile_fp32.tflite:
+- size 3411060
+- input serving_default_image:0 [1,224,224,3] float32
+- output StatefulPartitionedCall_1:0 [1,1] float32
+- op count 67
+
+student_conservative_aesthetic_full_aadb_20260423_fp16_builtin.tflite:
+- size 1738468
+- input serving_default_image:0 [1,224,224,3] float32
+- output StatefulPartitionedCall_1:0 [1,1] float32
+- op count 175
+
+Other non-audit TFLites:
+- fastscnn_cityscapes_float16.tflite: input [1,512,1024,3], output [1,512,1024,19]
+- lighting_model.tflite: input [1,224,224,3], output [1,5]
+- yolo11n.tflite: input [1,320,320,3], output [1,84,2100]
+- yolov8n-pose_float16.tflite: input [1,640,480,3], output [1,56,6300]
+
+Signature inspection command
+============================
+
+$ ./.venv_gpu/bin/python - <<'PY'
+import tensorflow as tf, json
+for p in [...main asset tflites...]:
+    interp = tf.lite.Interpreter(model_path=p)
+    print(json.dumps({'path': p, 'signature_list': interp.get_signature_list()}))
+PY
+
+Output:
+{"path": ".../nima_mobile.tflite", "signature_list": {"serving_default": {"inputs": ["keras_tensor_270"], "outputs": ["output_0"]}}}
+{"path": ".../rgnet_aadb_gpu.tflite", "signature_list": {"serving_default": {"inputs": ["keras_tensor_270"], "outputs": ["output_0"]}}}
+{"path": ".../alamp_aadb_gpu.tflite", "signature_list": {"serving_default": {"inputs": ["global_view", "patches"], "outputs": ["output_0"]}}}
+{"path": ".../koniq_mobile.tflite", "signature_list": {"serving_default": {"inputs": ["keras_tensor_154"], "outputs": ["output_0"]}}}
+{"path": ".../flive_image_mobile.tflite", "signature_list": {"serving_default": {"inputs": ["keras_tensor_154"], "outputs": ["output_0"]}}}
+
+Reproducibility commands
+========================
+
+$ du -sh checkpoints exports data 2>/dev/null
+24G checkpoints
+180M exports
+19G data
+
+$ du -sh assets/models 2>/dev/null
+149M assets/models
+
+$ find /home/omen_pc1/photo_score_project -maxdepth 2 -name .gitattributes -print
+No output.
+
+$ find /home/omen_pc1/photo_score_project -path '*/.gitattributes' -print | sed -n '1,20p'
+/home/omen_pc1/photo_score_project/checkpoints/NVILA-8B/.gitattributes
+/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b/.gitattributes
+
+Final output verification commands
+==================================
+
+$ python3 -m json.tool outputs/audit_model_paper_basis_20260506/model_inventory.json >/dev/null
+Exit code 0.
+
+$ find outputs/audit_model_paper_basis_20260506 -maxdepth 1 -type f -printf '%f\n' | sort
+audit_report.md
+command_log.txt
+model_inventory.json
+
+$ test ! -e /tmp/model_inventory_check.json && echo removed
+removed

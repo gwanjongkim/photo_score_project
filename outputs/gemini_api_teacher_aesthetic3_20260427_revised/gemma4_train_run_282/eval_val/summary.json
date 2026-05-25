@@ -1,0 +1,270 @@
+{
+  "teacher_manifest": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/val.jsonl",
+  "teacher_target_format": {
+    "rows": 25,
+    "json_schema_valid_rate": 1.0,
+    "flag_counts": {}
+  },
+  "status": "ok",
+  "predictions_jsonl": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/predictions/val_predictions.jsonl",
+  "student_metrics": {
+    "matched_predictions": 25,
+    "valid_json_rate": 1.0,
+    "required_fields_rate": 1.0,
+    "comment_type_valid_rate": 1.0,
+    "exact_comment_type_rate": 1.0,
+    "validation_flag_counts": {},
+    "forbidden_leakage_count": 0,
+    "fake_weakness_in_selected_count": 0,
+    "forced_praise_count": 0,
+    "near_miss_structure_fail_count": 0,
+    "mean_sequence_ratio": 0.186175,
+    "mean_token_f1": 0.400024,
+    "problem_examples": [
+      {
+        "id": "gemini__300__257__ava__middle_near_miss__199404.jpg__bb7395c6b5",
+        "split": "val",
+        "image_path": "/home/omen_pc1/ava/images/199404.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The abstract composition and warm colors are appealing, but the overall softness and lack of sharp focus detract from its quality.",
+          "detailed_reason": "This is a creative and engaging abstract shot. The top-down perspective into the glass and the warm color palette work well together. However, the image is let down by a pervasive softness and lack of a clear focal point. To be stronger, the image needs a point of sharp focus, for instance on the bubbles or the texture of the lime, to provide visual clarity and impact.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong, dramatic composition, but the lighting is too harsh and flat, which detracts from the scene's potential.",
+          "detailed_reason": "The composition is very strong, with the subject placed in a dynamic, low-angle perspective that draws the viewer into the scene. However, the harsh, direct lighting creates strong highlights and deep shadows, which makes the image feel flat and less cinematic. Using a softer light source or a more diffused light would have created a more atmospheric and compelling image.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The image has a strong, dramatic composition, but the lighting is too harsh and flat, which detracts from the scene's potential.\", \"detailed_reason\": \"The composition is very strong, with the subject placed in a dynamic, low-angle perspective that draws the viewer into the scene. However, the harsh, direct lighting creates strong highlights and deep shadows, which makes the image feel flat and less cinematic. Using a softer light source or a more diffused light would have created a more atmospheric and compelling image.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.128395,
+        "token_f1": 0.364641,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__123__aadb__middle_near_miss__farm1_258_19997849978_b25c023f53_b.jpg__adfdb41a35",
+        "split": "val",
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_258_19997849978_b25c023f53_b.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The interesting and humorous subject is compelling, but the cluttered composition and harsh color processing detract from its overall quality.",
+          "detailed_reason": "The quirky \"House O' Weenies\" logo makes for a fun and engaging subject, and the close-up perspective highlights its character. However, the frame is cluttered with distracting elements like the red tail light and the metal plate at the top, which pull focus away from the main point of interest. A tighter crop focused solely on the logo and text would create a cleaner, more impactful composition.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong, vibrant color palette, but the composition is a bit cluttered and the subject is not clearly defined.",
+          "detailed_reason": "The use of bright, contrasting colors makes this image visually striking. However, the composition is a bit busy, with the various elements competing for attention. The subject matter is also unclear, as the different elements are not clearly defined or unified into a single, cohesive image.",
+          "comparison_reason": "This image is stronger than the other options because of its vibrant color palette. However, it could be improved by simplifying the composition and making the subject more defined."
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The image has a strong, vibrant color palette, but the composition is a bit cluttered and the subject is not clearly defined.\", \"detailed_reason\": \"The use of bright, contrasting colors makes this image visually striking. However, the composition is a bit busy, with the various elements competing for attention. The subject matter is also unclear, as the different elements are not clearly defined or unified into a single, cohesive image.\", \"comparison_reason\": \"This image is stronger than the other options because of its vibrant color palette. However, it could be improved by simplifying the composition and making the subject more defined.\"}",
+        "sequence_ratio": 0.144863,
+        "token_f1": 0.358974,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__58__ava__selected_high__196388.jpg__56b82787d0",
+        "split": "val",
+        "image_path": "/home/omen_pc1/ava/images/196388.jpg",
+        "teacher_json": {
+          "comment_type": "selected_explanation",
+          "short_reason": "This is an excellent close-up photograph that uses a strong leading line and shallow depth of field to create a compelling composition.",
+          "detailed_reason": "The low-angle perspective makes the rusty chain feel powerful, and it creates a strong leading line that draws the viewer's eye from the foreground deep into the image. The use of a shallow depth of field effectively isolates the front links, highlighting their rough, weathered texture in sharp detail. The contrast between the dark, textured subject and the bright, out-of-focus background makes the chain stand out as the clear focal point.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "selected_explanation",
+          "short_reason": "This is a strong, high-contrast image with a clear, dramatic subject and excellent composition.",
+          "detailed_reason": "The image is well-composed, using a low angle to emphasize the size and power of the lion. The use of a shallow depth of field keeps the lion sharp while blurring the background, which helps the subject pop. The lighting is dramatic, with the lion's mane illuminated against the darker background, creating a strong silhouette and highlighting its features. The lion's intense gaze and powerful pose make for a compelling and dynamic portrait.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"selected_explanation\", \"short_reason\": \"This is a strong, high-contrast image with a clear, dramatic subject and excellent composition.\", \"detailed_reason\": \"The image is well-composed, using a low angle to emphasize the size and power of the lion. The use of a shallow depth of field keeps the lion sharp while blurring the background, which helps the subject pop. The lighting is dramatic, with the lion's mane illuminated against the darker background, creating a strong silhouette and highlighting its features. The lion's intense gaze and powerful pose make for a compelling and dynamic portrait.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.145646,
+        "token_f1": 0.427083,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__126__ava__middle_near_miss__856220.jpg__bfecb7d94e",
+        "split": "val",
+        "image_path": "/home/omen_pc1/ava/images/856220.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image presents a compelling composition and atmosphere, but it is diminished by the heavy-handed post-processing, specifically the artificial letterboxing and strong vignette.",
+          "detailed_reason": "The photograph has a strong narrative, capturing a photographer at work against a dramatic, cloudy sky over a historic city. This creates an engaging and moody scene. However, the thick black bars at the top and bottom and the intense vignette feel artificial and overly constrict the frame, detracting from the otherwise excellent composition. A more subtle approach to post-processing, particularly by removing the letterboxing, would allow the scene to feel more expansive and natural.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong, dramatic composition, but the lack of a clear focal point and the muted color palette prevent it from being a standout piece.",
+          "detailed_reason": "The composition is very strong, with the subject placed effectively in the frame and the dramatic lighting creating a moody atmosphere. However, the image lacks a clear focal point, as the subject is not clearly defined. The muted color palette also makes the image feel a bit flat, and the overall quality is held back by the lack of a strong, singular point of interest.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The image has a strong, dramatic composition, but the lack of a clear focal point and the muted color palette prevent it from being a standout piece.\", \"detailed_reason\": \"The composition is very strong, with the subject placed effectively in the frame and the dramatic lighting creating a moody atmosphere. However, the image lacks a clear focal point, as the subject is not clearly defined. The muted color palette also makes the image feel a bit flat, and the overall quality is held back by the lack of a strong, singular point of interest.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.147143,
+        "token_f1": 0.366337,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__232__ava__middle_near_miss__375821.jpg__09e46a985f",
+        "split": "val",
+        "image_path": "/home/omen_pc1/ava/images/375821.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The composition and focus are strong, but the bright, out-of-focus car in the background is distracting.",
+          "detailed_reason": "The driver's-eye perspective and the sharp focus on the steering wheel's texture create an engaging foreground. However, the bright white car seen through the windshield, despite being out of focus, draws the eye away from the main subject. Finding a less distracting background would have allowed the well-captured details of the car's interior to be the sole focus, strengthening the overall image.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong, dramatic composition, but the harsh lighting and high contrast make the scene feel a bit too stylized and less natural.",
+          "detailed_reason": "The composition is very strong, with the subject placed effectively in the frame and the dramatic lighting creating a moody atmosphere. However, the harsh, high-contrast lighting casts deep shadows and bright highlights, which can make the scene feel overly stylized or even a bit artificial. A slight adjustment to the lighting could soften the scene and make the image feel more natural while retaining its dramatic quality.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The image has a strong, dramatic composition, but the harsh lighting and high contrast make the scene feel a bit too stylized and less natural.\", \"detailed_reason\": \"The composition is very strong, with the subject placed effectively in the frame and the dramatic lighting creating a moody atmosphere. However, the harsh, high-contrast lighting casts deep shadows and bright highlights, which can make the scene feel overly stylized or even a bit artificial. A slight adjustment to the lighting could soften the scene and make the image feel more natural while retaining its dramatic quality.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.14786,
+        "token_f1": 0.32967,
+        "valid_json": true,
+        "validation_flags": []
+      }
+    ],
+    "sample_outputs": [
+      {
+        "id": "gemini__300__257__ava__middle_near_miss__199404.jpg__bb7395c6b5",
+        "split": "val",
+        "image_path": "/home/omen_pc1/ava/images/199404.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The abstract composition and warm colors are appealing, but the overall softness and lack of sharp focus detract from its quality.",
+          "detailed_reason": "This is a creative and engaging abstract shot. The top-down perspective into the glass and the warm color palette work well together. However, the image is let down by a pervasive softness and lack of a clear focal point. To be stronger, the image needs a point of sharp focus, for instance on the bubbles or the texture of the lime, to provide visual clarity and impact.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong, dramatic composition, but the lighting is too harsh and flat, which detracts from the scene's potential.",
+          "detailed_reason": "The composition is very strong, with the subject placed in a dynamic, low-angle perspective that draws the viewer into the scene. However, the harsh, direct lighting creates strong highlights and deep shadows, which makes the image feel flat and less cinematic. Using a softer light source or a more diffused light would have created a more atmospheric and compelling image.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The image has a strong, dramatic composition, but the lighting is too harsh and flat, which detracts from the scene's potential.\", \"detailed_reason\": \"The composition is very strong, with the subject placed in a dynamic, low-angle perspective that draws the viewer into the scene. However, the harsh, direct lighting creates strong highlights and deep shadows, which makes the image feel flat and less cinematic. Using a softer light source or a more diffused light would have created a more atmospheric and compelling image.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.128395,
+        "token_f1": 0.364641,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__123__aadb__middle_near_miss__farm1_258_19997849978_b25c023f53_b.jpg__adfdb41a35",
+        "split": "val",
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_258_19997849978_b25c023f53_b.jpg",
+        "teacher_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The interesting and humorous subject is compelling, but the cluttered composition and harsh color processing detract from its overall quality.",
+          "detailed_reason": "The quirky \"House O' Weenies\" logo makes for a fun and engaging subject, and the close-up perspective highlights its character. However, the frame is cluttered with distracting elements like the red tail light and the metal plate at the top, which pull focus away from the main point of interest. A tighter crop focused solely on the logo and text would create a cleaner, more impactful composition.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong, vibrant color palette, but the composition is a bit cluttered and the subject is not clearly defined.",
+          "detailed_reason": "The use of bright, contrasting colors makes this image visually striking. However, the composition is a bit busy, with the various elements competing for attention. The subject matter is also unclear, as the different elements are not clearly defined or unified into a single, cohesive image.",
+          "comparison_reason": "This image is stronger than the other options because of its vibrant color palette. However, it could be improved by simplifying the composition and making the subject more defined."
+        },
+        "raw_prediction": "{\"comment_type\": \"near_miss_feedback\", \"short_reason\": \"The image has a strong, vibrant color palette, but the composition is a bit cluttered and the subject is not clearly defined.\", \"detailed_reason\": \"The use of bright, contrasting colors makes this image visually striking. However, the composition is a bit busy, with the various elements competing for attention. The subject matter is also unclear, as the different elements are not clearly defined or unified into a single, cohesive image.\", \"comparison_reason\": \"This image is stronger than the other options because of its vibrant color palette. However, it could be improved by simplifying the composition and making the subject more defined.\"}",
+        "sequence_ratio": 0.144863,
+        "token_f1": 0.358974,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__58__ava__selected_high__196388.jpg__56b82787d0",
+        "split": "val",
+        "image_path": "/home/omen_pc1/ava/images/196388.jpg",
+        "teacher_json": {
+          "comment_type": "selected_explanation",
+          "short_reason": "This is an excellent close-up photograph that uses a strong leading line and shallow depth of field to create a compelling composition.",
+          "detailed_reason": "The low-angle perspective makes the rusty chain feel powerful, and it creates a strong leading line that draws the viewer's eye from the foreground deep into the image. The use of a shallow depth of field effectively isolates the front links, highlighting their rough, weathered texture in sharp detail. The contrast between the dark, textured subject and the bright, out-of-focus background makes the chain stand out as the clear focal point.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "selected_explanation",
+          "short_reason": "This is a strong, high-contrast image with a clear, dramatic subject and excellent composition.",
+          "detailed_reason": "The image is well-composed, using a low angle to emphasize the size and power of the lion. The use of a shallow depth of field keeps the lion sharp while blurring the background, which helps the subject pop. The lighting is dramatic, with the lion's mane illuminated against the darker background, creating a strong silhouette and highlighting its features. The lion's intense gaze and powerful pose make for a compelling and dynamic portrait.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"selected_explanation\", \"short_reason\": \"This is a strong, high-contrast image with a clear, dramatic subject and excellent composition.\", \"detailed_reason\": \"The image is well-composed, using a low angle to emphasize the size and power of the lion. The use of a shallow depth of field keeps the lion sharp while blurring the background, which helps the subject pop. The lighting is dramatic, with the lion's mane illuminated against the darker background, creating a strong silhouette and highlighting its features. The lion's intense gaze and powerful pose make for a compelling and dynamic portrait.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.145646,
+        "token_f1": 0.427083,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__0__ava__rejected_low__330730.jpg__27e5fee514",
+        "split": "val",
+        "image_path": "/home/omen_pc1/ava/images/330730.jpg",
+        "teacher_json": {
+          "comment_type": "rejection_reason",
+          "short_reason": "This image has flat lighting, muted colors, and lacks a clear focal point.",
+          "detailed_reason": "The flat, overcast lighting creates a low-contrast scene with dull, muted colors. Compositionally, there is no strong subject to draw the viewer's attention, causing the eye to wander without a clear point of interest. The overall softness of the image also detracts from its visual impact.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and lacks a clear focal point.",
+          "detailed_reason": "The low-key lighting creates a dark and moody atmosphere, but the lack of a clear focal point makes the image feel unfinished. The composition is also unbalanced, with the main subject being too far to the right.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"rejection_reason\", \"short_reason\": \"The image is too dark and lacks a clear focal point.\", \"detailed_reason\": \"The low-key lighting creates a dark and moody atmosphere, but the lack of a clear focal point makes the image feel unfinished. The composition is also unbalanced, with the main subject being too far to the right.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.263158,
+        "token_f1": 0.521008,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__74__aadb__rejected_low__farm1_307_20129257706_6dc005ed8d_b.jpg__5b1473a1cd",
+        "split": "val",
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_307_20129257706_6dc005ed8d_b.jpg",
+        "teacher_json": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is compositionally chaotic and lacks a clear focal point.",
+          "detailed_reason": "This photograph feels like a snapshot due to its cluttered and disorganized composition. There are multiple subjects competing for attention, and no single person or action stands out as the clear focus. The framing is loose, and the motion blur on the central figures further reduces the image's overall quality and impact.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and lacks a clear focal point.",
+          "detailed_reason": "The low exposure makes the image appear muddy and indistinct, which detracts from the subject matter. The composition is also weak, with no clear focal point to draw the viewer's eye.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"rejection_reason\", \"short_reason\": \"The image is too dark and lacks a clear focal point.\", \"detailed_reason\": \"The low exposure makes the image appear muddy and indistinct, which detracts from the subject matter. The composition is also weak, with no clear focal point to draw the viewer's eye.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.247002,
+        "token_f1": 0.410256,
+        "valid_json": true,
+        "validation_flags": []
+      },
+      {
+        "id": "gemini__300__86__aadb__rejected_low__farm1_364_19956065638_731319b720_b.jpg__08952e7803",
+        "split": "val",
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_364_19956065638_731319b720_b.jpg",
+        "teacher_json": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is blurry, poorly composed, and has flat lighting.",
+          "detailed_reason": "The entire image suffers from motion blur and a lack of sharp focus, which detracts from its technical quality. The composition is awkward, with the foreground dog uncomfortably close to the camera and partially cut off. The lighting is flat and direct, creating harsh shadows and a dull overall look.",
+          "comparison_reason": ""
+        },
+        "predicted_json": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and lacks contrast, making it difficult to see the details of the subject.",
+          "detailed_reason": "The low exposure and dark tones obscure the details of the subject, making the image appear muddy and indistinct. The lack of contrast also makes the image feel flat and uninteresting.",
+          "comparison_reason": ""
+        },
+        "raw_prediction": "{\"comment_type\": \"rejection_reason\", \"short_reason\": \"The image is too dark and lacks contrast, making it difficult to see the details of the subject.\", \"detailed_reason\": \"The low exposure and dark tones obscure the details of the subject, making the image appear muddy and indistinct. The lack of contrast also makes the image feel flat and uninteresting.\", \"comparison_reason\": \"\"}",
+        "sequence_ratio": 0.23086,
+        "token_f1": 0.380165,
+        "valid_json": true,
+        "validation_flags": []
+      }
+    ]
+  }
+}

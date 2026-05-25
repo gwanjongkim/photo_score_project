@@ -1,0 +1,46 @@
+{
+  "checkpoint_dir": "/home/omen_pc1/photo_score_project/outputs/distill_exec_20260411/stage5_student_aadb_subset",
+  "manifest_csv": "/home/omen_pc1/photo_score_project/outputs/distill_exec_20260411/aadb_subset_teacher_labels.csv",
+  "splits": {
+    "val": {
+      "rows": 24,
+      "metrics": {
+        "num_samples": 24,
+        "mae": 0.045180510729551315,
+        "rmse": 0.05586015433073044,
+        "mse": 0.0031203569378703833,
+        "r2": -0.010544115234148776,
+        "pearson": NaN,
+        "spearman": null,
+        "pairwise_accuracy": 0.0,
+        "pairwise_pairs_scored": 50000,
+        "top_k": 10,
+        "top_k_overlap": 0.2
+      },
+      "metrics_path": "/home/omen_pc1/photo_score_project/outputs/distill_exec_20260411/stage5_student_aadb_subset/manual_evaluation/val_metrics.json",
+      "predictions_path": "/home/omen_pc1/photo_score_project/outputs/distill_exec_20260411/stage5_student_aadb_subset/manual_evaluation/val_predictions.csv"
+    },
+    "test": {
+      "rows": 24,
+      "metrics": {
+        "num_samples": 24,
+        "mae": 0.05477967485785484,
+        "rmse": 0.06510403007268906,
+        "mse": 0.00423853425309062,
+        "r2": -0.251390658212044,
+        "pearson": NaN,
+        "spearman": null,
+        "pairwise_accuracy": 0.0,
+        "pairwise_pairs_scored": 50000,
+        "top_k": 10,
+        "top_k_overlap": 0.3
+      },
+      "metrics_path": "/home/omen_pc1/photo_score_project/outputs/distill_exec_20260411/stage5_student_aadb_subset/manual_evaluation/test_metrics.json",
+      "predictions_path": "/home/omen_pc1/photo_score_project/outputs/distill_exec_20260411/stage5_student_aadb_subset/manual_evaluation/test_predictions.csv"
+    }
+  },
+  "cross_split_duplicate_summary": {
+    "num_cross_split_duplicates": 0,
+    "examples": []
+  }
+}

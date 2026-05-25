@@ -1,0 +1,19 @@
+{
+  "generated_jsonl": "outputs/gemini_api_teacher_aesthetic3_20260427/gemini_teacher_generation.jsonl",
+  "rows_audited": 10,
+  "clean_rows": 5,
+  "rejected_rows": 5,
+  "flag_counts": {
+    "api_error": 5,
+    "missing_strength": 5,
+    "missing_weakness": 5,
+    "missing_verdict": 5,
+    "role_separation_invalid": 5,
+    "verdict_polarity_invalid": 5,
+    "visible_grounding_weak": 5
+  },
+  "clean_dataset_jsonl": "outputs/gemini_api_teacher_aesthetic3_20260427/clean_teacher_dataset.jsonl",
+  "clean_dataset_csv": "outputs/gemini_api_teacher_aesthetic3_20260427/clean_teacher_dataset.csv",
+  "rejected_teacher_rows_csv": "outputs/gemini_api_teacher_aesthetic3_20260427/rejected_teacher_rows.csv",
+  "audit_rows_csv": "outputs/gemini_api_teacher_aesthetic3_20260427/teacher_audit_rows.csv"
+}

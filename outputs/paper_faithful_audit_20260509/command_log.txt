@@ -1,0 +1,10 @@
+pwd
+date +"%Y%m%d"
+git status --short
+find data -type d \( -iname "*ava*" -o -iname "*aadb*" \) 2>/dev/null
+ls -la data/processed/ava data/processed/aadb
+.venv/bin/python -c "import pandas as pd..."
+rg -l "RGNet|rgnet|..."
+rg -l "A-LAMP|alamp|..."
+cat outputs/ava_retrain_rgnet_alamp_20260506/metrics_summary.json ...
+cat outputs/audit_model_paper_basis_20260506/audit_report.md

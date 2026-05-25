@@ -1,0 +1,18 @@
+{
+  "average_precision": 0.8375490211882766,
+  "average_precision_error": null,
+  "confusion_matrix_at_0_5": {
+    "fn": 9,
+    "fp": 25,
+    "tn": 11,
+    "tp": 83
+  },
+  "positive_prediction_ratio_at_0_5": 0.84375,
+  "pred_max": 0.7367119789123535,
+  "pred_mean": 0.5629383325576782,
+  "pred_min": 0.37269043922424316,
+  "pred_std": 0.06593231856822968,
+  "roc_auc": 0.6739130434782609,
+  "sample_count": 128,
+  "val_predictions_csv": "outputs/mobile_alamp_v2_full_ava_smoke_20260519/val_predictions.csv"
+}

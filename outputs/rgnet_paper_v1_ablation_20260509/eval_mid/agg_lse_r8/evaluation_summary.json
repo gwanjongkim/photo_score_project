@@ -1,0 +1,37 @@
+{
+  "created_at_local": "2026-05-09T20:58:57.559459+09:00",
+  "model_variant": "RGNet-paper-v1 approximation",
+  "official_reproduction": false,
+  "model_name": "rgnet_paper_v1_aadb_regression",
+  "model_path": "outputs/rgnet_paper_v1_ablation_20260509/mid/agg_lse_r8/final_model.keras",
+  "image_size": 256,
+  "batch_size": 8,
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.20.0"
+  },
+  "splits": {
+    "test": {
+      "num_samples": 256,
+      "target_min": 0.05000000074505806,
+      "target_max": 0.949999988079071,
+      "prediction_min": 0.1716732233762741,
+      "prediction_max": 0.8593270182609558,
+      "srcc": 0.48601578844880783,
+      "plcc": 0.52478673298069,
+      "mae": 0.11909344047307968,
+      "rmse": 0.15068322983288038,
+      "mse": 0.022705435752868652,
+      "split": "test",
+      "csv": "data/processed/aadb/test.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "elapsed_seconds": 11.534707155002252,
+      "seconds_per_image": 0.04505744982422755,
+      "predictions_path": "outputs/rgnet_paper_v1_ablation_20260509/eval_mid/agg_lse_r8/test_predictions.csv"
+    }
+  }
+}

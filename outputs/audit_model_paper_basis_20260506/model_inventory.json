@@ -1,0 +1,277 @@
+{
+  "models": [
+    {
+      "name": "NIMA",
+      "category": "aesthetic",
+      "actual_files": [
+        "/home/omen_pc1/photo_score_project/checkpoints/nima_ava_gpu/best.weights.h5",
+        "/home/omen_pc1/photo_score_project/checkpoints/nima_ava_gpu/final_model.keras",
+        "/home/omen_pc1/photo_score_project/exports/tflite/nima_mobile.tflite",
+        "/home/omen_pc1/photo_score_project/exports/tflite/nima_mobile.metadata.json",
+        "/home/omen_pc1/photo_score_project/exports/tflite/nima_mobile.verify.json",
+        "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app/assets/models/nima_mobile.tflite"
+      ],
+      "flutter_asset_registered": true,
+      "flutter_used_in_code": true,
+      "wsl_training_evidence": [
+        "src/models/nima_distribution.py:27-40 builds ImageNet EfficientNetV2B0 with Dense(10, softmax)",
+        "src/models/nima_distribution.py:43-50 implements CDF/EMD loss",
+        "src/models/nima_distribution.py:53-55 computes expected mean score from bins 1..10",
+        "src/train/train_nima.py:75-80 compiles with emd_loss",
+        "src/train.sh:43-48 invokes train_nima.py on AVA cleaned CSVs"
+      ],
+      "dataset_evidence": [
+        "data/processed/ava/train_cleaned.csv",
+        "data/processed/ava/val_cleaned.csv",
+        "src/datasets/ava_distribution_dataset.py:65-73 detects 10-bin vote/distribution columns"
+      ],
+      "export_evidence": [
+        "src/export/export_tflite.py",
+        "exports/tflite/nima_mobile.tflite",
+        "Flutter contract assets/models/nima_mobile.tflite at aesthetic_model_contract.dart:405-416"
+      ],
+      "metadata_files": [
+        "/home/omen_pc1/photo_score_project/exports/tflite/nima_mobile.metadata.json"
+      ],
+      "verify_files": [
+        "/home/omen_pc1/photo_score_project/exports/tflite/nima_mobile.verify.json"
+      ],
+      "input_shape": "[1,224,224,3] float32 RGB NHWC /255",
+      "output_shape": "[1,10] float32 distribution",
+      "paper_candidate": "NIMA",
+      "paper_basis_judgment": "Close to direct paper implementation",
+      "confidence": "high",
+      "missing_evidence": [
+        "Flutter nima_mobile.metadata.json is not present in assets/models; app uses fallback contract",
+        "Training validation history for checkpoint is not verifiable from local evidence",
+        "Exact copy command into Flutter app is not verifiable from local evidence"
+      ]
+    },
+    {
+      "name": "RGNet",
+      "category": "aesthetic",
+      "actual_files": [
+        "/home/omen_pc1/photo_score_project/checkpoints/rgnet_aadb_gpu/best.weights.h5",
+        "/home/omen_pc1/photo_score_project/checkpoints/rgnet_aadb_gpu/final_model.keras",
+        "/home/omen_pc1/photo_score_project/exports/tflite/rgnet_aadb_gpu.tflite",
+        "/home/omen_pc1/photo_score_project/exports/tflite/rgnet_aadb_gpu.metadata.json",
+        "/home/omen_pc1/photo_score_project/exports/tflite/rgnet_aadb_gpu.verify.json",
+        "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app/assets/models/rgnet_aadb_gpu.tflite"
+      ],
+      "flutter_asset_registered": true,
+      "flutter_used_in_code": true,
+      "wsl_training_evidence": [
+        "src/models/rgnet.py:55-70 builds feature similarity adjacency",
+        "src/models/rgnet.py:76-105 implements graph convolution",
+        "src/models/rgnet.py:126-152 builds region graph, GCN blocks, attention, and scalar score",
+        "src/train/train_rgnet.py:56-61 compiles MSE/MAE",
+        "src/sequential_train.sh:54-67 invokes RGNet AADB training"
+      ],
+      "dataset_evidence": [
+        "data/processed/aadb/train.csv",
+        "data/processed/aadb/val.csv"
+      ],
+      "export_evidence": [
+        "exports/tflite/rgnet_aadb_gpu.tflite",
+        "exports/tflite/rgnet_aadb_gpu_flex.tflite",
+        "Flutter contract assets/models/rgnet_aadb_gpu.tflite at aesthetic_model_contract.dart:418-431"
+      ],
+      "metadata_files": [
+        "/home/omen_pc1/photo_score_project/exports/tflite/rgnet_aadb_gpu.metadata.json"
+      ],
+      "verify_files": [
+        "/home/omen_pc1/photo_score_project/exports/tflite/rgnet_aadb_gpu.verify.json"
+      ],
+      "input_shape": "[1,256,256,3] float32 RGB NHWC /255",
+      "output_shape": "[1,1] float32 scalar",
+      "paper_candidate": "RGNet",
+      "paper_basis_judgment": "Close to RGNet paper implementation by graph-convolution audit rule; practical backbone approximation",
+      "confidence": "high",
+      "missing_evidence": [
+        "Flutter rgnet_aadb_gpu.metadata.json is not present in assets/models; app uses fallback contract",
+        "Exact paper backbone DenseNet-121 is not present; local code uses EfficientNetV2B0",
+        "Training validation history for checkpoint is not verifiable from local evidence",
+        "Exact copy command into Flutter app is not verifiable from local evidence"
+      ]
+    },
+    {
+      "name": "A-LAMP / ALAMP",
+      "category": "aesthetic",
+      "actual_files": [
+        "/home/omen_pc1/photo_score_project/checkpoints/alamp_aadb_gpu/best.weights.h5",
+        "/home/omen_pc1/photo_score_project/checkpoints/alamp_aadb_gpu/final_model.keras",
+        "/home/omen_pc1/photo_score_project/exports/tflite/alamp_aadb_gpu.tflite",
+        "/home/omen_pc1/photo_score_project/exports/tflite/alamp_aadb_gpu.metadata.json",
+        "/home/omen_pc1/photo_score_project/exports/tflite/alamp_aadb_gpu.verify.json",
+        "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app/assets/models/alamp_aadb_gpu.tflite"
+      ],
+      "flutter_asset_registered": true,
+      "flutter_used_in_code": true,
+      "wsl_training_evidence": [
+        "src/models/alamp.py:92-99 defines global and five-patch inputs",
+        "src/models/alamp.py:101-130 builds global/layout and patch attention branches",
+        "src/datasets/native_size_dataset.py:60-153 builds saliency/adaptive patch boxes",
+        "src/train/train_alamp.py:65-74 compiles MSE/MAE",
+        "src/sequential_train.sh:39-52 invokes A-LAMP AADB training"
+      ],
+      "dataset_evidence": [
+        "data/processed/aadb/train.csv",
+        "data/processed/aadb/val.csv"
+      ],
+      "export_evidence": [
+        "src/export/export_alamp_tflite.py",
+        "exports/tflite/alamp_aadb_gpu.tflite",
+        "Flutter contract assets/models/alamp_aadb_gpu.tflite at aesthetic_model_contract.dart:433-446"
+      ],
+      "metadata_files": [
+        "/home/omen_pc1/photo_score_project/exports/tflite/alamp_aadb_gpu.metadata.json"
+      ],
+      "verify_files": [
+        "/home/omen_pc1/photo_score_project/exports/tflite/alamp_aadb_gpu.verify.json"
+      ],
+      "input_shape": "[1,384,384,3] float32 global view and [1,5,224,224,3] float32 patches",
+      "output_shape": "[1,1] float32 scalar",
+      "paper_candidate": "A-LAMP / ALAMP",
+      "paper_basis_judgment": "Paper-inspired implementation, not direct A-LAMP",
+      "confidence": "high",
+      "missing_evidence": [
+        "No local evidence of VGG16 shared-column CNN",
+        "No local evidence of object/global attribute graph",
+        "Flutter alamp_aadb_gpu.metadata.json is not present in assets/models; app uses fallback contract",
+        "Flutter preprocessing does not match WSL saliency/adaptive patch preprocessing",
+        "Training validation history for checkpoint is not verifiable from local evidence",
+        "Exact copy command into Flutter app is not verifiable from local evidence"
+      ]
+    },
+    {
+      "name": "FLIVE",
+      "category": "technical",
+      "actual_files": [
+        "/home/omen_pc1/photo_score_project/checkpoints/technical_flive_image_gpu/best.weights.h5",
+        "/home/omen_pc1/photo_score_project/checkpoints/technical_flive_image_gpu/final_model.keras",
+        "/home/omen_pc1/photo_score_project/exports/tflite/flive_image_mobile.tflite",
+        "/home/omen_pc1/photo_score_project/exports/tflite/flive_image_mobile.metadata.json",
+        "/home/omen_pc1/photo_score_project/exports/tflite/flive_image_mobile.verify.json",
+        "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app/assets/models/flive_image_mobile.tflite",
+        "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app/assets/models/flive_image_mobile.metadata.json"
+      ],
+      "flutter_asset_registered": true,
+      "flutter_used_in_code": true,
+      "wsl_training_evidence": [
+        "src/models/technical_regressor.py:3-17 defines MobileNetV2 scalar technical regressor",
+        "src/train/train_regression.py:54-63 compiles technical regressor with MSE/MAE"
+      ],
+      "dataset_evidence": [
+        "data/processed/paq2piq/image_train.csv",
+        "data/processed/paq2piq/image_val.csv",
+        "src/preprocess/make_flive_csv.py:5-24 reads data/raw/paq2piq and writes dataset flive_image"
+      ],
+      "export_evidence": [
+        "exports/tflite/flive_image_mobile.tflite",
+        "Flutter contract assets/models/flive_image_mobile.tflite at aesthetic_model_contract.dart:379-390"
+      ],
+      "metadata_files": [
+        "/home/omen_pc1/photo_score_project/exports/tflite/flive_image_mobile.metadata.json",
+        "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app/assets/models/flive_image_mobile.metadata.json"
+      ],
+      "verify_files": [
+        "/home/omen_pc1/photo_score_project/exports/tflite/flive_image_mobile.verify.json"
+      ],
+      "input_shape": "[1,224,224,3] float32 RGB NHWC /255",
+      "output_shape": "[1,1] float32 MOS-like scalar",
+      "paper_candidate": "FLIVE",
+      "paper_basis_judgment": "Dataset-based model, not direct paper architecture",
+      "confidence": "medium",
+      "missing_evidence": [
+        "Exact official FLIVE dataset identity is not verifiable from local evidence because scripts read data/raw/paq2piq while naming flive_image",
+        "Training validation history for checkpoint is not verifiable from local evidence",
+        "Exact copy command into Flutter app is not verifiable from local evidence"
+      ]
+    },
+    {
+      "name": "KonIQ",
+      "category": "technical",
+      "actual_files": [
+        "/home/omen_pc1/photo_score_project/checkpoints/technical_koniq_gpu/best.weights.h5",
+        "/home/omen_pc1/photo_score_project/checkpoints/technical_koniq_gpu/final_model.keras",
+        "/home/omen_pc1/photo_score_project/exports/tflite/koniq_mobile.tflite",
+        "/home/omen_pc1/photo_score_project/exports/tflite/koniq_mobile.metadata.json",
+        "/home/omen_pc1/photo_score_project/exports/tflite/koniq_mobile.verify.json",
+        "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app/assets/models/koniq_mobile.tflite",
+        "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app/assets/models/koniq_mobile.metadata.json"
+      ],
+      "flutter_asset_registered": true,
+      "flutter_used_in_code": true,
+      "wsl_training_evidence": [
+        "src/models/technical_regressor.py:3-17 defines MobileNetV2 scalar technical regressor",
+        "src/train/train_regression.py:54-63 compiles technical regressor with MSE/MAE"
+      ],
+      "dataset_evidence": [
+        "data/processed/koniq10k/train.csv",
+        "data/processed/koniq10k/val.csv",
+        "src/preprocess/make_koniq_csv.py:43-55 writes koniq10k MOS records"
+      ],
+      "export_evidence": [
+        "exports/tflite/koniq_mobile.tflite",
+        "Flutter contract assets/models/koniq_mobile.tflite at aesthetic_model_contract.dart:366-377"
+      ],
+      "metadata_files": [
+        "/home/omen_pc1/photo_score_project/exports/tflite/koniq_mobile.metadata.json",
+        "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app/assets/models/koniq_mobile.metadata.json"
+      ],
+      "verify_files": [
+        "/home/omen_pc1/photo_score_project/exports/tflite/koniq_mobile.verify.json"
+      ],
+      "input_shape": "[1,224,224,3] float32 RGB NHWC /255",
+      "output_shape": "[1,1] float32 MOS-like scalar",
+      "paper_candidate": "KonIQ",
+      "paper_basis_judgment": "Dataset-based model, not direct paper architecture",
+      "confidence": "high",
+      "missing_evidence": [
+        "Training validation history for checkpoint is not verifiable from local evidence",
+        "Exact copy command into Flutter app is not verifiable from local evidence"
+      ]
+    },
+    {
+      "name": "MUSIQ",
+      "category": "candidate",
+      "actual_files": [
+        "/home/omen_pc1/photo_score_project/checkpoints/musiq_aadb_gpu/best.weights.h5",
+        "/home/omen_pc1/photo_score_project/checkpoints/musiq_aadb_gpu/final_model.keras",
+        "/home/omen_pc1/photo_score_project/src/models/musiq.py",
+        "/home/omen_pc1/photo_score_project/src/train/train_musiq.py"
+      ],
+      "flutter_asset_registered": false,
+      "flutter_used_in_code": false,
+      "wsl_training_evidence": [
+        "src/models/musiq.py:31-52 implements Transformer block",
+        "src/models/musiq.py:55-117 implements multi-input token/position/scale model",
+        "src/train/train_musiq.py:33-49 defines scale sizes 224,384,512",
+        "src/sequential_train.sh:24-37 invokes MUSIQ AADB training"
+      ],
+      "dataset_evidence": [
+        "data/processed/aadb/train.csv",
+        "data/processed/aadb/val.csv"
+      ],
+      "export_evidence": [
+        "No MUSIQ .tflite found in WSL exports",
+        "No MUSIQ Flutter asset found"
+      ],
+      "metadata_files": [],
+      "verify_files": [],
+      "input_shape": "WSL Keras multi-scale token inputs; no TFLite shape",
+      "output_shape": "WSL scalar Keras output; no TFLite output",
+      "paper_candidate": "MUSIQ",
+      "paper_basis_judgment": "Paper-inspired WSL implementation; not used by Flutter app",
+      "confidence": "high",
+      "missing_evidence": [
+        "No MUSIQ TFLite export",
+        "No MUSIQ metadata JSON",
+        "No MUSIQ verify JSON",
+        "No Flutter asset registration or runtime loading",
+        "Exact hash-based 2D spatial embedding is not verifiable from local evidence",
+        "Training validation history for checkpoint is not verifiable from local evidence"
+      ]
+    }
+  ]
+}

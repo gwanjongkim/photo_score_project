@@ -1,0 +1,3 @@
+random block input: status=pass_preferred max_abs_diff=9.53674316e-06 mean_abs_diff=6.46088381e-07 torch_shape=[1, 128, 56, 56] tf_nhwc_shape=[1, 56, 56, 128] tf_nchw_shape=[1, 128, 56, 56]
+patch projection output from deterministic random image: status=pass_preferred max_abs_diff=6.19888306e-06 mean_abs_diff=5.73447096e-07 torch_shape=[1, 128, 56, 56] tf_nhwc_shape=[1, 56, 56, 128] tf_nchw_shape=[1, 128, 56, 56]
+patch projection output from 3 real ICAA17K images: status=pass_preferred max_abs_diff=6.19888306e-06 mean_abs_diff=4.23493987e-07 torch_shape=[3, 128, 56, 56] tf_nhwc_shape=[3, 56, 56, 128] tf_nchw_shape=[3, 128, 56, 56]

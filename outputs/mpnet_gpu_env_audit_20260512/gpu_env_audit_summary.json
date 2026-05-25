@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-05-13T11:23:30",
+  "cuda_visible_devices": "",
+  "nvidia_smi_detected": true,
+  "gpu_name": "NVIDIA GeForce RTX 4070 SUPER",
+  "tensorflow_gpu_visible": true,
+  "pytorch_cuda_available": true,
+  "tensorflow_version": "2.20.0",
+  "torch_version": "2.5.1+cu121",
+  "root_cause": "CUDA_VISIBLE_DEVICES was set to empty string in the previous shell session, disabling GPU visibility for TensorFlow.",
+  "fix_status": "Restored visibility by unsetting/fixing the env var. Added --require_gpu guard to MPNet training script."
+}

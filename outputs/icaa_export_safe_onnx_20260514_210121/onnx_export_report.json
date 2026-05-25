@@ -1,0 +1,157 @@
+{
+  "status": "failed",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210121",
+  "onnx_path": "/home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210121/icaa_dat_export_safe.onnx",
+  "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+  "csv_path": "/home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/dataset/ICAA17K/1test.csv",
+  "image_root": "/home/omen_pc1/photo_score_project/data/raw/icaa17k",
+  "device": "cpu",
+  "limit": 1,
+  "batch_size": 1,
+  "num_workers": 0,
+  "static_input_shape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "thresholds": {
+    "max_abs_diff": 0.0001,
+    "mean_abs_diff": 1e-05
+  },
+  "model_source": "experiments/icaa_export_safe/export_safe_models",
+  "model_config": {
+    "img_size": 224,
+    "patch_size": 4,
+    "num_classes": 1,
+    "expansion": 4,
+    "dim_stem": 128,
+    "dims": [
+      128,
+      256,
+      512,
+      1024
+    ],
+    "depths": [
+      2,
+      2,
+      18,
+      2
+    ],
+    "stage_spec": [
+      [
+        "L",
+        "S"
+      ],
+      [
+        "L",
+        "S"
+      ],
+      [
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D"
+      ],
+      [
+        "L",
+        "D"
+      ]
+    ],
+    "heads": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "window_sizes": [
+      7,
+      7,
+      7,
+      7
+    ],
+    "groups": [
+      -1,
+      -1,
+      4,
+      8
+    ],
+    "use_pes": [
+      false,
+      false,
+      true,
+      true
+    ],
+    "dwc_pes": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "strides": [
+      -1,
+      -1,
+      1,
+      1
+    ],
+    "sr_ratios": [
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "offset_range_factor": [
+      -1,
+      -1,
+      2,
+      2
+    ],
+    "no_offs": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "fixed_pes": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "use_dwc_mlps": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "use_conv_patches": false,
+    "drop_rate": 0.0,
+    "attn_drop_rate": 0.0,
+    "drop_path_rate": 0.5
+  },
+  "export_attempts": [
+    {
+      "opset": 12,
+      "succeeded": false,
+      "error": "Traceback (most recent call last):\n  File \"/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/scripts/export_and_parity_onnx_export_safe.py\", line 312, in main\n    warnings_seen = export_onnx(torch, wrapper, dummy_input, onnx_path, opset)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/scripts/export_and_parity_onnx_export_safe.py\", line 179, in export_onnx\n    torch.onnx.export(\n  File \"/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/__init__.py\", line 375, in export\n    export(\n  File \"/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py\", line 502, in export\n    _export(\n  File \"/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py\", line 1564, in _export\n    graph, params_dict, torch_out = _model_to_graph(\n                                    ^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py\", line 1117, in _model_to_graph\n    graph = _optimize_graph(\n            ^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py\", line 639, in _optimize_graph\n    graph = _C._jit_pass_onnx(graph, operator_export_type)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py\", line 1836, in _run_symbolic_function\n    return symbolic_fn(graph_context, *inputs, **attrs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/symbolic_opset9.py\", line 4065, in repeat_interleave\n    return symbolic_helper._onnx_opset_unsupported_detailed(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/symbolic_helper.py\", line 607, in _onnx_opset_unsupported_detailed\n    raise errors.SymbolicValueError(\ntorch.onnx.errors.SymbolicValueError: Unsupported: ONNX export of repeat_interleave in opset 9. Unsupported along dimension with unknown input size. Please try opset version 13.  [Caused by the value '2220 defined in (%2220 : Float(*, *, *, 2, strides=[392, 28, 2, 1], requires_grad=1, device=cpu) = onnx::Tanh(%2217), scope: __main__.make_wrapper_class.<locals>.DATScoresOnly::/export_safe_models.dat.DAT::model/export_safe_models.dat.TransformerStage::stages.2/export_safe_models.dat_blocks.DAttentionBaseline::attns.1 # /home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models/dat_blocks.py:249:0\n)' (type 'Tensor') in the TorchScript graph. The containing node has kind 'onnx::Tanh'.] \n    (node defined in /home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models/dat_blocks.py(249): forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl\n/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models/dat.py(77): forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl\n/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models/dat.py(220): forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl\n/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/scripts/export_and_parity_onnx_export_safe.py(113): forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/jit/_trace.py(130): wrapper\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/jit/_trace.py(139): forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/jit/_trace.py(1500): _get_trace_graph\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py(904): _trace_and_get_graph_from_model\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py(997): _create_jit_graph\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py(1113): _model_to_graph\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py(1564): _export\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py(502): export\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/__init__.py(375): export\n/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/scripts/export_and_parity_onnx_export_safe.py(179): export_onnx\n/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/scripts/export_and_parity_onnx_export_safe.py(312): main\n/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/scripts/export_and_parity_onnx_export_safe.py(486): <module>\n)\n\n    Inputs:\n        #0: 2217 defined in (%2217 : Float(*, *, *, 2, strides=[392, 28, 2, 1], requires_grad=1, device=cpu) = onnx::Transpose[perm=[0, 2, 3, 1]](%tensor.439), scope: __main__.make_wrapper_class.<locals>.DATScoresOnly::/export_safe_models.dat.DAT::model/export_safe_models.dat.TransformerStage::stages.2/export_safe_models.dat_blocks.DAttentionBaseline::attns.1 # /home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/einops/_backends.py:261:0\n    )  (type 'Tensor')\n    Outputs:\n        #0: 2220 defined in (%2220 : Float(*, *, *, 2, strides=[392, 28, 2, 1], requires_grad=1, device=cpu) = onnx::Tanh(%2217), scope: __main__.make_wrapper_class.<locals>.DATScoresOnly::/export_safe_models.dat.DAT::model/export_safe_models.dat.TransformerStage::stages.2/export_safe_models.dat_blocks.DAttentionBaseline::attns.1 # /home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models/dat_blocks.py:249:0\n    )  (type 'Tensor')\n"
+    }
+  ],
+  "error": "Traceback (most recent call last):\n  File \"/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/scripts/export_and_parity_onnx_export_safe.py\", line 341, in main\n    raise RuntimeError(f\"ONNX export failed for opset versions: {opset_to_try}\")\nRuntimeError: ONNX export failed for opset versions: [12]\n",
+  "onnx_export_report_json": "/home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210121/onnx_export_report.json",
+  "onnx_parity_predictions_csv": "/home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210121/onnx_parity_predictions.csv",
+  "onnx_export_log_txt": "/home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210121/onnx_export_log.txt"
+}

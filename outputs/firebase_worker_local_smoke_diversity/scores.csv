@@ -1,0 +1,16 @@
+image_path,available_models,reranking_ready,baseline_final_score,aadb_score,koniq_score,flive_image_score,flive_patch_mean,flive_patch_min,nima_mean_score,alamp_score,musiq_score,rgnet_score,pairwise_recovered_score,num_models
+test_samples/KakaoTalk_20260330_180646779.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_01.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_02.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_03.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_04.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_05.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_06.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_07.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_08.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_09.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_10.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_11.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_12.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_13.jpg,,False,,,,,,,,,,,,0
+test_samples/KakaoTalk_20260330_180646779_14.jpg,,False,,,,,,,,,,,,0

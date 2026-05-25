@@ -1,0 +1,20 @@
+{
+  "v1_patch": {
+    "focus": "Data pipeline",
+    "description": "Improve heuristic patch extraction algorithms without touching model architecture.",
+    "risk": "Low",
+    "benefit": "Minimal (semantic limits)"
+  },
+  "v1_layout": {
+    "focus": "Model architecture",
+    "description": "Enhance Layout-Aware Subnet with self-attention over explicit patch geometries.",
+    "risk": "Medium",
+    "benefit": "Medium (improves spatial awareness)"
+  },
+  "v1_graph_lite": {
+    "focus": "Model architecture",
+    "description": "Speculative graph convolution over heuristic patch nodes.",
+    "risk": "High (speculative)",
+    "benefit": "Unknown"
+  }
+}

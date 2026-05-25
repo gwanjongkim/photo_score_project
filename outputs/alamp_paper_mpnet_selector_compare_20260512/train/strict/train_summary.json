@@ -1,0 +1,13 @@
+{
+  "selector_name": "strict",
+  "model_variant": "A-LAMP-paper-MPNet",
+  "official_reproduction": false,
+  "label_rule": "paper_strict",
+  "epochs_completed": 2,
+  "best_val_loss": 0.5931360721588135,
+  "save_load_max_diff": 0.0,
+  "tensorflow_info": {
+    "visible_gpus": [],
+    "tensorflow_version": "2.20.0"
+  }
+}

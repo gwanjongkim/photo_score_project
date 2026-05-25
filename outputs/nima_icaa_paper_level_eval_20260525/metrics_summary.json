@@ -1,0 +1,23 @@
+{
+  "nima": {
+    "implementation_fidelity": "Confirmed (10-bin distribution, EMD loss, Expected Mean)",
+    "dataset": "AVA Test (2000 samples)",
+    "accuracy": 0.715,
+    "srcc": 0.34487342378959085,
+    "plcc": 0.3526976644786934,
+    "mae": 0.5781141122634125,
+    "emd": 0.0902305617928505,
+    "parity_max_abs_diff": 0.00010722875595092773,
+    "verdict": "Falls short of paper-level (Acc ~80%, SRCC ~0.51)"
+  },
+  "icaa": {
+    "implementation_fidelity": "Confirmed (Delegate Transformer, Deformable Attention, Soft Histogram)",
+    "dataset": "ICAA17K Test (500 samples)",
+    "mos_srcc": 0.9228534783835831,
+    "color_srcc": 0.8961811988917712,
+    "color_plcc": 0.9088591109798543,
+    "color_mae": 0.01998012085587615,
+    "parity_max_abs_diff": 0.0,
+    "verdict": "Reaches paper-level (Color SRCC ~0.88)"
+  }
+}

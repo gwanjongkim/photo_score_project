@@ -1,0 +1,1 @@
+case,index,image_path,torch_mos,tf_mos,mos_abs_diff,torch_color,tf_color,color_abs_diff

@@ -1,0 +1,55 @@
+{
+  "num_samples": 512,
+  "target_min": 0.200453519821167,
+  "target_max": 0.7435896992683411,
+  "prediction_min": 0.2363937348127365,
+  "prediction_max": 0.5745815634727478,
+  "mae": 0.08045576512813568,
+  "mse": 0.010377048514783382,
+  "rmse": 0.10186779920457388,
+  "plcc_pearson": 0.49457128333744066,
+  "srcc_spearman": 0.49922236870865705,
+  "top_k": 50,
+  "top_k_overlap": 0.28,
+  "pairwise_pairs_scored": 4999,
+  "pairwise_accuracy": 0.6689337867573515,
+  "model_name": "rgnet_ava_tflite_on_ava_val512",
+  "model_type": "single_input_tflite",
+  "model_path": "outputs/ava_retrain_rgnet_alamp_20260506/tflite/rgnet_ava_unit.tflite",
+  "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv",
+  "target_col": "aesthetic_unit_score",
+  "elapsed_seconds": 9.559951900999295,
+  "seconds_per_image": 0.018671781056639247,
+  "io_details": {
+    "inputs": [
+      {
+        "name": "serving_default_keras_tensor_270:0",
+        "shape": [
+          1,
+          256,
+          256,
+          3
+        ],
+        "dtype": "float32",
+        "quantization": [
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "StatefulPartitionedCall_1:0",
+        "shape": [
+          1,
+          1
+        ],
+        "dtype": "float32",
+        "quantization": [
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  }
+}

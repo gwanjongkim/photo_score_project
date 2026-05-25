@@ -1,0 +1,2 @@
+epoch,train_type_loss,train_severity_loss,train_pair_loss,train_total_loss,train_type_accuracy,train_severity_mae,train_pair_accuracy,val_type_loss,val_severity_loss,val_pair_loss,val_total_loss,val_type_accuracy,val_severity_mae,val_pair_accuracy,val_supervised_samples,val_pair_samples
+1,1.5070836544036865,0.01896030269563198,0.1156173050403595,1.5376057624816895,0.5625,0.23109041154384613,1.0,1.387345552444458,0.020319202914834023,1.5785026550292969,1.5655150208622217,0.46875,0.2484622299671173,0.578125,64,64

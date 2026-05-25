@@ -1,0 +1,44 @@
+{
+  "experiment_name": "gemma4_e4b_aesthetic3_smoke",
+  "output_dir": "outputs/gemma4_e4b_aesthetic3_smoke",
+  "teacher_weight_config": "configs/gemma4_e4b_aesthetic3_teacher.json",
+  "teacher_manual_override_path": "configs/gemma4_e4b_aesthetic3_teacher_overrides_pass2.json",
+  "teacher_runs": [
+    {
+      "path": "outputs/acut_product_nvila8b_probe_v9_gpu/app_results.json",
+      "dataset": "test_samples_nvila_probe_v9_gpu",
+      "score_csv": "outputs/acut_stage5_full_with_pairwise/scores.csv",
+      "score_columns": {
+        "nima_mean_score": "nima_mean_score",
+        "rgnet_score": "rgnet_score",
+        "alamp_score": "alamp_score"
+      },
+      "top_k": 3,
+      "split_counts": {
+        "train": 9,
+        "val": 3,
+        "test": 3
+      }
+    },
+    {
+      "path": "outputs/acut_transparency_test_vila_20260416_gpu/app_results.json",
+      "dataset": "test_vila_nvila_20260416_gpu",
+      "score_csv": "outputs/test_vila_aesthetic_ensemble_experiment_20260423/scores_with_ensemble.csv",
+      "score_columns": {
+        "nima_unit_score": "nima_ava_unit",
+        "rgnet_score": "rgnet_aadb",
+        "alamp_score": "alamp_aadb"
+      },
+      "top_k": 10,
+      "split": "test_vila"
+    }
+  ],
+  "teacher_generation": {
+    "mode": "reuse_existing_teacher_output",
+    "vila_full_python": ".venv_vila/bin/python",
+    "vila_full_model_path": "checkpoints/VILA1.5-3b",
+    "vila_full_device": "cpu",
+    "vila_full_max_new_tokens": 96,
+    "fallback_to_existing_teacher_output": true
+  }
+}

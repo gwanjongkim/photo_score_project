@@ -1,0 +1,50 @@
+=== A-LAMP Paper Strict Patch Selector ===
+Tue May 12 16:37:46 KST 2026
+=== py_compile ===
+=== Smoke Test (10 images) ===
+INFO: Wrote outputs/alamp_paper_strict_patch_selector_20260512/smoke_patch_boxes_10_strict.jsonl; valid=10 skipped=0
+=== Generating Train 1024 Strict Patches ===
+INFO: Processed 100 valid images from outputs/alamp_object_graph_subset_20260511/subsets/train_ultra_valid_1024.csv
+INFO: Processed 200 valid images from outputs/alamp_object_graph_subset_20260511/subsets/train_ultra_valid_1024.csv
+INFO: Processed 300 valid images from outputs/alamp_object_graph_subset_20260511/subsets/train_ultra_valid_1024.csv
+INFO: Processed 400 valid images from outputs/alamp_object_graph_subset_20260511/subsets/train_ultra_valid_1024.csv
+INFO: Processed 500 valid images from outputs/alamp_object_graph_subset_20260511/subsets/train_ultra_valid_1024.csv
+INFO: Processed 600 valid images from outputs/alamp_object_graph_subset_20260511/subsets/train_ultra_valid_1024.csv
+INFO: Processed 700 valid images from outputs/alamp_object_graph_subset_20260511/subsets/train_ultra_valid_1024.csv
+INFO: Processed 800 valid images from outputs/alamp_object_graph_subset_20260511/subsets/train_ultra_valid_1024.csv
+INFO: Processed 900 valid images from outputs/alamp_object_graph_subset_20260511/subsets/train_ultra_valid_1024.csv
+INFO: Processed 1000 valid images from outputs/alamp_object_graph_subset_20260511/subsets/train_ultra_valid_1024.csv
+INFO: Wrote outputs/alamp_paper_strict_patch_selector_20260512/train_patch_boxes_1024_strict.jsonl; valid=1024 skipped=0
+=== Generating Val 1024 Strict Patches ===
+INFO: Processed 100 valid images from outputs/alamp_object_graph_subset_20260511/subsets/val_ultra_valid_1024.csv
+INFO: Processed 200 valid images from outputs/alamp_object_graph_subset_20260511/subsets/val_ultra_valid_1024.csv
+INFO: Processed 300 valid images from outputs/alamp_object_graph_subset_20260511/subsets/val_ultra_valid_1024.csv
+INFO: Processed 400 valid images from outputs/alamp_object_graph_subset_20260511/subsets/val_ultra_valid_1024.csv
+INFO: Processed 500 valid images from outputs/alamp_object_graph_subset_20260511/subsets/val_ultra_valid_1024.csv
+INFO: Processed 600 valid images from outputs/alamp_object_graph_subset_20260511/subsets/val_ultra_valid_1024.csv
+INFO: Processed 700 valid images from outputs/alamp_object_graph_subset_20260511/subsets/val_ultra_valid_1024.csv
+INFO: Processed 800 valid images from outputs/alamp_object_graph_subset_20260511/subsets/val_ultra_valid_1024.csv
+INFO: Processed 900 valid images from outputs/alamp_object_graph_subset_20260511/subsets/val_ultra_valid_1024.csv
+INFO: Processed 1000 valid images from outputs/alamp_object_graph_subset_20260511/subsets/val_ultra_valid_1024.csv
+INFO: Wrote outputs/alamp_paper_strict_patch_selector_20260512/val_patch_boxes_1024_strict.jsonl; valid=1024 skipped=0
+=== Generating Test 1024 Strict Patches ===
+INFO: Processed 100 valid images from outputs/alamp_object_graph_subset_20260511/subsets/test_ultra_valid_1024.csv
+INFO: Processed 200 valid images from outputs/alamp_object_graph_subset_20260511/subsets/test_ultra_valid_1024.csv
+INFO: Processed 300 valid images from outputs/alamp_object_graph_subset_20260511/subsets/test_ultra_valid_1024.csv
+INFO: Processed 400 valid images from outputs/alamp_object_graph_subset_20260511/subsets/test_ultra_valid_1024.csv
+INFO: Processed 500 valid images from outputs/alamp_object_graph_subset_20260511/subsets/test_ultra_valid_1024.csv
+INFO: Processed 600 valid images from outputs/alamp_object_graph_subset_20260511/subsets/test_ultra_valid_1024.csv
+INFO: Processed 700 valid images from outputs/alamp_object_graph_subset_20260511/subsets/test_ultra_valid_1024.csv
+INFO: Processed 800 valid images from outputs/alamp_object_graph_subset_20260511/subsets/test_ultra_valid_1024.csv
+INFO: Processed 900 valid images from outputs/alamp_object_graph_subset_20260511/subsets/test_ultra_valid_1024.csv
+INFO: Processed 1000 valid images from outputs/alamp_object_graph_subset_20260511/subsets/test_ultra_valid_1024.csv
+INFO: Wrote outputs/alamp_paper_strict_patch_selector_20260512/test_patch_boxes_1024_strict.jsonl; valid=1024 skipped=0
+=== Generating 50 Overlay Visualizations ===
+INFO: Visualization complete.
+INFO: Processed: 50
+INFO: Skipped/Failed: 0
+INFO: Output directory: outputs/alamp_paper_strict_patch_selector_20260512/overlay_visualizations
+=== Writing Report and Comparing Against V4 ===
+INFO: Wrote report outputs/alamp_paper_strict_patch_selector_20260512/patch_selector_strict_report.md and summary outputs/alamp_paper_strict_patch_selector_20260512/patch_selector_strict_summary.json
+=== Done ===
+Tue May 12 16:40:47 KST 2026

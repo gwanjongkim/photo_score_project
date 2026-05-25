@@ -1,0 +1,14 @@
+{
+  "teacher_generation_completed_count": 200,
+  "error_count": 12,
+  "clean_pre_audit_count": 185,
+  "dataset_counts": {
+    "ava": 136,
+    "aadb": 64
+  },
+  "bucket_counts": {
+    "middle_near_miss": 79,
+    "rejected_low": 64,
+    "selected_high": 57
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "equal": {
+    "nima": 0.3333333333333333,
+    "rgnet": 0.3333333333333333,
+    "alamp": 0.3333333333333333
+  },
+  "current_config": {
+    "nima": 0.34,
+    "rgnet": 0.33,
+    "alamp": 0.33
+  },
+  "nima_heavy": {
+    "nima": 0.6,
+    "rgnet": 0.2,
+    "alamp": 0.2
+  },
+  "rgnet_heavy": {
+    "nima": 0.2,
+    "rgnet": 0.6,
+    "alamp": 0.2
+  },
+  "alamp_heavy": {
+    "nima": 0.2,
+    "rgnet": 0.2,
+    "alamp": 0.6
+  }
+}

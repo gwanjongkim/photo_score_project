@@ -1,0 +1,7 @@
+pwd
+date +"%Y%m%d"
+git status --short
+rg -n -i "ICAA|color aesthetic|color aesthetics|palette|harmony|colorfulness|dominant color|temperature|LAB|HSV|hue|saturation" src tools configs docs outputs data 2>/dev/null | head -n 100
+find data -maxdepth 4 -type f 2>/dev/null | rg -i "color|icaa|palette|harmony"
+find outputs -maxdepth 4 -type f 2>/dev/null | rg -i "color|icaa|palette|harmony"
+mkdir -p outputs/color_aesthetics_audit_20260509

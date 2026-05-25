@@ -1,0 +1,27 @@
+checkpoint path: /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+checkpoint key count: 487
+strict load result: <All keys matched successfully>
+ONNX export opset 17: ok
+ONNX export warnings:
+  TracerWarning: torch.as_tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect. (count=140)
+  TracerWarning: Converting a tensor to a Python float might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs! (count=80)
+onnx.checker.check_model: ok
+GridSample op count: 0
+ONNX Runtime providers: ['CPUExecutionProvider']
+ONNX input: image
+ONNX output: scores
+csv rows read: 32
+evaluable images: 32
+missing image rows skipped: 0
+full tensor max_abs_diff: 0.0000203252
+full tensor mean_abs_diff: 0.0000014622
+MOS max_abs_diff: 0.0000203252
+MOS mean_abs_diff: 0.0000018096
+color max_abs_diff: 0.0000133514
+color mean_abs_diff: 0.0000011148
+ONNX parity pass: True
+onnx model: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_onnx_20260514_215455/icaa_dat_export_safe_v2.onnx
+onnx_op_histogram.json: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_onnx_20260514_215455/onnx_op_histogram.json
+onnx_parity_report.json: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_onnx_20260514_215455/onnx_parity_report.json
+onnx_parity_predictions.csv: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_onnx_20260514_215455/onnx_parity_predictions.csv
+onnx_export_log.txt: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_onnx_20260514_215455/onnx_export_log.txt

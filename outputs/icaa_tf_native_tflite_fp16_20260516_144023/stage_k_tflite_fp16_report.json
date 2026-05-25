@@ -1,0 +1,355 @@
+{
+  "status": "ok",
+  "overall_pass": true,
+  "command": "python experiments/icaa_tf_native/scripts/stage_k_convert_tflite_fp16.py",
+  "saved_model_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_134439/saved_model",
+  "fp32_reference_tflite_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp32_20260516_140027/icaa_dat_tf_native_fp32.tflite",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp16_20260516_144023",
+  "log_lines": [
+    "Output directory: /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp16_20260516_144023",
+    "SavedModel path: /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_134439/saved_model",
+    "FP32 TFLite reference: /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp32_20260516_140027/icaa_dat_tf_native_fp32.tflite",
+    "Loading SavedModel",
+    "SavedModel serving keys: inputs=[(), {'image': TensorSpec(shape=(None, 224, 224, 3), dtype=tf.float32, name='image')}], outputs=['scores']",
+    "Converting SavedModel to FP16 TFLite with fixed shape [1, 224, 224, 3]",
+    "Builtin FP16 TFLite conversion succeeded.",
+    "FP16 TFLite model saved to /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp16_20260516_144023/icaa_dat_tf_native_fp16.tflite",
+    "FP32 size: 350915988 bytes; FP16 size: 175885416 bytes; reduction: 49.88%",
+    "Creating FP16 TFLite Interpreter",
+    "Allocating FP16 TFLite tensors",
+    "FP16 input details: [{'name': 'serving_default_image:0', 'index': 0, 'shape': [1, 224, 224, 3], 'shape_signature': [1, 224, 224, 3], 'dtype': 'float32', 'quantization': (0.0, 0), 'quantization_parameters': {'scales': [], 'zero_points': [], 'quantized_dimension': 0, 'block_size': 0}}]",
+    "FP16 output details: [{'name': 'StatefulPartitionedCall:0', 'index': 4763, 'shape': [1, 2], 'shape_signature': [1, 2], 'dtype': 'float32', 'quantization': (0.0, 0), 'quantization_parameters': {'scales': [], 'zero_points': [], 'quantized_dimension': 0, 'block_size': 0}}]",
+    "Running FP16 invoke smoke and input sensitivity probe",
+    "Input sensitivity zero_vs_one=0.0111826956, zero_vs_random=0.0510937572, random_vs_real=0.448753238",
+    "Creating FP32 reference TFLite Interpreter",
+    "Running parity checks",
+    "random_normalized_input: SavedModel-vs-FP16 pass_acceptable full_max=0.000491708517; FP32-vs-FP16 pass_acceptable full_max=0.00049161911",
+    "16_real_images: SavedModel-vs-FP16 pass_acceptable full_max=0.00079870224; FP32-vs-FP16 pass_acceptable full_max=0.000798523426",
+    "Running optional 64-real-image parity check",
+    "64_real_images: SavedModel-vs-FP16 pass_acceptable full_max=0.0025883317; FP32-vs-FP16 pass_acceptable full_max=0.00258821249"
+  ],
+  "unresolved_issues": [],
+  "tflite_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp16_20260516_144023/icaa_dat_tf_native_fp16.tflite",
+  "tflite_filename": "icaa_dat_tf_native_fp16.tflite",
+  "fp32_tflite_size_bytes": 350915988,
+  "fp16_tflite_size_bytes": 175885416,
+  "size_reduction_percent": 49.878198197113775,
+  "builtin_success": true,
+  "select_tf_ops_required": false,
+  "conversion_errors": [],
+  "interpreter_creation_success": true,
+  "allocate_tensors_success": true,
+  "invoke_success": true,
+  "input_details": [
+    {
+      "name": "serving_default_image:0",
+      "index": 0,
+      "shape": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "shape_signature": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "dtype": "float32",
+      "quantization": [
+        0.0,
+        0
+      ],
+      "quantization_parameters": {
+        "scales": [],
+        "zero_points": [],
+        "quantized_dimension": 0,
+        "block_size": 0
+      }
+    }
+  ],
+  "output_details": [
+    {
+      "name": "StatefulPartitionedCall:0",
+      "index": 4763,
+      "shape": [
+        1,
+        2
+      ],
+      "shape_signature": [
+        1,
+        2
+      ],
+      "dtype": "float32",
+      "quantization": [
+        0.0,
+        0
+      ],
+      "quantization_parameters": {
+        "scales": [],
+        "zero_points": [],
+        "quantized_dimension": 0,
+        "block_size": 0
+      }
+    }
+  ],
+  "input_shape_ok": true,
+  "output_shape_ok": true,
+  "input_dtype_compatible": true,
+  "output_readable": true,
+  "preferred_external_io": true,
+  "input_sensitivity": {
+    "zero_output": [
+      [
+        0.2574060559272766,
+        0.4543088674545288
+      ]
+    ],
+    "one_output": [
+      [
+        0.2679886221885681,
+        0.46549156308174133
+      ]
+    ],
+    "random_output": [
+      [
+        0.20631229877471924,
+        0.4135682284832001
+      ]
+    ],
+    "real_output": [
+      [
+        0.6550655364990234,
+        0.5890328884124756
+      ]
+    ],
+    "real_path": "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "zero_vs_one_max_diff": 0.011182695627212524,
+    "zero_vs_random_max_diff": 0.05109375715255737,
+    "random_vs_real_max_diff": 0.4487532377243042,
+    "sensitivity_epsilon": 1e-06,
+    "input_sensitive": true
+  },
+  "savedmodel_vs_fp16_results": [
+    {
+      "name": "random_normalized_input",
+      "status": "pass_acceptable",
+      "pass_preferred": false,
+      "pass_acceptable": true,
+      "hard_color_fail": false,
+      "full_max_abs_diff": 0.000491708517074585,
+      "full_mean_abs_diff": 0.00033595412969589233,
+      "mos_max_abs_diff": 0.0001801997423171997,
+      "mos_mean_abs_diff": 0.0001801997423171997,
+      "color_max_abs_diff": 0.000491708517074585,
+      "color_mean_abs_diff": 0.000491708517074585,
+      "reference_shape": [
+        1,
+        2
+      ],
+      "candidate_shape": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "16_real_images",
+      "status": "pass_acceptable",
+      "pass_preferred": false,
+      "pass_acceptable": true,
+      "hard_color_fail": false,
+      "full_max_abs_diff": 0.0007987022399902344,
+      "full_mean_abs_diff": 0.00013874191790819168,
+      "mos_max_abs_diff": 0.00048464536666870117,
+      "mos_mean_abs_diff": 0.0001344289630651474,
+      "color_max_abs_diff": 0.0007987022399902344,
+      "color_mean_abs_diff": 0.00014305487275123596,
+      "reference_shape": [
+        16,
+        2
+      ],
+      "candidate_shape": [
+        16,
+        2
+      ]
+    },
+    {
+      "name": "64_real_images",
+      "status": "pass_acceptable",
+      "pass_preferred": false,
+      "pass_acceptable": true,
+      "hard_color_fail": false,
+      "full_max_abs_diff": 0.002588331699371338,
+      "full_mean_abs_diff": 0.00017577665857970715,
+      "mos_max_abs_diff": 0.002588331699371338,
+      "mos_mean_abs_diff": 0.00021641002967953682,
+      "color_max_abs_diff": 0.0010600090026855469,
+      "color_mean_abs_diff": 0.00013514328747987747,
+      "reference_shape": [
+        64,
+        2
+      ],
+      "candidate_shape": [
+        64,
+        2
+      ]
+    }
+  ],
+  "fp32_vs_fp16_results": [
+    {
+      "name": "random_normalized_input",
+      "status": "pass_acceptable",
+      "pass_preferred": false,
+      "pass_acceptable": true,
+      "hard_color_fail": false,
+      "full_max_abs_diff": 0.0004916191101074219,
+      "full_mean_abs_diff": 0.0003358572721481323,
+      "mos_max_abs_diff": 0.00018009543418884277,
+      "mos_mean_abs_diff": 0.00018009543418884277,
+      "color_max_abs_diff": 0.0004916191101074219,
+      "color_mean_abs_diff": 0.0004916191101074219,
+      "reference_shape": [
+        1,
+        2
+      ],
+      "candidate_shape": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "16_real_images",
+      "status": "pass_acceptable",
+      "pass_preferred": false,
+      "pass_acceptable": true,
+      "hard_color_fail": false,
+      "full_max_abs_diff": 0.0007985234260559082,
+      "full_mean_abs_diff": 0.00014095939695835114,
+      "mos_max_abs_diff": 0.0004864335060119629,
+      "mos_mean_abs_diff": 0.0001384541392326355,
+      "color_max_abs_diff": 0.0007985234260559082,
+      "color_mean_abs_diff": 0.00014346465468406677,
+      "reference_shape": [
+        16,
+        2
+      ],
+      "candidate_shape": [
+        16,
+        2
+      ]
+    },
+    {
+      "name": "64_real_images",
+      "status": "pass_acceptable",
+      "pass_preferred": false,
+      "pass_acceptable": true,
+      "hard_color_fail": false,
+      "full_max_abs_diff": 0.002588212490081787,
+      "full_mean_abs_diff": 0.00017576944082975388,
+      "mos_max_abs_diff": 0.002588212490081787,
+      "mos_mean_abs_diff": 0.00021688733249902725,
+      "color_max_abs_diff": 0.0010600090026855469,
+      "color_mean_abs_diff": 0.0001346515491604805,
+      "reference_shape": [
+        64,
+        2
+      ],
+      "candidate_shape": [
+        64,
+        2
+      ]
+    }
+  ],
+  "real_image_count": 16,
+  "optional_real_image_count": 64,
+  "tflite_inspection": {
+    "builtin_operator_codes": [
+      "ABS",
+      "ADD",
+      "BATCH_MATMUL",
+      "CAST",
+      "CONCATENATION",
+      "CONV_2D",
+      "DEPTHWISE_CONV_2D",
+      "DEQUANTIZE",
+      "DIV",
+      "EQUAL",
+      "EXP",
+      "FLOOR",
+      "FULLY_CONNECTED",
+      "GATHER",
+      "GELU",
+      "GREATER_EQUAL",
+      "LESS_EQUAL",
+      "LOGICAL_AND",
+      "LOGISTIC",
+      "MEAN",
+      "MINIMUM",
+      "MUL",
+      "NEG",
+      "REDUCE_MAX",
+      "RELU",
+      "RESHAPE",
+      "RSQRT",
+      "SELECT_V2",
+      "SOFTMAX",
+      "SPLIT",
+      "SQUARED_DIFFERENCE",
+      "STRIDED_SLICE",
+      "SUB",
+      "SUM",
+      "TANH",
+      "TILE",
+      "TRANSPOSE",
+      "ZEROS_LIKE"
+    ],
+    "custom_operator_codes": [],
+    "flex_or_select_tf_ops_found": false,
+    "op_count_builtin_ref": 4088,
+    "op_counts_builtin_ref": {
+      "ABS": 1,
+      "ADD": 533,
+      "BATCH_MATMUL": 48,
+      "CAST": 80,
+      "CONCATENATION": 39,
+      "CONV_2D": 4,
+      "DEPTHWISE_CONV_2D": 10,
+      "DEQUANTIZE": 490,
+      "DIV": 10,
+      "EQUAL": 50,
+      "EXP": 10,
+      "FLOOR": 40,
+      "FULLY_CONNECTED": 149,
+      "GATHER": 80,
+      "GELU": 34,
+      "GREATER_EQUAL": 40,
+      "LESS_EQUAL": 70,
+      "LOGICAL_AND": 60,
+      "LOGISTIC": 12,
+      "MEAN": 127,
+      "MINIMUM": 80,
+      "MUL": 522,
+      "NEG": 11,
+      "REDUCE_MAX": 10,
+      "RELU": 132,
+      "RESHAPE": 661,
+      "RSQRT": 63,
+      "SELECT_V2": 100,
+      "SOFTMAX": 14,
+      "SPLIT": 74,
+      "SQUARED_DIFFERENCE": 63,
+      "STRIDED_SLICE": 16,
+      "SUB": 202,
+      "SUM": 10,
+      "TANH": 20,
+      "TILE": 21,
+      "TRANSPOSE": 162,
+      "ZEROS_LIKE": 40
+    }
+  },
+  "no_custom_or_flex": true,
+  "hard_color_fail": false,
+  "safe_to_plan_android_flutter_smoke": true,
+  "safe_to_explore_int8_later": true
+}

@@ -1,0 +1,254 @@
+{
+  "experiment_name": "aesthetic_only_stage5_current_conservative",
+  "non_production": true,
+  "heavy_rescoring": false,
+  "input_dir": "/home/omen_pc1/photo_score_project/test_vila",
+  "source_csv": "/home/omen_pc1/photo_score_project/outputs/test_vila_aesthetic_ensemble_experiment_20260423/scores_with_ensemble.csv",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/test_vila_aesthetic_only_stage5_current_conservative_20260423",
+  "num_images": 50,
+  "top_k": 10,
+  "technical_score_used": false,
+  "final_production_mix_used": false,
+  "technical_gate_or_penalty_used": false,
+  "formulas": {
+    "stage5_student_full_aadb": "stage5_aesthetic_score",
+    "ensemble_current": "0.30 * rgnet_aadb + 0.30 * alamp_aadb + 0.25 * aadb_composition + 0.15 * nima_ava_unit",
+    "ensemble_conservative": "0.35 * rgnet_aadb + 0.20 * alamp_aadb + 0.30 * aadb_composition + 0.15 * nima_ava_unit"
+  },
+  "normalization_notes": {
+    "aadb_composition": "clipped unit score from prior experiment",
+    "alamp_aadb": "clipped unit score from prior experiment",
+    "rgnet_aadb": "clipped unit score from prior experiment",
+    "nima_ava_unit": "clipped (nima_mean_score - 1.0) / 9.0 from prior experiment"
+  },
+  "score_summary": {
+    "stage5_student_full_aadb": {
+      "count": 50,
+      "min": 0.3785756826400757,
+      "max": 0.5850298404693604,
+      "range": 0.20645415782928467,
+      "mean": 0.45461517453193667,
+      "std": 0.04407902903506164,
+      "top10": [
+        "20231231_150055.jpg",
+        "1675564674752-17.jpg",
+        "20250204_170733.jpg",
+        "1675564674752-15.jpg",
+        "IMG_2729.JPG",
+        "1675564674752-2.jpg",
+        "20250204_174237(0).jpg",
+        "1675564423029-24.jpg",
+        "IMG_2781.JPG",
+        "1675564423029-9.jpg"
+      ]
+    },
+    "ensemble_current": {
+      "count": 50,
+      "min": 0.3866065214077631,
+      "max": 0.6530780573685964,
+      "range": 0.2664715359608333,
+      "mean": 0.5020923772056897,
+      "std": 0.06694324334357786,
+      "top10": [
+        "20231231_150055.jpg",
+        "1675342165226-3.jpg",
+        "1675564423029-24.jpg",
+        "1675342165226-13.jpg",
+        "1675342165226-5.jpg",
+        "20250204_174237(0).jpg",
+        "20250204_163550.jpg",
+        "1675564423029-9.jpg",
+        "1675564674752-2.jpg",
+        "IMG_2729.JPG"
+      ]
+    },
+    "ensemble_conservative": {
+      "count": 50,
+      "min": 0.3844454750418662,
+      "max": 0.6417533834775289,
+      "range": 0.25730790843566265,
+      "mean": 0.5005919270118078,
+      "std": 0.06498004213557237,
+      "top10": [
+        "20231231_150055.jpg",
+        "1675564423029-24.jpg",
+        "20250204_174237(0).jpg",
+        "1675342165226-13.jpg",
+        "1675342165226-3.jpg",
+        "1675342165226-5.jpg",
+        "20250204_163550.jpg",
+        "1675564674752-2.jpg",
+        "1675564423029-9.jpg",
+        "1675564674752-17.jpg"
+      ]
+    }
+  },
+  "top10_overlap": {
+    "stage5_vs_current": {
+      "top_k": 10,
+      "overlap_count": 6,
+      "overlap_images": [
+        "1675564423029-24.jpg",
+        "1675564423029-9.jpg",
+        "1675564674752-2.jpg",
+        "20231231_150055.jpg",
+        "20250204_174237(0).jpg",
+        "IMG_2729.JPG"
+      ],
+      "stage5_only": [
+        "1675564674752-15.jpg",
+        "1675564674752-17.jpg",
+        "20250204_170733.jpg",
+        "IMG_2781.JPG"
+      ],
+      "current_only": [
+        "1675342165226-13.jpg",
+        "1675342165226-3.jpg",
+        "1675342165226-5.jpg",
+        "20250204_163550.jpg"
+      ]
+    },
+    "stage5_vs_conservative": {
+      "top_k": 10,
+      "overlap_count": 6,
+      "overlap_images": [
+        "1675564423029-24.jpg",
+        "1675564423029-9.jpg",
+        "1675564674752-17.jpg",
+        "1675564674752-2.jpg",
+        "20231231_150055.jpg",
+        "20250204_174237(0).jpg"
+      ],
+      "stage5_only": [
+        "1675564674752-15.jpg",
+        "20250204_170733.jpg",
+        "IMG_2729.JPG",
+        "IMG_2781.JPG"
+      ],
+      "conservative_only": [
+        "1675342165226-13.jpg",
+        "1675342165226-3.jpg",
+        "1675342165226-5.jpg",
+        "20250204_163550.jpg"
+      ]
+    },
+    "current_vs_conservative": {
+      "top_k": 10,
+      "overlap_count": 9,
+      "overlap_images": [
+        "1675342165226-13.jpg",
+        "1675342165226-3.jpg",
+        "1675342165226-5.jpg",
+        "1675564423029-24.jpg",
+        "1675564423029-9.jpg",
+        "1675564674752-2.jpg",
+        "20231231_150055.jpg",
+        "20250204_163550.jpg",
+        "20250204_174237(0).jpg"
+      ],
+      "current_only": [
+        "IMG_2729.JPG"
+      ],
+      "conservative_only": [
+        "1675564674752-17.jpg"
+      ]
+    },
+    "all_three_count": 5,
+    "all_three_images": [
+      "20231231_150055.jpg",
+      "1675564674752-2.jpg",
+      "20250204_174237(0).jpg",
+      "1675564423029-24.jpg",
+      "1675564423029-9.jpg"
+    ]
+  },
+  "dark_low_light": {
+    "grouping_note": "Human-auditable test_vila visual grouping hints, not model labels.",
+    "num_focus_images": 18,
+    "group_summary": [
+      {
+        "low_light_group": "night_city_landmark",
+        "image_count": 6,
+        "stage5_mean": 0.4823013842,
+        "current_mean": 0.5275074378,
+        "conservative_mean": 0.530439015,
+        "stage5_best_rank": 5,
+        "current_best_rank": 3,
+        "conservative_best_rank": 2,
+        "stage5_top10_count": 3,
+        "current_top10_count": 3,
+        "conservative_top10_count": 2
+      },
+      {
+        "low_light_group": "silhouette_dramatic_low_light",
+        "image_count": 10,
+        "stage5_mean": 0.4576399326,
+        "current_mean": 0.5448984196,
+        "conservative_mean": 0.5358399329,
+        "stage5_best_rank": 3,
+        "current_best_rank": 2,
+        "conservative_best_rank": 3,
+        "stage5_top10_count": 3,
+        "current_top10_count": 4,
+        "conservative_top10_count": 4
+      },
+      {
+        "low_light_group": "star_sky_astro_like",
+        "image_count": 2,
+        "stage5_mean": 0.4345956892,
+        "current_mean": 0.4339363267,
+        "conservative_mean": 0.4332958331,
+        "stage5_best_rank": 24,
+        "current_best_rank": 38,
+        "conservative_best_rank": 38,
+        "stage5_top10_count": 0,
+        "current_top10_count": 0,
+        "conservative_top10_count": 0
+      }
+    ],
+    "stage5_under_ranked_candidates": [
+      "20240515_073118.jpg",
+      "20250129_103313.jpg",
+      "20230201_181510.jpg",
+      "20250205_072644.jpg",
+      "1675342165226-3.jpg",
+      "1675342165226-5.jpg",
+      "1675342165226-13.jpg",
+      "1675564423029-24.jpg"
+    ]
+  },
+  "contact_sheet_render_warnings": [
+    {
+      "image_file_name": "IMG_20240519_215827_510.jpg",
+      "image_path": "test_vila/IMG_20240519_215827_510.jpg",
+      "render_warning": "cannot identify image file '/home/omen_pc1/photo_score_project/test_vila/IMG_20240519_215827_510.jpg'"
+    }
+  ],
+  "artifacts": [
+    "README.md",
+    "aesthetic_only_comparison.csv",
+    "aesthetic_only_comparison.json",
+    "contact_01_stage5_aesthetic_only_top10.jpg",
+    "contact_02_current_ensemble_aesthetic_only_top10.jpg",
+    "contact_03_conservative_ensemble_aesthetic_only_top10.jpg",
+    "contact_04_major_disagreement_cases.jpg",
+    "contact_05_dark_low_light_focus_cases.jpg",
+    "contact_06_current_vs_conservative_disagreements.jpg",
+    "contact_07_stage5_under_ranks_low_light.jpg",
+    "contact_sheet_render_warnings.csv",
+    "current_vs_conservative_disagreements.csv",
+    "dark_low_light_focus_cases.csv",
+    "dark_low_light_group_summary.csv",
+    "disagreement_cases.csv",
+    "ensemble_conservative_aesthetic_only_top10.csv",
+    "ensemble_current_aesthetic_only_top10.csv",
+    "review_index.html",
+    "stage5_aesthetic_only_top10.csv",
+    "stage5_under_ranks_low_light_candidates.csv",
+    "summary.json",
+    "top10_overlap_all_three.csv",
+    "top10_overlap_current_vs_conservative.csv",
+    "top10_overlap_stage5_vs_conservative.csv",
+    "top10_overlap_stage5_vs_current.csv"
+  ]
+}

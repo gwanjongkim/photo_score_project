@@ -1,0 +1,48 @@
+{
+  "experiment_name": "gemma4_e4b_gemini_teacher_282",
+  "dataset_dir": "outputs/gemini_api_teacher_aesthetic3_20260427_revised",
+  "train_manifest": "train.jsonl",
+  "val_manifest": "val.jsonl",
+  "test_manifests": {
+    "test": "test.jsonl"
+  },
+  "output_dir": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282",
+  "model_name_or_path": "google/gemma-4-E4B-it",
+  "processor_name_or_path": "google/gemma-4-E4B-it",
+  "base_adapter_dir": null,
+  "allow_remote_model_download": true,
+  "lora": {
+    "enabled": true,
+    "r": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "target_modules": ".*language_model\\.layers\\.\\d+\\.(self_attn\\.(q_proj|k_proj|v_proj|o_proj)|mlp\\.(gate_proj|up_proj|down_proj))"
+  },
+  "quantization": {
+    "load_in_4bit": true,
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "bnb_4bit_use_double_quant": true,
+    "device_map": "auto"
+  },
+  "training": {
+    "num_train_epochs": 3,
+    "per_device_train_batch_size": 1,
+    "per_device_eval_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.0001,
+    "lr_scheduler_type": "cosine",
+    "warmup_ratio": 0.05,
+    "logging_steps": 1,
+    "logging_first_step": true,
+    "save_steps": 10,
+    "eval_steps": 10,
+    "save_total_limit": 2,
+    "max_grad_norm": 1.0,
+    "weight_decay": 0.0,
+    "optim": "paged_adamw_8bit",
+    "seed": 42,
+    "max_length": null,
+    "resume_from_checkpoint": null
+  }
+}

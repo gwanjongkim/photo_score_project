@@ -1,0 +1,59 @@
+{
+  "status": "ok",
+  "pool_rows": 3000,
+  "scored_rows": 3000,
+  "score_failures": 0,
+  "primary_weight_formula": "weighted_aesthetic_score = 0.10 * nima_unit_score + 0.40 * rgnet_score + 0.50 * alamp_score",
+  "comparison_weight_formula": "balanced_comparison_score = 0.15 * nima_unit_score + 0.45 * rgnet_score + 0.40 * alamp_score",
+  "dataset_counts": {
+    "ava": 2000,
+    "aadb": 1000
+  },
+  "bucket_counts": {
+    "middle_near_miss": 1200,
+    "selected_high": 900,
+    "rejected_low": 900
+  },
+  "numeric_summary": {
+    "nima_unit_score": {
+      "min": 0.37944,
+      "mean": 0.51737,
+      "median": 0.516535,
+      "max": 0.629999
+    },
+    "rgnet_score": {
+      "min": 0.218064,
+      "mean": 0.515576,
+      "median": 0.509557,
+      "max": 0.842734
+    },
+    "alamp_score": {
+      "min": 0.006156,
+      "mean": 0.492982,
+      "median": 0.478927,
+      "max": 1.0
+    },
+    "weighted_aesthetic_score": {
+      "min": 0.310208,
+      "mean": 0.504458,
+      "median": 0.495769,
+      "max": 0.879527
+    },
+    "balanced_comparison_score": {
+      "min": 0.314768,
+      "mean": 0.506807,
+      "median": 0.499092,
+      "max": 0.852804
+    },
+    "score_delta_primary_minus_comparison": {
+      "min": -0.066625,
+      "mean": -0.002349,
+      "median": -0.003279,
+      "max": 0.049125
+    }
+  },
+  "outputs": {
+    "scored_pool_csv": "outputs/gemma4_e4b_aesthetic3_expanded_20260427/scored_pool.csv",
+    "scored_pool_jsonl": "outputs/gemma4_e4b_aesthetic3_expanded_20260427/scored_pool.jsonl"
+  }
+}

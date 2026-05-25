@@ -1,0 +1,148 @@
+id,split,image_path,selected,numeric_rubric_hits,generic_baseline_hits,grounding_fail_hits,teacher_comment_strength_line,teacher_comment_weakness_line,teacher_comment_verdict_line,proposed_visible_verdict_line,verdict_rewritable_without_numeric,teacher_comment_3line
+test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_09.jpg,test,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_09.jpg,False,[],[],[],Strength: cleaner background and composition.,Weakness: detail clarity and subject emphasis.,Verdict: not selected because weaker detail clarity and subject emphasis outweighed cleaner background and composition.,Verdict: not selected because detail clarity and subject emphasis undercuts cleaner background and composition.,True,"Strength: cleaner background and composition.
+Weakness: detail clarity and subject emphasis.
+Verdict: not selected because weaker detail clarity and subject emphasis outweighed cleaner background and composition."
+test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_14.jpg,test,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_14.jpg,False,[],"[""overall_appeal""]",[],Strength: cleaner background and lighting.,Weakness: subject emphasis and overall appeal.,Verdict: not selected because weaker subject emphasis and overall appeal outweighed cleaner background and lighting.,Verdict: not selected because subject emphasis and overall appeal undercuts cleaner background and lighting.,True,"Strength: cleaner background and lighting.
+Weakness: subject emphasis and overall appeal.
+Verdict: not selected because weaker subject emphasis and overall appeal outweighed cleaner background and lighting."
+test_vila_nvila_20260416_gpu__test_vila__20231231_150055.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20231231_150055.jpg,True,[],"[""weaker_secondary_cues"", ""kept_it_ahead""]","[""weaker_secondary_cues"", ""kept_it_ahead""]",Strength: clean detail.,Weakness: weaker secondary cues.,Verdict: selected because cleaner detail kept it ahead.,Verdict: selected because clean detail carries the frame despite weaker secondary cues.,True,"Strength: clean detail.
+Weakness: weaker secondary cues.
+Verdict: selected because cleaner detail kept it ahead."
+test_vila_nvila_20260416_gpu__test_vila__20250204_174237_0_.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20250204_174237(0).jpg,True,[],"[""weaker_secondary_cues"", ""kept_it_ahead""]","[""weaker_secondary_cues"", ""kept_it_ahead""]",Strength: clean detail.,Weakness: weaker secondary cues.,Verdict: selected because cleaner detail kept it ahead.,Verdict: selected because clean detail carries the frame despite weaker secondary cues.,True,"Strength: clean detail.
+Weakness: weaker secondary cues.
+Verdict: selected because cleaner detail kept it ahead."
+test_vila_nvila_20260416_gpu__test_vila__1675564423029-24.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/1675564423029-24.jpg,True,[],"[""weaker_secondary_cues"", ""selected_frame""]","[""weaker_secondary_cues"", ""selected_frame""]",Strength: soft detail.,Weakness: weaker secondary cues.,Verdict: selected because softer detail trailed the stronger selected frame.,Verdict: selected because soft detail carries the frame despite weaker secondary cues.,True,"Strength: soft detail.
+Weakness: weaker secondary cues.
+Verdict: selected because softer detail trailed the stronger selected frame."
+test_vila_nvila_20260416_gpu__test_vila__1675564423029-6.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/1675564423029-6.jpg,False,[],[],"[""weaker_weak""]",Strength: clean detail.,Weakness: weak subject emphasis.,Verdict: not selected because weaker weak subject emphasis outweighed clean detail.,Verdict: not selected because weak subject emphasis undercuts clean detail.,True,"Strength: clean detail.
+Weakness: weak subject emphasis.
+Verdict: not selected because weaker weak subject emphasis outweighed clean detail."
+test_vila_nvila_20260416_gpu__test_vila__20240505_153023.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240505_153023.jpg,False,[],"[""overall_appeal""]",[],Strength: overall appeal.,Weakness: detail clarity.,Verdict: not selected because weaker detail clarity outweighed overall appeal.,Verdict: not selected because detail clarity undercuts overall appeal.,True,"Strength: overall appeal.
+Weakness: detail clarity.
+Verdict: not selected because weaker detail clarity outweighed overall appeal."
+test_vila_nvila_20260416_gpu__test_vila__20250129_103313.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20250129_103313.jpg,False,[],"[""overall_appeal""]",[],Strength: overall appeal.,Weakness: detail clarity.,Verdict: not selected because weaker detail clarity outweighed overall appeal.,Verdict: not selected because detail clarity undercuts overall appeal.,True,"Strength: overall appeal.
+Weakness: detail clarity.
+Verdict: not selected because weaker detail clarity outweighed overall appeal."
+test_vila_nvila_20260416_gpu__test_vila__20250205_072644.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20250205_072644.jpg,False,[],"[""overall_appeal""]",[],Strength: overall appeal.,Weakness: detail clarity.,Verdict: not selected because weaker detail clarity outweighed overall appeal.,Verdict: not selected because detail clarity undercuts overall appeal.,True,"Strength: overall appeal.
+Weakness: detail clarity.
+Verdict: not selected because weaker detail clarity outweighed overall appeal."
+test_vila_nvila_20260416_gpu__test_vila__20240509_154353.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240509_154353.jpg,False,"[""rank""]","[""overall_appeal"", ""clear_visual_strengths""]","[""clear_visual_strengths"", ""the_frame_fell_short""]",Strength: clear visual strengths.,Weakness: The frame fell short once detail clarity and overall appeal gave higher-ranked images the edge.,Verdict: not selected because weaker The frame fell short once detail clarity and overall appeal gave higher-ranked images the edge outweighed clear visual strengths.,Verdict: not selected because The frame fell short once detail clarity and overall appeal gave higher-ranked images the edge undercuts clear visual strengths.,True,"Strength: clear visual strengths.
+Weakness: The frame fell short once detail clarity and overall appeal gave higher-ranked images the edge.
+Verdict: not selected because weaker The frame fell short once detail clarity and overall appeal gave higher-ranked images the edge outweighed clear visual strengths."
+test_vila_nvila_20260416_gpu__test_vila__IMG_20240519_215827_510.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/IMG_20240519_215827_510.jpg,False,[],"[""overall_appeal""]",[],Strength: detail clarity.,Weakness: overall appeal.,Verdict: not selected because weaker overall appeal outweighed detail clarity.,Verdict: not selected because overall appeal undercuts detail clarity.,True,"Strength: detail clarity.
+Weakness: overall appeal.
+Verdict: not selected because weaker overall appeal outweighed detail clarity."
+test_vila_nvila_20260416_gpu__test_vila__20240515_092725.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240515_092725.jpg,False,"[""rank""]","[""aesthetic_appeal"", ""higher_ranked_frame""]","[""higher_ranked_frame""]",Strength: clean detail.,Weakness: weak subject emphasis.,"Verdict: not selected because cleaner detail helped, but weaker aesthetic appeal left it below the higher-ranked frame.",Verdict: not selected because weak subject emphasis undercuts clean detail.,True,"Strength: clean detail.
+Weakness: weak subject emphasis.
+Verdict: not selected because cleaner detail helped, but weaker aesthetic appeal left it below the higher-ranked frame."
+test_vila_nvila_20260416_gpu__test_vila__20230201_181300.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20230201_181300.jpg,False,[],"[""overall_appeal""]",[],Strength: overall appeal.,Weakness: detail clarity.,Verdict: not selected because weaker detail clarity outweighed overall appeal.,Verdict: not selected because detail clarity undercuts overall appeal.,True,"Strength: overall appeal.
+Weakness: detail clarity.
+Verdict: not selected because weaker detail clarity outweighed overall appeal."
+test_vila_nvila_20260416_gpu__test_vila__20230201_181510.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20230201_181510.jpg,False,[],"[""overall_appeal""]",[],Strength: overall appeal.,Weakness: detail clarity.,Verdict: not selected because weaker detail clarity outweighed overall appeal.,Verdict: not selected because detail clarity undercuts overall appeal.,True,"Strength: overall appeal.
+Weakness: detail clarity.
+Verdict: not selected because weaker detail clarity outweighed overall appeal."
+test_vila_nvila_20260416_gpu__test_vila__1720499666985.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/1720499666985.jpg,False,"[""rank""]","[""higher_ranked_frame""]","[""higher_ranked_frame""]",Strength: clean detail and clear subject emphasis.,Weakness: clean detail.,"Verdict: not selected because cleaner detail helped, but it still stayed below the higher-ranked frame.",Verdict: not selected because clean detail undercuts clean detail and clear subject emphasis.,True,"Strength: clean detail and clear subject emphasis.
+Weakness: clean detail.
+Verdict: not selected because cleaner detail helped, but it still stayed below the higher-ranked frame."
+test_vila_nvila_20260416_gpu__test_vila__IMG_2781.JPG,test_vila,/home/omen_pc1/photo_score_project/test_vila/IMG_2781.JPG,False,[],[],[],Strength: clear subject emphasis.,Weakness: soft detail.,Verdict: not selected because weaker soft detail outweighed clear subject emphasis.,Verdict: not selected because soft detail undercuts clear subject emphasis.,True,"Strength: clear subject emphasis.
+Weakness: soft detail.
+Verdict: not selected because weaker soft detail outweighed clear subject emphasis."
+test_vila_nvila_20260416_gpu__test_vila__1720499657653.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/1720499657653.jpg,False,[],"[""overall_appeal""]",[],Strength: detail clarity.,Weakness: overall appeal.,Verdict: not selected because weaker overall appeal outweighed detail clarity.,Verdict: not selected because overall appeal undercuts detail clarity.,True,"Strength: detail clarity.
+Weakness: overall appeal.
+Verdict: not selected because weaker overall appeal outweighed detail clarity."
+test_vila_nvila_20260416_gpu__test_vila__20240505_170541.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240505_170541.jpg,False,[],[],"[""weaker_weak""]",Strength: clean detail.,Weakness: weak subject emphasis.,Verdict: not selected because weaker weak subject emphasis outweighed clean detail.,Verdict: not selected because weak subject emphasis undercuts clean detail.,True,"Strength: clean detail.
+Weakness: weak subject emphasis.
+Verdict: not selected because weaker weak subject emphasis outweighed clean detail."
+test_vila_nvila_20260416_gpu__test_vila__20240506_140415.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240506_140415.jpg,False,[],"[""overall_appeal""]",[],Strength: detail clarity.,Weakness: overall appeal.,Verdict: not selected because weaker overall appeal outweighed detail clarity.,Verdict: not selected because overall appeal undercuts detail clarity.,True,"Strength: detail clarity.
+Weakness: overall appeal.
+Verdict: not selected because weaker overall appeal outweighed detail clarity."
+test_vila_nvila_20260416_gpu__test_vila__20240506_120558.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240506_120558.jpg,False,[],"[""overall_appeal""]",[],Strength: overall appeal.,Weakness: detail clarity.,Verdict: not selected because weaker detail clarity outweighed overall appeal.,Verdict: not selected because detail clarity undercuts overall appeal.,True,"Strength: overall appeal.
+Weakness: detail clarity.
+Verdict: not selected because weaker detail clarity outweighed overall appeal."
+test_vila_nvila_20260416_gpu__test_vila__IMG_2738.JPG,test_vila,/home/omen_pc1/photo_score_project/test_vila/IMG_2738.JPG,False,[],"[""overall_appeal""]",[],Strength: overall appeal.,Weakness: detail clarity.,Verdict: not selected because weaker detail clarity outweighed overall appeal.,Verdict: not selected because detail clarity undercuts overall appeal.,True,"Strength: overall appeal.
+Weakness: detail clarity.
+Verdict: not selected because weaker detail clarity outweighed overall appeal."
+test_vila_nvila_20260416_gpu__test_vila__20250129_102520.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20250129_102520.jpg,False,[],"[""usable_strengths""]","[""usable_strengths""]",Strength: Technical and aesthetic evidence gives the image some usable strengths.,Weakness: soft detail.,Verdict: not selected because weaker soft detail outweighed Technical and aesthetic evidence gives the image some usable strengths.,Verdict: not selected because soft detail undercuts Technical and aesthetic evidence gives the image some usable strengths.,True,"Strength: Technical and aesthetic evidence gives the image some usable strengths.
+Weakness: soft detail.
+Verdict: not selected because weaker soft detail outweighed Technical and aesthetic evidence gives the image some usable strengths."
+test_vila_nvila_20260416_gpu__test_vila__IMG_2748.JPG,test_vila,/home/omen_pc1/photo_score_project/test_vila/IMG_2748.JPG,False,[],"[""overall_appeal""]",[],Strength: detail clarity.,Weakness: overall appeal.,Verdict: not selected because weaker overall appeal outweighed detail clarity.,Verdict: not selected because overall appeal undercuts detail clarity.,True,"Strength: detail clarity.
+Weakness: overall appeal.
+Verdict: not selected because weaker overall appeal outweighed detail clarity."
+test_vila_nvila_20260416_gpu__test_vila__20240510_191716.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240510_191716.jpg,False,"[""rank""]","[""aesthetic_appeal"", ""higher_ranked_frame""]","[""higher_ranked_frame""]",Strength: clean detail.,Weakness: weak subject emphasis.,"Verdict: not selected because cleaner detail helped, but weaker aesthetic appeal left it below the higher-ranked frame.",Verdict: not selected because weak subject emphasis undercuts clean detail.,True,"Strength: clean detail.
+Weakness: weak subject emphasis.
+Verdict: not selected because cleaner detail helped, but weaker aesthetic appeal left it below the higher-ranked frame."
+test_vila_nvila_20260416_gpu__test_vila__IMG_2785.JPG,test_vila,/home/omen_pc1/photo_score_project/test_vila/IMG_2785.JPG,False,[],"[""overall_appeal""]",[],Strength: detail clarity.,Weakness: overall appeal.,Verdict: not selected because weaker overall appeal outweighed detail clarity.,Verdict: not selected because overall appeal undercuts detail clarity.,True,"Strength: detail clarity.
+Weakness: overall appeal.
+Verdict: not selected because weaker overall appeal outweighed detail clarity."
+test_vila_nvila_20260416_gpu__test_vila__20240503_210355.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240503_210355.jpg,False,[],"[""overall_appeal""]",[],Strength: detail clarity.,Weakness: overall appeal.,Verdict: not selected because weaker overall appeal outweighed detail clarity.,Verdict: not selected because overall appeal undercuts detail clarity.,True,"Strength: detail clarity.
+Weakness: overall appeal.
+Verdict: not selected because weaker overall appeal outweighed detail clarity."
+test_vila_nvila_20260416_gpu__test_vila__20240515_073118.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240515_073118.jpg,False,[],"[""overall_appeal""]",[],Strength: detail clarity.,Weakness: overall appeal.,Verdict: not selected because weaker overall appeal outweighed detail clarity.,Verdict: not selected because overall appeal undercuts detail clarity.,True,"Strength: detail clarity.
+Weakness: overall appeal.
+Verdict: not selected because weaker overall appeal outweighed detail clarity."
+test_vila_nvila_20260416_gpu__test_vila__20240101_143158.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240101_143158.jpg,False,[],"[""overall_appeal""]",[],Strength: detail clarity.,Weakness: overall appeal.,Verdict: not selected because weaker overall appeal outweighed detail clarity.,Verdict: not selected because overall appeal undercuts detail clarity.,True,"Strength: detail clarity.
+Weakness: overall appeal.
+Verdict: not selected because weaker overall appeal outweighed detail clarity."
+test_vila_nvila_20260416_gpu__test_vila__1715855266134.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/1715855266134.jpg,False,[],"[""overall_appeal""]",[],Strength: overall appeal.,Weakness: detail clarity.,Verdict: not selected because weaker detail clarity outweighed overall appeal.,Verdict: not selected because detail clarity undercuts overall appeal.,True,"Strength: overall appeal.
+Weakness: detail clarity.
+Verdict: not selected because weaker detail clarity outweighed overall appeal."
+test_vila_nvila_20260416_gpu__test_vila__20240502_193823.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240502_193823.jpg,False,"[""rank""]","[""usable_strengths"", ""aesthetic_appeal"", ""higher_ranked_frame""]","[""usable_strengths"", ""higher_ranked_frame""]",Strength: Technical and aesthetic evidence gives the image some usable strengths.,Weakness: soft detail.,Verdict: not selected because weaker aesthetic appeal left it below the higher-ranked frame.,Verdict: not selected because soft detail undercuts Technical and aesthetic evidence gives the image some usable strengths.,True,"Strength: Technical and aesthetic evidence gives the image some usable strengths.
+Weakness: soft detail.
+Verdict: not selected because weaker aesthetic appeal left it below the higher-ranked frame."
+test_vila_nvila_20260416_gpu__test_vila__20250217_144845.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20250217_144845.jpg,False,[],"[""overall_appeal""]",[],Strength: detail clarity.,Weakness: overall appeal.,Verdict: not selected because weaker overall appeal outweighed detail clarity.,Verdict: not selected because overall appeal undercuts detail clarity.,True,"Strength: detail clarity.
+Weakness: overall appeal.
+Verdict: not selected because weaker overall appeal outweighed detail clarity."
+test_vila_nvila_20260416_gpu__test_vila__20240510_213907.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240510_213907.jpg,False,[],"[""overall_appeal""]",[],Strength: detail clarity.,Weakness: overall appeal.,Verdict: not selected because weaker overall appeal outweighed detail clarity.,Verdict: not selected because overall appeal undercuts detail clarity.,True,"Strength: detail clarity.
+Weakness: overall appeal.
+Verdict: not selected because weaker overall appeal outweighed detail clarity."
+test_vila_nvila_20260416_gpu__test_vila__IMG_2739.JPG,test_vila,/home/omen_pc1/photo_score_project/test_vila/IMG_2739.JPG,False,[],"[""overall_appeal""]",[],Strength: overall appeal.,Weakness: detail clarity.,Verdict: not selected because weaker detail clarity outweighed overall appeal.,Verdict: not selected because detail clarity undercuts overall appeal.,True,"Strength: overall appeal.
+Weakness: detail clarity.
+Verdict: not selected because weaker detail clarity outweighed overall appeal."
+test_vila_nvila_20260416_gpu__test_vila__1738744324186.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/1738744324186.jpg,False,[],"[""overall_appeal""]",[],Strength: overall appeal.,Weakness: detail clarity.,Verdict: not selected because weaker detail clarity outweighed overall appeal.,Verdict: not selected because detail clarity undercuts overall appeal.,True,"Strength: overall appeal.
+Weakness: detail clarity.
+Verdict: not selected because weaker detail clarity outweighed overall appeal."
+test_vila_nvila_20260416_gpu__test_vila__20250129_054504.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20250129_054504.jpg,False,[],"[""overall_appeal""]",[],Strength: detail clarity.,Weakness: overall appeal.,Verdict: not selected because weaker overall appeal outweighed detail clarity.,Verdict: not selected because overall appeal undercuts detail clarity.,True,"Strength: detail clarity.
+Weakness: overall appeal.
+Verdict: not selected because weaker overall appeal outweighed detail clarity."
+test_vila_nvila_20260416_gpu__test_vila__20240517_060245.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240517_060245.jpg,False,[],"[""overall_appeal""]",[],Strength: detail clarity.,Weakness: overall appeal.,Verdict: not selected because weaker overall appeal outweighed detail clarity.,Verdict: not selected because overall appeal undercuts detail clarity.,True,"Strength: detail clarity.
+Weakness: overall appeal.
+Verdict: not selected because weaker overall appeal outweighed detail clarity."
+test_vila_nvila_20260416_gpu__test_vila__20240517_060242.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20240517_060242.jpg,False,[],"[""overall_appeal""]",[],Strength: overall appeal.,Weakness: detail clarity.,Verdict: not selected because weaker detail clarity outweighed overall appeal.,Verdict: not selected because detail clarity undercuts overall appeal.,True,"Strength: overall appeal.
+Weakness: detail clarity.
+Verdict: not selected because weaker detail clarity outweighed overall appeal."
+test_vila_nvila_20260416_gpu__test_vila__20250205_000515.jpg,test_vila,/home/omen_pc1/photo_score_project/test_vila/20250205_000515.jpg,False,[],"[""overall_appeal""]",[],Strength: detail clarity.,Weakness: overall appeal.,Verdict: not selected because weaker overall appeal outweighed detail clarity.,Verdict: not selected because overall appeal undercuts detail clarity.,True,"Strength: detail clarity.
+Weakness: overall appeal.
+Verdict: not selected because weaker overall appeal outweighed detail clarity."
+test_samples_nvila_probe_v9_gpu__train__KakaoTalk_20260330_180646779_10.jpg,train,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_10.jpg,True,[],"[""kept_it_ahead""]","[""kept_it_ahead""]",Strength: strong framing.,Weakness: busy background.,Verdict: selected because stronger composition kept it ahead despite softer clarity.,Verdict: selected because strong framing carries the frame despite busy background.,True,"Strength: strong framing.
+Weakness: busy background.
+Verdict: selected because stronger composition kept it ahead despite softer clarity."
+test_samples_nvila_probe_v9_gpu__train__KakaoTalk_20260330_180646779_13.jpg,train,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_13.jpg,False,[],"[""overall_appeal""]",[],Strength: overall appeal and detail clarity.,Weakness: cleaner background and composition.,Verdict: not selected because weaker cleaner background and composition outweighed overall appeal and detail clarity.,Verdict: not selected because cleaner background and composition undercuts overall appeal and detail clarity.,True,"Strength: overall appeal and detail clarity.
+Weakness: cleaner background and composition.
+Verdict: not selected because weaker cleaner background and composition outweighed overall appeal and detail clarity."
+test_samples_nvila_probe_v9_gpu__train__KakaoTalk_20260330_180646779_11.jpg,train,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_11.jpg,False,[],[],[],Strength: strong framing.,Weakness: busy background.,Verdict: not selected because weaker busy background outweighed strong framing.,Verdict: not selected because busy background undercuts strong framing.,True,"Strength: strong framing.
+Weakness: busy background.
+Verdict: not selected because weaker busy background outweighed strong framing."
+test_samples_nvila_probe_v9_gpu__train__KakaoTalk_20260330_180646779.jpg,train,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779.jpg,False,[],"[""overall_appeal""]",[],Strength: lighting and overall appeal.,Weakness: cleaner background and subject emphasis.,Verdict: not selected because weaker cleaner background and subject emphasis outweighed lighting and overall appeal.,Verdict: not selected because cleaner background and subject emphasis undercuts lighting and overall appeal.,True,"Strength: lighting and overall appeal.
+Weakness: cleaner background and subject emphasis.
+Verdict: not selected because weaker cleaner background and subject emphasis outweighed lighting and overall appeal."
+test_samples_nvila_probe_v9_gpu__train__KakaoTalk_20260330_180646779_05.jpg,train,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_05.jpg,False,[],"[""overall_appeal""]",[],Strength: cleaner background and lighting.,Weakness: overall appeal and composition.,Verdict: not selected because weaker overall appeal and composition outweighed cleaner background and lighting.,Verdict: not selected because overall appeal and composition undercuts cleaner background and lighting.,True,"Strength: cleaner background and lighting.
+Weakness: overall appeal and composition.
+Verdict: not selected because weaker overall appeal and composition outweighed cleaner background and lighting."
+test_samples_nvila_probe_v9_gpu__train__KakaoTalk_20260330_180646779_02.jpg,train,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_02.jpg,False,[],"[""overall_appeal""]",[],Strength: overall appeal and composition.,Weakness: cleaner background and lighting.,Verdict: not selected because weaker cleaner background and lighting outweighed overall appeal and composition.,Verdict: not selected because cleaner background and lighting undercuts overall appeal and composition.,True,"Strength: overall appeal and composition.
+Weakness: cleaner background and lighting.
+Verdict: not selected because weaker cleaner background and lighting outweighed overall appeal and composition."
+test_samples_nvila_probe_v9_gpu__train__KakaoTalk_20260330_180646779_01.jpg,train,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_01.jpg,False,[],"[""overall_appeal""]",[],Strength: composition and overall appeal.,Weakness: cleaner background and lighting.,Verdict: not selected because weaker cleaner background and lighting outweighed composition and overall appeal.,Verdict: not selected because cleaner background and lighting undercuts composition and overall appeal.,True,"Strength: composition and overall appeal.
+Weakness: cleaner background and lighting.
+Verdict: not selected because weaker cleaner background and lighting outweighed composition and overall appeal."
+test_samples_nvila_probe_v9_gpu__train__KakaoTalk_20260330_180646779_06.jpg,train,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_06.jpg,False,[],[],[],Strength: clean background.,Weakness: flat light.,Verdict: not selected because weaker flat light outweighed clean background.,Verdict: not selected because flat light undercuts clean background.,True,"Strength: clean background.
+Weakness: flat light.
+Verdict: not selected because weaker flat light outweighed clean background."
+test_samples_nvila_probe_v9_gpu__val__KakaoTalk_20260330_180646779_12.jpg,val,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_12.jpg,True,[],"[""selected_frame""]","[""selected_frame""]",Strength: clean background.,Weakness: weak framing.,"Verdict: selected because stronger clarity helped, but weaker composition trailed the stronger selected frame.",Verdict: selected because clean background carries the frame despite weak framing.,True,"Strength: clean background.
+Weakness: weak framing.
+Verdict: selected because stronger clarity helped, but weaker composition trailed the stronger selected frame."
+test_samples_nvila_probe_v9_gpu__val__KakaoTalk_20260330_180646779_04.jpg,val,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_04.jpg,False,[],[],[],Strength: detail clarity and subject emphasis.,Weakness: cleaner background and composition.,Verdict: not selected because weaker cleaner background and composition outweighed detail clarity and subject emphasis.,Verdict: not selected because cleaner background and composition undercuts detail clarity and subject emphasis.,True,"Strength: detail clarity and subject emphasis.
+Weakness: cleaner background and composition.
+Verdict: not selected because weaker cleaner background and composition outweighed detail clarity and subject emphasis."
+test_samples_nvila_probe_v9_gpu__val__KakaoTalk_20260330_180646779_03.jpg,val,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_03.jpg,False,[],"[""overall_appeal""]",[],Strength: subject emphasis and overall appeal.,Weakness: cleaner background and lighting.,Verdict: not selected because weaker cleaner background and lighting outweighed subject emphasis and overall appeal.,Verdict: not selected because cleaner background and lighting undercuts subject emphasis and overall appeal.,True,"Strength: subject emphasis and overall appeal.
+Weakness: cleaner background and lighting.
+Verdict: not selected because weaker cleaner background and lighting outweighed subject emphasis and overall appeal."

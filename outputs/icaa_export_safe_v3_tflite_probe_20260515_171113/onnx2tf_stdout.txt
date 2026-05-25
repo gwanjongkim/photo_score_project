@@ -1,0 +1,2 @@
+flatbuffer_direct write timing: stage=float32 mode=builder_direct total=1.028s serialize=0.908s (sanitize=0.002s build=0.183s pack=0.612s output=0.111s) write=0.106s size=335.55MB
+flatbuffer_direct write timing: stage=float16 mode=builder_direct total=0.508s serialize=0.444s (sanitize=0.002s build=0.070s pack=0.313s output=0.059s) write=0.057s size=168.23MB

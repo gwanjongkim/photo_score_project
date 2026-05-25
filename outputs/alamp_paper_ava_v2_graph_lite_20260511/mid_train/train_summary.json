@@ -1,0 +1,35 @@
+{
+  "model_variant": "A-LAMP-paper-AVA-v2_graph_lite",
+  "official_reproduction": false,
+  "paper_comparability_note": "A-LAMP-paper-oriented approximation with graph-lite branch.",
+  "graph_artifacts": {
+    "train": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/train_graphs_1024.jsonl",
+    "val": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/val_graphs_1024.jsonl"
+  },
+  "label_rule": "paper_strict",
+  "train_samples": 1024,
+  "val_samples": 1024,
+  "skipped_images": {
+    "train": 0,
+    "val": 0
+  },
+  "no_object_counts": {
+    "train": 163,
+    "val": 166
+  },
+  "architecture": {
+    "model_variant": "A-LAMP-paper-AVA-v2_graph_lite",
+    "description": "A-LAMP-paper-oriented approximation with graph-lite branch",
+    "style": "A-LAMP-style AVA classification model",
+    "backbone": "VGG16",
+    "patch_count": 5,
+    "image_size_patch": 224,
+    "image_size_global": 384,
+    "max_objects": 4
+  },
+  "epochs_completed": 1,
+  "best_epoch": 1,
+  "best_val_loss": 0.706824004650116,
+  "save_load_max_abs_diff": 0.0,
+  "tensorflow_gpus": []
+}

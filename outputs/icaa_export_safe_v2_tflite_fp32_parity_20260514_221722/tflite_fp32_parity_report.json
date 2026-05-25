@@ -1,0 +1,187 @@
+{
+  "status": "failed",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_tflite_fp32_parity_20260514_221722",
+  "limit": 16,
+  "device": "cuda",
+  "thresholds": {
+    "max_abs_diff": 0.0001,
+    "mean_abs_diff": 1e-05
+  },
+  "model_config": {
+    "img_size": 224,
+    "patch_size": 4,
+    "num_classes": 1,
+    "expansion": 4,
+    "dim_stem": 128,
+    "dims": [
+      128,
+      256,
+      512,
+      1024
+    ],
+    "depths": [
+      2,
+      2,
+      18,
+      2
+    ],
+    "stage_spec": [
+      [
+        "L",
+        "S"
+      ],
+      [
+        "L",
+        "S"
+      ],
+      [
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D"
+      ],
+      [
+        "L",
+        "D"
+      ]
+    ],
+    "heads": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "window_sizes": [
+      7,
+      7,
+      7,
+      7
+    ],
+    "groups": [
+      -1,
+      -1,
+      4,
+      8
+    ],
+    "use_pes": [
+      false,
+      false,
+      true,
+      true
+    ],
+    "dwc_pes": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "strides": [
+      -1,
+      -1,
+      1,
+      1
+    ],
+    "sr_ratios": [
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "offset_range_factor": [
+      -1,
+      -1,
+      2,
+      2
+    ],
+    "no_offs": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "fixed_pes": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "use_dwc_mlps": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "use_conv_patches": false,
+    "drop_rate": 0.0,
+    "attn_drop_rate": 0.0,
+    "drop_path_rate": 0.5
+  },
+  "tflite_model": "/home/omen_pc1/photo_score_project/outputs/icaa_tflite_conversion_v2_no_flex_20260514_220549/icaa_dat_export_safe_v2_float32.tflite",
+  "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+  "strict_load_result": "<All keys matched successfully>",
+  "tflite_input_details": [
+    {
+      "name": "image",
+      "index": 0,
+      "shape": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "shape_signature": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "dtype": "<class 'numpy.float32'>"
+    }
+  ],
+  "tflite_output_details": [
+    {
+      "name": "scores",
+      "index": 5848,
+      "shape": [
+        1,
+        2
+      ],
+      "shape_signature": [
+        1,
+        2
+      ],
+      "dtype": "<class 'numpy.float32'>"
+    }
+  ],
+  "csv_rows_read": 16,
+  "evaluable_images": 16,
+  "missing_image_rows_skipped": 0,
+  "first_missing_image_ids": [],
+  "parity_metrics": {
+    "full_tensor_max_abs_diff": 0.2552648186683655,
+    "full_tensor_mean_abs_diff": 0.08982907235622406,
+    "mos_max_abs_diff": 0.2549756169319153,
+    "mos_mean_abs_diff": 0.08998562395572662,
+    "color_max_abs_diff": 0.2552648186683655,
+    "color_mean_abs_diff": 0.0896725282073021
+  },
+  "pass_condition": "full_tensor_max_abs_diff <= 1e-4 and full_tensor_mean_abs_diff <= 1e-5",
+  "error": "Traceback (most recent call last):\n  File \"/home/omen_pc1/photo_score_project/experiments/icaa_export_safe_v2/scripts/parity_tflite_fp32_v2.py\", line 336, in main\n    raise RuntimeError(\"TFLite FP32 parity failed thresholds.\")\nRuntimeError: TFLite FP32 parity failed thresholds.\n",
+  "tflite_fp32_parity_report_json": "/home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_tflite_fp32_parity_20260514_221722/tflite_fp32_parity_report.json",
+  "tflite_fp32_parity_predictions_csv": "/home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_tflite_fp32_parity_20260514_221722/tflite_fp32_parity_predictions.csv",
+  "tflite_fp32_parity_log_txt": "/home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_tflite_fp32_parity_20260514_221722/tflite_fp32_parity_log.txt"
+}

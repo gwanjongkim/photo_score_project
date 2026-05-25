@@ -1,0 +1,38 @@
+{
+  "overall_avg_patch_area_ratio": 0.1663790120566042,
+  "overall_avg_iou": 0.10040881257959704,
+  "overall_max_iou": 0.4501513004912901,
+  "total_out_of_bounds": 26,
+  "total_near_duplicates": 59,
+  "avg_center_dist_from_mid": 0.29089475599817755,
+  "error_correlation": {
+    "(False, False, False)": {
+      "avg_patch_area_ratio": 0.16808422874227308,
+      "max_iou": 0.4507739400605213,
+      "avg_iou": 0.10229595330219249,
+      "center_dist_from_mid": 0.28979617340271746,
+      "near_duplicates": 0.07285714285714286
+    },
+    "(False, False, True)": {
+      "avg_patch_area_ratio": 0.15585800559146323,
+      "max_iou": 0.44382658101090006,
+      "avg_iou": 0.0881559775169793,
+      "center_dist_from_mid": 0.29701240361180625,
+      "near_duplicates": 0.0410958904109589
+    },
+    "(False, True, False)": {
+      "avg_patch_area_ratio": 0.16808098745683997,
+      "max_iou": 0.5089376938234539,
+      "avg_iou": 0.09869664742909216,
+      "center_dist_from_mid": 0.2894453967141432,
+      "near_duplicates": 0.06666666666666667
+    },
+    "(True, False, False)": {
+      "avg_patch_area_ratio": 0.17450428469606072,
+      "max_iou": 0.4400427221757154,
+      "avg_iou": 0.11306516874839041,
+      "center_dist_from_mid": 0.2882683881646598,
+      "near_duplicates": 0.02564102564102564
+    }
+  }
+}

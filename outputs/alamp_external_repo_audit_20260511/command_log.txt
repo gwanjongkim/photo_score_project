@@ -1,0 +1,9 @@
+1. mkdir -p outputs/alamp_external_repo_audit_20260511 external/A-Lamp_external_audit
+2. git clone https://github.com/GuillaumeBalezo/A-Lamp.git external/A-Lamp_external_audit/A-Lamp
+3. Google Search: "A-Lamp: Adaptive Layout-Aware Multi-Patch Deep Convolutional Neural Network for Photo Aesthetic Assessment" official code repository github weights
+4. Read external/A-Lamp_external_audit/A-Lamp/README.md
+5. Checked directory structure of external repo subnets
+6. Read external/A-Lamp_external_audit/A-Lamp/layout_aware_subnet/README.md
+7. Grepped for imports and "graph" / "mean" in external repo
+8. Read external/A-Lamp_external_audit/A-Lamp/multi_patch_subnet/orderless_aggregation/train_complete.py
+9. Read src/models/alamp_paper_ava.py to compare local implementation

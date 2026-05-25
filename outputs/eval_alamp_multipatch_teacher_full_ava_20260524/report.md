@@ -1,0 +1,52 @@
+# A-LAMP Multi-Patch Teacher Test Evaluation
+
+## 1. Summary
+
+- Notice: A-LAMP Multi-Patch teacher baseline, not full A-LAMP reproduction.
+- Sample count: 25443
+- Positive ratio: 0.710922
+- Accuracy: 0.763314
+- F1 / F-measure: 0.848221
+
+## 2. Model Source
+
+- Checkpoint type: weights_only
+- Checkpoint: outputs/alamp_multipatch_teacher_full_ava_20260524/best.weights.h5
+- Model variant: A-LAMP Multi-Patch teacher baseline
+- Model description: VGG16 shared-patch Multi-Patch teacher with orderless mean+max aggregation
+- Reproduction claim: not full A-LAMP reproduction
+
+## 3. Test Dataset
+
+- JSONL: outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_test.jsonl
+- Patch inputs: 5 external adaptive patch selections per image, resized to 224x224 RGB.
+- Preprocessing: tf.keras.applications.vgg16.preprocess_input_rgb_float_pixels_0_255
+- Label rule: mean_score > 5.0 -> 1, else 0.
+- Patch boxes are external adaptive patch selections, not ground-truth labels.
+
+## 4. Metrics
+
+- Accuracy: 0.763314
+- F1 / F-measure: 0.848221
+- Precision: 0.779461
+- Recall: 0.930285
+- ROC-AUC: 0.787675
+- Average Precision: 0.895498
+- Prediction min/max/mean/std: 0.000115 / 0.999994 / 0.728526 / 0.213455
+
+## 5. Confusion Matrix
+
+|  | Pred 0 | Pred 1 |
+|---|---:|---:|
+| True 0 | 2594 | 4761 |
+| True 1 | 1261 | 16827 |
+
+## 6. Comparison Targets
+
+- Current Mobile A-LAMP v2 full available AVA test: Accuracy ≈ 0.7049, F1 ≈ 0.7647.
+- Paper A-LAMP target: Accuracy ≈ 0.825, F-measure ≈ 0.92.
+- This model is only a Multi-Patch teacher baseline, not full A-LAMP.
+
+## 7. Judgment
+
+- Accuracy is above 0.75, so this is a meaningful teacher candidate.

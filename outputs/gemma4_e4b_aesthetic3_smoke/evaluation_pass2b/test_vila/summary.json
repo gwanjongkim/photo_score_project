@@ -1,0 +1,81 @@
+{
+  "teacher_manifest": "outputs/gemma4_e4b_aesthetic3_smoke/test_vila.jsonl",
+  "teacher_target_format": {
+    "rows": 36,
+    "valid_rate": 1.0
+  },
+  "status": "ok",
+  "predictions_jsonl": "outputs/gemma4_e4b_aesthetic3_smoke/evaluation_pass2b/predictions_all.jsonl",
+  "student_metrics": {
+    "matched_predictions": 36,
+    "format_compliance_rate": 0.972222,
+    "prefix_compliance_rate": 0.972222,
+    "role_separation_rate": 0.972222,
+    "mean_sequence_ratio": 0.427472,
+    "mean_token_f1": 0.2987,
+    "worst_examples": [
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__IMG_20240519_215827_510.jpg",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_20240519_215827_510.jpg",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "",
+        "sequence_ratio": 0.0,
+        "token_f1": 0.0,
+        "format_valid": false
+      },
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__20240506_120558.jpg",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240506_120558.jpg",
+        "teacher_comment_3line": "Strength: overall appeal.\nWeakness: detail clarity.\nVerdict: not selected because detail clarity undercuts overall appeal.",
+        "predicted_comment_3line": "Strength: The image captures a grand interior with detailed architectural elements and a large central painting.\nWeakness: The composition is heavily dominated by the architecture, making the central subject matter somewhat framed by the surrounding structure.\nVerdict: not selected because selection_state",
+        "sequence_ratio": 0.168224,
+        "token_f1": 0.214286,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__20240505_153023.jpg",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240505_153023.jpg",
+        "teacher_comment_3line": "Strength: overall appeal.\nWeakness: detail clarity.\nVerdict: not selected because detail clarity undercuts overall appeal.",
+        "predicted_comment_3line": "Strength: The image captures a dramatic perspective looking down a long, arched tunnel towards bright light.\nWeakness: The composition is heavily weighted towards the foreground and the subjects are positioned in a way that obstructs the view of the tunnel's full depth.\nVerdict: not selected because selection_state: not selected",
+        "sequence_ratio": 0.252212,
+        "token_f1": 0.1875,
+        "format_valid": true
+      }
+    ],
+    "best_examples": [
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__IMG_2781.JPG",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2781.JPG",
+        "teacher_comment_3line": "Strength: clear subject emphasis.\nWeakness: soft detail.\nVerdict: not selected because soft detail undercuts clear subject emphasis.",
+        "predicted_comment_3line": "Strength: Visible hand sculpture in water\nWeakness: Large amount of empty sky in the frame\nVerdict: not selected because not selected",
+        "sequence_ratio": 0.573585,
+        "token_f1": 0.315789,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__20250205_000515.jpg",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250205_000515.jpg",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "Strength: Clear view of numerous stars in the night sky\nWeakness: Silhouette obscures part of the scene\nVerdict: not selected because not selected",
+        "sequence_ratio": 0.529851,
+        "token_f1": 0.315789,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__1720499666985.jpg",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/1720499666985.jpg",
+        "teacher_comment_3line": "Strength: the seated subject reads clearly between the rock shapes.\nWeakness: the foreground photographer and watermark add distraction.\nVerdict: not selected because the foreground distraction weakens the frame despite the clear subject placement.",
+        "predicted_comment_3line": "Strength: The subject is clearly visible and centered within the frame.\nWeakness: The composition is heavily dominated by the surrounding rock formations.\nVerdict: not selected because not selected",
+        "sequence_ratio": 0.516854,
+        "token_f1": 0.459016,
+        "format_valid": true
+      }
+    ]
+  }
+}

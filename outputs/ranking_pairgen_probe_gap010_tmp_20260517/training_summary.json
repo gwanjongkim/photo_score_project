@@ -1,0 +1,91 @@
+{
+  "args": {
+    "batch_size": 4,
+    "epochs": 1,
+    "flive_pair_source_csv": "data/processed/flive/image_train.csv",
+    "freeze_backbone": true,
+    "init_weights": "outputs/mixed_replay_topiq_lite_112_frozen_e15_20260517/best.weights.h5",
+    "lr": 1e-05,
+    "make_pairs": true,
+    "max_pairs": 10000,
+    "max_steps_per_epoch": 1,
+    "max_val_samples": 64,
+    "min_pair_gap": 0.1,
+    "out_dir": "outputs/ranking_pairgen_probe_gap010_tmp_20260517",
+    "pair_batch_size": 4,
+    "pair_csv": "data/processed/topiq_replacement/flive_pairs_gap010_10k.csv",
+    "quick_flive_limit": 64,
+    "ranking_lambda": 0.2,
+    "regression_train_csv": "data/processed/topiq_replacement/mixed_112_train.csv",
+    "regression_val_csv": "data/processed/topiq_replacement/mixed_112_val.csv",
+    "seed": 42,
+    "target_col": "normalized_mos",
+    "tau": 0.1
+  },
+  "artifacts": {
+    "best_weights": "outputs/ranking_pairgen_probe_gap010_tmp_20260517/best.weights.h5",
+    "final_model": "outputs/ranking_pairgen_probe_gap010_tmp_20260517/final_model.keras",
+    "training_log": "outputs/ranking_pairgen_probe_gap010_tmp_20260517/training_log.csv",
+    "training_summary": "outputs/ranking_pairgen_probe_gap010_tmp_20260517/training_summary.json"
+  },
+  "best_epoch": 1,
+  "best_val_reg_loss": 0.0022671623155474663,
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python src/train/train_topiq_lite_ranking.py --make_pairs --flive_pair_source_csv data/processed/flive/image_train.csv --pair_csv data/processed/topiq_replacement/flive_pairs_gap010_10k.csv --regression_train_csv data/processed/topiq_replacement/mixed_112_train.csv --regression_val_csv data/processed/topiq_replacement/mixed_112_val.csv --target_col normalized_mos --batch_size 4 --pair_batch_size 4 --epochs 1 --lr 1e-5 --ranking_lambda 0.2 --tau 0.1 --min_pair_gap 0.10 --max_pairs 10000 --freeze_backbone --init_weights outputs/mixed_replay_topiq_lite_112_frozen_e15_20260517/best.weights.h5 --max_steps_per_epoch 1 --max_val_samples 64 --quick_flive_limit 64 --out_dir outputs/ranking_pairgen_probe_gap010_tmp_20260517",
+  "final_metrics": {
+    "epoch": 1,
+    "quick_flive_possible_mode_collapse": false,
+    "quick_flive_pred_std": 0.07943323254585266,
+    "quick_flive_val_srcc": 0.44569597069597067,
+    "rank_loss": 0.27035218477249146,
+    "reg_loss": 0.003563062986359,
+    "total_loss": 0.057633500546216965,
+    "val_reg_loss": 0.0022671623155474663,
+    "val_reg_loss_samples": 64
+  },
+  "final_quick_flive_val": {
+    "correlation_error": null,
+    "possible_mode_collapse": false,
+    "pred_max": 0.7805523872375488,
+    "pred_mean": 0.6914291381835938,
+    "pred_min": 0.3974834382534027,
+    "pred_std": 0.07943323254585266,
+    "sample_count": 64,
+    "source": "flive_subset",
+    "srcc": 0.44569597069597067,
+    "target_std": 0.05995842069387436
+  },
+  "pair_count": 10000,
+  "pair_summary": {
+    "min_gap": 0.1,
+    "not_enough_pairs": false,
+    "output_csv": "/home/omen_pc1/photo_score_project/data/processed/topiq_replacement/flive_pairs_gap010_10k.csv",
+    "pair_count": 10000,
+    "possible_pairs": 92904817,
+    "requested_max_pairs": 10000,
+    "seed": 42,
+    "source_csv": "/home/omen_pc1/photo_score_project/data/processed/flive/image_train.csv",
+    "source_rows": 31848
+  },
+  "train_csv": {
+    "csv_path": "/home/omen_pc1/photo_score_project/data/processed/topiq_replacement/mixed_112_train.csv",
+    "image_col": "image_path",
+    "row_count": 16384,
+    "target_col": "normalized_mos",
+    "target_max": 0.9300000071525574,
+    "target_mean": 0.6339408755302429,
+    "target_min": 0.03400000184774399,
+    "target_std": 0.16529132425785065,
+    "validated_paths": false
+  },
+  "val_csv": {
+    "csv_path": "/home/omen_pc1/photo_score_project/data/processed/topiq_replacement/mixed_112_val.csv",
+    "image_col": "image_path",
+    "row_count": 2048,
+    "target_col": "normalized_mos",
+    "target_max": 0.9053076505661011,
+    "target_mean": 0.6238111853599548,
+    "target_min": 0.04800000041723251,
+    "target_std": 0.17574390769004822,
+    "validated_paths": false
+  }
+}

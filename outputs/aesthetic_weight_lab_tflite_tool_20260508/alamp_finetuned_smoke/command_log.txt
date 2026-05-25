@@ -1,0 +1,18 @@
+created_at: 2026-05-08T22:28:07
+cwd: /home/omen_pc1/photo_score_project
+command: tools/aesthetic_weight_lab/run_aesthetic_weight_lab.py --input_dir /tmp/aesthetic_weight_lab_smoke --config configs/aesthetic_weight_lab_alamp_finetuned.yaml --output_dir outputs/aesthetic_weight_lab_tflite_tool_20260508/alamp_finetuned_smoke
+python: /home/omen_pc1/photo_score_project/.venv_gpu/bin/python
+python_version: 3.12.3
+config: /home/omen_pc1/photo_score_project/configs/aesthetic_weight_lab_alamp_finetuned.yaml
+input_dir: /tmp/aesthetic_weight_lab_smoke
+output_dir: /home/omen_pc1/photo_score_project/outputs/aesthetic_weight_lab_tflite_tool_20260508/alamp_finetuned_smoke
+recursive: False
+extensions: .jpeg,.jpg,.png,.webp
+num_threads: 1
+input_images_found: 1
+images_scored: 1
+image_failures: 0
+models:
+  - nima: /home/omen_pc1/photo_score_project/models/aesthetic/nima_mobile.tflite
+  - rgnet: /home/omen_pc1/photo_score_project/models/aesthetic/rgnet_aadb_gpu.tflite
+  - alamp: /home/omen_pc1/photo_score_project/models/aesthetic/alamp_ava_aadb_finetune.tflite

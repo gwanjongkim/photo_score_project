@@ -1,0 +1,251 @@
+{
+  "artifacts": {
+    "best_weights": "outputs/dryrun_alamp_multipatch_teacher_default_compat_20260525/best.weights.h5",
+    "final_model": "outputs/dryrun_alamp_multipatch_teacher_default_compat_20260525/final_model.keras",
+    "train_summary_json": "outputs/dryrun_alamp_multipatch_teacher_default_compat_20260525/train_summary.json",
+    "training_history": "outputs/dryrun_alamp_multipatch_teacher_default_compat_20260525/training_history.csv"
+  },
+  "backbone_trainable": false,
+  "best_val_auc": {
+    "epoch": 1,
+    "metric": "val_auc",
+    "mode": "max",
+    "value": 0.6666666269302368
+  },
+  "best_val_loss": {
+    "epoch": 1,
+    "metric": "val_loss",
+    "mode": "min",
+    "value": 1.9522721767425537
+  },
+  "class_weights": null,
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python /home/omen_pc1/photo_score_project/src/train/train_alamp_multipatch_teacher.py --config configs/paper_benchmarks/alamp_multipatch_teacher_ava.yaml --train_jsonl outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_train.jsonl --val_jsonl outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_val.jsonl --out_dir outputs/dryrun_alamp_multipatch_teacher_default_compat_20260525 --epochs 1 --batch_size 2 --max_train_samples 16 --max_val_samples 8 --backbone_trainable false",
+  "config": "configs/paper_benchmarks/alamp_multipatch_teacher_ava.yaml",
+  "dataset": {
+    "label_rule": "mean_score > 5.0 -> 1, else 0",
+    "label_threshold": 5.0,
+    "patch_box_role": "external A-LAMP adaptive patch selections, not ground-truth labels",
+    "patch_shape": [
+      5,
+      224,
+      224,
+      3
+    ],
+    "preprocessing_mode": "tf.keras.applications.vgg16.preprocess_input_rgb_float_pixels_0_255",
+    "test_label_summary": {
+      "label_rule": "mean_score > label_threshold when mean_score is present, else existing label",
+      "label_threshold": 5.0,
+      "negative": 7355,
+      "positive": 18090,
+      "total": 25445
+    },
+    "test_records_loaded": 25445,
+    "train_label_summary": {
+      "label_rule": "mean_score > label_threshold when mean_score is present, else existing label",
+      "label_threshold": 5.0,
+      "negative": 5,
+      "positive": 11,
+      "total": 16
+    },
+    "train_records_loaded": 16,
+    "val_label_summary": {
+      "label_rule": "mean_score > label_threshold when mean_score is present, else existing label",
+      "label_threshold": 5.0,
+      "negative": 2,
+      "positive": 6,
+      "total": 8
+    },
+    "val_records_loaded": 8
+  },
+  "experiment_name": "alamp_multipatch_teacher_ava",
+  "final_metrics": {
+    "accuracy": 0.5,
+    "auc": 0.40909090638160706,
+    "loss": 3.3939833641052246,
+    "precision": 0.6666666865348816,
+    "recall": 0.5454545617103577,
+    "val_accuracy": 0.5,
+    "val_auc": 0.6666666269302368,
+    "val_loss": 1.9522721767425537,
+    "val_precision": 1.0,
+    "val_recall": 0.3333333432674408
+  },
+  "gpu_memory_after_model_build": {
+    "GPU:0": {
+      "available": true,
+      "current_bytes": 63508992,
+      "peak_bytes": 86259712
+    }
+  },
+  "gpu_memory_after_training": {
+    "GPU:0": {
+      "available": true,
+      "current_bytes": 65611264,
+      "peak_bytes": 3030330624
+    }
+  },
+  "head_dropout": 0.5,
+  "head_layers": 1,
+  "head_units": 256,
+  "learning_rate": 0.0001,
+  "model": {
+    "capacity_config": {
+      "aggregation": "orderless mean features concatenated with orderless max features",
+      "backbone": "VGG16",
+      "backbone_trainable": false,
+      "backbone_weights": "imagenet",
+      "description": "VGG16 shared-patch Multi-Patch teacher with orderless mean+max aggregation",
+      "dropout_rate": 0.5,
+      "head_dropout": 0.5,
+      "head_layers": 1,
+      "head_units": 256,
+      "model_variant": "A-LAMP Multi-Patch teacher baseline",
+      "patch_count": 5,
+      "patch_feature": "VGG16 include_top=False + GlobalAveragePooling2D",
+      "patch_feature_dim": 512,
+      "patch_feature_dim_requested": 512,
+      "patch_projection_mode": "gap",
+      "patch_size": 224,
+      "reproduction_claim": "not full A-LAMP reproduction",
+      "unfreeze_from_layer": null
+    },
+    "description": "VGG16 shared-patch Multi-Patch teacher with orderless mean+max aggregation",
+    "input_shapes": {
+      "patches": [
+        null,
+        5,
+        224,
+        224,
+        3
+      ]
+    },
+    "name": "alamp_multipatch_teacher",
+    "non_trainable_parameter_count": 14714688,
+    "output_shape": [
+      null,
+      1
+    ],
+    "parameter_count": 14977345,
+    "reproduction_claim": "not full A-LAMP reproduction",
+    "trainable_parameter_count": 262657,
+    "variant": "A-LAMP Multi-Patch teacher baseline",
+    "vgg16_trainability": {
+      "backbone_name": "vgg16_backbone",
+      "frozen_layer_count": 19,
+      "frozen_layers": [
+        "input_layer",
+        "block1_conv1",
+        "block1_conv2",
+        "block1_pool",
+        "block2_conv1",
+        "block2_conv2",
+        "block2_pool",
+        "block3_conv1",
+        "block3_conv2",
+        "block3_conv3",
+        "block3_pool",
+        "block4_conv1",
+        "block4_conv2",
+        "block4_conv3",
+        "block4_pool",
+        "block5_conv1",
+        "block5_conv2",
+        "block5_conv3",
+        "block5_pool"
+      ],
+      "model_non_trainable_weight_count": 26,
+      "model_trainable_weight_count": 4,
+      "trainable": false,
+      "trainable_layer_count": 0,
+      "trainable_layers": []
+    }
+  },
+  "model_description": "VGG16 shared-patch Multi-Patch teacher with orderless mean+max aggregation",
+  "model_variant": "A-LAMP Multi-Patch teacher baseline",
+  "notice": "A-LAMP Multi-Patch teacher baseline, not full A-LAMP reproduction.",
+  "official_full_alamp_reproduction": false,
+  "out_dir": "outputs/dryrun_alamp_multipatch_teacher_default_compat_20260525",
+  "patch_feature_dim": 512,
+  "patch_feature_dim_requested": 512,
+  "patch_projection_mode": "gap",
+  "reproduction_claim": "not full A-LAMP reproduction",
+  "save_load_max_abs_diff": 0.0,
+  "status": "training_completed",
+  "steps_per_epoch": 8,
+  "tensorflow_info": {
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.21.0",
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ]
+  },
+  "test_jsonl": "outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_test.jsonl",
+  "total_parameter_count": 14977345,
+  "train_count": 16,
+  "train_jsonl": "outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_train.jsonl",
+  "trainable_parameter_count": 262657,
+  "training": {
+    "backbone_trainable": false,
+    "batch_size": 2,
+    "class_weights": null,
+    "epochs": 1,
+    "head_dropout": 0.5,
+    "head_layers": 1,
+    "head_units": 256,
+    "learning_rate": 0.0001,
+    "loss": "binary_crossentropy",
+    "max_test_samples": null,
+    "max_train_samples": 16,
+    "max_val_samples": 8,
+    "metrics": [
+      "accuracy",
+      "auc",
+      "precision",
+      "recall"
+    ],
+    "monitor_metric": "val_auc",
+    "monitor_mode": "max",
+    "patch_feature_dim": 512,
+    "patch_feature_dim_requested": 512,
+    "patch_projection_mode": "gap",
+    "seed": 42,
+    "steps_per_epoch": 8,
+    "train_count": 16,
+    "train_repeat": true,
+    "unfreeze_from_layer": null,
+    "use_class_weights": false,
+    "val_count": 8,
+    "val_repeat": true,
+    "validation_steps": 4
+  },
+  "unfreeze_from_layer": null,
+  "use_class_weights": false,
+  "val_balanced_accuracy_at_0_5": 0.6666666666666666,
+  "val_count": 8,
+  "val_jsonl": "outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_val.jsonl",
+  "val_pred_positive_ratio_at_0_5": 0.25,
+  "val_specificity_at_0_5": 1.0,
+  "validation_prediction_metrics": {
+    "accuracy_at_0_5": 0.5,
+    "actual_positive_ratio": 0.75,
+    "balanced_accuracy_at_0_5": 0.6666666666666666,
+    "confusion_matrix_at_0_5": {
+      "fn": 4,
+      "fp": 0,
+      "tn": 2,
+      "tp": 2
+    },
+    "f1_at_0_5": 0.5,
+    "precision_at_0_5": 1.0,
+    "pred_max": 0.9057823419570923,
+    "pred_mean": 0.2724006772041321,
+    "pred_min": 0.0005297652096487582,
+    "pred_positive_ratio_at_0_5": 0.25,
+    "pred_std": 0.3066369593143463,
+    "recall_at_0_5": 0.3333333333333333,
+    "sample_count": 8,
+    "specificity_at_0_5": 1.0,
+    "threshold": 0.5
+  },
+  "validation_steps": 4
+}

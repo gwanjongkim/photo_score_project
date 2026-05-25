@@ -1,0 +1,15 @@
+{
+  "selector_name": "v4_1024_gpu",
+  "model_variant": "A-LAMP-paper-MPNet",
+  "official_reproduction": false,
+  "label_rule": "paper_strict",
+  "epochs_completed": 8,
+  "best_val_loss": 0.5855762958526611,
+  "save_load_max_diff": 0.0,
+  "tensorflow_info": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "tensorflow_version": "2.20.0"
+  }
+}

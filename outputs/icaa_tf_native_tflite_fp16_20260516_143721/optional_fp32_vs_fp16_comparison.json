@@ -1,0 +1,48 @@
+{
+  "fp32_reference_tflite_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp32_20260516_140027/icaa_dat_tf_native_fp32.tflite",
+  "fp16_tflite_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp16_20260516_143721/icaa_dat_tf_native_fp16.tflite",
+  "results": [
+    {
+      "name": "random_normalized_input",
+      "status": "pass_acceptable",
+      "pass_preferred": false,
+      "pass_acceptable": true,
+      "hard_color_fail": false,
+      "full_max_abs_diff": 0.0007465779781341553,
+      "full_mean_abs_diff": 0.0004481375217437744,
+      "mos_max_abs_diff": 0.0007465779781341553,
+      "mos_mean_abs_diff": 0.0007465779781341553,
+      "color_max_abs_diff": 0.00014969706535339355,
+      "color_mean_abs_diff": 0.00014969706535339355,
+      "reference_shape": [
+        1,
+        2
+      ],
+      "candidate_shape": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "16_real_images",
+      "status": "fail",
+      "pass_preferred": false,
+      "pass_acceptable": false,
+      "hard_color_fail": true,
+      "full_max_abs_diff": 0.026026427745819092,
+      "full_mean_abs_diff": 0.007339154370129108,
+      "mos_max_abs_diff": 0.026026427745819092,
+      "mos_mean_abs_diff": 0.008149752393364906,
+      "color_max_abs_diff": 0.02443861961364746,
+      "color_mean_abs_diff": 0.0065285563468933105,
+      "reference_shape": [
+        16,
+        2
+      ],
+      "candidate_shape": [
+        16,
+        2
+      ]
+    }
+  ]
+}

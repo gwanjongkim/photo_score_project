@@ -1,0 +1,28 @@
+{
+  "graph_jsonl": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/test_graphs_4096.jsonl",
+  "graph_records": 4096,
+  "id_basis": "filename stem from graph image_path matched to patch image_id or patch image_path stem",
+  "matched_patch_records": 4081,
+  "patch_jsonl": "outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_test.jsonl",
+  "patch_rows_scanned": 25445,
+  "subset_jsonl": "outputs/alamp_dual_branch_4096_comparison_20260524/multipatch_test_4096_matched.jsonl",
+  "unique_graph_ids": 4096,
+  "unmatched_graph_id_examples": [
+    "10428",
+    "10430",
+    "105123",
+    "415048",
+    "674308",
+    "676743",
+    "918754",
+    "923062",
+    "929407",
+    "931540",
+    "933430",
+    "937521",
+    "938593",
+    "941988",
+    "97009"
+  ],
+  "unmatched_graph_ids": 15
+}

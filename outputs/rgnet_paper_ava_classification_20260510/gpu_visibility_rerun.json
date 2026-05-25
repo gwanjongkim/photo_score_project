@@ -1,0 +1,8 @@
+{
+  "created_at_local": "2026-05-10T22:20:39.233356+09:00",
+  "python": "./.venv_gpu/bin/python",
+  "tensorflow_version": "2.20.0",
+  "visible_gpus": [
+    "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+  ]
+}

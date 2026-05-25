@@ -1,0 +1,172 @@
+{
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_official_eval_20260514_141732",
+  "csv_path": "/home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/dataset/ICAA17K/1test.csv",
+  "image_root": "/home/omen_pc1/photo_score_project/data/raw/icaa17k",
+  "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+  "device": "cpu",
+  "batch_size": 8,
+  "num_workers": 0,
+  "limit": 16,
+  "csv_rows_read": 16,
+  "evaluable_images": 16,
+  "missing_image_rows_skipped": 0,
+  "first_missing_image_ids": [],
+  "model_config": {
+    "img_size": 224,
+    "patch_size": 4,
+    "num_classes": 1,
+    "expansion": 4,
+    "dim_stem": 128,
+    "dims": [
+      128,
+      256,
+      512,
+      1024
+    ],
+    "depths": [
+      2,
+      2,
+      18,
+      2
+    ],
+    "stage_spec": [
+      [
+        "L",
+        "S"
+      ],
+      [
+        "L",
+        "S"
+      ],
+      [
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D"
+      ],
+      [
+        "L",
+        "D"
+      ]
+    ],
+    "heads": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "window_sizes": [
+      7,
+      7,
+      7,
+      7
+    ],
+    "groups": [
+      -1,
+      -1,
+      4,
+      8
+    ],
+    "use_pes": [
+      false,
+      false,
+      true,
+      true
+    ],
+    "dwc_pes": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "strides": [
+      -1,
+      -1,
+      1,
+      1
+    ],
+    "sr_ratios": [
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "offset_range_factor": [
+      -1,
+      -1,
+      2,
+      2
+    ],
+    "no_offs": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "fixed_pes": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "use_dwc_mlps": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "use_conv_patches": false,
+    "drop_rate": 0.0,
+    "attn_drop_rate": 0.0,
+    "drop_path_rate": 0.5
+  },
+  "checkpoint": {
+    "key_count": 487,
+    "patch_proj_0_weight_shape": [
+      128,
+      3,
+      4,
+      4
+    ],
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "strict_load": true
+  },
+  "color_metrics": {
+    "srcc": 0.8088235294117647,
+    "plcc": 0.933536181874238,
+    "mae": 0.022100087255239487,
+    "rmse": 0.03071730211377144,
+    "accuracy_at_0_5": 1.0
+  },
+  "mos_metrics": {
+    "srcc": 0.9441176470588235,
+    "plcc": 0.9730370495548002,
+    "mae": 0.02445129305124283,
+    "rmse": 0.028589755296707153
+  },
+  "filename_targets": {
+    "color_accuracy": 0.9622,
+    "color_srcc": 0.8811,
+    "color_plcc": 0.8981
+  },
+  "filename_target_delta": {
+    "color_accuracy": 0.037799999999999945,
+    "color_srcc": -0.07227647058823528,
+    "color_plcc": 0.035436181874238026
+  }
+}

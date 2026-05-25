@@ -1,0 +1,21 @@
+Output directory: /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp16_20260516_144023
+SavedModel path: /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_134439/saved_model
+FP32 TFLite reference: /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp32_20260516_140027/icaa_dat_tf_native_fp32.tflite
+Loading SavedModel
+SavedModel serving keys: inputs=[(), {'image': TensorSpec(shape=(None, 224, 224, 3), dtype=tf.float32, name='image')}], outputs=['scores']
+Converting SavedModel to FP16 TFLite with fixed shape [1, 224, 224, 3]
+Builtin FP16 TFLite conversion succeeded.
+FP16 TFLite model saved to /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp16_20260516_144023/icaa_dat_tf_native_fp16.tflite
+FP32 size: 350915988 bytes; FP16 size: 175885416 bytes; reduction: 49.88%
+Creating FP16 TFLite Interpreter
+Allocating FP16 TFLite tensors
+FP16 input details: [{'name': 'serving_default_image:0', 'index': 0, 'shape': [1, 224, 224, 3], 'shape_signature': [1, 224, 224, 3], 'dtype': 'float32', 'quantization': (0.0, 0), 'quantization_parameters': {'scales': [], 'zero_points': [], 'quantized_dimension': 0, 'block_size': 0}}]
+FP16 output details: [{'name': 'StatefulPartitionedCall:0', 'index': 4763, 'shape': [1, 2], 'shape_signature': [1, 2], 'dtype': 'float32', 'quantization': (0.0, 0), 'quantization_parameters': {'scales': [], 'zero_points': [], 'quantized_dimension': 0, 'block_size': 0}}]
+Running FP16 invoke smoke and input sensitivity probe
+Input sensitivity zero_vs_one=0.0111826956, zero_vs_random=0.0510937572, random_vs_real=0.448753238
+Creating FP32 reference TFLite Interpreter
+Running parity checks
+random_normalized_input: SavedModel-vs-FP16 pass_acceptable full_max=0.000491708517; FP32-vs-FP16 pass_acceptable full_max=0.00049161911
+16_real_images: SavedModel-vs-FP16 pass_acceptable full_max=0.00079870224; FP32-vs-FP16 pass_acceptable full_max=0.000798523426
+Running optional 64-real-image parity check
+64_real_images: SavedModel-vs-FP16 pass_acceptable full_max=0.0025883317; FP32-vs-FP16 pass_acceptable full_max=0.00258821249

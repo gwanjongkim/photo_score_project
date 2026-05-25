@@ -1,0 +1,69 @@
+{
+  "status": "batch_submitted",
+  "submitted_at_unix": 1777373469.0750449,
+  "model": "gemini-2.5-flash",
+  "request_count": 20,
+  "batch_requests_jsonl": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/experiment_a_flash_20/gemini_batch_requests_experiment_a_flash_20_20260427.jsonl",
+  "uploaded_file": {
+    "name": "files/f53nig6qpzuz",
+    "displayName": "gemini-teacher-highspec-compare-a-flash-20",
+    "mimeType": "application/jsonl",
+    "sizeBytes": "4594341",
+    "createTime": "2026-04-28T10:51:05.618711Z",
+    "updateTime": "2026-04-28T10:51:05.618711Z",
+    "expirationTime": "2026-04-30T10:51:04.103276450Z",
+    "sha256Hash": "YzhkMTBlNmNlM2Q0ODFiNjQxMGE2ZTU2NzcyZDNjZTk5ZTRlZDAyM2MwOGFlY2NiMjA3Yjc3MzVkYjdhNGY3Yw==",
+    "uri": "https://generativelanguage.googleapis.com/v1beta/files/f53nig6qpzuz",
+    "state": "ACTIVE",
+    "source": "UPLOADED"
+  },
+  "batch_job": {
+    "name": "batches/fo7qbtev550velvorbsck76d1a6s6mdpkkbz",
+    "metadata": {
+      "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.GenerateContentBatch",
+      "model": "models/gemini-2.5-flash",
+      "displayName": "gemini-teacher-highspec-compare-a-flash-20",
+      "inputConfig": {
+        "fileName": "files/f53nig6qpzuz"
+      },
+      "createTime": "2026-04-28T10:51:06.843993990Z",
+      "updateTime": "2026-04-28T10:51:06.843993990Z",
+      "batchStats": {
+        "requestCount": "20",
+        "pendingRequestCount": "20"
+      },
+      "state": "BATCH_STATE_PENDING",
+      "name": "batches/fo7qbtev550velvorbsck76d1a6s6mdpkkbz"
+    }
+  },
+  "batch_job_name": "batches/fo7qbtev550velvorbsck76d1a6s6mdpkkbz",
+  "batch_state": "BATCH_STATE_SUCCEEDED",
+  "latest_status": {
+    "name": "batches/fo7qbtev550velvorbsck76d1a6s6mdpkkbz",
+    "metadata": {
+      "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.GenerateContentBatch",
+      "model": "models/gemini-2.5-flash",
+      "displayName": "gemini-teacher-highspec-compare-a-flash-20",
+      "inputConfig": {
+        "fileName": "files/f53nig6qpzuz"
+      },
+      "output": {
+        "responsesFile": "files/batch-fo7qbtev550velvorbsck76d1a6s6mdpkkbz"
+      },
+      "createTime": "2026-04-28T10:51:06.843993990Z",
+      "endTime": "2026-04-28T14:51:12.734264390Z",
+      "updateTime": "2026-04-28T14:51:12.734264350Z",
+      "batchStats": {
+        "requestCount": "20",
+        "successfulRequestCount": "20"
+      },
+      "state": "BATCH_STATE_SUCCEEDED",
+      "name": "batches/fo7qbtev550velvorbsck76d1a6s6mdpkkbz"
+    },
+    "done": true,
+    "response": {
+      "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.GenerateContentBatchOutput",
+      "responsesFile": "files/batch-fo7qbtev550velvorbsck76d1a6s6mdpkkbz"
+    }
+  }
+}

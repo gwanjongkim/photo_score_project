@@ -1,0 +1,195 @@
+{
+  "status": "ok",
+  "command_used": "python experiments/icaa_tf_native/scripts/stage_b_basic_layer_parity.py",
+  "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_b_20260515_174854",
+  "report_path": "/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/reports/stage_b_basic_layer_parity.md",
+  "seed": 123,
+  "thresholds": {
+    "preferred_max_abs_diff": 1e-05,
+    "acceptable_max_abs_diff": 0.0001
+  },
+  "results": {
+    "conv2d": {
+      "name": "Conv2D patch projection",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 4.76837158203125e-07,
+      "mean_abs_diff": 5.034915062651635e-08,
+      "torch_output_shape": [
+        2,
+        128,
+        4,
+        5
+      ],
+      "tf_output_shape": [
+        2,
+        128,
+        4,
+        5
+      ],
+      "thresholds": {
+        "preferred_max_abs_diff": 1e-05,
+        "acceptable_max_abs_diff": 0.0001
+      },
+      "likely_cause_if_failed": null,
+      "notes": [
+        "checkpoint tensors: patch_proj.0.weight, patch_proj.0.bias",
+        "mapping: PyTorch [out_c,in_c,kH,kW] -> TF [kH,kW,in_c,out_c]",
+        "input layout: PyTorch NCHW -> TF NHWC -> compare as NCHW"
+      ]
+    },
+    "dense": {
+      "name": "Dense hst_head",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 5.960464477539062e-07,
+      "mean_abs_diff": 1.304013323988329e-07,
+      "torch_output_shape": [
+        4,
+        36
+      ],
+      "tf_output_shape": [
+        4,
+        36
+      ],
+      "thresholds": {
+        "preferred_max_abs_diff": 1e-05,
+        "acceptable_max_abs_diff": 0.0001
+      },
+      "likely_cause_if_failed": null,
+      "notes": [
+        "checkpoint tensors: hst_head.weight, hst_head.bias",
+        "mapping: PyTorch Linear [out_features,in_features] -> TF Dense [in_features,out_features]",
+        "bias direct copy"
+      ]
+    },
+    "layernorm": {
+      "name": "LayerNormProxy channel LayerNorm",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 7.152557373046875e-07,
+      "mean_abs_diff": 2.192746784146493e-08,
+      "torch_output_shape": [
+        2,
+        128,
+        5,
+        7
+      ],
+      "tf_output_shape": [
+        2,
+        128,
+        5,
+        7
+      ],
+      "thresholds": {
+        "preferred_max_abs_diff": 1e-05,
+        "acceptable_max_abs_diff": 0.0001
+      },
+      "likely_cause_if_failed": null,
+      "notes": [
+        "checkpoint tensors: stages.0.layer_norms.0.norm.weight, stages.0.layer_norms.0.norm.bias",
+        "LayerNormProxy evidence: NCHW -> NHWC, channel-only LayerNorm axis=-1, NHWC -> NCHW",
+        "epsilon: 1e-5 to match torch.nn.LayerNorm default"
+      ]
+    },
+    "gelu": {
+      "name": "GELU",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 2.384185791015625e-07,
+      "mean_abs_diff": 3.880460397454044e-08,
+      "torch_output_shape": [
+        3,
+        7,
+        11
+      ],
+      "tf_output_shape": [
+        3,
+        7,
+        11
+      ],
+      "thresholds": {
+        "preferred_max_abs_diff": 1e-05,
+        "acceptable_max_abs_diff": 0.0001
+      },
+      "likely_cause_if_failed": null,
+      "notes": [
+        "No checkpoint tensor is used for GELU because it is parameter-free.",
+        "PyTorch DAT uses nn.GELU() default semantics, so TensorFlow modes are compared against PyTorch default GELU.",
+        "Chosen mode: exact"
+      ],
+      "chosen_mode": "exact",
+      "mode_comparison": {
+        "exact": {
+          "max_abs_diff": 2.384185791015625e-07,
+          "mean_abs_diff": 3.880460397454044e-08,
+          "pass": true
+        },
+        "tanh_approximate": {
+          "max_abs_diff": 0.0003943443298339844,
+          "mean_abs_diff": 9.14006814127788e-05,
+          "pass": false
+        }
+      }
+    },
+    "mlp": {
+      "name": "Isolated TransformerMLP linear1-GELU-linear2",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 9.5367431640625e-07,
+      "mean_abs_diff": 2.0777879683464562e-07,
+      "torch_output_shape": [
+        2,
+        5,
+        128
+      ],
+      "tf_output_shape": [
+        2,
+        5,
+        128
+      ],
+      "thresholds": {
+        "preferred_max_abs_diff": 1e-05,
+        "acceptable_max_abs_diff": 0.0001
+      },
+      "likely_cause_if_failed": null,
+      "notes": [
+        "checkpoint tensors: stages.0.mlps.0.chunk.linear1.{weight,bias}, stages.0.mlps.0.chunk.linear2.{weight,bias}",
+        "tested isolated Linear -> GELU -> Linear path only; dropout is inactive and no spatial rearrange is included",
+        "PyTorch GELU mode: default; TensorFlow GELU mode: exact"
+      ]
+    }
+  },
+  "safe_to_proceed_to_stage_c_patch_projection_parity": true,
+  "unresolved_issues": [],
+  "warnings": [
+    "stage_b_basic_layer_parity.py:48: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature."
+  ],
+  "errors": [],
+  "json_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_b_20260515_174854/stage_b_basic_layer_parity_report.json",
+  "log_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_b_20260515_174854/stage_b_basic_layer_parity_log.txt",
+  "captured_output": [
+    "checkpoint path: /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+    "state_dict confirmation: checkpoint object is an OrderedDict state_dict",
+    "checkpoint tensor count: 487",
+    "torch version: 2.5.1+cu121",
+    "tensorflow version: 2.21.0",
+    "numpy version: 1.26.4",
+    "Conv2D patch projection: status=pass_preferred max_abs_diff=4.76837158e-07 mean_abs_diff=5.03491506e-08 torch_shape=[2, 128, 4, 5] tf_shape=[2, 128, 4, 5]",
+    "Dense hst_head: status=pass_preferred max_abs_diff=5.96046448e-07 mean_abs_diff=1.30401332e-07 torch_shape=[4, 36] tf_shape=[4, 36]",
+    "LayerNormProxy channel LayerNorm: status=pass_preferred max_abs_diff=7.15255737e-07 mean_abs_diff=2.19274678e-08 torch_shape=[2, 128, 5, 7] tf_shape=[2, 128, 5, 7]",
+    "GELU: status=pass_preferred max_abs_diff=2.38418579e-07 mean_abs_diff=3.8804604e-08 torch_shape=[3, 7, 11] tf_shape=[3, 7, 11]",
+    "Isolated TransformerMLP linear1-GELU-linear2: status=pass_preferred max_abs_diff=9.53674316e-07 mean_abs_diff=2.07778797e-07 torch_shape=[2, 5, 128] tf_shape=[2, 5, 128]"
+  ]
+}

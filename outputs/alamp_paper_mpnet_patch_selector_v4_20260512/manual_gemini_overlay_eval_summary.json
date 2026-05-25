@@ -1,0 +1,20 @@
+{
+  "A_count": 45,
+  "B_count": 5,
+  "C_count": 0,
+  "acceptable_count": 50,
+  "fail_count": 0,
+  "acceptance_rate": 1.0,
+  "fail_type_counts": {
+    "none": 50
+  },
+  "batch_results": [
+    {"batch": 1, "A": 10, "B": 0, "C": 0, "status": "pass"},
+    {"batch": 2, "A": 9, "B": 1, "C": 0, "status": "pass"},
+    {"batch": 3, "A": 8, "B": 2, "C": 0, "status": "pass"},
+    {"batch": 4, "A": 9, "B": 1, "C": 0, "status": "pass"},
+    {"batch": 5, "A": 9, "B": 1, "C": 0, "status": "pass"}
+  ],
+  "final_decision": "pass_mpnet_training_gate",
+  "short_interpretation": "Selector V4 component-aware strategy is highly effective. All 50 sampled images provided good or acceptable subject coverage and diversity, exceeding the required gate of 40/50."
+}

@@ -1,0 +1,81 @@
+{
+  "teacher_manifest": "outputs/gemma4_e4b_aesthetic3_expanded_20260427/test_vila.jsonl",
+  "teacher_target_format": {
+    "rows": 36,
+    "valid_rate": 1.0
+  },
+  "status": "ok",
+  "predictions_jsonl": "outputs/gemma4_e4b_aesthetic3_expanded_20260427/evaluation/predictions_test_vila.jsonl",
+  "student_metrics": {
+    "matched_predictions": 36,
+    "format_compliance_rate": 0.972222,
+    "prefix_compliance_rate": 0.972222,
+    "role_separation_rate": 0.972222,
+    "mean_sequence_ratio": 0.199749,
+    "mean_token_f1": 0.143651,
+    "worst_examples": [
+      {
+        "id": "test_vila_sanity_previous_pass__test_vila__IMG_20240519_215827_510.jpg__d7932244",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_20240519_215827_510.jpg",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "",
+        "sequence_ratio": 0.0,
+        "token_f1": 0.0,
+        "format_valid": false
+      },
+      {
+        "id": "test_vila_sanity_previous_pass__test_vila__20250204_174237_0_.jpg__29510ecf",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_174237(0).jpg",
+        "teacher_comment_3line": "Strength: layered cloud texture and warm sunset color.\nWeakness: the person sits very small at the bottom edge.\nVerdict: selected because the dramatic sky and sunset color carry the frame despite the small subject.",
+        "predicted_comment_3line": "Strength:The composition is balanced with the sky and beach elements.\nWeakness:The horizon line is slightly low, which can make the foreground feel empty.\nVerdict:selected because the composition is balanced with the sky and beach elements.",
+        "sequence_ratio": 0.057269,
+        "token_f1": 0.231884,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_sanity_previous_pass__test_vila__IMG_2748.JPG__47f0827d",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2748.JPG",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "Strength:The image captures a vibrant street scene with illuminated signs and architectural details.\nWeakness:The composition is heavily divided, with a large dark area dominating the lower half of the frame.\nVerdict:not selected because the large dark area dominates the lower half of the frame.",
+        "sequence_ratio": 0.066986,
+        "token_f1": 0.067797,
+        "format_valid": true
+      }
+    ],
+    "best_examples": [
+      {
+        "id": "test_vila_sanity_previous_pass__test_vila__20231231_150055.jpg__35614917",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20231231_150055.jpg",
+        "teacher_comment_3line": "Strength: clear face detail and a lively expression.\nWeakness: the gray background feels flat.\nVerdict: selected because the clear face detail and expression carry the frame despite the flat background.",
+        "predicted_comment_3line": "Strength:The subject is well-lit and the composition is engaging.\nWeakness:The background is somewhat distracting.\nVerdict:selected because the subject is well-lit and the composition is engaging.",
+        "sequence_ratio": 0.522613,
+        "token_f1": 0.254545,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_sanity_previous_pass__test_vila__20240510_213907.jpg__6f406942",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240510_213907.jpg",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "Strength:The subject is well-lit and in focus.\nWeakness:The composition is cluttered with multiple subjects.\nVerdict:not selected becauseThe composition is cluttered with multiple subjects.",
+        "sequence_ratio": 0.495177,
+        "token_f1": 0.052632,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_sanity_previous_pass__test_vila__1720499657653.jpg__eb28bd20",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/1720499657653.jpg",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "Strength:The subject is well-lit and centered in the frame.\nWeakness:The background is cluttered with many elements.\nVerdict:not selected becauseThe background is cluttered with many elements.",
+        "sequence_ratio": 0.484076,
+        "token_f1": 0.05,
+        "format_valid": true
+      }
+    ]
+  }
+}

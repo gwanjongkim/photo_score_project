@@ -1,0 +1,180 @@
+{
+  "created_at": "2026-05-08T22:27:58",
+  "config_path": "/home/omen_pc1/photo_score_project/configs/aesthetic_weight_lab.yaml",
+  "input_dir": "/tmp/aesthetic_weight_lab_smoke",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/aesthetic_weight_lab_tflite_tool_20260508/baseline_smoke",
+  "models": [
+    {
+      "model_id": "nima",
+      "display_name": "NIMA",
+      "type": "nima_distribution",
+      "model_path": "/home/omen_pc1/photo_score_project/models/aesthetic/nima_mobile.tflite",
+      "score_column": "nima_score"
+    },
+    {
+      "model_id": "rgnet",
+      "display_name": "RGNet",
+      "type": "scalar_tflite",
+      "model_path": "/home/omen_pc1/photo_score_project/models/aesthetic/rgnet_aadb_gpu.tflite",
+      "score_column": "rgnet_score"
+    },
+    {
+      "model_id": "alamp",
+      "display_name": "A-LAMP",
+      "type": "alamp_signature",
+      "model_path": "/home/omen_pc1/photo_score_project/models/aesthetic/alamp_aadb_gpu.tflite",
+      "score_column": "alamp_score"
+    }
+  ],
+  "weights": {
+    "nima": 0.34,
+    "rgnet": 0.33,
+    "alamp": 0.33
+  },
+  "rows": [
+    {
+      "image_path": "/tmp/aesthetic_weight_lab_smoke/synthetic_smoke.jpg",
+      "image_name": "synthetic_smoke.jpg",
+      "width": 320,
+      "height": 240,
+      "model_details": {
+        "nima": {
+          "expected_score_1_to_10": 5.837991714477539,
+          "distribution_sum": 0.9999999403953552,
+          "distribution": [
+            0.012014434672892094,
+            0.020136067643761635,
+            0.04109291732311249,
+            0.11451516300439835,
+            0.2453516274690628,
+            0.24630482494831085,
+            0.15393933653831482,
+            0.10362683981657028,
+            0.036999594420194626,
+            0.026019245386123657
+          ],
+          "raw_distribution": [
+            0.012014433741569519,
+            0.020136065781116486,
+            0.04109291359782219,
+            0.11451515555381775,
+            0.2453516125679016,
+            0.24630481004714966,
+            0.15393932163715363,
+            0.10362683236598969,
+            0.03699959069490433,
+            0.026019243523478508
+          ]
+        },
+        "rgnet": {
+          "raw_output": [
+            [
+              0.5119963884353638
+            ]
+          ]
+        },
+        "alamp": {
+          "global_size": 384,
+          "patch_size": 224,
+          "patch_count": 5,
+          "patch_boxes": [
+            {
+              "box_xyxy": [
+                128,
+                132,
+                192,
+                196
+              ],
+              "box_yxyx_normalized": [
+                0.55,
+                0.4,
+                0.8166666666666667,
+                0.6
+              ],
+              "selection_score": 0.08859999477863312,
+              "source": "adaptive_saliency_like"
+            },
+            {
+              "box_xyxy": [
+                192,
+                88,
+                256,
+                152
+              ],
+              "box_yxyx_normalized": [
+                0.36666666666666664,
+                0.6,
+                0.6333333333333333,
+                0.8
+              ],
+              "selection_score": 0.07611604034900665,
+              "source": "adaptive_saliency_like"
+            },
+            {
+              "box_xyxy": [
+                192,
+                132,
+                256,
+                196
+              ],
+              "box_yxyx_normalized": [
+                0.55,
+                0.6,
+                0.8166666666666667,
+                0.8
+              ],
+              "selection_score": 0.07609038800001144,
+              "source": "adaptive_saliency_like"
+            },
+            {
+              "box_xyxy": [
+                64,
+                132,
+                128,
+                196
+              ],
+              "box_yxyx_normalized": [
+                0.55,
+                0.2,
+                0.8166666666666667,
+                0.4
+              ],
+              "selection_score": 0.0680096223950386,
+              "source": "adaptive_saliency_like"
+            },
+            {
+              "box_xyxy": [
+                103,
+                127,
+                217,
+                240
+              ],
+              "box_yxyx_normalized": [
+                0.5275000000000001,
+                0.32281250000000006,
+                1.0,
+                0.6771874999999999
+              ],
+              "selection_score": 0.05232934281229973,
+              "source": "adaptive_saliency_like"
+            }
+          ],
+          "raw_output": [
+            [
+              0.4750898778438568
+            ]
+          ]
+        }
+      },
+      "model_errors": [],
+      "nima_score": 0.5375546349419488,
+      "rgnet_score": 0.5119963884353638,
+      "alamp_score": 0.4750898778438568,
+      "final_score": 0.5085070437524054,
+      "rank": 1,
+      "thumbnail_path": "thumbs/0001_synthetic_smoke.jpg",
+      "copied_image_path": "copied_images/0001_synthetic_smoke.jpg"
+    }
+  ],
+  "failures": []
+}

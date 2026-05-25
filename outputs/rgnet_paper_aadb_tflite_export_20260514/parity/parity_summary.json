@@ -1,0 +1,72 @@
+{
+  "created_at": "2026-05-14T12:00:51.737472+09:00",
+  "keras_model": "outputs/rgnet_paper_v1_ablation_full_candidates_20260510/full_train/agg_mean_full/final_model.keras",
+  "fp32_tflite": "models/aesthetic/rgnet_paper_aadb_fp32.tflite",
+  "fp16_tflite": "models/aesthetic/rgnet_paper_aadb_fp16.tflite",
+  "sample_count": 64,
+  "image_source": "manifest:data/processed/aadb/val.csv",
+  "keras_pred_mean": 0.4168272316455841,
+  "keras_pred_std": 0.11254776269197464,
+  "keras_pred_min": 0.15222197771072388,
+  "keras_pred_max": 0.7463629245758057,
+  "fp32_max_abs_diff": 4.470348358154297e-07,
+  "fp32_mean_abs_diff": 1.0058283805847168e-07,
+  "fp16_max_abs_diff": 0.0005260109901428223,
+  "fp16_mean_abs_diff": 0.00012910855002701283,
+  "fp32": {
+    "max_abs_diff": 4.470348358154297e-07,
+    "mean_abs_diff": 1.0058283805847168e-07,
+    "pearson_correlation": 0.9999999999993422,
+    "spearman_correlation": 0.9999999999999998,
+    "ranking_agreement": 1.0
+  },
+  "fp16": {
+    "max_abs_diff": 0.0005260109901428223,
+    "mean_abs_diff": 0.00012910855002701283,
+    "pearson_correlation": 0.9999988285730461,
+    "spearman_correlation": 0.9999084249084248,
+    "ranking_agreement": 0.9990079365079365
+  },
+  "pearson_correlation": {
+    "fp32": 0.9999999999993422,
+    "fp16": 0.9999988285730461
+  },
+  "spearman_correlation": {
+    "fp32": 0.9999999999999998,
+    "fp16": 0.9999084249084248
+  },
+  "ranking_agreement": {
+    "fp32": 1.0,
+    "fp16": 0.9990079365079365
+  },
+  "builtin_densenet_preprocess_detected": true,
+  "external_imagenet_preprocessing_applied": false,
+  "tensorflow": {
+    "tensorflow_version": "2.20.0",
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "visible_gpus": []
+  },
+  "warnings": [],
+  "outputs": {
+    "predictions_csv": "outputs/rgnet_paper_aadb_tflite_export_20260514/parity/predictions.csv",
+    "summary_json": "outputs/rgnet_paper_aadb_tflite_export_20260514/parity/parity_summary.json",
+    "report_md": "outputs/rgnet_paper_aadb_tflite_export_20260514/parity/parity_report.md"
+  },
+  "pass_fail_interpretation": {
+    "fp32_strict_target": "max_abs_diff < 0.0001",
+    "fp32_pass": true,
+    "fp32_message": "PASS, max_abs_diff=4.470348358e-07",
+    "fp16_mean_diff_target": "mean_abs_diff <= 0.001",
+    "fp16_correlation_target": "Pearson/Spearman >= 0.999 when computable",
+    "fp16_ranking_target": "ranking_agreement >= 0.99 when computable",
+    "fp16_ranking_preserved": true,
+    "fp16_message": "PASS for ranking-oriented review; mean difference and ranking/correlation targets are preserved.",
+    "ready_for_flutter_smoke_test": true,
+    "ready_to_replace_rgnet_aadb_gpu_tflite": false,
+    "replacement_blockers": [
+      "Flutter/app-side smoke test has not been run.",
+      "Runtime preprocessing consistency has not been verified in Flutter.",
+      "Existing practical mobile model was intentionally not replaced."
+    ]
+  }
+}

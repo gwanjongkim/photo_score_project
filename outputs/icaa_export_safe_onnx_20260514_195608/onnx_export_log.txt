@@ -1,0 +1,36 @@
+project root: /home/omen_pc1/photo_score_project
+export-safe model package: /home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models
+checkpoint path: /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+csv path: /home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/dataset/ICAA17K/1test.csv
+image root: /home/omen_pc1/photo_score_project/data/raw/icaa17k
+output dir: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_195608
+device: cpu
+limit: 32
+batch_size: 1
+checkpoint key count: 487
+patch_proj.0.weight shape: (128, 3, 4, 4)
+missing keys: []
+unexpected keys: []
+export-safe checkpoint strict load: ok
+ONNX export attempt opset 17: start
+ONNX export attempt opset 17: succeeded
+ONNX export warnings:
+  TracerWarning: Converting a tensor to a Python float might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs! (count=20)
+onnx.checker.check_model: ok
+ONNX Runtime providers: ['CPUExecutionProvider']
+ONNX input: image
+ONNX output: scores
+csv rows read: 32
+evaluable images: 32
+missing image rows skipped: 0
+full tensor max_abs_diff: 0.0000201464
+full tensor mean_abs_diff: 0.0000012964
+MOS max_abs_diff: 0.0000201464
+MOS mean_abs_diff: 0.0000015879
+color max_abs_diff: 0.0000115633
+color mean_abs_diff: 0.0000010049
+parity pass: True
+onnx model: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_195608/icaa_dat_export_safe.onnx
+onnx_export_report.json: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_195608/onnx_export_report.json
+onnx_parity_predictions.csv: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_195608/onnx_parity_predictions.csv
+onnx_export_log.txt: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_195608/onnx_export_log.txt

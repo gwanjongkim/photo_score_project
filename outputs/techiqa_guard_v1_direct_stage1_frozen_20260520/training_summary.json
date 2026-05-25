@@ -1,0 +1,209 @@
+{
+  "args": {
+    "batch_size": 8,
+    "dataset_col": "dataset",
+    "dropout": 0.25,
+    "epochs": 10,
+    "false_positive_lambda": 0.0,
+    "false_positive_margin": 5.0,
+    "freeze_backbone": true,
+    "head_units": 256,
+    "huber_lambda": 1.0,
+    "inspect_batch": false,
+    "lr": 0.0001,
+    "max_steps_per_epoch": 500,
+    "max_val_samples": 2048,
+    "out_dir": "outputs/techiqa_guard_v1_direct_stage1_frozen_20260520",
+    "pair_csv": null,
+    "plcc_lambda": 0.1,
+    "rank_lambda": 0.0,
+    "seed": 42,
+    "target_col": "normalized_mos",
+    "tau": 0.1,
+    "train_csv": "data/processed/techiqa_guard/train.csv",
+    "val_csv": "data/processed/techiqa_guard/val.csv"
+  },
+  "artifacts": {
+    "best_weights": "outputs/techiqa_guard_v1_direct_stage1_frozen_20260520/best.weights.h5",
+    "final_model": "outputs/techiqa_guard_v1_direct_stage1_frozen_20260520/final_model.keras",
+    "model_summary": "outputs/techiqa_guard_v1_direct_stage1_frozen_20260520/model_summary.txt",
+    "training_log": "outputs/techiqa_guard_v1_direct_stage1_frozen_20260520/training_log.csv",
+    "training_summary": "outputs/techiqa_guard_v1_direct_stage1_frozen_20260520/training_summary.json"
+  },
+  "best_epoch": 9,
+  "best_val_loss": 0.015088578313589097,
+  "best_val_srcc": 0.7546607249301568,
+  "best_val_srcc_epoch": 8,
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python src/train/train_techiqa_guard.py --train_csv data/processed/techiqa_guard/train.csv --val_csv data/processed/techiqa_guard/val.csv --target_col normalized_mos --dataset_col dataset --batch_size 8 --epochs 10 --lr 1e-4 --freeze_backbone --huber_lambda 1.0 --plcc_lambda 0.1 --rank_lambda 0.0 --false_positive_lambda 0.0 --max_steps_per_epoch 500 --max_val_samples 2048 --out_dir outputs/techiqa_guard_v1_direct_stage1_frozen_20260520",
+  "feature_layers": {
+    "high": {
+      "layer_name": "top_activation",
+      "shape": [
+        12,
+        12,
+        1280
+      ]
+    },
+    "low": {
+      "layer_name": "block3b_add",
+      "shape": [
+        48,
+        48,
+        48
+      ]
+    },
+    "mid": {
+      "layer_name": "block5c_add",
+      "shape": [
+        24,
+        24,
+        112
+      ]
+    }
+  },
+  "final_metrics": {
+    "epoch": 10,
+    "mode_collapse": false,
+    "sample_count": 2048,
+    "train_false_positive_loss": 0.0,
+    "train_huber_loss": 0.0029661650769412518,
+    "train_loss": 0.02099001221358776,
+    "train_plcc_loss": 0.18023844063282013,
+    "train_rank_loss": 0.0,
+    "val_bias": -0.013779900968074799,
+    "val_bias_100": -1.3779900968074799,
+    "val_false_positive_loss": 0.0,
+    "val_huber_loss": 0.003303788136690855,
+    "val_loss": 0.01647383375093341,
+    "val_mae": 0.06638052314519882,
+    "val_mae_100": 6.638052314519882,
+    "val_plcc": 0.8682995438575745,
+    "val_plcc_loss": 0.13170045614242554,
+    "val_pred_mean": 0.610031247138977,
+    "val_pred_std": 0.16665196418762207,
+    "val_rmse": 0.08937030285596848,
+    "val_rmse_100": 8.937030285596848,
+    "val_srcc": 0.7355200700169668,
+    "val_std_ratio": 0.9482659534436824,
+    "val_target_mean": 0.6238111853599548,
+    "val_target_std": 0.17574390769004822
+  },
+  "model_params": {
+    "non_trainable": 5919312,
+    "trainable": 515801
+  },
+  "pair_summary": null,
+  "run_setup": {
+    "false_positive_active": false,
+    "feature_layers": {
+      "high": {
+        "layer_name": "top_activation",
+        "shape": [
+          12,
+          12,
+          1280
+        ]
+      },
+      "low": {
+        "layer_name": "block3b_add",
+        "shape": [
+          48,
+          48,
+          48
+        ]
+      },
+      "mid": {
+        "layer_name": "block5c_add",
+        "shape": [
+          24,
+          24,
+          112
+        ]
+      }
+    },
+    "freeze_backbone": true,
+    "full_steps_per_epoch": 2048,
+    "non_trainable_params": 5919312,
+    "rank_active": false,
+    "steps_per_epoch": 500,
+    "train_rows": 16384,
+    "trainable_params": 515801,
+    "val_rows": 2048
+  },
+  "train_csv": {
+    "columns": [
+      "image_path",
+      "filename",
+      "relative_path",
+      "dataset",
+      "normalized_mos",
+      "mos_100",
+      "split",
+      "hard_false_positive",
+      "strong_hard_false_positive",
+      "manual_false_positive",
+      "missing_image",
+      "existing_combined_score",
+      "koniq_teacher_score",
+      "flive_teacher_score",
+      "mixed112_score",
+      "delta_mixed112_existing",
+      "guard_source_score_100",
+      "guard_cap_100",
+      "false_positive_margin",
+      "source_note"
+    ],
+    "counts_by_dataset": {
+      "flive": 8192,
+      "koniq": 4096,
+      "spaq": 4096
+    },
+    "dropped_missing_image": 0,
+    "dropped_missing_target": 0,
+    "hard_false_positive_count": 0,
+    "original_count": 16384,
+    "path": "data/processed/techiqa_guard/train.csv",
+    "target_max": 0.9300000071525574,
+    "target_mean": 0.6339408755302429,
+    "target_min": 0.03400000184774399,
+    "used_count": 16384
+  },
+  "val_csv": {
+    "columns": [
+      "image_path",
+      "filename",
+      "relative_path",
+      "dataset",
+      "normalized_mos",
+      "mos_100",
+      "split",
+      "hard_false_positive",
+      "strong_hard_false_positive",
+      "manual_false_positive",
+      "missing_image",
+      "existing_combined_score",
+      "koniq_teacher_score",
+      "flive_teacher_score",
+      "mixed112_score",
+      "delta_mixed112_existing",
+      "guard_source_score_100",
+      "guard_cap_100",
+      "false_positive_margin",
+      "source_note"
+    ],
+    "counts_by_dataset": {
+      "flive": 1024,
+      "koniq": 512,
+      "spaq": 512
+    },
+    "dropped_missing_image": 0,
+    "dropped_missing_target": 0,
+    "hard_false_positive_count": 0,
+    "original_count": 2048,
+    "path": "data/processed/techiqa_guard/val.csv",
+    "target_max": 0.9053076505661011,
+    "target_mean": 0.6238111853599548,
+    "target_min": 0.04800000041723251,
+    "used_count": 2048
+  }
+}

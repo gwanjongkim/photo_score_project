@@ -1,0 +1,10 @@
+{
+  "pytorch_vs_tf_native": {
+    "color_max_abs_diff": 6.08563423e-05,
+    "full_mean_abs_diff": 4.35148831e-06
+  },
+  "tf_native_vs_tflite": {
+    "status": "pass_direct_match",
+    "notes": "TFLite is hash-identical to previously verified bit-parity export."
+  }
+}

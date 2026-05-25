@@ -1,0 +1,72 @@
+{
+  "status": "failed",
+  "command_used": "python experiments/icaa_tf_native/scripts/stage_f_deformable_attention_parity.py",
+  "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+  "pytorch_reference_model_path": "/home/omen_pc1/photo_score_project/experiments/icaa_export_safe_v3/export_safe_models",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_f_20260516_112834",
+  "report_path": "/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/reports/stage_f_deformable_attention_parity.md",
+  "seed": 123,
+  "thresholds": {
+    "preferred_max_abs_diff": 1e-05,
+    "acceptable_max_abs_diff": 0.0001
+  },
+  "state_dict_confirmation": null,
+  "strict_load": {
+    "success": false,
+    "missing_keys": [],
+    "unexpected_keys": []
+  },
+  "pytorch_module_inspection": null,
+  "checkpoint_tensors_used": [
+    "stages.2.attns.1.rpe_table",
+    "stages.2.attns.1.conv_offset.0.weight",
+    "stages.2.attns.1.conv_offset.0.bias",
+    "stages.2.attns.1.conv_offset.1.norm.weight",
+    "stages.2.attns.1.conv_offset.1.norm.bias",
+    "stages.2.attns.1.conv_offset.3.weight",
+    "stages.2.attns.1.proj_q.weight",
+    "stages.2.attns.1.proj_q.bias",
+    "stages.2.attns.1.proj_k.weight",
+    "stages.2.attns.1.proj_k.bias",
+    "stages.2.attns.1.proj_v.weight",
+    "stages.2.attns.1.proj_v.bias",
+    "stages.2.attns.1.proj_out.weight",
+    "stages.2.attns.1.proj_out.bias",
+    "stages.2.attns.1.ref_point14.weight",
+    "stages.2.attns.1.ref_point14.bias",
+    "stages.2.attns.1.ref_gate.weight",
+    "stages.2.attns.1.ref_gate.bias"
+  ],
+  "tf_module_structure": null,
+  "module_input_shape_nchw": null,
+  "module_input_shape_nhwc": null,
+  "module_output_shape_nchw": null,
+  "module_output_shape_nhwc": null,
+  "results": [],
+  "real_images_performed": false,
+  "real_image_paths": [],
+  "safe_to_proceed_to_stage_g_full_transformerstage_parity": false,
+  "unresolved_issues": [
+    "Stage F script failed before completing deformable-attention parity."
+  ],
+  "warnings": [],
+  "errors": [
+    "ValueError: cannot reshape array of size 392 into shape (1,4,14,14,2)",
+    "Traceback (most recent call last):",
+    "  File \"/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/scripts/stage_f_deformable_attention_parity.py\", line 496, in run",
+    "    random_result, random_debug = run_case(torch, tf, np, attn_pt, attn_tf, \"random DAttentionBaseline input\", random_input)",
+    "                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+    "  File \"/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/scripts/stage_f_deformable_attention_parity.py\", line 243, in run_case",
+    "    reference_diff = compare_bghw2(f\"{name} reference\", reference_pt, debug_tf[\"reference\"], batch, attn_tf.n_groups)",
+    "                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+    "  File \"/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/scripts/stage_f_deformable_attention_parity.py\", line 207, in compare_bghw2",
+    "    tf_np = tf_tensor.numpy().reshape(batch, groups, torch_np.shape[2], torch_np.shape[3], 2)",
+    "            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+    "ValueError: cannot reshape array of size 392 into shape (1,4,14,14,2)"
+  ],
+  "log_lines": [],
+  "json_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_f_20260516_112834/stage_f_deformable_attention_report.json",
+  "log_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_f_20260516_112834/stage_f_deformable_attention_log.txt",
+  "debug_tensors_summary_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_f_20260516_112834/optional_debug_tensors_summary.json",
+  "captured_output": []
+}

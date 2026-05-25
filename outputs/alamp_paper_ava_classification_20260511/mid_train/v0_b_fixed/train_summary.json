@@ -1,0 +1,185 @@
+{
+  "created_at_local": "2026-05-11T13:45:08.436776+09:00",
+  "model_variant": "A-LAMP-paper-AVA-v0",
+  "model_variant_full": "A-LAMP-paper-AVA-v0-v0-b",
+  "description": "A-LAMP-paper-oriented approximation",
+  "style_description": "A-LAMP-style AVA classification model",
+  "official_reproduction": false,
+  "paper_comparability_note": "A-LAMP-paper-oriented approximation using shared VGG16 patch columns, adaptive patch selection approximation, and a binary AVA classifier head. Exact object/global attribute graph is not implemented in v0. Exact saliency-map pipeline and official author weights are not available locally.",
+  "train_csv": "data/processed/ava/train.csv",
+  "val_csv": "data/processed/ava/val.csv",
+  "image_dir": "data/raw/ava/images",
+  "image_col": "image_path",
+  "score_col": "mean_score",
+  "label_rule": "paper_strict",
+  "label_rule_text": "label = 1 if mean_score > 5.0 else 0",
+  "label_threshold": 5.0,
+  "train_samples": 4095,
+  "val_samples": 1024,
+  "train_skipped_image_count": 1,
+  "val_skipped_image_count": 0,
+  "train_skipped_image_examples": [
+    {
+      "row_index": "348",
+      "image_path": "data/raw/ava/images/277832.jpg",
+      "resolved_image_path": "data/raw/ava/images/277832.jpg",
+      "error": "OSError: image file is truncated (59 bytes not processed)"
+    }
+  ],
+  "val_skipped_image_examples": [],
+  "train_positive_count": 2921,
+  "train_negative_count": 1174,
+  "val_positive_count": 722,
+  "val_negative_count": 302,
+  "batch_size": 4,
+  "epochs_requested": 3,
+  "epochs_completed": 3,
+  "learning_rate": 0.0001,
+  "early_stopping": {
+    "monitor": "val_loss",
+    "patience": 3,
+    "restore_best_weights": true
+  },
+  "model": {
+    "model_variant": "A-LAMP-paper-AVA-v0",
+    "variant": "v0_b",
+    "description": "A-LAMP-paper-oriented approximation",
+    "style": "A-LAMP-style AVA classification model",
+    "backbone": "VGG16",
+    "backbone_weights_requested": "imagenet",
+    "train_backbone": false,
+    "patch_count": 5,
+    "image_size_patch": 224,
+    "image_size_global": 384,
+    "shared_patch_backbone": true,
+    "include_global_branch": true,
+    "include_layout_features": true,
+    "layout_feature_dim": 10,
+    "v0_b_fixed_shape_fusion": true,
+    "v0_b_time_distributed_removed": true,
+    "exact_object_global_attribute_graph": "not implemented in v0",
+    "exact_saliency_map_pipeline": "not implemented in v0",
+    "dropout": 0.3,
+    "feature_dim": 256,
+    "loss": "binary_crossentropy",
+    "metrics": [
+      "binary_accuracy",
+      "auc",
+      "precision",
+      "recall"
+    ],
+    "optimizer": "adam",
+    "patch_selection": "deterministic adaptive approximation using edge strength, luminance variance, color variance, and non-max overlap reduction from native-size images"
+  },
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.20.0"
+  },
+  "compile": {
+    "jit_compile_false_requested": true,
+    "jit_compile_false_supported": true,
+    "model_jit_compile": false
+  },
+  "forward_check": {
+    "input_shapes": {
+      "patches": [
+        4,
+        5,
+        224,
+        224,
+        3
+      ],
+      "global_view": [
+        4,
+        384,
+        384,
+        3
+      ],
+      "layout_features": [
+        4,
+        5,
+        10
+      ]
+    },
+    "output_shape": [
+      4,
+      1
+    ],
+    "prediction_min": 0.023360200226306915,
+    "prediction_max": 0.5273041725158691,
+    "all_finite": true,
+    "in_unit_range": true
+  },
+  "save_load_check": {
+    "loaded_model_name": "alamp_paper_ava_v0_b",
+    "loaded_output_shape": [
+      4,
+      1
+    ],
+    "max_abs_diff_vs_trained_forward_sample": 0.0
+  },
+  "outputs": {
+    "final_model": "outputs/alamp_paper_ava_classification_20260511/mid_train/v0_b_fixed/final_model.keras",
+    "best_weights": "outputs/alamp_paper_ava_classification_20260511/mid_train/v0_b_fixed/best.weights.h5",
+    "training_history_csv": "outputs/alamp_paper_ava_classification_20260511/mid_train/v0_b_fixed/training_history.csv",
+    "train_summary_json": "outputs/alamp_paper_ava_classification_20260511/mid_train/v0_b_fixed/train_summary.json"
+  },
+  "best_epoch": 3,
+  "best_val_loss": 0.5550218820571899,
+  "final_train_loss": 0.5886183381080627,
+  "history": {
+    "accuracy": [
+      0.6581196784973145,
+      0.6940171122550964,
+      0.7091575264930725
+    ],
+    "auc": [
+      0.5781816244125366,
+      0.6402531266212463,
+      0.6759891510009766
+    ],
+    "loss": [
+      0.8005282282829285,
+      0.6271710991859436,
+      0.5886183381080627
+    ],
+    "precision": [
+      0.7332106828689575,
+      0.7468916773796082,
+      0.7517462372779846
+    ],
+    "recall": [
+      0.8185552954673767,
+      0.8637452721595764,
+      0.8842862248420715
+    ],
+    "val_accuracy": [
+      0.6650390625,
+      0.7197265625,
+      0.7255859375
+    ],
+    "val_auc": [
+      0.641700804233551,
+      0.6790831685066223,
+      0.7049471735954285
+    ],
+    "val_loss": [
+      0.6138800382614136,
+      0.5720565319061279,
+      0.5550218820571899
+    ],
+    "val_precision": [
+      0.758526623249054,
+      0.7351351380348206,
+      0.7368420958518982
+    ],
+    "val_recall": [
+      0.7700831294059753,
+      0.9418282508850098,
+      0.950138509273529
+    ]
+  }
+}

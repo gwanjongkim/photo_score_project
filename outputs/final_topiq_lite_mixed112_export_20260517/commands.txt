@@ -1,0 +1,2 @@
+./.venv_gpu/bin/python outputs/final_topiq_lite_mixed112_export_20260517/export_script.py
+./.venv_gpu/bin/python outputs/final_topiq_lite_mixed112_export_20260517/parity_script.py

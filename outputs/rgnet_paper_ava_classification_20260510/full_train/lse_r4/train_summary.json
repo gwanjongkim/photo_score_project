@@ -1,0 +1,272 @@
+{
+  "created_at_local": "2026-05-11T05:08:12.676611+09:00",
+  "model_variant": "RGNet-paper-AVA-classification approximation",
+  "official_reproduction": false,
+  "paper_comparability_note": "Uses DenseNet121, ASPP approximation, spatial region nodes, cosine adjacency, residual graph convolution, region-level logits, and configurable aggregation. This is not the official paper implementation.",
+  "train_csv": "data/processed/ava/train.csv",
+  "val_csv": "data/processed/ava/val.csv",
+  "image_dir": "data/raw/ava/images",
+  "image_col": "image_path",
+  "score_col": "mean_score",
+  "label_rule": "label = 1 if mean_score >= 5.0 else 0",
+  "train_samples": 204402,
+  "val_samples": 25551,
+  "train_skipped_image_count": 4,
+  "val_skipped_image_count": 0,
+  "train_skipped_image_examples": [
+    {
+      "row_index": "348",
+      "image_path": "data/raw/ava/images/277832.jpg",
+      "resolved_image_path": "data/raw/ava/images/277832.jpg",
+      "error": "OSError: image file is truncated (59 bytes not processed)"
+    },
+    {
+      "row_index": "49037",
+      "image_path": "data/raw/ava/images/179118.jpg",
+      "resolved_image_path": "data/raw/ava/images/179118.jpg",
+      "error": "OSError: image file is truncated (13 bytes not processed)"
+    },
+    {
+      "row_index": "127553",
+      "image_path": "data/raw/ava/images/371434.jpg",
+      "resolved_image_path": "data/raw/ava/images/371434.jpg",
+      "error": "OSError: image file is truncated (16 bytes not processed)"
+    },
+    {
+      "row_index": "169024",
+      "image_path": "data/raw/ava/images/440774.jpg",
+      "resolved_image_path": "data/raw/ava/images/440774.jpg",
+      "error": "OSError: image file is truncated (12 bytes not processed)"
+    }
+  ],
+  "val_skipped_image_examples": [],
+  "train_positive_count": 145217,
+  "val_positive_count": 18003,
+  "image_size": 256,
+  "batch_size": 8,
+  "epochs_requested": 20,
+  "epochs_completed": 13,
+  "learning_rate": 0.0001,
+  "early_stopping": {
+    "monitor": "val_loss",
+    "patience": 3,
+    "restore_best_weights": true
+  },
+  "model": {
+    "backbone": "DenseNet121",
+    "backbone_weights_requested": "imagenet",
+    "context_module": "ASPP approximation",
+    "dilation_rates": [
+      1,
+      3,
+      6,
+      12,
+      18
+    ],
+    "region_dim": 256,
+    "graph_units": 256,
+    "graph_blocks": 3,
+    "graph_temperature": 0.25,
+    "graph_dropout": 0.1,
+    "head_dropout": 0.3,
+    "adjacency": "cosine similarity, softmax-normalized",
+    "graph_convolution": "residual graph convolution",
+    "region_classification_head": "per-node scalar logits",
+    "aggregation": "lse",
+    "lse_r": 4.0,
+    "score_activation_mode": "raw_before_aggregation_then_sigmoid",
+    "aggregation_formula": "(1 / r) * log(mean(exp(r * values))) for aggregation=lse"
+  },
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.20.0"
+  },
+  "forward_check": {
+    "input_shape": [
+      8,
+      256,
+      256,
+      3
+    ],
+    "output_shape": [
+      8,
+      1
+    ],
+    "prediction_min": 0.6425051689147949,
+    "prediction_max": 0.8547699451446533,
+    "all_finite": true,
+    "in_unit_range": true
+  },
+  "save_load_check": {
+    "loaded_model_name": "rgnet_paper_ava_classification",
+    "loaded_output_shape": [
+      8,
+      1
+    ],
+    "max_abs_diff_vs_trained_forward_sample": 0.0
+  },
+  "outputs": {
+    "final_model": "outputs/rgnet_paper_ava_classification_20260510/full_train/lse_r4/final_model.keras",
+    "best_weights": "outputs/rgnet_paper_ava_classification_20260510/full_train/lse_r4/best.weights.h5",
+    "training_history_csv": "outputs/rgnet_paper_ava_classification_20260510/full_train/lse_r4/training_history.csv",
+    "train_summary_json": "outputs/rgnet_paper_ava_classification_20260510/full_train/lse_r4/train_summary.json"
+  },
+  "best_epoch": 10,
+  "best_val_loss": 0.48175305128097534,
+  "final_train_loss": 0.4252810776233673,
+  "history": {
+    "accuracy": [
+      0.7441267967224121,
+      0.754478931427002,
+      0.7598457932472229,
+      0.7656725645065308,
+      0.7701196670532227,
+      0.773876965045929,
+      0.7764454483985901,
+      0.780251681804657,
+      0.784855306148529,
+      0.7893269062042236,
+      0.7931869626045227,
+      0.7974139451980591,
+      0.8017387390136719
+    ],
+    "auc": [
+      0.732979953289032,
+      0.7583114504814148,
+      0.7697393894195557,
+      0.7811890244483948,
+      0.7901762127876282,
+      0.7978070378303528,
+      0.8044403195381165,
+      0.8120207190513611,
+      0.8185074329376221,
+      0.8256630301475525,
+      0.8326176404953003,
+      0.8395134210586548,
+      0.8469973206520081
+    ],
+    "loss": [
+      0.5282490253448486,
+      0.5097090601921082,
+      0.5005242824554443,
+      0.4907587766647339,
+      0.48330843448638916,
+      0.47621557116508484,
+      0.4701675772666931,
+      0.4627889096736908,
+      0.45619824528694153,
+      0.4489867091178894,
+      0.44139158725738525,
+      0.4339854419231415,
+      0.4252810776233673
+    ],
+    "precision": [
+      0.765177309513092,
+      0.7759509682655334,
+      0.7818552851676941,
+      0.7873067855834961,
+      0.7924787998199463,
+      0.796638011932373,
+      0.7998445630073547,
+      0.8044412732124329,
+      0.8095657229423523,
+      0.8138267397880554,
+      0.8183375597000122,
+      0.8236838579177856,
+      0.8280523419380188
+    ],
+    "recall": [
+      0.9231426119804382,
+      0.9200782179832458,
+      0.9181362986564636,
+      0.9182327389717102,
+      0.9164009690284729,
+      0.9153955578804016,
+      0.9140734076499939,
+      0.9125240445137024,
+      0.9116081595420837,
+      0.9121246337890625,
+      0.9111674427986145,
+      0.9095422625541687,
+      0.909872829914093
+    ],
+    "val_accuracy": [
+      0.7395796775817871,
+      0.7506164312362671,
+      0.7613791823387146,
+      0.7574263215065002,
+      0.7668975591659546,
+      0.7677194476127625,
+      0.7719463109970093,
+      0.7672889232635498,
+      0.7573089003562927,
+      0.7717114686965942,
+      0.7529255151748657,
+      0.7652146816253662,
+      0.760205090045929
+    ],
+    "val_auc": [
+      0.7511000633239746,
+      0.7798178195953369,
+      0.786590039730072,
+      0.7936394214630127,
+      0.7944974303245544,
+      0.8020361661911011,
+      0.8041536211967468,
+      0.8026250004768372,
+      0.793504536151886,
+      0.8014375567436218,
+      0.79274982213974,
+      0.7983698844909668,
+      0.7966496348381042
+    ],
+    "val_loss": [
+      0.5352363586425781,
+      0.5272436738014221,
+      0.4956124722957611,
+      0.5215899348258972,
+      0.4925088882446289,
+      0.49865633249282837,
+      0.48268917202949524,
+      0.4910237491130829,
+      0.5108438730239868,
+      0.48175305128097534,
+      0.5161705613136292,
+      0.494133323431015,
+      0.5061902403831482
+    ],
+    "val_precision": [
+      0.7861717939376831,
+      0.8116058707237244,
+      0.7719258069992065,
+      0.823584258556366,
+      0.7872299551963806,
+      0.8245132565498352,
+      0.8020141124725342,
+      0.8224658966064453,
+      0.8263466358184814,
+      0.8009694218635559,
+      0.8311614990234375,
+      0.8214438557624817,
+      0.8241974115371704
+    ],
+    "val_recall": [
+      0.8659112453460693,
+      0.8413597941398621,
+      0.9386768937110901,
+      0.8344720602035522,
+      0.9170138239860535,
+      0.8515803217887878,
+      0.8980169892311096,
+      0.8540799021720886,
+      0.8299728035926819,
+      0.899516761302948,
+      0.8148642182350159,
+      0.8519691228866577,
+      0.8385269045829773
+    ]
+  }
+}

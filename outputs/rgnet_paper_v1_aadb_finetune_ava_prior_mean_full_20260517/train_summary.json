@@ -1,0 +1,210 @@
+{
+  "created_at_local": "2026-05-17T20:07:43.930266+09:00",
+  "model_variant": "RGNet-paper-v1 approximation",
+  "official_reproduction": false,
+  "paper_comparability_note": "Uses DenseNet121, ASPP approximation, spatial region nodes, cosine adjacency, residual graph convolution, region-level scores, and configurable aggregation. This is not the official paper implementation.",
+  "train_csv": "data/processed/aadb/train.csv",
+  "val_csv": "data/processed/aadb/val.csv",
+  "image_col": "image_path",
+  "target_col": "score",
+  "train_samples": 7612,
+  "val_samples": 846,
+  "image_size": 256,
+  "batch_size": 8,
+  "epochs_requested": 20,
+  "epochs_completed": 11,
+  "learning_rate": 1e-05,
+  "early_stopping": {
+    "monitor": "val_loss",
+    "patience": 3,
+    "restore_best_weights": true
+  },
+  "model": {
+    "backbone": "DenseNet121",
+    "backbone_weights_requested": "imagenet",
+    "ava_pretrained_weights_requested": "outputs/rgnet_paper_ava_classification_20260510/full_train/lse_r4/best.weights.h5",
+    "context_module": "ASPP approximation",
+    "dilation_rates": [
+      1,
+      3,
+      6,
+      12,
+      18
+    ],
+    "region_dim": 256,
+    "graph_units": 256,
+    "graph_blocks": 3,
+    "graph_temperature": 0.25,
+    "graph_dropout": 0.1,
+    "head_dropout": 0.3,
+    "adjacency": "cosine similarity, softmax-normalized",
+    "graph_convolution": "residual graph convolution",
+    "region_score_head": "per-node sigmoid scalar score",
+    "aggregation": "mean",
+    "lse_r": 4.0,
+    "aggregation_formula": "(1 / r) * log(mean(exp(r * region_scores))) for aggregation=lse",
+    "output_activation": "sigmoid_before_aggregation"
+  },
+  "ava_pretrained_weight_loading": {
+    "requested_ava_weight_path": "outputs/rgnet_paper_ava_classification_20260510/full_train/lse_r4/best.weights.h5",
+    "file_exists": true,
+    "load_failed": false,
+    "failure_error": null,
+    "allow_random_init_fallback": false,
+    "random_init_fallback_used": false,
+    "keras_full_model_load": {
+      "method": "target_model.load_weights(skip_mismatch=True)",
+      "failed": false,
+      "warnings": [
+        "A total of 18 objects could not be loaded. Example error message for object <Conv2D name=conv_d1, built=True>:\n\nLayer 'conv_d1' expected 1 variables, but received 0 variables during loading. Expected: ['kernel']\n\nList of objects that could not be loaded:\n[<Conv2D name=conv_d1, built=True>, <BatchNormalization name=bn_d1, built=True>, <Conv2D name=conv_d3, built=True>, <BatchNormalization name=bn_d3, built=True>, <Conv2D name=conv_d6, built=True>, <BatchNormalization name=bn_d6, built=True>, <Conv2D name=conv_d12, built=True>, <BatchNormalization name=bn_d12, built=True>, <Conv2D name=conv_d18, built=True>, <BatchNormalization name=bn_d18, built=True>, <Conv2D name=project_conv, built=True>, <BatchNormalization name=project_bn, built=True>, <LayerNormalization name=layer_normalization, built=True>, <Dense name=node_projection, built=True>, <LayerNormalization name=layer_normalization_1, built=True>, <Dense name=node_projection, built=True>, <LayerNormalization name=layer_normalization_2, built=True>, <Dense name=node_projection, built=True>]"
+      ]
+    },
+    "loaded_layer_count": 5,
+    "loaded_variable_count": 643,
+    "loaded_layers": [
+      {
+        "layer": "densenet121",
+        "source_layer_class": "Functional",
+        "target_layer_class": "Functional",
+        "variable_count": 604
+      },
+      {
+        "layer": "aspp_context",
+        "source_layer_class": "AvaASPPContextModule",
+        "target_layer_class": "ASPPContextModule",
+        "variable_count": 30
+      },
+      {
+        "layer": "residual_graph_convolution_1",
+        "source_layer_class": "AvaResidualGraphConvolution",
+        "target_layer_class": "V1ResidualGraphConvolution",
+        "variable_count": 3
+      },
+      {
+        "layer": "residual_graph_convolution_2",
+        "source_layer_class": "AvaResidualGraphConvolution",
+        "target_layer_class": "V1ResidualGraphConvolution",
+        "variable_count": 3
+      },
+      {
+        "layer": "residual_graph_convolution_3",
+        "source_layer_class": "AvaResidualGraphConvolution",
+        "target_layer_class": "V1ResidualGraphConvolution",
+        "variable_count": 3
+      }
+    ],
+    "skipped_layers": [
+      {
+        "layer": "region_classification_dense",
+        "reason": "AVA classification head skipped"
+      },
+      {
+        "layer": "region_logits",
+        "reason": "AVA classification head skipped"
+      },
+      {
+        "layer": "region_score_dense",
+        "reason": "AADB regression head preserved"
+      },
+      {
+        "layer": "region_scores",
+        "reason": "AADB regression head preserved"
+      }
+    ],
+    "resolved_ava_weight_path": "outputs/rgnet_paper_ava_classification_20260510/full_train/lse_r4/best.weights.h5"
+  },
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.21.0"
+  },
+  "forward_check": {
+    "input_shape": [
+      8,
+      256,
+      256,
+      3
+    ],
+    "output_shape": [
+      8,
+      1
+    ],
+    "prediction_min": 0.38535499572753906,
+    "prediction_max": 0.5463342666625977,
+    "all_finite": true,
+    "in_unit_range": true
+  },
+  "save_load_check": {
+    "loaded_model_name": "rgnet_paper_v1_aadb_regression",
+    "loaded_output_shape": [
+      8,
+      1
+    ],
+    "max_abs_diff_vs_trained_forward_sample": 0.0
+  },
+  "outputs": {
+    "final_model": "outputs/rgnet_paper_v1_aadb_finetune_ava_prior_mean_full_20260517/final_model.keras",
+    "best_weights": "outputs/rgnet_paper_v1_aadb_finetune_ava_prior_mean_full_20260517/best.weights.h5",
+    "training_history_csv": "outputs/rgnet_paper_v1_aadb_finetune_ava_prior_mean_full_20260517/training_history.csv",
+    "train_summary_json": "outputs/rgnet_paper_v1_aadb_finetune_ava_prior_mean_full_20260517/train_summary.json"
+  },
+  "best_epoch": 8,
+  "best_val_loss": 0.022960634902119637,
+  "best_val_mae": 0.11811361461877823,
+  "history": {
+    "loss": [
+      0.02932833693921566,
+      0.026274599134922028,
+      0.02462186850607395,
+      0.023632531985640526,
+      0.023043852299451828,
+      0.02235388569533825,
+      0.021862199530005455,
+      0.021542934700846672,
+      0.021321721374988556,
+      0.020795218646526337,
+      0.020246772095561028
+    ],
+    "mae": [
+      0.136077880859375,
+      0.12824681401252747,
+      0.12393954396247864,
+      0.12087090313434601,
+      0.11886689066886902,
+      0.11741455644369125,
+      0.11606837809085846,
+      0.11503239721059799,
+      0.1142977848649025,
+      0.11310648918151855,
+      0.11161036789417267
+    ],
+    "val_loss": [
+      0.026648178696632385,
+      0.024934127926826477,
+      0.02428373135626316,
+      0.023983335122466087,
+      0.023988788947463036,
+      0.023309892043471336,
+      0.02389383129775524,
+      0.022960634902119637,
+      0.023022715002298355,
+      0.023252049461007118,
+      0.023397047072649002
+    ],
+    "val_mae": [
+      0.1284397691488266,
+      0.12380611896514893,
+      0.12162432074546814,
+      0.12070319056510925,
+      0.12022536247968674,
+      0.11888233572244644,
+      0.12037260085344315,
+      0.11811361461877823,
+      0.1180434376001358,
+      0.11886197328567505,
+      0.11897303909063339
+    ]
+  }
+}

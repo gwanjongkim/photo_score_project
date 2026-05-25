@@ -1,0 +1,2 @@
+PYTHONPATH=. ./.venv_gpu/bin/python src/train/train_topiq_lite.py --train_csv data/processed/flive/image_train.csv --val_csv data/processed/flive/image_val.csv --target_col normalized_mos --batch_size 8 --epochs 20 --lr 1e-5 --freeze_backbone --init_weights outputs/full_topiq_lite_spaq_to_koniq_frozen_e30_20260517/best.weights.h5 --out_dir outputs/full_topiq_lite_unified_to_flive_calib_frozen_e20_20260517
+./.venv_gpu/bin/python outputs/eval_topiq_lite_flive_calibration_replacement_20260517/eval.py

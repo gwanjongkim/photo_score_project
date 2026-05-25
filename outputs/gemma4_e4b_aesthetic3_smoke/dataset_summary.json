@@ -1,0 +1,61 @@
+{
+  "experiment_name": "gemma4_e4b_aesthetic3_smoke",
+  "output_dir": "outputs/gemma4_e4b_aesthetic3_smoke",
+  "config_path": "configs/gemma4_e4b_aesthetic3_dataset_smoke_pass2.json",
+  "teacher_weight_config_path": "configs/gemma4_e4b_aesthetic3_teacher.json",
+  "teacher_generation_mode": "reuse_existing_teacher_output",
+  "teacher_generation_model": "checkpoints/VILA1.5-3b",
+  "teacher_generation_only_splits": [],
+  "teacher_worker_attempted_row_count": 0,
+  "teacher_worker_accepted_row_count": 0,
+  "source_runs": [
+    {
+      "dataset": "test_samples_nvila_probe_v9_gpu",
+      "teacher_run_path": "outputs/acut_product_nvila8b_probe_v9_gpu/app_results.json",
+      "score_csv": "outputs/acut_stage5_full_with_pairwise/scores.csv",
+      "rows_used": 15,
+      "source_score_rows": 15,
+      "top_k": 3
+    },
+    {
+      "dataset": "test_vila_nvila_20260416_gpu",
+      "teacher_run_path": "outputs/acut_transparency_test_vila_20260416_gpu/app_results.json",
+      "score_csv": "outputs/test_vila_aesthetic_ensemble_experiment_20260423/scores_with_ensemble.csv",
+      "rows_used": 50,
+      "source_score_rows": 50,
+      "top_k": 10
+    }
+  ],
+  "rows_before_teacher_generation": 65,
+  "rows_after_teacher_generation": 49,
+  "split_counts": {
+    "test_vila": 36,
+    "train": 8,
+    "val": 3,
+    "test": 2
+  },
+  "dataset_counts": {
+    "test_vila_nvila_20260416_gpu": 36,
+    "test_samples_nvila_probe_v9_gpu": 13
+  },
+  "selected_counts": {
+    "selected": 5,
+    "rejected": 44
+  },
+  "teacher_source_mode_counts": {
+    "existing_teacher_output_fallback": 49
+  },
+  "split_output_paths": {
+    "test": "outputs/gemma4_e4b_aesthetic3_smoke/test.jsonl",
+    "test_vila": "outputs/gemma4_e4b_aesthetic3_smoke/test_vila.jsonl",
+    "train": "outputs/gemma4_e4b_aesthetic3_smoke/train.jsonl",
+    "val": "outputs/gemma4_e4b_aesthetic3_smoke/val.jsonl"
+  },
+  "teacher_format_summary": {
+    "rows": 49,
+    "valid_three_line_count": 49,
+    "valid_three_line_rate": 1.0,
+    "prefix_ok_rate": 1.0,
+    "role_separation_ok_rate": 1.0
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "teacher_manifest": "outputs/gemma4_e4b_aesthetic3_smoke/test.jsonl",
+  "teacher_target_format": {
+    "rows": 2,
+    "valid_rate": 1.0
+  },
+  "status": "ok",
+  "predictions_jsonl": "outputs/gemma4_e4b_aesthetic3_smoke/evaluation_pass2/predictions_all.jsonl",
+  "student_metrics": {
+    "matched_predictions": 2,
+    "format_compliance_rate": 1.0,
+    "prefix_compliance_rate": 1.0,
+    "role_separation_rate": 1.0,
+    "mean_sequence_ratio": 0.477675,
+    "mean_token_f1": 0.267273,
+    "worst_examples": [
+      {
+        "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_14.jpg",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_14.jpg",
+        "teacher_comment_3line": "Strength: cleaner background and lighting.\nWeakness: subject emphasis and overall appeal.\nVerdict: not selected because subject emphasis and overall appeal undercuts cleaner background and lighting.",
+        "predicted_comment_3line": "Strength: The subject is clearly visible in the frame\nWeakness: The composition is heavily weighted to one side\nVerdict: selected because the subject is present",
+        "sequence_ratio": 0.469274,
+        "token_f1": 0.28,
+        "format_valid": true
+      },
+      {
+        "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_09.jpg",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_09.jpg",
+        "teacher_comment_3line": "Strength: cleaner background and composition.\nWeakness: detail clarity and subject emphasis.\nVerdict: not selected because detail clarity and subject emphasis undercuts cleaner background and composition.",
+        "predicted_comment_3line": "Strength: Clear depiction of a hand reaching out over water\nWeakness: The composition is heavily divided between the water and the sky\nVerdict: selected because the subject is clearly visible",
+        "sequence_ratio": 0.486076,
+        "token_f1": 0.254545,
+        "format_valid": true
+      }
+    ],
+    "best_examples": [
+      {
+        "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_09.jpg",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_09.jpg",
+        "teacher_comment_3line": "Strength: cleaner background and composition.\nWeakness: detail clarity and subject emphasis.\nVerdict: not selected because detail clarity and subject emphasis undercuts cleaner background and composition.",
+        "predicted_comment_3line": "Strength: Clear depiction of a hand reaching out over water\nWeakness: The composition is heavily divided between the water and the sky\nVerdict: selected because the subject is clearly visible",
+        "sequence_ratio": 0.486076,
+        "token_f1": 0.254545,
+        "format_valid": true
+      },
+      {
+        "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_14.jpg",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_14.jpg",
+        "teacher_comment_3line": "Strength: cleaner background and lighting.\nWeakness: subject emphasis and overall appeal.\nVerdict: not selected because subject emphasis and overall appeal undercuts cleaner background and lighting.",
+        "predicted_comment_3line": "Strength: The subject is clearly visible in the frame\nWeakness: The composition is heavily weighted to one side\nVerdict: selected because the subject is present",
+        "sequence_ratio": 0.469274,
+        "token_f1": 0.28,
+        "format_valid": true
+      }
+    ]
+  }
+}

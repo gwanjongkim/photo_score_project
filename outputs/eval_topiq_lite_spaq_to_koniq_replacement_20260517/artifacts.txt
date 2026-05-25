@@ -1,0 +1,23 @@
+# TOPIQ-lite SPAQ to KonIQ Replacement Artifacts
+
+Output Directory: outputs/eval_topiq_lite_spaq_to_koniq_replacement_20260517/
+
+| File | Size | Description |
+| :--- | :--- | :--- |
+| summary.csv | 1.8 KB | Summary metrics for the unified candidate vs baselines. |
+| report.md | 3.5 KB | Final replacement candidate evaluation report. |
+| commands.txt | 1.0 KB | Record of commands used in this phase. |
+| predictions_koniq_test_topiq_unified.csv | 33.7 KB | Unified candidate predictions on KonIQ test set. |
+| predictions_spaq_test_topiq_unified.csv | 27.9 KB | Unified candidate predictions on SPAQ test set. |
+| predictions_flive_1024_topiq_unified.csv | 4.6 KB | Unified candidate predictions on FLIVE 1024 val. |
+| predictions_koniq_test_mobile_koniq.csv | 25.2 KB | Baseline KonIQ predictions on KonIQ test set. |
+| predictions_spaq_test_mobile_koniq.csv | 18.3 KB | Baseline KonIQ predictions on SPAQ test set. |
+
+Model Output Directory: outputs/full_topiq_lite_spaq_to_koniq_frozen_e30_20260517/
+
+| File | Size | Description |
+| :--- | :--- | :--- |
+| topiq_lite_spaq_to_koniq_fp16.tflite | 12 MB | The final unified technical IQA replacement model. |
+| best.weights.h5 | 28 MB | Keras weights for the best epoch. |
+| final_model.keras | 28 MB | Full Keras model. |
+| training_summary.json | 2.5 KB | Log of training hyperparameters and results. |

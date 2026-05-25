@@ -1,0 +1,20 @@
+{
+  "audit_version": "v1.0",
+  "selector_versions_audited": ["V1", "V3", "V4"],
+  "key_metrics": {
+    "V4_mean_patch_area": 0.0915,
+    "V3_mean_patch_area": 0.0386,
+    "V4_mean_union_area": 0.3678,
+    "V4_object_coverage": 0.573,
+    "V4_coverage_efficiency": 6.27,
+    "V3_coverage_efficiency": 2.18
+  },
+  "role_analysis_v4": {
+    "subject_closeup": {"mean_area": 0.2858},
+    "spatial_context": {"mean_area": 0.0381},
+    "diverse_context": {"mean_area": 0.0387},
+    "subject_secondary": {"mean_area": 0.0800}
+  },
+  "decision": "A. V4 improvement is genuine; patch sizes are controlled. Efficiency nearly tripled despite larger specific roles.",
+  "recommendation": "Proceed to manual visualization inspection. If 40/50 images are acceptable, unblock MPNet training."
+}

@@ -1,0 +1,263 @@
+{
+  "checkpoint_paths_used": {
+    "mpnet_model": "outputs/alamp_paper_mpnet_selector_compare_20260512/train/v4_1024_gpu_tuned/v4_1024_gpu_tuned/best_val_auc_model.keras"
+  },
+  "data_files_required": {
+    "train_graph_jsonl": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/train_graphs_1024.jsonl",
+    "train_patch_jsonl": "outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/train_patch_boxes_1024_v4.jsonl",
+    "val_graph_jsonl": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/val_graphs_1024.jsonl",
+    "val_patch_jsonl": "outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/val_patch_boxes_1024_v4.jsonl"
+  },
+  "files_changed": [
+    "src/models/alamp_paper_fusion.py",
+    "src/train/train_alamp_paper_mpnet_graph_fusion.py",
+    "checklist.md",
+    "context-notes.md"
+  ],
+  "graphgcn_status": "implemented_from_node_features_and_local_edges",
+  "mode_results": {
+    "graphgcn": {
+      "history": {
+        "accuracy": [
+          0.55078125,
+          0.69140625,
+          0.724609375,
+          0.77734375,
+          0.837890625,
+          0.8623046875,
+          0.8876953125,
+          0.91015625,
+          0.9267578125,
+          0.9287109375,
+          0.9482421875,
+          0.9560546875,
+          0.9609375,
+          0.9619140625,
+          0.9716796875,
+          0.96875,
+          0.9794921875,
+          0.9716796875,
+          0.98046875,
+          0.98046875
+        ],
+        "auc": [
+          0.5188626646995544,
+          0.6545604467391968,
+          0.7446490526199341,
+          0.8290995955467224,
+          0.9075911045074463,
+          0.9173119068145752,
+          0.9492014050483704,
+          0.9652275443077087,
+          0.9743066430091858,
+          0.9800841808319092,
+          0.9873125553131104,
+          0.9902071356773376,
+          0.993520200252533,
+          0.9941665530204773,
+          0.9968543648719788,
+          0.9957453012466431,
+          0.9969009160995483,
+          0.996540367603302,
+          0.9983446002006531,
+          0.9981144070625305
+        ],
+        "loss": [
+          0.8858910202980042,
+          0.6055060029029846,
+          0.5303793549537659,
+          0.4481561481952667,
+          0.36452871561050415,
+          0.3383607566356659,
+          0.28434285521507263,
+          0.24610266089439392,
+          0.2198590785264969,
+          0.19513434171676636,
+          0.16753022372722626,
+          0.1485508680343628,
+          0.1288796216249466,
+          0.11885994672775269,
+          0.10356812924146652,
+          0.10072155296802521,
+          0.08817920833826065,
+          0.08814921230077744,
+          0.07317506521940231,
+          0.07410812377929688
+        ],
+        "val_accuracy": [
+          0.689453125,
+          0.6845703125,
+          0.6796875,
+          0.6923828125,
+          0.69921875,
+          0.7109375,
+          0.705078125,
+          0.70703125,
+          0.6943359375,
+          0.697265625,
+          0.6982421875,
+          0.6953125,
+          0.69921875,
+          0.6982421875,
+          0.69921875,
+          0.6982421875,
+          0.6982421875,
+          0.6982421875,
+          0.6982421875,
+          0.6962890625
+        ],
+        "val_auc": [
+          0.5625309944152832,
+          0.5982324481010437,
+          0.6255573034286499,
+          0.6456770300865173,
+          0.6559639573097229,
+          0.6611601114273071,
+          0.6652877330780029,
+          0.6685577630996704,
+          0.6697248816490173,
+          0.6720890998840332,
+          0.6723321676254272,
+          0.6720616221427917,
+          0.6730568408966064,
+          0.672132670879364,
+          0.6707361936569214,
+          0.6709769368171692,
+          0.6685164570808411,
+          0.6677780747413635,
+          0.6685577034950256,
+          0.6682779788970947
+        ],
+        "val_loss": [
+          0.6577901840209961,
+          0.62579745054245,
+          0.6169731020927429,
+          0.6244661211967468,
+          0.6310591697692871,
+          0.6457045674324036,
+          0.6706873178482056,
+          0.7103069424629211,
+          0.7310405373573303,
+          0.7632638216018677,
+          0.8007673621177673,
+          0.8251773118972778,
+          0.8761669397354126,
+          0.9006966948509216,
+          0.933312714099884,
+          0.9751043319702148,
+          1.0194393396377563,
+          1.0368045568466187,
+          1.0638598203659058,
+          1.1003460884094238
+        ]
+      },
+      "saved_model": "outputs/alamp_paper_fusion_1024_graphgcn_20260513/graphgcn/final_model.keras"
+    }
+  },
+  "mpnet_checkpoint_policy": {
+    "allow_val_selected_mpnet": true,
+    "policy_reason": "path contains best_val/best-val",
+    "smoke_metrics_are_not_final": false,
+    "val_selected_checkpoint": true
+  },
+  "paper_reproduction_claim": "paper-oriented approximation",
+  "risks_and_unknowns": [
+    "Graph cache comes from object detector outputs, not an official A-LAMP detector reproduction.",
+    "GraphLite vectorization is an approximation over fixed graph fields.",
+    "Fusion branch is not yet validated by full 1024 training/evaluation.",
+    "MPNet features are frozen extracted features; this script does not fine-tune MPNet jointly.",
+    "If a validation-selected MPNet checkpoint is explicitly allowed for non-smoke training, validation metrics should not be treated as final."
+  ],
+  "smoke_command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python src/train/train_alamp_paper_mpnet_graph_fusion.py --fusion_mode graphgcn --max_train_samples 1024 --max_val_samples 1024 --batch_size 16 --epochs 20 --learning_rate 1e-4 --out_dir outputs/alamp_paper_fusion_1024_graphgcn_20260513 --allow_val_selected_mpnet --save_model",
+  "status": "training_completed",
+  "tensor_shape_report": {
+    "train": {
+      "adjacency": [
+        1024,
+        4,
+        4
+      ],
+      "crops": [
+        1024,
+        5,
+        224,
+        224,
+        3
+      ],
+      "graph_match_summary": {
+        "matched_count": 1024,
+        "missing_count": 0,
+        "skipped_count": 0,
+        "total_count": 1024
+      },
+      "graph_vectors": [
+        1024,
+        100
+      ],
+      "labels": [
+        1024,
+        1
+      ],
+      "mpnet_features": [
+        1024,
+        256
+      ],
+      "node_features": [
+        1024,
+        4,
+        15
+      ],
+      "object_mask": [
+        1024,
+        4
+      ],
+      "records": 1024,
+      "skipped_bad_crop": 0,
+      "skipped_missing_graph": 0
+    },
+    "val": {
+      "adjacency": [
+        1024,
+        4,
+        4
+      ],
+      "crops": [
+        1024,
+        5,
+        224,
+        224,
+        3
+      ],
+      "graph_match_summary": {
+        "matched_count": 1024,
+        "missing_count": 0,
+        "skipped_count": 0,
+        "total_count": 1024
+      },
+      "graph_vectors": [
+        1024,
+        100
+      ],
+      "labels": [
+        1024,
+        1
+      ],
+      "mpnet_features": [
+        1024,
+        256
+      ],
+      "node_features": [
+        1024,
+        4,
+        15
+      ],
+      "object_mask": [
+        1024,
+        4
+      ],
+      "records": 1024,
+      "skipped_bad_crop": 0,
+      "skipped_missing_graph": 0
+    }
+  }
+}

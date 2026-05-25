@@ -1,0 +1,130 @@
+{
+  "runtime": "local_vila_remote_code",
+  "model_name": "/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b",
+  "loader": "llava.remote_code.AutoModelForCausalLM",
+  "device": "cuda",
+  "converted_model_dir": "/tmp/photo_score_project_vila_remote/vila1_5-3b_a17fdc55f9",
+  "conv_mode": "vicuna_v1",
+  "results": [
+    {
+      "image_path": "/home/omen_pc1/ava/images/605719.jpg",
+      "short_reason": null,
+      "detailed_reason": "{ \"short_reason\": \"rejected: clean subject emphasis, busier background\", \"detailed_reason\": [\"Clean subject emphasis is strong. The person's back is to the camera and they are walking down a street with trees on both sides of them. The focus is on their back and the road ahead.\\n\\nComparison reason: This image has a clear separation between the subject and the background. The person in the",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "plain_text_fallback",
+      "parse_warning": "Recovered plain-text local output without full JSON.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. The person's back is to the camera and they are walking down a street with trees on both sides of them. The focus is on their back and the road ahead.\\n\\nComparison reason: This image has a clear separation between the subject and the background. The person in the",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. The person's back is to the camera and they are walking down a street with trees on both sides of them. The focus is on their back and the road ahead.\\n\\nComparison reason: This image has a clear separation between the subject and the background. The person in the"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/402813.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis is strong. Busy background distracts from the main focus of the image.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the main focus of the image.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong subject emphasis in a clear photo with no distractions\"\n},\n{",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the main focus of the image.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong subject emphasis in a clear photo with no distractions\"\n},\n{"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/69831.jpg",
+      "short_reason": null,
+      "detailed_reason": "{ \"short_reason\": \"rejected: clean subject emphasis, busier background\", \"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the image.\", \"The focus of this photo is on a pair of pliers with sharp teeth and pointed tips. The background is blurred but it's clear that there are other objects in the room.\\n\\nComparison reason: The first",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "plain_text_fallback",
+      "parse_warning": "Recovered plain-text local output without full JSON.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the image.\", \"The focus of this photo is on a pair of pliers with sharp teeth and pointed tips. The background is blurred but it's clear that there are other objects in the room.\\n\\nComparison reason: The first",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the image.\", \"The focus of this photo is on a pair of pliers with sharp teeth and pointed tips. The background is blurred but it's clear that there are other objects in the room.\\n\\nComparison reason: The first"
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_299_20130600365_e38e272927_b.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis is strong. The image has a busy background that takes away from the subjects.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. The image has a busy background that takes away from the subjects.\"],\n\"comparison_reason\": [\n{\n\"short\": \"rejection of distraction\",\n\"long\": \"The images have similar compositions and lighting but one shows more distractions in the background",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. The image has a busy background that takes away from the subjects.\"],\n\"comparison_reason\": [\n{\n\"short\": \"rejection of distraction\",\n\"long\": \"The images have similar compositions and lighting but one shows more distractions in the background"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/303348.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis is strong. Busy background distracts from the main subjects.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the main subjects.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong subject emphasis in foreground with clear separation and good framing\"\n},\n{\n\t\"",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the main subjects.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong subject emphasis in foreground with clear separation and good framing\"\n},\n{\n\t\""
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_265_20176633085_27e18a5955_b.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis is good. Busy background distracts from the kittens.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is good. Busy background distracts from the kittens.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong lighting and clear texture with a focus on the kitties' faces.\"\n},\n{",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is good. Busy background distracts from the kittens.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong lighting and clear texture with a focus on the kitties' faces.\"\n},\n{"
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/290371.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis is strong. Busy background distracts from the main subject.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the main subject.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong subject emphasis in foreground with clear separation and good framing\"\n},\n{\n\t\"",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the main subject.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong subject emphasis in foreground with clear separation and good framing\"\n},\n{\n\t\""
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/896194.jpg",
+      "short_reason": "rejected: clean subject emphasis, busier background",
+      "detailed_reason": "'Clean subject emphasis. Busier background.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "strict_json",
+      "parse_warning": null,
+      "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong light, limited separation\"\n},\n{\n\t\"short\": \"\",\n\t\"long\": \"\"\n}\n]\n}",
+      "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong light, limited separation\"\n},\n{\n\t\"short\": \"\",\n\t\"long\": \"\"\n}\n]\n}"
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_497_20012809309_7def33309a_b.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis. Busier background.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"selected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"busy background\",\n\t\"long\": \"The woman's face is obscured by a busy background that makes it difficult to see her expression clearly.\"\n},\n{\n\t\"short\": \"\",",
+      "normalized_text": "{\n\"short_reason\": \"selected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"busy background\",\n\t\"long\": \"The woman's face is obscured by a busy background that makes it difficult to see her expression clearly.\"\n},\n{\n\t\"short\": \"\","
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/7370.jpg",
+      "short_reason": null,
+      "detailed_reason": "\"Clean subject emphasis. Busier background.",
+      "comparison_reason": null,
+      "tags": [],
+      "confidence": null,
+      "parse_mode": "field_recovery",
+      "parse_warning": "Recovered labeled fields from non-JSON output.",
+      "raw_text": "{\n\"short_reason\": \"selected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"busy background\",\n\t\"long\": \"The image has a busy background that takes away from the main focus of the photo which is the palm tree leaves.\\n\"\n},\n{\n\t\"",
+      "normalized_text": "{\n\"short_reason\": \"selected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis. Busier background.\"],\n\"comparison_reason\": [\n{\n\"short\": \"busy background\",\n\t\"long\": \"The image has a busy background that takes away from the main focus of the photo which is the palm tree leaves.\\n\"\n},\n{\n\t\""
+    }
+  ]
+}

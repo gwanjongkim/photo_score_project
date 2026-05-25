@@ -1,0 +1,297 @@
+{
+  "experiment": "ava_retrain_rgnet_alamp_20260506",
+  "created_at_local": "Wed May  6 19:40:14 KST 2026",
+  "environment": {
+    "project_path": "/home/omen_pc1/photo_score_project",
+    "hostname": "DESKTOP-3T40JVV",
+    "whoami": "omen_pc1",
+    "python": "Python 3.12.3",
+    "gpu": "NVIDIA GeForce RTX 4070 family, nvidia-smi visible; TensorFlow GPU visible only in escalated training commands",
+    "git_status_short": "dirty before and after experiment; pre-existing modified/untracked files present; source code not modified for this task"
+  },
+  "manifests": {
+    "data/processed/ava/train_unit.csv": {
+      "rows": 204402,
+      "min": 0.08988764,
+      "max": 0.84126978,
+      "missing_image_path": 0,
+      "first_sample_exists": true
+    },
+    "data/processed/ava/val_unit.csv": {
+      "rows": 25551,
+      "min": 0.12677108,
+      "max": 0.84444444,
+      "missing_image_path": 0,
+      "first_sample_exists": true
+    },
+    "data/processed/ava/test_unit.csv": {
+      "rows": 25551,
+      "min": 0.10986267,
+      "max": 0.78784222,
+      "missing_image_path": 0,
+      "first_sample_exists": true
+    }
+  },
+  "subsets": {
+    "outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv": 512,
+    "outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_train_unit_smoke_128.csv": 128,
+    "outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_smoke_64.csv": 64,
+    "outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv": 512
+  },
+  "training": {
+    "rgnet_full": {
+      "output_dir": "outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit",
+      "epochs_completed": 5,
+      "stopped_by": "EarlyStopping monitor=val_loss patience=3 restore_best_weights=True; see src/train/train_rgnet.py:71-75",
+      "epoch_metrics": [
+        {
+          "epoch": 1,
+          "loss": 0.0051,
+          "mae": 0.056,
+          "val_loss": 0.0074,
+          "val_mae": 0.0672
+        },
+        {
+          "epoch": 2,
+          "loss": 0.0042,
+          "mae": 0.0506,
+          "val_loss": 0.0061,
+          "val_mae": 0.061
+        },
+        {
+          "epoch": 3,
+          "loss": 0.0039,
+          "mae": 0.0485,
+          "val_loss": 0.0158,
+          "val_mae": 0.105
+        },
+        {
+          "epoch": 4,
+          "loss": 0.0035,
+          "mae": 0.0465,
+          "val_loss": 0.0078,
+          "val_mae": 0.0691
+        },
+        {
+          "epoch": 5,
+          "loss": 0.0033,
+          "mae": 0.0447,
+          "val_loss": 0.0116,
+          "val_mae": 0.0864
+        }
+      ],
+      "saved": [
+        "outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras",
+        "outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/saved_model"
+      ]
+    },
+    "alamp_full": {
+      "output_dir": "outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit",
+      "epochs_completed": 4,
+      "stopped_by": "EarlyStopping monitor=val_loss patience=3 restore_best_weights=True; see src/train/train_alamp.py:84",
+      "epoch_metrics": [
+        {
+          "epoch": 1,
+          "loss": 0.0071,
+          "mae": 0.0648,
+          "val_loss": 0.0047,
+          "val_mae": 0.0536
+        },
+        {
+          "epoch": 2,
+          "loss": 0.0047,
+          "mae": 0.0539,
+          "val_loss": 0.0057,
+          "val_mae": 0.0595
+        },
+        {
+          "epoch": 3,
+          "loss": 0.0043,
+          "mae": 0.0512,
+          "val_loss": 0.0056,
+          "val_mae": 0.0587
+        },
+        {
+          "epoch": 4,
+          "loss": 0.004,
+          "mae": 0.0492,
+          "val_loss": 0.0065,
+          "val_mae": 0.0629
+        }
+      ],
+      "saved": [
+        "outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit/final_model.keras",
+        "outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit/saved_model"
+      ],
+      "warnings": [
+        "Training log included TensorFlow JPEG warning: Corrupt JPEG data: 451 extraneous bytes before marker 0xd9. Training completed."
+      ]
+    }
+  },
+  "metrics": {
+    "alamp_aadb_on_aadb_val512": {
+      "model_name": "alamp_aadb_on_aadb_val512",
+      "num_samples": 512,
+      "srcc": 0.5843108869358908,
+      "plcc": 0.5859304368880826,
+      "mae": 0.12918773293495178,
+      "rmse": 0.15944221705984685,
+      "top_k_overlap": 0.48,
+      "pairwise_accuracy": 0.7080008626266983,
+      "seconds_per_image": 0.13088132990624857,
+      "metrics_path": "outputs/ava_retrain_rgnet_alamp_20260506/baseline_eval/alamp_aadb_on_aadb_val512_metrics.json"
+    },
+    "alamp_aadb_on_ava_val512": {
+      "model_name": "alamp_aadb_on_ava_val512",
+      "num_samples": 512,
+      "srcc": 0.2893622127004929,
+      "plcc": 0.29977356819275314,
+      "mae": 0.09733263403177261,
+      "rmse": 0.12359703534626994,
+      "top_k_overlap": 0.2,
+      "pairwise_accuracy": 0.5999199839967994,
+      "seconds_per_image": 0.11505116983593666,
+      "metrics_path": "outputs/ava_retrain_rgnet_alamp_20260506/baseline_eval/alamp_aadb_on_ava_val512_metrics.json"
+    },
+    "rgnet_aadb_on_aadb_val512": {
+      "model_name": "rgnet_aadb_on_aadb_val512",
+      "num_samples": 512,
+      "srcc": 0.49870321834964165,
+      "plcc": 0.5094317194572269,
+      "mae": 0.13040411472320557,
+      "rmse": 0.1618646590048574,
+      "top_k_overlap": 0.46,
+      "pairwise_accuracy": 0.682122061677809,
+      "seconds_per_image": 0.03161520026757714,
+      "metrics_path": "outputs/ava_retrain_rgnet_alamp_20260506/baseline_eval/rgnet_aadb_on_aadb_val512_metrics.json"
+    },
+    "rgnet_aadb_on_ava_val512": {
+      "model_name": "rgnet_aadb_on_ava_val512",
+      "num_samples": 512,
+      "srcc": 0.17884484811250803,
+      "plcc": 0.1929944428597317,
+      "mae": 0.1023443266749382,
+      "rmse": 0.12603062201678558,
+      "top_k_overlap": 0.18,
+      "pairwise_accuracy": 0.5541108221644329,
+      "seconds_per_image": 0.01935119025585763,
+      "metrics_path": "outputs/ava_retrain_rgnet_alamp_20260506/baseline_eval/rgnet_aadb_on_ava_val512_metrics.json"
+    },
+    "alamp_ava_on_aadb_val512": {
+      "model_name": "alamp_ava_on_aadb_val512",
+      "num_samples": 512,
+      "srcc": 0.3438365954417548,
+      "plcc": 0.36277536576479213,
+      "mae": 0.14684832096099854,
+      "rmse": 0.18080304959808882,
+      "top_k_overlap": 0.2,
+      "pairwise_accuracy": 0.6269139529868449,
+      "seconds_per_image": 0.11755370363867712,
+      "metrics_path": "outputs/ava_retrain_rgnet_alamp_20260506/post_train_eval/alamp_ava_on_aadb_val512_metrics.json"
+    },
+    "alamp_ava_on_ava_val512": {
+      "model_name": "alamp_ava_on_ava_val512",
+      "num_samples": 512,
+      "srcc": 0.5547780621004887,
+      "plcc": 0.5566150269518059,
+      "mae": 0.05298228561878204,
+      "rmse": 0.06857058389689741,
+      "top_k_overlap": 0.36,
+      "pairwise_accuracy": 0.7033406681336267,
+      "seconds_per_image": 0.11203731068945189,
+      "metrics_path": "outputs/ava_retrain_rgnet_alamp_20260506/post_train_eval/alamp_ava_on_ava_val512_metrics.json"
+    },
+    "alamp_ava_tflite_on_ava_val512": {
+      "model_name": "alamp_ava_tflite_on_ava_val512",
+      "num_samples": 512,
+      "srcc": 0.513610330156849,
+      "plcc": 0.5257426341768058,
+      "mae": 0.05615680664777756,
+      "rmse": 0.07235602897205155,
+      "top_k_overlap": 0.38,
+      "pairwise_accuracy": 0.6863372674534907,
+      "seconds_per_image": 0.11916002873437037,
+      "metrics_path": "outputs/ava_retrain_rgnet_alamp_20260506/post_train_eval/alamp_ava_tflite_on_ava_val512_metrics.json"
+    },
+    "rgnet_ava_on_aadb_val512": {
+      "model_name": "rgnet_ava_on_aadb_val512",
+      "num_samples": 512,
+      "srcc": 0.2887457586267206,
+      "plcc": 0.32673272652794305,
+      "mae": 0.1630132496356964,
+      "rmse": 0.19897908398798228,
+      "top_k_overlap": 0.34,
+      "pairwise_accuracy": 0.6010351520379555,
+      "seconds_per_image": 0.021057736644529257,
+      "metrics_path": "outputs/ava_retrain_rgnet_alamp_20260506/post_train_eval/rgnet_ava_on_aadb_val512_metrics.json"
+    },
+    "rgnet_ava_on_ava_val512": {
+      "model_name": "rgnet_ava_on_ava_val512",
+      "num_samples": 512,
+      "srcc": 0.5612586171607651,
+      "plcc": 0.5697285958773385,
+      "mae": 0.05986102670431137,
+      "rmse": 0.07720994911499172,
+      "top_k_overlap": 0.36,
+      "pairwise_accuracy": 0.7027405481096219,
+      "seconds_per_image": 0.01778604018749874,
+      "metrics_path": "outputs/ava_retrain_rgnet_alamp_20260506/post_train_eval/rgnet_ava_on_ava_val512_metrics.json"
+    },
+    "rgnet_ava_tflite_on_ava_val512": {
+      "model_name": "rgnet_ava_tflite_on_ava_val512",
+      "num_samples": 512,
+      "srcc": 0.49922236870865705,
+      "plcc": 0.49457128333744066,
+      "mae": 0.08045576512813568,
+      "rmse": 0.10186779920457388,
+      "top_k_overlap": 0.28,
+      "pairwise_accuracy": 0.6689337867573515,
+      "seconds_per_image": 0.018671781056639247,
+      "metrics_path": "outputs/ava_retrain_rgnet_alamp_20260506/post_train_eval/rgnet_ava_tflite_on_ava_val512_metrics.json"
+    }
+  },
+  "tflite": {
+    "rgnet_ava_unit": {
+      "files": {
+        "tflite": "outputs/ava_retrain_rgnet_alamp_20260506/tflite/rgnet_ava_unit.tflite",
+        "metadata": "outputs/ava_retrain_rgnet_alamp_20260506/tflite/rgnet_ava_unit.metadata.json",
+        "verify": "outputs/ava_retrain_rgnet_alamp_20260506/tflite/rgnet_ava_unit.verify.json"
+      },
+      "size_bytes": 26050568,
+      "verification_passed": false,
+      "comparison": {
+        "max_abs_diff": 0.07468864321708679,
+        "mean_abs_diff": 0.07468864321708679,
+        "comparison_ok": false
+      },
+      "note": "TFLite verifier failed numeric parity against final_model.keras on one smoke image."
+    },
+    "alamp_ava_unit": {
+      "files": {
+        "tflite": "outputs/ava_retrain_rgnet_alamp_20260506/tflite/alamp_ava_unit.tflite",
+        "metadata": "outputs/ava_retrain_rgnet_alamp_20260506/tflite/alamp_ava_unit.metadata.json",
+        "verify": "outputs/ava_retrain_rgnet_alamp_20260506/tflite/alamp_ava_unit.verify.json"
+      },
+      "size_bytes": 39098664,
+      "verification_passed": true,
+      "comparison": {
+        "tflite_vs_rebuild_max_abs_diff": 3.159046173095703e-06,
+        "tflite_vs_rebuild_mean_abs_diff": 3.159046173095703e-06,
+        "rebuild_vs_checkpoint_max_abs_diff": 0.005213320255279541,
+        "rebuild_vs_checkpoint_mean_abs_diff": 0.005213320255279541,
+        "tflite_matches_export_source": true,
+        "rebuild_close_to_checkpoint_model": true
+      },
+      "note": "TFLite matches float32 rebuild export source; mixed-precision checkpoint comparison also close per verifier."
+    }
+  },
+  "decision": {
+    "rgnet_ava_unit": "better than current RGNet on AVA val512 Keras metrics; worse than current RGNet on AADB val512; TFLite parity failed; deployment decision inconclusive/failed for direct Flutter use until parity is fixed.",
+    "alamp_ava_unit": "better than current A-LAMP on AVA val512 Keras and TFLite metrics; worse than current A-LAMP on AADB val512; TFLite export/parity passed; direct replacement still inconclusive for app domain.",
+    "overall_recommendation": "Do not replace current AADB RGNet/A-LAMP in Flutter yet. Use results as evidence that AVA scalar training is worth testing, then run AVA pretrain plus AADB fine-tune and fix RGNet TFLite parity before app integration."
+  },
+  "not_run": {
+    "current_ensemble": "not run; local tool tools/run_aesthetic_ensemble_experiment.py scores image folders and compares stage5/weighted ensemble outputs, but no direct controlled AVA/AADB label-evaluation command was used in this experiment.",
+    "stage5_student": "not run on the fixed AVA/AADB subsets; local docs report a separate stage5 student artifact and metrics against the stage5 teacher target, not directly against AVA mean labels."
+  }
+}

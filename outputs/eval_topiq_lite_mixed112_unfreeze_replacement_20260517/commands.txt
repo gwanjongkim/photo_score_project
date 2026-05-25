@@ -1,0 +1,2 @@
+PYTHONPATH=. ./.venv_gpu/bin/python src/train/train_topiq_lite.py --train_csv data/processed/topiq_replacement/mixed_112_train.csv --val_csv data/processed/topiq_replacement/mixed_112_val.csv --target_col normalized_mos --batch_size 8 --epochs 12 --lr 1e-6 --init_weights outputs/mixed_replay_topiq_lite_112_frozen_e15_20260517/best.weights.h5 --out_dir outputs/mixed_replay_topiq_lite_112_unfrozen_lr1e6_e12_20260517
+./.venv_gpu/bin/python outputs/eval_topiq_lite_mixed112_unfreeze_replacement_20260517/eval.py

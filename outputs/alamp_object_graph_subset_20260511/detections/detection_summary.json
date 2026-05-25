@@ -1,0 +1,329 @@
+{
+  "confidence": 0.25,
+  "dependency_gate": {
+    "torch": true,
+    "torch_cuda_available": false,
+    "torch_version": "2.5.1+cu121",
+    "torchvision": true,
+    "ultralytics": true,
+    "ultralytics_version": "8.4.48"
+  },
+  "max_objects": 4,
+  "model": "models/detectors/yolo11n.pt",
+  "model_candidates": [
+    "yolo11n.pt",
+    "yolov8n.pt"
+  ],
+  "model_file": "models/detectors/yolo11n.pt",
+  "selected_detector": "ultralytics",
+  "splits": {
+    "test": {
+      "avg_objects_per_image": 1.191406,
+      "batch_size": 16,
+      "confidence": 0.25,
+      "csv": "outputs/alamp_object_graph_subset_20260511/subsets/test_ultra_valid_1024.csv",
+      "device": "0",
+      "image_col": "image_path",
+      "image_dir": "/home/omen_pc1/ava/images",
+      "max_objects": 4,
+      "model": "models/detectors/yolo11n.pt",
+      "model_file": "models/detectors/yolo11n.pt",
+      "no_object": 330,
+      "output_jsonl": "outputs/alamp_object_graph_subset_20260511/detections/test_objects_1024.jsonl",
+      "processed": 1024,
+      "records_written": 1024,
+      "requested": 1024,
+      "skipped": 0,
+      "skipped_examples": [],
+      "split": "test",
+      "top_classes": [
+        {
+          "class_name": "person",
+          "count": 409
+        },
+        {
+          "class_name": "bird",
+          "count": 106
+        },
+        {
+          "class_name": "vase",
+          "count": 42
+        },
+        {
+          "class_name": "car",
+          "count": 40
+        },
+        {
+          "class_name": "dog",
+          "count": 34
+        },
+        {
+          "class_name": "apple",
+          "count": 33
+        },
+        {
+          "class_name": "banana",
+          "count": 27
+        },
+        {
+          "class_name": "orange",
+          "count": 25
+        },
+        {
+          "class_name": "cup",
+          "count": 24
+        },
+        {
+          "class_name": "boat",
+          "count": 23
+        },
+        {
+          "class_name": "horse",
+          "count": 18
+        },
+        {
+          "class_name": "cake",
+          "count": 18
+        },
+        {
+          "class_name": "bottle",
+          "count": 18
+        },
+        {
+          "class_name": "bowl",
+          "count": 17
+        },
+        {
+          "class_name": "bench",
+          "count": 17
+        },
+        {
+          "class_name": "scissors",
+          "count": 16
+        },
+        {
+          "class_name": "cat",
+          "count": 16
+        },
+        {
+          "class_name": "airplane",
+          "count": 16
+        },
+        {
+          "class_name": "sports ball",
+          "count": 15
+        },
+        {
+          "class_name": "umbrella",
+          "count": 14
+        }
+      ]
+    },
+    "train": {
+      "avg_objects_per_image": 1.255859,
+      "batch_size": 16,
+      "confidence": 0.25,
+      "csv": "outputs/alamp_object_graph_subset_20260511/subsets/train_ultra_valid_1024.csv",
+      "device": "0",
+      "image_col": "image_path",
+      "image_dir": "/home/omen_pc1/ava/images",
+      "max_objects": 4,
+      "model": "models/detectors/yolo11n.pt",
+      "model_file": "models/detectors/yolo11n.pt",
+      "no_object": 333,
+      "output_jsonl": "outputs/alamp_object_graph_subset_20260511/detections/train_objects_1024.jsonl",
+      "processed": 1024,
+      "records_written": 1024,
+      "requested": 1024,
+      "skipped": 0,
+      "skipped_examples": [],
+      "split": "train",
+      "top_classes": [
+        {
+          "class_name": "person",
+          "count": 439
+        },
+        {
+          "class_name": "bird",
+          "count": 95
+        },
+        {
+          "class_name": "vase",
+          "count": 40
+        },
+        {
+          "class_name": "car",
+          "count": 40
+        },
+        {
+          "class_name": "boat",
+          "count": 30
+        },
+        {
+          "class_name": "dog",
+          "count": 26
+        },
+        {
+          "class_name": "cat",
+          "count": 26
+        },
+        {
+          "class_name": "bottle",
+          "count": 24
+        },
+        {
+          "class_name": "donut",
+          "count": 23
+        },
+        {
+          "class_name": "umbrella",
+          "count": 22
+        },
+        {
+          "class_name": "bench",
+          "count": 20
+        },
+        {
+          "class_name": "bowl",
+          "count": 19
+        },
+        {
+          "class_name": "chair",
+          "count": 19
+        },
+        {
+          "class_name": "clock",
+          "count": 19
+        },
+        {
+          "class_name": "banana",
+          "count": 19
+        },
+        {
+          "class_name": "apple",
+          "count": 19
+        },
+        {
+          "class_name": "orange",
+          "count": 17
+        },
+        {
+          "class_name": "cup",
+          "count": 17
+        },
+        {
+          "class_name": "cow",
+          "count": 16
+        },
+        {
+          "class_name": "wine glass",
+          "count": 16
+        }
+      ]
+    },
+    "val": {
+      "avg_objects_per_image": 1.257812,
+      "batch_size": 16,
+      "confidence": 0.25,
+      "csv": "outputs/alamp_object_graph_subset_20260511/subsets/val_ultra_valid_1024.csv",
+      "device": "0",
+      "image_col": "image_path",
+      "image_dir": "/home/omen_pc1/ava/images",
+      "max_objects": 4,
+      "model": "models/detectors/yolo11n.pt",
+      "model_file": "models/detectors/yolo11n.pt",
+      "no_object": 328,
+      "output_jsonl": "outputs/alamp_object_graph_subset_20260511/detections/val_objects_1024.jsonl",
+      "processed": 1024,
+      "records_written": 1024,
+      "requested": 1024,
+      "skipped": 0,
+      "skipped_examples": [],
+      "split": "val",
+      "top_classes": [
+        {
+          "class_name": "person",
+          "count": 420
+        },
+        {
+          "class_name": "bird",
+          "count": 107
+        },
+        {
+          "class_name": "vase",
+          "count": 45
+        },
+        {
+          "class_name": "dog",
+          "count": 41
+        },
+        {
+          "class_name": "boat",
+          "count": 34
+        },
+        {
+          "class_name": "car",
+          "count": 32
+        },
+        {
+          "class_name": "bench",
+          "count": 32
+        },
+        {
+          "class_name": "cup",
+          "count": 31
+        },
+        {
+          "class_name": "clock",
+          "count": 24
+        },
+        {
+          "class_name": "chair",
+          "count": 20
+        },
+        {
+          "class_name": "umbrella",
+          "count": 20
+        },
+        {
+          "class_name": "cake",
+          "count": 19
+        },
+        {
+          "class_name": "apple",
+          "count": 19
+        },
+        {
+          "class_name": "book",
+          "count": 18
+        },
+        {
+          "class_name": "teddy bear",
+          "count": 18
+        },
+        {
+          "class_name": "potted plant",
+          "count": 17
+        },
+        {
+          "class_name": "tie",
+          "count": 17
+        },
+        {
+          "class_name": "cat",
+          "count": 16
+        },
+        {
+          "class_name": "bed",
+          "count": 16
+        },
+        {
+          "class_name": "bottle",
+          "count": 16
+        }
+      ]
+    }
+  },
+  "status": "available",
+  "updated_at": "2026-05-11T08:18:08.750914+00:00"
+}

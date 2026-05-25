@@ -1,0 +1,81 @@
+{
+  "teacher_manifest": "outputs/gemma4_e4b_aesthetic3_expanded_20260427/test.jsonl",
+  "teacher_target_format": {
+    "rows": 12,
+    "valid_rate": 1.0
+  },
+  "status": "ok",
+  "predictions_jsonl": "outputs/gemma4_e4b_aesthetic3_expanded_20260427/evaluation/predictions_test.jsonl",
+  "student_metrics": {
+    "matched_predictions": 12,
+    "format_compliance_rate": 1.0,
+    "prefix_compliance_rate": 1.0,
+    "role_separation_rate": 1.0,
+    "mean_sequence_ratio": 0.265452,
+    "mean_token_f1": 0.107597,
+    "worst_examples": [
+      {
+        "id": "ava__test__teacher__77__ava__546643.jpg__298d2eb4__1fed7a99",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/546643.jpg",
+        "teacher_comment_3line": "Strength: clean subject emphasis.\nWeakness: busier background.\nVerdict: selected because clean subject emphasis carries the frame despite busier background.",
+        "predicted_comment_3line": "Strength:The image is a high-quality, well-lit close-up of crinkled gold foil, providing strong visual texture and reflectivity.\nWeakness:The composition is very dense, with no clear focal point or negative space to give the image breathing room.\nVerdict:selected because the strong visual texture and high quality of the subject matter make it a strong visual candidate.",
+        "sequence_ratio": 0.072106,
+        "token_f1": 0.081081,
+        "format_valid": true
+      },
+      {
+        "id": "ava__test__teacher__149__ava__447638.jpg__4feb144b__61971a22",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/447638.jpg",
+        "teacher_comment_3line": "Strength: clean subject emphasis.\nWeakness: busier background.\nVerdict: selected because clean subject emphasis carries the frame despite busier background.",
+        "predicted_comment_3line": "Strength:The composition features a strong contrast between the vibrant sunset sky and the silhouette of the lighthouse.\nWeakness:The foreground rocks are somewhat cluttered and dominate the lower portion of the frame.\nVerdict:selected because the strong visual candidate quality is evident in the dramatic lighting and subject matter.",
+        "sequence_ratio": 0.077393,
+        "token_f1": 0.090909,
+        "format_valid": true
+      },
+      {
+        "id": "aadb__test__teacher__157__aadb__farm1_428_20181897726_29f617fa6f_b.jpg__64b2dec7__b58fb4d7",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_428_20181897726_29f617fa6f_b.jpg",
+        "teacher_comment_3line": "Strength: { \"reason\": \"rejected: clean subject emphasis.\nWeakness: The background is busy with people watching the game.\".\nVerdict: not selected because The background is busy with people watching the game.\" undercuts { \"reason\": \"rejected: clean subject emphasis.",
+        "predicted_comment_3line": "Strength:The image is well-lit and captures a large crowd in an indoor arena.\nWeakness:The composition is very wide, making the central action small relative to the frame.\nVerdict:not selected becauseThe frame is too wide and the central action is not sufficiently emphasized.",
+        "sequence_ratio": 0.077778,
+        "token_f1": 0.177215,
+        "format_valid": true
+      }
+    ],
+    "best_examples": [
+      {
+        "id": "ava__test__teacher__63__ava__779836.jpg__66f4efb0__4d672b10",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/779836.jpg",
+        "teacher_comment_3line": "Strength: clean subject emphasis.\nWeakness: busier background.\nVerdict: not selected because busier background undercuts clean subject emphasis.",
+        "predicted_comment_3line": "Strength:Visible texture and detail in the image\nWeakness:Low contrast and muted colors\nVerdict:not selected becauselow contrast and muted colors",
+        "sequence_ratio": 0.539792,
+        "token_f1": 0.055556,
+        "format_valid": true
+      },
+      {
+        "id": "ava__test__teacher__180__ava__69831.jpg__e6f6af7f__25830471",
+        "split": "test",
+        "image_path": "/home/omen_pc1/ava/images/69831.jpg",
+        "teacher_comment_3line": "Strength: clean subject emphasis.\nWeakness: busier background.\nVerdict: not selected because busier background undercuts clean subject emphasis.",
+        "predicted_comment_3line": "Strength: The image is sharp and well-exposed.\nWeakness: The composition is cluttered with multiple objects.\nVerdict: not selected because the composition is cluttered with multiple objects.",
+        "sequence_ratio": 0.502994,
+        "token_f1": 0.27907,
+        "format_valid": true
+      },
+      {
+        "id": "aadb__test__teacher__126__aadb__farm1_320_20081432532_dbffd1f16a_b.jpg__dad537cf__0305311f",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_320_20081432532_dbffd1f16a_b.jpg",
+        "teacher_comment_3line": "Strength: clean subject emphasis.\nWeakness: busier background.\nVerdict: selected because clean subject emphasis carries the frame despite busier background.",
+        "predicted_comment_3line": "Strength:The bird is sharply in focus and well-lit.\nWeakness:The background is slightly distracting.\nVerdict:selected because the bird is sharply in focus and well-lit.",
+        "sequence_ratio": 0.469136,
+        "token_f1": 0.095238,
+        "format_valid": true
+      }
+    ]
+  }
+}

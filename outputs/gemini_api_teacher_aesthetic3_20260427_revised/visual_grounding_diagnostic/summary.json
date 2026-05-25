@@ -1,0 +1,337 @@
+{
+  "manifest": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/test.jsonl",
+  "adapter_dir": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/final_adapter",
+  "base_model": "google/gemma-4-E4B-it",
+  "output_dir": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/visual_grounding_diagnostic",
+  "examples": 6,
+  "rows_written": 30,
+  "device": "cuda",
+  "results_jsonl": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/visual_grounding_diagnostic/diagnostic_results.jsonl",
+  "variant_similarity_to_original_mean": {
+    "blank_black_same_prompt": 0.171282,
+    "noise_same_prompt": 0.140996,
+    "original": 1.0,
+    "swapped_image_same_prompt": 0.22632,
+    "text_only_no_image_marker": 0.201045
+  },
+  "text_only_error_count": 0,
+  "summary_examples": [
+    {
+      "id": "gemini__300__83__ava__selected_high__677228.jpg__cb83fd1aa0",
+      "selection_state": "selected",
+      "variant_similarities": {
+        "original": 1.0,
+        "swapped_image_same_prompt": 0.123881,
+        "blank_black_same_prompt": 0.097035,
+        "noise_same_prompt": 0.093664,
+        "text_only_no_image_marker": 0.061567
+      },
+      "variant_object_terms": {
+        "original": [
+          "landscape"
+        ],
+        "swapped_image_same_prompt": [],
+        "blank_black_same_prompt": [
+          "sky",
+          "water"
+        ],
+        "noise_same_prompt": [
+          "person",
+          "portrait"
+        ],
+        "text_only_no_image_marker": [
+          "portrait"
+        ]
+      },
+      "variant_errors": {},
+      "predictions": {
+        "original": {
+          "comment_type": "selected_explanation",
+          "short_reason": "This is a strong, high-contrast image with a clear, dramatic composition.",
+          "detailed_reason": "The use of a wide-angle lens creates a sense of immense scale and isolation, which is reinforced by the vast, empty foreground and the small, solitary figure. The dramatic lighting, with the bright, warm sun illuminating the figure and the harsh shadows, adds a strong sense of mood and visual interest. The composition is balanced, with the figure placed in the lower third, allowing the viewer's eye to travel up the vast, textured landscape.",
+          "comparison_reason": ""
+        },
+        "swapped_image_same_prompt": null,
+        "blank_black_same_prompt": {
+          "comment_type": "selected_explanation",
+          "short_reason": "This is a strong, dynamic photo that captures the energy of the moment with excellent use of color and composition.",
+          "detailed_reason": "The composition is very effective, using the strong diagonal lines of the bridge and the water to create a sense of movement and depth. The vibrant colors of the sunset and the water are beautifully saturated, making the image visually striking. The long exposure creates a smooth, ethereal effect on the water, which contrasts nicely with the sharp lines of the bridge and the dramatic sky. The overall mood is powerful and cinematic.",
+          "comparison_reason": null
+        },
+        "noise_same_prompt": {
+          "comment_type": "selected_explanation",
+          "short_reason": "This is a compelling portrait that uses dramatic lighting and a strong pose to create a powerful and intimate image.",
+          "detailed_reason": "The portrait is highly effective due to the dramatic chiaroscuro lighting, which casts deep shadows and highlights the subject's features, creating a moody and intense atmosphere. The subject's direct gaze and strong, confident pose make for a powerful connection with the viewer. The composition is balanced, with the subject filling the frame and the dark background keeping the focus entirely on the person.",
+          "comparison_reason": null
+        },
+        "text_only_no_image_marker": {
+          "comment_type": "selected_explanation",
+          "short_reason": "The dramatic lighting and strong composition create a moody and cinematic portrait.",
+          "detailed_reason": "The use of chiaroscuro lighting is highly effective, with the bright rim light on the subject's hair and shoulder contrasting sharply against the dark background. This technique highlights the texture of the subject's hair and skin, adding a sense of drama and depth. The composition is strong, with the subject positioned slightly off-center and looking directly at the viewer, which creates a powerful and engaging portrait.",
+          "comparison_reason": null
+        }
+      }
+    },
+    {
+      "id": "gemini__300__124__ava__middle_near_miss__94946.jpg__a0338bb6c5",
+      "selection_state": "near_miss",
+      "variant_similarities": {
+        "original": 1.0,
+        "swapped_image_same_prompt": 0.1517,
+        "blank_black_same_prompt": 0.138952,
+        "noise_same_prompt": 0.089335,
+        "text_only_no_image_marker": 0.035524
+      },
+      "variant_object_terms": {
+        "original": [],
+        "swapped_image_same_prompt": [],
+        "blank_black_same_prompt": [],
+        "noise_same_prompt": [],
+        "text_only_no_image_marker": []
+      },
+      "variant_errors": {},
+      "predictions": {
+        "original": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong composition and a beautiful color palette, but the lack of a clear focal point makes it feel a bit aimless.",
+          "detailed_reason": "The composition is very strong, with the subject placed in the rule of thirds and the color palette being vibrant and appealing. However, the image lacks a clear focal point, which makes it feel a bit aimless. A tighter crop on the subject would have made the image much stronger.",
+          "comparison_reason": ""
+        },
+        "swapped_image_same_prompt": null,
+        "blank_black_same_prompt": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The composition is strong, but the image lacks a clear focal point and the lighting is too flat.",
+          "detailed_reason": "The wide shot captures a nice sense of scale and the subject is well-placed in the frame. However, the image is a bit flat because of the even lighting, and the viewer's eye doesn't have a clear place to rest. Adding a strong focal point, like a specific detail or a more dramatic element, would make the image much more engaging.",
+          "comparison_reason": null
+        },
+        "noise_same_prompt": null,
+        "text_only_no_image_marker": null
+      }
+    },
+    {
+      "id": "gemini__300__114__aadb__rejected_low__farm4_3788_20148590522_b178fecb6f_b.jpg__819f0bfdad",
+      "selection_state": "not_selected",
+      "variant_similarities": {
+        "original": 1.0,
+        "swapped_image_same_prompt": 0.205841,
+        "blank_black_same_prompt": 0.205634,
+        "noise_same_prompt": 0.176991,
+        "text_only_no_image_marker": 0.17942
+      },
+      "variant_object_terms": {
+        "original": [],
+        "swapped_image_same_prompt": [],
+        "blank_black_same_prompt": [
+          "landscape",
+          "water"
+        ],
+        "noise_same_prompt": [
+          "bird"
+        ],
+        "text_only_no_image_marker": [
+          "bird"
+        ]
+      },
+      "variant_errors": {},
+      "predictions": {
+        "original": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and underexposed, making it difficult to see the details of the subject.",
+          "detailed_reason": "The photograph is very dark and underexposed, which obscures the details of the subject and the surrounding environment. The lighting is uneven, with some areas being too bright and others being too dark, which detracts from the overall quality of the image.",
+          "comparison_reason": ""
+        },
+        "swapped_image_same_prompt": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and lacks contrast, making it difficult to see the details of the subject.",
+          "detailed_reason": "The low exposure and dark tones obscure the details of the subject, making the image appear muddy and indistinct. The lack of contrast and bright highlights prevents the viewer from clearly seeing the texture and form of the subject.",
+          "comparison_reason": ""
+        },
+        "blank_black_same_prompt": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and lacks contrast, making it difficult to see the details of the scene.",
+          "detailed_reason": "The low exposure and dark tones obscure the details of the landscape, making the image appear muddy and indistinct. The lack of contrast prevents the viewer from appreciating the textures and shapes of the rocks and the water.",
+          "comparison_reason": ""
+        },
+        "noise_same_prompt": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and lacks contrast, making it difficult to see the details of the subject.",
+          "detailed_reason": "The low exposure and dark tones obscure the details of the subject, which is a large, dark-colored bird. The lack of contrast makes the image appear muddy and indistinct. The composition is also somewhat unbalanced, with the bird taking up most of the frame and the background being a uniform, dark color.",
+          "comparison_reason": ""
+        },
+        "text_only_no_image_marker": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and lacks contrast, making it difficult to see the details of the subject.",
+          "detailed_reason": "The low exposure and dark shadows obscure the details of the subject, which is a small, dark bird. The lack of contrast makes the image appear muddy and indistinct. A brighter exposure and more dynamic range would have allowed the bird to stand out against the background.",
+          "comparison_reason": null
+        }
+      }
+    },
+    {
+      "id": "gemini__300__209__aadb__selected_high__farm1_297_19540454733_85ecefce08_b.jpg__f8647ce6f0",
+      "selection_state": "selected",
+      "variant_similarities": {
+        "original": 1.0,
+        "swapped_image_same_prompt": 0.169922,
+        "blank_black_same_prompt": 0.094118,
+        "noise_same_prompt": 0.12348,
+        "text_only_no_image_marker": 0.117647
+      },
+      "variant_object_terms": {
+        "original": [],
+        "swapped_image_same_prompt": [
+          "street"
+        ],
+        "blank_black_same_prompt": [
+          "water"
+        ],
+        "noise_same_prompt": [
+          "landscape"
+        ],
+        "text_only_no_image_marker": [
+          "portrait"
+        ]
+      },
+      "variant_errors": {},
+      "predictions": {
+        "original": {
+          "comment_type": "selected_explanation",
+          "short_reason": "This is a compelling and well-composed image that effectively uses color and light to create a sense of depth and atmosphere.",
+          "detailed_reason": "The image is strong due to its excellent use of color and lighting. The bright, warm light source on the right side creates a dramatic rim light on the subject, which is a very effective technique. The color palette is rich and vibrant, with the greens and blues providing a beautiful contrast to the warm highlights. The composition is balanced, and the soft, diffused lighting contributes to a very atmospheric and high-quality final image.",
+          "comparison_reason": ""
+        },
+        "swapped_image_same_prompt": {
+          "comment_type": "selected_explanation",
+          "short_reason": "This is a compelling and well-composed photo that captures the vibrant energy of a street scene.",
+          "detailed_reason": "The composition is strong, with the bright red and orange of the subject drawing the viewer's eye into the frame. The use of a shallow depth of field effectively isolates the subject from the background, creating a sense of depth and focus. The warm, saturated colors contribute to a lively and engaging atmosphere.",
+          "comparison_reason": ""
+        },
+        "blank_black_same_prompt": {
+          "comment_type": "selected_explanation",
+          "short_reason": "This is a strong, dynamic photo that captures the energy of the moment with excellent use of color and composition.",
+          "detailed_reason": "The composition is very effective, using the strong diagonal lines of the bridge and the water to create a sense of movement and depth. The vibrant colors of the sunset and the water are beautifully saturated, making the image visually striking. The long exposure creates a smooth, ethereal effect on the water, which contrasts nicely with the sharp details of the bridge structure. The overall mood is dramatic and energetic, making for a compelling photograph.",
+          "comparison_reason": null
+        },
+        "noise_same_prompt": {
+          "comment_type": "selected_explanation",
+          "short_reason": "This is a compelling and well-composed photograph that captures the dramatic beauty of the desert landscape.",
+          "detailed_reason": "The composition is strong, with the desert landscape filling the frame and the strong, warm light creating a beautiful, high-contrast scene. The use of the golden hour light is excellent, casting long shadows and highlighting the texture of the sand dunes. The image is sharp and well-exposed, making it a very strong example of desert photography.",
+          "comparison_reason": ""
+        },
+        "text_only_no_image_marker": {
+          "comment_type": "selected_explanation",
+          "short_reason": "The dramatic lighting and strong composition create a moody and cinematic portrait.",
+          "detailed_reason": "The use of chiaroscuro lighting is highly effective, with the bright rim light on the subject's hair and shoulder contrasting sharply against the dark background. This technique highlights the texture of the subject's hair and skin, adding a sense of drama and depth. The composition is strong, with the subject positioned slightly off-center and looking directly at the viewer, which creates a powerful and engaging portrait.",
+          "comparison_reason": null
+        }
+      }
+    },
+    {
+      "id": "gemini__300__188__ava__middle_near_miss__669176.jpg__b9a0151775",
+      "selection_state": "near_miss",
+      "variant_similarities": {
+        "original": 1.0,
+        "swapped_image_same_prompt": 0.278846,
+        "blank_black_same_prompt": 0.100233,
+        "noise_same_prompt": 0.095238,
+        "text_only_no_image_marker": 0.03105
+      },
+      "variant_object_terms": {
+        "original": [],
+        "swapped_image_same_prompt": [],
+        "blank_black_same_prompt": [
+          "landscape"
+        ],
+        "noise_same_prompt": [
+          "landscape"
+        ],
+        "text_only_no_image_marker": []
+      },
+      "variant_errors": {},
+      "predictions": {
+        "original": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong composition and color palette, but the low-key lighting is too dark and the subject is not clearly defined.",
+          "detailed_reason": "The composition is very strong, with the subject placed in the lower-left quadrant and the use of color to draw the eye. However, the image is too dark and the subject is not clearly defined, which makes it difficult to see the details of the scene.",
+          "comparison_reason": ""
+        },
+        "swapped_image_same_prompt": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The image has a strong composition and a clear subject, but the lighting is too flat and lacks visual interest.",
+          "detailed_reason": "The composition is well-balanced, with the subject centered and the framing tight enough to create a sense of intimacy. However, the lighting is very flat, which makes the scene feel dull and uninteresting. Adding some contrast or a more dramatic light source would make the image much more engaging.",
+          "comparison_reason": ""
+        },
+        "blank_black_same_prompt": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The composition is strong, but the image lacks a clear focal point and the lighting is too flat.",
+          "detailed_reason": "The wide-angle view of the landscape is well-composed, with the foreground elements framing the scene nicely. However, the image is a bit flat because of the even lighting, and the lack of a strong focal point makes it feel like a generic landscape shot. Adding some contrast or a more dramatic element would make this a much stronger image.",
+          "comparison_reason": null
+        },
+        "noise_same_prompt": {
+          "comment_type": "near_miss_feedback",
+          "short_reason": "The composition is strong, but the image lacks a clear focal point and the lighting is too flat.",
+          "detailed_reason": "This is a well-composed landscape shot with a nice sense of depth, but it is currently a near miss because it lacks a strong focal point. The foreground is a bit cluttered, and the lighting is very flat, which makes the scene feel dull. To improve, try to find a more interesting element to anchor the viewer's eye, and use more dramatic lighting to add contrast and depth to the scene.",
+          "comparison_reason": null
+        },
+        "text_only_no_image_marker": null
+      }
+    },
+    {
+      "id": "gemini__300__19__ava__rejected_low__197848.jpg__98819a623a",
+      "selection_state": "not_selected",
+      "variant_similarities": {
+        "original": 1.0,
+        "swapped_image_same_prompt": 0.427729,
+        "blank_black_same_prompt": 0.39172,
+        "noise_same_prompt": 0.267267,
+        "text_only_no_image_marker": 0.781065
+      },
+      "variant_object_terms": {
+        "original": [
+          "bird"
+        ],
+        "swapped_image_same_prompt": [],
+        "blank_black_same_prompt": [
+          "landscape",
+          "water"
+        ],
+        "noise_same_prompt": [],
+        "text_only_no_image_marker": [
+          "bird"
+        ]
+      },
+      "variant_errors": {},
+      "predictions": {
+        "original": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and lacks contrast, making it difficult to see the details of the subject.",
+          "detailed_reason": "The low exposure and dark tones obscure the details of the subject, which is a small, dark bird. The lack of contrast and detail makes the image appear muddy and unappealing.",
+          "comparison_reason": ""
+        },
+        "swapped_image_same_prompt": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and underexposed, making it difficult to see the details of the subject.",
+          "detailed_reason": "The photograph is very dark and underexposed, which obscures the details of the subject and the surrounding environment. The low exposure makes the image appear muddy and lacks definition, making it difficult to appreciate the quality of the composition or the subject itself.",
+          "comparison_reason": ""
+        },
+        "blank_black_same_prompt": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and lacks contrast, making it difficult to see the details of the scene.",
+          "detailed_reason": "The low exposure and dark tones obscure the details of the landscape, making the image appear muddy and indistinct. The lack of contrast prevents the viewer from appreciating the textures and shapes of the rocks and the water.",
+          "comparison_reason": ""
+        },
+        "noise_same_prompt": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and lacks a clear focal point, making it difficult to appreciate the scene.",
+          "detailed_reason": "The low exposure makes the image appear muddy and underexposed, obscuring details in the foreground and background. The composition is also weak, as the subjects are not clearly defined, and the overall scene lacks a strong focal point to draw the viewer's eye.",
+          "comparison_reason": null
+        },
+        "text_only_no_image_marker": {
+          "comment_type": "rejection_reason",
+          "short_reason": "The image is too dark and lacks contrast, making it difficult to see the details of the subject.",
+          "detailed_reason": "The low exposure and dark shadows obscure the details of the subject, which is a small, dark bird. The lack of contrast makes the image appear muddy and indistinct. A brighter exposure and more dynamic range would have allowed the bird to stand out against the background.",
+          "comparison_reason": null
+        }
+      }
+    }
+  ]
+}

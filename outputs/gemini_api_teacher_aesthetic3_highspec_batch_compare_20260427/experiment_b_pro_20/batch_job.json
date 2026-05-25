@@ -1,0 +1,69 @@
+{
+  "status": "batch_submitted",
+  "submitted_at_unix": 1777373596.5717201,
+  "model": "gemini-2.5-pro",
+  "request_count": 20,
+  "batch_requests_jsonl": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/experiment_b_pro_20/gemini_batch_requests_experiment_b_pro_20_20260427.jsonl",
+  "uploaded_file": {
+    "name": "files/qvxj4k7f75l7",
+    "displayName": "gemini-teacher-highspec-compare-b-pro-20",
+    "mimeType": "application/jsonl",
+    "sizeBytes": "4594381",
+    "createTime": "2026-04-28T10:53:11.035950Z",
+    "updateTime": "2026-04-28T10:53:11.035950Z",
+    "expirationTime": "2026-04-30T10:53:10.096692883Z",
+    "sha256Hash": "ODFhOWZlNDYzNWNjM2RhZjdlODE1MmNjYWIwMTcwOTQ5OTdlNjViMjBhYmI4NTU4YTk0MjYxNDczMjNhMDJmNg==",
+    "uri": "https://generativelanguage.googleapis.com/v1beta/files/qvxj4k7f75l7",
+    "state": "ACTIVE",
+    "source": "UPLOADED"
+  },
+  "batch_job": {
+    "name": "batches/r9b6dvjogggr10z9qxqwfad0ki0yuzi1fsoo",
+    "metadata": {
+      "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.GenerateContentBatch",
+      "model": "models/gemini-2.5-pro",
+      "displayName": "gemini-teacher-highspec-compare-b-pro-20",
+      "inputConfig": {
+        "fileName": "files/qvxj4k7f75l7"
+      },
+      "createTime": "2026-04-28T10:53:12.836431843Z",
+      "updateTime": "2026-04-28T10:53:12.836431843Z",
+      "batchStats": {
+        "requestCount": "20",
+        "pendingRequestCount": "20"
+      },
+      "state": "BATCH_STATE_PENDING",
+      "name": "batches/r9b6dvjogggr10z9qxqwfad0ki0yuzi1fsoo"
+    }
+  },
+  "batch_job_name": "batches/r9b6dvjogggr10z9qxqwfad0ki0yuzi1fsoo",
+  "batch_state": "BATCH_STATE_SUCCEEDED",
+  "latest_status": {
+    "name": "batches/r9b6dvjogggr10z9qxqwfad0ki0yuzi1fsoo",
+    "metadata": {
+      "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.GenerateContentBatch",
+      "model": "models/gemini-2.5-pro",
+      "displayName": "gemini-teacher-highspec-compare-b-pro-20",
+      "inputConfig": {
+        "fileName": "files/qvxj4k7f75l7"
+      },
+      "output": {
+        "responsesFile": "files/batch-r9b6dvjogggr10z9qxqwfad0ki0yuzi1fsoo"
+      },
+      "createTime": "2026-04-28T10:53:12.836431843Z",
+      "endTime": "2026-04-28T11:13:14.170792214Z",
+      "updateTime": "2026-04-28T11:13:14.170792184Z",
+      "batchStats": {
+        "requestCount": "20",
+        "successfulRequestCount": "20"
+      },
+      "state": "BATCH_STATE_SUCCEEDED",
+      "name": "batches/r9b6dvjogggr10z9qxqwfad0ki0yuzi1fsoo"
+    },
+    "done": true,
+    "response": {
+      "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.GenerateContentBatchOutput",
+      "responsesFile": "files/batch-r9b6dvjogggr10z9qxqwfad0ki0yuzi1fsoo"
+    }
+  }
+}

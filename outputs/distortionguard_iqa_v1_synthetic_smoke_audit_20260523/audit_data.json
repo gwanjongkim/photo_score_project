@@ -1,0 +1,44 @@
+{
+  "stats": {
+    "distortion_types": [
+      "gaussian_blur",
+      "motion_blur",
+      "defocus_blur",
+      "gaussian_noise",
+      "jpeg_compression",
+      "webp_compression",
+      "downscale_upscale",
+      "underexposure",
+      "overexposure",
+      "contrast_loss"
+    ],
+    "severities": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "counts_by_type": {
+      "gaussian_blur": 100,
+      "motion_blur": 100,
+      "defocus_blur": 100,
+      "gaussian_noise": 100,
+      "jpeg_compression": 100,
+      "webp_compression": 100,
+      "downscale_upscale": 100,
+      "underexposure": 100,
+      "overexposure": 100,
+      "contrast_loss": 100
+    },
+    "counts_by_severity": {
+      "1": 200,
+      "2": 200,
+      "3": 200,
+      "4": 200,
+      "5": 200
+    }
+  },
+  "invalid_pairs_count": 0,
+  "invalid_pairs_samples": []
+}

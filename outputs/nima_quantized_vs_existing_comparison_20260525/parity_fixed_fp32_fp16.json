@@ -1,0 +1,15 @@
+{
+  "keras_vs_fp32": {
+    "max_abs_diff_dist": 0.0001795738935470581,
+    "mean_abs_diff_score": 0.00030922412406653166
+  },
+  "keras_vs_fp16": {
+    "max_abs_diff_dist": 0.000525549054145813,
+    "mean_abs_diff_score": 0.001163544598966837
+  },
+  "fp32_vs_fp16": {
+    "max_abs_diff_dist": 0.00040321052074432373,
+    "mean_abs_diff_score": 0.0011565398890525103,
+    "rank_correlation": 0.9999999999999999
+  }
+}

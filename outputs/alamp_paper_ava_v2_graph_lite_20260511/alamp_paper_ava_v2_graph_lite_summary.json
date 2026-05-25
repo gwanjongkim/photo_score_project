@@ -1,0 +1,17 @@
+{
+  "model_variant": "A-LAMP-paper-AVA-v2_graph_lite",
+  "official_reproduction": false,
+  "paper_comparability_note": "A-LAMP-paper-oriented approximation with graph-lite branch.",
+  "metrics": {
+    "accuracy": 0.7109375,
+    "precision": 0.7157057654075547,
+    "recall": 0.9863013698630136,
+    "specificity": 0.027210884353741496,
+    "f1": 0.8294930875576036,
+    "roc_auc": 0.5826530612244898,
+    "average_precision": 0.7637762861537754,
+    "bce_loss": 0.6976367235183716,
+    "confusion_matrix": "tn=8, fp=286, fn=10, tp=720"
+  },
+  "decision": "v2_graph_lite does not help; pause A-LAMP graph work"
+}

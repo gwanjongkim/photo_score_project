@@ -1,0 +1,42 @@
+{
+  "versions": {
+    "Version 0": {
+      "name": "A-LAMP-paper-AVA-v0 approximation",
+      "description": "VGG16 shared patch branch, deterministic/adaptive patch extraction approximation, simple layout features, binary AVA classifier, no exact object/global attribute graph, no official reproduction claim.",
+      "required_files": [
+        "src/models/alamp_paper_ava.py",
+        "src/train/train_alamp_paper_ava.py",
+        "src/eval/evaluate_alamp_paper_ava.py",
+        "configs/paper_benchmarks/alamp_paper_ava_classification.yaml"
+      ],
+      "required_data": ["AVA dataset (train/val/test CSVs with mean_score)"],
+      "expected_complexity": "Medium",
+      "expected_gpu_cost": "High (due to VGG16 with 5 patches + 1 global)",
+      "likely_benefit": "Provides a strong paper-oriented baseline for AVA classification to compare against the practical A-LAMP implementation.",
+      "worth_implementing_now": true,
+      "use_codex": true
+    },
+    "Version 1": {
+      "name": "A-LAMP-paper-AVA-v1 stronger approximation",
+      "description": "Better adaptive patch proposal, more paper-like patch selection, layout-aware branch improved, optional object detector or saliency-based patch candidates.",
+      "required_files": ["src/datasets/advanced_saliency_dataset.py", "src/models/alamp_paper_ava_v1.py"],
+      "required_data": ["AVA dataset", "External Saliency Maps / Object Bounding Boxes"],
+      "expected_complexity": "High",
+      "expected_gpu_cost": "High",
+      "likely_benefit": "Closer to the true architectural intent of adaptive saliency.",
+      "worth_implementing_now": false,
+      "use_codex": false
+    },
+    "Version 2": {
+      "name": "A-LAMP paper-faithful attempt",
+      "description": "Object/global attribute graph implemented, paper-like training protocol, official-style evaluation.",
+      "required_files": ["src/models/alamp_attribute_graph.py"],
+      "required_data": ["AVA dataset", "Saliency Maps", "Attribute labels"],
+      "expected_complexity": "Very High",
+      "expected_gpu_cost": "Very High",
+      "likely_benefit": "True reproduction attempt.",
+      "worth_implementing_now": false,
+      "use_codex": false
+    }
+  }
+}

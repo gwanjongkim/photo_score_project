@@ -1,0 +1,45 @@
+{
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/distill_conservative_aesthetic_full_aadb_20260423",
+  "output_csv": "/home/omen_pc1/photo_score_project/outputs/distill_conservative_aesthetic_full_aadb_20260423/teacher_labels_trainval.csv",
+  "input_csvs": [
+    "/home/omen_pc1/photo_score_project/outputs/distill_full_aadb/teacher_labels_trainval.csv"
+  ],
+  "teacher_config_path": "/home/omen_pc1/photo_score_project/configs/student_distill_teacher_conservative_aadb.json",
+  "teacher_config_name": "conservative_aesthetic_ensemble_teacher_v1",
+  "teacher_formula": "0.35 * rgnet_aadb + 0.20 * alamp_aadb + 0.30 * aadb_composition + 0.15 * nima_ava_unit",
+  "rows_total_input": 8458,
+  "rows_written": 8458,
+  "rows_skipped_existing": 0,
+  "rows_skipped_missing_teacher": 0,
+  "final_rows": 8458,
+  "split_counts": {
+    "train": 7612,
+    "val": 846
+  },
+  "split_output_paths": {
+    "train": "/home/omen_pc1/photo_score_project/outputs/distill_conservative_aesthetic_full_aadb_20260423/teacher_labels_train.csv",
+    "val": "/home/omen_pc1/photo_score_project/outputs/distill_conservative_aesthetic_full_aadb_20260423/teacher_labels_val.csv"
+  },
+  "split_teacher_score_summary": {
+    "train": {
+      "count": 7612,
+      "min": 0.280242,
+      "max": 0.837672,
+      "range": 0.55743,
+      "mean": 0.4849083301366264,
+      "std": 0.0773321296688333
+    },
+    "val": {
+      "count": 846,
+      "min": 0.325861,
+      "max": 0.731392,
+      "range": 0.40553100000000003,
+      "mean": 0.48595132033096927,
+      "std": 0.07261615263286966
+    }
+  },
+  "cross_split_duplicate_summary": {
+    "num_cross_split_duplicates": 0,
+    "examples": []
+  }
+}

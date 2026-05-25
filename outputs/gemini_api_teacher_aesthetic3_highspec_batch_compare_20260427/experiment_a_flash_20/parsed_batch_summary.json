@@ -1,0 +1,15 @@
+{
+  "status": "batch_results_parsed",
+  "raw_results_jsonl": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/experiment_a_flash_20/batch_raw_results.jsonl",
+  "manifest": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/compare_20_candidate_manifest.jsonl",
+  "output_jsonl": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/experiment_a_flash_20/gemini_teacher_generation.jsonl",
+  "model": "gemini-2.5-pro",
+  "raw_rows": 20,
+  "generated_rows": 20,
+  "api_error_rows": 0,
+  "parse_error_rows": 0,
+  "missing_or_order_fallback_mappings": 0,
+  "finish_reason_counts": {
+    "STOP": 20
+  }
+}

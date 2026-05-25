@@ -1,0 +1,58 @@
+{
+  "status": "success",
+  "splits": {
+    "train": {
+      "requested": 1024,
+      "processed": 1024,
+      "records_written": 1024,
+      "skipped": 0,
+      "avg_objects_per_image": 1.969727,
+      "no_object": 163,
+      "detections_file": "outputs/alamp_object_graph_subset_20260511/detections_conf010/train_objects_1024.jsonl",
+      "graphs_file": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/train_graphs_1024.jsonl",
+      "shape_ok": true
+    },
+    "val": {
+      "requested": 1024,
+      "processed": 1024,
+      "records_written": 1024,
+      "skipped": 0,
+      "avg_objects_per_image": 1.943359,
+      "no_object": 166,
+      "detections_file": "outputs/alamp_object_graph_subset_20260511/detections_conf010/val_objects_1024.jsonl",
+      "graphs_file": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/val_graphs_1024.jsonl",
+      "shape_ok": true
+    },
+    "test": {
+      "requested": 1024,
+      "processed": 1024,
+      "records_written": 1024,
+      "skipped": 0,
+      "avg_objects_per_image": 1.958984,
+      "no_object": 161,
+      "detections_file": "outputs/alamp_object_graph_subset_20260511/detections_conf010/test_objects_1024.jsonl",
+      "graphs_file": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/test_graphs_1024.jsonl",
+      "shape_ok": true
+    }
+  },
+  "detection_settings": {
+    "model": "models/detectors/yolo11n.pt",
+    "confidence": 0.10,
+    "max_objects": 4,
+    "batch_size": 16,
+    "device": 0
+  },
+  "graph_settings": {
+    "field_shapes": {
+      "object_mask": [4],
+      "boxes_norm_xyxy": [4, 4],
+      "centers_norm_xy": [4, 2],
+      "area_ratio": [4],
+      "class_ids": [4],
+      "confidences": [4],
+      "local_edges": [4, 4, 3],
+      "global_edges": [4, 3]
+    }
+  },
+  "note": "This is still an object/global attribute graph approximation, not official A-LAMP reproduction."
+}

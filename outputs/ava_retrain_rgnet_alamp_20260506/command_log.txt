@@ -1,0 +1,47 @@
+# Command Log - ava_retrain_rgnet_alamp_20260506
+
+Environment and setup:
+- `pwd` -> `/home/omen_pc1/photo_score_project`
+- `date` -> `Wed May  6 19:40:14 KST 2026`
+- `hostname` -> `DESKTOP-3T40JVV`
+- `whoami` -> `omen_pc1`
+- `git status --short` -> dirty worktree with pre-existing modified/untracked files; source code was not modified for this task.
+- `./.venv_gpu/bin/python --version` -> `Python 3.12.3`
+- `nvidia-smi` -> NVIDIA GeForce RTX 4070 family visible; post-training memory mostly Xwayland only.
+
+Manifest creation and validation:
+- Created `data/processed/ava/train_unit.csv`, `val_unit.csv`, `test_unit.csv` from existing AVA manifests with `aesthetic_unit_score = (mean_score - 1.0) / 9.0`.
+- Initial validation with system `python3` failed because pandas was unavailable: `ModuleNotFoundError: No module named 'pandas'`.
+- Re-ran validation with `./.venv_gpu/bin/python`; all unit labels were in `[0,1]`, no missing `image_path`, sample image paths existed.
+- Created fixed subsets: `subsets/ava_val_unit_subset_512.csv`, `subsets/ava_train_unit_smoke_128.csv`, `subsets/ava_val_unit_smoke_64.csv`, `subsets/aadb_val_subset_512.csv`.
+
+Baseline evaluation:
+- `PYTHONPATH=. ./.venv_gpu/bin/python outputs/ava_retrain_rgnet_alamp_20260506/eval_scripts/evaluate_aesthetic_scalar.py --model_type rgnet_keras --model_path checkpoints/rgnet_aadb_gpu/final_model.keras --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv --target_col aesthetic_unit_score --output_dir outputs/ava_retrain_rgnet_alamp_20260506/baseline_eval --model_name rgnet_aadb_on_ava_val512 --image_size 256 --batch_size 16 --top_k 50 --pairwise_pairs 5000`
+- `PYTHONPATH=. ./.venv_gpu/bin/python outputs/ava_retrain_rgnet_alamp_20260506/eval_scripts/evaluate_aesthetic_scalar.py --model_type alamp_keras --model_path checkpoints/alamp_aadb_gpu/final_model.keras --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv --target_col aesthetic_unit_score --output_dir outputs/ava_retrain_rgnet_alamp_20260506/baseline_eval --model_name alamp_aadb_on_ava_val512 --global_size 384 --patch_size 224 --num_patches 5 --batch_size 4 --top_k 50 --pairwise_pairs 5000`
+- `PYTHONPATH=. ./.venv_gpu/bin/python outputs/ava_retrain_rgnet_alamp_20260506/eval_scripts/evaluate_aesthetic_scalar.py --model_type rgnet_keras --model_path checkpoints/rgnet_aadb_gpu/final_model.keras --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv --target_col score --output_dir outputs/ava_retrain_rgnet_alamp_20260506/baseline_eval --model_name rgnet_aadb_on_aadb_val512 --image_size 256 --batch_size 16 --top_k 50 --pairwise_pairs 5000`
+- `PYTHONPATH=. ./.venv_gpu/bin/python outputs/ava_retrain_rgnet_alamp_20260506/eval_scripts/evaluate_aesthetic_scalar.py --model_type alamp_keras --model_path checkpoints/alamp_aadb_gpu/final_model.keras --csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv --target_col score --output_dir outputs/ava_retrain_rgnet_alamp_20260506/baseline_eval --model_name alamp_aadb_on_aadb_val512 --global_size 384 --patch_size 224 --num_patches 5 --batch_size 4 --top_k 50 --pairwise_pairs 5000`
+
+Smoke training:
+- RGNet smoke: `PYTHONPATH=. ./.venv_gpu/bin/python -u -m src.train.train_rgnet --train_csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_train_unit_smoke_128.csv --val_csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_smoke_64.csv --target_col aesthetic_unit_score --image_size 256 --batch_size 8 --epochs 1 --out_dir outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit_smoke`
+- A-LAMP smoke: `PYTHONPATH=. ./.venv_gpu/bin/python -u -m src.train.train_alamp --train_csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_train_unit_smoke_128.csv --val_csv outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_smoke_64.csv --target_col aesthetic_unit_score --batch_size 4 --epochs 1 --global_size 384 --patch_size 224 --num_patches 5 --out_dir outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit_smoke`
+
+Full training:
+- RGNet full: `PYTHONPATH=. ./.venv_gpu/bin/python -u -m src.train.train_rgnet --train_csv data/processed/ava/train_unit.csv --val_csv data/processed/ava/val_unit.csv --target_col aesthetic_unit_score --image_size 256 --batch_size 16 --epochs 10 --out_dir outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit`
+- A-LAMP full: `PYTHONPATH=. ./.venv_gpu/bin/python -u -m src.train.train_alamp --train_csv data/processed/ava/train_unit.csv --val_csv data/processed/ava/val_unit.csv --target_col aesthetic_unit_score --batch_size 16 --epochs 10 --global_size 384 --patch_size 224 --num_patches 5 --out_dir outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit`
+
+Post-training evaluation:
+- RGNet AVA Keras on AVA val512 and AADB val512 using `evaluate_aesthetic_scalar.py`.
+- A-LAMP AVA Keras on AVA val512 and AADB val512 using `evaluate_aesthetic_scalar.py`.
+
+TFLite export and verification:
+- `./.venv_gpu/bin/python -m src.export.export_tflite --preset rgnet --model_path outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit --output_dir outputs/ava_retrain_rgnet_alamp_20260506/tflite --output_name rgnet_ava_unit.tflite --metadata_path outputs/ava_retrain_rgnet_alamp_20260506/tflite/rgnet_ava_unit.metadata.json`
+- `./.venv_gpu/bin/python -m src.export.verify_tflite --preset rgnet --model_path outputs/ava_retrain_rgnet_alamp_20260506/tflite/rgnet_ava_unit.tflite --image_path data/raw/ava/images/85837.jpg --source_checkpoint outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras --output_json outputs/ava_retrain_rgnet_alamp_20260506/tflite/rgnet_ava_unit.verify.json` -> exited with code 1 because numeric parity failed.
+- `./.venv_gpu/bin/python -m src.export.export_alamp_tflite --checkpoint_dir outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit --output_dir outputs/ava_retrain_rgnet_alamp_20260506/tflite --output_name alamp_ava_unit.tflite --metadata_path outputs/ava_retrain_rgnet_alamp_20260506/tflite/alamp_ava_unit.metadata.json`
+- `./.venv_gpu/bin/python -m src.export.verify_alamp_tflite --checkpoint_dir outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit --model_path outputs/ava_retrain_rgnet_alamp_20260506/tflite/alamp_ava_unit.tflite --image_path data/raw/ava/images/85837.jpg --output_json outputs/ava_retrain_rgnet_alamp_20260506/tflite/alamp_ava_unit.verify.json --global_size 384 --patch_size 224 --num_patches 5` -> passed.
+- Evaluated `rgnet_ava_unit.tflite` and `alamp_ava_unit.tflite` on `ava_val_unit_subset_512.csv` with `evaluate_aesthetic_scalar.py`.
+
+Read-only evidence checks:
+- `nl -ba src/train/train_rgnet.py | sed -n '1,120p'`
+- `nl -ba src/train/train_alamp.py | sed -n '1,120p'`
+- `nl -ba tools/run_aesthetic_ensemble_experiment.py | sed -n '45,180p'`
+- `nl -ba docs/pozy_app_stage5_aesthetic_student_handoff.md | sed -n '1,75p'`

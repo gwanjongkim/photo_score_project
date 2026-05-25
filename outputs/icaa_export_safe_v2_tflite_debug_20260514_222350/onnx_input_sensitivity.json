@@ -1,0 +1,47 @@
+{
+  "model": "outputs/icaa_export_safe_v2_onnx_20260514_215455/icaa_dat_export_safe_v2.onnx",
+  "outputs": {
+    "zero": [
+      [
+        0.2574632465839386,
+        0.46316641569137573
+      ]
+    ],
+    "one": [
+      [
+        0.2699335217475891,
+        0.473574697971344
+      ]
+    ],
+    "random_normal": [
+      [
+        0.20815423130989075,
+        0.4136660397052765
+      ]
+    ],
+    "real_image": [
+      [
+        0.671118974685669,
+        0.5976870059967041
+      ]
+    ]
+  },
+  "diffs_vs_zero": {
+    "zero": {
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0
+    },
+    "one": {
+      "max_abs_diff": 0.012470275163650513,
+      "mean_abs_diff": 0.011439278721809387
+    },
+    "random_normal": {
+      "max_abs_diff": 0.04950037598609924,
+      "mean_abs_diff": 0.04940469563007355
+    },
+    "real_image": {
+      "max_abs_diff": 0.41365572810173035,
+      "mean_abs_diff": 0.27408814430236816
+    }
+  }
+}

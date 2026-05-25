@@ -1,0 +1,17 @@
+{
+  "roc_auc": 0.7506324241725291,
+  "average_precision": 0.8704037700561073,
+  "accuracy_at_0_5": 0.71630859375,
+  "confusion_matrix_at_0_5": {
+    "tn": 729,
+    "fp": 467,
+    "fn": 695,
+    "tp": 2205
+  },
+  "pred_min": 0.02970750257372856,
+  "pred_max": 0.991193950176239,
+  "pred_mean": 0.5951210164948861,
+  "pred_std": 0.23694546475055994,
+  "positive_prediction_ratio_at_0_5": 0.65234375,
+  "sample_count": 4096
+}

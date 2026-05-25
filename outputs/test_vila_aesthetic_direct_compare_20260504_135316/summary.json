@@ -1,0 +1,186 @@
+{
+  "image_count": 50,
+  "valid_image_count": 50,
+  "test_vila_image_path": "/home/omen_pc1/photo_score_project/test_vila",
+  "old_model_runnable": true,
+  "stage5_student_runnable": false,
+  "stage5_reference_runnable": true,
+  "spearman_old_vs_student": null,
+  "spearman_student_vs_reference": null,
+  "spearman_old_vs_reference": 0.638319,
+  "top1_old": {
+    "image_name": "1675342165226-3.jpg",
+    "image_path": "test_vila/1675342165226-3.jpg",
+    "score": 0.650740919,
+    "rank": 1
+  },
+  "top1_student": null,
+  "top1_stage5_reference": {
+    "image_name": "20231231_150055.jpg",
+    "image_path": "test_vila/20231231_150055.jpg",
+    "score": 0.630326311,
+    "rank": 1
+  },
+  "top5_old": [
+    {
+      "image_name": "1675342165226-3.jpg",
+      "image_path": "test_vila/1675342165226-3.jpg",
+      "score": 0.650740919,
+      "rank": 1
+    },
+    {
+      "image_name": "1675342165226-13.jpg",
+      "image_path": "test_vila/1675342165226-13.jpg",
+      "score": 0.648370239,
+      "rank": 2
+    },
+    {
+      "image_name": "20231231_150055.jpg",
+      "image_path": "test_vila/20231231_150055.jpg",
+      "score": 0.630936694,
+      "rank": 3
+    },
+    {
+      "image_name": "1675342165226-5.jpg",
+      "image_path": "test_vila/1675342165226-5.jpg",
+      "score": 0.61503587,
+      "rank": 4
+    },
+    {
+      "image_name": "20250204_174237(0).jpg",
+      "image_path": "test_vila/20250204_174237(0).jpg",
+      "score": 0.610830212,
+      "rank": 5
+    }
+  ],
+  "top5_student": [],
+  "top5_stage5_reference": [
+    {
+      "image_name": "20231231_150055.jpg",
+      "image_path": "test_vila/20231231_150055.jpg",
+      "score": 0.630326311,
+      "rank": 1
+    },
+    {
+      "image_name": "1675564423029-24.jpg",
+      "image_path": "test_vila/1675564423029-24.jpg",
+      "score": 0.610062917,
+      "rank": 2
+    },
+    {
+      "image_name": "20250204_174237(0).jpg",
+      "image_path": "test_vila/20250204_174237(0).jpg",
+      "score": 0.603618887,
+      "rank": 3
+    },
+    {
+      "image_name": "1675342165226-3.jpg",
+      "image_path": "test_vila/1675342165226-3.jpg",
+      "score": 0.601728924,
+      "rank": 4
+    },
+    {
+      "image_name": "20250204_163550.jpg",
+      "image_path": "test_vila/20250204_163550.jpg",
+      "score": 0.588911089,
+      "rank": 5
+    }
+  ],
+  "top5_overlap_old_vs_student": null,
+  "top5_overlap_student_vs_reference": null,
+  "top5_overlap_old_vs_reference": 3,
+  "high_disagreement_count": 9,
+  "medium_disagreement_count": 18,
+  "low_disagreement_count": 23,
+  "highest_disagreement_images": [
+    {
+      "image_name": "1675342165226-5.jpg",
+      "image_path": "test_vila/1675342165226-5.jpg",
+      "old_weighted_rank": 4,
+      "stage5_reference_rank": 46,
+      "old_vs_reference_rank_delta": -42,
+      "disagreement_type": "high_old_vs_reference_student_missing"
+    },
+    {
+      "image_name": "1675564423029-6.jpg",
+      "image_path": "test_vila/1675564423029-6.jpg",
+      "old_weighted_rank": 12,
+      "stage5_reference_rank": 49,
+      "old_vs_reference_rank_delta": -37,
+      "disagreement_type": "high_old_vs_reference_student_missing"
+    },
+    {
+      "image_name": "1720499666985.jpg",
+      "image_path": "test_vila/1720499666985.jpg",
+      "old_weighted_rank": 25,
+      "stage5_reference_rank": 50,
+      "old_vs_reference_rank_delta": -25,
+      "disagreement_type": "high_old_vs_reference_student_missing"
+    },
+    {
+      "image_name": "20240510_191716.jpg",
+      "image_path": "test_vila/20240510_191716.jpg",
+      "old_weighted_rank": 36,
+      "stage5_reference_rank": 18,
+      "old_vs_reference_rank_delta": 18,
+      "disagreement_type": "high_old_vs_reference_student_missing"
+    },
+    {
+      "image_name": "20250217_144845.jpg",
+      "image_path": "test_vila/20250217_144845.jpg",
+      "old_weighted_rank": 43,
+      "stage5_reference_rank": 25,
+      "old_vs_reference_rank_delta": 18,
+      "disagreement_type": "high_old_vs_reference_student_missing"
+    },
+    {
+      "image_name": "IMG_2785.JPG",
+      "image_path": "test_vila/IMG_2785.JPG",
+      "old_weighted_rank": 37,
+      "stage5_reference_rank": 19,
+      "old_vs_reference_rank_delta": 18,
+      "disagreement_type": "high_old_vs_reference_student_missing"
+    },
+    {
+      "image_name": "1720499666964.jpg",
+      "image_path": "test_vila/1720499666964.jpg",
+      "old_weighted_rank": 34,
+      "stage5_reference_rank": 17,
+      "old_vs_reference_rank_delta": 17,
+      "disagreement_type": "high_old_vs_reference_student_missing"
+    },
+    {
+      "image_name": "20240515_092725.jpg",
+      "image_path": "test_vila/20240515_092725.jpg",
+      "old_weighted_rank": 22,
+      "stage5_reference_rank": 6,
+      "old_vs_reference_rank_delta": 16,
+      "disagreement_type": "high_old_vs_reference_student_missing"
+    },
+    {
+      "image_name": "20250129_102520.jpg",
+      "image_path": "test_vila/20250129_102520.jpg",
+      "old_weighted_rank": 33,
+      "stage5_reference_rank": 48,
+      "old_vs_reference_rank_delta": -15,
+      "disagreement_type": "high_old_vs_reference_student_missing"
+    }
+  ],
+  "old_weight_formula": "0.214286 * nima_unit_score + 0.500000 * rgnet_score + 0.285714 * alamp_score",
+  "old_scoring_path": {
+    "folder_runner": "src/infer/score_image_folder.py::score_folder_results",
+    "model_loader": "src/infer/predict_quality_bundle.py::load_bundle_models",
+    "image_inference": "src/infer/predict_quality_bundle.py::predict_bundle_for_image",
+    "three_model_weight_config": "configs/gemma4_e4b_aesthetic3_teacher.json",
+    "three_model_function": "src/gemma_distill/teacher.py::compute_three_model_teacher_score"
+  },
+  "stage5_student_blocker": "missing expected TFLite artifact: /home/omen_pc1/photo_score_project/exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.tflite",
+  "stage5_reference_run_dir": "/home/omen_pc1/photo_score_project/outputs/test_vila_aesthetic_direct_compare_20260504_135316/stage5_reference_run",
+  "stage5_reference_exact_wrapper_blocker": "scripts/run_stage5_selector.sh failed before scoring with AttributeError: 'Namespace' object has no attribute 'stage5_student_model'",
+  "stage5_reference_run_method": "src.infer.run_acut_pipeline with configs/stage5_reference.json and matching stage5 selector flags; multimodal/VILA/Gemini explanations disabled",
+  "comparison_csv": "/home/omen_pc1/photo_score_project/outputs/test_vila_aesthetic_direct_compare_20260504_135316/test_vila_aesthetic_comparison.csv",
+  "summary_json": "/home/omen_pc1/photo_score_project/outputs/test_vila_aesthetic_direct_compare_20260504_135316/summary.json",
+  "review_html": "/home/omen_pc1/photo_score_project/outputs/test_vila_aesthetic_direct_compare_20260504_135316/review.html",
+  "stage5_product_ranking_csv": "/home/omen_pc1/photo_score_project/outputs/test_vila_aesthetic_direct_compare_20260504_135316/stage5_reference_run/product_ranking.csv",
+  "disagreement_basis": "old_vs_reference because the expected stage5 student TFLite artifact is missing"
+}

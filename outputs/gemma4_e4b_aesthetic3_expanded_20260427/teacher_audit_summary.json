@@ -1,0 +1,23 @@
+{
+  "summary_counts": {
+    "rows": 200,
+    "format_invalid": 12,
+    "leakage": 1,
+    "generic": 1,
+    "role_separation_invalid": 13,
+    "verdict_polarity_invalid": 0,
+    "repaired_clean_rows": 185,
+    "dropped_rows": 15
+  },
+  "clean_dataset_rows": 185,
+  "selected_counts": {
+    "selected": 53,
+    "not_selected": 132
+  },
+  "bucket_counts": {
+    "middle_near_miss": 75,
+    "rejected_low": 57,
+    "selected_high": 53
+  },
+  "repair_policy": "deterministic cleanup for prefix/polarity/leakage; rows still generic or leaky after repair are dropped"
+}

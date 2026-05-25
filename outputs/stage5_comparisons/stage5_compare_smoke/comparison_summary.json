@@ -1,0 +1,40 @@
+[
+  {
+    "run_label": "acut_stage5_full_with_pairwise_fast",
+    "pipeline_name": null,
+    "pipeline_version": null,
+    "input_dir": "",
+    "output_dir": "outputs/acut_stage5_full_with_pairwise_fast",
+    "num_images": 15,
+    "top1_image": "KakaoTalk_20260330_180646779_10.jpg",
+    "top3_images": "KakaoTalk_20260330_180646779_10.jpg | KakaoTalk_20260330_180646779_07.jpg | KakaoTalk_20260330_180646779_11.jpg",
+    "top5_images": "KakaoTalk_20260330_180646779_10.jpg | KakaoTalk_20260330_180646779_07.jpg | KakaoTalk_20260330_180646779_11.jpg | KakaoTalk_20260330_180646779_13.jpg | KakaoTalk_20260330_180646779_08.jpg",
+    "top_k_signature": "KakaoTalk_20260330_180646779_10.jpg > KakaoTalk_20260330_180646779_07.jpg > KakaoTalk_20260330_180646779_11.jpg > KakaoTalk_20260330_180646779_13.jpg > KakaoTalk_20260330_180646779_08.jpg",
+    "num_duplicate_groups": 1,
+    "duplicate_member_count": 2,
+    "penalized_images": 6,
+    "top_k_penalized_images": 1,
+    "pairwise_adjusted_images": 5,
+    "top_k_pairwise_adjusted_images": 4,
+    "max_diversity_penalty": 0.12
+  },
+  {
+    "run_label": "stage5_smoke_test",
+    "pipeline_name": "stage5_reference",
+    "pipeline_version": "2026-04-02",
+    "input_dir": "/home/omen_pc1/photo_score_project/test_samples",
+    "output_dir": "outputs/stage5_runs/stage5_smoke_test",
+    "num_images": 15,
+    "top1_image": "KakaoTalk_20260330_180646779_10.jpg",
+    "top3_images": "KakaoTalk_20260330_180646779_10.jpg | KakaoTalk_20260330_180646779_07.jpg | KakaoTalk_20260330_180646779_11.jpg",
+    "top5_images": "KakaoTalk_20260330_180646779_10.jpg | KakaoTalk_20260330_180646779_07.jpg | KakaoTalk_20260330_180646779_11.jpg | KakaoTalk_20260330_180646779_08.jpg | KakaoTalk_20260330_180646779_13.jpg",
+    "top_k_signature": "KakaoTalk_20260330_180646779_10.jpg > KakaoTalk_20260330_180646779_07.jpg > KakaoTalk_20260330_180646779_11.jpg > KakaoTalk_20260330_180646779_08.jpg > KakaoTalk_20260330_180646779_13.jpg",
+    "num_duplicate_groups": 1,
+    "duplicate_member_count": 2,
+    "penalized_images": 6,
+    "top_k_penalized_images": 1,
+    "pairwise_adjusted_images": 10,
+    "top_k_pairwise_adjusted_images": 5,
+    "max_diversity_penalty": 0.12
+  }
+]

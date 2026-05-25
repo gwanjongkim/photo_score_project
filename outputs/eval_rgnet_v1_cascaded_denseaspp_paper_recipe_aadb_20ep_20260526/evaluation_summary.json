@@ -1,0 +1,66 @@
+{
+  "created_at_local": "2026-05-26T00:15:03.105943+09:00",
+  "model_variant": "RGNet-paper-v1 approximation",
+  "official_reproduction": false,
+  "model_name": "rgnet_paper_v1_aadb_regression",
+  "checkpoint_type": "weights_only",
+  "model_path": null,
+  "weights_path": "outputs/rgnet_v1_cascaded_denseaspp_paper_recipe_aadb_20ep_20260526/best.weights.h5",
+  "image_size": 300,
+  "preprocess_backend": "tf",
+  "preprocessing": {
+    "backend": "tf",
+    "normalization": "float32_rgb_0_1",
+    "resize": "tf.image.resize"
+  },
+  "batch_size": 8,
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.21.0"
+  },
+  "splits": {
+    "test": {
+      "num_samples": 1000,
+      "target_min": 0.05000000074505806,
+      "target_max": 1.0,
+      "prediction_min": 0.16889336705207825,
+      "prediction_max": 0.9766461849212646,
+      "srcc": 0.668302682728186,
+      "plcc": 0.6720532565008615,
+      "mae": 0.12064699828624725,
+      "rmse": 0.15108830386921826,
+      "mse": 0.022827675566077232,
+      "split": "test",
+      "csv": "data/processed/aadb/test.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "preprocess_backend": "tf",
+      "elapsed_seconds": 19.820993220899254,
+      "seconds_per_image": 0.019820993220899256,
+      "predictions_path": "outputs/eval_rgnet_v1_cascaded_denseaspp_paper_recipe_aadb_20ep_20260526/test_predictions.csv"
+    },
+    "val": {
+      "num_samples": 846,
+      "target_min": 0.0,
+      "target_max": 0.949999988079071,
+      "prediction_min": 0.20333412289619446,
+      "prediction_max": 0.9578247666358948,
+      "srcc": 0.5746233516380265,
+      "plcc": 0.5730924708065794,
+      "mae": 0.12204206734895706,
+      "rmse": 0.15261349882770245,
+      "mse": 0.023290880024433136,
+      "split": "val",
+      "csv": "data/processed/aadb/val.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "preprocess_backend": "tf",
+      "elapsed_seconds": 17.50108091009315,
+      "seconds_per_image": 0.0206868568677224,
+      "predictions_path": "outputs/eval_rgnet_v1_cascaded_denseaspp_paper_recipe_aadb_20ep_20260526/val_predictions.csv"
+    }
+  }
+}

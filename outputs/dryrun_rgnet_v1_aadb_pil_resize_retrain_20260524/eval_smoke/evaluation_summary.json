@@ -1,0 +1,62 @@
+{
+  "created_at_local": "2026-05-24T03:39:54.028773+09:00",
+  "model_variant": "RGNet-paper-v1 approximation",
+  "official_reproduction": false,
+  "model_name": "rgnet_paper_v1_aadb_regression",
+  "model_path": "outputs/dryrun_rgnet_v1_aadb_pil_resize_retrain_20260524/final_model.keras",
+  "image_size": 256,
+  "preprocess_backend": "pil_bilinear",
+  "preprocessing": {
+    "backend": "pil_bilinear",
+    "normalization": "float32_rgb_0_1",
+    "resize": "PIL.Image.BILINEAR"
+  },
+  "batch_size": 2,
+  "tensorflow": {
+    "visible_gpus": [],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.21.0"
+  },
+  "splits": {
+    "test": {
+      "num_samples": 2,
+      "target_min": 0.6000000238418579,
+      "target_max": 0.6499999761581421,
+      "prediction_min": 0.21591389179229736,
+      "prediction_max": 0.3084352910518646,
+      "srcc": 0.9999999999999999,
+      "plcc": 1.0,
+      "mae": 0.3628253936767578,
+      "rmse": 0.36344778694164437,
+      "mse": 0.13209429383277893,
+      "split": "test",
+      "csv": "data/processed/aadb/test.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "preprocess_backend": "pil_bilinear",
+      "elapsed_seconds": 1.5676949470071122,
+      "seconds_per_image": 0.7838474735035561,
+      "predictions_path": "outputs/dryrun_rgnet_v1_aadb_pil_resize_retrain_20260524/eval_smoke/test_predictions.csv"
+    },
+    "val": {
+      "num_samples": 2,
+      "target_min": 0.5,
+      "target_max": 0.75,
+      "prediction_min": 0.21096271276474,
+      "prediction_max": 0.2923656105995178,
+      "srcc": -0.9999999999999999,
+      "plcc": -1.0,
+      "mae": 0.3733358383178711,
+      "rmse": 0.40845638613827084,
+      "mse": 0.16683661937713623,
+      "split": "val",
+      "csv": "data/processed/aadb/val.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "preprocess_backend": "pil_bilinear",
+      "elapsed_seconds": 0.12600096000824124,
+      "seconds_per_image": 0.06300048000412062,
+      "predictions_path": "outputs/dryrun_rgnet_v1_aadb_pil_resize_retrain_20260524/eval_smoke/val_predictions.csv"
+    }
+  }
+}

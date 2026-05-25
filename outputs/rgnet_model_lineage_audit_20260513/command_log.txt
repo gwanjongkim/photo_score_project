@@ -1,0 +1,5 @@
+find outputs docs models checkpoints configs src -type f 2>/dev/null | rg -i "rgnet|aadb|ava|lse_r4|agg_mean_full|tflite|metadata|summary|eval|train"
+rg -n -i "rgnet_aadb_gpu|RGNet-paper|agg_mean_full|lse_r4|final_model|best.weights|init|pretrain|load_weights|model_path|tflite" outputs docs models checkpoints configs src
+cat outputs/rgnet_paper_ava_classification_20260510/full_train/lse_r4/train_summary.json
+cat outputs/rgnet_paper_v1_ablation_full_candidates_20260510/full_train/agg_mean_full/train_summary.json
+ls -l models/aesthetic/rgnet_aadb_gpu.tflite

@@ -1,0 +1,184 @@
+{
+  "student_checkpoint_dir": "/home/omen_pc1/photo_score_project/checkpoints/student_conservative_aesthetic_full_aadb_20260423",
+  "baseline_checkpoint_dir": "/home/omen_pc1/photo_score_project/checkpoints/student_full_aadb",
+  "pairwise_margin": 0.03,
+  "pairwise_max_pairs": 50000,
+  "top_k": 10,
+  "comparisons": {
+    "manifest": {
+      "label": "manifest_val",
+      "num_images": 846,
+      "teacher_score_column": "teacher_aesthetic_score",
+      "teacher_summary": {
+        "count": 846,
+        "min": 0.32586100697517395,
+        "max": 0.7313920259475708,
+        "range": 0.40553101897239685,
+        "mean": 0.48595130443573,
+        "std": 0.07261615246534348
+      },
+      "student": {
+        "metrics": {
+          "num_samples": 846,
+          "mae": 0.028400378301739693,
+          "rmse": 0.03528926894068718,
+          "mse": 0.0012453324161469936,
+          "r2": 0.7635537340081306,
+          "pearson": 0.8738292049608496,
+          "spearman": 0.858600141168166,
+          "pairwise_accuracy": 0.90568,
+          "pairwise_pairs_scored": 50000,
+          "top_k": 10,
+          "top_k_overlap": 0.7
+        },
+        "score_summary": {
+          "count": 846,
+          "min": 0.33653131127357483,
+          "max": 0.7541652321815491,
+          "range": 0.41763392090797424,
+          "mean": 0.4861818253993988,
+          "std": 0.06318556517362595
+        },
+        "compression_vs_teacher": {
+          "range_ratio": 1.0298445775276224,
+          "std_ratio": 0.8701309974221185,
+          "mean_bias": 0.00023046329442877322
+        }
+      },
+      "baseline": {
+        "metrics": {
+          "num_samples": 846,
+          "mae": 0.030825797468423843,
+          "rmse": 0.03815087676048279,
+          "mse": 0.0014554893132299185,
+          "r2": 0.7236520748817798,
+          "pearson": 0.8515510931462064,
+          "spearman": 0.8359796976117085,
+          "pairwise_accuracy": 0.88986,
+          "pairwise_pairs_scored": 50000,
+          "top_k": 10,
+          "top_k_overlap": 0.7
+        },
+        "score_summary": {
+          "count": 846,
+          "min": 0.31020528078079224,
+          "max": 0.7361977696418762,
+          "range": 0.425992488861084,
+          "mean": 0.4839951992034912,
+          "std": 0.05983357131481171
+        },
+        "compression_vs_teacher": {
+          "range_ratio": 1.0504559920978076,
+          "std_ratio": 0.823970553154378,
+          "mean_bias": -0.00195614923723042
+        }
+      },
+      "delta_student_minus_baseline": {
+        "mae": -0.0024254191666841507,
+        "rmse": -0.0028616078197956085,
+        "pearson": 0.02227811181464323,
+        "spearman": 0.022620443556457426,
+        "pairwise_accuracy": 0.015820000000000056,
+        "top_k_overlap": 0.0,
+        "range_ratio_delta": -0.020611414570185227,
+        "std_ratio_delta": 0.046160444267740575
+      },
+      "manifest_csv": "/home/omen_pc1/photo_score_project/outputs/distill_conservative_aesthetic_full_aadb_20260423/teacher_labels_trainval.csv",
+      "skipped_images": {
+        "student": [],
+        "baseline": []
+      }
+    },
+    "real_images": {
+      "label": "test_vila",
+      "num_images": 49,
+      "teacher_score_column": "ensemble_conservative_score",
+      "teacher_summary": {
+        "count": 49,
+        "min": 0.3844454884529114,
+        "max": 0.6417533755302429,
+        "range": 0.25730788707733154,
+        "mean": 0.5007438063621521,
+        "std": 0.06564446538686752
+      },
+      "student": {
+        "metrics": {
+          "num_samples": 49,
+          "mae": 0.04953288659453392,
+          "rmse": 0.06305878609418869,
+          "mse": 0.0039764102548360825,
+          "r2": 0.05800226066196046,
+          "pearson": 0.6187578736737578,
+          "spearman": 0.671938775510204,
+          "pairwise_accuracy": 0.78912,
+          "pairwise_pairs_scored": 50000,
+          "top_k": 10,
+          "top_k_overlap": 0.3
+        },
+        "score_summary": {
+          "count": 49,
+          "min": 0.3546469807624817,
+          "max": 0.5922625660896301,
+          "range": 0.23761558532714844,
+          "mean": 0.4649950861930847,
+          "std": 0.05037953332066536
+        },
+        "compression_vs_teacher": {
+          "range_ratio": 0.9234679435058873,
+          "std_ratio": 0.7674604861774686,
+          "mean_bias": -0.03574870154261589
+        }
+      },
+      "baseline": {
+        "metrics": {
+          "num_samples": 49,
+          "mae": 0.05222499743103981,
+          "rmse": 0.06598042696714401,
+          "mse": 0.004353416617959738,
+          "r2": -0.0313091595711803,
+          "pearson": 0.6864995067011811,
+          "spearman": 0.6790816326530611,
+          "pairwise_accuracy": 0.80212,
+          "pairwise_pairs_scored": 50000,
+          "top_k": 10,
+          "top_k_overlap": 0.6
+        },
+        "score_summary": {
+          "count": 49,
+          "min": 0.3785756826400757,
+          "max": 0.5850298404693604,
+          "range": 0.20645415782928467,
+          "mean": 0.45468634366989136,
+          "std": 0.04453291371464729
+        },
+        "compression_vs_teacher": {
+          "range_ratio": 0.8023623378759344,
+          "std_ratio": 0.6783955578310842,
+          "mean_bias": -0.04605741426348686
+        }
+      },
+      "delta_student_minus_baseline": {
+        "mae": -0.00269211083650589,
+        "rmse": -0.0029216408729553223,
+        "pearson": -0.06774163302742331,
+        "spearman": -0.0071428571428571175,
+        "pairwise_accuracy": -0.013000000000000012,
+        "top_k_overlap": -0.3,
+        "range_ratio_delta": 0.12110560562995298,
+        "std_ratio_delta": 0.08906492834638446
+      },
+      "real_image_score_csv": "/home/omen_pc1/photo_score_project/outputs/test_vila_aesthetic_only_stage5_current_conservative_20260423/aesthetic_only_comparison.csv",
+      "baseline_score_column": "stage5_student_full_aadb_score",
+      "skipped_images": {
+        "student": [
+          {
+            "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_20240519_215827_510.jpg",
+            "error_type": "InvalidArgumentError",
+            "error": "{{function_node __wrapped__DecodeImage_device_/job:localhost/replica:0/task:0/device:CPU:0}} Unknown image file format. One of JPEG, PNG, GIF, BMP, WebP required. [Op:DecodeImage] name: "
+          }
+        ],
+        "baseline": []
+      }
+    }
+  }
+}

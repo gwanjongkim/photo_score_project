@@ -1,0 +1,6 @@
+Model,Split,SRCC,PLCC,MAE,RMSE,Decision
+v0 full test,test,0.6433,0.6499,0.1255,0.1557,Baseline
+v1 default full test,test,0.6389,0.6423,0.1282,0.1602,Underperformed v0
+combined_paper_dilation_mean,test,0.6263,0.6362,0.1261,0.1570,Underperformed v0 and v1
+dilation_paper_3_6_12_18_full,test,0.6401,0.6466,0.1241,0.1553,Beat v1 but not v0
+agg_mean_full,test,0.6819,0.6878,0.1198,0.1486,Beat v0

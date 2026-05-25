@@ -1,0 +1,47 @@
+created_at: 2026-05-08T22:31:00+09:00
+cwd: /home/omen_pc1/photo_score_project
+
+Discovery and context:
+- pwd
+- git status --short
+- rg -n "RGNet|rgnet|alamp|A-LAMP|aesthetic_weight_lab|tflite" /home/omen_pc1/.codex/memories/MEMORY.md
+- find exports/tflite outputs/ava_pretrain_aadb_finetune_20260507/tflite outputs/rgnet_tflite_retry_20260507/tflite -maxdepth 1 -type f
+
+Model copy:
+- Copied allowed baseline NIMA/RGNet/A-LAMP TFLite files plus metadata/verify JSON files into models/aesthetic/.
+- Copied allowed fine-tuned A-LAMP candidate plus metadata/verify JSON files into models/aesthetic/.
+- Did not copy fine-tuned RGNet TFLite retry artifacts, .keras files, or .h5 files.
+
+Manifest:
+- sha256sum models/aesthetic/*.tflite models/aesthetic/*.metadata.json models/aesthetic/*.verify.json > models/aesthetic/SHA256SUMS.txt
+
+Validation commands:
+- ./.venv_gpu/bin/python -m py_compile tools/aesthetic_weight_lab/*.py
+  result: passed
+- find models/aesthetic -maxdepth 1 -type f
+  result: allowed TFLite bundle and sidecars present
+- sha256sum -c models/aesthetic/SHA256SUMS.txt
+  result: passed
+- find test_images -maxdepth 1 -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \)
+  result: no private image samples found
+- Created /tmp/aesthetic_weight_lab_smoke/synthetic_smoke.jpg with Pillow.
+- PYTHONPATH=. ./.venv_gpu/bin/python tools/aesthetic_weight_lab/run_aesthetic_weight_lab.py --input_dir /tmp/aesthetic_weight_lab_smoke --config configs/aesthetic_weight_lab.yaml --output_dir outputs/aesthetic_weight_lab_tflite_tool_20260508/baseline_smoke
+  result: passed; 1 input image, 1 scored, 0 failures
+- PYTHONPATH=. ./.venv_gpu/bin/python tools/aesthetic_weight_lab/run_aesthetic_weight_lab.py --input_dir /tmp/aesthetic_weight_lab_smoke --config configs/aesthetic_weight_lab_alamp_finetuned.yaml --output_dir outputs/aesthetic_weight_lab_tflite_tool_20260508/alamp_finetuned_smoke
+  result: passed; 1 input image, 1 scored, 0 failures
+- rg -n "weight-nima|weight-rgnet|weight-alamp|preset-button|updateScores" outputs/aesthetic_weight_lab_tflite_tool_20260508/baseline_smoke/report.html outputs/aesthetic_weight_lab_tflite_tool_20260508/alamp_finetuned_smoke/report.html
+  result: weight controls and preset/update scripts found in both reports
+- ./.venv_gpu/bin/python -m json.tool outputs/aesthetic_weight_lab_tflite_tool_20260508/baseline_smoke/raw_scores.json
+  result: passed
+- ./.venv_gpu/bin/python -m json.tool outputs/aesthetic_weight_lab_tflite_tool_20260508/alamp_finetuned_smoke/raw_scores.json
+  result: passed
+
+Smoke score summary:
+- baseline: NIMA 0.5375546349, RGNet 0.5119963884, A-LAMP 0.4750898778, final 0.5085070438
+- fine-tuned A-LAMP: NIMA 0.5375546349, RGNet 0.5119963884, A-LAMP 0.4771580994, final 0.5091895569
+
+Git safety:
+- Did not run git add.
+- Did not commit.
+- outputs/ remains ignored.
+- test_images/ contains only .gitkeep and README.md.

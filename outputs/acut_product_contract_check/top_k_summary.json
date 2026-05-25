@@ -1,0 +1,59 @@
+{
+  "schema_version": "acut_product_app.v1",
+  "generated_at": "2026-04-03T09:36:57.199709Z",
+  "ranking_stage": "post_rerank",
+  "score_semantics": "rank, selected, status, and final_score_after_rerank all reflect the same final post-rerank order because diversity reranking is disabled.",
+  "diversity_enabled": false,
+  "top_k": [
+    {
+      "rank": 1,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+      "final_score_after_rerank": 0.597029,
+      "acut_short_reason": "Composition carried this frame into the A-cut, helped by technical quality."
+    },
+    {
+      "rank": 2,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_12.jpg",
+      "final_score_after_rerank": 0.583335,
+      "acut_short_reason": "A balanced score profile kept this frame above the cut, led by subject clarity and background cleanliness."
+    },
+    {
+      "rank": 3,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_08.jpg",
+      "final_score_after_rerank": 0.568042,
+      "acut_short_reason": "Selected on technical consistency, with background cleanliness and composition keeping it ahead of nearby alternatives."
+    },
+    {
+      "rank": 4,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_07.jpg",
+      "final_score_after_rerank": 0.557282,
+      "acut_short_reason": "Selected on technical consistency, with aesthetic score keeping it ahead of nearby alternatives."
+    },
+    {
+      "rank": 5,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_11.jpg",
+      "final_score_after_rerank": 0.524098,
+      "acut_short_reason": "It stayed in on a narrow margin because composition and aesthetic score barely outweighed background cleanliness and subject clarity."
+    }
+  ],
+  "selected_count": 5,
+  "rejected_count": 10,
+  "pipeline_config": {
+    "input_dir": null,
+    "scores_jsonl": null,
+    "scores_csv": "/home/omen_pc1/photo_score_project/outputs/acut_stage5_full_with_pairwise/scores.csv",
+    "vila_scores_csv": "/home/omen_pc1/photo_score_project/outputs/vila_scores_run/vila_scores.csv",
+    "top_k": 5,
+    "enable_pairwise_rerank": false,
+    "enable_vila_rerank": true,
+    "vila_rerank_weight": 0.1,
+    "enable_vila_explanations": true,
+    "enable_acut_reasoning": true,
+    "reason_reference_mode": "nearest_competitor",
+    "reason_detail_level": "full",
+    "enable_diversity": false,
+    "rerank_pool_size": null,
+    "weights_config": null,
+    "export_debug_reasoning": false
+  }
+}

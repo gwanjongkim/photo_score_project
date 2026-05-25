@@ -1,0 +1,42 @@
+{
+  "summary": "NIMA underperformance is primarily caused by a double-rescaling bug and model collapse due to uncalibrated input range, exacerbated by incomplete training and preprocessing mismatches.",
+  "root_causes": {
+    "double_rescaling": {
+      "status": "Confirmed",
+      "evidence": "Project code passes [0, 1] images to EfficientNetV2B0 which includes an internal Rescaling(1/255.0) layer. Model effectively sees images near zero brightness.",
+      "impact": "Extreme (Model collapse)",
+      "priority": "Highest"
+    },
+    "model_collapse": {
+      "status": "Confirmed",
+      "evidence": "Predicted positive ratio 96.8% vs GT 70.2%. Prediction range narrow (std 0.33 vs 0.69). Accuracy matches majority class baseline.",
+      "impact": "High (No discrimination)",
+      "priority": "High"
+    },
+    "incomplete_training": {
+      "status": "Confirmed",
+      "evidence": "Training was interrupted by a crash. Restart run only completed 4 epochs. Total training significantly below paper requirements.",
+      "impact": "High",
+      "priority": "High"
+    },
+    "preprocessing_shift": {
+      "status": "Confirmed",
+      "evidence": "Training uses random_crop (maintains aspect ratio); Evaluation uses direct resize (warps image).",
+      "impact": "Medium",
+      "priority": "Medium"
+    },
+    "checkpoint_mismatch": {
+      "status": "Likely",
+      "evidence": "final_model.keras and best.weights.h5 differ by 0.30 in mean score, suggesting restore_best_weights might have failed or been bypassed.",
+      "impact": "Low-Medium",
+      "priority": "Medium"
+    }
+  },
+  "metrics": {
+    "gt_positive_ratio": 0.702,
+    "pred_positive_ratio": 0.968,
+    "accuracy": 0.702,
+    "srcc": 0.317,
+    "mae": 0.578
+  }
+}

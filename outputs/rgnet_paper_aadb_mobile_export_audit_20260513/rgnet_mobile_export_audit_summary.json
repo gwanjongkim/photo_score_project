@@ -1,0 +1,28 @@
+{
+  "audit_name": "rgnet_paper_aadb_mobile_export_audit",
+  "audit_date": "2026-05-13",
+  "status": "completed_audit_only",
+  "model_candidate": "RGNet-paper-v1 agg_mean_full",
+  "base_model": "rgnet_aadb_gpu",
+  "readiness": {
+    "tflite_export_candidate": true,
+    "ready_for_replacement": false,
+    "blockers_identified": false,
+    "verification_required": [
+      "fp32_export",
+      "fp16_export",
+      "keras_vs_tflite_parity",
+      "preprocessing_consistency"
+    ]
+  },
+  "metrics": {
+    "candidate_srcc": 0.6819,
+    "base_srcc": 0.50
+  },
+  "files_generated": [
+    "rgnet_mobile_export_audit_report.md",
+    "rgnet_mobile_export_audit_summary.json",
+    "command_log.txt",
+    "resume_state_report.md"
+  ]
+}

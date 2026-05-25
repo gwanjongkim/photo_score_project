@@ -1,0 +1,83 @@
+{
+  "artifacts": {
+    "best_weights": "outputs/probe1024_topiq_lite_spaq_e15_unfrozen/best.weights.h5",
+    "final_model": "outputs/probe1024_topiq_lite_spaq_e15_unfrozen/final_model.keras",
+    "saved_model": "outputs/probe1024_topiq_lite_spaq_e15_unfrozen/saved_model",
+    "training_log": "outputs/probe1024_topiq_lite_spaq_e15_unfrozen/training_log.csv"
+  },
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python src/train/train_topiq_lite.py --train_csv data/processed/smoke/spaq_1024_train.csv --val_csv data/processed/smoke/spaq_1024_val.csv --target_col normalized_mos --batch_size 8 --epochs 15 --lr 1e-4 --out_dir outputs/probe1024_topiq_lite_spaq_e15_unfrozen",
+  "feature_layers": {
+    "high": {
+      "layer_name": "top_activation",
+      "shape": [
+        12,
+        12,
+        1280
+      ]
+    },
+    "low": {
+      "layer_name": "block3b_add",
+      "shape": [
+        48,
+        48,
+        48
+      ]
+    },
+    "mid": {
+      "layer_name": "block5c_add",
+      "shape": [
+        24,
+        24,
+        112
+      ]
+    }
+  },
+  "final_metrics": {
+    "loss": 0.0024154759012162685,
+    "mae": 0.05667860433459282,
+    "rmse": 0.07289405912160873,
+    "val_loss": 0.0037346957251429558,
+    "val_mae": 0.07571494579315186,
+    "val_rmse": 0.0911964401602745
+  },
+  "prediction_diagnostics": {
+    "correlation_error": null,
+    "mae_100": 6.759336471557617,
+    "plcc": 0.9286962151527405,
+    "possible_mode_collapse": false,
+    "pred_max": 0.8553628921508789,
+    "pred_mean": 0.5195274353027344,
+    "pred_min": 0.08124300837516785,
+    "pred_std": 0.19878290593624115,
+    "pred_std_over_target_std": 0.8881865045216294,
+    "rmse_100": 8.353856086730957,
+    "sample_count": 128,
+    "srcc": 0.9250905574368493,
+    "target_max": 0.8980000019073486,
+    "target_mean": 0.5167031288146973,
+    "target_min": 0.04800000041723251,
+    "target_std": 0.22380761802196503
+  },
+  "train_csv": {
+    "csv_path": "/home/omen_pc1/photo_score_project/data/processed/smoke/spaq_1024_train.csv",
+    "image_col": "image_path",
+    "row_count": 1024,
+    "target_col": "normalized_mos",
+    "target_max": 0.9139999747276306,
+    "target_mean": 0.5010800361633301,
+    "target_min": 0.0560000017285347,
+    "target_std": 0.20292828977108002,
+    "validated_paths": false
+  },
+  "val_csv": {
+    "csv_path": "/home/omen_pc1/photo_score_project/data/processed/smoke/spaq_1024_val.csv",
+    "image_col": "image_path",
+    "row_count": 128,
+    "target_col": "normalized_mos",
+    "target_max": 0.8980000019073486,
+    "target_mean": 0.5167031288146973,
+    "target_min": 0.04800000041723251,
+    "target_std": 0.22380761802196503,
+    "validated_paths": false
+  }
+}

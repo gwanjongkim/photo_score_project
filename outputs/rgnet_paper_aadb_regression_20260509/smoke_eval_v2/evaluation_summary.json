@@ -1,0 +1,53 @@
+{
+  "created_at_local": "2026-05-09T18:07:31.280503+09:00",
+  "model_variant": "RGNet-paper-v0 approximation",
+  "official_reproduction": false,
+  "model_name": "rgnet_paper_v0_aadb_regression",
+  "model_path": "outputs/rgnet_paper_aadb_regression_20260509/smoke_train_v2/final_model.keras",
+  "image_size": 256,
+  "batch_size": 2,
+  "tensorflow": {
+    "visible_gpus": [],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">"
+  },
+  "splits": {
+    "test": {
+      "num_samples": 8,
+      "target_min": 0.25,
+      "target_max": 0.6499999761581421,
+      "prediction_min": 0.48490259051322937,
+      "prediction_max": 0.6717113256454468,
+      "srcc": -0.203596464525254,
+      "plcc": -0.31242404651323874,
+      "mae": 0.1755114048719406,
+      "rmse": 0.20520318169267343,
+      "mse": 0.04210834577679634,
+      "split": "test",
+      "csv": "data/processed/aadb/test.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "elapsed_seconds": 1.8621369430002233,
+      "seconds_per_image": 0.2327671178750279,
+      "predictions_path": "outputs/rgnet_paper_aadb_regression_20260509/smoke_eval_v2/test_predictions.csv"
+    },
+    "val": {
+      "num_samples": 8,
+      "target_min": 0.25,
+      "target_max": 0.800000011920929,
+      "prediction_min": 0.5312178134918213,
+      "prediction_max": 0.6256409287452698,
+      "srcc": 0.14371515142959107,
+      "plcc": 0.15893311762891194,
+      "mae": 0.17503324151039124,
+      "rmse": 0.1971614864921894,
+      "mse": 0.038872651755809784,
+      "split": "val",
+      "csv": "data/processed/aadb/val.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "elapsed_seconds": 0.3749986209986673,
+      "seconds_per_image": 0.046874827624833415,
+      "predictions_path": "outputs/rgnet_paper_aadb_regression_20260509/smoke_eval_v2/val_predictions.csv"
+    }
+  }
+}

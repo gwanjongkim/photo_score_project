@@ -1,0 +1,26 @@
+official repo path: /home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code
+checkpoint path: /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+traced model path: /home/omen_pc1/photo_score_project/outputs/icaa_export_torchscript_20260514_150436/icaa_dat_traced.pt
+output dir: /home/omen_pc1/photo_score_project/outputs/icaa_torchscript_parity_20260514_151359
+device: cpu
+checkpoint key count: 487
+patch_proj.0.weight shape: (128, 3, 4, 4)
+missing keys: []
+unexpected keys: []
+original PyTorch checkpoint strict load: ok
+traced TorchScript load: ok
+csv rows read: 1
+evaluable images: 1
+missing image rows skipped: 0
+full tensor max_abs_diff: 0.0061103106
+full tensor mean_abs_diff: 0.0054433942
+MOS max_abs_diff: 0.0047764778
+MOS mean_abs_diff: 0.0047764778
+color max_abs_diff: 0.0061103106
+color mean_abs_diff: 0.0061103106
+parity pass: False
+parity pass: False
+error: TorchScript parity thresholds failed.
+parity_predictions.csv: /home/omen_pc1/photo_score_project/outputs/icaa_torchscript_parity_20260514_151359/parity_predictions.csv
+parity_report.json: /home/omen_pc1/photo_score_project/outputs/icaa_torchscript_parity_20260514_151359/parity_report.json
+parity_log.txt: /home/omen_pc1/photo_score_project/outputs/icaa_torchscript_parity_20260514_151359/parity_log.txt

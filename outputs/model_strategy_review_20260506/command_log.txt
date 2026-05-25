@@ -1,0 +1,374 @@
+A-cut Model Strategy Review Command Log
+Date: 2026-05-06
+Working directory: /home/omen_pc1/photo_score_project
+
+Scope
+- Read-only inspection of model code, train scripts, datasets/manifests, export scripts, metadata, verify files, prior audit logs, and Flutter integration files.
+- No source code was modified.
+- No full training was started.
+- Created report directory and report files under outputs/model_strategy_review_20260506/.
+
+Environment Commands
+
+1. pwd
+Output: /home/omen_pc1/photo_score_project
+
+2. date
+Output: Wed May  6 15:52:56 KST 2026
+
+3. hostname
+Output: DESKTOP-3T40JVV
+
+4. whoami
+Output: omen_pc1
+
+5. python3 --version
+Output: Python 3.12.3
+
+6. ./.venv_gpu/bin/python --version
+Output: Python 3.12.3
+
+7. nvidia-smi
+Output summary: NVIDIA-SMI 590.48.01, CUDA 13.1, one NVIDIA GeForce RTX 4070-class GPU visible, Xwayland using GPU memory.
+
+Flutter Repository Commands
+
+8. git -C "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app" branch --show-current
+Output: feat/acut
+
+9. git -C "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app" rev-parse HEAD
+Output: 8d31cb394fb83baaf43ed84582b0068ae9c1b20e
+
+10. git -C "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app" log -1 --oneline
+Output: 8d31cb3 Merge pull request #30 from Mobile-Capstone-HS/fix/#10
+
+11. git -C "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app" status --short | wc -l
+Output: 626
+
+12. git -C "/mnt/c/Users/OMEN PC1/StudioProjects/pozy_app" status --short | head
+Output summary: dirty working tree; first entries included modified .env.example, .gitignore, .metadata, .vscode/settings.json, README.md, and Android files.
+
+Dataset And Manifest Commands
+
+13. head -n1 data/processed/ava/train_cleaned.csv
+Output: image_path,vote_1,vote_2,vote_3,vote_4,vote_5,vote_6,vote_7,vote_8,vote_9,vote_10,dist_1,dist_2,dist_3,dist_4,dist_5,dist_6,dist_7,dist_8,dist_9,dist_10,mean_score,dataset
+
+14. wc -l data/processed/ava/train_cleaned.csv
+Output: 204403 data/processed/ava/train_cleaned.csv
+
+15. head -n1 data/processed/ava/val_cleaned.csv
+Output: same AVA distribution/mean_score header as train_cleaned.csv
+
+16. wc -l data/processed/ava/val_cleaned.csv
+Output: 25552 data/processed/ava/val_cleaned.csv
+
+17. test -f data/processed/ava/test.csv
+Output: file exists
+
+18. head -n1 data/processed/aadb/train.csv
+Output: image_path,score,dataset,split,relative_path
+
+19. wc -l data/processed/aadb/train.csv
+Output: 7613 data/processed/aadb/train.csv
+
+20. wc -l data/processed/aadb/val.csv
+Output: 847 data/processed/aadb/val.csv
+
+21. head -n1 data/processed/koniq10k/train.csv
+Output: image_path,mos,dataset,is_patch,relative_path
+
+22. wc -l data/processed/koniq10k/train.csv
+Output: 8059 data/processed/koniq10k/train.csv
+
+23. head -n1 data/processed/paq2piq/image_train.csv
+Output: image_path,mos,dataset,is_patch,relative_path
+
+24. wc -l data/processed/paq2piq/image_train.csv
+Output: 31849 data/processed/paq2piq/image_train.csv
+
+25. ls -la data/raw
+Output summary: data/raw/ava is a symlink to /home/omen_pc1/ava; additional raw dataset directories exist.
+
+26. readlink -f data/raw/ava
+Output: /home/omen_pc1/ava
+
+27. find /home/omen_pc1/ava -type f with jpg/jpeg/png filters | wc -l
+Output: 255508
+
+28. find data/processed/spaq -maxdepth 2 -type f
+Output: no usable SPAQ CSV file found in inspected command output.
+
+Search Commands
+
+29. rg -n "rgnet.*ava|ava.*rgnet|alamp.*ava|ava.*alamp|train_rgnet.py|train_alamp.py|mean_score|target_col" src configs docs scripts -g '!*.csv' -g '!*.jsonl'
+Output summary:
+- src/sequential_train.sh lines 45-52 train A-LAMP on AADB.
+- src/sequential_train.sh lines 60-67 train RGNet on AADB.
+- src/train/train_rgnet.py and src/train/train_alamp.py expose --target_col.
+- docs/tflite_mobile_handoff.md references optional NIMA unit score conversion.
+- No direct RGNet-on-AVA or A-LAMP-on-AVA training script/config was found.
+
+30. find . -path './outputs/*' -prune -o with name patterns '*rgnet*ava*', '*ava*rgnet*', '*alamp*ava*', '*ava*alamp*'
+Output: no matching RGNet/A-LAMP AVA training artifact found.
+
+31. find exports -iname '*musiq*'
+Output: no MUSIQ export artifact found.
+
+32. find src -iname '*musiq*' -o -iname '*export*musiq*' -o -iname '*verify*musiq*'
+Output summary: MUSIQ model/train/infer code exists; no MUSIQ export/verify script found.
+
+File Inspection Commands
+
+33. nl -ba src/models/nima_distribution.py
+Key lines:
+- lines 1-20: NIMA distribution-head doc, paper-faithful distribution/loss/mean, EfficientNetV2B0 approximation.
+- lines 27-40: EfficientNetV2B0 ImageNet backbone and Dense(10, softmax).
+- lines 43-50: EMD/CDF loss.
+- lines 53-55: expectation over bins 1..10.
+
+34. nl -ba src/train/train_nima.py
+Key lines:
+- lines 42-63: AVA distribution dataset loading.
+- lines 75-80: compile with emd_loss, mean_score_mae, KLDivergence.
+- lines 82-104: train/save/export.
+
+35. nl -ba src/datasets/ava_distribution_dataset.py
+Key lines:
+- lines 45-61: RGB decode, float [0,1], train resize/random crop/flip, eval resize.
+- lines 65-73: distribution column inference.
+- lines 88-104: distribution normalization and mean score.
+- lines 122-153: dataset returns target shape [10].
+
+36. nl -ba exports/tflite/nima_mobile.metadata.json
+Key lines:
+- lines 2-14: 224 RGB float32 /255 input.
+- lines 15-23: [1,10] distribution output and expected-value postprocessing.
+- lines 24-38: built-in TFLite export metadata.
+
+37. nl -ba exports/tflite/nima_mobile.verify.json
+Key lines:
+- lines 6-38: input [1,224,224,3], output [1,10].
+- lines 40-60: distribution sum and mean score.
+- lines 84-90: verification passed.
+
+38. nl -ba src/models/rgnet.py
+Key lines:
+- lines 1-23: RGNet-style doc and approximation note.
+- lines 32-52: EfficientNetV2B0 backbone.
+- lines 55-70: feature-similarity adjacency graph.
+- lines 76-105: graph convolution.
+- lines 126-152: region projection, GCN blocks, region attention, weighted pooling, scalar output.
+
+39. nl -ba src/train/train_rgnet.py
+Key lines:
+- lines 27-34: --train_csv, --val_csv, --target_col, --out_dir args.
+- lines 40-54: CSV dataset loading.
+- lines 56-61: MSE and MAE.
+- lines 63-88: checkpoint/save/export.
+
+40. nl -ba src/datasets/csv_dataset.py
+Key lines:
+- lines 7-19: JPEG RGB decode, [0,1], resize/crop behavior.
+- lines 21-37: expects image_path and selected target column.
+
+41. nl -ba exports/tflite/rgnet_aadb_gpu.metadata.json
+Key lines:
+- lines 2-14: 256 RGB float32 input.
+- lines 15-23: [1,1] sigmoid unit-interval output.
+- lines 24-38: built-in TFLite export metadata.
+
+42. nl -ba exports/tflite/rgnet_aadb_gpu.verify.json
+Key lines:
+- lines 6-38: input [1,256,256,3], output [1,1].
+- lines 40-49: score within unit interval.
+- lines 60-66: verification passed.
+
+43. nl -ba outputs/audit_model_paper_basis_20260506/command_log.txt
+Key lines:
+- lines 305-310: prior TFLite op inspection for rgnet_aadb_gpu.tflite lists graph-like ops including BATCH_MATMUL, L2_NORMALIZATION, MATRIX_DIAG, SOFTMAX, SQUARED_DIFFERENCE, TANH.
+
+44. nl -ba src/models/alamp.py
+Key lines:
+- lines 1-24: practical A-LAMP-style doc and approximation notes.
+- lines 33-49: EfficientNetV2B0/MobileNetV2 backbones.
+- lines 52-67: layout cues.
+- lines 83-99: patch encoder and model inputs.
+- lines 101-142: global/layout branch, patch attention, aggregation, scalar output.
+
+45. nl -ba src/train/train_alamp.py
+Key lines:
+- lines 27-37: --train_csv, --val_csv, --target_col, global/patch/num_patches args.
+- lines 43-63: native-size A-LAMP dataset loading.
+- lines 65-74: MSE and MAE.
+- lines 87-91: train/save/export.
+
+46. nl -ba src/datasets/native_size_dataset.py
+Key lines:
+- lines 1-23: A-LAMP/MUSIQ native-size dataset description.
+- lines 43-45: resize_with_pad helper.
+- lines 60-81: saliency/proposal score.
+- lines 84-153: adaptive patch boxes.
+- lines 156-175: A-LAMP global and patch preparation.
+- lines 184-241: MUSIQ token builder.
+- lines 244-285: A-LAMP dataset CSV target handling.
+- lines 288-321: MUSIQ dataset handling.
+
+47. nl -ba exports/tflite/alamp_aadb_gpu.metadata.json
+Key lines:
+- lines 1-39: inputs global [1,384,384,3], patches [1,5,224,224,3], output [1,1].
+- lines 46-58: built-in TFLite success from rebuild.
+- lines 59-76: conversion notes.
+
+48. nl -ba exports/tflite/alamp_aadb_gpu.verify.json
+Key lines:
+- lines 5-57: input/output details.
+- lines 58-80: preprocessing.
+- lines 81-120: selected boxes/proposal scores.
+- lines 122-144: TFLite/checkpoint verification pass.
+
+49. nl -ba src/infer/predict_alamp.py
+Key lines:
+- lines 35-44: CLI args.
+- lines 49-55: prepare_alamp_inputs.
+- lines 67-75: model input/output.
+- lines 81-109: optional patch debug output.
+
+50. nl -ba src/infer/predict_rgnet.py
+Key lines:
+- lines 14-17: direct RGB resize /255.
+- lines 21-25: CLI args.
+- lines 38-47: score output.
+
+51. nl -ba src/infer/predict_nima.py
+Key lines:
+- lines 14-18: RGB resize /255.
+- lines 21-26: CLI args.
+- lines 36-43: distribution and mean score output.
+
+52. nl -ba src/models/musiq.py
+Key lines:
+- lines 1-24: repo-practical MUSIQ-style doc and approximation notes.
+- lines 31-52: transformer block.
+- lines 55-117: multi-input patch/position/scale/token-mask model.
+
+53. nl -ba src/train/train_musiq.py
+Key lines:
+- lines 33-49: CLI args and default patch/scale/transformer settings.
+- lines 54-73: dataset loading.
+- lines 75-89: build/compile with MSE/MAE and jit_compile=False.
+- lines 102-106: train/save/export.
+
+54. nl -ba src/infer/predict_musiq.py
+Key lines:
+- lines 58-65: CLI args.
+- lines 77-99: Keras inference path and JSON output.
+
+55. find checkpoints/musiq_aadb_gpu -maxdepth 2 -type f -printf '%p %s %TY-%Tm-%Td %TH:%TM:%TS\n'
+Output summary:
+- checkpoints/musiq_aadb_gpu/best.weights.h5, 13,474,736 bytes.
+- checkpoints/musiq_aadb_gpu/final_model.keras, 13,519,919 bytes.
+- saved_model files exist.
+
+56. nl -ba src/export/tflite_presets.py
+Key lines:
+- lines 53-139: presets include koniq, flive_image, aadb, rgnet, nima; no MUSIQ preset.
+- lines 187-224: build_export_model handles existing preset types only.
+
+57. nl -ba src/export/export_tflite.py
+Key lines:
+- lines 12-35: parser requires --preset choices from preset_choices().
+- lines 38-80: conversion helper supports built-in/select ops once a preset/model exists.
+
+58. nl -ba src/export/verify_tflite.py
+Key lines:
+- lines 19-27: parser requires preset choices.
+- lines 52-64: single-input TFLite inference path; not a MUSIQ multi-input verifier.
+
+59. nl -ba docs/pozy_app_stage5_aesthetic_student_handoff.md
+Key lines:
+- lines 5-13: Stage 5 student checkpoint and TFLite artifact, 3,411,060 bytes, built-in-only, no SELECT_TF_OPS.
+- lines 17-29: 224 RGB float32 /255 input and [0,1] output contract.
+- lines 33-36: Keras/SavedModel/TFLite parity on sample set.
+- lines 40-48: local candidate comparison metrics.
+- lines 51-58: recommends Stage 5 student as primary app aesthetic candidate.
+- lines 60-64: keep KonIQ/FLIVE for technical quality.
+
+60. nl -ba exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.metadata.json
+Key lines:
+- lines 9-31: input contract.
+- lines 33-40: output interpretation.
+- lines 41-49: built-in TFLite export, size 3,411,060 bytes.
+- lines 85-89: latency/memory remain TODO.
+
+61. nl -ba exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.verify.json
+Key lines:
+- lines 22-55: input/output details.
+- lines 56-85: score/diff summary.
+- lines 120-128: TFLite vs Keras order/top-k parity on 15 samples.
+
+62. nl -ba /mnt/c/Users/OMEN\ PC1/StudioProjects/pozy_app/lib/feature/a_cut/layer/inference/aesthetic_model_contract.dart
+Key lines:
+- lines 339-362: NIMA expectation/normalization.
+- lines 366-390: KonIQ/FLIVE contracts.
+- lines 405-446: NIMA/RGNet/A-LAMP contracts.
+- lines 459-476: Stage 5 student contract exists.
+- lines 513-518: active aesthetic ensemble contracts NIMA/RGNet/A-LAMP.
+
+63. nl -ba /mnt/c/Users/OMEN\ PC1/StudioProjects/pozy_app/lib/feature/a_cut/layer/inference/tflite_aesthetic_service.dart
+Key lines:
+- lines 461-497: RGNet input preparation.
+- lines 500-572: A-LAMP signature input preparation.
+
+64. nl -ba /mnt/c/Users/OMEN\ PC1/StudioProjects/pozy_app/lib/feature/a_cut/layer/inference/image_preprocessor.dart
+Key lines:
+- lines 84-89: direct square resize.
+- lines 114-181: fixed anchor patch extraction.
+
+Report File Creation
+
+65. mkdir -p outputs/model_strategy_review_20260506
+Output: directory created or already existed.
+
+66. apply_patch
+Output: created:
+- outputs/model_strategy_review_20260506/model_strategy_review.md
+- outputs/model_strategy_review_20260506/decision_matrix.json
+- outputs/model_strategy_review_20260506/experiment_plan.md
+- outputs/model_strategy_review_20260506/command_log.txt
+
+Validation Commands
+
+67. python3 -m json.tool outputs/model_strategy_review_20260506/decision_matrix.json >/tmp/decision_matrix_validated.json
+Output: no stdout; command exit code 0. This validated JSON syntax. The temporary file was not a requested report file and was removed in command 70.
+
+68. find outputs/model_strategy_review_20260506 -maxdepth 1 -type f -printf '%f %s bytes\n' | sort
+Output:
+- command_log.txt 12565 bytes
+- decision_matrix.json 5495 bytes
+- experiment_plan.md 7961 bytes
+- model_strategy_review.md 27325 bytes
+
+69. rg -n "^#|^## " outputs/model_strategy_review_20260506/model_strategy_review.md outputs/model_strategy_review_20260506/experiment_plan.md
+Output summary: confirmed required main report headings and experiment plan headings are present.
+
+70. rm /tmp/decision_matrix_validated.json
+Output: no stdout; removed the temporary validation file so only the requested report files remain.
+
+71. test ! -e /tmp/decision_matrix_validated.json && printf 'temporary validation file removed\n'
+Output: temporary validation file removed
+
+72. apply_patch
+Output: narrowed the Stage 5 decision-matrix wording to avoid overclaiming the student model's teacher source.
+
+73. python3 -c "import json; json.load(open('outputs/model_strategy_review_20260506/decision_matrix.json', encoding='utf-8')); print('json ok')"
+Output: json ok
+
+74. find outputs/model_strategy_review_20260506 -maxdepth 1 -type f -printf '%f %s bytes\n' | sort
+Output:
+- command_log.txt 13628 bytes
+- decision_matrix.json 5466 bytes
+- experiment_plan.md 7961 bytes
+- model_strategy_review.md 27308 bytes
+
+75. test ! -e /tmp/decision_matrix_validated.json && printf 'no temp validation json\n'
+Output: no temp validation json

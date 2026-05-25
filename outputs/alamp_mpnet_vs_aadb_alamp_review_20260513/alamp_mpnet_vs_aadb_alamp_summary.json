@@ -1,0 +1,22 @@
+{
+  "summary": {
+    "conclusion": "Keep AADB practical A-LAMP as the app-facing model; keep MPNet as paper-oriented research baseline.",
+    "aadb_alamp_status": "Deployed (TFLite), Regression-based, SRCC ~0.58 on AADB.",
+    "mpnet_status": "Research Baseline, Binary Classification, Accuracy ~0.67 on AVA.",
+    "key_decision": "The tracks serve different purposes. AADB A-LAMP is critical for the current A-cut product ranking, while MPNet provides a baseline for the A-LAMP paper reproduction track."
+  },
+  "metrics_comparison": {
+    "aadb_alamp": {
+      "task": "AADB Regression",
+      "srcc": 0.5843,
+      "pairwise_accuracy": 0.7080,
+      "deployment_ready": true
+    },
+    "mpnet_v4_1024": {
+      "task": "AVA Binary Classification",
+      "accuracy": 0.6719,
+      "roc_auc": 0.6629,
+      "deployment_ready": false
+    }
+  }
+}

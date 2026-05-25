@@ -1,0 +1,18 @@
+1. mkdir -p outputs/alamp_detector_selection_20260511
+2. ./.venv_gpu/bin/python - <<'PY'
+import sys
+print(sys.version)
+try:
+    import torch
+    print("torch", torch.__version__)
+    print("cuda", torch.cuda.is_available())
+except Exception as e:
+    print("torch unavailable", repr(e))
+try:
+    import tensorflow as tf
+    print("tf", tf.__version__)
+    print("tf gpus", tf.config.list_physical_devices("GPU"))
+except Exception as e:
+    print("tf unavailable", repr(e))
+PY
+3. rg -n "yolo|ultralytics|faster|retina|detectron|detr|grounding|object detector|bbox|segmentation" src tools configs docs requirements*.txt 2>/dev/null || true

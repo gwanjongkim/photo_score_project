@@ -1,0 +1,140 @@
+{
+  "preset": "rgnet",
+  "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune.tflite",
+  "image_path": "data/raw/ava/images/85837.jpg",
+  "source_checkpoint": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+  "source_weights": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/best.weights.h5",
+  "saved_model": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/saved_model",
+  "requested_metadata": "outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune.metadata.json",
+  "requested_export": {
+    "requested_export_source": "saved_model",
+    "used_export_source": "saved_model",
+    "rebuild_failure": null,
+    "requested_conversion_mode": "auto",
+    "used_conversion_mode": "select_tf_ops",
+    "requires_select_tf_ops": true,
+    "tflite_path": "outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune.tflite",
+    "tflite_size_bytes": 13380644,
+    "builtin_failure": "ConverterError: Could not translate MLIR to FlatBuffer.<unknown>:0: error: loc(callsite(fused[\"Mul:\", \"rgnet_practical_1/efficientnetv2-b0_1/rescaling_1/mul@__inference___call___129180\"] at callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___130691\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"]))): 'tf.Mul' op is neither a custom op nor a flex op <unknown>:0: note: loc(callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___130691\"] at fused[\"StatefulPartitionedCall:\",..."
+  },
+  "outputs": {
+    "checkpoint_model": 0.46629467606544495,
+    "saved_model": 0.46628883481025696,
+    "rebuild_weights_model": 0.6440167427062988,
+    "requested_tflite": null
+  },
+  "comparison": {
+    "saved_model_vs_checkpoint": {
+      "left": 0.46628883481025696,
+      "right": 0.46629467606544495,
+      "max_abs_diff": 5.841255187988281e-06,
+      "mean_abs_diff": 5.841255187988281e-06,
+      "comparison_ok": true
+    },
+    "rebuild_weights_vs_checkpoint": {
+      "left": 0.6440167427062988,
+      "right": 0.46629467606544495,
+      "max_abs_diff": 0.17772206664085388,
+      "mean_abs_diff": 0.17772206664085388,
+      "comparison_ok": false
+    },
+    "requested_tflite_allocation": {
+      "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune.tflite",
+      "allocation_ok": false,
+      "inference_ok": false,
+      "input_details_before_allocate": [
+        {
+          "name": "serving_default_input_layer_1:0",
+          "shape": [
+            1,
+            256,
+            256,
+            3
+          ],
+          "shape_signature": [
+            -1,
+            256,
+            256,
+            3
+          ],
+          "dtype": "float32",
+          "index": 0
+        }
+      ],
+      "error_type": "RuntimeError",
+      "error": "Select TensorFlow op(s), included in the given model, is(are) not supported by this interpreter. Make sure you apply/link the Flex delegate before inference. For the Android, it can be resolved by adding \"org.tensorflow:tensorflow-lite-select-tf-ops\" dependency. See instructions: https://www.tensorflow.org/lite/guide/ops_selectNode number 1 (FlexMul) failed to prepare."
+    },
+    "rebuild_diagnostic": {
+      "preset": "rgnet",
+      "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune_rebuild_diagnostic.tflite",
+      "image_path": "data/raw/ava/images/85837.jpg",
+      "source_checkpoint": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+      "input_details": [
+        {
+          "name": "serving_default_keras_tensor_270:0",
+          "shape": [
+            1,
+            256,
+            256,
+            3
+          ],
+          "shape_signature": [
+            -1,
+            256,
+            256,
+            3
+          ],
+          "dtype": "float32",
+          "index": 0
+        }
+      ],
+      "output_details": [
+        {
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            1
+          ],
+          "shape_signature": [
+            -1,
+            1
+          ],
+          "dtype": "float32",
+          "index": 608
+        }
+      ],
+      "tflite_output": {
+        "raw_shape": [
+          1,
+          1
+        ],
+        "dtype": "float32",
+        "score": 0.6440441608428955,
+        "plausible": true,
+        "within_unit_interval": true
+      },
+      "source_output": {
+        "raw_shape": [
+          1,
+          1
+        ],
+        "dtype": "float32",
+        "score": 0.46629467606544495,
+        "plausible": true,
+        "within_unit_interval": true
+      },
+      "comparison": {
+        "max_abs_diff": 0.17774948477745056,
+        "mean_abs_diff": 0.17774948477745056,
+        "comparison_ok": false
+      },
+      "verification_passed": false
+    }
+  },
+  "diagnosis": [
+    "Requested SavedModel export required Select TF ops and failed local TFLite allocation at FlexMul.",
+    "Builtin rebuild diagnostic ran, but it did not match the fine-tuned checkpoint within the 1e-2 threshold.",
+    "RGNet remains not deployment-ready until the export path produces a runnable TFLite that matches the checkpoint."
+  ],
+  "verification_passed": false
+}

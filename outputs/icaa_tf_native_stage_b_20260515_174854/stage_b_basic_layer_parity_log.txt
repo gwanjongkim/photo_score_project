@@ -1,0 +1,11 @@
+checkpoint path: /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+state_dict confirmation: checkpoint object is an OrderedDict state_dict
+checkpoint tensor count: 487
+torch version: 2.5.1+cu121
+tensorflow version: 2.21.0
+numpy version: 1.26.4
+Conv2D patch projection: status=pass_preferred max_abs_diff=4.76837158e-07 mean_abs_diff=5.03491506e-08 torch_shape=[2, 128, 4, 5] tf_shape=[2, 128, 4, 5]
+Dense hst_head: status=pass_preferred max_abs_diff=5.96046448e-07 mean_abs_diff=1.30401332e-07 torch_shape=[4, 36] tf_shape=[4, 36]
+LayerNormProxy channel LayerNorm: status=pass_preferred max_abs_diff=7.15255737e-07 mean_abs_diff=2.19274678e-08 torch_shape=[2, 128, 5, 7] tf_shape=[2, 128, 5, 7]
+GELU: status=pass_preferred max_abs_diff=2.38418579e-07 mean_abs_diff=3.8804604e-08 torch_shape=[3, 7, 11] tf_shape=[3, 7, 11]
+Isolated TransformerMLP linear1-GELU-linear2: status=pass_preferred max_abs_diff=9.53674316e-07 mean_abs_diff=2.07778797e-07 torch_shape=[2, 5, 128] tf_shape=[2, 5, 128]

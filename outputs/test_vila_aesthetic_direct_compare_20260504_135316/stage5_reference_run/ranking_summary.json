@@ -1,0 +1,19 @@
+{
+  "run_label": "stage5_reference_run",
+  "pipeline_name": null,
+  "pipeline_version": null,
+  "input_dir": "",
+  "output_dir": "outputs/test_vila_aesthetic_direct_compare_20260504_135316/stage5_reference_run",
+  "num_images": 50,
+  "top1_image": "20231231_150055.jpg",
+  "top3_images": "20231231_150055.jpg | 1675564423029-24.jpg | 20250204_174237(0).jpg",
+  "top5_images": "20231231_150055.jpg | 1675564423029-24.jpg | 20250204_174237(0).jpg | 1675342165226-3.jpg | 20250204_163550.jpg",
+  "top_k_signature": "20231231_150055.jpg > 1675564423029-24.jpg > 20250204_174237(0).jpg > 1675342165226-3.jpg > 20250204_163550.jpg",
+  "num_duplicate_groups": 3,
+  "duplicate_member_count": 6,
+  "penalized_images": 4,
+  "top_k_penalized_images": 0,
+  "pairwise_adjusted_images": 10,
+  "top_k_pairwise_adjusted_images": 5,
+  "max_diversity_penalty": 0.12
+}

@@ -1,0 +1,171 @@
+{
+  "artifacts": {
+    "report_md": "outputs/alamp_dual_branch_4096_comparison_20260524/report.md",
+    "summary_json": "outputs/alamp_dual_branch_4096_comparison_20260524/summary.json",
+    "threshold_sweep_dual_branch_csv": "outputs/alamp_dual_branch_4096_comparison_20260524/threshold_sweep_dual_branch.csv",
+    "threshold_sweep_multipatch_csv": "outputs/alamp_dual_branch_4096_comparison_20260524/threshold_sweep_multipatch.csv"
+  },
+  "final_judgment": {
+    "details": "Dual-Branch GCN does not beat Multi-Patch-only on ROC-AUC or best balanced accuracy. Its threshold-0.5 F1 is driven by very high recall and severe positive bias, not better ranking.",
+    "recommendation": "Stop this GCN branch for now; improve the Multi-Patch teacher instead."
+  },
+  "matched_subset": {
+    "graph_jsonl": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/test_graphs_4096.jsonl",
+    "graph_records": 4096,
+    "id_basis": "filename stem from graph image_path matched to patch image_id or patch image_path stem",
+    "matched_image_ids": 4081,
+    "multipatch_subset_jsonl": "outputs/alamp_dual_branch_4096_comparison_20260524/multipatch_test_4096_matched.jsonl",
+    "unmatched_graph_ids": 15
+  },
+  "models": {
+    "dual_branch_gcn": {
+      "at_0_5": {
+        "accuracy": 0.7120803724577309,
+        "balanced_accuracy": 0.5185899180723117,
+        "f1": 0.8281409975135293,
+        "false_positive_rate": 0.9360068259385665,
+        "fn": 78,
+        "fp": 1097,
+        "precision": 0.7207230142566191,
+        "predicted_positive_ratio": 0.9625091889242833,
+        "recall": 0.97318666208319,
+        "specificity": 0.06399317406143344,
+        "threshold": 0.5,
+        "tn": 75,
+        "tp": 2831
+      },
+      "best_accuracy": {
+        "accuracy": 0.7157559421710366,
+        "balanced_accuracy": 0.5084310841838381,
+        "f1": 0.8331415420023015,
+        "false_positive_rate": 0.9786689419795221,
+        "fn": 13,
+        "fp": 1147,
+        "precision": 0.716299777393025,
+        "predicted_positive_ratio": 0.9906885567262925,
+        "recall": 0.9955311103471983,
+        "specificity": 0.021331058020477817,
+        "threshold": 0.4,
+        "tn": 25,
+        "tp": 2896
+      },
+      "best_balanced_accuracy": {
+        "accuracy": 0.5829453565302621,
+        "balanced_accuracy": 0.6216119621698929,
+        "f1": 0.6446764091858038,
+        "false_positive_rate": 0.28754266211604096,
+        "fn": 1365,
+        "fp": 337,
+        "precision": 0.8208399787347156,
+        "predicted_positive_ratio": 0.4609164420485175,
+        "recall": 0.5307665864558267,
+        "specificity": 0.712457337883959,
+        "threshold": 0.75,
+        "tn": 835,
+        "tp": 1544
+      },
+      "best_f1": {
+        "accuracy": 0.7157559421710366,
+        "balanced_accuracy": 0.5084310841838381,
+        "f1": 0.8331415420023015,
+        "false_positive_rate": 0.9786689419795221,
+        "fn": 13,
+        "fp": 1147,
+        "precision": 0.716299777393025,
+        "predicted_positive_ratio": 0.9906885567262925,
+        "recall": 0.9955311103471983,
+        "specificity": 0.021331058020477817,
+        "threshold": 0.4,
+        "tn": 25,
+        "tp": 2896
+      },
+      "threshold_independent": {
+        "actual_positive_ratio": 0.712815486400392,
+        "average_precision": 0.8222186081753107,
+        "negative_count": 1172,
+        "positive_count": 2909,
+        "prediction_max": 0.999492883682251,
+        "prediction_mean": 0.7341498136520386,
+        "prediction_min": 0.15105198323726654,
+        "prediction_std": 0.13548824191093445,
+        "roc_auc": 0.6635004698845645,
+        "sample_count": 4081
+      }
+    },
+    "multipatch_only": {
+      "at_0_5": {
+        "accuracy": 0.7625581965204606,
+        "balanced_accuracy": 0.6390806981276185,
+        "f1": 0.848,
+        "false_positive_rate": 0.6510238907849829,
+        "fn": 206,
+        "fp": 763,
+        "precision": 0.7798615118291979,
+        "predicted_positive_ratio": 0.849301641754472,
+        "recall": 0.92918528704022,
+        "specificity": 0.34897610921501704,
+        "threshold": 0.5,
+        "tn": 409,
+        "tp": 2703
+      },
+      "best_accuracy": {
+        "accuracy": 0.7667238421955404,
+        "balanced_accuracy": 0.6712978551910805,
+        "f1": 0.8455047062642,
+        "false_positive_rate": 0.552901023890785,
+        "fn": 304,
+        "fp": 648,
+        "precision": 0.8007992622194897,
+        "predicted_positive_ratio": 0.797108551825533,
+        "recall": 0.8954967342729461,
+        "specificity": 0.447098976109215,
+        "threshold": 0.56,
+        "tn": 524,
+        "tp": 2605
+      },
+      "best_balanced_accuracy": {
+        "accuracy": 0.7186963979416809,
+        "balanced_accuracy": 0.7209095404751876,
+        "f1": 0.7838855421686748,
+        "false_positive_rate": 0.2738907849829352,
+        "fn": 827,
+        "fp": 321,
+        "precision": 0.8664169787765293,
+        "predicted_positive_ratio": 0.5888262680715511,
+        "recall": 0.7157098659333104,
+        "specificity": 0.7261092150170648,
+        "threshold": 0.72,
+        "tn": 851,
+        "tp": 2082
+      },
+      "best_f1": {
+        "accuracy": 0.7640284244057829,
+        "balanced_accuracy": 0.62992234878927,
+        "f1": 0.8509518650363721,
+        "false_positive_rate": 0.6851535836177475,
+        "fn": 160,
+        "fp": 803,
+        "precision": 0.7739301801801802,
+        "predicted_positive_ratio": 0.8703749081107571,
+        "recall": 0.9449982811962874,
+        "specificity": 0.3148464163822526,
+        "threshold": 0.47,
+        "tn": 369,
+        "tp": 2749
+      },
+      "threshold_independent": {
+        "actual_positive_ratio": 0.712815486400392,
+        "average_precision": 0.9002649730079285,
+        "negative_count": 1172,
+        "positive_count": 2909,
+        "prediction_max": 0.9999183416366577,
+        "prediction_mean": 0.728571355342865,
+        "prediction_min": 0.00018313087639398873,
+        "prediction_std": 0.21265748143196106,
+        "roc_auc": 0.7913719866672455,
+        "sample_count": 4081
+      }
+    }
+  },
+  "status": "completed"
+}

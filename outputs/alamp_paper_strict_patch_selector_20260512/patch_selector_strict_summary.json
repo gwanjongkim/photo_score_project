@@ -1,0 +1,177 @@
+{
+  "comparison_against_v4": {
+    "test": {
+      "strict": {
+        "exact_five_patch_records": 1024,
+        "main_object_coverage": 0.37891077636152953,
+        "mean_max_overlap_ratio": 0.3963186484151566,
+        "mean_objective_score": 8.980041852138779,
+        "mean_pairwise_iou": 0.056597661187192054,
+        "mean_pairwise_overlap_ratio": 0.0898714839446166,
+        "mean_patch_saliency": 0.3439308266536748,
+        "mean_pattern_diversity": 0.3432128462199744,
+        "mean_spatial_distance": 0.38282592566706625,
+        "object_coverage": 0.3651023561220548,
+        "overlap_relaxed_records": 30,
+        "skipped_records": 0,
+        "total_records": 1024,
+        "valid_records": 1024
+      },
+      "v4": {
+        "exact_five_patch_records": 1024,
+        "main_object_coverage": 0.6801853997682503,
+        "mean_max_overlap_ratio": 0.0,
+        "mean_objective_score": 0.0,
+        "mean_pairwise_iou": 0.05890949725673796,
+        "mean_pairwise_overlap_ratio": 0.2621583433381851,
+        "mean_patch_saliency": 0.6136145151485433,
+        "mean_pattern_diversity": 0.0,
+        "mean_spatial_distance": 0.0,
+        "object_coverage": 0.6029354963306295,
+        "overlap_relaxed_records": 0,
+        "skipped_records": 0,
+        "total_records": 1024,
+        "valid_records": 1024
+      }
+    },
+    "train": {
+      "strict": {
+        "exact_five_patch_records": 1024,
+        "main_object_coverage": 0.389082462253194,
+        "mean_max_overlap_ratio": 0.386156895156785,
+        "mean_objective_score": 8.935157708522746,
+        "mean_pairwise_iou": 0.05573547216799411,
+        "mean_pairwise_overlap_ratio": 0.08880708395982242,
+        "mean_patch_saliency": 0.343152054079053,
+        "mean_pattern_diversity": 0.33610766827445615,
+        "mean_spatial_distance": 0.3858320755382919,
+        "object_coverage": 0.35685249709639955,
+        "overlap_relaxed_records": 25,
+        "skipped_records": 0,
+        "total_records": 1024,
+        "valid_records": 1024
+      },
+      "v4": {
+        "exact_five_patch_records": 1024,
+        "main_object_coverage": 0.6434378629500581,
+        "mean_max_overlap_ratio": 0.0,
+        "mean_objective_score": 0.0,
+        "mean_pairwise_iou": 0.058937920084176684,
+        "mean_pairwise_overlap_ratio": 0.2594115874504316,
+        "mean_patch_saliency": 0.6167975530507307,
+        "mean_pattern_diversity": 0.0,
+        "mean_spatial_distance": 0.0,
+        "object_coverage": 0.5734610917537747,
+        "overlap_relaxed_records": 0,
+        "skipped_records": 0,
+        "total_records": 1024,
+        "valid_records": 1024
+      }
+    },
+    "val": {
+      "strict": {
+        "exact_five_patch_records": 1024,
+        "main_object_coverage": 0.40326340326340326,
+        "mean_max_overlap_ratio": 0.3911883188873918,
+        "mean_objective_score": 8.916111334544063,
+        "mean_pairwise_iou": 0.053662501745913194,
+        "mean_pairwise_overlap_ratio": 0.0864308856718875,
+        "mean_patch_saliency": 0.3353756557646006,
+        "mean_pattern_diversity": 0.3386823902902224,
+        "mean_spatial_distance": 0.38524091528188364,
+        "object_coverage": 0.361013986013986,
+        "overlap_relaxed_records": 23,
+        "skipped_records": 0,
+        "total_records": 1024,
+        "valid_records": 1024
+      },
+      "v4": {
+        "exact_five_patch_records": 1024,
+        "main_object_coverage": 0.6666666666666666,
+        "mean_max_overlap_ratio": 0.0,
+        "mean_objective_score": 0.0,
+        "mean_pairwise_iou": 0.061246749455701674,
+        "mean_pairwise_overlap_ratio": 0.266168949821042,
+        "mean_patch_saliency": 0.6097216402471544,
+        "mean_pattern_diversity": 0.0,
+        "mean_spatial_distance": 0.0,
+        "object_coverage": 0.5864413364413364,
+        "overlap_relaxed_records": 0,
+        "skipped_records": 0,
+        "total_records": 1024,
+        "valid_records": 1024
+      }
+    }
+  },
+  "manual_gate": {
+    "expected_overlay_visualization_count": 50,
+    "overlay_visualization_count": 50,
+    "status": "generated",
+    "visualization_dir": "outputs/alamp_paper_strict_patch_selector_20260512/overlay_visualizations"
+  },
+  "objective": {
+    "Dp": "bounded Gaussian Wasserstein-style distance over Sobel edge and Lab chrominance distributions",
+    "Ds": "Euclidean patch-center distance normalized by image diagonal",
+    "S": "mean substituted U2-Net saliency inside the patch",
+    "formula": "sum_i S_i + sum_{i<j} Dp(edge,chroma) + sum_{i<j} Ds(center_distance)",
+    "overlap_constraint": "hard intersection-over-min-area ratio threshold during selection",
+    "patch_count": 5
+  },
+  "saliency_source_substitution": {
+    "note": "The A-LAMP paper used graph-based saliency detection; this run substitutes existing U2-Net masks only for S.",
+    "official_reproduction": false,
+    "paper_source_available_locally": false,
+    "used_source": "existing U2-Net saliency maps"
+  },
+  "selector_version": "alamp_paper_strict_u2net_saliency_substitution",
+  "split_metrics": {
+    "test": {
+      "exact_five_patch_records": 1024,
+      "main_object_coverage": 0.37891077636152953,
+      "mean_max_overlap_ratio": 0.3963186484151566,
+      "mean_objective_score": 8.980041852138779,
+      "mean_pairwise_iou": 0.056597661187192054,
+      "mean_pairwise_overlap_ratio": 0.0898714839446166,
+      "mean_patch_saliency": 0.3439308266536748,
+      "mean_pattern_diversity": 0.3432128462199744,
+      "mean_spatial_distance": 0.38282592566706625,
+      "object_coverage": 0.3651023561220548,
+      "overlap_relaxed_records": 30,
+      "skipped_records": 0,
+      "total_records": 1024,
+      "valid_records": 1024
+    },
+    "train": {
+      "exact_five_patch_records": 1024,
+      "main_object_coverage": 0.389082462253194,
+      "mean_max_overlap_ratio": 0.386156895156785,
+      "mean_objective_score": 8.935157708522746,
+      "mean_pairwise_iou": 0.05573547216799411,
+      "mean_pairwise_overlap_ratio": 0.08880708395982242,
+      "mean_patch_saliency": 0.343152054079053,
+      "mean_pattern_diversity": 0.33610766827445615,
+      "mean_spatial_distance": 0.3858320755382919,
+      "object_coverage": 0.35685249709639955,
+      "overlap_relaxed_records": 25,
+      "skipped_records": 0,
+      "total_records": 1024,
+      "valid_records": 1024
+    },
+    "val": {
+      "exact_five_patch_records": 1024,
+      "main_object_coverage": 0.40326340326340326,
+      "mean_max_overlap_ratio": 0.3911883188873918,
+      "mean_objective_score": 8.916111334544063,
+      "mean_pairwise_iou": 0.053662501745913194,
+      "mean_pairwise_overlap_ratio": 0.0864308856718875,
+      "mean_patch_saliency": 0.3353756557646006,
+      "mean_pattern_diversity": 0.3386823902902224,
+      "mean_spatial_distance": 0.38524091528188364,
+      "object_coverage": 0.361013986013986,
+      "overlap_relaxed_records": 23,
+      "skipped_records": 0,
+      "total_records": 1024,
+      "valid_records": 1024
+    }
+  }
+}

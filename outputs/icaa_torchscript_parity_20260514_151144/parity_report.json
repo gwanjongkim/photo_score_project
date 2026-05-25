@@ -1,0 +1,144 @@
+{
+  "status": "failed",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_torchscript_parity_20260514_151144",
+  "official_repo": "/home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code",
+  "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+  "traced_model_path": "/home/omen_pc1/photo_score_project/outputs/icaa_export_torchscript_20260514_150436/icaa_dat_traced.pt",
+  "csv_path": "/home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/dataset/ICAA17K/1test.csv",
+  "image_root": "/home/omen_pc1/photo_score_project/data/raw/icaa17k",
+  "limit": 32,
+  "batch_size": 8,
+  "num_workers": 0,
+  "device": "cpu",
+  "thresholds": {
+    "max_abs_diff": 0.0001,
+    "mean_abs_diff": 1e-05
+  },
+  "model_config": {
+    "img_size": 224,
+    "patch_size": 4,
+    "num_classes": 1,
+    "expansion": 4,
+    "dim_stem": 128,
+    "dims": [
+      128,
+      256,
+      512,
+      1024
+    ],
+    "depths": [
+      2,
+      2,
+      18,
+      2
+    ],
+    "stage_spec": [
+      [
+        "L",
+        "S"
+      ],
+      [
+        "L",
+        "S"
+      ],
+      [
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D"
+      ],
+      [
+        "L",
+        "D"
+      ]
+    ],
+    "heads": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "window_sizes": [
+      7,
+      7,
+      7,
+      7
+    ],
+    "groups": [
+      -1,
+      -1,
+      4,
+      8
+    ],
+    "use_pes": [
+      false,
+      false,
+      true,
+      true
+    ],
+    "dwc_pes": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "strides": [
+      -1,
+      -1,
+      1,
+      1
+    ],
+    "sr_ratios": [
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "offset_range_factor": [
+      -1,
+      -1,
+      2,
+      2
+    ],
+    "no_offs": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "fixed_pes": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "use_dwc_mlps": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "use_conv_patches": false,
+    "drop_rate": 0.0,
+    "attn_drop_rate": 0.0,
+    "drop_path_rate": 0.5
+  },
+  "error": "Traceback (most recent call last):\n  File \"/home/omen_pc1/photo_score_project/scripts/parity_icaa_torchscript_real_images.py\", line 327, in main\n    torchscript_output = traced_model(images)\n                         ^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1736, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1747, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: The following operation failed in the TorchScript interpreter.\nTraceback of TorchScript, serialized code (most recent call last):\n  File \"code/__torch__.py\", line 10, in forward\n    x: Tensor) -> Tensor:\n    model = self.model\n    return (model).forward(x, )\n            ~~~~~~~~~~~~~~ <--- HERE\n  File \"code/__torch__/models/dat.py\", line 43, in forward\n    _4 = (_00).forward((patch_proj).forward(x, ), )\n    _5 = (_1).forward((_10).forward((_0).forward(_4, ), ), )\n    _6 = (_3).forward((_2).forward((_20).forward(_5, ), ), )\n                                    ~~~~~~~~~~~~ <--- HERE\n    x0 = torch.adaptive_avg_pool2d((cls_norm).forward(_6, ), [1, 1])\n    input = torch.flatten(x0, 1)\n  File \"code/__torch__/models/dat/___torch_mangle_470.py\", line 201, in forward\n    _46 = (_00).forward1()\n    x0 = torch.add(_45, x)\n    _47 = (_114).forward((_212).forward(x0, ), )\n           ~~~~~~~~~~~~~ <--- HERE\n    _48 = (_113).forward()\n    x1 = torch.add(_47, x0)\n  File \"code/__torch__/models/dat_blocks.py\", line 388, in forward\n    _143 = [torch.lift_fresh(CONSTANTS.c9), torch.lift_fresh(CONSTANTS.c9)]\n    manu_offset_ = torch.to(torch.to(torch.cat(_143, 3), 6), dtype=6, layout=0, device=torch.device(\"cpu\"))\n    offset0 = torch.mul(offset, manu_offset_)\n              ~~~~~~~~~ <--- HERE\n    pos = torch.mul(torch.add(offset0, reference), gate0)\n    _144 = [int(torch.mul(B, CONSTANTS.c3)), 128, _119, _122]\n\nTraceback of TorchScript, original code (most recent call last):\n/home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/models/dat_blocks.py(270): forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl\n/home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/models/dat.py(77): forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl\n/home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/models/dat.py(220): forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl\n/home/omen_pc1/photo_score_project/scripts/export_icaa_torchscript_smoke.py(123): forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/jit/_trace.py(1278): trace_module\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/jit/_trace.py(698): _trace_impl\n/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/jit/_trace.py(1002): trace\n/home/omen_pc1/photo_score_project/scripts/export_icaa_torchscript_smoke.py(230): main\n/home/omen_pc1/photo_score_project/scripts/export_icaa_torchscript_smoke.py(326): <module>\nRuntimeError: The size of tensor a (32) must match the size of tensor b (4) at non-singleton dimension 0\n\n",
+  "predictions_csv": "/home/omen_pc1/photo_score_project/outputs/icaa_torchscript_parity_20260514_151144/parity_predictions.csv",
+  "parity_report_json": "/home/omen_pc1/photo_score_project/outputs/icaa_torchscript_parity_20260514_151144/parity_report.json",
+  "parity_log_txt": "/home/omen_pc1/photo_score_project/outputs/icaa_torchscript_parity_20260514_151144/parity_log.txt"
+}

@@ -1,0 +1,18 @@
+checkpoint path: /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+checkpoint key count: 487
+patch_proj.0.weight shape: (128, 3, 4, 4)
+v1 strict load result: <All keys matched successfully>
+v2 strict load result: <All keys matched successfully>
+csv rows read: 32
+evaluable images: 32
+missing image rows skipped: 0
+full tensor max_abs_diff: 0.0000248551
+full tensor mean_abs_diff: 0.0000004787
+MOS max_abs_diff: 0.0000248551
+MOS mean_abs_diff: 0.0000008270
+color max_abs_diff: 0.0000032187
+color mean_abs_diff: 0.0000001304
+pass level: acceptable
+parity_report.json: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_pytorch_parity_20260514_215433/parity_report.json
+parity_predictions.csv: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_pytorch_parity_20260514_215433/parity_predictions.csv
+parity_log.txt: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_v2_pytorch_parity_20260514_215433/parity_log.txt

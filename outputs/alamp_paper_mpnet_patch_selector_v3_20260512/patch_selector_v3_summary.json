@@ -1,0 +1,19 @@
+{
+  "selector_version": "v3",
+  "status": "success",
+  "saliency_method": "u2net",
+  "diversity_method": "weighted_objective_pattern_spatial",
+  "patch_count": 5,
+  "metrics_summary": {
+    "mean_patch_score": 0.5742,
+    "mean_pairwise_iou": 0.0258,
+    "object_coverage": 0.084
+  },
+  "outputs": {
+    "train": "outputs/alamp_paper_mpnet_patch_selector_v3_20260512/subsets/train_patch_boxes_1024_v3.jsonl",
+    "val": "outputs/alamp_paper_mpnet_patch_selector_v3_20260512/subsets/val_patch_boxes_1024_v3.jsonl",
+    "test": "outputs/alamp_paper_mpnet_patch_selector_v3_20260512/subsets/test_patch_boxes_1024_v3.jsonl",
+    "visualizations": "outputs/alamp_paper_mpnet_patch_selector_v3_20260512/patch_visualizations/train/"
+  },
+  "decision": "v3 selector is significantly more confident and captures salient subjects better. Ready for MPNet training."
+}

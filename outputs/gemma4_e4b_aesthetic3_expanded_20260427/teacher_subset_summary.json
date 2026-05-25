@@ -1,0 +1,18 @@
+{
+  "requested_teacher_subset_size": 600,
+  "teacher_subset_size": 600,
+  "bucket_counts": {
+    "middle_near_miss": 240,
+    "rejected_low": 180,
+    "selected_high": 180
+  },
+  "dataset_counts": {
+    "ava": 400,
+    "aadb": 200
+  },
+  "selected_counts": {
+    "selected": 180,
+    "not_selected": 420
+  },
+  "test_vila_policy": "excluded_from_main_teacher_subset; used only as sanity/evaluation manifest"
+}

@@ -1,0 +1,56 @@
+{
+  "created_at_local": "2026-05-09T19:42:43.323487+09:00",
+  "model_variant": "RGNet-paper-v1 approximation",
+  "official_reproduction": false,
+  "model_name": "rgnet_paper_v1_aadb_regression",
+  "model_path": "outputs/rgnet_paper_v1_aadb_regression_20260509/full_train/final_model.keras",
+  "image_size": 256,
+  "batch_size": 16,
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.20.0"
+  },
+  "splits": {
+    "test": {
+      "num_samples": 1000,
+      "target_min": 0.05000000074505806,
+      "target_max": 1.0,
+      "prediction_min": 0.121407151222229,
+      "prediction_max": 0.8469310402870178,
+      "srcc": 0.638855657699948,
+      "plcc": 0.6423166841140971,
+      "mae": 0.12822051346302032,
+      "rmse": 0.16023966315074326,
+      "mse": 0.025676749646663666,
+      "split": "test",
+      "csv": "data/processed/aadb/test.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "elapsed_seconds": 23.911475160999544,
+      "seconds_per_image": 0.023911475160999545,
+      "predictions_path": "outputs/rgnet_paper_v1_aadb_regression_20260509/eval/test_predictions.csv"
+    },
+    "val": {
+      "num_samples": 846,
+      "target_min": 0.0,
+      "target_max": 0.949999988079071,
+      "prediction_min": 0.15853196382522583,
+      "prediction_max": 0.8159788846969604,
+      "srcc": 0.5832142747791366,
+      "plcc": 0.5873551037219259,
+      "mae": 0.11880123615264893,
+      "rmse": 0.15128684218806654,
+      "mse": 0.022887708619236946,
+      "split": "val",
+      "csv": "data/processed/aadb/val.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "elapsed_seconds": 11.24605290800173,
+      "seconds_per_image": 0.013293206747046961,
+      "predictions_path": "outputs/rgnet_paper_v1_aadb_regression_20260509/eval/val_predictions.csv"
+    }
+  }
+}

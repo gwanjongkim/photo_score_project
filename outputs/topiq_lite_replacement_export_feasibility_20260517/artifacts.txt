@@ -1,0 +1,22 @@
+# TOPIQ-lite Export Feasibility Artifacts
+
+Output Directory: outputs/topiq_lite_replacement_export_feasibility_20260517/
+
+| File | Size | Description |
+| :--- | :--- | :--- |
+| summary.csv | 1.4 KB | Quantitative summary of all export and parity results. |
+| parity_spaq.csv | 1.4 KB | Sample-level parity data for SPAQ (Keras vs TFLite). |
+| parity_koniq.csv | 1.6 KB | Sample-level parity data for KonIQ (Keras vs TFLite). |
+| parity_flive.csv | 1.7 KB | Sample-level parity data for FLIVE (Keras vs TFLite). |
+| tflite_ops_spaq.txt | 139 B | List of unique TFLite operators in the SPAQ model. |
+| tflite_ops_koniq.txt | 139 B | List of unique TFLite operators in the KonIQ model. |
+| tflite_ops_flive.txt | 139 B | List of unique TFLite operators in the FLIVE model. |
+| topiq_lite_spaq_probe1024_fp32.tflite | 24 MB | FP32 TFLite model for SPAQ. |
+| topiq_lite_spaq_probe1024_fp16.tflite | 12 MB | FP16 TFLite model for SPAQ. |
+| topiq_lite_koniq_probe1024_fp32.tflite | 24 MB | FP32 TFLite model for KonIQ. |
+| topiq_lite_koniq_probe1024_fp16.tflite | 12 MB | FP16 TFLite model for KonIQ. |
+| topiq_lite_flive_probe1024_fp32.tflite | 24 MB | FP32 TFLite model for FLIVE. |
+| topiq_lite_flive_probe1024_fp16.tflite | 12 MB | FP16 TFLite model for FLIVE. |
+| report.md | - | Final feasibility report. |
+| commands.txt | - | Summary of commands run. |
+| artifacts.txt | - | This file. |

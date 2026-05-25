@@ -1,0 +1,136 @@
+{
+  "label": "merged_gemma4_e4b_teacher282_bnb4_cuda",
+  "timestamp_utc": "2026-04-29T03:43:23Z",
+  "command": [
+    "/home/omen_pc1/photo_score_project/.venv_vila/bin/python",
+    "tools/gemma4_latency_probe.py",
+    "--label",
+    "merged_gemma4_e4b_teacher282_bnb4_cuda",
+    "--base_model",
+    "outputs/gemma4_mobile_export_probe_20260429/merged_gemini_teacher_282",
+    "--hf_home",
+    "outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache",
+    "--manifest",
+    "outputs/gemini_api_teacher_aesthetic3_20260427_revised/test.jsonl",
+    "--output_json",
+    "outputs/gemma4_mobile_export_probe_20260429/merged_latency_probe.json",
+    "--max_new_tokens",
+    "80",
+    "--load_in_4bit",
+    "--device_map",
+    "cuda",
+    "--require_cuda"
+  ],
+  "cwd": "/home/omen_pc1/photo_score_project",
+  "base_model": "outputs/gemma4_mobile_export_probe_20260429/merged_gemini_teacher_282",
+  "adapter_dir": null,
+  "manifest": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/test.jsonl",
+  "row_index": 0,
+  "row_id": "gemini__300__104__ava__selected_high__289024.jpg__5ba80932bc",
+  "image_path": "/home/omen_pc1/ava/images/289024.jpg",
+  "prompt_source": "manifest_messages_first_two",
+  "max_new_tokens": 80,
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "quantization": {
+    "enabled": true,
+    "type": "bitsandbytes_nf4_4bit",
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "bnb_4bit_use_double_quant": true,
+    "device_map": "cuda"
+  },
+  "model_hf_device_map": null,
+  "hf_environment": {
+    "HF_HOME": "/home/omen_pc1/photo_score_project/outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache",
+    "HF_HUB_CACHE": "/home/omen_pc1/photo_score_project/outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache/hub",
+    "TRANSFORMERS_CACHE": "/home/omen_pc1/photo_score_project/outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemma4_train_run_282/hf_cache/transformers",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "local_files_only": true
+  },
+  "timing": {
+    "load_seconds": 16.358292,
+    "first_token_latency_seconds": 1.127054,
+    "generation_seconds": 12.044716,
+    "generated_token_count": 80,
+    "tokens_per_second": 6.641917,
+    "streamer_token_callback_count": 80
+  },
+  "processor_input_summary": {
+    "input_ids": [
+      1,
+      410
+    ],
+    "attention_mask": [
+      1,
+      410
+    ],
+    "mm_token_type_ids": [
+      1,
+      410
+    ],
+    "pixel_values": [
+      1,
+      2520,
+      768
+    ],
+    "image_position_ids": [
+      1,
+      2520,
+      2
+    ]
+  },
+  "gpu_snapshots": [
+    {
+      "label": "start",
+      "available": true,
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0,
+      "torch_max_allocated_bytes": 0,
+      "nvidia_smi": {
+        "available": true,
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "memory_total_mib": 12282,
+        "memory_used_mib": 618,
+        "memory_free_mib": 11380
+      }
+    },
+    {
+      "label": "after_load",
+      "available": true,
+      "torch_allocated_bytes": 9304240640,
+      "torch_reserved_bytes": 9432989696,
+      "torch_max_allocated_bytes": 9304240640,
+      "nvidia_smi": {
+        "available": true,
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "memory_total_mib": 12282,
+        "memory_used_mib": 9642,
+        "memory_free_mib": 2356
+      }
+    },
+    {
+      "label": "after_generate",
+      "available": true,
+      "torch_allocated_bytes": 9320557056,
+      "torch_reserved_bytes": 9988734976,
+      "torch_max_allocated_bytes": 9860180992,
+      "nvidia_smi": {
+        "available": true,
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "memory_total_mib": 12282,
+        "memory_used_mib": 10190,
+        "memory_free_mib": 1808
+      }
+    }
+  ],
+  "raw_prediction": "{\"comment_type\": \"selected_explanation\", \"short_reason\": \"This is a compelling and well-composed image that uses a strong color palette and dramatic lighting to create a vivid and atmospheric scene.\", \"detailed_reason\": \"The image is highly effective due to its dramatic use of color and lighting. The vibrant, saturated colors of the sunset and the illuminated clouds create a striking and warm",
+  "prediction_json": null,
+  "parse_error": "json_decode_error",
+  "validation": {
+    "is_valid": false,
+    "flags": [
+      "json_invalid"
+    ]
+  }
+}

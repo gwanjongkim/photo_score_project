@@ -1,0 +1,38 @@
+{
+  "baselines": {
+    "v0_full_test": {
+      "srcc": 0.6432537443293759,
+      "plcc": 0.6499109307164675,
+      "mae": 0.1255093365907669,
+      "rmse": 0.1556738782154776
+    },
+    "v1_default_full_test": {
+      "srcc": 0.638855657699948,
+      "plcc": 0.6423166841140971,
+      "mae": 0.12822051346302032,
+      "rmse": 0.16023966315074326
+    }
+  },
+  "candidates": {
+    "combined_paper_dilation_mean": {
+      "test_srcc": 0.6263430561080404,
+      "test_plcc": 0.6362138486060019,
+      "test_mae": 0.12608717381954193,
+      "test_rmse": 0.15701865435136036
+    },
+    "dilation_paper_3_6_12_18_full": {
+      "test_srcc": 0.6400885478731322,
+      "test_plcc": 0.6466100381330396,
+      "test_mae": 0.12406127899885178,
+      "test_rmse": 0.15534166720353673
+    },
+    "agg_mean_full": {
+      "test_srcc": 0.6818650940218989,
+      "test_plcc": 0.6877526576657776,
+      "test_mae": 0.11975742876529694,
+      "test_rmse": 0.14860332788070868
+    }
+  },
+  "decision": "promote mean candidate",
+  "next_step": "move to RGNet-paper-AVA-classification"
+}

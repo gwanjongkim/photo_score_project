@@ -1,0 +1,18 @@
+{
+  "generated_jsonl": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/experiment_b_pro_20/gemini_teacher_generation.jsonl",
+  "rows_audited": 20,
+  "clean_rows": 12,
+  "rejected_rows": 8,
+  "clean_rate": 0.6,
+  "specificity_pass_rows": 13,
+  "specificity_pass_rate": 0.65,
+  "flag_counts": {
+    "generic_only_wording": 7,
+    "fake_weakness_in_selected": 1
+  },
+  "clean_dataset_jsonl": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/experiment_b_pro_./clean_teacher_dataset.jsonl",
+  "clean_dataset_csv": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/experiment_b_pro_./clean_teacher_dataset.csv",
+  "rejected_teacher_rows_csv": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/experiment_b_pro_./rejected_teacher_rows.csv",
+  "audit_rows_csv": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/experiment_b_pro_./teacher_audit_rows.csv",
+  "specificity_rows_csv": "outputs/gemini_api_teacher_aesthetic3_highspec_batch_compare_20260427/experiment_b_pro_./teacher_specificity_rows.csv"
+}

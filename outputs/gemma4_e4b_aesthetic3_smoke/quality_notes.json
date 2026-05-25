@@ -1,0 +1,13 @@
+{
+  "rows": 49,
+  "selected_rows": 5,
+  "rejected_rows": 44,
+  "bad_strength_rows": 2,
+  "generic_weakness_rows": 3,
+  "residual_numeric_or_technical_rows": 2,
+  "notes": [
+    "bad_strength_rows now counts teacher Strength lines that still retain obvious numeric or technical template leakage.",
+    "generic_weakness_rows counts teacher Weakness lines that still fall back to the generic secondary-cues wording.",
+    "residual_numeric_or_technical_rows counts any teacher comment that still contains obvious numeric or technical template leakage."
+  ]
+}

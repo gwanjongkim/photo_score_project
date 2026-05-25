@@ -1,0 +1,44 @@
+{
+  "candidates": [
+    {
+      "name": "U²-Net",
+      "architecture": "Nested U-structure",
+      "license": "Apache 2.0",
+      "pros": "Well-established, multiple sizes (U2Net/U2NetP), robust for general subjects, Apache 2.0 license.",
+      "cons": "Older compared to DIS, but very stable.",
+      "feasibility": "High",
+      "expected_quality": "High",
+      "suitability": "Primary candidate"
+    },
+    {
+      "name": "BASNet",
+      "architecture": "Boundary-Aware Segmentation",
+      "license": "Apache 2.0",
+      "pros": "Better edge definition than standard U2Net.",
+      "cons": "Slightly more complex integration.",
+      "feasibility": "Medium",
+      "expected_quality": "High",
+      "suitability": "Fallback"
+    },
+    {
+      "name": "IS-Net (DIS)",
+      "architecture": "Dichotomous Image Segmentation",
+      "license": "Apache 2.0",
+      "pros": "State-of-the-art performance, handles very high resolution.",
+      "cons": "Heavier model, maybe overkill for patch selection.",
+      "feasibility": "High",
+      "expected_quality": "Very High",
+      "suitability": "Strong alternative"
+    },
+    {
+      "name": "OpenCV Saliency",
+      "architecture": "Classical heuristics",
+      "license": "BSD",
+      "pros": "No extra weights needed.",
+      "cons": "Poor performance on complex AVA-style photos (already failed in V2).",
+      "feasibility": "Low",
+      "expected_quality": "Low",
+      "suitability": "Already rejected"
+    }
+  ]
+}

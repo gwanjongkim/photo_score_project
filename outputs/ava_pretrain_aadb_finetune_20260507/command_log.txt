@@ -1,0 +1,312 @@
+# AVA Pretrain + AADB Fine-tune Command Log
+
+Experiment directory: outputs/ava_pretrain_aadb_finetune_20260507
+
+## Step 2. Environment Check
+
+### pwd
+
+```text
+/home/omen_pc1/photo_score_project
+```
+
+### date
+
+```text
+Thu May  7 21:06:58 KST 2026
+```
+
+### git status --short
+
+```text
+ M README.md
+ M docs/acut_product_integration.md
+ M requirements-vila.txt
+ M src/firebase/acut_job_worker.py
+ M src/infer/acut_product_export.py
+ M src/infer/generate_multimodal_explanations.py
+ M src/infer/predict_quality_bundle.py
+ M src/infer/run_acut_pipeline.py
+ M src/infer/score_image_folder.py
+ M src/infer/select_best_shots.py
+ M src/infer/smoke_test_acut_product_pipeline.py
+ M src/infer/stage5_reference.py
+ M src/vila/explain_acut_selection.py
+?? =0.45.0
+?? AGENTS.md
+?? "GEMINI - \353\263\265\354\202\254\353\263\270.md:Zone.Identifier"
+?? GEMINI.md
+?? "TROUBLESHOOTING - \353\263\265\354\202\254\353\263\270.md:Zone.Identifier"
+?? android_gemma_latency_harness/
+?? configs/gemma4_e4b_aesthetic3_dataset_smoke.json
+?? configs/gemma4_e4b_aesthetic3_dataset_smoke_pass2.json
+?? configs/gemma4_e4b_aesthetic3_teacher.json
+?? configs/gemma4_e4b_aesthetic3_teacher_overrides_pass2.json
+?? configs/gemma4_e4b_aesthetic3_train_smoke.json
+?? configs/gemma4_e4b_aesthetic3_train_smoke_pass2.json
+?? configs/gemma4_e4b_aesthetic3_train_smoke_pass2b.json
+?? configs/gemma4_e4b_gemini_teacher_282_train.json
+?? configs/stage5_student_server.json
+?? configs/stage5_student_server_weights.json
+?? configs/student_distill_baseline.json
+?? configs/student_distill_conservative_full_aadb_20260423.json
+?? configs/student_distill_dry_run.json
+?? configs/student_distill_full_aadb.json
+?? configs/student_distill_full_run.json
+?? configs/student_distill_teacher.json
+?? configs/student_distill_teacher_conservative_aadb.json
+?? docs/pozy_app_stage5_aesthetic_student_handoff.md
+?? docs/student_distillation_baseline.md
+?? exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.comparison.json
+?? exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.metadata.json
+?? exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.tflite
+?? exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.verify.json
+?? exports/tflite/student_conservative_aesthetic_full_aadb_20260423.metadata.json
+?? exports/tflite/student_conservative_aesthetic_full_aadb_20260423_fp16_builtin.tflite
+?? gpu_check.py
+?? pytorch_gpu_check.py
+?? requirements-gemma4-distill.txt
+?? run_evaluation.py
+?? src/distill/
+?? src/gemma_distill/
+?? src/infer/explanation_contract.py
+?? src/infer/vila_full_local_worker.py
+?? test_outputs/distill_dry_run_probe/
+?? test_vila/
+?? tools/build_acut_human_review_package.py
+?? tools/build_aesthetic_only_comparison.py
+?? tools/build_raw_aesthetic_scores_html.py
+?? tools/diagnose_gemma_visual_grounding.py
+?? tools/gemini_api_teacher_pipeline.py
+?? tools/gemma4_bnb4_quantized_save.py
+?? tools/gemma4_e4b_aesthetic3_expanded_pipeline.py
+?? tools/gemma4_latency_probe.py
+?? tools/run_aesthetic_ensemble_experiment.py
+?? tools/temp_download.py
+```
+
+### ./.venv_gpu/bin/python --version
+
+```text
+Python 3.12.3
+```
+
+### nvidia-smi
+
+```text
+Thu May  7 21:06:58 2026
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 590.48.01              Driver Version: 591.55         CUDA Version: 13.1     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 ...    On  |   00000000:01:00.0  On |                  N/A |
+| 30%   28C    P8              7W /  220W |    1383MiB /  12282MiB |     11%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+```
+
+### ls -lh outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras
+
+```text
+-rw-r--r-- 1 omen_pc1 omen_pc1 126M May  6 17:42 outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras
+```
+
+### ls -lh outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit/final_model.keras
+
+```text
+-rw-r--r-- 1 omen_pc1 omen_pc1 184M May  6 19:33 outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit/final_model.keras
+```
+
+### head -n 3 data/processed/aadb/train.csv
+
+```text
+image_path,score,dataset,split,relative_path
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_460_19917748118_4395936834_b.jpg,0.7,aadb,train,farm1_460_19917748118_4395936834_b.jpg
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_464_19642533584_225eae1cbe_b.jpg,0.25,aadb,train,farm1_464_19642533584_225eae1cbe_b.jpg
+```
+
+### head -n 3 data/processed/aadb/val.csv
+
+```text
+image_path,score,dataset,split,relative_path
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_319_19982213545_f2c6a56ea7_b.jpg,0.5,aadb,train,farm1_319_19982213545_f2c6a56ea7_b.jpg
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_316_20145499186_18fcea17fd_b.jpg,0.75,aadb,train,farm1_316_20145499186_18fcea17fd_b.jpg
+```
+
+## Step 3. AADB Target Scale Check
+
+### ./.venv_gpu/bin/python -c "..."
+
+```text
+data/processed/aadb/train.csv: count=7612 min=0.000000 max=1.000000
+data/processed/aadb/val.csv: count=846 min=0.000000 max=0.950000
+```
+
+## Step 4. Train Script Inspection
+
+### rg -n "initial|pretrain|load|weights|keras|argparse|target_col|batch_size|epochs|learning" src/train/train_rgnet.py
+
+Result: `src/train/train_rgnet.py` has train/val/target/batch/epoch/LR/output arguments and saves `best.weights.h5`, `final_model.keras`, and `saved_model`; it does not expose `--initial_model` or `--load_weights`.
+
+### rg -n "initial|pretrain|load|weights|keras|argparse|target_col|batch_size|epochs|learning|global_size|patch_size|num_patches" src/train/train_alamp.py
+
+Result: `src/train/train_alamp.py` has train/val/target/batch/epoch/LR/A-LAMP size/output arguments and saves `best.weights.h5`, `final_model.keras`, and `saved_model`; it does not expose `--initial_model` or `--load_weights`.
+
+Created experiment-only scripts:
+
+```text
+outputs/ava_pretrain_aadb_finetune_20260507/scripts/finetune_rgnet_from_keras.py
+outputs/ava_pretrain_aadb_finetune_20260507/scripts/finetune_alamp_from_keras.py
+```
+
+## Step 5. RGNet Fine-tune
+
+Initial sandbox command could not initialize CUDA and was stopped:
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -u outputs/ava_pretrain_aadb_finetune_20260507/scripts/finetune_rgnet_from_keras.py --initial_model outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras --train_csv data/processed/aadb/train.csv --val_csv data/processed/aadb/val.csv --target_col score --image_size 256 --batch_size 16 --epochs 10 --learning_rate 1e-5 --out_dir outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune
+```
+
+CUDA error observed:
+
+```text
+failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (100)
+Visible GPUs: []
+```
+
+Preserved aborted partial history:
+
+```text
+outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/training_history_cpu_aborted.csv
+```
+
+GPU command:
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -u outputs/ava_pretrain_aadb_finetune_20260507/scripts/finetune_rgnet_from_keras.py --initial_model outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras --train_csv data/processed/aadb/train.csv --val_csv data/processed/aadb/val.csv --target_col score --image_size 256 --batch_size 16 --epochs 10 --learning_rate 1e-5 --out_dir outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune
+```
+
+Result summary:
+
+```text
+epochs_completed=10
+best_epoch=10
+best_val_loss=0.019849520176649094
+best_val_mae=0.11031755805015564
+log=outputs/ava_pretrain_aadb_finetune_20260507/logs/rgnet_finetune_gpu.log
+summary=outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/train_summary.json
+```
+
+## Step 6. A-LAMP Fine-tune
+
+GPU command:
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -u outputs/ava_pretrain_aadb_finetune_20260507/scripts/finetune_alamp_from_keras.py --initial_model outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit/final_model.keras --train_csv data/processed/aadb/train.csv --val_csv data/processed/aadb/val.csv --target_col score --batch_size 16 --epochs 10 --learning_rate 1e-5 --global_size 384 --patch_size 224 --num_patches 5 --out_dir outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune
+```
+
+Result summary:
+
+```text
+epochs_completed=10
+best_epoch=10
+best_val_loss=0.020329773426055908
+best_val_mae=0.11302073299884796
+log=outputs/ava_pretrain_aadb_finetune_20260507/logs/alamp_finetune_gpu.log
+summary=outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/train_summary.json
+```
+
+## Step 7. Fixed-Subset Keras Evaluation
+
+Command:
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -u outputs/ava_pretrain_aadb_finetune_20260507/scripts/run_fixed_subset_evals.py --output_dir outputs/ava_pretrain_aadb_finetune_20260507/eval --logs_dir outputs/ava_pretrain_aadb_finetune_20260507/logs/eval --top_k 50 --pairwise_pairs 5000
+```
+
+Manifest:
+
+```text
+outputs/ava_pretrain_aadb_finetune_20260507/eval/eval_manifest.json
+```
+
+Key fine-tuned results:
+
+```text
+rgnet_ava_aadb_finetune_on_ava_val512: SRCC=0.48653126867704927 PLCC=0.5168676245372462 MAE=0.1510574370622635 RMSE=0.180808406593621
+rgnet_ava_aadb_finetune_on_aadb_val512: SRCC=0.6749177647031382 PLCC=0.6835216300102603 MAE=0.11035995185375214 RMSE=0.13806612393297327
+alamp_ava_aadb_finetune_on_ava_val512: SRCC=0.45150581922033384 PLCC=0.4615620128354287 MAE=0.12558408081531525 RMSE=0.15312955615992033
+alamp_ava_aadb_finetune_on_aadb_val512: SRCC=0.6721682444895459 PLCC=0.6824431859254804 MAE=0.10909918695688248 RMSE=0.13746825903050183
+```
+
+## Step 8. TFLite Export and Parity
+
+### RGNet SavedModel export
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -m src.export.export_tflite --preset rgnet --model_path outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune --export_source saved_model --output_dir outputs/ava_pretrain_aadb_finetune_20260507/tflite --output_name rgnet_ava_aadb_finetune.tflite --metadata_path outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune.metadata.json
+```
+
+Result: exported `rgnet_ava_aadb_finetune.tflite`; metadata reports `used_export_source=saved_model`, `used_conversion_mode=select_tf_ops`, `requires_select_tf_ops=true`.
+
+### RGNet requested TFLite verify
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -m src.export.verify_tflite --preset rgnet --model_path outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune.tflite --image_path data/raw/ava/images/85837.jpg --source_checkpoint outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras --output_json outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune.verify.json
+```
+
+Result: failed before inference with unsupported Select TF op `FlexMul`. Required failure JSON was written by the experiment-only diagnostic script.
+
+### RGNet rebuild diagnostic export and verify
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -m src.export.export_tflite --preset rgnet --model_path outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune --export_source rebuild --output_dir outputs/ava_pretrain_aadb_finetune_20260507/tflite --output_name rgnet_ava_aadb_finetune_rebuild_diagnostic.tflite --metadata_path outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune_rebuild_diagnostic.metadata.json
+PYTHONPATH=. ./.venv_gpu/bin/python -m src.export.verify_tflite --preset rgnet --model_path outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune_rebuild_diagnostic.tflite --image_path data/raw/ava/images/85837.jpg --source_checkpoint outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras --output_json outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune_rebuild_diagnostic.verify.json
+```
+
+Result: builtin rebuild TFLite ran, but failed parity. TFLite score 0.6440441608428955 vs checkpoint score 0.46629467606544495, max diff 0.17774948477745056.
+
+### A-LAMP export and verify
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -m src.export.export_alamp_tflite --checkpoint_dir outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune --output_dir outputs/ava_pretrain_aadb_finetune_20260507/tflite --output_name alamp_ava_aadb_finetune.tflite --metadata_path outputs/ava_pretrain_aadb_finetune_20260507/tflite/alamp_ava_aadb_finetune.metadata.json --global_size 384 --patch_size 224 --num_patches 5
+PYTHONPATH=. ./.venv_gpu/bin/python -m src.export.verify_alamp_tflite --checkpoint_dir outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune --model_path outputs/ava_pretrain_aadb_finetune_20260507/tflite/alamp_ava_aadb_finetune.tflite --image_path data/raw/ava/images/85837.jpg --output_json outputs/ava_pretrain_aadb_finetune_20260507/tflite/alamp_ava_aadb_finetune.verify.json --global_size 384 --patch_size 224 --num_patches 5
+```
+
+Result: passed. TFLite vs rebuild max diff 2.384185791015625e-07.
+
+## Step 10. Final Artifacts
+
+```text
+PYTHONPATH=. ./.venv_gpu/bin/python -u outputs/ava_pretrain_aadb_finetune_20260507/scripts/write_final_artifacts.py
+```
+
+Result:
+
+```text
+outputs/ava_pretrain_aadb_finetune_20260507/metrics_summary.json
+outputs/ava_pretrain_aadb_finetune_20260507/finetune_report.md
+```
+
+## Final Sanity Check
+
+```text
+./.venv_gpu/bin/python -c "..."
+```
+
+Result:
+
+```text
+artifact_check=pass evaluations=12 rgnet_tflite=fail alamp_tflite=pass flutter_copy=False source_changed=False
+```

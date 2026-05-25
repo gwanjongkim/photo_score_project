@@ -1,0 +1,71 @@
+{
+  "num_samples": 8,
+  "max_abs_diff": 5.960464477539063e-08,
+  "mean_abs_diff": 5.960464477539063e-08,
+  "rows": [
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_319_19982213545_f2c6a56ea7_b.jpg",
+      "split": "val",
+      "teacher_aesthetic_score": 0.428299,
+      "keras_prediction": 0.4995422959327698,
+      "tflite_prediction": 0.49954235553741455,
+      "abs_diff": 5.960464477539063e-08
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_316_20145499186_18fcea17fd_b.jpg",
+      "split": "val",
+      "teacher_aesthetic_score": 0.600014,
+      "keras_prediction": 0.4995422959327698,
+      "tflite_prediction": 0.49954235553741455,
+      "abs_diff": 5.960464477539063e-08
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_292_20177190071_ed73bfdf45_b.jpg",
+      "split": "val",
+      "teacher_aesthetic_score": 0.434388,
+      "keras_prediction": 0.4995422959327698,
+      "tflite_prediction": 0.49954235553741455,
+      "abs_diff": 5.960464477539063e-08
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm4_3747_20150487562_e5683def63_b.jpg",
+      "split": "val",
+      "teacher_aesthetic_score": 0.484515,
+      "keras_prediction": 0.4995422959327698,
+      "tflite_prediction": 0.49954235553741455,
+      "abs_diff": 5.960464477539063e-08
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_286_20013434330_d99ab6b9a0_b.jpg",
+      "split": "test",
+      "teacher_aesthetic_score": 0.605588,
+      "keras_prediction": 0.4995422959327698,
+      "tflite_prediction": 0.49954235553741455,
+      "abs_diff": 5.960464477539063e-08
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_273_19900479178_9c64cca006_b.jpg",
+      "split": "test",
+      "teacher_aesthetic_score": 0.475568,
+      "keras_prediction": 0.4995422959327698,
+      "tflite_prediction": 0.49954235553741455,
+      "abs_diff": 5.960464477539063e-08
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_285_19484842833_2ebfbc985e_b.jpg",
+      "split": "test",
+      "teacher_aesthetic_score": 0.449688,
+      "keras_prediction": 0.4995422959327698,
+      "tflite_prediction": 0.49954235553741455,
+      "abs_diff": 5.960464477539063e-08
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_344_19990824729_56e421dc46_b.jpg",
+      "split": "test",
+      "teacher_aesthetic_score": 0.370208,
+      "keras_prediction": 0.4995422959327698,
+      "tflite_prediction": 0.49954235553741455,
+      "abs_diff": 5.960464477539063e-08
+    }
+  ]
+}

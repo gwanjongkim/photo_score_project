@@ -1,0 +1,3 @@
+image_path,score,dataset,split,relative_path,prediction,signed_error,abs_error
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_286_20013434330_d99ab6b9a0_b.jpg,0.65,aadb,test,farm1_286_20013434330_d99ab6b9a0_b.jpg,0.3084353,-0.3415647,0.3415647
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_273_19900479178_9c64cca006_b.jpg,0.6,aadb,test,farm1_273_19900479178_9c64cca006_b.jpg,0.21591389,-0.38408613,0.38408613

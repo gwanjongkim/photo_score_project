@@ -1,0 +1,24 @@
+{
+  "RGNet": {
+    "file_path": "src/models/rgnet.py",
+    "architecture_summary": "Practical approximation with EfficientNetV2B0 feature backbone, dense cosine-similarity graph construction with softmax normalization, and lightweight residual graph-convolution blocks.",
+    "input_shape": "[B, 256, 256, 3] scaled to [0, 1]",
+    "output_type": "scalar AADB-style aesthetics score in [0, 1]",
+    "preprocessing": "Standard resize to 256x256",
+    "dataset_used": "AADB regression by default",
+    "loss_and_metric": "MSE loss, MAE metric",
+    "status": "practical approximation",
+    "missing_relative_to_paper": "Paper uses specific region proposals instead of dense similarity, and a different backbone (usually ResNet/VGG). Also misses AVA classification task."
+  },
+  "A-LAMP": {
+    "file_path": "src/models/alamp.py",
+    "architecture_summary": "Practical approximation with EfficientNetV2B0 global branch and explicit coordinate layout cues, combined with MobileNetV2 multi-patch branch and learned patch importance weighting.",
+    "input_shape": "global_view: [B, 384, 384, 3], patches: [B, 5, 224, 224, 3]",
+    "output_type": "scalar aesthetic prediction",
+    "preprocessing": "Global view uses LayoutCueAugmentation (meshgrid coordinates and valid mask). Patches cropped via heuristic search.",
+    "dataset_used": "AADB regression by default",
+    "loss_and_metric": "MSE loss, MAE metric",
+    "status": "practical approximation",
+    "missing_relative_to_paper": "Adaptive layout-aware structure explicitly encoding spatial relationships, VGG16 shared backbone, object/attribute graph construction. Also misses AVA classification task."
+  }
+}

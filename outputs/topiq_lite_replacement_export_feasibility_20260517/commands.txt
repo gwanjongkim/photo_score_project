@@ -1,0 +1,28 @@
+# TOPIQ-lite Export and Parity Commands
+
+The following operations were performed to validate the replacement feasibility of TOPIQ-lite:
+
+1. Model Loading:
+   Keras models were loaded from 'final_model.keras' with safe_mode=False to handle potential custom architecture components.
+
+2. TFLite Conversion (FP32):
+   converter = tf.lite.TFLiteConverter.from_keras_model(model)
+   tflite_model = converter.convert()
+
+3. TFLite Conversion (FP16):
+   converter = tf.lite.TFLiteConverter.from_keras_model(model)
+   converter.optimizations = [tf.lite.Optimize.DEFAULT]
+   converter.target_spec.supported_types = [tf.float16]
+   tflite_model = converter.convert()
+
+4. Operator Analysis:
+   interpreter = tf.lite.Interpreter(model_content=tflite_model)
+   interpreter.allocate_tensors()
+   ops = sorted(list(set([op['op_name'] for op in interpreter._get_ops_details()])))
+
+5. Parity Verification:
+   Inference was run across 8 validation samples per dataset using:
+   - Original Keras model (Python)
+   - Exported FP32 TFLite model (Interpreter)
+   - Exported FP16 TFLite model (Interpreter)
+   All outputs were scaled from [0, 1] to [0, 100] for error analysis.

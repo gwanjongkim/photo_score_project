@@ -1,0 +1,216 @@
+{
+  "primary_weight_formula": "weighted_aesthetic_score = 0.10 * nima_unit_score + 0.40 * rgnet_score + 0.50 * alamp_score",
+  "comparison_weight_formula": "balanced_comparison_score = 0.15 * nima_unit_score + 0.45 * rgnet_score + 0.40 * alamp_score",
+  "mean_abs_rank_delta": 61.034667,
+  "median_abs_rank_delta": 45.0,
+  "max_abs_rank_delta": 662,
+  "large_rank_disagreement_rows_abs_delta_ge_100": 607,
+  "primary_minus_comparison_delta_summary": {
+    "min": -0.066625,
+    "mean": -0.002349,
+    "median": -0.003279,
+    "max": 0.049125
+  },
+  "top_large_disagreements": [
+    {
+      "image_path": "/home/omen_pc1/ava/images/635499.jpg",
+      "dataset_source": "ava",
+      "weighted_aesthetic_score": 0.397803,
+      "balanced_comparison_score": 0.464428,
+      "score_delta_primary_minus_comparison": -0.066625,
+      "rank_primary": 2741,
+      "rank_comparison": 2079,
+      "rank_delta_primary_minus_comparison": 662
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/847671.jpg",
+      "dataset_source": "ava",
+      "weighted_aesthetic_score": 0.484465,
+      "balanced_comparison_score": 0.465182,
+      "score_delta_primary_minus_comparison": 0.019283,
+      "rank_primary": 1648,
+      "rank_comparison": 2065,
+      "rank_delta_primary_minus_comparison": -417
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_263_19649362414_f89df52959_b.jpg",
+      "dataset_source": "aadb",
+      "weighted_aesthetic_score": 0.499481,
+      "balanced_comparison_score": 0.478075,
+      "score_delta_primary_minus_comparison": 0.021406,
+      "rank_primary": 1453,
+      "rank_comparison": 1836,
+      "rank_delta_primary_minus_comparison": -383
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/738145.jpg",
+      "dataset_source": "ava",
+      "weighted_aesthetic_score": 0.471318,
+      "balanced_comparison_score": 0.453671,
+      "score_delta_primary_minus_comparison": 0.017647,
+      "rank_primary": 1873,
+      "rank_comparison": 2243,
+      "rank_delta_primary_minus_comparison": -370
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/136608.jpg",
+      "dataset_source": "ava",
+      "weighted_aesthetic_score": 0.504526,
+      "balanced_comparison_score": 0.532314,
+      "score_delta_primary_minus_comparison": -0.027788,
+      "rank_primary": 1361,
+      "rank_comparison": 992,
+      "rank_delta_primary_minus_comparison": 369
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/578909.jpg",
+      "dataset_source": "ava",
+      "weighted_aesthetic_score": 0.481338,
+      "balanced_comparison_score": 0.466601,
+      "score_delta_primary_minus_comparison": 0.014737,
+      "rank_primary": 1687,
+      "rank_comparison": 2042,
+      "rank_delta_primary_minus_comparison": -355
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/563194.jpg",
+      "dataset_source": "ava",
+      "weighted_aesthetic_score": 0.451444,
+      "balanced_comparison_score": 0.477353,
+      "score_delta_primary_minus_comparison": -0.025909,
+      "rank_primary": 2194,
+      "rank_comparison": 1850,
+      "rank_delta_primary_minus_comparison": 344
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/312688.jpg",
+      "dataset_source": "ava",
+      "weighted_aesthetic_score": 0.465258,
+      "balanced_comparison_score": 0.488186,
+      "score_delta_primary_minus_comparison": -0.022928,
+      "rank_primary": 1977,
+      "rank_comparison": 1659,
+      "rank_delta_primary_minus_comparison": 318
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_380_20016667010_ff2dcb3bed_b.jpg",
+      "dataset_source": "aadb",
+      "weighted_aesthetic_score": 0.45696,
+      "balanced_comparison_score": 0.481023,
+      "score_delta_primary_minus_comparison": -0.024063,
+      "rank_primary": 2096,
+      "rank_comparison": 1779,
+      "rank_delta_primary_minus_comparison": 317
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/826112.jpg",
+      "dataset_source": "ava",
+      "weighted_aesthetic_score": 0.470581,
+      "balanced_comparison_score": 0.457083,
+      "score_delta_primary_minus_comparison": 0.013498,
+      "rank_primary": 1888,
+      "rank_comparison": 2192,
+      "rank_delta_primary_minus_comparison": -304
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/294971.jpg",
+      "dataset_source": "ava",
+      "weighted_aesthetic_score": 0.490677,
+      "balanced_comparison_score": 0.476876,
+      "score_delta_primary_minus_comparison": 0.013801,
+      "rank_primary": 1557,
+      "rank_comparison": 1859,
+      "rank_delta_primary_minus_comparison": -302
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_311_20141013398_6b0c587fb3_b.jpg",
+      "dataset_source": "aadb",
+      "weighted_aesthetic_score": 0.358008,
+      "balanced_comparison_score": 0.420739,
+      "score_delta_primary_minus_comparison": -0.062731,
+      "rank_primary": 2934,
+      "rank_comparison": 2633,
+      "rank_delta_primary_minus_comparison": 301
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/116478.jpg",
+      "dataset_source": "ava",
+      "weighted_aesthetic_score": 0.484648,
+      "balanced_comparison_score": 0.508662,
+      "score_delta_primary_minus_comparison": -0.024014,
+      "rank_primary": 1645,
+      "rank_comparison": 1350,
+      "rank_delta_primary_minus_comparison": 295
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/271089.jpg",
+      "dataset_source": "ava",
+      "weighted_aesthetic_score": 0.575026,
+      "balanced_comparison_score": 0.545128,
+      "score_delta_primary_minus_comparison": 0.029898,
+      "rank_primary": 566,
+      "rank_comparison": 856,
+      "rank_delta_primary_minus_comparison": -290
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_373_20025879769_ce02f40c1f_b.jpg",
+      "dataset_source": "aadb",
+      "weighted_aesthetic_score": 0.536022,
+      "balanced_comparison_score": 0.517448,
+      "score_delta_primary_minus_comparison": 0.018574,
+      "rank_primary": 937,
+      "rank_comparison": 1222,
+      "rank_delta_primary_minus_comparison": -285
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/350111.jpg",
+      "dataset_source": "ava",
+      "weighted_aesthetic_score": 0.533988,
+      "balanced_comparison_score": 0.515714,
+      "score_delta_primary_minus_comparison": 0.018274,
+      "rank_primary": 966,
+      "rank_comparison": 1249,
+      "rank_delta_primary_minus_comparison": -283
+    },
+    {
+      "image_path": "/home/omen_pc1/ava/images/436416.jpg",
+      "dataset_source": "ava",
+      "weighted_aesthetic_score": 0.485993,
+      "balanced_comparison_score": 0.473365,
+      "score_delta_primary_minus_comparison": 0.012628,
+      "rank_primary": 1633,
+      "rank_comparison": 1915,
+      "rank_delta_primary_minus_comparison": -282
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_259_19941646580_6d81d8798d_b.jpg",
+      "dataset_source": "aadb",
+      "weighted_aesthetic_score": 0.470118,
+      "balanced_comparison_score": 0.457802,
+      "score_delta_primary_minus_comparison": 0.012316,
+      "rank_primary": 1897,
+      "rank_comparison": 2179,
+      "rank_delta_primary_minus_comparison": -282
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_420_20202994131_c7e499327e_b.jpg",
+      "dataset_source": "aadb",
+      "weighted_aesthetic_score": 0.499558,
+      "balanced_comparison_score": 0.483504,
+      "score_delta_primary_minus_comparison": 0.016054,
+      "rank_primary": 1452,
+      "rank_comparison": 1733,
+      "rank_delta_primary_minus_comparison": -281
+    },
+    {
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_338_20099324792_c1a08a9724_b.jpg",
+      "dataset_source": "aadb",
+      "weighted_aesthetic_score": 0.508804,
+      "balanced_comparison_score": 0.493687,
+      "score_delta_primary_minus_comparison": 0.015117,
+      "rank_primary": 1297,
+      "rank_comparison": 1572,
+      "rank_delta_primary_minus_comparison": -275
+    }
+  ]
+}

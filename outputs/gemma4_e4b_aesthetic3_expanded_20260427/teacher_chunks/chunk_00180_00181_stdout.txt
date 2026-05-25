@@ -1,0 +1,18 @@
+Using chat template: vicuna_v1
+{"runtime": "local_vila_remote_code", "model_name": "/home/omen_pc1/photo_score_project/checkpoints/VILA1.5-3b", "loader": "llava.remote_code.AutoModelForCausalLM", "device": "cuda", "converted_model_dir": "/tmp/photo_score_project_vila_remote/vila1_5-3b_a17fdc55f9", "conv_mode": "vicuna_v1", "results": [{"image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_282_20263115322_dd66563c65_b.jpg", "short_reason": null, "detailed_reason": "\"Clean subject emphasis is strong. The man's jacket and hat are well-focused against the busy background.", "comparison_reason": null, "tags": [], "confidence": null, "parse_mode": "field_recovery", "parse_warning": "Recovered labeled fields from non-JSON output.", "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. The man's jacket and hat are well-focused against the busy background.\\n\\nComparison reason: Clean subject emphasizes the man in the foreground while the background is blurred. This results in a less interesting composition with less separation between subjects.\"],", "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. The man's jacket and hat are well-focused against the busy background.\\n\\nComparison reason: Clean subject emphasizes the man in the foreground while the background is blurred. This results in a less interesting composition with less separation between subjects.\"],"}, {"image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_386_20144642626_a3cd591c61_b.jpg", "short_reason": null, "detailed_reason": "\"Clean subject emphasis is strong. Busy background distracts from the building's details.", "comparison_reason": null, "tags": [], "confidence": null, "parse_mode": "field_recovery", "parse_warning": "Recovered labeled fields from non-JSON output.", "raw_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the building's details.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong subject emphasis in foreground with weaker background\"\n},\n{\n\t\"short", "normalized_text": "{\n\"short_reason\": \"rejected: clean subject emphasis, busier background\",\n\"detailed_reason\": [\"Clean subject emphasis is strong. Busy background distracts from the building's details.\"],\n\"comparison_reason\": [\n{\n\"short\": \"clean subject emphasis\",\n\"long\": \"strong subject emphasis in foreground with weaker background\"\n},\n{\n\t\"short"}]}
+
+
+Loading weights:   0%|          | 0/6 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 6/6 [00:00<00:00, 33069.41it/s]
+
+Loading weights:   0%|          | 0/448 [00:00<?, ?it/s]
+Loading weights:  77%|███████▋  | 344/448 [00:00<00:00, 3436.02it/s]
+Loading weights: 100%|██████████| 448/448 [00:00<00:00, 3591.95it/s]
+
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/291 [00:00<00:35,  8.27it/s]
+Loading weights:  23%|██▎       | 67/291 [00:00<00:00, 357.28it/s]
+Loading weights:  44%|████▎     | 127/291 [00:00<00:00, 462.49it/s]
+Loading weights:  64%|██████▍   | 186/291 [00:00<00:00, 510.22it/s]
+Loading weights:  85%|████████▌ | 248/291 [00:00<00:00, 545.44it/s]
+Loading weights: 100%|██████████| 291/291 [00:00<00:00, 484.01it/s]

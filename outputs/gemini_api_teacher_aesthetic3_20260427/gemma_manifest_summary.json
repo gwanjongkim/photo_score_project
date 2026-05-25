@@ -1,0 +1,17 @@
+{
+  "clean_teacher_dataset": "outputs/gemini_api_teacher_aesthetic3_20260427/clean_teacher_dataset.jsonl",
+  "split_rule": "train 80%, val 10%, test 10%, stratified by selection_band and dataset_source",
+  "train_rows": 0,
+  "val_rows": 0,
+  "test_rows": 0,
+  "dataset_all_rows": 0,
+  "test_vila_rows": 36,
+  "test_vila_policy": "external sanity/evaluation set only; not included in train/val/test/dataset_all",
+  "outputs": {
+    "train": "outputs/gemini_api_teacher_aesthetic3_20260427/train.jsonl",
+    "val": "outputs/gemini_api_teacher_aesthetic3_20260427/val.jsonl",
+    "test": "outputs/gemini_api_teacher_aesthetic3_20260427/test.jsonl",
+    "test_vila": "outputs/gemini_api_teacher_aesthetic3_20260427/test_vila.jsonl",
+    "dataset_all": "outputs/gemini_api_teacher_aesthetic3_20260427/dataset_all.jsonl"
+  }
+}

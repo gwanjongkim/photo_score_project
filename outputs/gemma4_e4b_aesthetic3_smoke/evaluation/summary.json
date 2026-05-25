@@ -1,0 +1,152 @@
+{
+  "prediction_file": "outputs/gemma4_e4b_aesthetic3_smoke/evaluation/predictions_all.jsonl",
+  "prediction_counts": {
+    "rows": 49,
+    "valid_predictions": 48,
+    "errors": 1,
+    "format_valid_predictions": 48,
+    "score_or_threshold_mentions": 41
+  },
+  "test": {
+    "teacher_manifest": "outputs/gemma4_e4b_aesthetic3_smoke/test.jsonl",
+    "teacher_target_format": {
+      "rows": 2,
+      "valid_rate": 1.0
+    },
+    "status": "ok",
+    "predictions_jsonl": "outputs/gemma4_e4b_aesthetic3_smoke/evaluation/predictions_all.jsonl",
+    "student_metrics": {
+      "matched_predictions": 2,
+      "format_compliance_rate": 1.0,
+      "prefix_compliance_rate": 1.0,
+      "role_separation_rate": 1.0,
+      "mean_sequence_ratio": 0.138991,
+      "mean_token_f1": 0.296255,
+      "worst_examples": [
+        {
+          "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_09.jpg",
+          "split": "test",
+          "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_09.jpg",
+          "teacher_comment_3line": "Strength: cleaner background and composition.\nWeakness: detail clarity and subject emphasis.\nVerdict: not selected because weaker detail clarity and subject emphasis outweighed cleaner background and composition.",
+          "predicted_comment_3line": "Strength: Dramatic composition with strong contrast between the dark water and sky\nWeakness: Low overall aesthetic scores across multiple metrics\nVerdict: not selected because weighted_aesthetic_score is low",
+          "sequence_ratio": 0.066826,
+          "token_f1": 0.264151,
+          "format_valid": true
+        },
+        {
+          "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_14.jpg",
+          "split": "test",
+          "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_14.jpg",
+          "teacher_comment_3line": "Strength: cleaner background and lighting.\nWeakness: subject emphasis and overall appeal.\nVerdict: not selected because weaker subject emphasis and overall appeal outweighed cleaner background and lighting.",
+          "predicted_comment_3line": "Strength: The composition features a strong contrast between the dark foreground subject and the bright, overcast sky.\nWeakness: The overall image quality and subject presentation are weak, leading to a low aesthetic score.\nVerdict: not selected because weighted_aesthetic_score is low (0.385602)",
+          "sequence_ratio": 0.211155,
+          "token_f1": 0.328358,
+          "format_valid": true
+        }
+      ],
+      "best_examples": [
+        {
+          "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_14.jpg",
+          "split": "test",
+          "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_14.jpg",
+          "teacher_comment_3line": "Strength: cleaner background and lighting.\nWeakness: subject emphasis and overall appeal.\nVerdict: not selected because weaker subject emphasis and overall appeal outweighed cleaner background and lighting.",
+          "predicted_comment_3line": "Strength: The composition features a strong contrast between the dark foreground subject and the bright, overcast sky.\nWeakness: The overall image quality and subject presentation are weak, leading to a low aesthetic score.\nVerdict: not selected because weighted_aesthetic_score is low (0.385602)",
+          "sequence_ratio": 0.211155,
+          "token_f1": 0.328358,
+          "format_valid": true
+        },
+        {
+          "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_09.jpg",
+          "split": "test",
+          "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_09.jpg",
+          "teacher_comment_3line": "Strength: cleaner background and composition.\nWeakness: detail clarity and subject emphasis.\nVerdict: not selected because weaker detail clarity and subject emphasis outweighed cleaner background and composition.",
+          "predicted_comment_3line": "Strength: Dramatic composition with strong contrast between the dark water and sky\nWeakness: Low overall aesthetic scores across multiple metrics\nVerdict: not selected because weighted_aesthetic_score is low",
+          "sequence_ratio": 0.066826,
+          "token_f1": 0.264151,
+          "format_valid": true
+        }
+      ]
+    }
+  },
+  "test_vila": {
+    "teacher_manifest": "outputs/gemma4_e4b_aesthetic3_smoke/test_vila.jsonl",
+    "teacher_target_format": {
+      "rows": 36,
+      "valid_rate": 1.0
+    },
+    "status": "ok",
+    "predictions_jsonl": "outputs/gemma4_e4b_aesthetic3_smoke/evaluation/predictions_all.jsonl",
+    "student_metrics": {
+      "matched_predictions": 36,
+      "format_compliance_rate": 0.972222,
+      "prefix_compliance_rate": 0.972222,
+      "role_separation_rate": 0.972222,
+      "mean_sequence_ratio": 0.282406,
+      "mean_token_f1": 0.272796,
+      "worst_examples": [
+        {
+          "id": "test_vila_nvila_20260416_gpu__test_vila__IMG_20240519_215827_510.jpg",
+          "split": "test_vila",
+          "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_20240519_215827_510.jpg",
+          "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because weaker overall appeal outweighed detail clarity.",
+          "predicted_comment_3line": "",
+          "sequence_ratio": 0.0,
+          "token_f1": 0.0,
+          "format_valid": false
+        },
+        {
+          "id": "test_vila_nvila_20260416_gpu__test_vila__1720499666985.jpg",
+          "split": "test_vila",
+          "image_path": "/home/omen_pc1/photo_score_project/test_vila/1720499666985.jpg",
+          "teacher_comment_3line": "Strength: clean detail and clear subject emphasis.\nWeakness: clean detail.\nVerdict: not selected because cleaner detail helped, but it still stayed below the higher-ranked frame.",
+          "predicted_comment_3line": "Strength: Interesting natural rock formations provide a unique setting.\nWeakness: The composition feels somewhat cluttered with large rock masses.\nVerdict: not selected because weighted_aesthetic_score is below the threshold.",
+          "sequence_ratio": 0.059553,
+          "token_f1": 0.301887,
+          "format_valid": true
+        },
+        {
+          "id": "test_vila_nvila_20260416_gpu__test_vila__IMG_2781.JPG",
+          "split": "test_vila",
+          "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2781.JPG",
+          "teacher_comment_3line": "Strength: clear subject emphasis.\nWeakness: soft detail.\nVerdict: not selected because weaker soft detail outweighed clear subject emphasis.",
+          "predicted_comment_3line": "Strength: Interesting composition with a strong focal point in the hand sculpture\nWeakness: Low overall aesthetic score and somewhat muted color palette\nVerdict: not selected because weighted_aesthetic_score is below the threshold",
+          "sequence_ratio": 0.075676,
+          "token_f1": 0.244898,
+          "format_valid": true
+        }
+      ],
+      "best_examples": [
+        {
+          "id": "test_vila_nvila_20260416_gpu__test_vila__20231231_150055.jpg",
+          "split": "test_vila",
+          "image_path": "/home/omen_pc1/photo_score_project/test_vila/20231231_150055.jpg",
+          "teacher_comment_3line": "Strength: clean detail.\nWeakness: weaker secondary cues.\nVerdict: selected because cleaner detail kept it ahead.",
+          "predicted_comment_3line": "Strength: High aesthetic score and top 20 percent ranking\nWeakness: Moderate nima_unit_score\nVerdict: selected because weighted_aesthetic_score is high",
+          "sequence_ratio": 0.577947,
+          "token_f1": 0.30303,
+          "format_valid": true
+        },
+        {
+          "id": "test_vila_nvila_20260416_gpu__test_vila__20250205_000515.jpg",
+          "split": "test_vila",
+          "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250205_000515.jpg",
+          "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because weaker overall appeal outweighed detail clarity.",
+          "predicted_comment_3line": "Strength: Clear depiction of a starry night sky\nWeakness: Low overall aesthetic quality and composition\nVerdict: not selected because weighted_aesthetic_score is low",
+          "sequence_ratio": 0.555932,
+          "token_f1": 0.368421,
+          "format_valid": true
+        },
+        {
+          "id": "test_vila_nvila_20260416_gpu__test_vila__20250204_174237_0_.jpg",
+          "split": "test_vila",
+          "image_path": "/home/omen_pc1/photo_score_project/test_vila/20250204_174237(0).jpg",
+          "teacher_comment_3line": "Strength: clean detail.\nWeakness: weaker secondary cues.\nVerdict: selected because cleaner detail kept it ahead.",
+          "predicted_comment_3line": "Strength: Dramatic sunset lighting and composition\nWeakness: Subject is small in the frame\nVerdict: selected because weighted_aesthetic_score is high",
+          "sequence_ratio": 0.551724,
+          "token_f1": 0.294118,
+          "format_valid": true
+        }
+      ]
+    }
+  }
+}

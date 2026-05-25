@@ -1,0 +1,21 @@
+{
+  "project_root": "/home/omen_pc1/photo_score_project",
+  "data_dirs": {
+    "ava": "data/processed/ava",
+    "aadb": "data/processed/aadb",
+    "spaq": "data/raw/spaq"
+  },
+  "color_aesthetics_assets": {
+    "official_repo": "external/icaa_official_repo",
+    "icaa17k_zip": "/mnt/c/Users/OMEN PC1/Downloads/ICKK17K_dataset.zip",
+    "spaq_extracted": "/home/omen_pc1/dataset_zips/spaq_extracted/spaq"
+  },
+  "existing_models": [
+    "NIMA",
+    "RGNet",
+    "A-LAMP",
+    "MUSIQ",
+    "RGNet-paper-v1"
+  ],
+  "existing_color_code": []
+}

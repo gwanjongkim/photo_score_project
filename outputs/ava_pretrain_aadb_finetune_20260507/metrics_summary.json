@@ -1,0 +1,983 @@
+{
+  "created_at_local": "2026-05-07T21:55:07.930721+09:00",
+  "experiment_dir": "outputs/ava_pretrain_aadb_finetune_20260507",
+  "source_changed": false,
+  "flutter_copy_performed": false,
+  "aadb_target_scale": {
+    "train_csv": "data/processed/aadb/train.csv",
+    "train_score_min": 0.0,
+    "train_score_max": 1.0,
+    "val_csv": "data/processed/aadb/val.csv",
+    "val_score_min": 0.0,
+    "val_score_max": 0.95,
+    "normalization_needed": false
+  },
+  "training": {
+    "rgnet": {
+      "created_at_local": "2026-05-07T21:18:52.251992+09:00",
+      "model": "rgnet",
+      "initial_model": "outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras",
+      "train_csv": "data/processed/aadb/train.csv",
+      "val_csv": "data/processed/aadb/val.csv",
+      "target_col": "score",
+      "image_size": 256,
+      "batch_size": 16,
+      "epochs_requested": 10,
+      "learning_rate": 1e-05,
+      "early_stopping": {
+        "monitor": "val_loss",
+        "patience": 3,
+        "restore_best_weights": true
+      },
+      "tensorflow": {
+        "visible_gpus": [
+          "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+        ],
+        "mixed_precision_policy": "mixed_float16"
+      },
+      "outputs": {
+        "best_weights": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/best.weights.h5",
+        "final_model": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+        "saved_model": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/saved_model",
+        "training_history_csv": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/training_history.csv"
+      },
+      "epochs_completed": 10,
+      "best_epoch": 10,
+      "best_val_loss": 0.019849520176649094,
+      "best_val_mae": 0.11031755805015564,
+      "history": {
+        "loss": [
+          0.028149500489234924,
+          0.023451942950487137,
+          0.021744271740317345,
+          0.020737864077091217,
+          0.020224543288350105,
+          0.019582917913794518,
+          0.01876750960946083,
+          0.018197542056441307,
+          0.017792455852031708,
+          0.01703551970422268
+        ],
+        "mae": [
+          0.13456885516643524,
+          0.12136086076498032,
+          0.11585870385169983,
+          0.11312322318553925,
+          0.11152969300746918,
+          0.10926348716020584,
+          0.10719174146652222,
+          0.10594736784696579,
+          0.10475123673677444,
+          0.1023954451084137
+        ],
+        "val_loss": [
+          0.03448839113116264,
+          0.025665948167443275,
+          0.025663411244750023,
+          0.025403685867786407,
+          0.020992515608668327,
+          0.022189876064658165,
+          0.021183334290981293,
+          0.020453326404094696,
+          0.022273844107985497,
+          0.019849520176649094
+        ],
+        "val_mae": [
+          0.15188442170619965,
+          0.12716549634933472,
+          0.1262294352054596,
+          0.12591898441314697,
+          0.11362886428833008,
+          0.11678280681371689,
+          0.11362401396036148,
+          0.11112625896930695,
+          0.1160094141960144,
+          0.11031755805015564
+        ]
+      }
+    },
+    "alamp": {
+      "created_at_local": "2026-05-07T21:39:12.337857+09:00",
+      "model": "alamp",
+      "initial_model": "outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit/final_model.keras",
+      "train_csv": "data/processed/aadb/train.csv",
+      "val_csv": "data/processed/aadb/val.csv",
+      "target_col": "score",
+      "global_size": 384,
+      "patch_size": 224,
+      "num_patches": 5,
+      "patch_scale": 0.35,
+      "batch_size": 16,
+      "epochs_requested": 10,
+      "learning_rate": 1e-05,
+      "verbose": 2,
+      "early_stopping": {
+        "monitor": "val_loss",
+        "patience": 3,
+        "restore_best_weights": true
+      },
+      "tensorflow": {
+        "visible_gpus": [
+          "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+        ],
+        "mixed_precision_policy": "mixed_float16"
+      },
+      "outputs": {
+        "best_weights": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/best.weights.h5",
+        "final_model": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/final_model.keras",
+        "saved_model": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/saved_model",
+        "training_history_csv": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/training_history.csv"
+      },
+      "epochs_completed": 10,
+      "best_epoch": 10,
+      "best_val_loss": 0.020329773426055908,
+      "best_val_mae": 0.11302073299884796,
+      "history": {
+        "loss": [
+          0.02708323486149311,
+          0.023656440898776054,
+          0.02258550561964512,
+          0.02209777943789959,
+          0.02100083790719509,
+          0.020480604842305183,
+          0.019801901653409004,
+          0.01915089040994644,
+          0.01808798499405384,
+          0.018021009862422943
+        ],
+        "mae": [
+          0.13095125555992126,
+          0.12142902612686157,
+          0.1189129576086998,
+          0.1165299192070961,
+          0.11434926092624664,
+          0.11228091269731522,
+          0.1108541414141655,
+          0.1085570678114891,
+          0.10515402257442474,
+          0.1053207591176033
+        ],
+        "val_loss": [
+          0.023920515552163124,
+          0.02273085154592991,
+          0.02155742049217224,
+          0.021915819495916367,
+          0.024935675784945488,
+          0.02090161293745041,
+          0.020625025033950806,
+          0.020572634413838387,
+          0.020624496042728424,
+          0.020329773426055908
+        ],
+        "val_mae": [
+          0.12403521686792374,
+          0.11956705152988434,
+          0.11654438823461533,
+          0.11723840236663818,
+          0.12450305372476578,
+          0.11402291804552078,
+          0.11352284997701645,
+          0.11341074109077454,
+          0.11384356766939163,
+          0.11302073299884796
+        ]
+      }
+    }
+  },
+  "evaluations": [
+    {
+      "model_name": "rgnet_aadb_on_ava_val512",
+      "model": "RGNet",
+      "training_path": "AADB baseline",
+      "eval_split": "AVA val512",
+      "metrics_path": "outputs/ava_pretrain_aadb_finetune_20260507/eval/rgnet_aadb_on_ava_val512_metrics.json",
+      "model_path": "checkpoints/rgnet_aadb_gpu/final_model.keras",
+      "srcc": 0.17897855675092428,
+      "plcc": 0.1930042035146729,
+      "mae": 0.10235976427793503,
+      "rmse": 0.1260541410880574,
+      "top_k_overlap": 0.18,
+      "pairwise_accuracy": 0.5539107821564313,
+      "seconds_per_image": 0.020303948789063497,
+      "raw": {
+        "num_samples": 512,
+        "target_min": 0.200453519821167,
+        "target_max": 0.7435896992683411,
+        "prediction_min": 0.3328454792499542,
+        "prediction_max": 0.8217777013778687,
+        "mae": 0.10235976427793503,
+        "mse": 0.015889646485447884,
+        "rmse": 0.1260541410880574,
+        "plcc_pearson": 0.1930042035146729,
+        "srcc_spearman": 0.17897855675092428,
+        "top_k": 50,
+        "top_k_overlap": 0.18,
+        "pairwise_pairs_scored": 4999,
+        "pairwise_accuracy": 0.5539107821564313,
+        "model_name": "rgnet_aadb_on_ava_val512",
+        "model_type": "rgnet_keras",
+        "model_path": "checkpoints/rgnet_aadb_gpu/final_model.keras",
+        "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv",
+        "target_col": "aesthetic_unit_score",
+        "elapsed_seconds": 10.39562178000051,
+        "seconds_per_image": 0.020303948789063497,
+        "io_details": null
+      }
+    },
+    {
+      "model_name": "rgnet_aadb_on_aadb_val512",
+      "model": "RGNet",
+      "training_path": "AADB baseline",
+      "eval_split": "AADB val512",
+      "metrics_path": "outputs/ava_pretrain_aadb_finetune_20260507/eval/rgnet_aadb_on_aadb_val512_metrics.json",
+      "model_path": "checkpoints/rgnet_aadb_gpu/final_model.keras",
+      "srcc": 0.4983088861097594,
+      "plcc": 0.509393876129916,
+      "mae": 0.13039630651474,
+      "rmse": 0.1618677602257293,
+      "top_k_overlap": 0.46,
+      "pairwise_accuracy": 0.6810437783049386,
+      "seconds_per_image": 0.021076115763673187,
+      "raw": {
+        "num_samples": 512,
+        "target_min": 0.0,
+        "target_max": 0.949999988079071,
+        "prediction_min": 0.25935032963752747,
+        "prediction_max": 0.8216012716293335,
+        "mae": 0.13039630651474,
+        "mse": 0.026201171800494194,
+        "rmse": 0.1618677602257293,
+        "plcc_pearson": 0.509393876129916,
+        "srcc_spearman": 0.4983088861097594,
+        "top_k": 50,
+        "top_k_overlap": 0.46,
+        "pairwise_pairs_scored": 4637,
+        "pairwise_accuracy": 0.6810437783049386,
+        "model_name": "rgnet_aadb_on_aadb_val512",
+        "model_type": "rgnet_keras",
+        "model_path": "checkpoints/rgnet_aadb_gpu/final_model.keras",
+        "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv",
+        "target_col": "score",
+        "elapsed_seconds": 10.790971271000672,
+        "seconds_per_image": 0.021076115763673187,
+        "io_details": null
+      }
+    },
+    {
+      "model_name": "rgnet_ava_on_ava_val512",
+      "model": "RGNet",
+      "training_path": "AVA-only",
+      "eval_split": "AVA val512",
+      "metrics_path": "outputs/ava_pretrain_aadb_finetune_20260507/eval/rgnet_ava_on_ava_val512_metrics.json",
+      "model_path": "outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras",
+      "srcc": 0.5612942012718247,
+      "plcc": 0.5697033492435943,
+      "mae": 0.059895437210798264,
+      "rmse": 0.07725295097885755,
+      "top_k_overlap": 0.36,
+      "pairwise_accuracy": 0.7035407081416283,
+      "seconds_per_image": 0.02059448068164116,
+      "raw": {
+        "num_samples": 512,
+        "target_min": 0.200453519821167,
+        "target_max": 0.7435896992683411,
+        "prediction_min": 0.2352927327156067,
+        "prediction_max": 0.6065285205841064,
+        "mae": 0.059895437210798264,
+        "mse": 0.005968018434941769,
+        "rmse": 0.07725295097885755,
+        "plcc_pearson": 0.5697033492435943,
+        "srcc_spearman": 0.5612942012718247,
+        "top_k": 50,
+        "top_k_overlap": 0.36,
+        "pairwise_pairs_scored": 4999,
+        "pairwise_accuracy": 0.7035407081416283,
+        "model_name": "rgnet_ava_on_ava_val512",
+        "model_type": "rgnet_keras",
+        "model_path": "outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras",
+        "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv",
+        "target_col": "aesthetic_unit_score",
+        "elapsed_seconds": 10.544374109000273,
+        "seconds_per_image": 0.02059448068164116,
+        "io_details": null
+      }
+    },
+    {
+      "model_name": "rgnet_ava_on_aadb_val512",
+      "model": "RGNet",
+      "training_path": "AVA-only",
+      "eval_split": "AADB val512",
+      "metrics_path": "outputs/ava_pretrain_aadb_finetune_20260507/eval/rgnet_ava_on_aadb_val512_metrics.json",
+      "model_path": "outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras",
+      "srcc": 0.28915569377956246,
+      "plcc": 0.3271325979252089,
+      "mae": 0.1630464345216751,
+      "rmse": 0.19901062809056785,
+      "top_k_overlap": 0.34,
+      "pairwise_accuracy": 0.6012508087125297,
+      "seconds_per_image": 0.02069678160351529,
+      "raw": {
+        "num_samples": 512,
+        "target_min": 0.0,
+        "target_max": 0.949999988079071,
+        "prediction_min": 0.24291428923606873,
+        "prediction_max": 0.5547016263008118,
+        "mae": 0.1630464345216751,
+        "mse": 0.03960523009300232,
+        "rmse": 0.19901062809056785,
+        "plcc_pearson": 0.3271325979252089,
+        "srcc_spearman": 0.28915569377956246,
+        "top_k": 50,
+        "top_k_overlap": 0.34,
+        "pairwise_pairs_scored": 4637,
+        "pairwise_accuracy": 0.6012508087125297,
+        "model_name": "rgnet_ava_on_aadb_val512",
+        "model_type": "rgnet_keras",
+        "model_path": "outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras",
+        "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv",
+        "target_col": "score",
+        "elapsed_seconds": 10.596752180999829,
+        "seconds_per_image": 0.02069678160351529,
+        "io_details": null
+      }
+    },
+    {
+      "model_name": "rgnet_ava_aadb_finetune_on_ava_val512",
+      "model": "RGNet",
+      "training_path": "AVA->AADB fine-tuned",
+      "eval_split": "AVA val512",
+      "metrics_path": "outputs/ava_pretrain_aadb_finetune_20260507/eval/rgnet_ava_aadb_finetune_on_ava_val512_metrics.json",
+      "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+      "srcc": 0.48653126867704927,
+      "plcc": 0.5168676245372462,
+      "mae": 0.1510574370622635,
+      "rmse": 0.180808406593621,
+      "top_k_overlap": 0.38,
+      "pairwise_accuracy": 0.6673334666933387,
+      "seconds_per_image": 0.020549812951173863,
+      "raw": {
+        "num_samples": 512,
+        "target_min": 0.200453519821167,
+        "target_max": 0.7435896992683411,
+        "prediction_min": 0.13504256308078766,
+        "prediction_max": 0.8677625060081482,
+        "mae": 0.1510574370622635,
+        "mse": 0.032691679894924164,
+        "rmse": 0.180808406593621,
+        "plcc_pearson": 0.5168676245372462,
+        "srcc_spearman": 0.48653126867704927,
+        "top_k": 50,
+        "top_k_overlap": 0.38,
+        "pairwise_pairs_scored": 4999,
+        "pairwise_accuracy": 0.6673334666933387,
+        "model_name": "rgnet_ava_aadb_finetune_on_ava_val512",
+        "model_type": "rgnet_keras",
+        "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+        "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv",
+        "target_col": "aesthetic_unit_score",
+        "elapsed_seconds": 10.521504231001018,
+        "seconds_per_image": 0.020549812951173863,
+        "io_details": null
+      }
+    },
+    {
+      "model_name": "rgnet_ava_aadb_finetune_on_aadb_val512",
+      "model": "RGNet",
+      "training_path": "AVA->AADB fine-tuned",
+      "eval_split": "AADB val512",
+      "metrics_path": "outputs/ava_pretrain_aadb_finetune_20260507/eval/rgnet_ava_aadb_finetune_on_aadb_val512_metrics.json",
+      "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+      "srcc": 0.6749177647031382,
+      "plcc": 0.6835216300102603,
+      "mae": 0.11035995185375214,
+      "rmse": 0.13806612393297327,
+      "top_k_overlap": 0.52,
+      "pairwise_accuracy": 0.751347854216088,
+      "seconds_per_image": 0.020827532865236975,
+      "raw": {
+        "num_samples": 512,
+        "target_min": 0.0,
+        "target_max": 0.949999988079071,
+        "prediction_min": 0.11345317959785461,
+        "prediction_max": 0.8656279444694519,
+        "mae": 0.11035995185375214,
+        "mse": 0.019062254577875137,
+        "rmse": 0.13806612393297327,
+        "plcc_pearson": 0.6835216300102603,
+        "srcc_spearman": 0.6749177647031382,
+        "top_k": 50,
+        "top_k_overlap": 0.52,
+        "pairwise_pairs_scored": 4637,
+        "pairwise_accuracy": 0.751347854216088,
+        "model_name": "rgnet_ava_aadb_finetune_on_aadb_val512",
+        "model_type": "rgnet_keras",
+        "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+        "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv",
+        "target_col": "score",
+        "elapsed_seconds": 10.663696827001331,
+        "seconds_per_image": 0.020827532865236975,
+        "io_details": null
+      }
+    },
+    {
+      "model_name": "alamp_aadb_on_ava_val512",
+      "model": "A-LAMP",
+      "training_path": "AADB baseline",
+      "eval_split": "AVA val512",
+      "metrics_path": "outputs/ava_pretrain_aadb_finetune_20260507/eval/alamp_aadb_on_ava_val512_metrics.json",
+      "model_path": "checkpoints/alamp_aadb_gpu/final_model.keras",
+      "srcc": 0.28798525065418834,
+      "plcc": 0.2995861911376333,
+      "mae": 0.09715361148118973,
+      "rmse": 0.12311589863342959,
+      "top_k_overlap": 0.2,
+      "pairwise_accuracy": 0.5987197439487898,
+      "seconds_per_image": 0.05683562192578151,
+      "raw": {
+        "num_samples": 512,
+        "target_min": 0.200453519821167,
+        "target_max": 0.7435896992683411,
+        "prediction_min": 0.25227004289627075,
+        "prediction_max": 0.8967282176017761,
+        "mae": 0.09715361148118973,
+        "mse": 0.01515752449631691,
+        "rmse": 0.12311589863342959,
+        "plcc_pearson": 0.2995861911376333,
+        "srcc_spearman": 0.28798525065418834,
+        "top_k": 50,
+        "top_k_overlap": 0.2,
+        "pairwise_pairs_scored": 4999,
+        "pairwise_accuracy": 0.5987197439487898,
+        "model_name": "alamp_aadb_on_ava_val512",
+        "model_type": "alamp_keras",
+        "model_path": "checkpoints/alamp_aadb_gpu/final_model.keras",
+        "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv",
+        "target_col": "aesthetic_unit_score",
+        "elapsed_seconds": 29.099838426000133,
+        "seconds_per_image": 0.05683562192578151,
+        "io_details": null
+      }
+    },
+    {
+      "model_name": "alamp_aadb_on_aadb_val512",
+      "model": "A-LAMP",
+      "training_path": "AADB baseline",
+      "eval_split": "AADB val512",
+      "metrics_path": "outputs/ava_pretrain_aadb_finetune_20260507/eval/alamp_aadb_on_aadb_val512_metrics.json",
+      "model_path": "checkpoints/alamp_aadb_gpu/final_model.keras",
+      "srcc": 0.5834526818871599,
+      "plcc": 0.585457577954633,
+      "mae": 0.12924160063266754,
+      "rmse": 0.1594971259009152,
+      "top_k_overlap": 0.48,
+      "pairwise_accuracy": 0.7075695492775501,
+      "seconds_per_image": 0.05814747323632474,
+      "raw": {
+        "num_samples": 512,
+        "target_min": 0.0,
+        "target_max": 0.949999988079071,
+        "prediction_min": 0.22958475351333618,
+        "prediction_max": 0.9044110178947449,
+        "mae": 0.12924160063266754,
+        "mse": 0.02543933317065239,
+        "rmse": 0.1594971259009152,
+        "plcc_pearson": 0.585457577954633,
+        "srcc_spearman": 0.5834526818871599,
+        "top_k": 50,
+        "top_k_overlap": 0.48,
+        "pairwise_pairs_scored": 4637,
+        "pairwise_accuracy": 0.7075695492775501,
+        "model_name": "alamp_aadb_on_aadb_val512",
+        "model_type": "alamp_keras",
+        "model_path": "checkpoints/alamp_aadb_gpu/final_model.keras",
+        "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv",
+        "target_col": "score",
+        "elapsed_seconds": 29.77150629699827,
+        "seconds_per_image": 0.05814747323632474,
+        "io_details": null
+      }
+    },
+    {
+      "model_name": "alamp_ava_on_ava_val512",
+      "model": "A-LAMP",
+      "training_path": "AVA-only",
+      "eval_split": "AVA val512",
+      "metrics_path": "outputs/ava_pretrain_aadb_finetune_20260507/eval/alamp_ava_on_ava_val512_metrics.json",
+      "model_path": "outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit/final_model.keras",
+      "srcc": 0.5548079241434384,
+      "plcc": 0.5567113554573858,
+      "mae": 0.05298062413930893,
+      "rmse": 0.06857185040249106,
+      "top_k_overlap": 0.36,
+      "pairwise_accuracy": 0.7031406281256252,
+      "seconds_per_image": 0.05844499418554605,
+      "raw": {
+        "num_samples": 512,
+        "target_min": 0.200453519821167,
+        "target_max": 0.7435896992683411,
+        "prediction_min": 0.2936670780181885,
+        "prediction_max": 0.5989013314247131,
+        "mae": 0.05298062413930893,
+        "mse": 0.0047020986676216125,
+        "rmse": 0.06857185040249106,
+        "plcc_pearson": 0.5567113554573858,
+        "srcc_spearman": 0.5548079241434384,
+        "top_k": 50,
+        "top_k_overlap": 0.36,
+        "pairwise_pairs_scored": 4999,
+        "pairwise_accuracy": 0.7031406281256252,
+        "model_name": "alamp_ava_on_ava_val512",
+        "model_type": "alamp_keras",
+        "model_path": "outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit/final_model.keras",
+        "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv",
+        "target_col": "aesthetic_unit_score",
+        "elapsed_seconds": 29.923837022999578,
+        "seconds_per_image": 0.05844499418554605,
+        "io_details": null
+      }
+    },
+    {
+      "model_name": "alamp_ava_on_aadb_val512",
+      "model": "A-LAMP",
+      "training_path": "AVA-only",
+      "eval_split": "AADB val512",
+      "metrics_path": "outputs/ava_pretrain_aadb_finetune_20260507/eval/alamp_ava_on_aadb_val512_metrics.json",
+      "model_path": "outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit/final_model.keras",
+      "srcc": 0.3437880381005618,
+      "plcc": 0.3631091704271498,
+      "mae": 0.1468396782875061,
+      "rmse": 0.1807956731675713,
+      "top_k_overlap": 0.2,
+      "pairwise_accuracy": 0.6271296096614191,
+      "seconds_per_image": 0.058947964697264155,
+      "raw": {
+        "num_samples": 512,
+        "target_min": 0.0,
+        "target_max": 0.949999988079071,
+        "prediction_min": 0.36288386583328247,
+        "prediction_max": 0.5657248497009277,
+        "mae": 0.1468396782875061,
+        "mse": 0.032687075436115265,
+        "rmse": 0.1807956731675713,
+        "plcc_pearson": 0.3631091704271498,
+        "srcc_spearman": 0.3437880381005618,
+        "top_k": 50,
+        "top_k_overlap": 0.2,
+        "pairwise_pairs_scored": 4637,
+        "pairwise_accuracy": 0.6271296096614191,
+        "model_name": "alamp_ava_on_aadb_val512",
+        "model_type": "alamp_keras",
+        "model_path": "outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit/final_model.keras",
+        "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv",
+        "target_col": "score",
+        "elapsed_seconds": 30.181357924999247,
+        "seconds_per_image": 0.058947964697264155,
+        "io_details": null
+      }
+    },
+    {
+      "model_name": "alamp_ava_aadb_finetune_on_ava_val512",
+      "model": "A-LAMP",
+      "training_path": "AVA->AADB fine-tuned",
+      "eval_split": "AVA val512",
+      "metrics_path": "outputs/ava_pretrain_aadb_finetune_20260507/eval/alamp_ava_aadb_finetune_on_ava_val512_metrics.json",
+      "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/final_model.keras",
+      "srcc": 0.45150581922033384,
+      "plcc": 0.4615620128354287,
+      "mae": 0.12558408081531525,
+      "rmse": 0.15312955615992033,
+      "top_k_overlap": 0.32,
+      "pairwise_accuracy": 0.654130826165233,
+      "seconds_per_image": 0.057285222669921865,
+      "raw": {
+        "num_samples": 512,
+        "target_min": 0.200453519821167,
+        "target_max": 0.7435896992683411,
+        "prediction_min": 0.17428934574127197,
+        "prediction_max": 0.8874219059944153,
+        "mae": 0.12558408081531525,
+        "mse": 0.023448660969734192,
+        "rmse": 0.15312955615992033,
+        "plcc_pearson": 0.4615620128354287,
+        "srcc_spearman": 0.45150581922033384,
+        "top_k": 50,
+        "top_k_overlap": 0.32,
+        "pairwise_pairs_scored": 4999,
+        "pairwise_accuracy": 0.654130826165233,
+        "model_name": "alamp_ava_aadb_finetune_on_ava_val512",
+        "model_type": "alamp_keras",
+        "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/final_model.keras",
+        "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv",
+        "target_col": "aesthetic_unit_score",
+        "elapsed_seconds": 29.330034006999995,
+        "seconds_per_image": 0.057285222669921865,
+        "io_details": null
+      }
+    },
+    {
+      "model_name": "alamp_ava_aadb_finetune_on_aadb_val512",
+      "model": "A-LAMP",
+      "training_path": "AVA->AADB fine-tuned",
+      "eval_split": "AADB val512",
+      "metrics_path": "outputs/ava_pretrain_aadb_finetune_20260507/eval/alamp_ava_aadb_finetune_on_aadb_val512_metrics.json",
+      "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/final_model.keras",
+      "srcc": 0.6721682444895459,
+      "plcc": 0.6824431859254804,
+      "mae": 0.10909918695688248,
+      "rmse": 0.13746825903050183,
+      "top_k_overlap": 0.52,
+      "pairwise_accuracy": 0.751347854216088,
+      "seconds_per_image": 0.06009719607226316,
+      "raw": {
+        "num_samples": 512,
+        "target_min": 0.0,
+        "target_max": 0.949999988079071,
+        "prediction_min": 0.13907641172409058,
+        "prediction_max": 0.8987628221511841,
+        "mae": 0.10909918695688248,
+        "mse": 0.01889752224087715,
+        "rmse": 0.13746825903050183,
+        "plcc_pearson": 0.6824431859254804,
+        "srcc_spearman": 0.6721682444895459,
+        "top_k": 50,
+        "top_k_overlap": 0.52,
+        "pairwise_pairs_scored": 4637,
+        "pairwise_accuracy": 0.751347854216088,
+        "model_name": "alamp_ava_aadb_finetune_on_aadb_val512",
+        "model_type": "alamp_keras",
+        "model_path": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/final_model.keras",
+        "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv",
+        "target_col": "score",
+        "elapsed_seconds": 30.769764388998738,
+        "seconds_per_image": 0.06009719607226316,
+        "io_details": null
+      }
+    }
+  ],
+  "tflite_metadata": {
+    "rgnet": {
+      "preset": "rgnet",
+      "display_name": "RGNet AADB Regressor",
+      "task": "aesthetic_regression",
+      "input": {
+        "image_size": [
+          256,
+          256
+        ],
+        "dtype": "float32",
+        "color_format": "RGB",
+        "tensor_layout": "NHWC",
+        "normalization": "pixel_value / 255.0"
+      },
+      "output": {
+        "shape": [
+          1,
+          1
+        ],
+        "summary": "Single scalar RGNet aesthetic score.",
+        "interpretation": "Sigmoid output already in [0, 1]. Higher is better.",
+        "postprocess": "Squeeze to scalar float and optionally clip to [0, 1]."
+      },
+      "source": {
+        "checkpoint_path": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/final_model.keras",
+        "weights_path": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/best.weights.h5",
+        "saved_model_dir": "outputs/ava_pretrain_aadb_finetune_20260507/rgnet_ava_pretrain_aadb_finetune/saved_model"
+      },
+      "export": {
+        "requested_export_source": "saved_model",
+        "used_export_source": "saved_model",
+        "rebuild_failure": null,
+        "requested_conversion_mode": "auto",
+        "used_conversion_mode": "select_tf_ops",
+        "requires_select_tf_ops": true,
+        "tflite_path": "outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune.tflite",
+        "tflite_size_bytes": 13380644,
+        "builtin_failure": "ConverterError: Could not translate MLIR to FlatBuffer.<unknown>:0: error: loc(callsite(fused[\"Mul:\", \"rgnet_practical_1/efficientnetv2-b0_1/rescaling_1/mul@__inference___call___129180\"] at callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___130691\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"]))): 'tf.Mul' op is neither a custom op nor a flex op <unknown>:0: note: loc(callsite(fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___130691\"] at fused[\"StatefulPartitionedCall:\",..."
+      },
+      "saved_model_signature": {
+        "inputs": {
+          "input_layer_1": {
+            "shape": [
+              null,
+              256,
+              256,
+              3
+            ],
+            "dtype": "float32"
+          }
+        },
+        "outputs": {
+          "output_0": {
+            "shape": [
+              null,
+              1
+            ],
+            "dtype": "float32"
+          }
+        }
+      },
+      "export_model_io": null
+    },
+    "alamp": {
+      "model": {
+        "name": "alamp_aadb_gpu",
+        "task": "aesthetic_regression",
+        "variant": "A-Lamp",
+        "inputs": {
+          "global_view": {
+            "shape": [
+              1,
+              384,
+              384,
+              3
+            ],
+            "dtype": "float32",
+            "normalization": "pixel_value / 255.0",
+            "layout": "NHWC"
+          },
+          "patches": {
+            "shape": [
+              1,
+              5,
+              224,
+              224,
+              3
+            ],
+            "dtype": "float32",
+            "normalization": "pixel_value / 255.0",
+            "layout": "NTHWC"
+          }
+        },
+        "output": {
+          "shape": [
+            1,
+            1
+          ],
+          "dtype": "float32",
+          "summary": "Single scalar A-Lamp aesthetic score."
+        }
+      },
+      "source": {
+        "checkpoint_dir": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune",
+        "weights_path": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/best.weights.h5",
+        "keras_path": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/final_model.keras",
+        "saved_model_dir": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/saved_model"
+      },
+      "export": {
+        "used_export_source": "rebuild_from_weights",
+        "used_conversion_mode": "builtin",
+        "requires_select_tf_ops": false,
+        "tflite_path": "outputs/ava_pretrain_aadb_finetune_20260507/tflite/alamp_ava_aadb_finetune.tflite",
+        "tflite_size_bytes": 39098664,
+        "rebuild_attempts": [
+          {
+            "mode": "builtin",
+            "status": "success",
+            "size_bytes": 39098664
+          }
+        ],
+        "saved_model_attempts": []
+      },
+      "export_adjustments": {
+        "backbone_weights_on_rebuild": null,
+        "keras_global_policy": "float32",
+        "reason": "Rebuild export uses the repo source model under float32 policy and loads checkpoint weights. This avoids the SavedModel mixed-precision layout cue BroadcastTo path that fails TFLite conversion."
+      },
+      "saved_model_signature": {
+        "inputs": {
+          "global_view": {
+            "shape": [
+              null,
+              384,
+              384,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "patches": {
+            "shape": [
+              null,
+              5,
+              224,
+              224,
+              3
+            ],
+            "dtype": "float32"
+          }
+        },
+        "outputs": {
+          "output_0": {
+            "shape": [
+              null,
+              1
+            ],
+            "dtype": "float32"
+          }
+        }
+      },
+      "rebuild_model_io": {
+        "inputs": [
+          {
+            "name": "global_view",
+            "shape": [
+              null,
+              384,
+              384,
+              3
+            ],
+            "dtype": "float32"
+          },
+          {
+            "name": "patches",
+            "shape": [
+              null,
+              5,
+              224,
+              224,
+              3
+            ],
+            "dtype": "float32"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "keras_tensor_454",
+            "shape": [
+              null,
+              1
+            ],
+            "dtype": "float32"
+          }
+        ]
+      }
+    }
+  },
+  "tflite": {
+    "rgnet": {
+      "status": "failed",
+      "requested_model": "outputs/ava_pretrain_aadb_finetune_20260507/tflite/rgnet_ava_aadb_finetune.tflite",
+      "input_shapes": [
+        {
+          "name": "serving_default_input_layer_1:0",
+          "shape": [
+            1,
+            256,
+            256,
+            3
+          ],
+          "shape_signature": [
+            -1,
+            256,
+            256,
+            3
+          ],
+          "dtype": "float32",
+          "index": 0
+        }
+      ],
+      "output_shapes": [
+        {
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            1
+          ],
+          "shape_signature": [
+            -1,
+            1
+          ],
+          "dtype": "float32",
+          "index": 608
+        }
+      ],
+      "keras_vs_tflite_max_diff": null,
+      "saved_model_vs_checkpoint_max_diff": 5.841255187988281e-06,
+      "rebuild_vs_checkpoint_max_diff": 0.17772206664085388,
+      "rebuild_tflite_vs_checkpoint_max_diff": 0.17774948477745056,
+      "failure": "Select TensorFlow op(s), included in the given model, is(are) not supported by this interpreter. Make sure you apply/link the Flex delegate before inference. For the Android, it can be resolved by adding \"org.tensorflow:tensorflow-lite-select-tf-ops\" dependency. See instructions: https://www.tensorflow.org/lite/guide/ops_selectNode number 1 (FlexMul) failed to prepare.",
+      "verification_passed": false
+    },
+    "alamp": {
+      "status": "passed",
+      "requested_model": "outputs/ava_pretrain_aadb_finetune_20260507/tflite/alamp_ava_aadb_finetune.tflite",
+      "input_shapes": [
+        {
+          "name": "serving_default_global_view:0",
+          "shape": [
+            1,
+            384,
+            384,
+            3
+          ],
+          "shape_signature": [
+            -1,
+            384,
+            384,
+            3
+          ],
+          "dtype": "float32",
+          "index": 0
+        },
+        {
+          "name": "serving_default_patches:0",
+          "shape": [
+            1,
+            5,
+            224,
+            224,
+            3
+          ],
+          "shape_signature": [
+            -1,
+            5,
+            224,
+            224,
+            3
+          ],
+          "dtype": "float32",
+          "index": 1
+        }
+      ],
+      "output_shapes": [
+        {
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            1
+          ],
+          "shape_signature": [
+            -1,
+            1
+          ],
+          "dtype": "float32",
+          "index": 1044
+        }
+      ],
+      "keras_vs_tflite_max_diff": 2.384185791015625e-07,
+      "rebuild_vs_checkpoint_max_diff": 0.034421563148498535,
+      "verification_passed": true
+    }
+  },
+  "decisions": {
+    "rgnet": {
+      "fixed_subset_classification": "better than current model",
+      "deployment_classification": "not deployment-ready",
+      "teacher_classification": "useful only as teacher until export/parity is fixed",
+      "tflite_verification_passed": false,
+      "reason": "AADB and AVA fixed-subset Keras metrics beat the RGNet AADB baseline, but requested TFLite could not allocate and rebuild diagnostic failed parity."
+    },
+    "alamp": {
+      "fixed_subset_classification": "better than current model",
+      "deployment_classification": "deployment-ready by this TFLite smoke/parity gate",
+      "teacher_classification": "also useful as teacher/student distillation input",
+      "tflite_verification_passed": true,
+      "reason": "AADB and AVA fixed-subset Keras metrics beat the A-LAMP AADB baseline, and TFLite matched the float32 rebuild export source."
+    },
+    "overall_recommendation": [
+      "Do not copy any model into Flutter from this run.",
+      "Keep current RGNet deployment path until RGNet export/parity is fixed.",
+      "Treat A-LAMP AVA->AADB as the only deployment-ready candidate from this controlled experiment, pending explicit deployment review.",
+      "Continue the Stage 5 student path and consider these fine-tuned checkpoints as teacher/distillation inputs."
+    ]
+  }
+}

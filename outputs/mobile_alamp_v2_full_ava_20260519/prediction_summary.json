@@ -1,0 +1,18 @@
+{
+  "average_precision": 0.8640085179001559,
+  "average_precision_error": null,
+  "confusion_matrix_at_0_5": {
+    "fn": 4320,
+    "fp": 2983,
+    "tn": 4616,
+    "tp": 13632
+  },
+  "positive_prediction_ratio_at_0_5": 0.6502680912684435,
+  "pred_max": 1.0,
+  "pred_mean": 0.6491681933403015,
+  "pred_min": 7.891953082891156e-26,
+  "pred_std": 0.4070684313774109,
+  "roc_auc": 0.7517757028788618,
+  "sample_count": 25551,
+  "val_predictions_csv": "outputs/mobile_alamp_v2_full_ava_20260519/val_predictions.csv"
+}

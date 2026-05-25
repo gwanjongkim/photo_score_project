@@ -1,0 +1,18 @@
+# Stage 1 Training
+PYTHONPATH=. ./.venv_gpu/bin/python src/train/train_topiq_rankcalib_stage1.py \
+  --train_csv data/processed/topiq_replacement/mixed_112_train.csv \
+  --val_csv data/processed/topiq_replacement/mixed_112_val.csv \
+  --target_col normalized_mos \
+  --dataset_col dataset \
+  --batch_size 8 \
+  --epochs 15 \
+  --lr 1e-4 \
+  --freeze_backbone \
+  --max_steps_per_epoch 500 \
+  --max_val_samples 2048 \
+  --calib_lambda 0.0 \
+  --out_dir outputs/probe_topiq_rankcalib_v2_stage1_regression_e15_20260517
+
+# Evaluation
+PYTHONPATH=. ./.venv_gpu/bin/python scripts/eval_topiq_rankcalib_v2_probe.py \
+  --out_dir outputs/eval_topiq_rankcalib_v2_stage1_regression_e15_20260517

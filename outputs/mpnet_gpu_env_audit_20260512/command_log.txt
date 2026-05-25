@@ -1,0 +1,35 @@
+# Command Log - MPNet GPU Environment Audit
+# 2026-05-13
+
+# 1. Check environment variable
+echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
+
+# 2. Check NVIDIA SMI
+/usr/lib/wsl/lib/nvidia-smi || nvidia-smi
+
+# 3. Check TensorFlow GPU in .venv_gpu
+./.venv_gpu/bin/python - <<'PY'
+import os
+import tensorflow as tf
+print("GPUs:", tf.config.list_physical_devices("GPU"))
+PY
+
+# 4. Check PyTorch GPU in .venv_gpu
+./.venv_gpu/bin/python - <<'PY'
+import torch
+print("cuda:", torch.cuda.is_available())
+PY
+
+# 5. Verify abort guard (with GPUs hidden)
+export PYTHONPATH=$PYTHONPATH:.
+export CUDA_VISIBLE_DEVICES=""
+./.venv_gpu/bin/python src/train/train_alamp_paper_mpnet_ava.py --require_gpu
+
+# 6. Recommended command for training (Restore visibility first)
+export CUDA_VISIBLE_DEVICES="0" # or unset CUDA_VISIBLE_DEVICES
+export PYTHONPATH=$PYTHONPATH:.
+./.venv_gpu/bin/python src/train/train_alamp_paper_mpnet_ava.py \
+    --config configs/aesthetic_weight_lab.yaml \
+    --selector_name mpnet_v4_1024 \
+    --max_train_samples 1024 \
+    --require_gpu

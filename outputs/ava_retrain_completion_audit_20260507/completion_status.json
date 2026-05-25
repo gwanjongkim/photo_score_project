@@ -1,0 +1,33 @@
+{
+  "overall_status": "completed",
+  "stages": {
+    "normalized_ava_manifests": "completed",
+    "baseline_evaluation": "completed",
+    "rgnet_smoke_training": "completed",
+    "alamp_smoke_training": "completed",
+    "rgnet_full_training": "completed",
+    "alamp_full_training": "completed",
+    "rgnet_tflite_export": "completed",
+    "alamp_tflite_export": "completed",
+    "final_report": "completed"
+  },
+  "rgnet": {
+    "status": "completed",
+    "final_model_exists": true,
+    "best_checkpoint_exists": true,
+    "tflite_exists": true,
+    "metrics_available": true,
+    "last_known_epoch": 5,
+    "failure_reason": null
+  },
+  "alamp": {
+    "status": "completed",
+    "final_model_exists": true,
+    "best_checkpoint_exists": true,
+    "tflite_exists": true,
+    "metrics_available": true,
+    "last_known_epoch": 4,
+    "failure_reason": null
+  },
+  "next_action": "no action needed"
+}

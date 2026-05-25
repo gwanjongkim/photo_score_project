@@ -1,0 +1,28 @@
+{
+  "name": "batches/r9b6dvjogggr10z9qxqwfad0ki0yuzi1fsoo",
+  "metadata": {
+    "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.GenerateContentBatch",
+    "model": "models/gemini-2.5-pro",
+    "displayName": "gemini-teacher-highspec-compare-b-pro-20",
+    "inputConfig": {
+      "fileName": "files/qvxj4k7f75l7"
+    },
+    "output": {
+      "responsesFile": "files/batch-r9b6dvjogggr10z9qxqwfad0ki0yuzi1fsoo"
+    },
+    "createTime": "2026-04-28T10:53:12.836431843Z",
+    "endTime": "2026-04-28T11:13:14.170792214Z",
+    "updateTime": "2026-04-28T11:13:14.170792184Z",
+    "batchStats": {
+      "requestCount": "20",
+      "successfulRequestCount": "20"
+    },
+    "state": "BATCH_STATE_SUCCEEDED",
+    "name": "batches/r9b6dvjogggr10z9qxqwfad0ki0yuzi1fsoo"
+  },
+  "done": true,
+  "response": {
+    "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.GenerateContentBatchOutput",
+    "responsesFile": "files/batch-r9b6dvjogggr10z9qxqwfad0ki0yuzi1fsoo"
+  }
+}

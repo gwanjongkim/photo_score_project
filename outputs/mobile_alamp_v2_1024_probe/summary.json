@@ -1,0 +1,71 @@
+{
+  "artifacts": {
+    "final_model": "outputs/mobile_alamp_v2_1024_probe/final_model.keras",
+    "report_md": "outputs/mobile_alamp_v2_1024_probe/report.md",
+    "summary_json": "outputs/mobile_alamp_v2_1024_probe/summary.json",
+    "training_log": "outputs/mobile_alamp_v2_1024_probe/training_log.csv"
+  },
+  "batch_size": 8,
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python src/train/train_mobile_alamp_v2.py --train_patch_jsonl outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/train_patch_boxes_4096_v4.jsonl --val_patch_jsonl outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/val_patch_boxes_4096_v4.jsonl --out_dir outputs/mobile_alamp_v2_1024_probe --max_train_samples 1024 --max_val_samples 1024 --batch_size 8 --epochs 5 --save_model",
+  "dataset": {
+    "train_label_distribution": {
+      "label_threshold": 5.0,
+      "negative": 295,
+      "positive": 729,
+      "total": 1024
+    },
+    "train_requested_records": 1024,
+    "val_label_distribution": {
+      "label_threshold": 5.0,
+      "negative": 302,
+      "positive": 722,
+      "total": 1024
+    },
+    "val_requested_records": 1024
+  },
+  "epochs": 5,
+  "final_metrics": {
+    "accuracy": 0.7119140625,
+    "auc": 0.5508404970169067,
+    "loss": 0.6004897356033325,
+    "val_accuracy": 0.705078125,
+    "val_auc": 0.487073689699173,
+    "val_loss": 0.6168027520179749
+  },
+  "image_size": 384,
+  "learning_rate": 0.0001,
+  "model": {
+    "input_shapes": {
+      "full_image": [
+        null,
+        384,
+        384,
+        3
+      ],
+      "patches": [
+        null,
+        5,
+        224,
+        224,
+        3
+      ]
+    },
+    "name": "mobile_alamp_v2",
+    "output_shape": [
+      null,
+      1
+    ],
+    "parameter_count": 692785
+  },
+  "out_dir": "outputs/mobile_alamp_v2_1024_probe",
+  "paper_reproduction_claim": "A-LAMP-inspired approximation, not official reproduction",
+  "patch_count": 5,
+  "patch_size": 224,
+  "save_model": true,
+  "smoke": false,
+  "status": "training_completed",
+  "steps_per_epoch": 128,
+  "train_patch_jsonl": "outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/train_patch_boxes_4096_v4.jsonl",
+  "val_patch_jsonl": "outputs/alamp_paper_mpnet_patch_selector_v4_20260512/subsets/val_patch_boxes_4096_v4.jsonl",
+  "validation_steps": 128
+}

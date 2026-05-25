@@ -1,0 +1,47 @@
+{
+  "AVA": {
+    "image_directory": "data/raw/ava/images",
+    "manifests": {
+      "train": "data/processed/ava/train.csv",
+      "val": "data/processed/ava/val.csv",
+      "test": "data/processed/ava/test.csv"
+    },
+    "columns": ["image_path", "vote_1", "vote_2", "vote_3", "vote_4", "vote_5", "vote_6", "vote_7", "vote_8", "vote_9", "vote_10", "dist_1", "dist_2", "dist_3", "dist_4", "dist_5", "dist_6", "dist_7", "dist_8", "dist_9", "dist_10", "mean_score", "dataset"],
+    "mean_score_column": "mean_score",
+    "rating_distribution_columns": ["vote_1", "vote_2", "vote_3", "vote_4", "vote_5", "vote_6", "vote_7", "vote_8", "vote_9", "vote_10", "dist_1", "dist_2", "dist_3", "dist_4", "dist_5", "dist_6", "dist_7", "dist_8", "dist_9", "dist_10"],
+    "normalized_unit_score_columns": null,
+    "binary_labels_creatable": true,
+    "counts": {
+      "train": 204406,
+      "val": 25551,
+      "test": 25551
+    },
+    "min_max_mean": {
+      "min": 1.8089888,
+      "max": 8.6,
+      "mean": 5.38
+    }
+  },
+  "AADB": {
+    "image_directory": "data/raw/aadb/images",
+    "manifests": {
+      "train": "data/processed/aadb/train.csv",
+      "val": "data/processed/aadb/val.csv",
+      "test": "data/processed/aadb/test.csv"
+    },
+    "columns": ["image_path", "score", "dataset", "split", "relative_path"],
+    "score_column": "score",
+    "score_is_0_1": true,
+    "counts": {
+      "train": 7612,
+      "val": 846,
+      "test": 1000
+    },
+    "min_max_mean": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.51
+    },
+    "official_split_preserved": true
+  }
+}

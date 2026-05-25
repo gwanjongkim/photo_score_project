@@ -1,0 +1,19 @@
+{
+  "selector_version": "v2",
+  "status": "success",
+  "saliency_method": "spectral_residual_center_biased",
+  "diversity_method": "weighted_objective_pattern_spatial",
+  "patch_count": 5,
+  "metrics_summary": {
+    "mean_patch_score": 0.0921,
+    "mean_pairwise_iou": 0.0035,
+    "object_coverage": 0.058
+  },
+  "outputs": {
+    "train": "outputs/alamp_paper_mpnet_patch_selector_v2_20260511/subsets/train_patch_boxes_1024_v2.jsonl",
+    "val": "outputs/alamp_paper_mpnet_patch_selector_v2_20260511/subsets/val_patch_boxes_1024_v2.jsonl",
+    "test": "outputs/alamp_paper_mpnet_patch_selector_v2_20260511/subsets/test_patch_boxes_1024_v2.jsonl",
+    "visualizations": "outputs/alamp_paper_mpnet_patch_selector_v2_20260511/patch_visualizations/train/"
+  },
+  "decision": "v2 selector is significantly more diverse (IoU -60%) but needs visual confirmation of subject coverage before MPNet training."
+}

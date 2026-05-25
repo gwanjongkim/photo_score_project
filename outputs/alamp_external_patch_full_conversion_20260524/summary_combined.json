@@ -1,0 +1,361 @@
+{
+  "total_converted": 254509,
+  "duplicates": 0,
+  "manifest_matches": 254509,
+  "manifest_missing": 0,
+  "split_counts": {
+    "train": 203617,
+    "val": 25447,
+    "test": 25445
+  },
+  "unmappable": 0,
+  "unique_ids_count": 254509
+}{
+  "total_images_validated": 200,
+  "total_boxes_validated": 1000,
+  "failed_images": 0,
+  "boxes_needing_clipping": 5,
+  "crop_failures": 0,
+  "details_subset": [
+    {
+      "image_id": "182785",
+      "split": "train",
+      "width": 640,
+      "height": 514,
+      "boxes": [
+        {
+          "coords": [
+            146,
+            6,
+            370,
+            230
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            346,
+            35,
+            570,
+            259
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            256,
+            142,
+            480,
+            366
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            4,
+            288,
+            228,
+            512
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            92,
+            289,
+            316,
+            513
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        }
+      ]
+    },
+    {
+      "image_id": "440630",
+      "split": "train",
+      "width": 640,
+      "height": 442,
+      "boxes": [
+        {
+          "coords": [
+            93,
+            11,
+            317,
+            235
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            376,
+            32,
+            600,
+            256
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            188,
+            176,
+            412,
+            400
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            186,
+            217,
+            410,
+            441
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            1,
+            217,
+            225,
+            441
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        }
+      ]
+    },
+    {
+      "image_id": "133958",
+      "split": "train",
+      "width": 640,
+      "height": 386,
+      "boxes": [
+        {
+          "coords": [
+            195,
+            4,
+            419,
+            228
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            308,
+            2,
+            532,
+            226
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            162,
+            88,
+            386,
+            312
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            0,
+            159,
+            224,
+            383
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            232,
+            161,
+            456,
+            385
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        }
+      ]
+    },
+    {
+      "image_id": "733908",
+      "split": "train",
+      "width": 720,
+      "height": 720,
+      "boxes": [
+        {
+          "coords": [
+            3,
+            1,
+            227,
+            225
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            383,
+            0,
+            607,
+            224
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            259,
+            227,
+            483,
+            451
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            198,
+            495,
+            422,
+            719
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            317,
+            465,
+            541,
+            689
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        }
+      ]
+    },
+    {
+      "image_id": "906185",
+      "split": "train",
+      "width": 800,
+      "height": 534,
+      "boxes": [
+        {
+          "coords": [
+            531,
+            12,
+            755,
+            236
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            37,
+            24,
+            261,
+            248
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            267,
+            80,
+            491,
+            304
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            146,
+            308,
+            370,
+            532
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        },
+        {
+          "coords": [
+            344,
+            307,
+            568,
+            531
+          ],
+          "x_ok": true,
+          "y_ok": true,
+          "need_clipping": false,
+          "crop_success": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "rows": 65,
+  "split_counts": {
+    "test": 3,
+    "test_vila": 50,
+    "train": 9,
+    "val": 3
+  },
+  "dataset_counts": {
+    "test_samples_nvila_probe_v9_gpu": 15,
+    "test_vila_nvila_20260416_gpu": 50
+  },
+  "selected_counts": {
+    "selected": 13,
+    "rejected": 52
+  }
+}

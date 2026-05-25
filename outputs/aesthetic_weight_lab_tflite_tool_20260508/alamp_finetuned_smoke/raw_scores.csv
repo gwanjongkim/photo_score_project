@@ -1,0 +1,2 @@
+rank,image_name,image_path,width,height,nima_score,rgnet_score,alamp_score,final_score,thumbnail_path,copied_image_path,model_errors_json
+1,synthetic_smoke.jpg,/tmp/aesthetic_weight_lab_smoke/synthetic_smoke.jpg,320,240,0.5375546349419488,0.5119963884353638,0.4771580994129181,0.5091895568701956,thumbs/0001_synthetic_smoke.jpg,copied_images/0001_synthetic_smoke.jpg,[]

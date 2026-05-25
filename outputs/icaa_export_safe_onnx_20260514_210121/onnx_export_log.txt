@@ -1,0 +1,62 @@
+project root: /home/omen_pc1/photo_score_project
+export-safe model package: /home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models
+checkpoint path: /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+csv path: /home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/dataset/ICAA17K/1test.csv
+image root: /home/omen_pc1/photo_score_project/data/raw/icaa17k
+output dir: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210121
+device: cpu
+limit: 1
+batch_size: 1
+checkpoint key count: 487
+patch_proj.0.weight shape: (128, 3, 4, 4)
+missing keys: []
+unexpected keys: []
+export-safe checkpoint strict load: ok
+ONNX export attempt opset 12: start
+ONNX export attempt opset 12: failed
+  error: Unsupported: ONNX export of repeat_interleave in opset 9. Unsupported along dimension with unknown input size. Please try opset version 13.  [Caused by the value '2220 defined in (%2220 : Float(*, *, *, 2, strides=[392, 28, 2, 1], requires_grad=1, device=cpu) = onnx::Tanh(%2217), scope: __main__.make_wrapper_class.<locals>.DATScoresOnly::/export_safe_models.dat.DAT::model/export_safe_models.dat.TransformerStage::stages.2/export_safe_models.dat_blocks.DAttentionBaseline::attns.1 # /home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models/dat_blocks.py:249:0
+)' (type 'Tensor') in the TorchScript graph. The containing node has kind 'onnx::Tanh'.] 
+    (node defined in /home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models/dat_blocks.py(249): forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl
+/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models/dat.py(77): forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl
+/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models/dat.py(220): forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl
+/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/scripts/export_and_parity_onnx_export_safe.py(113): forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1726): _slow_forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/jit/_trace.py(130): wrapper
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/jit/_trace.py(139): forward
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1747): _call_impl
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/nn/modules/module.py(1736): _wrapped_call_impl
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/jit/_trace.py(1500): _get_trace_graph
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py(904): _trace_and_get_graph_from_model
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py(997): _create_jit_graph
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py(1113): _model_to_graph
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py(1564): _export
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/utils.py(502): export
+/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/torch/onnx/__init__.py(375): export
+/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/scripts/export_and_parity_onnx_export_safe.py(179): export_onnx
+/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/scripts/export_and_parity_onnx_export_safe.py(312): main
+/home/omen_pc1/photo_score_project/experiments/icaa_export_safe/scripts/export_and_parity_onnx_export_safe.py(486): <module>
+)
+
+    Inputs:
+        #0: 2217 defined in (%2217 : Float(*, *, *, 2, strides=[392, 28, 2, 1], requires_grad=1, device=cpu) = onnx::Transpose[perm=[0, 2, 3, 1]](%tensor.439), scope: __main__.make_wrapper_class.<locals>.DATScoresOnly::/export_safe_models.dat.DAT::model/export_safe_models.dat.TransformerStage::stages.2/export_safe_models.dat_blocks.DAttentionBaseline::attns.1 # /home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/einops/_backends.py:261:0
+    )  (type 'Tensor')
+    Outputs:
+        #0: 2220 defined in (%2220 : Float(*, *, *, 2, strides=[392, 28, 2, 1], requires_grad=1, device=cpu) = onnx::Tanh(%2217), scope: __main__.make_wrapper_class.<locals>.DATScoresOnly::/export_safe_models.dat.DAT::model/export_safe_models.dat.TransformerStage::stages.2/export_safe_models.dat_blocks.DAttentionBaseline::attns.1 # /home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models/dat_blocks.py:249:0
+    )  (type 'Tensor')
+final status: failed
+error: ONNX export failed for opset versions: [12]
+onnx model: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210121/icaa_dat_export_safe.onnx
+onnx_export_report.json: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210121/onnx_export_report.json
+onnx_parity_predictions.csv: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210121/onnx_parity_predictions.csv
+onnx_export_log.txt: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210121/onnx_export_log.txt

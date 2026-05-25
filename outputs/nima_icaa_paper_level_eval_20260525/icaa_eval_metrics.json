@@ -1,0 +1,14 @@
+{
+  "dataset": "external/icaa_official_repo/ICAA17K_code/dataset/ICAA17K/1test.csv",
+  "sample_count": 500,
+  "mos_metrics": {
+    "srcc": 0.9228534783835831,
+    "plcc": 0.928351945076036,
+    "mae": 0.03320237219929696
+  },
+  "color_metrics": {
+    "srcc": 0.8961811988917712,
+    "plcc": 0.9088591109798543,
+    "mae": 0.01998012085587615
+  }
+}

@@ -1,0 +1,3 @@
+deterministic random stage-3 input: direct_same_input_dattention=True max_abs_diff=8.58306885e-05 mean_abs_diff=1.26867951e-06 first_diverging_subcomponent=None
+captured stage-3 input from deterministic random image: direct_same_input_dattention=True max_abs_diff=1.33514404e-05 mean_abs_diff=5.75906931e-08 first_diverging_subcomponent=None
+captured stage-3 input from 3 real ICAA17K images: direct_same_input_dattention=True max_abs_diff=2.28881836e-05 mean_abs_diff=9.75057972e-08 first_diverging_subcomponent=None

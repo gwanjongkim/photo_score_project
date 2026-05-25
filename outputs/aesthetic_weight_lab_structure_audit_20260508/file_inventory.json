@@ -1,0 +1,82 @@
+{
+  "outputs_directory": "outputs/test_vila_raw_aesthetic_scores_html_20260424",
+  "files": [
+    {
+      "name": "contact_top10_aadb.jpg",
+      "type": "image",
+      "category": "contact_sheet"
+    },
+    {
+      "name": "contact_top10_alamp.jpg",
+      "type": "image",
+      "category": "contact_sheet"
+    },
+    {
+      "name": "contact_top10_nima.jpg",
+      "type": "image",
+      "category": "contact_sheet"
+    },
+    {
+      "name": "contact_top10_rgnet.jpg",
+      "type": "image",
+      "category": "contact_sheet"
+    },
+    {
+      "name": "contact_high_disagreement.jpg",
+      "type": "image",
+      "category": "contact_sheet"
+    },
+    {
+      "name": "ranked_aadb.csv",
+      "type": "csv",
+      "category": "raw_data"
+    },
+    {
+      "name": "ranked_alamp.csv",
+      "type": "csv",
+      "category": "raw_data"
+    },
+    {
+      "name": "ranked_nima.csv",
+      "type": "csv",
+      "category": "raw_data"
+    },
+    {
+      "name": "ranked_rgnet.csv",
+      "type": "csv",
+      "category": "raw_data"
+    },
+    {
+      "name": "raw_aesthetic_scores.csv",
+      "type": "csv",
+      "category": "raw_data"
+    },
+    {
+      "name": "review_index.html",
+      "type": "html",
+      "category": "report"
+    },
+    {
+      "name": "summary.json",
+      "type": "json",
+      "category": "metadata"
+    },
+    {
+      "name": "thumbnail_warnings.csv",
+      "type": "csv",
+      "category": "log"
+    },
+    {
+      "name": "thumbs/",
+      "type": "directory",
+      "category": "thumbnails",
+      "count": 50
+    }
+  ],
+  "scripts_identified": [
+    "tools/run_aesthetic_ensemble_experiment.py",
+    "tools/build_raw_aesthetic_scores_html.py",
+    "src/infer/predict_quality_bundle.py",
+    "src/infer/score_image_folder.py"
+  ]
+}

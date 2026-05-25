@@ -1,0 +1,7 @@
+pwd && date +"%Y%m%d" && git status --short
+ls -la src/models/alamp_paper_ava.py src/train/train_alamp_paper_ava.py src/eval/evaluate_alamp_paper_ava.py configs/paper_benchmarks/alamp_paper_ava_classification.yaml 2>/dev/null
+cat outputs/alamp_paper_ava_classification_20260511/alamp_paper_ava_report.md outputs/alamp_paper_ava_classification_20260511/alamp_paper_ava_summary.json
+cat src/datasets/native_size_dataset.py
+rg -n "saliency|salient|objectness|object detector|bbox|bounding box|YOLO|segmentation|GradCAM|Grad-CAM|spectral|edge|variance|patch proposal|overlap|IoU|diversity" src tools configs docs outputs 2>/dev/null | head -n 50
+rg -l "objectness|object detector|bounding box|YOLO|GradCAM|Grad-CAM|spectral|fine-grained saliency|attribute graph|Layout-Aware|adaptive patch|multi-patch|LayoutCueAugmentation|coordinate layout|graph construction|LayoutCue|Layout" src tools configs docs outputs 2>/dev/null
+mkdir -p outputs/alamp_paper_ava_v1_design_audit_20260511

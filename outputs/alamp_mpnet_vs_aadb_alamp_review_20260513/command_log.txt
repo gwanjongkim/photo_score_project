@@ -1,0 +1,8 @@
+# Command Log - A-LAMP Comparison Review 2026-05-13
+
+1. find outputs docs models src configs -type f | rg -i "alamp|aadb|a-lamp"
+2. rg -n -i "srcc|spearman|plcc|mae|rmse" outputs docs src configs models
+3. cat outputs/ava_retrain_rgnet_alamp_20260506/baseline_eval/alamp_aadb_on_aadb_val512_metrics.json
+4. cat outputs/alamp_paper_mpnet_selector_compare_20260512/eval/v4_1024_gpu_tuned/v4_1024_gpu_tuned/evaluation_summary.json
+5. cat outputs/alamp_paper_mpnet_selector_compare_20260512/eval/v4_1024_gpu_tuned/v4_1024_gpu_tuned/threshold_calibration_summary.json
+6. Analysis of deployment readiness (models/aesthetic/ and configs/stage5_reference.json)

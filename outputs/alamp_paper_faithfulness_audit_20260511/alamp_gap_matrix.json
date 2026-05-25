@@ -1,0 +1,164 @@
+[
+  {
+    "Component": "AVA binary classification setup",
+    "Paper requirement": "Binary classification on AVA",
+    "Current project implementation": "Regression on AADB",
+    "Match level": "missing",
+    "Evidence path": "outputs/paper_faithful_audit_20260509/paper_faithful_audit_report.md",
+    "Risk if missing": "High (Wrong task)",
+    "Implementation difficulty": "Low"
+  },
+  {
+    "Component": "Label threshold",
+    "Paper requirement": "mean_score >= 5.0",
+    "Current project implementation": "None in A-LAMP",
+    "Match level": "missing",
+    "Evidence path": "outputs/paper_faithful_audit_20260509/paper_faithful_audit_report.md",
+    "Risk if missing": "High (Wrong labels)",
+    "Implementation difficulty": "Low"
+  },
+  {
+    "Component": "Patch proposal/adaptive patch selection",
+    "Paper requirement": "Saliency-map-based adaptive patch selection with diversity constraint",
+    "Current project implementation": "Edge/color variance heuristic search in WSL; Fixed anchors in Flutter",
+    "Match level": "partial",
+    "Evidence path": "src/datasets/native_size_dataset.py",
+    "Risk if missing": "Medium",
+    "Implementation difficulty": "Medium"
+  },
+  {
+    "Component": "Fixed patch vs adaptive patch",
+    "Paper requirement": "Adaptive",
+    "Current project implementation": "Adaptive (WSL), Fixed (Flutter)",
+    "Match level": "partial",
+    "Evidence path": "src/datasets/native_size_dataset.py",
+    "Risk if missing": "Medium",
+    "Implementation difficulty": "Medium"
+  },
+  {
+    "Component": "Number of patches",
+    "Paper requirement": "5",
+    "Current project implementation": "5",
+    "Match level": "exact",
+    "Evidence path": "src/models/alamp.py",
+    "Risk if missing": "None",
+    "Implementation difficulty": "Low"
+  },
+  {
+    "Component": "Patch size",
+    "Paper requirement": "224",
+    "Current project implementation": "224",
+    "Match level": "exact",
+    "Evidence path": "src/models/alamp.py",
+    "Risk if missing": "None",
+    "Implementation difficulty": "Low"
+  },
+  {
+    "Component": "Global branch",
+    "Paper requirement": "Yes",
+    "Current project implementation": "Yes (384x384 padded)",
+    "Match level": "close",
+    "Evidence path": "src/models/alamp.py",
+    "Risk if missing": "None",
+    "Implementation difficulty": "Low"
+  },
+  {
+    "Component": "Multi-patch subnet",
+    "Paper requirement": "Yes",
+    "Current project implementation": "Yes (TimeDistributed)",
+    "Match level": "close",
+    "Evidence path": "src/models/alamp.py",
+    "Risk if missing": "None",
+    "Implementation difficulty": "Low"
+  },
+  {
+    "Component": "VGG16 shared-column CNN",
+    "Paper requirement": "VGG16 (shared weights)",
+    "Current project implementation": "EfficientNetV2B0 (global) + MobileNetV2 (patches)",
+    "Match level": "missing",
+    "Evidence path": "src/models/alamp.py",
+    "Risk if missing": "High (Core architectural difference)",
+    "Implementation difficulty": "Low"
+  },
+  {
+    "Component": "Layout-aware subnet",
+    "Paper requirement": "Yes",
+    "Current project implementation": "Yes (LayoutCueAugmentation with explicit coords/mask)",
+    "Match level": "partial",
+    "Evidence path": "src/models/alamp.py",
+    "Risk if missing": "Medium",
+    "Implementation difficulty": "Medium"
+  },
+  {
+    "Component": "Object/global attribute graph",
+    "Paper requirement": "Yes",
+    "Current project implementation": "Missing",
+    "Match level": "missing",
+    "Evidence path": "outputs/paper_faithful_audit_20260509/paper_faithful_audit_report.md",
+    "Risk if missing": "High for official reproduction",
+    "Implementation difficulty": "High"
+  },
+  {
+    "Component": "Saliency/object detector dependency",
+    "Paper requirement": "Saliency map dependency",
+    "Current project implementation": "Custom variance/edge heuristics",
+    "Match level": "partial",
+    "Evidence path": "src/datasets/native_size_dataset.py",
+    "Risk if missing": "Medium",
+    "Implementation difficulty": "High"
+  },
+  {
+    "Component": "Feature fusion",
+    "Paper requirement": "Multi-patch feature aggregation",
+    "Current project implementation": "Learned attention (WeightedPatchPooling)",
+    "Match level": "close",
+    "Evidence path": "src/models/alamp.py",
+    "Risk if missing": "None",
+    "Implementation difficulty": "Low"
+  },
+  {
+    "Component": "Classifier head",
+    "Paper requirement": "Softmax/classification head",
+    "Current project implementation": "Linear regression scalar output",
+    "Match level": "missing",
+    "Evidence path": "src/models/alamp.py",
+    "Risk if missing": "High",
+    "Implementation difficulty": "Low"
+  },
+  {
+    "Component": "Loss/metrics",
+    "Paper requirement": "CrossEntropy, Accuracy/F1",
+    "Current project implementation": "MSE/MAE",
+    "Match level": "missing",
+    "Evidence path": "src/train/train_alamp.py",
+    "Risk if missing": "High",
+    "Implementation difficulty": "Low"
+  },
+  {
+    "Component": "Training schedule",
+    "Paper requirement": "Unknown",
+    "Current project implementation": "Unknown",
+    "Match level": "unknown",
+    "Evidence path": "Not found locally",
+    "Risk if missing": "Low",
+    "Implementation difficulty": "Low"
+  },
+  {
+    "Component": "Reported benchmark comparability",
+    "Paper requirement": "Comparable to state of the art AVA",
+    "Current project implementation": "Missing for AVA (AADB only)",
+    "Match level": "missing",
+    "Evidence path": "outputs/paper_faithful_audit_20260509/paper_faithful_audit_report.md",
+    "Risk if missing": "Low",
+    "Implementation difficulty": "Low"
+  },
+  {
+    "Component": "Mobile/TFLite deployability",
+    "Paper requirement": "Not a primary focus",
+    "Current project implementation": "Fully deployed via Flutter",
+    "Match level": "missing",
+    "Evidence path": "outputs/audit_model_paper_basis_20260506/audit_report.md",
+    "Risk if missing": "None (v0 shouldn't be deployed)",
+    "Implementation difficulty": "N/A"
+  }
+]

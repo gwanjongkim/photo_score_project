@@ -1,0 +1,355 @@
+{
+  "random_module_input": {
+    "input": {
+      "name": "random_module_input_nchw",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "dtype": "float32",
+      "min": -2.2034671306610107,
+      "max": 2.0925135612487793,
+      "mean": 0.0006311581237241626,
+      "std": 0.4996766448020935
+    },
+    "output_result": {
+      "name": "random DAttentionBaseline input",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 8.165836334228516e-06,
+      "mean_abs_diff": 8.045809067880327e-07,
+      "torch_output_shape": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        14,
+        14,
+        512
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "likely_failed_subcomponent": null
+    },
+    "pos_reference_diffs": {
+      "pos_diff": {
+        "name": "random DAttentionBaseline input pos",
+        "status": "pass_preferred",
+        "pass": true,
+        "max_abs_diff": 5.140900611877441e-07,
+        "mean_abs_diff": 4.844243406409987e-08,
+        "torch_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ],
+        "tf_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ]
+      },
+      "reference_diff": {
+        "name": "random DAttentionBaseline input reference",
+        "status": "pass_preferred",
+        "pass": true,
+        "max_abs_diff": 4.991888999938965e-07,
+        "mean_abs_diff": 8.30516384553448e-08,
+        "torch_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ],
+        "tf_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ]
+      },
+      "input_summary": {
+        "name": "random DAttentionBaseline input input_nchw",
+        "shape": [
+          1,
+          512,
+          14,
+          14
+        ],
+        "dtype": "float32",
+        "min": -2.2034671306610107,
+        "max": 2.0925135612487793,
+        "mean": 0.0006311581237241626,
+        "std": 0.4996766448020935
+      },
+      "output_summary": {
+        "name": "random DAttentionBaseline input output_nchw",
+        "shape": [
+          1,
+          512,
+          14,
+          14
+        ],
+        "dtype": "float32",
+        "min": -9.288413047790527,
+        "max": 6.904439926147461,
+        "mean": -0.10819724947214127,
+        "std": 1.195725917816162
+      }
+    }
+  },
+  "captured_random_image_input": {
+    "input": {
+      "name": "captured_random_image_input_nchw",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "dtype": "float32",
+      "min": -4.064891338348389,
+      "max": 1.102970838546753,
+      "mean": -0.006809886544942856,
+      "std": 0.2866489589214325
+    },
+    "output_result": {
+      "name": "captured random-image DAttentionBaseline input",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 4.664063453674316e-06,
+      "mean_abs_diff": 7.688890377721691e-07,
+      "torch_output_shape": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        14,
+        14,
+        512
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "likely_failed_subcomponent": null
+    },
+    "pos_reference_diffs": {
+      "pos_diff": {
+        "name": "captured random-image DAttentionBaseline input pos",
+        "status": "pass_preferred",
+        "pass": true,
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "torch_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ],
+        "tf_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ]
+      },
+      "reference_diff": {
+        "name": "captured random-image DAttentionBaseline input reference",
+        "status": "pass_preferred",
+        "pass": true,
+        "max_abs_diff": 2.980232238769531e-07,
+        "mean_abs_diff": 8.175511112540335e-08,
+        "torch_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ],
+        "tf_output_shape": [
+          1,
+          4,
+          14,
+          14,
+          2
+        ]
+      },
+      "input_summary": {
+        "name": "captured random-image DAttentionBaseline input input_nchw",
+        "shape": [
+          1,
+          512,
+          14,
+          14
+        ],
+        "dtype": "float32",
+        "min": -4.064891338348389,
+        "max": 1.102970838546753,
+        "mean": -0.006809886544942856,
+        "std": 0.2866489589214325
+      },
+      "output_summary": {
+        "name": "captured random-image DAttentionBaseline input output_nchw",
+        "shape": [
+          1,
+          512,
+          14,
+          14
+        ],
+        "dtype": "float32",
+        "min": -4.968457221984863,
+        "max": 2.9250292778015137,
+        "mean": -0.005123819690197706,
+        "std": 1.0469505786895752
+      }
+    }
+  },
+  "captured_real_image_input": {
+    "input": {
+      "name": "captured_real_image_input_nchw",
+      "shape": [
+        3,
+        512,
+        14,
+        14
+      ],
+      "dtype": "float32",
+      "min": -4.278566360473633,
+      "max": 1.8557018041610718,
+      "mean": -0.014746088534593582,
+      "std": 0.29888948798179626
+    },
+    "output_result": {
+      "name": "captured 3-real-image DAttentionBaseline input",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 8.106231689453125e-06,
+      "mean_abs_diff": 4.832071454075049e-07,
+      "torch_output_shape": [
+        3,
+        512,
+        14,
+        14
+      ],
+      "tf_output_shape_nhwc": [
+        3,
+        14,
+        14,
+        512
+      ],
+      "tf_output_shape_nchw": [
+        3,
+        512,
+        14,
+        14
+      ],
+      "likely_failed_subcomponent": null
+    },
+    "pos_reference_diffs": {
+      "pos_diff": {
+        "name": "captured 3-real-image DAttentionBaseline input pos",
+        "status": "pass_preferred",
+        "pass": true,
+        "max_abs_diff": 6.258487701416016e-07,
+        "mean_abs_diff": 4.979093759516218e-08,
+        "torch_output_shape": [
+          3,
+          4,
+          14,
+          14,
+          2
+        ],
+        "tf_output_shape": [
+          3,
+          4,
+          14,
+          14,
+          2
+        ]
+      },
+      "reference_diff": {
+        "name": "captured 3-real-image DAttentionBaseline input reference",
+        "status": "pass_preferred",
+        "pass": true,
+        "max_abs_diff": 5.960464477539062e-07,
+        "mean_abs_diff": 7.180736361078743e-08,
+        "torch_output_shape": [
+          3,
+          4,
+          14,
+          14,
+          2
+        ],
+        "tf_output_shape": [
+          3,
+          4,
+          14,
+          14,
+          2
+        ]
+      },
+      "input_summary": {
+        "name": "captured 3-real-image DAttentionBaseline input input_nchw",
+        "shape": [
+          3,
+          512,
+          14,
+          14
+        ],
+        "dtype": "float32",
+        "min": -4.278566360473633,
+        "max": 1.8557018041610718,
+        "mean": -0.014746088534593582,
+        "std": 0.29888948798179626
+      },
+      "output_summary": {
+        "name": "captured 3-real-image DAttentionBaseline input output_nchw",
+        "shape": [
+          3,
+          512,
+          14,
+          14
+        ],
+        "dtype": "float32",
+        "min": -6.047595024108887,
+        "max": 4.626108646392822,
+        "mean": -0.021741243079304695,
+        "std": 0.7937869429588318
+      }
+    }
+  },
+  "real_image_paths": [
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg"
+  ]
+}

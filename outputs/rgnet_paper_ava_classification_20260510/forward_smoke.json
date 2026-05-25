@@ -1,0 +1,21 @@
+{
+  "created_at_local": "2026-05-10T21:58:31.252103+09:00",
+  "model_variant": "RGNet-paper-AVA-classification approximation",
+  "official_reproduction": false,
+  "input_shape": [
+    2,
+    256,
+    256,
+    3
+  ],
+  "output_shape": [
+    2,
+    1
+  ],
+  "finite_predictions": true,
+  "prediction_min": 0.44269171357154846,
+  "prediction_max": 0.4430760145187378,
+  "predictions_in_unit_range": true,
+  "tensorflow_version": "2.20.0",
+  "visible_gpus": []
+}

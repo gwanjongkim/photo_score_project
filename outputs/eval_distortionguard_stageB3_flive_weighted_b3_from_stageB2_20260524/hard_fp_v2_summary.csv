@@ -1,0 +1,8 @@
+model,n,mean,std,min,max,median,count_gt_55,count_gt_65,source,avg_ms
+distortionguard_stageB,44,64.23479461669922,9.732190132141113,37.487998962402344,75.29181671142578,67.63528442382812,36,29,outputs/eval_distortionguard_stageB3_flive_weighted_b3_from_stageB2_20260524/predictions_hard_fp_v2.csv,16.256024795108136
+koniq_mobile,44,47.84320068359375,5.9323015213012695,33.128456115722656,59.249183654785156,47.87798309326172,5,0,/home/omen_pc1/photo_score_project/outputs/eval_techiqa_guard_v1_hard_fp_confirmed_v2_20260522/predictions_koniq_mobile.csv,
+flive_mobile,44,74.19212341308594,2.828556776046753,64.91363525390625,79.58248138427734,74.41307830810547,44,43,/home/omen_pc1/photo_score_project/outputs/eval_techiqa_guard_v1_hard_fp_confirmed_v2_20260522/predictions_flive_mobile.csv,
+existing_avg,44,61.01766586303711,3.89972186088562,50.83053207397461,67.62979125976562,61.62896728515625,41,7,/home/omen_pc1/photo_score_project/outputs/eval_techiqa_guard_v1_hard_fp_confirmed_v2_20260522/predictions_existing_avg.csv,
+topiq_mixed112,44,65.3509292602539,11.049300193786621,33.087398529052734,80.14389038085938,68.41828155517578,40,28,/home/omen_pc1/photo_score_project/outputs/eval_techiqa_guard_v1_hard_fp_confirmed_v2_20260522/predictions_topiq_mixed112.csv,
+topiq_ranking,44,58.115638732910156,13.971893310546875,21.06354522705078,78.09960174560547,62.29081726074219,27,17,/home/omen_pc1/photo_score_project/outputs/eval_techiqa_guard_v1_hard_fp_confirmed_v2_20260522/predictions_topiq_ranking.csv,
+techiqa_stage4,44,68.06661224365234,8.28249740600586,44.10338592529297,78.08280181884766,69.91706085205078,41,32,/home/omen_pc1/photo_score_project/outputs/eval_techiqa_guard_v1_hard_fp_confirmed_v2_20260522/predictions_techiqa_stage4.csv,

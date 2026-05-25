@@ -1,0 +1,155 @@
+{
+  "field_shapes": {
+    "area_ratio": [
+      4
+    ],
+    "boxes_norm_xyxy": [
+      4,
+      4
+    ],
+    "centers_norm_xy": [
+      4,
+      2
+    ],
+    "class_ids": [
+      4
+    ],
+    "confidences": [
+      4
+    ],
+    "global_edges": [
+      4,
+      3
+    ],
+    "local_edges": [
+      4,
+      4,
+      3
+    ],
+    "object_mask": [
+      4
+    ]
+  },
+  "max_objects": 4,
+  "splits": {
+    "test": {
+      "avg_objects_per_image": 1.975342,
+      "field_shapes": {
+        "area_ratio": [
+          4
+        ],
+        "boxes_norm_xyxy": [
+          4,
+          4
+        ],
+        "centers_norm_xy": [
+          4,
+          2
+        ],
+        "class_ids": [
+          4
+        ],
+        "confidences": [
+          4
+        ],
+        "global_edges": [
+          4,
+          3
+        ],
+        "local_edges": [
+          4,
+          4,
+          3
+        ],
+        "object_mask": [
+          4
+        ]
+      },
+      "input_jsonl": "outputs/alamp_object_graph_subset_20260511/detections_conf010/test_objects_4096.jsonl",
+      "max_objects": 4,
+      "output_jsonl": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/test_graphs_4096.jsonl",
+      "records": 4096,
+      "split": "test"
+    },
+    "train": {
+      "avg_objects_per_image": 1.99585,
+      "field_shapes": {
+        "area_ratio": [
+          4
+        ],
+        "boxes_norm_xyxy": [
+          4,
+          4
+        ],
+        "centers_norm_xy": [
+          4,
+          2
+        ],
+        "class_ids": [
+          4
+        ],
+        "confidences": [
+          4
+        ],
+        "global_edges": [
+          4,
+          3
+        ],
+        "local_edges": [
+          4,
+          4,
+          3
+        ],
+        "object_mask": [
+          4
+        ]
+      },
+      "input_jsonl": "outputs/alamp_object_graph_subset_20260511/detections_conf010/train_objects_4096.jsonl",
+      "max_objects": 4,
+      "output_jsonl": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/train_graphs_4096.jsonl",
+      "records": 4096,
+      "split": "train"
+    },
+    "val": {
+      "avg_objects_per_image": 1.989258,
+      "field_shapes": {
+        "area_ratio": [
+          4
+        ],
+        "boxes_norm_xyxy": [
+          4,
+          4
+        ],
+        "centers_norm_xy": [
+          4,
+          2
+        ],
+        "class_ids": [
+          4
+        ],
+        "confidences": [
+          4
+        ],
+        "global_edges": [
+          4,
+          3
+        ],
+        "local_edges": [
+          4,
+          4,
+          3
+        ],
+        "object_mask": [
+          4
+        ]
+      },
+      "input_jsonl": "outputs/alamp_object_graph_subset_20260511/detections_conf010/val_objects_4096.jsonl",
+      "max_objects": 4,
+      "output_jsonl": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/val_graphs_4096.jsonl",
+      "records": 4096,
+      "split": "val"
+    }
+  },
+  "status": "available",
+  "updated_at": "2026-05-14T04:17:26.662165+00:00"
+}

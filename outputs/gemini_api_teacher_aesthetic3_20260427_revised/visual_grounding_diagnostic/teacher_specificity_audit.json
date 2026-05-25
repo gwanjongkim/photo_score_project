@@ -1,0 +1,789 @@
+{
+  "clean_teacher_dataset": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/clean_teacher_dataset.jsonl",
+  "heuristic_notes": [
+    "Concrete visible noun counts use a fixed local term list, not image understanding.",
+    "Generic phrase counts flag common aesthetic-template wording.",
+    "generic_aspects_without_specific_noun means composition/lighting/color/subject language appeared without a concrete object/place/nature noun from the term list."
+  ],
+  "counts": {
+    "rows": 282,
+    "rows_with_concrete_terms": 272,
+    "rows_with_concrete_visible_nouns": 252,
+    "rows_with_generic_phrases": 215,
+    "rows_generic_aspects_without_specific_noun": 30,
+    "rows_with_specific_image_evidence": 188,
+    "selected_rows": 85,
+    "selected_specific_image_evidence": 66,
+    "selected_generic_aspects_without_specific_noun": 8,
+    "near_miss_rows": 110,
+    "near_miss_specific_image_evidence": 77,
+    "near_miss_generic_aspects_without_specific_noun": 10,
+    "not_selected_rows": 87,
+    "not_selected_specific_image_evidence": 45,
+    "not_selected_generic_aspects_without_specific_noun": 12
+  },
+  "rates": {
+    "rate_with_concrete_terms": 0.964539,
+    "rate_with_concrete_visible_nouns": 0.893617,
+    "rate_with_generic_phrases": 0.762411,
+    "rate_generic_aspects_without_specific_noun": 0.106383,
+    "rate_with_specific_image_evidence": 0.666667
+  },
+  "top_concrete_terms": [
+    [
+      "background",
+      101
+    ],
+    [
+      "frame",
+      86
+    ],
+    [
+      "foreground",
+      54
+    ],
+    [
+      "angle",
+      51
+    ],
+    [
+      "eye",
+      49
+    ],
+    [
+      "sky",
+      43
+    ],
+    [
+      "texture",
+      43
+    ],
+    [
+      "water",
+      29
+    ],
+    [
+      "crop",
+      24
+    ],
+    [
+      "perspective",
+      24
+    ],
+    [
+      "portrait",
+      22
+    ],
+    [
+      "face",
+      17
+    ],
+    [
+      "line",
+      17
+    ],
+    [
+      "lines",
+      14
+    ],
+    [
+      "shadow",
+      14
+    ],
+    [
+      "person",
+      14
+    ],
+    [
+      "people",
+      14
+    ],
+    [
+      "pattern",
+      13
+    ],
+    [
+      "landscape",
+      12
+    ],
+    [
+      "tree",
+      12
+    ],
+    [
+      "flower",
+      11
+    ],
+    [
+      "sunset",
+      9
+    ],
+    [
+      "shape",
+      7
+    ],
+    [
+      "silhouette",
+      7
+    ],
+    [
+      "dog",
+      7
+    ],
+    [
+      "building",
+      7
+    ],
+    [
+      "highlight",
+      7
+    ],
+    [
+      "hand",
+      6
+    ],
+    [
+      "text",
+      6
+    ],
+    [
+      "leaf",
+      6
+    ]
+  ],
+  "top_generic_phrases": [
+    [
+      "clear focal point",
+      42
+    ],
+    [
+      "flat lighting",
+      33
+    ],
+    [
+      "color palette",
+      32
+    ],
+    [
+      "lacks a clear focal point",
+      26
+    ],
+    [
+      "shallow depth of field",
+      26
+    ],
+    [
+      "sense of depth",
+      23
+    ],
+    [
+      "strong composition",
+      21
+    ],
+    [
+      "vibrant colors",
+      19
+    ],
+    [
+      "visual interest",
+      19
+    ],
+    [
+      "well-composed",
+      18
+    ],
+    [
+      "overall impact",
+      17
+    ],
+    [
+      "clear subject",
+      17
+    ],
+    [
+      "distracting background",
+      14
+    ],
+    [
+      "overall quality",
+      14
+    ],
+    [
+      "balanced composition",
+      13
+    ],
+    [
+      "dramatic lighting",
+      12
+    ],
+    [
+      "dynamic composition",
+      11
+    ],
+    [
+      "compelling composition",
+      11
+    ],
+    [
+      "leading line",
+      11
+    ],
+    [
+      "technical quality",
+      10
+    ],
+    [
+      "harsh lighting",
+      7
+    ],
+    [
+      "visually appealing",
+      7
+    ],
+    [
+      "strong focal point",
+      7
+    ],
+    [
+      "muted colors",
+      6
+    ],
+    [
+      "sense of scale",
+      6
+    ],
+    [
+      "soft lighting",
+      6
+    ],
+    [
+      "busy background",
+      6
+    ],
+    [
+      "low contrast",
+      4
+    ],
+    [
+      "engaging scene",
+      3
+    ],
+    [
+      "moody atmosphere",
+      3
+    ]
+  ],
+  "sample_20_low_specificity": [
+    {
+      "id": "gemini__300__68__aadb__selected_high__farm1_341_19588090384_7f76bee6f4_b.jpg__eadef4301e",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_341_19588090384_7f76bee6f4_b.jpg",
+      "dataset_source": "aadb",
+      "selection_state": "selected",
+      "comment_type": "selected_explanation",
+      "short_reason": "This is an excellent action shot, featuring a sharp subject, dynamic composition, and effective use of shallow depth of field.",
+      "detailed_reason": "The photograph successfully freezes a key moment of action, with the main player and the lacrosse ball captured in sharp focus. The use of a shallow depth of field isolates the subject from the background and the foreground player, creating a strong sense of depth and directing the viewer's attention. The bright, even lighting and vibrant colors further enhance the image's overall quality and visual appeal.",
+      "concrete_terms": [
+        "background",
+        "foreground"
+      ],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "dynamic composition",
+        "overall quality",
+        "sense of depth",
+        "shallow depth of field",
+        "vibrant colors"
+      ],
+      "generic_aspect_terms": [
+        "background",
+        "colors",
+        "composition",
+        "depth",
+        "focus",
+        "foreground",
+        "lighting",
+        "subject"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__4__aadb__selected_high__farm1_338_20320769242_7145a81a88_b.jpg__0d63e3260c",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_338_20320769242_7145a81a88_b.jpg",
+      "dataset_source": "aadb",
+      "selection_state": "selected",
+      "comment_type": "selected_explanation",
+      "short_reason": "This is an excellent food photograph due to its dynamic composition, sharp focus, and appetizing presentation.",
+      "detailed_reason": "The close-up, action-oriented shot of noodles being lifted by chopsticks creates a dynamic and engaging scene. The sharp focus on the main subject, combined with a shallow depth of field, effectively isolates the food and highlights its appealing textures. The vibrant colors and bright lighting make the dish look fresh and delicious, enhancing its overall appeal.",
+      "concrete_terms": [],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "dynamic composition",
+        "engaging scene",
+        "shallow depth of field",
+        "vibrant colors"
+      ],
+      "generic_aspect_terms": [
+        "colors",
+        "composition",
+        "depth",
+        "focus",
+        "lighting",
+        "subject"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__214__aadb__selected_high__farm1_529_20195580262_fca5e138ea_b.jpg__0d7b573517",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_529_20195580262_fca5e138ea_b.jpg",
+      "dataset_source": "aadb",
+      "selection_state": "selected",
+      "comment_type": "selected_explanation",
+      "short_reason": "This is an excellent action shot of a baseball pitcher, featuring a sharp subject, dynamic composition, and vibrant colors.",
+      "detailed_reason": "The photograph effectively captures the peak action of the pitcher's throw, creating a dynamic and engaging image. The subject is perfectly sharp and stands out against the softly blurred background, which emphasizes his form and concentration. The bright, even lighting enhances the vibrant colors of the uniform and the field, contributing to a clean and professional look.",
+      "concrete_terms": [
+        "background"
+      ],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "dynamic composition",
+        "vibrant colors"
+      ],
+      "generic_aspect_terms": [
+        "background",
+        "colors",
+        "composition",
+        "lighting",
+        "subject"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__292__ava__selected_high__844298.jpg__c6ea6b4e88",
+      "image_path": "/home/omen_pc1/ava/images/844298.jpg",
+      "dataset_source": "ava",
+      "selection_state": "selected",
+      "comment_type": "selected_explanation",
+      "short_reason": "The dramatic, contrasting lighting and moody color palette create a mysterious and visually striking composition.",
+      "detailed_reason": "The use of contrasting cool blue and warm magenta light creates a dramatic and theatrical mood, sculpting the features of the mask. The off-center placement of the subject against a simple, gradient background effectively draws the viewer's attention and enhances the sense of mystery. The overall effect is a clean, high-quality studio shot with a strong, evocative atmosphere.",
+      "concrete_terms": [
+        "background"
+      ],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "color palette"
+      ],
+      "generic_aspect_terms": [
+        "atmosphere",
+        "background",
+        "color",
+        "composition",
+        "lighting",
+        "mood",
+        "palette",
+        "subject"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__208__ava__selected_high__936477.jpg__220c6a381f",
+      "image_path": "/home/omen_pc1/ava/images/936477.jpg",
+      "dataset_source": "ava",
+      "selection_state": "selected",
+      "comment_type": "selected_explanation",
+      "short_reason": "This is an excellent abstract photograph due to its captivating subject, vibrant iridescent colors, and sharp detail against a dreamy cosmic background.",
+      "detailed_reason": "The composition is strong, with the iridescent sphere perfectly centered as a compelling focal point. The vibrant, rainbow-like colors on the sphere's surface create a stunning contrast against the deep purple and blue cosmic background, evoking a sense of wonder. The lighting is expertly handled, highlighting the sphere's texture, clarity, and three-dimensional form, resulting in a visually striking and magical image.",
+      "concrete_terms": [
+        "background",
+        "texture"
+      ],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [],
+      "generic_aspect_terms": [
+        "background",
+        "colors",
+        "composition",
+        "contrast",
+        "lighting",
+        "subject",
+        "texture"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__246__ava__selected_high__110456.jpg__cd08fb6ab6",
+      "image_path": "/home/omen_pc1/ava/images/110456.jpg",
+      "dataset_source": "ava",
+      "selection_state": "selected",
+      "comment_type": "selected_explanation",
+      "short_reason": "The dramatic, warm lighting and tight composition create a nostalgic and intimate mood.",
+      "detailed_reason": "This is an excellent close-up shot that uses a tight composition to focus the viewer's attention on the stylus and the record grooves. The warm, directional lighting is highly effective, creating sparkling highlights on the vinyl that emphasize its texture and add visual depth. This high-contrast lighting scheme, combined with the warm tones, establishes a strong, nostalgic atmosphere.",
+      "concrete_terms": [
+        "texture"
+      ],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [],
+      "generic_aspect_terms": [
+        "atmosphere",
+        "composition",
+        "contrast",
+        "depth",
+        "focus",
+        "lighting",
+        "mood",
+        "texture"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__6__aadb__selected_high__farm1_380_19934404360_a4d467f09f_b.jpg__fca017beae",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_380_19934404360_a4d467f09f_b.jpg",
+      "dataset_source": "aadb",
+      "selection_state": "selected",
+      "comment_type": "selected_explanation",
+      "short_reason": "This is an excellent, well-lit product shot that clearly showcases the two colorful mascots with great clarity and vibrant color.",
+      "detailed_reason": "This is a high-quality photograph of the two mascots. The soft, even lighting perfectly illuminates the subjects, highlighting their textures and bright colors without any distracting shadows. The composition is balanced and engaging, with the two characters posed together in a friendly manner, and the clean background ensures the focus remains entirely on them.",
+      "concrete_terms": [
+        "background"
+      ],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [],
+      "generic_aspect_terms": [
+        "background",
+        "color",
+        "colors",
+        "composition",
+        "focus",
+        "lighting"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__31__aadb__middle_near_miss__farm1_264_20257056732_61345d19c6_b.jpg__e7cdbac244",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_264_20257056732_61345d19c6_b.jpg",
+      "dataset_source": "aadb",
+      "selection_state": "near_miss",
+      "comment_type": "near_miss_feedback",
+      "short_reason": "The creative concept and storytelling are strong, but the flat lighting and muted colors weaken the overall visual impact.",
+      "detailed_reason": "This is a fun and well-posed concept that clearly tells a story, and the subjects' expressions are engaging. However, the image is held back by its flat, even lighting, which removes a sense of depth and drama. Improving the shot with more dynamic lighting, perhaps using a reflector to create highlights and shadows, would make the subjects stand out more and give the photo a more polished look.",
+      "concrete_terms": [],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "flat lighting",
+        "muted colors",
+        "sense of depth"
+      ],
+      "generic_aspect_terms": [
+        "colors",
+        "depth",
+        "lighting"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__172__ava__middle_near_miss__194064.jpg__89790533f8",
+      "image_path": "/home/omen_pc1/ava/images/194064.jpg",
+      "dataset_source": "ava",
+      "selection_state": "near_miss",
+      "comment_type": "near_miss_feedback",
+      "short_reason": "The image features an interesting subject, but the composition is cluttered and lacks a clear focal point.",
+      "detailed_reason": "This is a great close-up of a complex and interesting mechanical subject, and the warm lighting on the brass gears is appealing. However, the composition is very busy, with no single element standing out as the main point of focus. To improve, using a shallower depth of field to isolate one specific gear or area would create a more compelling and less cluttered image.",
+      "concrete_terms": [],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "clear focal point",
+        "lacks a clear focal point"
+      ],
+      "generic_aspect_terms": [
+        "composition",
+        "depth",
+        "focus",
+        "lighting",
+        "subject"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__201__ava__middle_near_miss__847671.jpg__1abef65fdf",
+      "image_path": "/home/omen_pc1/ava/images/847671.jpg",
+      "dataset_source": "ava",
+      "selection_state": "near_miss",
+      "comment_type": "near_miss_feedback",
+      "short_reason": "The minimalist composition and rich blue color are striking, but the distracting reflections on the sphere detract from the overall impact.",
+      "detailed_reason": "This is a strong abstract image with a compelling color palette and a simple, graphic composition. The reflections within the sphere create a focal point and add a sense of mystery. However, the larger, curved reflections on the sides feel like distracting artifacts from the lighting setup, which slightly undermines the clean aesthetic. Refining the lighting to create simpler, more intentional reflections would elevate this image.",
+      "concrete_terms": [],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "color palette",
+        "overall impact"
+      ],
+      "generic_aspect_terms": [
+        "color",
+        "composition",
+        "lighting",
+        "palette"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__41__ava__middle_near_miss__391225.jpg__407d8ce7be",
+      "image_path": "/home/omen_pc1/ava/images/391225.jpg",
+      "dataset_source": "ava",
+      "selection_state": "near_miss",
+      "comment_type": "near_miss_feedback",
+      "short_reason": "The color contrast and shallow depth of field are effective, but the background is slightly distracting.",
+      "detailed_reason": "This is a well-composed image with a lovely, cozy feeling. The vibrant red of the mug and book stands out beautifully against the muted grey background, and the shallow depth of field helps to isolate the subject. However, the dark, patterned object in the background is a bit distracting and pulls some attention away from the mug. A simpler, more uniform background would make this a stronger photograph.",
+      "concrete_terms": [
+        "background"
+      ],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "shallow depth of field",
+        "well-composed"
+      ],
+      "generic_aspect_terms": [
+        "background",
+        "color",
+        "contrast",
+        "depth",
+        "subject"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__132__ava__middle_near_miss__887852.jpg__f2a72cae5c",
+      "image_path": "/home/omen_pc1/ava/images/887852.jpg",
+      "dataset_source": "ava",
+      "selection_state": "near_miss",
+      "comment_type": "near_miss_feedback",
+      "short_reason": "The composition is strong, but the heavy-handed post-processing flattens the image and makes the lighting look unnatural.",
+      "detailed_reason": "The symmetrical framing through the gates creates a compelling view of the ornate church facade. However, the image is held back by excessive HDR processing, which results in flat lighting and a lack of natural contrast. A more subtle editing approach that preserves the natural shadows and highlights would create a more impactful and visually pleasing photograph.",
+      "concrete_terms": [],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "flat lighting"
+      ],
+      "generic_aspect_terms": [
+        "composition",
+        "contrast",
+        "framing",
+        "lighting"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__147__ava__middle_near_miss__77543.jpg__4fa2f48528",
+      "image_path": "/home/omen_pc1/ava/images/77543.jpg",
+      "dataset_source": "ava",
+      "selection_state": "near_miss",
+      "comment_type": "near_miss_feedback",
+      "short_reason": "The compelling subject matter is let down by poor technical quality, including low resolution and digital noise.",
+      "detailed_reason": "The image presents an intriguing subject with a strong narrative element, particularly the contrast between the nun's habit and the red nail polish. This creates a compelling focal point. However, the overall technical execution is weak; the image is blurry, has significant digital noise, and the lighting is dark and unflattering. A sharper, cleaner image with better lighting would elevate this from a snapshot to a strong photograph.",
+      "concrete_terms": [],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "technical quality"
+      ],
+      "generic_aspect_terms": [
+        "contrast",
+        "lighting",
+        "subject"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__196__ava__middle_near_miss__769970.jpg__e12144b287",
+      "image_path": "/home/omen_pc1/ava/images/769970.jpg",
+      "dataset_source": "ava",
+      "selection_state": "near_miss",
+      "comment_type": "near_miss_feedback",
+      "short_reason": "The concept and color contrast are excellent, but the harsh, artificial lighting detracts from the overall quality.",
+      "detailed_reason": "This is a very creative and striking image. The contrast between the single, vibrant green grape and the dark, textured raisins is visually powerful. However, the lighting feels overly artificial; the intense red glow from beneath and the neon quality of the grape are distracting. A more subtle or natural lighting setup would have allowed the excellent subject matter and composition to shine through more effectively.",
+      "concrete_terms": [],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "overall quality"
+      ],
+      "generic_aspect_terms": [
+        "color",
+        "composition",
+        "contrast",
+        "lighting",
+        "subject"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__179__aadb__rejected_low__farm4_3763_19661241693_59b46dcd03_b.jpg__7d908c8356",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm4_3763_19661241693_59b46dcd03_b.jpg",
+      "dataset_source": "aadb",
+      "selection_state": "not_selected",
+      "comment_type": "rejection_reason",
+      "short_reason": "The image has a cluttered composition, harsh lighting, and a distracting background.",
+      "detailed_reason": "The composition lacks a clear focal point, with multiple subjects competing for attention and the main action pushed to the right. The lighting, likely from an on-camera flash, is harsh and direct, creating flat surfaces and unflattering shadows. The background is busy with a doorway, a partially obscured banner, and other distracting elements that detract from the scene.",
+      "concrete_terms": [
+        "background"
+      ],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "clear focal point",
+        "distracting background",
+        "harsh lighting",
+        "lacks a clear focal point"
+      ],
+      "generic_aspect_terms": [
+        "background",
+        "composition",
+        "lighting"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__261__ava__rejected_low__265365.jpg__2a917c7e47",
+      "image_path": "/home/omen_pc1/ava/images/265365.jpg",
+      "dataset_source": "ava",
+      "selection_state": "not_selected",
+      "comment_type": "rejection_reason",
+      "short_reason": "The image has flat lighting, a cluttered composition, and a distracting color artifact.",
+      "detailed_reason": "The lighting on the metal forks is flat, creating harsh reflections without adding depth or dimension. The composition is cluttered and lacks a clear focal point, making the arrangement of forks feel chaotic rather than intentional. Additionally, a small spot of color reflected in the foreground is distracting and detracts from the otherwise monochromatic image.",
+      "concrete_terms": [
+        "foreground"
+      ],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "clear focal point",
+        "flat lighting",
+        "lacks a clear focal point"
+      ],
+      "generic_aspect_terms": [
+        "color",
+        "composition",
+        "depth",
+        "foreground",
+        "lighting"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__282__ava__rejected_low__330592.jpg__42d1acccf6",
+      "image_path": "/home/omen_pc1/ava/images/330592.jpg",
+      "dataset_source": "ava",
+      "selection_state": "not_selected",
+      "comment_type": "rejection_reason",
+      "short_reason": "The image's harsh, flat lighting and strange, unclear subject matter result in a visually unappealing composition.",
+      "detailed_reason": "The lighting in this photograph is harsh and direct, creating a flat appearance and blown-out highlights on the white background and glass surfaces. The subject, a prop finger in red liquid, is bizarre and its narrative purpose is unclear, which can be off-putting. The composition feels static and lacks a clear point of visual interest, making the overall image feel more like a strange science experiment than a compelling photograph.",
+      "concrete_terms": [
+        "background"
+      ],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "clear subject",
+        "flat lighting",
+        "visual interest"
+      ],
+      "generic_aspect_terms": [
+        "background",
+        "composition",
+        "lighting",
+        "subject"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__80__ava__rejected_low__753562.jpg__35304e26e9",
+      "image_path": "/home/omen_pc1/ava/images/753562.jpg",
+      "dataset_source": "ava",
+      "selection_state": "not_selected",
+      "comment_type": "rejection_reason",
+      "short_reason": "The image suffers from a cluttered composition, soft focus, and flat lighting.",
+      "detailed_reason": "The composition is busy and lacks a clear focal point, as the main action between the bull and the fallen rider competes with numerous distracting elements in the background. The overall image is soft and lacks sharpness, which diminishes the impact of the captured moment. Furthermore, the flat, even lighting from the indoor arena does little to create drama or dimension in the scene.",
+      "concrete_terms": [
+        "background"
+      ],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "clear focal point",
+        "flat lighting",
+        "lacks a clear focal point"
+      ],
+      "generic_aspect_terms": [
+        "background",
+        "composition",
+        "focus",
+        "lighting",
+        "sharpness"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__146__ava__rejected_low__22848.jpg__46a93d394d",
+      "image_path": "/home/omen_pc1/ava/images/22848.jpg",
+      "dataset_source": "ava",
+      "selection_state": "not_selected",
+      "comment_type": "rejection_reason",
+      "short_reason": "The image is poorly lit, cluttered, and has low technical quality.",
+      "detailed_reason": "The scene is underexposed and suffers from harsh, uneven lighting that creates deep shadows and an unnatural orange color cast. The composition is weak, with a large pole in the foreground that obstructs the view and contributes to a cluttered feel. The overall image quality is low, with visible digital noise and a lack of sharpness, making it difficult to discern the subjects or find a clear focal point.",
+      "concrete_terms": [
+        "foreground"
+      ],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "clear focal point",
+        "technical quality"
+      ],
+      "generic_aspect_terms": [
+        "color",
+        "composition",
+        "foreground",
+        "lighting",
+        "sharpness"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    },
+    {
+      "id": "gemini__300__165__aadb__rejected_low__farm4_3790_19942571208_c79836300c_b.jpg__67b85ed5f4",
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm4_3790_19942571208_c79836300c_b.jpg",
+      "dataset_source": "aadb",
+      "selection_state": "not_selected",
+      "comment_type": "rejection_reason",
+      "short_reason": "The image is compositionally weak due to a cluttered foreground and distracting background.",
+      "detailed_reason": "The foreground is filled with empty bottles, cans, and plastic cups, which creates a messy and distracting scene that pulls focus from the subjects. The overall composition is chaotic, with awkwardly posed subjects and harsh, direct lighting from the overhead fixtures. The background elements, including a corkboard and more bar clutter, add to the visual noise, preventing a clear focal point.",
+      "concrete_terms": [
+        "background",
+        "foreground"
+      ],
+      "concrete_visible_nouns": [],
+      "generic_phrases": [
+        "clear focal point",
+        "distracting background"
+      ],
+      "generic_aspect_terms": [
+        "background",
+        "composition",
+        "focus",
+        "foreground",
+        "lighting"
+      ],
+      "generic_aspects_without_specific_noun": true,
+      "specific_image_evidence": false
+    }
+  ]
+}

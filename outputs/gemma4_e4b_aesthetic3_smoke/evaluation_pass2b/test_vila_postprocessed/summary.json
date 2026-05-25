@@ -1,0 +1,81 @@
+{
+  "teacher_manifest": "outputs/gemma4_e4b_aesthetic3_smoke/test_vila.jsonl",
+  "teacher_target_format": {
+    "rows": 36,
+    "valid_rate": 1.0
+  },
+  "status": "ok",
+  "predictions_jsonl": "outputs/gemma4_e4b_aesthetic3_smoke/evaluation_pass2b/predictions_all_postprocessed.jsonl",
+  "student_metrics": {
+    "matched_predictions": 36,
+    "format_compliance_rate": 0.972222,
+    "prefix_compliance_rate": 0.972222,
+    "role_separation_rate": 0.972222,
+    "mean_sequence_ratio": 0.13412,
+    "mean_token_f1": 0.261193,
+    "worst_examples": [
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__IMG_20240519_215827_510.jpg",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_20240519_215827_510.jpg",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "",
+        "sequence_ratio": 0.0,
+        "token_f1": 0.0,
+        "format_valid": false
+      },
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__20240506_120558.jpg",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240506_120558.jpg",
+        "teacher_comment_3line": "Strength: overall appeal.\nWeakness: detail clarity.\nVerdict: not selected because detail clarity undercuts overall appeal.",
+        "predicted_comment_3line": "Strength: The image captures a grand interior with detailed architectural elements and a large central painting.\nWeakness: The composition is heavily dominated by the architecture, making the central subject matter somewhat framed by the surrounding structure.\nVerdict: not selected because The composition is heavily dominated by the architecture, making the central subject matter somewhat framed by the surrounding structure undercuts The image captures a grand interior with detailed architectural elements and a large central painting.",
+        "sequence_ratio": 0.042296,
+        "token_f1": 0.155556,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__20231231_150055.jpg",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20231231_150055.jpg",
+        "teacher_comment_3line": "Strength: clear face detail and a lively expression.\nWeakness: the gray background feels flat.\nVerdict: selected because the clear face detail and expression carry the frame despite the flat background.",
+        "predicted_comment_3line": "Strength: The subject is clearly visible and smiling in the frame.\nWeakness: The background is somewhat busy and out of focus.\nVerdict: selected because The subject is clearly visible and smiling in the frame carries the frame despite The background is somewhat busy and out of focus.",
+        "sequence_ratio": 0.053498,
+        "token_f1": 0.363636,
+        "format_valid": true
+      }
+    ],
+    "best_examples": [
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__IMG_2781.JPG",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2781.JPG",
+        "teacher_comment_3line": "Strength: clear subject emphasis.\nWeakness: soft detail.\nVerdict: not selected because soft detail undercuts clear subject emphasis.",
+        "predicted_comment_3line": "Strength: Visible hand sculpture in water.\nWeakness: Large amount of empty sky in the frame.\nVerdict: not selected because Large amount of empty sky in the frame undercuts Visible hand sculpture in water.",
+        "sequence_ratio": 0.339286,
+        "token_f1": 0.28,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__IMG_2748.JPG",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/IMG_2748.JPG",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "Strength: Brightly lit commercial area with clear signage.\nWeakness: Dark foreground obscuring lower details.\nVerdict: not selected because Dark foreground obscuring lower details undercuts Brightly lit commercial area with clear signage.",
+        "sequence_ratio": 0.316667,
+        "token_f1": 0.304348,
+        "format_valid": true
+      },
+      {
+        "id": "test_vila_nvila_20260416_gpu__test_vila__20240506_140415.jpg",
+        "split": "test_vila",
+        "image_path": "/home/omen_pc1/photo_score_project/test_vila/20240506_140415.jpg",
+        "teacher_comment_3line": "Strength: detail clarity.\nWeakness: overall appeal.\nVerdict: not selected because overall appeal undercuts detail clarity.",
+        "predicted_comment_3line": "Strength: Clear view of historical architecture under a bright sky.\nWeakness: Some people are visible in the frame.\nVerdict: not selected because Some people are visible in the frame undercuts Clear view of historical architecture under a bright sky.",
+        "sequence_ratio": 0.306452,
+        "token_f1": 0.259259,
+        "format_valid": true
+      }
+    ]
+  }
+}

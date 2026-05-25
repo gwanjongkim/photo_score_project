@@ -1,0 +1,148 @@
+{
+  "train_output_dir": "outputs/gemma4_e4b_aesthetic3_smoke/train_run",
+  "output_dir": "outputs/gemma4_e4b_aesthetic3_smoke/export",
+  "export_mode": "adapter_bundle_only_unless_quantized_artifact_exists",
+  "quantization_target": "mobile_candidate_not_completed",
+  "status": "adapter_export_only",
+  "quantized_export_completed": false,
+  "blocked_reasons": [
+    "Fine-tuned adapter exists, but no quantized export artifact was produced in this retry."
+  ],
+  "train_preflight": {
+    "experiment_name": "gemma4_e4b_aesthetic3_smoke",
+    "config_path": "configs/gemma4_e4b_aesthetic3_train_smoke.json",
+    "dataset_dir": "outputs/gemma4_e4b_aesthetic3_smoke",
+    "output_dir": "outputs/gemma4_e4b_aesthetic3_smoke/train_run",
+    "python_executable": "/home/omen_pc1/photo_score_project/.venv_vila/bin/python",
+    "cwd": "/home/omen_pc1/photo_score_project",
+    "environment": {
+      "HF_HOME": "/home/omen_pc1/photo_score_project/outputs/gemma4_e4b_aesthetic3_smoke/train_run/hf_cache",
+      "HF_HUB_CACHE": "/home/omen_pc1/photo_score_project/outputs/gemma4_e4b_aesthetic3_smoke/train_run/hf_cache/hub",
+      "TRANSFORMERS_CACHE": "/home/omen_pc1/photo_score_project/outputs/gemma4_e4b_aesthetic3_smoke/train_run/hf_cache/transformers",
+      "CUDA_VISIBLE_DEVICES": null,
+      "huggingface_token_present": true
+    },
+    "manifests": {
+      "train": "outputs/gemma4_e4b_aesthetic3_smoke/train.jsonl",
+      "val": "outputs/gemma4_e4b_aesthetic3_smoke/val.jsonl",
+      "tests": {
+        "test": "outputs/gemma4_e4b_aesthetic3_smoke/test.jsonl",
+        "test_vila": "outputs/gemma4_e4b_aesthetic3_smoke/test_vila.jsonl"
+      }
+    },
+    "manifest_summary": {
+      "train": {
+        "exists": true,
+        "rows": 8
+      },
+      "val": {
+        "exists": true,
+        "rows": 3
+      },
+      "tests": {
+        "test": {
+          "exists": true,
+          "rows": 2
+        },
+        "test_vila": {
+          "exists": true,
+          "rows": 36
+        }
+      }
+    },
+    "dependencies": {
+      "torch": {
+        "available": true,
+        "version": "2.11.0+cu130"
+      },
+      "transformers": {
+        "available": true,
+        "version": "5.6.2"
+      },
+      "datasets": {
+        "available": true,
+        "version": "4.8.4"
+      },
+      "trl": {
+        "available": true,
+        "version": "1.2.0"
+      },
+      "peft": {
+        "available": true,
+        "version": "0.19.1"
+      },
+      "accelerate": {
+        "available": true,
+        "version": "1.13.0"
+      },
+      "bitsandbytes": {
+        "available": false,
+        "error": "ModuleNotFoundError: No module named 'bitsandbytes'"
+      }
+    },
+    "torch_cuda": {
+      "available": true,
+      "device_count": 1,
+      "devices": [
+        "NVIDIA GeForce RTX 4070 SUPER"
+      ]
+    },
+    "transformers_supports_gemma4": true,
+    "model_name_or_path": "google/gemma-4-E4B-it",
+    "local_model_exists": false,
+    "blocked_reasons": [],
+    "ready_to_train": true,
+    "notes": [
+      "This path expects a Gemma 4 image-text checkpoint plus TRL/PEFT/datasets in the active environment.",
+      "The current repo smoke dataset is intentionally small and is for pipeline proving, not for a production-quality student."
+    ]
+  },
+  "resolved_train_config": {
+    "experiment_name": "gemma4_e4b_aesthetic3_smoke",
+    "dataset_dir": "outputs/gemma4_e4b_aesthetic3_smoke",
+    "train_manifest": "train.jsonl",
+    "val_manifest": "val.jsonl",
+    "test_manifests": {
+      "test": "test.jsonl",
+      "test_vila": "test_vila.jsonl"
+    },
+    "output_dir": "outputs/gemma4_e4b_aesthetic3_smoke/train_run",
+    "model_name_or_path": "google/gemma-4-E4B-it",
+    "processor_name_or_path": "google/gemma-4-E4B-it",
+    "allow_remote_model_download": true,
+    "lora": {
+      "enabled": true,
+      "r": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "target_modules": "all-linear"
+    },
+    "quantization": {
+      "load_in_4bit": false,
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_compute_dtype": "bfloat16",
+      "bnb_4bit_use_double_quant": true
+    },
+    "training": {
+      "num_train_epochs": 3,
+      "per_device_train_batch_size": 1,
+      "per_device_eval_batch_size": 1,
+      "gradient_accumulation_steps": 8,
+      "learning_rate": 0.0002,
+      "warmup_ratio": 0.03,
+      "logging_steps": 1,
+      "save_steps": 10,
+      "eval_steps": 10,
+      "max_grad_norm": 1.0,
+      "weight_decay": 0.0,
+      "seed": 42,
+      "max_length": null
+    }
+  },
+  "adapter_export_artifacts": [
+    "outputs/gemma4_e4b_aesthetic3_smoke/train_run/final_adapter"
+  ],
+  "exported_artifacts": [
+    "outputs/gemma4_e4b_aesthetic3_smoke/train_run/final_adapter"
+  ]
+}

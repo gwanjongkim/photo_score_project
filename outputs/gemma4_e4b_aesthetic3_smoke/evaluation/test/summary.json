@@ -1,0 +1,61 @@
+{
+  "teacher_manifest": "outputs/gemma4_e4b_aesthetic3_smoke/test.jsonl",
+  "teacher_target_format": {
+    "rows": 2,
+    "valid_rate": 1.0
+  },
+  "status": "ok",
+  "predictions_jsonl": "outputs/gemma4_e4b_aesthetic3_smoke/evaluation/predictions_all.jsonl",
+  "student_metrics": {
+    "matched_predictions": 2,
+    "format_compliance_rate": 1.0,
+    "prefix_compliance_rate": 1.0,
+    "role_separation_rate": 1.0,
+    "mean_sequence_ratio": 0.138991,
+    "mean_token_f1": 0.296255,
+    "worst_examples": [
+      {
+        "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_09.jpg",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_09.jpg",
+        "teacher_comment_3line": "Strength: cleaner background and composition.\nWeakness: detail clarity and subject emphasis.\nVerdict: not selected because weaker detail clarity and subject emphasis outweighed cleaner background and composition.",
+        "predicted_comment_3line": "Strength: Dramatic composition with strong contrast between the dark water and sky\nWeakness: Low overall aesthetic scores across multiple metrics\nVerdict: not selected because weighted_aesthetic_score is low",
+        "sequence_ratio": 0.066826,
+        "token_f1": 0.264151,
+        "format_valid": true
+      },
+      {
+        "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_14.jpg",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_14.jpg",
+        "teacher_comment_3line": "Strength: cleaner background and lighting.\nWeakness: subject emphasis and overall appeal.\nVerdict: not selected because weaker subject emphasis and overall appeal outweighed cleaner background and lighting.",
+        "predicted_comment_3line": "Strength: The composition features a strong contrast between the dark foreground subject and the bright, overcast sky.\nWeakness: The overall image quality and subject presentation are weak, leading to a low aesthetic score.\nVerdict: not selected because weighted_aesthetic_score is low (0.385602)",
+        "sequence_ratio": 0.211155,
+        "token_f1": 0.328358,
+        "format_valid": true
+      }
+    ],
+    "best_examples": [
+      {
+        "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_14.jpg",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_14.jpg",
+        "teacher_comment_3line": "Strength: cleaner background and lighting.\nWeakness: subject emphasis and overall appeal.\nVerdict: not selected because weaker subject emphasis and overall appeal outweighed cleaner background and lighting.",
+        "predicted_comment_3line": "Strength: The composition features a strong contrast between the dark foreground subject and the bright, overcast sky.\nWeakness: The overall image quality and subject presentation are weak, leading to a low aesthetic score.\nVerdict: not selected because weighted_aesthetic_score is low (0.385602)",
+        "sequence_ratio": 0.211155,
+        "token_f1": 0.328358,
+        "format_valid": true
+      },
+      {
+        "id": "test_samples_nvila_probe_v9_gpu__test__KakaoTalk_20260330_180646779_09.jpg",
+        "split": "test",
+        "image_path": "/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_09.jpg",
+        "teacher_comment_3line": "Strength: cleaner background and composition.\nWeakness: detail clarity and subject emphasis.\nVerdict: not selected because weaker detail clarity and subject emphasis outweighed cleaner background and composition.",
+        "predicted_comment_3line": "Strength: Dramatic composition with strong contrast between the dark water and sky\nWeakness: Low overall aesthetic scores across multiple metrics\nVerdict: not selected because weighted_aesthetic_score is low",
+        "sequence_ratio": 0.066826,
+        "token_f1": 0.264151,
+        "format_valid": true
+      }
+    ]
+  }
+}

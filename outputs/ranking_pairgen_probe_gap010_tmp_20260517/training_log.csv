@@ -1,0 +1,2 @@
+epoch,reg_loss,rank_loss,total_loss,val_reg_loss,val_reg_loss_samples,quick_flive_val_srcc,quick_flive_pred_std,quick_flive_possible_mode_collapse
+1,0.003563062986359,0.27035218477249146,0.057633500546216965,0.0022671623155474663,64,0.44569597069597067,0.07943323254585266,False

@@ -1,0 +1,631 @@
+{
+  "random_block_input": {
+    "input": {
+      "name": "random_block_input_nchw",
+      "shape": [
+        1,
+        128,
+        56,
+        56
+      ],
+      "dtype": "float32",
+      "min": -4.60713005065918,
+      "max": 4.350000858306885,
+      "mean": 0.0017295264406129718,
+      "std": 0.9991117119789124
+    },
+    "output_result": {
+      "name": "random block input",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 9.5367431640625e-06,
+      "mean_abs_diff": 6.46088381017762e-07,
+      "torch_output_shape": [
+        1,
+        128,
+        56,
+        56
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        56,
+        56,
+        128
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        128,
+        56,
+        56
+      ],
+      "likely_failed_subcomponent": null
+    },
+    "subcomponent_diffs": [
+      {
+        "name": "norm0",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 7.152557373046875e-07,
+        "mean_abs_diff": 2.1449862330769065e-08,
+        "torch_output_shape": [
+          1,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "attn_out",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 2.1457672119140625e-06,
+        "mean_abs_diff": 1.5086861537838558e-07,
+        "torch_output_shape": [
+          1,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "after_attn_residual",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 2.1457672119140625e-06,
+        "mean_abs_diff": 1.509470592964135e-07,
+        "torch_output_shape": [
+          1,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "norm1",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 2.2649765014648438e-06,
+        "mean_abs_diff": 1.3379680297020968e-07,
+        "torch_output_shape": [
+          1,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "mlp_out",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 9.5367431640625e-06,
+        "mean_abs_diff": 6.252182629395975e-07,
+        "torch_output_shape": [
+          1,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "output",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 9.5367431640625e-06,
+        "mean_abs_diff": 6.46088381017762e-07,
+        "torch_output_shape": [
+          1,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          128,
+          56,
+          56
+        ]
+      }
+    ]
+  },
+  "random_image_patch_projection": {
+    "input": {
+      "name": "random_patch_projection_output_nchw",
+      "shape": [
+        1,
+        128,
+        56,
+        56
+      ],
+      "dtype": "float32",
+      "min": -13.119217872619629,
+      "max": 13.967548370361328,
+      "mean": -0.067295603454113,
+      "std": 1.8710980415344238
+    },
+    "output_result": {
+      "name": "patch projection output from deterministic random image",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 6.198883056640625e-06,
+      "mean_abs_diff": 5.734470960305771e-07,
+      "torch_output_shape": [
+        1,
+        128,
+        56,
+        56
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        56,
+        56,
+        128
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        128,
+        56,
+        56
+      ],
+      "likely_failed_subcomponent": null
+    },
+    "subcomponent_diffs": [
+      {
+        "name": "norm0",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 9.5367431640625e-07,
+        "mean_abs_diff": 2.3006951010984267e-08,
+        "torch_output_shape": [
+          1,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "attn_out",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 1.9073486328125e-06,
+        "mean_abs_diff": 1.1506456587540015e-07,
+        "torch_output_shape": [
+          1,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "after_attn_residual",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 1.9073486328125e-06,
+        "mean_abs_diff": 1.1506843122788268e-07,
+        "torch_output_shape": [
+          1,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "norm1",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 2.384185791015625e-06,
+        "mean_abs_diff": 9.525435018531425e-08,
+        "torch_output_shape": [
+          1,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "mlp_out",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 5.9604644775390625e-06,
+        "mean_abs_diff": 5.57648490939755e-07,
+        "torch_output_shape": [
+          1,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "output",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 6.198883056640625e-06,
+        "mean_abs_diff": 5.734470960305771e-07,
+        "torch_output_shape": [
+          1,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          1,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          1,
+          128,
+          56,
+          56
+        ]
+      }
+    ]
+  },
+  "real_image_patch_projection": {
+    "input": {
+      "name": "real_patch_projection_output_nchw",
+      "shape": [
+        3,
+        128,
+        56,
+        56
+      ],
+      "dtype": "float32",
+      "min": -8.502726554870605,
+      "max": 8.178956985473633,
+      "mean": -0.11287563294172287,
+      "std": 0.831507682800293
+    },
+    "output_result": {
+      "name": "patch projection output from 3 real ICAA17K images",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 6.198883056640625e-06,
+      "mean_abs_diff": 4.2349398654550896e-07,
+      "torch_output_shape": [
+        3,
+        128,
+        56,
+        56
+      ],
+      "tf_output_shape_nhwc": [
+        3,
+        56,
+        56,
+        128
+      ],
+      "tf_output_shape_nchw": [
+        3,
+        128,
+        56,
+        56
+      ],
+      "likely_failed_subcomponent": null
+    },
+    "subcomponent_diffs": [
+      {
+        "name": "norm0",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 9.5367431640625e-07,
+        "mean_abs_diff": 1.9772812720475486e-08,
+        "torch_output_shape": [
+          3,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "attn_out",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 1.7881393432617188e-06,
+        "mean_abs_diff": 6.788568640558879e-08,
+        "torch_output_shape": [
+          3,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "after_attn_residual",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 1.9073486328125e-06,
+        "mean_abs_diff": 6.788604167695667e-08,
+        "torch_output_shape": [
+          3,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "norm1",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 6.4373016357421875e-06,
+        "mean_abs_diff": 1.5102264683264366e-07,
+        "torch_output_shape": [
+          3,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "mlp_out",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 5.7220458984375e-06,
+        "mean_abs_diff": 4.0756057728685846e-07,
+        "torch_output_shape": [
+          3,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          128,
+          56,
+          56
+        ]
+      },
+      {
+        "name": "output",
+        "status": "pass_preferred",
+        "pass": true,
+        "preferred_pass": true,
+        "acceptable_pass": true,
+        "max_abs_diff": 6.198883056640625e-06,
+        "mean_abs_diff": 4.2349398654550896e-07,
+        "torch_output_shape": [
+          3,
+          128,
+          56,
+          56
+        ],
+        "tf_output_shape_nhwc": [
+          3,
+          56,
+          56,
+          128
+        ],
+        "tf_output_shape_nchw": [
+          3,
+          128,
+          56,
+          56
+        ]
+      }
+    ]
+  },
+  "real_image_paths": [
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg"
+  ]
+}

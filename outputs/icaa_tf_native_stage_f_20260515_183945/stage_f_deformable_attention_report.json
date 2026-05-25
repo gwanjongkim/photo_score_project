@@ -1,0 +1,274 @@
+{
+  "status": "ok",
+  "command_used": "python experiments/icaa_tf_native/scripts/stage_f_deformable_attention_parity.py",
+  "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+  "pytorch_reference_model_path": "/home/omen_pc1/photo_score_project/experiments/icaa_export_safe_v3/export_safe_models",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_f_20260515_183945",
+  "report_path": "/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/reports/stage_f_deformable_attention_parity.md",
+  "seed": 123,
+  "thresholds": {
+    "preferred_max_abs_diff": 1e-05,
+    "acceptable_max_abs_diff": 0.0001
+  },
+  "state_dict_confirmation": "checkpoint object is an OrderedDict state_dict",
+  "strict_load": {
+    "success": true,
+    "missing_keys": [],
+    "unexpected_keys": []
+  },
+  "pytorch_module_inspection": {
+    "class_name": "DAttentionBaseline",
+    "selected_stage_index": 2,
+    "selected_attention_index": 1,
+    "first_d_in_stage_spec": "stage_spec[2][1]",
+    "q_size": [
+      14,
+      14
+    ],
+    "kv_size": [
+      14,
+      14
+    ],
+    "n_heads": 16,
+    "n_head_channels": 32,
+    "n_groups": 4,
+    "n_group_channels": 128,
+    "n_group_heads": 4,
+    "scale": 0.1767766952966369,
+    "offset_range_factor": 2,
+    "use_pe": true,
+    "dwc_pe": false,
+    "fixed_pe": false,
+    "no_off": false,
+    "offset_branch": [
+      "Conv2d",
+      "LayerNormProxy",
+      "GELU",
+      "Conv2d"
+    ],
+    "qkv_projection_classes": {
+      "proj_q": "Conv2d",
+      "proj_k": "Conv2d",
+      "proj_v": "Conv2d",
+      "proj_out": "Conv2d"
+    },
+    "rpe_table_shape": [
+      16,
+      27,
+      27
+    ],
+    "dropout_eval_behavior": "proj_drop and attn_drop are Dropout(0.0) in this config; eval mode disables dropout randomness."
+  },
+  "checkpoint_tensors_used": [
+    "stages.2.attns.1.rpe_table",
+    "stages.2.attns.1.conv_offset.0.weight",
+    "stages.2.attns.1.conv_offset.0.bias",
+    "stages.2.attns.1.conv_offset.1.norm.weight",
+    "stages.2.attns.1.conv_offset.1.norm.bias",
+    "stages.2.attns.1.conv_offset.3.weight",
+    "stages.2.attns.1.proj_q.weight",
+    "stages.2.attns.1.proj_q.bias",
+    "stages.2.attns.1.proj_k.weight",
+    "stages.2.attns.1.proj_k.bias",
+    "stages.2.attns.1.proj_v.weight",
+    "stages.2.attns.1.proj_v.bias",
+    "stages.2.attns.1.proj_out.weight",
+    "stages.2.attns.1.proj_out.bias",
+    "stages.2.attns.1.ref_point14.weight",
+    "stages.2.attns.1.ref_point14.bias",
+    "stages.2.attns.1.ref_gate.weight",
+    "stages.2.attns.1.ref_gate.bias"
+  ],
+  "tf_module_structure": {
+    "class_name": "TFDAttentionBaseline",
+    "target_pytorch_module": "stages.2.attns.1",
+    "input_layout": "NHWC/channels_last",
+    "q_size": [
+      14,
+      14
+    ],
+    "heads": 16,
+    "head_channels": 32,
+    "groups": 4,
+    "group_channels": 128,
+    "offset_branch": [
+      "DepthwiseConv2D kernel 5 stride 1 padding same, mapped from grouped Conv2d",
+      "LayerNormalization(axis=-1, epsilon=1e-5)",
+      "exact GELU",
+      "PytorchLikeConv1x1 to 2 channels without bias"
+    ],
+    "standard_1x1_projections": [
+      "PytorchLikeConv1x1 for proj_q/proj_k/proj_v/proj_out",
+      "PytorchLikeConv1x1 for ref_point14/ref_gate"
+    ],
+    "sampler": {
+      "coordinate_order": "grid[...,0]=x, grid[...,1]=y after PyTorch pos_y,pos_x swap",
+      "align_corners": true,
+      "padding_mode": "zeros",
+      "implementation": "tf.floor/tf.clip_by_value/tf.gather/tf.where without pixel loops"
+    },
+    "relative_position": {
+      "use_pe": true,
+      "dwc_pe": false,
+      "fixed_pe": false,
+      "rpe_table_shape": [
+        16,
+        27,
+        27
+      ]
+    }
+  },
+  "test_input_generation": {
+    "random_module_input": {
+      "distribution": "numpy randn scaled by RANDOM_MODULE_INPUT_SCALE",
+      "scale": 0.5,
+      "reason": "keeps the synthetic block input near observed captured DAttention tensor scale while still using deterministic random values",
+      "seed": 123
+    },
+    "captured_random_image_input": {
+      "distribution": "numpy uniform [0, 1) RGB image with ImageNet mean/std preprocessing",
+      "seed": 123
+    },
+    "real_image_input": {
+      "source": "external/icaa_official_repo/ICAA17K_code/dataset/ICAA17K/1test.csv",
+      "preprocessing": "PIL bilinear resize to 224x224, RGB [0,1], ImageNet mean/std normalization"
+    }
+  },
+  "module_input_shape_nchw": [
+    1,
+    512,
+    14,
+    14
+  ],
+  "module_input_shape_nhwc": [
+    1,
+    14,
+    14,
+    512
+  ],
+  "module_output_shape_nchw": [
+    1,
+    512,
+    14,
+    14
+  ],
+  "module_output_shape_nhwc": [
+    1,
+    14,
+    14,
+    512
+  ],
+  "results": [
+    {
+      "name": "random DAttentionBaseline input",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 8.165836334228516e-06,
+      "mean_abs_diff": 8.045809067880327e-07,
+      "torch_output_shape": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        14,
+        14,
+        512
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "likely_failed_subcomponent": null
+    },
+    {
+      "name": "captured random-image DAttentionBaseline input",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 4.664063453674316e-06,
+      "mean_abs_diff": 7.688890377721691e-07,
+      "torch_output_shape": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "tf_output_shape_nhwc": [
+        1,
+        14,
+        14,
+        512
+      ],
+      "tf_output_shape_nchw": [
+        1,
+        512,
+        14,
+        14
+      ],
+      "likely_failed_subcomponent": null
+    },
+    {
+      "name": "captured 3-real-image DAttentionBaseline input",
+      "status": "pass_preferred",
+      "pass": true,
+      "preferred_pass": true,
+      "acceptable_pass": true,
+      "max_abs_diff": 8.106231689453125e-06,
+      "mean_abs_diff": 4.832071454075049e-07,
+      "torch_output_shape": [
+        3,
+        512,
+        14,
+        14
+      ],
+      "tf_output_shape_nhwc": [
+        3,
+        14,
+        14,
+        512
+      ],
+      "tf_output_shape_nchw": [
+        3,
+        512,
+        14,
+        14
+      ],
+      "likely_failed_subcomponent": null
+    }
+  ],
+  "real_images_performed": true,
+  "real_image_paths": [
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg"
+  ],
+  "safe_to_proceed_to_stage_g_full_transformerstage_parity": true,
+  "unresolved_issues": [],
+  "warnings": [
+    "stage_f_deformable_attention_parity.py:130: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+    "__init__.py:49: Importing from timm.models.layers is deprecated, please import via timm.layers",
+    "functional.py:534: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)"
+  ],
+  "errors": [],
+  "log_lines": [
+    "random DAttentionBaseline input: status=pass_preferred max_abs_diff=8.16583633e-06 mean_abs_diff=8.04580907e-07 torch_shape=[1, 512, 14, 14] tf_nhwc_shape=[1, 14, 14, 512] tf_nchw_shape=[1, 512, 14, 14]",
+    "captured random-image DAttentionBaseline input: status=pass_preferred max_abs_diff=4.66406345e-06 mean_abs_diff=7.68889038e-07 torch_shape=[1, 512, 14, 14] tf_nhwc_shape=[1, 14, 14, 512] tf_nchw_shape=[1, 512, 14, 14]",
+    "captured 3-real-image DAttentionBaseline input: status=pass_preferred max_abs_diff=8.10623169e-06 mean_abs_diff=4.83207145e-07 torch_shape=[3, 512, 14, 14] tf_nhwc_shape=[3, 14, 14, 512] tf_nchw_shape=[3, 512, 14, 14]"
+  ],
+  "json_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_f_20260515_183945/stage_f_deformable_attention_report.json",
+  "log_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_f_20260515_183945/stage_f_deformable_attention_log.txt",
+  "debug_tensors_summary_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_stage_f_20260515_183945/optional_debug_tensors_summary.json",
+  "captured_output": [
+    "random DAttentionBaseline input: status=pass_preferred max_abs_diff=8.16583633e-06 mean_abs_diff=8.04580907e-07 torch_shape=[1, 512, 14, 14] tf_nhwc_shape=[1, 14, 14, 512] tf_nchw_shape=[1, 512, 14, 14]",
+    "captured random-image DAttentionBaseline input: status=pass_preferred max_abs_diff=4.66406345e-06 mean_abs_diff=7.68889038e-07 torch_shape=[1, 512, 14, 14] tf_nhwc_shape=[1, 14, 14, 512] tf_nchw_shape=[1, 512, 14, 14]",
+    "captured 3-real-image DAttentionBaseline input: status=pass_preferred max_abs_diff=8.10623169e-06 mean_abs_diff=4.83207145e-07 torch_shape=[3, 512, 14, 14] tf_nhwc_shape=[3, 14, 14, 512] tf_nchw_shape=[3, 512, 14, 14]"
+  ]
+}

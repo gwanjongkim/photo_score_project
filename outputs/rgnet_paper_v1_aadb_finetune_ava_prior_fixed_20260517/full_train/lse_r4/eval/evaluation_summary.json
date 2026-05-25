@@ -1,0 +1,56 @@
+{
+  "created_at_local": "2026-05-17T19:26:25.384720+09:00",
+  "model_variant": "RGNet-paper-v1 approximation",
+  "official_reproduction": false,
+  "model_name": "rgnet_paper_v1_aadb_regression",
+  "model_path": "outputs/rgnet_paper_v1_aadb_finetune_ava_prior_fixed_20260517/full_train/lse_r4/final_model.keras",
+  "image_size": 256,
+  "batch_size": 16,
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.21.0"
+  },
+  "splits": {
+    "test": {
+      "num_samples": 1000,
+      "target_min": 0.05000000074505806,
+      "target_max": 1.0,
+      "prediction_min": 0.1434435099363327,
+      "prediction_max": 0.8771124482154846,
+      "srcc": 0.6557778737670259,
+      "plcc": 0.6700203948686868,
+      "mae": 0.12215989828109741,
+      "rmse": 0.1516219917024093,
+      "mse": 0.02298922836780548,
+      "split": "test",
+      "csv": "data/processed/aadb/test.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "elapsed_seconds": 41.5900029100012,
+      "seconds_per_image": 0.0415900029100012,
+      "predictions_path": "outputs/rgnet_paper_v1_aadb_finetune_ava_prior_fixed_20260517/full_train/lse_r4/eval/test_predictions.csv"
+    },
+    "val": {
+      "num_samples": 846,
+      "target_min": 0.0,
+      "target_max": 0.949999988079071,
+      "prediction_min": 0.20109111070632935,
+      "prediction_max": 0.8799519538879395,
+      "srcc": 0.5740946675172797,
+      "plcc": 0.5854986601387835,
+      "mae": 0.11700049787759781,
+      "rmse": 0.14936875298337768,
+      "mse": 0.022311024367809296,
+      "split": "val",
+      "csv": "data/processed/aadb/val.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "elapsed_seconds": 24.221038637013407,
+      "seconds_per_image": 0.028630069310890554,
+      "predictions_path": "outputs/rgnet_paper_v1_aadb_finetune_ava_prior_fixed_20260517/full_train/lse_r4/eval/val_predictions.csv"
+    }
+  }
+}

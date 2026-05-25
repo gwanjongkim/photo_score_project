@@ -1,0 +1,76 @@
+{
+  "created_at": "2026-05-20T13:00:09.508834+09:00",
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python tools/export_mobile_alamp_v2_tflite.py --model_path outputs/mobile_alamp_v2_full_ava_20260519/best_val_auc_model.keras --val_patch_jsonl outputs/alamp_v4_full_ava_20260517/subsets/val_patch_boxes_full_v4.jsonl --output_dir outputs/mobile_alamp_v2_full_ava_20260519_tflite --max_samples 64",
+  "keras_model": "outputs/mobile_alamp_v2_full_ava_20260519/best_val_auc_model.keras",
+  "val_patch_jsonl": "outputs/alamp_v4_full_ava_20260517/subsets/val_patch_boxes_full_v4.jsonl",
+  "output_dir": "outputs/mobile_alamp_v2_full_ava_20260519_tflite",
+  "preprocessing_mode": "mobilenetv3_include_preprocessing_float_pixels_0_255",
+  "sample_count": 64,
+  "image_size": 384,
+  "patch_size": 224,
+  "patch_count": 5,
+  "label_threshold": 5.0,
+  "tensorflow": {
+    "tensorflow_version": "2.21.0",
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ]
+  },
+  "conversion_source": "temporary_keras_export_saved_model",
+  "keras_model_summary": {
+    "name": "mobile_alamp_v2",
+    "parameter_count": 2370785,
+    "inputs": [
+      {
+        "name": "full_image",
+        "shape": [
+          null,
+          384,
+          384,
+          3
+        ],
+        "dtype": "float32"
+      },
+      {
+        "name": "patches",
+        "shape": [
+          null,
+          5,
+          224,
+          224,
+          3
+        ],
+        "dtype": "float32"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "keras_tensor_772",
+        "shape": [
+          null,
+          1
+        ],
+        "dtype": "float32"
+      }
+    ]
+  },
+  "exports": {
+    "fp32": {
+      "precision": "fp32",
+      "path": "outputs/mobile_alamp_v2_full_ava_20260519_tflite/mobile_alamp_v2_fp32.tflite",
+      "started_at": "2026-05-20T12:59:57.334313+09:00",
+      "finished_at": "2026-05-20T13:00:00.290793+09:00",
+      "size_bytes": 5742824,
+      "size_mib": 5.476783752441406
+    },
+    "fp16": {
+      "precision": "fp16",
+      "path": "outputs/mobile_alamp_v2_full_ava_20260519_tflite/mobile_alamp_v2_fp16.tflite",
+      "started_at": "2026-05-20T13:00:01.159044+09:00",
+      "finished_at": "2026-05-20T13:00:04.342089+09:00",
+      "size_bytes": 2930400,
+      "size_mib": 2.794647216796875
+    }
+  }
+}

@@ -1,0 +1,1627 @@
+{
+  "output_dir": "outputs/test_vila_aesthetic_model_audit_20260423",
+  "num_images": 50,
+  "direct_candidate_columns": [
+    "stage5_student_full_aadb",
+    "stage5_student_full_run_legacy",
+    "aadb_composition",
+    "nima_ava_unit",
+    "alamp_aadb",
+    "musiq_aadb_quality_aux",
+    "rgnet_aadb"
+  ],
+  "reference_dependent_candidate_columns": [
+    "pairwise_aadb_recovered"
+  ],
+  "core_aesthetic_consensus_columns": [
+    "aadb_composition",
+    "nima_ava_unit",
+    "alamp_aadb",
+    "rgnet_aadb"
+  ],
+  "score_summary": {
+    "stage5_student_full_aadb": {
+      "count": 50,
+      "min": 0.3785756826400757,
+      "max": 0.5850298404693604,
+      "range": 0.20645415782928467,
+      "mean": 0.45461517453193667,
+      "std": 0.04407902903506164,
+      "p10": 0.3991467952728271,
+      "p25": 0.42264886200428003,
+      "median": 0.45793676376342773,
+      "p75": 0.48019513487815857,
+      "p90": 0.5057310998439789,
+      "top10": [
+        {
+          "image_path": "test_vila/20231231_150055.jpg",
+          "score": 0.5850298404693604
+        },
+        {
+          "image_path": "test_vila/1675564674752-17.jpg",
+          "score": 0.5605639219284058
+        },
+        {
+          "image_path": "test_vila/20250204_170733.jpg",
+          "score": 0.5224953889846802
+        },
+        {
+          "image_path": "test_vila/1675564674752-15.jpg",
+          "score": 0.510549783706665
+        },
+        {
+          "image_path": "test_vila/IMG_2729.JPG",
+          "score": 0.5096454620361328
+        },
+        {
+          "image_path": "test_vila/1675564674752-2.jpg",
+          "score": 0.5052961707115173
+        },
+        {
+          "image_path": "test_vila/20250204_174237(0).jpg",
+          "score": 0.5044190883636475
+        },
+        {
+          "image_path": "test_vila/1675564423029-24.jpg",
+          "score": 0.5035297870635986
+        },
+        {
+          "image_path": "test_vila/IMG_2781.JPG",
+          "score": 0.4931034743785858
+        },
+        {
+          "image_path": "test_vila/1675564423029-9.jpg",
+          "score": 0.4850962460041046
+        }
+      ],
+      "bottom10": [
+        {
+          "image_path": "test_vila/20240515_073118.jpg",
+          "score": 0.3785756826400757
+        },
+        {
+          "image_path": "test_vila/1715855266134.jpg",
+          "score": 0.3837714791297912
+        },
+        {
+          "image_path": "test_vila/20240101_143158.jpg",
+          "score": 0.3839264214038849
+        },
+        {
+          "image_path": "test_vila/20240510_213907.jpg",
+          "score": 0.395579069852829
+        },
+        {
+          "image_path": "test_vila/20240503_210355.jpg",
+          "score": 0.3961448669433594
+        },
+        {
+          "image_path": "test_vila/20240502_193823.jpg",
+          "score": 0.3994803428649902
+        },
+        {
+          "image_path": "test_vila/1720499657653.jpg",
+          "score": 0.3995106220245361
+        },
+        {
+          "image_path": "test_vila/20250217_144845.jpg",
+          "score": 0.4045672118663788
+        },
+        {
+          "image_path": "test_vila/20250129_102520.jpg",
+          "score": 0.4059046506881714
+        },
+        {
+          "image_path": "test_vila/20250205_000515.jpg",
+          "score": 0.4106115102767944
+        }
+      ]
+    },
+    "stage5_student_full_run_legacy": {
+      "count": 50,
+      "min": 0.2193546891212463,
+      "max": 0.7669700384140015,
+      "range": 0.5476153492927551,
+      "mean": 0.4686527913808823,
+      "std": 0.11668148027128243,
+      "p10": 0.34420530498027796,
+      "p25": 0.39506909996271133,
+      "median": 0.4639741778373718,
+      "p75": 0.5340743511915207,
+      "p90": 0.6341085493564607,
+      "top10": [
+        {
+          "image_path": "test_vila/20250129_054504.jpg",
+          "score": 0.7669700384140015
+        },
+        {
+          "image_path": "test_vila/20250129_102520.jpg",
+          "score": 0.7388653755187988
+        },
+        {
+          "image_path": "test_vila/20240509_154353.jpg",
+          "score": 0.6953725218772888
+        },
+        {
+          "image_path": "test_vila/20240502_193823.jpg",
+          "score": 0.6747585535049438
+        },
+        {
+          "image_path": "test_vila/1715855266134.jpg",
+          "score": 0.6725183725357056
+        },
+        {
+          "image_path": "test_vila/20250204_170733.jpg",
+          "score": 0.6298407912254333
+        },
+        {
+          "image_path": "test_vila/1675564423029-6.jpg",
+          "score": 0.5851786136627197
+        },
+        {
+          "image_path": "test_vila/20250205_000515.jpg",
+          "score": 0.5746670961380005
+        },
+        {
+          "image_path": "test_vila/20240510_213907.jpg",
+          "score": 0.5637703537940979
+        },
+        {
+          "image_path": "test_vila/20231231_150055.jpg",
+          "score": 0.5610575079917908
+        }
+      ],
+      "bottom10": [
+        {
+          "image_path": "test_vila/20250204_133404.jpg",
+          "score": 0.2193546891212463
+        },
+        {
+          "image_path": "test_vila/20240101_143158.jpg",
+          "score": 0.2691188454627991
+        },
+        {
+          "image_path": "test_vila/20250204_135520.jpg",
+          "score": 0.2974759638309479
+        },
+        {
+          "image_path": "test_vila/20240506_140415.jpg",
+          "score": 0.3135604858398437
+        },
+        {
+          "image_path": "test_vila/1675342165226-13.jpg",
+          "score": 0.3322240114212036
+        },
+        {
+          "image_path": "test_vila/20240503_210355.jpg",
+          "score": 0.3455365598201751
+        },
+        {
+          "image_path": "test_vila/IMG_2729.JPG",
+          "score": 0.3508283793926239
+        },
+        {
+          "image_path": "test_vila/IMG_2785.JPG",
+          "score": 0.3619334399700165
+        },
+        {
+          "image_path": "test_vila/1675342165226-3.jpg",
+          "score": 0.3717654049396515
+        },
+        {
+          "image_path": "test_vila/1720499657653.jpg",
+          "score": 0.3792544305324554
+        }
+      ]
+    },
+    "aadb_composition": {
+      "count": 50,
+      "min": 0.3486328125,
+      "max": 0.693359375,
+      "range": 0.3447265625,
+      "mean": 0.5030810546875,
+      "std": 0.09336361950748656,
+      "p10": 0.369482421875,
+      "p25": 0.43743896484375,
+      "median": 0.5146484375,
+      "p75": 0.5582275390625,
+      "p90": 0.626220703125,
+      "top10": [
+        {
+          "image_path": "test_vila/1675564423029-24.jpg",
+          "score": 0.693359375
+        },
+        {
+          "image_path": "test_vila/20231231_150055.jpg",
+          "score": 0.6669921875
+        },
+        {
+          "image_path": "test_vila/20250204_163550.jpg",
+          "score": 0.66162109375
+        },
+        {
+          "image_path": "test_vila/1675564674752-17.jpg",
+          "score": 0.6591796875
+        },
+        {
+          "image_path": "test_vila/20240510_191716.jpg",
+          "score": 0.65478515625
+        },
+        {
+          "image_path": "test_vila/20250204_174237(0).jpg",
+          "score": 0.623046875
+        },
+        {
+          "image_path": "test_vila/1675564674752-2.jpg",
+          "score": 0.61083984375
+        },
+        {
+          "image_path": "test_vila/IMG_2739.JPG",
+          "score": 0.60009765625
+        },
+        {
+          "image_path": "test_vila/1704296944756.jpg",
+          "score": 0.60009765625
+        },
+        {
+          "image_path": "test_vila/1675342165226-5.jpg",
+          "score": 0.5830078125
+        }
+      ],
+      "bottom10": [
+        {
+          "image_path": "test_vila/20250129_054504.jpg",
+          "score": 0.3486328125
+        },
+        {
+          "image_path": "test_vila/20240503_210355.jpg",
+          "score": 0.353759765625
+        },
+        {
+          "image_path": "test_vila/20240517_060242.jpg",
+          "score": 0.3564453125
+        },
+        {
+          "image_path": "test_vila/20240101_143158.jpg",
+          "score": 0.362060546875
+        },
+        {
+          "image_path": "test_vila/20250129_102520.jpg",
+          "score": 0.365966796875
+        },
+        {
+          "image_path": "test_vila/20240510_213907.jpg",
+          "score": 0.369873046875
+        },
+        {
+          "image_path": "test_vila/20240505_153023.jpg",
+          "score": 0.373779296875
+        },
+        {
+          "image_path": "test_vila/20240515_073118.jpg",
+          "score": 0.3828125
+        },
+        {
+          "image_path": "test_vila/20250205_072644.jpg",
+          "score": 0.38427734375
+        },
+        {
+          "image_path": "test_vila/20240502_193823.jpg",
+          "score": 0.4013671875
+        }
+      ]
+    },
+    "nima_ava_unit": {
+      "count": 50,
+      "min": 0.45307111740112305,
+      "max": 0.6029793951246474,
+      "range": 0.14990827772352433,
+      "mean": 0.5178116247389051,
+      "std": 0.032311945837986744,
+      "p10": 0.4853354242112901,
+      "p25": 0.49873509671953,
+      "median": 0.5116680198245578,
+      "p75": 0.5338945918613011,
+      "p90": 0.562937503390842,
+      "top10": [
+        {
+          "image_path": "test_vila/1675342165226-13.jpg",
+          "score": 0.6029793951246474
+        },
+        {
+          "image_path": "test_vila/1675342165226-5.jpg",
+          "score": 0.5985564125908746
+        },
+        {
+          "image_path": "test_vila/1675342165226-3.jpg",
+          "score": 0.597050772772895
+        },
+        {
+          "image_path": "test_vila/20250204_170733.jpg",
+          "score": 0.5665309694078233
+        },
+        {
+          "image_path": "test_vila/1675564423029-24.jpg",
+          "score": 0.5643907123141818
+        },
+        {
+          "image_path": "test_vila/20250204_133404.jpg",
+          "score": 0.5627760357326932
+        },
+        {
+          "image_path": "test_vila/20240509_154353.jpg",
+          "score": 0.5463574727376302
+        },
+        {
+          "image_path": "test_vila/20240505_153023.jpg",
+          "score": 0.545953114827474
+        },
+        {
+          "image_path": "test_vila/IMG_2785.JPG",
+          "score": 0.5450338787502713
+        },
+        {
+          "image_path": "test_vila/20250204_174237(0).jpg",
+          "score": 0.5438727802700467
+        }
+      ],
+      "bottom10": [
+        {
+          "image_path": "test_vila/20250205_000515.jpg",
+          "score": 0.45307111740112305
+        },
+        {
+          "image_path": "test_vila/1715855266134.jpg",
+          "score": 0.46228016747368705
+        },
+        {
+          "image_path": "test_vila/20250129_102520.jpg",
+          "score": 0.4738544358147515
+        },
+        {
+          "image_path": "test_vila/20240101_143158.jpg",
+          "score": 0.47576210233900285
+        },
+        {
+          "image_path": "test_vila/20240502_193823.jpg",
+          "score": 0.4758274820115831
+        },
+        {
+          "image_path": "test_vila/20240510_213907.jpg",
+          "score": 0.4863918622334798
+        },
+        {
+          "image_path": "test_vila/1675564674752-15.jpg",
+          "score": 0.4895232518513997
+        },
+        {
+          "image_path": "test_vila/20240503_210355.jpg",
+          "score": 0.4904449250962999
+        },
+        {
+          "image_path": "test_vila/IMG_2738.JPG",
+          "score": 0.4928938017951118
+        },
+        {
+          "image_path": "test_vila/20250129_054504.jpg",
+          "score": 0.49498346116807723
+        }
+      ]
+    },
+    "alamp_aadb": {
+      "count": 50,
+      "min": 0.318765789270401,
+      "max": 0.8201163411140442,
+      "range": 0.5013505518436432,
+      "mean": 0.5095304304361343,
+      "std": 0.11048870474781243,
+      "p10": 0.39024520516395567,
+      "p25": 0.41756884008646006,
+      "median": 0.49900154769420624,
+      "p75": 0.5780139267444611,
+      "p90": 0.6776748120784759,
+      "top10": [
+        {
+          "image_path": "test_vila/1675342165226-3.jpg",
+          "score": 0.8201163411140442
+        },
+        {
+          "image_path": "test_vila/20231231_150055.jpg",
+          "score": 0.7480834126472473
+        },
+        {
+          "image_path": "test_vila/20250205_072644.jpg",
+          "score": 0.7179859280586243
+        },
+        {
+          "image_path": "test_vila/1675342165226-5.jpg",
+          "score": 0.6852927803993225
+        },
+        {
+          "image_path": "test_vila/1675564423029-24.jpg",
+          "score": 0.6788794994354248
+        },
+        {
+          "image_path": "test_vila/1675342165226-13.jpg",
+          "score": 0.6775409579277039
+        },
+        {
+          "image_path": "test_vila/20250204_174237(0).jpg",
+          "score": 0.628693699836731
+        },
+        {
+          "image_path": "test_vila/20250129_103313.jpg",
+          "score": 0.6149340867996216
+        },
+        {
+          "image_path": "test_vila/1675564423029-9.jpg",
+          "score": 0.6008578538894653
+        },
+        {
+          "image_path": "test_vila/IMG_2729.JPG",
+          "score": 0.5997374057769775
+        }
+      ],
+      "bottom10": [
+        {
+          "image_path": "test_vila/20240101_143158.jpg",
+          "score": 0.318765789270401
+        },
+        {
+          "image_path": "test_vila/20250129_054504.jpg",
+          "score": 0.3746693432331085
+        },
+        {
+          "image_path": "test_vila/IMG_2739.JPG",
+          "score": 0.377956360578537
+        },
+        {
+          "image_path": "test_vila/20240510_213907.jpg",
+          "score": 0.3779867887496948
+        },
+        {
+          "image_path": "test_vila/20240517_060245.jpg",
+          "score": 0.3882639110088348
+        },
+        {
+          "image_path": "test_vila/IMG_2748.JPG",
+          "score": 0.3904653489589691
+        },
+        {
+          "image_path": "test_vila/20240515_073118.jpg",
+          "score": 0.3915054500102997
+        },
+        {
+          "image_path": "test_vila/20230201_181510.jpg",
+          "score": 0.3946042656898498
+        },
+        {
+          "image_path": "test_vila/20240517_060242.jpg",
+          "score": 0.3964758217334747
+        },
+        {
+          "image_path": "test_vila/1720499657653.jpg",
+          "score": 0.4003412127494812
+        }
+      ]
+    },
+    "musiq_aadb_quality_aux": {
+      "count": 50,
+      "min": 0.4555244445800781,
+      "max": 0.5928253531455994,
+      "range": 0.13730090856552124,
+      "mean": 0.5171521562337875,
+      "std": 0.03383308196466326,
+      "p10": 0.47768298387527464,
+      "p25": 0.4950041249394416,
+      "median": 0.5148479342460632,
+      "p75": 0.5361461639404297,
+      "p90": 0.5684724092483521,
+      "top10": [
+        {
+          "image_path": "test_vila/20240515_092725.jpg",
+          "score": 0.5928253531455994
+        },
+        {
+          "image_path": "test_vila/20250204_135520.jpg",
+          "score": 0.5790039300918579
+        },
+        {
+          "image_path": "test_vila/20250217_144845.jpg",
+          "score": 0.578485369682312
+        },
+        {
+          "image_path": "test_vila/20240505_170541.jpg",
+          "score": 0.5749173164367676
+        },
+        {
+          "image_path": "test_vila/1704296944756.jpg",
+          "score": 0.5688395500183105
+        },
+        {
+          "image_path": "test_vila/1675342165226-5.jpg",
+          "score": 0.5684316158294678
+        },
+        {
+          "image_path": "test_vila/1675342165226-3.jpg",
+          "score": 0.5682427883148193
+        },
+        {
+          "image_path": "test_vila/20250204_133404.jpg",
+          "score": 0.5575453639030457
+        },
+        {
+          "image_path": "test_vila/20240509_154353.jpg",
+          "score": 0.5513648390769958
+        },
+        {
+          "image_path": "test_vila/1675342165226-13.jpg",
+          "score": 0.5438821911811829
+        }
+      ],
+      "bottom10": [
+        {
+          "image_path": "test_vila/20250129_102520.jpg",
+          "score": 0.4555244445800781
+        },
+        {
+          "image_path": "test_vila/20250129_103313.jpg",
+          "score": 0.4582906663417816
+        },
+        {
+          "image_path": "test_vila/20240515_073118.jpg",
+          "score": 0.4619545936584472
+        },
+        {
+          "image_path": "test_vila/20240505_153023.jpg",
+          "score": 0.470150887966156
+        },
+        {
+          "image_path": "test_vila/20250129_054504.jpg",
+          "score": 0.4722451269626617
+        },
+        {
+          "image_path": "test_vila/1675564423029-6.jpg",
+          "score": 0.4782871901988983
+        },
+        {
+          "image_path": "test_vila/20250205_072644.jpg",
+          "score": 0.4793300926685333
+        },
+        {
+          "image_path": "test_vila/20240506_120558.jpg",
+          "score": 0.4795956313610077
+        },
+        {
+          "image_path": "test_vila/IMG_2748.JPG",
+          "score": 0.482435017824173
+        },
+        {
+          "image_path": "test_vila/20240503_210355.jpg",
+          "score": 0.4826387465000152
+        }
+      ]
+    },
+    "rgnet_aadb": {
+      "count": 50,
+      "min": 0.333030641078949,
+      "max": 0.6511545181274414,
+      "range": 0.31812387704849243,
+      "mean": 0.4859708023071289,
+      "std": 0.0753975435340326,
+      "p10": 0.37427823841571806,
+      "p25": 0.4265165850520134,
+      "median": 0.49162285029888153,
+      "p75": 0.5316571593284607,
+      "p90": 0.577463811635971,
+      "top10": [
+        {
+          "image_path": "test_vila/1675342165226-13.jpg",
+          "score": 0.6511545181274414
+        },
+        {
+          "image_path": "test_vila/20250204_174237(0).jpg",
+          "score": 0.6293185949325562
+        },
+        {
+          "image_path": "test_vila/20231231_150055.jpg",
+          "score": 0.6026811599731445
+        },
+        {
+          "image_path": "test_vila/20250204_163550.jpg",
+          "score": 0.5987586975097656
+        },
+        {
+          "image_path": "test_vila/1675342165226-5.jpg",
+          "score": 0.5819517374038696
+        },
+        {
+          "image_path": "test_vila/1675342165226-3.jpg",
+          "score": 0.5769651532173157
+        },
+        {
+          "image_path": "test_vila/1675564423029-9.jpg",
+          "score": 0.5663410425186157
+        },
+        {
+          "image_path": "test_vila/1675564674752-2.jpg",
+          "score": 0.5633546113967896
+        },
+        {
+          "image_path": "test_vila/1675564423029-24.jpg",
+          "score": 0.5490248203277588
+        },
+        {
+          "image_path": "test_vila/20230201_181510.jpg",
+          "score": 0.5421605110168457
+        }
+      ],
+      "bottom10": [
+        {
+          "image_path": "test_vila/20250217_144845.jpg",
+          "score": 0.333030641078949
+        },
+        {
+          "image_path": "test_vila/20240517_060242.jpg",
+          "score": 0.3412827551364898
+        },
+        {
+          "image_path": "test_vila/20250205_000515.jpg",
+          "score": 0.3428855538368225
+        },
+        {
+          "image_path": "test_vila/1738744324186.jpg",
+          "score": 0.3566089272499084
+        },
+        {
+          "image_path": "test_vila/20240517_060245.jpg",
+          "score": 0.3587825000286102
+        },
+        {
+          "image_path": "test_vila/20250129_054504.jpg",
+          "score": 0.3759999871253967
+        },
+        {
+          "image_path": "test_vila/IMG_2739.JPG",
+          "score": 0.4077821671962738
+        },
+        {
+          "image_path": "test_vila/20250129_102520.jpg",
+          "score": 0.4153130352497101
+        },
+        {
+          "image_path": "test_vila/20250205_072644.jpg",
+          "score": 0.4190320968627929
+        },
+        {
+          "image_path": "test_vila/20240510_213907.jpg",
+          "score": 0.4212830364704132
+        }
+      ]
+    },
+    "pairwise_aadb_recovered": {
+      "count": 50,
+      "min": 0.5100988745689392,
+      "max": 0.5102419853210449,
+      "range": 0.0001431107521057129,
+      "mean": 0.5101530313491821,
+      "std": 3.8108331708618576e-05,
+      "p10": 0.5101168394088745,
+      "p25": 0.5101258605718613,
+      "median": 0.5101410448551178,
+      "p75": 0.510169118642807,
+      "p90": 0.5102124392986298,
+      "top10": [
+        {
+          "image_path": "test_vila/1675564674752-15.jpg",
+          "score": 0.5102419853210449
+        },
+        {
+          "image_path": "test_vila/20250129_103313.jpg",
+          "score": 0.5102380514144897
+        },
+        {
+          "image_path": "test_vila/20250205_000515.jpg",
+          "score": 0.5102357864379883
+        },
+        {
+          "image_path": "test_vila/1720499666985.jpg",
+          "score": 0.5102338790893555
+        },
+        {
+          "image_path": "test_vila/20231231_150055.jpg",
+          "score": 0.5102324485778809
+        },
+        {
+          "image_path": "test_vila/20250129_102520.jpg",
+          "score": 0.5102102160453796
+        },
+        {
+          "image_path": "test_vila/20240505_153023.jpg",
+          "score": 0.5102018117904663
+        },
+        {
+          "image_path": "test_vila/IMG_2785.JPG",
+          "score": 0.5101997256278992
+        },
+        {
+          "image_path": "test_vila/1675564674752-17.jpg",
+          "score": 0.5101965665817261
+        },
+        {
+          "image_path": "test_vila/1675564674752-2.jpg",
+          "score": 0.5101925134658813
+        }
+      ],
+      "bottom10": [
+        {
+          "image_path": "test_vila/20240517_060242.jpg",
+          "score": 0.5100988745689392
+        },
+        {
+          "image_path": "test_vila/1675342165226-13.jpg",
+          "score": 0.5101102590560913
+        },
+        {
+          "image_path": "test_vila/20250204_174237(0).jpg",
+          "score": 0.5101118087768555
+        },
+        {
+          "image_path": "test_vila/1720499657653.jpg",
+          "score": 0.5101125240325928
+        },
+        {
+          "image_path": "test_vila/1704296944756.jpg",
+          "score": 0.5101127624511719
+        },
+        {
+          "image_path": "test_vila/20240503_210355.jpg",
+          "score": 0.5101172924041748
+        },
+        {
+          "image_path": "test_vila/IMG_2729.JPG",
+          "score": 0.5101190209388733
+        },
+        {
+          "image_path": "test_vila/1675342165226-3.jpg",
+          "score": 0.5101213455200195
+        },
+        {
+          "image_path": "test_vila/IMG_2748.JPG",
+          "score": 0.5101221799850464
+        },
+        {
+          "image_path": "test_vila/1675342165226-5.jpg",
+          "score": 0.5101222991943359
+        }
+      ]
+    },
+    "core_aesthetic_consensus_mean": {
+      "count": 50,
+      "min": 0.3985714010066456,
+      "max": 0.6396069212092294,
+      "range": 0.24103552020258373,
+      "mean": 0.5040984780424171,
+      "std": 0.061687776620355066,
+      "p10": 0.4266755491495132,
+      "p25": 0.4627974627332555,
+      "median": 0.4967218078672886,
+      "p75": 0.5375780452870661,
+      "p90": 0.6068299073312018,
+      "top10": [
+        {
+          "image_path": "test_vila/20231231_150055.jpg",
+          "score": 0.6396069212092294
+        },
+        {
+          "image_path": "test_vila/1675342165226-3.jpg",
+          "score": 0.6264627542760637
+        },
+        {
+          "image_path": "test_vila/1675564423029-24.jpg",
+          "score": 0.6214136017693414
+        },
+        {
+          "image_path": "test_vila/1675342165226-13.jpg",
+          "score": 0.6125573896699481
+        },
+        {
+          "image_path": "test_vila/1675342165226-5.jpg",
+          "score": 0.6122021857235167
+        },
+        {
+          "image_path": "test_vila/20250204_174237(0).jpg",
+          "score": 0.6062329875098335
+        },
+        {
+          "image_path": "test_vila/20250204_163550.jpg",
+          "score": 0.5867425070868598
+        },
+        {
+          "image_path": "test_vila/1675564423029-9.jpg",
+          "score": 0.5617150399419997
+        },
+        {
+          "image_path": "test_vila/1675564674752-2.jpg",
+          "score": 0.5579642968045341
+        },
+        {
+          "image_path": "test_vila/IMG_2729.JPG",
+          "score": 0.5533861468235651
+        }
+      ],
+      "bottom10": [
+        {
+          "image_path": "test_vila/20250129_054504.jpg",
+          "score": 0.3985714010066456
+        },
+        {
+          "image_path": "test_vila/20240517_060242.jpg",
+          "score": 0.40483056008815765
+        },
+        {
+          "image_path": "test_vila/20240101_143158.jpg",
+          "score": 0.41245076143079334
+        },
+        {
+          "image_path": "test_vila/20240510_213907.jpg",
+          "score": 0.41388368358214694
+        },
+        {
+          "image_path": "test_vila/20250205_000515.jpg",
+          "score": 0.4170185774564743
+        },
+        {
+          "image_path": "test_vila/20240517_060245.jpg",
+          "score": 0.42774854600429535
+        },
+        {
+          "image_path": "test_vila/20240502_193823.jpg",
+          "score": 0.42890171623892254
+        },
+        {
+          "image_path": "test_vila/20240503_210355.jpg",
+          "score": 0.43374451912111706
+        },
+        {
+          "image_path": "test_vila/20240515_073118.jpg",
+          "score": 0.4343883949849341
+        },
+        {
+          "image_path": "test_vila/1715855266134.jpg",
+          "score": 0.44054188165399766
+        }
+      ]
+    }
+  },
+  "top10_overlap": [
+    {
+      "candidate_a": "aadb_composition",
+      "candidate_b": "alamp_aadb",
+      "overlap_count": 4,
+      "overlap_images": "1675342165226-5.jpg;1675564423029-24.jpg;20231231_150055.jpg;20250204_174237(0).jpg"
+    },
+    {
+      "candidate_a": "aadb_composition",
+      "candidate_b": "core_aesthetic_consensus_mean",
+      "overlap_count": 6,
+      "overlap_images": "1675342165226-5.jpg;1675564423029-24.jpg;1675564674752-2.jpg;20231231_150055.jpg;20250204_163550.jpg;20250204_174237(0).jpg"
+    },
+    {
+      "candidate_a": "aadb_composition",
+      "candidate_b": "musiq_aadb_quality_aux",
+      "overlap_count": 2,
+      "overlap_images": "1675342165226-5.jpg;1704296944756.jpg"
+    },
+    {
+      "candidate_a": "aadb_composition",
+      "candidate_b": "nima_ava_unit",
+      "overlap_count": 3,
+      "overlap_images": "1675342165226-5.jpg;1675564423029-24.jpg;20250204_174237(0).jpg"
+    },
+    {
+      "candidate_a": "aadb_composition",
+      "candidate_b": "pairwise_aadb_recovered",
+      "overlap_count": 3,
+      "overlap_images": "1675564674752-17.jpg;1675564674752-2.jpg;20231231_150055.jpg"
+    },
+    {
+      "candidate_a": "aadb_composition",
+      "candidate_b": "rgnet_aadb",
+      "overlap_count": 6,
+      "overlap_images": "1675342165226-5.jpg;1675564423029-24.jpg;1675564674752-2.jpg;20231231_150055.jpg;20250204_163550.jpg;20250204_174237(0).jpg"
+    },
+    {
+      "candidate_a": "alamp_aadb",
+      "candidate_b": "core_aesthetic_consensus_mean",
+      "overlap_count": 8,
+      "overlap_images": "1675342165226-13.jpg;1675342165226-3.jpg;1675342165226-5.jpg;1675564423029-24.jpg;1675564423029-9.jpg;20231231_150055.jpg;20250204_174237(0).jpg;IMG_2729.JPG"
+    },
+    {
+      "candidate_a": "alamp_aadb",
+      "candidate_b": "musiq_aadb_quality_aux",
+      "overlap_count": 3,
+      "overlap_images": "1675342165226-13.jpg;1675342165226-3.jpg;1675342165226-5.jpg"
+    },
+    {
+      "candidate_a": "alamp_aadb",
+      "candidate_b": "pairwise_aadb_recovered",
+      "overlap_count": 2,
+      "overlap_images": "20231231_150055.jpg;20250129_103313.jpg"
+    },
+    {
+      "candidate_a": "alamp_aadb",
+      "candidate_b": "rgnet_aadb",
+      "overlap_count": 7,
+      "overlap_images": "1675342165226-13.jpg;1675342165226-3.jpg;1675342165226-5.jpg;1675564423029-24.jpg;1675564423029-9.jpg;20231231_150055.jpg;20250204_174237(0).jpg"
+    },
+    {
+      "candidate_a": "musiq_aadb_quality_aux",
+      "candidate_b": "core_aesthetic_consensus_mean",
+      "overlap_count": 3,
+      "overlap_images": "1675342165226-13.jpg;1675342165226-3.jpg;1675342165226-5.jpg"
+    },
+    {
+      "candidate_a": "musiq_aadb_quality_aux",
+      "candidate_b": "pairwise_aadb_recovered",
+      "overlap_count": 0,
+      "overlap_images": ""
+    },
+    {
+      "candidate_a": "musiq_aadb_quality_aux",
+      "candidate_b": "rgnet_aadb",
+      "overlap_count": 3,
+      "overlap_images": "1675342165226-13.jpg;1675342165226-3.jpg;1675342165226-5.jpg"
+    },
+    {
+      "candidate_a": "nima_ava_unit",
+      "candidate_b": "alamp_aadb",
+      "overlap_count": 5,
+      "overlap_images": "1675342165226-13.jpg;1675342165226-3.jpg;1675342165226-5.jpg;1675564423029-24.jpg;20250204_174237(0).jpg"
+    },
+    {
+      "candidate_a": "nima_ava_unit",
+      "candidate_b": "core_aesthetic_consensus_mean",
+      "overlap_count": 5,
+      "overlap_images": "1675342165226-13.jpg;1675342165226-3.jpg;1675342165226-5.jpg;1675564423029-24.jpg;20250204_174237(0).jpg"
+    },
+    {
+      "candidate_a": "nima_ava_unit",
+      "candidate_b": "musiq_aadb_quality_aux",
+      "overlap_count": 5,
+      "overlap_images": "1675342165226-13.jpg;1675342165226-3.jpg;1675342165226-5.jpg;20240509_154353.jpg;20250204_133404.jpg"
+    },
+    {
+      "candidate_a": "nima_ava_unit",
+      "candidate_b": "pairwise_aadb_recovered",
+      "overlap_count": 2,
+      "overlap_images": "20240505_153023.jpg;IMG_2785.JPG"
+    },
+    {
+      "candidate_a": "nima_ava_unit",
+      "candidate_b": "rgnet_aadb",
+      "overlap_count": 5,
+      "overlap_images": "1675342165226-13.jpg;1675342165226-3.jpg;1675342165226-5.jpg;1675564423029-24.jpg;20250204_174237(0).jpg"
+    },
+    {
+      "candidate_a": "pairwise_aadb_recovered",
+      "candidate_b": "core_aesthetic_consensus_mean",
+      "overlap_count": 2,
+      "overlap_images": "1675564674752-2.jpg;20231231_150055.jpg"
+    },
+    {
+      "candidate_a": "rgnet_aadb",
+      "candidate_b": "core_aesthetic_consensus_mean",
+      "overlap_count": 9,
+      "overlap_images": "1675342165226-13.jpg;1675342165226-3.jpg;1675342165226-5.jpg;1675564423029-24.jpg;1675564423029-9.jpg;1675564674752-2.jpg;20231231_150055.jpg;20250204_163550.jpg;20250204_174237(0).jpg"
+    },
+    {
+      "candidate_a": "rgnet_aadb",
+      "candidate_b": "pairwise_aadb_recovered",
+      "overlap_count": 2,
+      "overlap_images": "1675564674752-2.jpg;20231231_150055.jpg"
+    },
+    {
+      "candidate_a": "stage5_student_full_aadb",
+      "candidate_b": "aadb_composition",
+      "overlap_count": 5,
+      "overlap_images": "1675564423029-24.jpg;1675564674752-17.jpg;1675564674752-2.jpg;20231231_150055.jpg;20250204_174237(0).jpg"
+    },
+    {
+      "candidate_a": "stage5_student_full_aadb",
+      "candidate_b": "alamp_aadb",
+      "overlap_count": 5,
+      "overlap_images": "1675564423029-24.jpg;1675564423029-9.jpg;20231231_150055.jpg;20250204_174237(0).jpg;IMG_2729.JPG"
+    },
+    {
+      "candidate_a": "stage5_student_full_aadb",
+      "candidate_b": "core_aesthetic_consensus_mean",
+      "overlap_count": 6,
+      "overlap_images": "1675564423029-24.jpg;1675564423029-9.jpg;1675564674752-2.jpg;20231231_150055.jpg;20250204_174237(0).jpg;IMG_2729.JPG"
+    },
+    {
+      "candidate_a": "stage5_student_full_aadb",
+      "candidate_b": "musiq_aadb_quality_aux",
+      "overlap_count": 0,
+      "overlap_images": ""
+    },
+    {
+      "candidate_a": "stage5_student_full_aadb",
+      "candidate_b": "nima_ava_unit",
+      "overlap_count": 3,
+      "overlap_images": "1675564423029-24.jpg;20250204_170733.jpg;20250204_174237(0).jpg"
+    },
+    {
+      "candidate_a": "stage5_student_full_aadb",
+      "candidate_b": "pairwise_aadb_recovered",
+      "overlap_count": 4,
+      "overlap_images": "1675564674752-15.jpg;1675564674752-17.jpg;1675564674752-2.jpg;20231231_150055.jpg"
+    },
+    {
+      "candidate_a": "stage5_student_full_aadb",
+      "candidate_b": "rgnet_aadb",
+      "overlap_count": 5,
+      "overlap_images": "1675564423029-24.jpg;1675564423029-9.jpg;1675564674752-2.jpg;20231231_150055.jpg;20250204_174237(0).jpg"
+    },
+    {
+      "candidate_a": "stage5_student_full_aadb",
+      "candidate_b": "stage5_student_full_run_legacy",
+      "overlap_count": 2,
+      "overlap_images": "20231231_150055.jpg;20250204_170733.jpg"
+    },
+    {
+      "candidate_a": "stage5_student_full_run_legacy",
+      "candidate_b": "aadb_composition",
+      "overlap_count": 1,
+      "overlap_images": "20231231_150055.jpg"
+    },
+    {
+      "candidate_a": "stage5_student_full_run_legacy",
+      "candidate_b": "alamp_aadb",
+      "overlap_count": 1,
+      "overlap_images": "20231231_150055.jpg"
+    },
+    {
+      "candidate_a": "stage5_student_full_run_legacy",
+      "candidate_b": "core_aesthetic_consensus_mean",
+      "overlap_count": 1,
+      "overlap_images": "20231231_150055.jpg"
+    },
+    {
+      "candidate_a": "stage5_student_full_run_legacy",
+      "candidate_b": "musiq_aadb_quality_aux",
+      "overlap_count": 1,
+      "overlap_images": "20240509_154353.jpg"
+    },
+    {
+      "candidate_a": "stage5_student_full_run_legacy",
+      "candidate_b": "nima_ava_unit",
+      "overlap_count": 2,
+      "overlap_images": "20240509_154353.jpg;20250204_170733.jpg"
+    },
+    {
+      "candidate_a": "stage5_student_full_run_legacy",
+      "candidate_b": "pairwise_aadb_recovered",
+      "overlap_count": 3,
+      "overlap_images": "20231231_150055.jpg;20250129_102520.jpg;20250205_000515.jpg"
+    },
+    {
+      "candidate_a": "stage5_student_full_run_legacy",
+      "candidate_b": "rgnet_aadb",
+      "overlap_count": 1,
+      "overlap_images": "20231231_150055.jpg"
+    }
+  ],
+  "spearman_rank_agreement": {
+    "stage5_student_full_aadb": {
+      "stage5_student_full_aadb": 1.0,
+      "stage5_student_full_run_legacy": -0.100792,
+      "aadb_composition": 0.756867,
+      "nima_ava_unit": 0.469964,
+      "alamp_aadb": 0.378247,
+      "musiq_aadb_quality_aux": 0.301705,
+      "rgnet_aadb": 0.45383,
+      "pairwise_aadb_recovered": 0.100696,
+      "core_aesthetic_consensus_mean": 0.650132
+    },
+    "stage5_student_full_run_legacy": {
+      "stage5_student_full_aadb": -0.100792,
+      "stage5_student_full_run_legacy": 1.0,
+      "aadb_composition": -0.084998,
+      "nima_ava_unit": -0.257239,
+      "alamp_aadb": -0.118848,
+      "musiq_aadb_quality_aux": -0.184634,
+      "rgnet_aadb": -0.261849,
+      "pairwise_aadb_recovered": 0.253974,
+      "core_aesthetic_consensus_mean": -0.203938
+    },
+    "aadb_composition": {
+      "stage5_student_full_aadb": 0.756867,
+      "stage5_student_full_run_legacy": -0.084998,
+      "aadb_composition": 1.0,
+      "nima_ava_unit": 0.449049,
+      "alamp_aadb": 0.35243,
+      "musiq_aadb_quality_aux": 0.383644,
+      "rgnet_aadb": 0.550807,
+      "pairwise_aadb_recovered": 0.065886,
+      "core_aesthetic_consensus_mean": 0.744622
+    },
+    "nima_ava_unit": {
+      "stage5_student_full_aadb": 0.469964,
+      "stage5_student_full_run_legacy": -0.257239,
+      "aadb_composition": 0.449049,
+      "nima_ava_unit": 1.0,
+      "alamp_aadb": 0.606627,
+      "musiq_aadb_quality_aux": 0.383914,
+      "rgnet_aadb": 0.529988,
+      "pairwise_aadb_recovered": -0.167539,
+      "core_aesthetic_consensus_mean": 0.723409
+    },
+    "alamp_aadb": {
+      "stage5_student_full_aadb": 0.378247,
+      "stage5_student_full_run_legacy": -0.118848,
+      "aadb_composition": 0.35243,
+      "nima_ava_unit": 0.606627,
+      "alamp_aadb": 1.0,
+      "musiq_aadb_quality_aux": 0.290084,
+      "rgnet_aadb": 0.486579,
+      "pairwise_aadb_recovered": -0.147371,
+      "core_aesthetic_consensus_mean": 0.813205
+    },
+    "musiq_aadb_quality_aux": {
+      "stage5_student_full_aadb": 0.301705,
+      "stage5_student_full_run_legacy": -0.184634,
+      "aadb_composition": 0.383644,
+      "nima_ava_unit": 0.383914,
+      "alamp_aadb": 0.290084,
+      "musiq_aadb_quality_aux": 1.0,
+      "rgnet_aadb": 0.214214,
+      "pairwise_aadb_recovered": -0.227659,
+      "core_aesthetic_consensus_mean": 0.394766
+    },
+    "rgnet_aadb": {
+      "stage5_student_full_aadb": 0.45383,
+      "stage5_student_full_run_legacy": -0.261849,
+      "aadb_composition": 0.550807,
+      "nima_ava_unit": 0.529988,
+      "alamp_aadb": 0.486579,
+      "musiq_aadb_quality_aux": 0.214214,
+      "rgnet_aadb": 1.0,
+      "pairwise_aadb_recovered": -0.173205,
+      "core_aesthetic_consensus_mean": 0.768451
+    },
+    "pairwise_aadb_recovered": {
+      "stage5_student_full_aadb": 0.100696,
+      "stage5_student_full_run_legacy": 0.253974,
+      "aadb_composition": 0.065886,
+      "nima_ava_unit": -0.167539,
+      "alamp_aadb": -0.147371,
+      "musiq_aadb_quality_aux": -0.227659,
+      "rgnet_aadb": -0.173205,
+      "pairwise_aadb_recovered": 1.0,
+      "core_aesthetic_consensus_mean": -0.115006
+    },
+    "core_aesthetic_consensus_mean": {
+      "stage5_student_full_aadb": 0.650132,
+      "stage5_student_full_run_legacy": -0.203938,
+      "aadb_composition": 0.744622,
+      "nima_ava_unit": 0.723409,
+      "alamp_aadb": 0.813205,
+      "musiq_aadb_quality_aux": 0.394766,
+      "rgnet_aadb": 0.768451,
+      "pairwise_aadb_recovered": -0.115006,
+      "core_aesthetic_consensus_mean": 1.0
+    }
+  },
+  "stage5_lower_than_core_consensus_top15": [
+    {
+      "image_path": "test_vila/1675342165226-3.jpg",
+      "stage5_student_full_aadb": 0.4501565098762512,
+      "core_aesthetic_consensus_mean": 0.6264627542760637,
+      "stage5_minus_core_consensus": -0.17630624439981246,
+      "stage5_rank_minus_consensus_rank": 28
+    },
+    {
+      "image_path": "test_vila/1675342165226-5.jpg",
+      "stage5_student_full_aadb": 0.4600562453269958,
+      "core_aesthetic_consensus_mean": 0.6122021857235167,
+      "stage5_minus_core_consensus": -0.1521459403965209,
+      "stage5_rank_minus_consensus_rank": 16
+    },
+    {
+      "image_path": "test_vila/1675342165226-13.jpg",
+      "stage5_student_full_aadb": 0.4742798209190368,
+      "core_aesthetic_consensus_mean": 0.6125573896699481,
+      "stage5_minus_core_consensus": -0.1382775687509113,
+      "stage5_rank_minus_consensus_rank": 11
+    },
+    {
+      "image_path": "test_vila/20250204_163550.jpg",
+      "stage5_student_full_aadb": 0.4595953226089477,
+      "core_aesthetic_consensus_mean": 0.5867425070868598,
+      "stage5_minus_core_consensus": -0.12714718447791212,
+      "stage5_rank_minus_consensus_rank": 15
+    },
+    {
+      "image_path": "test_vila/20250204_133404.jpg",
+      "stage5_student_full_aadb": 0.4213487505912781,
+      "core_aesthetic_consensus_mean": 0.5436284558640586,
+      "stage5_minus_core_consensus": -0.12227970527278054,
+      "stage5_rank_minus_consensus_rank": 28
+    },
+    {
+      "image_path": "test_vila/1675564423029-24.jpg",
+      "stage5_student_full_aadb": 0.5035297870635986,
+      "core_aesthetic_consensus_mean": 0.6214136017693414,
+      "stage5_minus_core_consensus": -0.11788381470574272,
+      "stage5_rank_minus_consensus_rank": 5
+    },
+    {
+      "image_path": "test_vila/20250204_174237(0).jpg",
+      "stage5_student_full_aadb": 0.5044190883636475,
+      "core_aesthetic_consensus_mean": 0.6062329875098335,
+      "stage5_minus_core_consensus": -0.101813899146186,
+      "stage5_rank_minus_consensus_rank": 1
+    },
+    {
+      "image_path": "test_vila/1675564423029-6.jpg",
+      "stage5_student_full_aadb": 0.4430842995643616,
+      "core_aesthetic_consensus_mean": 0.5349046025011275,
+      "stage5_minus_core_consensus": -0.09182030293676591,
+      "stage5_rank_minus_consensus_rank": 18
+    },
+    {
+      "image_path": "test_vila/20250129_103313.jpg",
+      "stage5_student_full_aadb": 0.4242058396339416,
+      "core_aesthetic_consensus_mean": 0.5096605610516336,
+      "stage5_minus_core_consensus": -0.085454721417692,
+      "stage5_rank_minus_consensus_rank": 17
+    },
+    {
+      "image_path": "test_vila/1704296944756.jpg",
+      "stage5_student_full_aadb": 0.4578211903572082,
+      "core_aesthetic_consensus_mean": 0.5384691928823789,
+      "stage5_minus_core_consensus": -0.08064800252517074,
+      "stage5_rank_minus_consensus_rank": 13
+    },
+    {
+      "image_path": "test_vila/1675564423029-9.jpg",
+      "stage5_student_full_aadb": 0.4850962460041046,
+      "core_aesthetic_consensus_mean": 0.5617150399419997,
+      "stage5_minus_core_consensus": -0.07661879393789506,
+      "stage5_rank_minus_consensus_rank": 2
+    },
+    {
+      "image_path": "test_vila/20240509_154353.jpg",
+      "stage5_student_full_aadb": 0.4580523371696472,
+      "core_aesthetic_consensus_mean": 0.533304159839948,
+      "stage5_minus_core_consensus": -0.07525182267030084,
+      "stage5_rank_minus_consensus_rank": 9
+    },
+    {
+      "image_path": "test_vila/20250205_072644.jpg",
+      "stage5_student_full_aadb": 0.434940367937088,
+      "core_aesthetic_consensus_mean": 0.5054388261503643,
+      "stage5_minus_core_consensus": -0.07049845821327627,
+      "stage5_rank_minus_consensus_rank": 12
+    },
+    {
+      "image_path": "test_vila/20240505_153023.jpg",
+      "stage5_student_full_aadb": 0.4221298694610595,
+      "core_aesthetic_consensus_mean": 0.4919593234856924,
+      "stage5_minus_core_consensus": -0.06982945402463286,
+      "stage5_rank_minus_consensus_rank": 7
+    },
+    {
+      "image_path": "test_vila/20240515_092725.jpg",
+      "stage5_student_full_aadb": 0.4563016593456268,
+      "core_aesthetic_consensus_mean": 0.5250248486797015,
+      "stage5_minus_core_consensus": -0.06872318933407467,
+      "stage5_rank_minus_consensus_rank": 10
+    }
+  ],
+  "stage5_higher_than_core_consensus_top15": [
+    {
+      "image_path": "test_vila/20240517_060242.jpg",
+      "stage5_student_full_aadb": 0.4594405889511108,
+      "core_aesthetic_consensus_mean": 0.40483056008815765,
+      "stage5_minus_core_consensus": 0.05461002886295313,
+      "stage5_rank_minus_consensus_rank": -26
+    },
+    {
+      "image_path": "test_vila/20250129_054504.jpg",
+      "stage5_student_full_aadb": 0.4322094023227691,
+      "core_aesthetic_consensus_mean": 0.3985714010066456,
+      "stage5_minus_core_consensus": 0.03363800131612349,
+      "stage5_rank_minus_consensus_rank": -15
+    },
+    {
+      "image_path": "test_vila/1675564674752-17.jpg",
+      "stage5_student_full_aadb": 0.5605639219284058,
+      "core_aesthetic_consensus_mean": 0.5429632282919354,
+      "stage5_minus_core_consensus": 0.01760069363647032,
+      "stage5_rank_minus_consensus_rank": -10
+    },
+    {
+      "image_path": "test_vila/IMG_2739.JPG",
+      "stage5_student_full_aadb": 0.4840900599956512,
+      "core_aesthetic_consensus_mean": 0.4736435032553143,
+      "stage5_minus_core_consensus": 0.010446556740336899,
+      "stage5_rank_minus_consensus_rank": -24
+    },
+    {
+      "image_path": "test_vila/1675564674752-15.jpg",
+      "stage5_student_full_aadb": 0.510549783706665,
+      "core_aesthetic_consensus_mean": 0.5047163714965184,
+      "stage5_minus_core_consensus": 0.00583341221014666,
+      "stage5_rank_minus_consensus_rank": -18
+    },
+    {
+      "image_path": "test_vila/IMG_2781.JPG",
+      "stage5_student_full_aadb": 0.4931034743785858,
+      "core_aesthetic_consensus_mean": 0.49877062771055436,
+      "stage5_minus_core_consensus": -0.005667153331968544,
+      "stage5_rank_minus_consensus_rank": -15
+    },
+    {
+      "image_path": "test_vila/20250205_000515.jpg",
+      "stage5_student_full_aadb": 0.4106115102767944,
+      "core_aesthetic_consensus_mean": 0.4170185774564743,
+      "stage5_minus_core_consensus": -0.006407067179679926,
+      "stage5_rank_minus_consensus_rank": -5
+    },
+    {
+      "image_path": "test_vila/IMG_2738.JPG",
+      "stage5_student_full_aadb": 0.4799456000328064,
+      "core_aesthetic_consensus_mean": 0.48943601217534805,
+      "stage5_minus_core_consensus": -0.009490412142541649,
+      "stage5_rank_minus_consensus_rank": -19
+    },
+    {
+      "image_path": "test_vila/1738744324186.jpg",
+      "stage5_student_full_aadb": 0.4585798680782318,
+      "core_aesthetic_consensus_mean": 0.46833985712793136,
+      "stage5_minus_core_consensus": -0.009759989049699547,
+      "stage5_rank_minus_consensus_rank": -13
+    },
+    {
+      "image_path": "test_vila/20250204_170733.jpg",
+      "stage5_student_full_aadb": 0.5224953889846802,
+      "core_aesthetic_consensus_mean": 0.5339468485779233,
+      "stage5_minus_core_consensus": -0.011451459593243118,
+      "stage5_rank_minus_consensus_rank": -12
+    },
+    {
+      "image_path": "test_vila/20240517_060245.jpg",
+      "stage5_student_full_aadb": 0.4149106442928314,
+      "core_aesthetic_consensus_mean": 0.42774854600429535,
+      "stage5_minus_core_consensus": -0.012837901711463928,
+      "stage5_rank_minus_consensus_rank": -5
+    },
+    {
+      "image_path": "test_vila/20240505_170541.jpg",
+      "stage5_student_full_aadb": 0.4802783131599426,
+      "core_aesthetic_consensus_mean": 0.49806911332739723,
+      "stage5_minus_core_consensus": -0.0177908001674546,
+      "stage5_rank_minus_consensus_rank": -12
+    },
+    {
+      "image_path": "test_vila/20240510_213907.jpg",
+      "stage5_student_full_aadb": 0.395579069852829,
+      "core_aesthetic_consensus_mean": 0.41388368358214694,
+      "stage5_minus_core_consensus": -0.018304613729317964,
+      "stage5_rank_minus_consensus_rank": 0
+    },
+    {
+      "image_path": "test_vila/1720499666985.jpg",
+      "stage5_student_full_aadb": 0.4687695801258087,
+      "core_aesthetic_consensus_mean": 0.49063851601547664,
+      "stage5_minus_core_consensus": -0.02186893588966793,
+      "stage5_rank_minus_consensus_rank": -16
+    },
+    {
+      "image_path": "test_vila/20240506_120558.jpg",
+      "stage5_student_full_aadb": 0.4635312855243683,
+      "core_aesthetic_consensus_mean": 0.486683898501926,
+      "stage5_minus_core_consensus": -0.02315261297755772,
+      "stage5_rank_minus_consensus_rank": -15
+    }
+  ],
+  "large_disagreements_top15": [
+    {
+      "image_path": "test_vila/20250129_102520.jpg",
+      "rank_std_all_candidates": 20.72265840640557,
+      "score_std_all_candidates": 0.12036486243776522,
+      "rank_stage5_student_full_aadb": 42,
+      "rank_stage5_student_full_run_legacy": 2,
+      "rank_aadb_composition": 46,
+      "rank_nima_ava_unit": 48,
+      "rank_alamp_aadb": 11,
+      "rank_musiq_aadb_quality_aux": 50,
+      "rank_rgnet_aadb": 43,
+      "rank_pairwise_aadb_recovered": 6
+    },
+    {
+      "image_path": "test_vila/1675342165226-13.jpg",
+      "rank_std_all_candidates": 19.15351515667928,
+      "score_std_all_candidates": 0.1096011390609125,
+      "rank_stage5_student_full_aadb": 15,
+      "rank_stage5_student_full_run_legacy": 46,
+      "rank_aadb_composition": 24,
+      "rank_nima_ava_unit": 1,
+      "rank_alamp_aadb": 6,
+      "rank_musiq_aadb_quality_aux": 10,
+      "rank_rgnet_aadb": 1,
+      "rank_pairwise_aadb_recovered": 49
+    },
+    {
+      "image_path": "test_vila/20250205_000515.jpg",
+      "rank_std_all_candidates": 17.77437963554766,
+      "score_std_all_candidates": 0.07356772605275007,
+      "rank_stage5_student_full_aadb": 41,
+      "rank_stage5_student_full_run_legacy": 8,
+      "rank_aadb_composition": 33,
+      "rank_nima_ava_unit": 50,
+      "rank_alamp_aadb": 40,
+      "rank_musiq_aadb_quality_aux": 23,
+      "rank_rgnet_aadb": 48,
+      "rank_pairwise_aadb_recovered": 3
+    },
+    {
+      "image_path": "test_vila/1675342165226-3.jpg",
+      "rank_std_all_candidates": 17.580427428576034,
+      "score_std_all_candidates": 0.13148811918246858,
+      "rank_stage5_student_full_aadb": 30,
+      "rank_stage5_student_full_run_legacy": 42,
+      "rank_aadb_composition": 26,
+      "rank_nima_ava_unit": 3,
+      "rank_alamp_aadb": 1,
+      "rank_musiq_aadb_quality_aux": 7,
+      "rank_rgnet_aadb": 6,
+      "rank_pairwise_aadb_recovered": 43
+    },
+    {
+      "image_path": "test_vila/20250129_103313.jpg",
+      "rank_std_all_candidates": 16.805080014260994,
+      "score_std_all_candidates": 0.07219194478969085,
+      "rank_stage5_student_full_aadb": 37,
+      "rank_stage5_student_full_run_legacy": 39,
+      "rank_aadb_composition": 39,
+      "rank_nima_ava_unit": 17,
+      "rank_alamp_aadb": 8,
+      "rank_musiq_aadb_quality_aux": 49,
+      "rank_rgnet_aadb": 32,
+      "rank_pairwise_aadb_recovered": 2
+    },
+    {
+      "image_path": "test_vila/20250129_054504.jpg",
+      "rank_std_all_candidates": 16.756661788247513,
+      "score_std_all_candidates": 0.13335384951786472,
+      "rank_stage5_student_full_aadb": 35,
+      "rank_stage5_student_full_run_legacy": 1,
+      "rank_aadb_composition": 50,
+      "rank_nima_ava_unit": 41,
+      "rank_alamp_aadb": 49,
+      "rank_musiq_aadb_quality_aux": 46,
+      "rank_rgnet_aadb": 45,
+      "rank_pairwise_aadb_recovered": 23
+    },
+    {
+      "image_path": "test_vila/1675564674752-15.jpg",
+      "rank_std_all_candidates": 16.221678616680123,
+      "score_std_all_candidates": 0.055181787552738684,
+      "rank_stage5_student_full_aadb": 4,
+      "rank_stage5_student_full_run_legacy": 38,
+      "rank_aadb_composition": 11,
+      "rank_nima_ava_unit": 44,
+      "rank_alamp_aadb": 34,
+      "rank_musiq_aadb_quality_aux": 13,
+      "rank_rgnet_aadb": 19,
+      "rank_pairwise_aadb_recovered": 1
+    },
+    {
+      "image_path": "test_vila/20240517_060242.jpg",
+      "rank_std_all_candidates": 15.999441954554005,
+      "score_std_all_candidates": 0.07754139616864204,
+      "rank_stage5_student_full_aadb": 23,
+      "rank_stage5_student_full_run_legacy": 17,
+      "rank_aadb_composition": 48,
+      "rank_nima_ava_unit": 18,
+      "rank_alamp_aadb": 42,
+      "rank_musiq_aadb_quality_aux": 14,
+      "rank_rgnet_aadb": 49,
+      "rank_pairwise_aadb_recovered": 50
+    },
+    {
+      "image_path": "test_vila/20250204_133404.jpg",
+      "rank_std_all_candidates": 15.986043019727283,
+      "score_std_all_candidates": 0.11732931303299264,
+      "rank_stage5_student_full_aadb": 39,
+      "rank_stage5_student_full_run_legacy": 50,
+      "rank_aadb_composition": 27,
+      "rank_nima_ava_unit": 6,
+      "rank_alamp_aadb": 14,
+      "rank_musiq_aadb_quality_aux": 8,
+      "rank_rgnet_aadb": 11,
+      "rank_pairwise_aadb_recovered": 30
+    },
+    {
+      "image_path": "test_vila/IMG_2729.JPG",
+      "rank_std_all_candidates": 15.806305251838133,
+      "score_std_all_candidates": 0.07237969798037633,
+      "rank_stage5_student_full_aadb": 5,
+      "rank_stage5_student_full_run_legacy": 44,
+      "rank_aadb_composition": 13,
+      "rank_nima_ava_unit": 20,
+      "rank_alamp_aadb": 10,
+      "rank_musiq_aadb_quality_aux": 35,
+      "rank_rgnet_aadb": 12,
+      "rank_pairwise_aadb_recovered": 44
+    },
+    {
+      "image_path": "test_vila/1715855266134.jpg",
+      "rank_std_all_candidates": 15.52647508520297,
+      "score_std_all_candidates": 0.088414758789528,
+      "rank_stage5_student_full_aadb": 49,
+      "rank_stage5_student_full_run_legacy": 5,
+      "rank_aadb_composition": 36,
+      "rank_nima_ava_unit": 49,
+      "rank_alamp_aadb": 36,
+      "rank_musiq_aadb_quality_aux": 38,
+      "rank_rgnet_aadb": 38,
+      "rank_pairwise_aadb_recovered": 15
+    },
+    {
+      "image_path": "test_vila/20240505_153023.jpg",
+      "rank_std_all_candidates": 15.482709249814315,
+      "score_std_all_candidates": 0.05875631787449232,
+      "rank_stage5_student_full_aadb": 38,
+      "rank_stage5_student_full_run_legacy": 24,
+      "rank_aadb_composition": 44,
+      "rank_nima_ava_unit": 8,
+      "rank_alamp_aadb": 22,
+      "rank_musiq_aadb_quality_aux": 47,
+      "rank_rgnet_aadb": 18,
+      "rank_pairwise_aadb_recovered": 7
+    },
+    {
+      "image_path": "test_vila/20250217_144845.jpg",
+      "rank_std_all_candidates": 15.027950150113146,
+      "score_std_all_candidates": 0.07698765804308713,
+      "rank_stage5_student_full_aadb": 43,
+      "rank_stage5_student_full_run_legacy": 20,
+      "rank_aadb_composition": 38,
+      "rank_nima_ava_unit": 38,
+      "rank_alamp_aadb": 23,
+      "rank_musiq_aadb_quality_aux": 3,
+      "rank_rgnet_aadb": 50,
+      "rank_pairwise_aadb_recovered": 34
+    },
+    {
+      "image_path": "test_vila/20250204_174237(0).jpg",
+      "rank_std_all_candidates": 14.913440725926202,
+      "score_std_all_candidates": 0.06343554595661464,
+      "rank_stage5_student_full_aadb": 7,
+      "rank_stage5_student_full_run_legacy": 23,
+      "rank_aadb_composition": 6,
+      "rank_nima_ava_unit": 10,
+      "rank_alamp_aadb": 7,
+      "rank_musiq_aadb_quality_aux": 16,
+      "rank_rgnet_aadb": 2,
+      "rank_pairwise_aadb_recovered": 48
+    },
+    {
+      "image_path": "test_vila/20250204_135520.jpg",
+      "rank_std_all_candidates": 14.528297511113564,
+      "score_std_all_candidates": 0.08720300746422383,
+      "rank_stage5_student_full_aadb": 12,
+      "rank_stage5_student_full_run_legacy": 48,
+      "rank_aadb_composition": 32,
+      "rank_nima_ava_unit": 11,
+      "rank_alamp_aadb": 15,
+      "rank_musiq_aadb_quality_aux": 2,
+      "rank_rgnet_aadb": 28,
+      "rank_pairwise_aadb_recovered": 22
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# AVA Pretrain + AADB Fine-tune Context Notes
+
+- Date: 2026-05-07.
+- Output directory: `outputs/ava_pretrain_aadb_finetune_20260507/`.
+- Constraints: no Flutter copy, no overwriting previous checkpoints/exports, no deleting previous outputs, and no source edits unless strictly necessary.
+- Initial checkpoints are the previous AVA-only Keras models:
+  - `outputs/ava_retrain_rgnet_alamp_20260506/rgnet_ava_unit/final_model.keras`
+  - `outputs/ava_retrain_rgnet_alamp_20260506/alamp_ava_unit/final_model.keras`
+- Fixed evaluation subsets are reused from the previous experiment:
+  - `outputs/ava_retrain_rgnet_alamp_20260506/subsets/ava_val_unit_subset_512.csv`
+  - `outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv`
+- The repository already had unrelated dirty/untracked files before this experiment. This run will keep new files under the experiment output directory.
+- AADB `score` is already unit-scaled: train min/max 0.000000/1.000000, val min/max 0.000000/0.950000. No normalized manifests are needed.
+- `src/train/train_rgnet.py` and `src/train/train_alamp.py` train from freshly built models and do not support `--initial_model` or `--load_weights`.
+- Source was left unchanged. Experiment-only fine-tune scripts were added under `outputs/ava_pretrain_aadb_finetune_20260507/scripts/`.
+- Fine-tune settings chosen for the first controlled run: learning rate 1e-5, max 10 epochs, EarlyStopping on `val_loss` with patience 3 and restored best weights.
+- First RGNet attempt inside the sandbox could not initialize CUDA and was stopped during epoch 1. The partial history was preserved as `rgnet_ava_pretrain_aadb_finetune/training_history_cpu_aborted.csv`.
+- RGNet fine-tune was rerun outside the sandbox on GPU. It completed 10/10 epochs; best epoch 10, val_loss 0.019849520176649094, val_mae 0.11031755805015564.
+- A-LAMP fine-tune completed 10/10 epochs on GPU at batch size 16; best epoch 10, val_loss 0.020329773426055908, val_mae 0.11302073299884796.
+- Fixed-subset Keras evaluation was run through `scripts/run_fixed_subset_evals.py`, using the previous experiment evaluator and the same AVA/AADB val512 CSVs.
+- RGNet AVA->AADB fine-tuned metrics: AVA val512 SRCC 0.48653126867704927, PLCC 0.5168676245372462; AADB val512 SRCC 0.6749177647031382, PLCC 0.6835216300102603, MAE 0.11035995185375214.
+- A-LAMP AVA->AADB fine-tuned metrics: AVA val512 SRCC 0.45150581922033384, PLCC 0.4615620128354287; AADB val512 SRCC 0.6721682444895459, PLCC 0.6824431859254804, MAE 0.10909918695688248.
+- RGNet TFLite export/parity: SavedModel export produced the requested artifact but required Select TF ops and failed local allocation at `FlexMul`; builtin rebuild diagnostic ran but differed from the fine-tuned checkpoint by max diff 0.17774948477745056, so RGNet is not deployment-ready.
+- A-LAMP TFLite export/parity: builtin float32 rebuild export passed verifier; TFLite vs rebuild max diff was 2.384185791015625e-07.
+- No model was copied to Flutter assets.

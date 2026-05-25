@@ -1,0 +1,2 @@
+image_id,target_mos,target_color,pytorch_mos,pytorch_color,onnx_mos,onnx_color,mos_abs_diff,color_abs_diff,full_row_max_abs_diff,full_row_mean_abs_diff
+complementary/orange_blue/juiedesai19391601268.jpg,0.6720342636108398,0.5637040734291077,0.6711195707321167,0.5976874828338623,0.6711195111274719,0.5976873636245728,5.960464477539063e-08,1.1920928955078125e-07,1.1920928955078125e-07,8.940696716308594e-08

@@ -1,0 +1,14 @@
+{
+  "summary": {
+    "best_app_scoring_ranking": "Existing AADB RGNet (SRCC 0.68)",
+    "best_ava_paper_classification": "RGNet-paper-AVA lse_r4 (Accuracy 0.77)",
+    "best_aadb_regression": "Existing AADB RGNet (SRCC 0.68)",
+    "recommendation": "Use RGNet for both AVA paper classification and AADB regression tracks. Keep AADB models for app-facing features."
+  },
+  "deployment_readiness": {
+    "rgnet_aadb_gpu": "TFLite Ready",
+    "alamp_aadb_gpu": "TFLite Ready",
+    "rgnet_paper_ava_lse_r4": "Keras Weights Only",
+    "alamp_paper_ava_v0": "Keras Weights Only"
+  }
+}

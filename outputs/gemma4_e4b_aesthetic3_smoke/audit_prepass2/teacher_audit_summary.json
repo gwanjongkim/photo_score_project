@@ -1,0 +1,131 @@
+{
+  "manifest": "outputs/gemma4_e4b_aesthetic3_smoke/dataset_all.jsonl",
+  "row_csv": "outputs/gemma4_e4b_aesthetic3_smoke/audit_prepass2/teacher_audit_rows.csv",
+  "summary_counts": {
+    "rows": 49,
+    "numeric_rubric_row_count": 5,
+    "generic_baseline_row_count": 42,
+    "grounding_fail_row_count": 13,
+    "verdict_rewritable_without_numeric_row_count": 49
+  },
+  "literal_numeric_rubric_counts": {
+    "score": 0,
+    "threshold": 0,
+    "weighted_aesthetic_score": 0,
+    "rank": 5,
+    "top_k_style": 0
+  },
+  "sample_problem_rows": [
+    {
+      "id": "test_vila_nvila_20260416_gpu__test_vila__20231231_150055.jpg",
+      "grounding_fail_hits": [
+        "weaker_secondary_cues",
+        "kept_it_ahead"
+      ],
+      "generic_baseline_hits": [
+        "weaker_secondary_cues",
+        "kept_it_ahead"
+      ],
+      "teacher_comment_3line": "Strength: clean detail.\nWeakness: weaker secondary cues.\nVerdict: selected because cleaner detail kept it ahead."
+    },
+    {
+      "id": "test_vila_nvila_20260416_gpu__test_vila__20250204_174237_0_.jpg",
+      "grounding_fail_hits": [
+        "weaker_secondary_cues",
+        "kept_it_ahead"
+      ],
+      "generic_baseline_hits": [
+        "weaker_secondary_cues",
+        "kept_it_ahead"
+      ],
+      "teacher_comment_3line": "Strength: clean detail.\nWeakness: weaker secondary cues.\nVerdict: selected because cleaner detail kept it ahead."
+    },
+    {
+      "id": "test_vila_nvila_20260416_gpu__test_vila__1675564423029-24.jpg",
+      "grounding_fail_hits": [
+        "weaker_secondary_cues",
+        "selected_frame"
+      ],
+      "generic_baseline_hits": [
+        "weaker_secondary_cues",
+        "selected_frame"
+      ],
+      "teacher_comment_3line": "Strength: soft detail.\nWeakness: weaker secondary cues.\nVerdict: selected because softer detail trailed the stronger selected frame."
+    },
+    {
+      "id": "test_vila_nvila_20260416_gpu__test_vila__1675564423029-6.jpg",
+      "grounding_fail_hits": [
+        "weaker_weak"
+      ],
+      "generic_baseline_hits": [],
+      "teacher_comment_3line": "Strength: clean detail.\nWeakness: weak subject emphasis.\nVerdict: not selected because weaker weak subject emphasis outweighed clean detail."
+    },
+    {
+      "id": "test_vila_nvila_20260416_gpu__test_vila__20240509_154353.jpg",
+      "grounding_fail_hits": [
+        "clear_visual_strengths",
+        "the_frame_fell_short"
+      ],
+      "generic_baseline_hits": [
+        "overall_appeal",
+        "clear_visual_strengths"
+      ],
+      "teacher_comment_3line": "Strength: clear visual strengths.\nWeakness: The frame fell short once detail clarity and overall appeal gave higher-ranked images the edge.\nVerdict: not selected because weaker The frame fell short once detail clarity and overall appeal gave higher-ranked images the edge outweighed clear visual strengths."
+    },
+    {
+      "id": "test_vila_nvila_20260416_gpu__test_vila__20240515_092725.jpg",
+      "grounding_fail_hits": [
+        "higher_ranked_frame"
+      ],
+      "generic_baseline_hits": [
+        "aesthetic_appeal",
+        "higher_ranked_frame"
+      ],
+      "teacher_comment_3line": "Strength: clean detail.\nWeakness: weak subject emphasis.\nVerdict: not selected because cleaner detail helped, but weaker aesthetic appeal left it below the higher-ranked frame."
+    },
+    {
+      "id": "test_vila_nvila_20260416_gpu__test_vila__1720499666985.jpg",
+      "grounding_fail_hits": [
+        "higher_ranked_frame"
+      ],
+      "generic_baseline_hits": [
+        "higher_ranked_frame"
+      ],
+      "teacher_comment_3line": "Strength: clean detail and clear subject emphasis.\nWeakness: clean detail.\nVerdict: not selected because cleaner detail helped, but it still stayed below the higher-ranked frame."
+    },
+    {
+      "id": "test_vila_nvila_20260416_gpu__test_vila__20240505_170541.jpg",
+      "grounding_fail_hits": [
+        "weaker_weak"
+      ],
+      "generic_baseline_hits": [],
+      "teacher_comment_3line": "Strength: clean detail.\nWeakness: weak subject emphasis.\nVerdict: not selected because weaker weak subject emphasis outweighed clean detail."
+    },
+    {
+      "id": "test_vila_nvila_20260416_gpu__test_vila__20250129_102520.jpg",
+      "grounding_fail_hits": [
+        "usable_strengths"
+      ],
+      "generic_baseline_hits": [
+        "usable_strengths"
+      ],
+      "teacher_comment_3line": "Strength: Technical and aesthetic evidence gives the image some usable strengths.\nWeakness: soft detail.\nVerdict: not selected because weaker soft detail outweighed Technical and aesthetic evidence gives the image some usable strengths."
+    },
+    {
+      "id": "test_vila_nvila_20260416_gpu__test_vila__20240510_191716.jpg",
+      "grounding_fail_hits": [
+        "higher_ranked_frame"
+      ],
+      "generic_baseline_hits": [
+        "aesthetic_appeal",
+        "higher_ranked_frame"
+      ],
+      "teacher_comment_3line": "Strength: clean detail.\nWeakness: weak subject emphasis.\nVerdict: not selected because cleaner detail helped, but weaker aesthetic appeal left it below the higher-ranked frame."
+    }
+  ],
+  "notes": [
+    "generic_baseline_row_count uses broad abstract/template phrase matching such as overall appeal, weaker secondary cues, and higher-ranked frame.",
+    "grounding_fail_row_count uses a stricter subset focused on visibly ungrounded placeholders or malformed verdict wording.",
+    "proposed_visible_verdict_line is a deterministic A-cut rewrite tied only to the current Strength and Weakness lines."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "stage": "1 and 2",
+  "status": "passed",
+  "model_variant": "A-LAMP-paper-MPNet",
+  "official_reproduction": false,
+  "saliency_method": "sobel_var_approximation",
+  "diversity_method": "iou_penalty",
+  "patch_count": 5,
+  "splits": {
+    "train": {
+      "requested": 1024,
+      "records_written": 1024,
+      "skipped": 0,
+      "avg_patch_score": 0.1095,
+      "output_file": "outputs/alamp_paper_mpnet_design_audit_20260511/subsets/train_patch_boxes_1024.jsonl"
+    },
+    "val": {
+      "requested": 1024,
+      "records_written": 1024,
+      "skipped": 0,
+      "avg_patch_score": 0.1086,
+      "output_file": "outputs/alamp_paper_mpnet_design_audit_20260511/subsets/val_patch_boxes_1024.jsonl"
+    },
+    "test": {
+      "requested": 1024,
+      "records_written": 1024,
+      "skipped": 0,
+      "avg_patch_score": 0.1092,
+      "output_file": "outputs/alamp_paper_mpnet_design_audit_20260511/subsets/test_patch_boxes_1024.jsonl"
+    }
+  },
+  "smoke_validation": {
+    "passed": true,
+    "records_checked": 10,
+    "constraints_verified": [
+      "5 boxes per image",
+      "normalized coordinates in [0, 1]",
+      "x1 < x2 and y1 < y2"
+    ]
+  }
+}

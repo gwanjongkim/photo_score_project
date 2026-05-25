@@ -1,0 +1,235 @@
+{
+  "artifacts": {
+    "best_weights": "outputs/smallrun_alamp_dual_branch_teacher_4096_20260524/best.weights.h5",
+    "final_model": "outputs/smallrun_alamp_dual_branch_teacher_4096_20260524/final_model.keras",
+    "train_summary_json": "outputs/smallrun_alamp_dual_branch_teacher_4096_20260524/train_summary.json",
+    "training_history": "outputs/smallrun_alamp_dual_branch_teacher_4096_20260524/training_history.csv"
+  },
+  "best_val_auc": {
+    "epoch": 3,
+    "metric": "val_auc",
+    "mode": "max",
+    "value": 0.6761755347251892
+  },
+  "best_val_loss": {
+    "epoch": 3,
+    "metric": "val_loss",
+    "mode": "min",
+    "value": 0.5724405646324158
+  },
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python /home/omen_pc1/photo_score_project/src/train/train_alamp_dual_branch_teacher.py --config configs/paper_benchmarks/alamp_dual_branch_teacher_ava_4096.yaml --train_jsonl outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_train.jsonl --val_jsonl outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_val.jsonl --train_graph_jsonl outputs/alamp_object_graph_subset_20260511/graphs_conf010/train_graphs_4096.jsonl --val_graph_jsonl outputs/alamp_object_graph_subset_20260511/graphs_conf010/val_graphs_4096.jsonl --out_dir outputs/smallrun_alamp_dual_branch_teacher_4096_20260524 --epochs 3 --batch_size 4 --max_train_samples 4096 --max_val_samples 4096 --backbone_trainable false",
+  "comparison_target": {
+    "multipatch_full_test_accuracy": 0.7633,
+    "multipatch_full_test_average_precision": 0.8955,
+    "multipatch_full_test_f1": 0.8482,
+    "multipatch_full_test_roc_auc": 0.7877
+  },
+  "config": "configs/paper_benchmarks/alamp_dual_branch_teacher_ava_4096.yaml",
+  "dataset": {
+    "graph_role": "YOLO object graph subset, not full A-LAMP Layout-Aware ground truth",
+    "graph_schema": {
+      "fields": {
+        "adjacency": [
+          4,
+          4
+        ],
+        "node_features": [
+          4,
+          15
+        ],
+        "object_mask": [
+          4
+        ],
+        "source_boxes_norm_xyxy": [
+          4,
+          4
+        ],
+        "source_centers_norm_xy": [
+          4,
+          2
+        ],
+        "source_global_edges": [
+          4,
+          3
+        ],
+        "source_local_edges": [
+          4,
+          4,
+          3
+        ]
+      },
+      "max_objects": 4,
+      "node_feature_dim": 15,
+      "source_keys": [
+        "area_ratio",
+        "boxes_norm_xyxy",
+        "centers_norm_xy",
+        "class_ids",
+        "confidences",
+        "global_edges",
+        "height",
+        "image_path",
+        "local_edges",
+        "num_objects",
+        "object_mask",
+        "row_index",
+        "split",
+        "width"
+      ]
+    },
+    "label_rule": "mean_score > 5.0 -> 1, else 0",
+    "label_threshold": 5.0,
+    "patch_box_role": "external A-LAMP adaptive patch selections, not ground-truth labels",
+    "preprocessing": {
+      "graph_preprocessing": "YOLO graph fields to 15-dim node features plus distance adjacency",
+      "patch_preprocessing": "tf.keras.applications.vgg16.preprocess_input_rgb_float_pixels_0_255"
+    },
+    "train_graph_jsonl": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/train_graphs_4096.jsonl",
+    "train_jsonl": "outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_train.jsonl",
+    "train_label_summary": {
+      "negative": 1172,
+      "positive": 2913,
+      "total": 4085
+    },
+    "train_match_summary": {
+      "graph_records": 4096,
+      "matched_count": 4085,
+      "max_samples": 4096,
+      "missing_graph_count": 199532,
+      "patch_rows_scanned": 203617,
+      "unmatched_graph_count": 11
+    },
+    "val_graph_jsonl": "outputs/alamp_object_graph_subset_20260511/graphs_conf010/val_graphs_4096.jsonl",
+    "val_jsonl": "outputs/alamp_external_patch_full_conversion_20260524/alamp_external_patches_val.jsonl",
+    "val_label_summary": {
+      "negative": 1192,
+      "positive": 2890,
+      "total": 4082
+    },
+    "val_match_summary": {
+      "graph_records": 4096,
+      "matched_count": 4082,
+      "max_samples": 4096,
+      "missing_graph_count": 21365,
+      "patch_rows_scanned": 25447,
+      "unmatched_graph_count": 14
+    }
+  },
+  "final_metrics": {
+    "accuracy": 0.692778468132019,
+    "auc": 0.6456658840179443,
+    "loss": 0.6209026575088501,
+    "precision": 0.7411285638809204,
+    "recall": 0.874699592590332,
+    "val_accuracy": 0.7143557071685791,
+    "val_auc": 0.6761755347251892,
+    "val_loss": 0.5724405646324158,
+    "val_precision": 0.7200102210044861,
+    "val_recall": 0.9761245846748352
+  },
+  "model": {
+    "description": "VGG16 Multi-Patch branch fused with a small YOLO-layout GCN branch",
+    "input_shapes": {
+      "adjacency": [
+        null,
+        4,
+        4
+      ],
+      "node_features": [
+        null,
+        4,
+        15
+      ],
+      "object_mask": [
+        null,
+        4
+      ],
+      "patches": [
+        null,
+        5,
+        224,
+        224,
+        3
+      ]
+    },
+    "name": "alamp_dual_branch_teacher",
+    "non_trainable_parameter_count": 14714688,
+    "output_shape": [
+      null,
+      1
+    ],
+    "parameter_count": 15089409,
+    "reproduction_claim": "not full A-LAMP reproduction",
+    "trainable_parameter_count": 374721,
+    "variant": "A-LAMP Dual-Branch GCN teacher prototype",
+    "vgg16_trainability": {
+      "backbone_name": "vgg16_backbone",
+      "frozen_layer_count": 19,
+      "frozen_layers": [
+        "input_layer",
+        "block1_conv1",
+        "block1_conv2",
+        "block1_pool",
+        "block2_conv1",
+        "block2_conv2",
+        "block2_pool",
+        "block3_conv1",
+        "block3_conv2",
+        "block3_conv3",
+        "block3_pool",
+        "block4_conv1",
+        "block4_conv2",
+        "block4_conv3",
+        "block4_pool",
+        "block5_conv1",
+        "block5_conv2",
+        "block5_conv3",
+        "block5_pool"
+      ],
+      "model_non_trainable_weight_count": 26,
+      "model_trainable_weight_count": 12,
+      "trainable": false,
+      "trainable_layer_count": 0,
+      "trainable_layers": []
+    }
+  },
+  "model_description": "VGG16 Multi-Patch branch fused with a small YOLO-layout GCN branch",
+  "model_variant": "A-LAMP Dual-Branch GCN teacher prototype",
+  "notice": "A-LAMP Dual-Branch GCN teacher prototype, not full A-LAMP reproduction.",
+  "official_full_alamp_reproduction": false,
+  "out_dir": "outputs/smallrun_alamp_dual_branch_teacher_4096_20260524",
+  "reproduction_claim": "not full A-LAMP reproduction",
+  "save_load_max_abs_diff": 0.0,
+  "status": "training_completed",
+  "tensorflow_info": {
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.21.0",
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ]
+  },
+  "training": {
+    "backbone_trainable": false,
+    "batch_size": 4,
+    "epochs": 3,
+    "learning_rate": 0.0001,
+    "loss": "binary_crossentropy",
+    "max_train_samples": 4096,
+    "max_val_samples": 4096,
+    "metrics": [
+      "accuracy",
+      "auc",
+      "precision",
+      "recall"
+    ],
+    "monitor_metric": "val_auc",
+    "monitor_mode": "max",
+    "seed": 42,
+    "steps_per_epoch": 1022,
+    "train_count": 4085,
+    "train_repeat": true,
+    "val_count": 4082,
+    "val_repeat": true,
+    "validation_steps": 1021
+  }
+}

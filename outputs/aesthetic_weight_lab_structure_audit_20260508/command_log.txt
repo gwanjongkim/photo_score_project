@@ -1,0 +1,19 @@
+# Environment Check Commands
+pwd
+date
+git status --short
+ls -lah
+find test_vila -maxdepth 3 -type f 2>/dev/null | sort | head -100
+find outputs/test_vila_raw_aesthetic_scores_html_20260424 -maxdepth 3 -type f | sort
+find tools -maxdepth 2 -type f | sort
+find configs -maxdepth 2 -type f | sort
+
+# Detailed File Inspection Commands
+find outputs/test_vila_raw_aesthetic_scores_html_20260424 -type f -printf '%p %s %TY-%Tm-%Td %TH:%TM:%TS\n' | sort
+head -n 5 outputs/test_vila_raw_aesthetic_scores_html_20260424/*.csv
+cat outputs/test_vila_raw_aesthetic_scores_html_20260424/summary.json
+
+# Script Context Inspection Commands
+head -n 80 outputs/test_vila_raw_aesthetic_scores_html_20260424/review_index.html
+grep -n "img src" tools/build_raw_aesthetic_scores_html.py
+grep -n "def main" tools/build_raw_aesthetic_scores_html.py

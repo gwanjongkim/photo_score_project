@@ -1,0 +1,82 @@
+{
+  "created_at_local": "2026-05-09T18:07:17.338920+09:00",
+  "model_variant": "RGNet-paper-v0 approximation",
+  "official_reproduction": false,
+  "paper_comparability_note": "Uses DenseNet121 and region graph reasoning, but region nodes are spatial feature-map positions with cosine-similarity adjacency; this is not the official paper implementation.",
+  "train_csv": "data/processed/aadb/train.csv",
+  "val_csv": "data/processed/aadb/val.csv",
+  "image_col": "image_path",
+  "target_col": "score",
+  "train_samples": 8,
+  "val_samples": 4,
+  "image_size": 256,
+  "batch_size": 2,
+  "epochs_requested": 1,
+  "epochs_completed": 1,
+  "learning_rate": 0.0001,
+  "early_stopping": {
+    "monitor": "val_loss",
+    "patience": 3,
+    "restore_best_weights": true
+  },
+  "model": {
+    "backbone": "DenseNet121",
+    "backbone_weights_requested": null,
+    "region_dim": 256,
+    "graph_units": 256,
+    "graph_blocks": 2,
+    "graph_temperature": 0.25,
+    "adjacency": "cosine similarity, softmax-normalized",
+    "graph_convolution": "residual graph convolution",
+    "output_activation": "sigmoid"
+  },
+  "tensorflow": {
+    "visible_gpus": [],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">"
+  },
+  "forward_check": {
+    "input_shape": [
+      2,
+      256,
+      256,
+      3
+    ],
+    "output_shape": [
+      2,
+      1
+    ],
+    "prediction_min": 0.4974936246871948,
+    "prediction_max": 0.5148983597755432
+  },
+  "save_load_check": {
+    "loaded_model_name": "rgnet_paper_v0_aadb_regression",
+    "loaded_output_shape": [
+      2,
+      1
+    ],
+    "max_abs_diff_vs_trained_forward_sample": 0.0
+  },
+  "outputs": {
+    "final_model": "outputs/rgnet_paper_aadb_regression_20260509/smoke_train_v2/final_model.keras",
+    "best_weights": "outputs/rgnet_paper_aadb_regression_20260509/smoke_train_v2/best.weights.h5",
+    "training_history_csv": "outputs/rgnet_paper_aadb_regression_20260509/smoke_train_v2/training_history.csv",
+    "train_summary_json": "outputs/rgnet_paper_aadb_regression_20260509/smoke_train_v2/train_summary.json"
+  },
+  "best_epoch": 1,
+  "best_val_loss": 0.03703468665480614,
+  "best_val_mae": 0.17081350088119507,
+  "history": {
+    "loss": [
+      0.06951605528593063
+    ],
+    "mae": [
+      0.21915441751480103
+    ],
+    "val_loss": [
+      0.03703468665480614
+    ],
+    "val_mae": [
+      0.17081350088119507
+    ]
+  }
+}

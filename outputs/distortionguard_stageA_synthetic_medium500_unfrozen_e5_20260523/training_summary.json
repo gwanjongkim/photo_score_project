@@ -1,0 +1,185 @@
+{
+  "args": {
+    "batch_size": 8,
+    "epochs": 5,
+    "freeze_backbone": false,
+    "lr": 5e-05,
+    "manifest_csv": "data/processed/distortionguard_iqa_v1/synthetic_medium_500_manifest.csv",
+    "max_steps_per_epoch": 500,
+    "max_val_samples": 2048,
+    "out_dir": "outputs/distortionguard_stageA_synthetic_medium500_unfrozen_e5_20260523",
+    "pair_batch_size": 4,
+    "pair_lambda": 0.1,
+    "pairs_csv": "data/processed/distortionguard_iqa_v1/synthetic_medium_500_pairs.csv",
+    "seed": 42,
+    "severity_lambda": 1.0,
+    "tau": 0.1,
+    "type_lambda": 1.0
+  },
+  "artifacts": {
+    "best_weights": "outputs/distortionguard_stageA_synthetic_medium500_unfrozen_e5_20260523/best.weights.h5",
+    "final_model": "outputs/distortionguard_stageA_synthetic_medium500_unfrozen_e5_20260523/final_model.keras",
+    "model_summary": "outputs/distortionguard_stageA_synthetic_medium500_unfrozen_e5_20260523/model_summary.txt",
+    "training_log": "outputs/distortionguard_stageA_synthetic_medium500_unfrozen_e5_20260523/training_log.csv",
+    "training_summary": "outputs/distortionguard_stageA_synthetic_medium500_unfrozen_e5_20260523/training_summary.json"
+  },
+  "backbone": "efficientnetv2b0",
+  "best_epoch": 5,
+  "best_val_total_loss": 1.339523644372821,
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python src/train/train_distortionguard_stageA_synthetic.py --manifest_csv data/processed/distortionguard_iqa_v1/synthetic_medium_500_manifest.csv --pairs_csv data/processed/distortionguard_iqa_v1/synthetic_medium_500_pairs.csv --batch_size 8 --pair_batch_size 4 --epochs 5 --lr 5e-5 --type_lambda 1.0 --severity_lambda 1.0 --pair_lambda 0.1 --tau 0.1 --max_steps_per_epoch 500 --max_val_samples 2048 --out_dir outputs/distortionguard_stageA_synthetic_medium500_unfrozen_e5_20260523",
+  "feature_collapse_check": {
+    "embedding_dim_std_max": 1.3710429668426514,
+    "embedding_dim_std_mean": 0.48475050926208496,
+    "embedding_dim_std_min": 0.04943050816655159,
+    "embedding_shape": [
+      2048,
+      128
+    ],
+    "possible_feature_collapse": false,
+    "quality_proxy_max": 0.5703216195106506,
+    "quality_proxy_mean": -0.5238590240478516,
+    "quality_proxy_min": -2.1239712238311768,
+    "quality_proxy_std": 0.4262210726737976,
+    "sample_count": 2048
+  },
+  "final_metrics": {
+    "epoch": 5,
+    "train_pair_accuracy": 0.7365000247955322,
+    "train_pair_loss": 0.7594392895698547,
+    "train_severity_loss": 0.019080566242337227,
+    "train_severity_mae": 0.23712000250816345,
+    "train_total_loss": 1.4884331226348877,
+    "train_type_accuracy": 0.48350000381469727,
+    "train_type_loss": 1.3934077024459839,
+    "val_pair_accuracy": 0.72900390625,
+    "val_pair_loss": 0.6447588205337524,
+    "val_pair_samples": 2048,
+    "val_severity_loss": 0.01919291727244854,
+    "val_severity_mae": 0.23838692903518677,
+    "val_supervised_samples": 2048,
+    "val_total_loss": 1.339523644372821,
+    "val_type_accuracy": 0.5419921875,
+    "val_type_loss": 1.255854845046997
+  },
+  "input_contract": {
+    "dtype": "float32",
+    "external_divide_by_255": false,
+    "include_preprocessing": true,
+    "pixel_range": "0..255",
+    "shape": [
+      null,
+      384,
+      384,
+      3
+    ]
+  },
+  "loss_decrease": {
+    "train_pair_loss": {
+      "available": true,
+      "decreased": true,
+      "delta": -2.3572627902030945,
+      "first": 3.116702079772949,
+      "key": "train_pair_loss",
+      "last": 0.7594392895698547
+    },
+    "train_severity_loss": {
+      "available": true,
+      "decreased": true,
+      "delta": -0.004788899794220924,
+      "first": 0.02386946603655815,
+      "key": "train_severity_loss",
+      "last": 0.019080566242337227
+    },
+    "train_total_loss": {
+      "available": true,
+      "decreased": true,
+      "delta": -1.5020122528076172,
+      "first": 2.990445375442505,
+      "key": "train_total_loss",
+      "last": 1.4884331226348877
+    },
+    "train_type_loss": {
+      "available": true,
+      "decreased": true,
+      "delta": -1.2614988088607788,
+      "first": 2.6549065113067627,
+      "key": "train_type_loss",
+      "last": 1.3934077024459839
+    },
+    "val_total_loss": {
+      "available": true,
+      "decreased": true,
+      "delta": -0.9657259579747917,
+      "first": 2.3052496023476126,
+      "key": "val_total_loss",
+      "last": 1.339523644372821
+    }
+  },
+  "manifest": {
+    "distortion_type_counts": {
+      "contrast_loss": 2500,
+      "defocus_blur": 2500,
+      "downscale_upscale": 2500,
+      "gaussian_blur": 2500,
+      "gaussian_noise": 2500,
+      "jpeg_compression": 2500,
+      "motion_blur": 2500,
+      "overexposure": 2500,
+      "underexposure": 2500,
+      "webp_compression": 2500
+    },
+    "dropped_count": 0,
+    "original_count": 25000,
+    "path": "data/processed/distortionguard_iqa_v1/synthetic_medium_500_manifest.csv",
+    "severity_counts": {
+      "1": 5000,
+      "2": 5000,
+      "3": 5000,
+      "4": 5000,
+      "5": 5000
+    },
+    "source_count": 500,
+    "train_count": 20000,
+    "usable_count": 25000,
+    "val_count": 5000,
+    "val_source_count": 100
+  },
+  "not_final_iqa_regression": true,
+  "not_teacher_student_distillation": true,
+  "pairs": {
+    "distortion_type_counts": {
+      "contrast_loss": 7500,
+      "defocus_blur": 7500,
+      "downscale_upscale": 7500,
+      "gaussian_blur": 7500,
+      "gaussian_noise": 7500,
+      "jpeg_compression": 7500,
+      "motion_blur": 7500,
+      "overexposure": 7500,
+      "underexposure": 7500,
+      "webp_compression": 7500
+    },
+    "dropped_count": 0,
+    "label_counts": {
+      "1": 75000
+    },
+    "original_count": 75000,
+    "path": "data/processed/distortionguard_iqa_v1/synthetic_medium_500_pairs.csv",
+    "train_count": 60000,
+    "usable_count": 75000,
+    "val_count": 15000
+  },
+  "parameter_counts": {
+    "non_trainable": 60608,
+    "trainable": 6548764
+  },
+  "stage": "DistortionGuard-IQA v1 Stage A synthetic pretraining",
+  "steps": {
+    "full_steps_per_epoch": 2500,
+    "max_pair_val_batches": 512,
+    "max_val_batches": 256,
+    "pair_steps_full": 15000,
+    "steps_per_epoch": 500,
+    "supervised_steps_full": 2500
+  }
+}

@@ -1,0 +1,23 @@
+project root: /home/omen_pc1/photo_score_project
+export-safe model package: /home/omen_pc1/photo_score_project/experiments/icaa_export_safe/export_safe_models
+checkpoint path: /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+csv path: /home/omen_pc1/photo_score_project/external/icaa_official_repo/ICAA17K_code/dataset/ICAA17K/1test.csv
+image root: /home/omen_pc1/photo_score_project/data/raw/icaa17k
+output dir: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210640
+device: cpu
+limit: 1
+batch_size: 1
+checkpoint key count: 487
+patch_proj.0.weight shape: (128, 3, 4, 4)
+missing keys: []
+unexpected keys: []
+export-safe checkpoint strict load: ok
+ONNX export attempt opset 13: start
+ONNX export attempt opset 13: failed
+  error: Exporting the operator 'aten::grid_sampler' to ONNX opset version 13 is not supported. Support for this operator was added in version 16, try exporting with this version.
+final status: failed
+error: ONNX export failed for opset versions: [13]
+onnx model: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210640/icaa_dat_export_safe.onnx
+onnx_export_report.json: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210640/onnx_export_report.json
+onnx_parity_predictions.csv: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210640/onnx_parity_predictions.csv
+onnx_export_log.txt: /home/omen_pc1/photo_score_project/outputs/icaa_export_safe_onnx_20260514_210640/onnx_export_log.txt

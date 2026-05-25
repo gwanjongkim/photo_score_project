@@ -1,0 +1,892 @@
+--- generate_teacher_labels.py ---
+     1	from __future__ import annotations
+     2	
+     3	import argparse
+     4	import csv
+     5	import json
+     6	import os
+     7	from pathlib import Path
+     8	
+     9	import pandas as pd
+    10	
+    11	from src.distill.aggregation import compute_teacher_target, load_teacher_config
+    12	from src.distill.data import canonicalize_image_key, load_source_manifests, summarize_cross_split_duplicates
+    13	from src.infer.predict_quality_bundle import load_bundle_models, predict_bundle_for_image
+    14	from src.infer.stage5_reference import load_stage5_reference_config, repo_relative_path
+    15	
+    16	
+    17	OUTPUT_FIELDNAMES = [
+    18	    "image_path",
+    19	    "split",
+    20	    "dataset",
+    21	    "relative_path",
+    22	    "source_manifest",
+    23	    "source_row_index",
+    24	    "teacher_aesthetic_score",
+    25	    "teacher_model_count",
+    26	    "teacher_models_used",
+    27	    "missing_teacher_models",
+    28	    "teacher_contributions_json",
+    29	    "teacher_stage_failure_count",
+    30	    "teacher_stage_failures_json",
+    31	    "teacher_label_error",
+    32	    "aadb_score",
+    33	    "nima_mean_score",
+    34	    "alamp_score",
+    35	    "musiq_score",
+    36	    "rgnet_score",
+    37	    "pairwise_recovered_score",
+    38	    "teacher_config_name",
+    39	    "teacher_config_path",
+    40	    "stage5_config_path",
+    41	]
+    42	
+    43	
+    44	def build_parser() -> argparse.ArgumentParser:
+    45	    parser = argparse.ArgumentParser(description="Generate stage5-teacher labels for student distillation.")
+    46	    parser.add_argument(
+    47	        "--input_csv",
+    48	        action="append",
+    49	        required=True,
+    50	        help="Input manifest CSV. Repeat this flag to combine train/val/test manifests.",
+    51	    )
+    52	    parser.add_argument("--output_csv", required=True)
+    53	    parser.add_argument("--stage5_config", default="configs/stage5_reference.json")
+    54	    parser.add_argument("--teacher_config", default="configs/student_distill_teacher.json")
+    55	    parser.add_argument("--resume", action="store_true")
+    56	    parser.add_argument("--overwrite", action="store_true")
+    57	    parser.add_argument("--limit", type=int)
+    58	    parser.add_argument(
+    59	        "--allow_partial_teacher_scores",
+    60	        action="store_true",
+    61	        help="Emit labels when some teacher scores are missing. By default such rows are skipped.",
+    62	    )
+    63	    return parser
+    64	
+    65	
+    66	def prepare_runtime_environment() -> None:
+    67	    os.environ.setdefault("MPLCONFIGDIR", "/tmp/photo_score_project_mplconfig")
+    68	    Path(os.environ["MPLCONFIGDIR"]).mkdir(parents=True, exist_ok=True)
+    69	
+    70	
+    71	def build_teacher_bundle_namespace(stage5_config: dict[str, object]) -> argparse.Namespace:
+    72	    bundle_args = dict(stage5_config.get("bundle_args") or {})
+    73	    return argparse.Namespace(
+    74	        aadb_model=bundle_args.get("aadb_model"),
+    75	        koniq_model=bundle_args.get("koniq_model"),
+    76	        flive_image_model=bundle_args.get("flive_image_model"),
+    77	        flive_patch_model=bundle_args.get("flive_patch_model"),
+    78	        nima_model=bundle_args.get("nima_model"),
+    79	        alamp_model=bundle_args.get("alamp_model"),
+    80	        musiq_model=bundle_args.get("musiq_model"),
+    81	        rgnet_model=bundle_args.get("rgnet_model"),
+    82	        pairwise_model=bundle_args.get("pairwise_model"),
+    83	        pairwise_reference_csv=bundle_args.get("pairwise_reference_csv"),
+    84	        pairwise_target_col=bundle_args.get("pairwise_target_col", "score"),
+    85	        pairwise_max_references=int(bundle_args.get("pairwise_max_references", 16)),
+    86	        image_size=int(bundle_args.get("image_size", 224)),
+    87	        rgnet_image_size=int(bundle_args.get("rgnet_image_size", 256)),
+    88	        alamp_global_size=int(bundle_args.get("alamp_global_size", 384)),
+    89	        alamp_patch_size=int(bundle_args.get("alamp_patch_size", 224)),
+    90	        alamp_num_patches=int(bundle_args.get("alamp_num_patches", 5)),
+    91	        alamp_patch_scale=float(bundle_args.get("alamp_patch_scale", 0.35)),
+    92	        alamp_include_debug=False,
+    93	        include_debug=False,
+    94	        musiq_patch_size=int(bundle_args.get("musiq_patch_size", 32)),
+    95	        musiq_scale_sizes=str(bundle_args.get("musiq_scale_sizes", "224,384,512")),
+    96	        musiq_patches_per_scale=int(bundle_args.get("musiq_patches_per_scale", 16)),
+    97	        json_indent=2,
+    98	        _auto_resolved_model_fields=[],
+    99	        _model_load_warnings=[],
+   100	    )
+   101	
+   102	
+   103	def load_existing_output(output_csv: Path) -> pd.DataFrame:
+   104	    if not output_csv.exists() or output_csv.stat().st_size == 0:
+   105	        return pd.DataFrame(columns=OUTPUT_FIELDNAMES)
+   106	    frame = pd.read_csv(output_csv)
+   107	    if "image_path" in frame.columns:
+   108	        frame["__image_key"] = frame["image_path"].apply(canonicalize_image_key)
+   109	    return frame
+   110	
+   111	
+   112	def main() -> None:
+   113	    parser = build_parser()
+   114	    args = parser.parse_args()
+   115	    prepare_runtime_environment()
+   116	
+   117	    output_csv = Path(args.output_csv)
+   118	    if not output_csv.is_absolute():
+   119	        output_csv = output_csv.resolve(strict=False)
+   120	
+   121	    if output_csv.exists() and not args.resume and not args.overwrite:
+   122	        raise ValueError(f"Output already exists. Use --resume or --overwrite: {output_csv}")
+   123	    if args.resume and args.overwrite:
+   124	        raise ValueError("Choose only one of --resume or --overwrite.")
+   125	    if args.overwrite and output_csv.exists():
+   126	        output_csv.unlink()
+   127	
+   128	    source_frame = load_source_manifests(args.input_csv)
+   129	    if args.limit:
+   130	        source_frame = source_frame.head(int(args.limit)).copy()
+   131	    duplicate_summary = summarize_cross_split_duplicates(source_frame)
+   132	    if duplicate_summary["num_cross_split_duplicates"] > 0:
+   133	        print(json.dumps({"cross_split_duplicate_warning": duplicate_summary}, ensure_ascii=False))
+   134	
+   135	    teacher_config, teacher_config_path = load_teacher_config(args.teacher_config)
+   136	    stage5_config, stage5_config_path = load_stage5_reference_config(args.stage5_config)
+   137	    runtime_args = build_teacher_bundle_namespace(stage5_config)
+   138	    teacher_models = load_bundle_models(runtime_args)
+   139	
+   140	    existing_output = load_existing_output(output_csv) if args.resume else pd.DataFrame(columns=OUTPUT_FIELDNAMES)
+   141	    existing_keys = set(existing_output.get("__image_key", pd.Series(dtype=str)).dropna().astype(str).tolist())
+   142	    source_split_counts = {
+   143	        str(key): int(value) for key, value in source_frame["split"].astype(str).value_counts().to_dict().items()
+   144	    }
+   145	    existing_split_counts = (
+   146	        {str(key): int(value) for key, value in existing_output["split"].astype(str).value_counts().to_dict().items()}
+   147	        if not existing_output.empty and "split" in existing_output.columns
+   148	        else {}
+   149	    )
+   150	    print(
+   151	        json.dumps(
+   152	            {
+   153	                "generator_start": {
+   154	                    "input_rows": int(len(source_frame)),
+   155	                    "input_split_counts": source_split_counts,
+   156	                    "resume_enabled": bool(args.resume),
+   157	                    "existing_output_rows": int(len(existing_output)),
+   158	                    "existing_output_split_counts": existing_split_counts,
+   159	                    "output_csv": str(output_csv),
+   160	                }
+   161	            },
+   162	            ensure_ascii=False,
+   163	        )
+   164	    )
+   165	
+   166	    rows_written = 0
+   167	    rows_skipped_existing = 0
+   168	    rows_skipped_missing_teacher = 0
+   169	    rows_failed = 0
+   170	    rows_total = int(len(source_frame))
+   171	
+   172	    output_csv.parent.mkdir(parents=True, exist_ok=True)
+   173	    write_header = not output_csv.exists() or output_csv.stat().st_size == 0
+   174	    with output_csv.open("a", encoding="utf-8", newline="") as handle:
+   175	        writer = csv.DictWriter(handle, fieldnames=OUTPUT_FIELDNAMES)
+   176	        if write_header:
+   177	            writer.writeheader()
+   178	
+   179	        for index, row in enumerate(source_frame.to_dict(orient="records"), start=1):
+   180	            image_key = canonicalize_image_key(row.get("image_path"))
+   181	            if image_key is not None and image_key in existing_keys:
+   182	                rows_skipped_existing += 1
+   183	                continue
+   184	
+   185	            try:
+   186	                result = predict_bundle_for_image(row["image_path"], args=runtime_args, models=teacher_models)
+   187	            except Exception as exc:
+   188	                rows_failed += 1
+   189	                print(
+   190	                    json.dumps(
+   191	                        {
+   192	                            "processed": index,
+   193	                            "total": rows_total,
+   194	                            "image_path": row.get("image_path"),
+   195	                            "error": f"{exc.__class__.__name__}: {exc}",
+   196	                            "rows_failed": rows_failed,
+   197	                        },
+   198	                        ensure_ascii=False,
+   199	                    )
+   200	                )
+   201	                continue
+   202	            effective_teacher_config = dict(teacher_config)
+   203	            if args.allow_partial_teacher_scores:
+   204	                effective_teacher_config["allow_partial_teacher_scores"] = True
+   205	            teacher_score, contributions, missing_teacher_models = compute_teacher_target(
+   206	                record=result,
+   207	                teacher_config=effective_teacher_config,
+   208	            )
+   209	            if teacher_score is None:
+   210	                rows_skipped_missing_teacher += 1
+   211	                continue
+   212	
+   213	            stage_failures = result.get("model_stage_failures") or []
+   214	            output_row = {
+   215	                "image_path": str(row.get("image_path")),
+   216	                "split": row.get("split"),
+   217	                "dataset": row.get("dataset"),
+   218	                "relative_path": row.get("relative_path"),
+   219	                "source_manifest": row.get("source_manifest"),
+   220	                "source_row_index": row.get("source_row_index"),
+--- predict_quality_bundle.py ---
+     1	from __future__ import annotations
+     2	
+     3	import argparse
+     4	import json
+     5	import logging
+     6	import mimetypes
+     7	from pathlib import Path
+     8	
+     9	import numpy as np
+    10	import pandas as pd
+    11	from PIL import Image, ImageOps
+    12	import tensorflow as tf
+    13	
+    14	from src.datasets.native_size_dataset import prepare_alamp_inputs
+    15	from src.models.alamp import LayoutCueAugmentation, WeightedPatchPooling
+    16	from src.models.nima_distribution import distribution_mean_score, emd_loss, mean_score_mae
+    17	from src.models.pairwise_comparator import AbsoluteDifference
+    18	from src.models.rgnet import GraphConvolution, RegionGraphBuilder, RegionWeightedPooling
+    19	from src.utils.pairwise_utils import pairwise_probabilities_to_strength, recover_score_from_pairwise_matrix
+    20	
+    21	
+    22	class BundleInferenceError(RuntimeError):
+    23	    def __init__(
+    24	        self,
+    25	        *,
+    26	        stage: str,
+    27	        image_path: str | Path,
+    28	        message: str,
+    29	        recoverable: bool,
+    30	    ) -> None:
+    31	        super().__init__(message)
+    32	        self.stage = stage
+    33	        self.image_path = str(image_path)
+    34	        self.recoverable = bool(recoverable)
+    35	
+    36	
+    37	logger = logging.getLogger(__name__)
+    38	
+    39	
+    40	_HEIF_BRANDS = {
+    41	    "heic",
+    42	    "heix",
+    43	    "hevc",
+    44	    "hevx",
+    45	    "heim",
+    46	    "heis",
+    47	    "mif1",
+    48	    "msf1",
+    49	}
+    50	
+    51	
+    52	def _register_optional_heif_support() -> tuple[bool, str | None]:
+    53	    try:
+    54	        from pillow_heif import __version__ as pillow_heif_version
+    55	        from pillow_heif import register_heif_opener
+    56	
+    57	        register_heif_opener()
+    58	        return True, f"pillow_heif {pillow_heif_version}"
+    59	    except Exception as exc:  # pragma: no cover - depends on worker environment
+    60	        return False, f"{exc.__class__.__name__}: {exc}"
+    61	
+    62	
+    63	HEIF_SUPPORT_ENABLED, HEIF_SUPPORT_DETAIL = _register_optional_heif_support()
+    64	
+    65	
+    66	def read_file_header_bytes(path: Path, num_bytes: int = 64) -> bytes:
+    67	    try:
+    68	        with path.open("rb") as handle:
+    69	            return handle.read(max(0, int(num_bytes)))
+    70	    except Exception:
+    71	        return b""
+    72	
+    73	
+    74	def detect_magic_format(header: bytes) -> str | None:
+    75	    if len(header) >= 12 and header[4:8] == b"ftyp":
+    76	        brand = header[8:12].decode("ascii", errors="replace").lower()
+    77	        if brand in _HEIF_BRANDS or brand.startswith("he"):
+    78	            return f"image/heif({brand})"
+    79	        return f"application/isobmff({brand})"
+    80	    if header.startswith(b"\xff\xd8\xff"):
+    81	        return "image/jpeg"
+    82	    if header.startswith(b"\x89PNG\r\n\x1a\n"):
+    83	        return "image/png"
+    84	    if header.startswith(b"RIFF") and len(header) >= 12 and header[8:12] == b"WEBP":
+    85	        return "image/webp"
+    86	    if header.startswith(b"BM"):
+    87	        return "image/bmp"
+    88	    return None
+    89	
+    90	
+    91	def header_hex_preview(header: bytes, max_bytes: int = 24) -> str:
+    92	    if not header:
+    93	        return ""
+    94	    return header[: max(0, int(max_bytes))].hex()
+    95	
+    96	
+    97	def load_image_rgb(image_path: Path) -> Image.Image:
+    98	    image_path = Path(image_path)
+    99	    try:
+   100	        with Image.open(image_path) as handle:
+   101	            image = ImageOps.exif_transpose(handle).convert("RGB")
+   102	            image.load()
+   103	        width, height = image.size
+   104	        if width < 2 or height < 2:
+   105	            raise ValueError(f"Image dimensions are too small: {width}x{height}")
+   106	        return image
+   107	    except BundleInferenceError:
+   108	        raise
+   109	    except Exception as exc:
+   110	        header = read_file_header_bytes(image_path, num_bytes=64)
+   111	        magic_format = detect_magic_format(header)
+   112	        mime_guess, _ = mimetypes.guess_type(str(image_path))
+   113	        size_bytes = None
+   114	        try:
+   115	            size_bytes = int(image_path.stat().st_size)
+   116	        except OSError:
+   117	            pass
+   118	        details = (
+   119	            f"suffix={image_path.suffix.lower()!r}, "
+   120	            f"size_bytes={size_bytes}, "
+   121	            f"mime_guess={mime_guess!r}, "
+   122	            f"magic_format={magic_format!r}, "
+   123	            f"header_hex={header_hex_preview(header)!r}, "
+   124	            f"heif_support_enabled={HEIF_SUPPORT_ENABLED}, "
+   125	            f"heif_support_detail={HEIF_SUPPORT_DETAIL!r}"
+   126	        )
+   127	        hint = ""
+   128	        if magic_format and magic_format.startswith("image/heif") and not HEIF_SUPPORT_ENABLED:
+   129	            hint = " HEIF bytes detected but HEIF decoder support is unavailable in this environment."
+   130	        raise BundleInferenceError(
+   131	            stage="image_decode",
+   132	            image_path=image_path,
+   133	            message=f"{exc.__class__.__name__}: {exc}. [{details}]{hint}",
+   134	            recoverable=False,
+   135	        ) from exc
+   136	
+   137	
+   138	def preprocess_image_pil(img: Image.Image, size: int = 224) -> np.ndarray:
+   139	    img = img.resize((size, size), Image.Resampling.BILINEAR)
+   140	    arr = np.asarray(img).astype("float32") / 255.0
+   141	    return arr
+   142	
+   143	
+   144	def compute_patch_boxes(width: int, height: int, patch_size_ratio: float = 0.5) -> list[tuple[int, int, int, int]]:
+   145	    short_side = min(width, height)
+   146	    crop_size = max(32, int(short_side * patch_size_ratio))
+   147	    crop_size = min(crop_size, width, height)
+   148	
+   149	    positions = [
+   150	        (0.5, 0.5),
+   151	        (0.25, 0.25),
+   152	        (0.75, 0.25),
+   153	        (0.25, 0.75),
+   154	        (0.75, 0.75),
+   155	    ]
+   156	
+   157	    boxes = []
+   158	    for px, py in positions:
+   159	        cx = int(width * px)
+   160	        cy = int(height * py)
+   161	        left = max(0, min(width - crop_size, cx - crop_size // 2))
+   162	        top = max(0, min(height - crop_size, cy - crop_size // 2))
+   163	        right = left + crop_size
+   164	        bottom = top + crop_size
+   165	        boxes.append((left, top, right, bottom))
+   166	    return boxes
+   167	
+   168	
+   169	def make_patch_batch(img: Image.Image, size: int = 224, patch_size_ratio: float = 0.5) -> np.ndarray:
+   170	    boxes = compute_patch_boxes(img.width, img.height, patch_size_ratio=patch_size_ratio)
+   171	    patches = []
+   172	    for box in boxes:
+   173	        patch = img.crop(box).resize((size, size), Image.Resampling.BILINEAR)
+   174	        arr = np.asarray(patch).astype("float32") / 255.0
+   175	        patches.append(arr)
+   176	    return np.stack(patches, axis=0)
+   177	
+   178	
+   179	def predict_single(model: tf.keras.Model, img_arr: np.ndarray) -> float:
+   180	    pred = model.predict(img_arr[None, ...], verbose=0)
+   181	    return float(np.squeeze(pred))
+   182	
+   183	
+   184	def predict_batch(model: tf.keras.Model, batch_arr: np.ndarray) -> np.ndarray:
+   185	    pred = model.predict(batch_arr, verbose=0)
+   186	    return np.squeeze(pred).astype("float32")
+   187	
+   188	
+   189	class SavedModelPredictAdapter:
+   190	    def __init__(self, saved_model_dir: str | Path, signature_name: str = "serving_default"):
+   191	        self.saved_model_dir = str(saved_model_dir)
+   192	        self.name = Path(saved_model_dir).name
+   193	        self._loaded = tf.saved_model.load(self.saved_model_dir)
+   194	        self._signature = self._loaded.signatures[signature_name]
+   195	
+   196	    def predict(self, inputs, verbose: int = 0) -> np.ndarray:
+   197	        del verbose
+   198	        if not isinstance(inputs, dict):
+   199	            raise TypeError("SavedModelPredictAdapter expects dict inputs.")
+   200	        outputs = self._signature(
+   201	            **{key: tf.convert_to_tensor(value) for key, value in inputs.items()}
+   202	        )
+   203	        return next(iter(outputs.values())).numpy()
+   204	
+   205	
+   206	def load_model(path: str | None, custom_objects: dict | None = None, safe_mode: bool = True):
+   207	    if not path:
+   208	        return None
+   209	    return tf.keras.models.load_model(path, compile=False, custom_objects=custom_objects, safe_mode=safe_mode)
+   210	
+   211	
+   212	def load_musiq_model(path: str | None):
+   213	    if not path:
+   214	        return None
+   215	    try:
+   216	        return load_model(path, safe_mode=False)
+   217	    except (ValueError, NotImplementedError):
+   218	        saved_model_dir = Path(path).parent / "saved_model"
+   219	        if saved_model_dir.exists():
+   220	            return SavedModelPredictAdapter(saved_model_dir)
+   221	        raise
+   222	
+   223	
+   224	def _load_optional_bundle_model(args: argparse.Namespace, field_name: str, loader):
+   225	    try:
+   226	        return loader()
+   227	    except Exception as exc:
+   228	        auto_resolved_fields = set(getattr(args, "_auto_resolved_model_fields", []))
+   229	        if field_name not in auto_resolved_fields:
+   230	            raise
+   231	        warnings = list(getattr(args, "_model_load_warnings", []))
+   232	        warnings.append(
+   233	            {
+   234	                "field": field_name,
+   235	                "path": getattr(args, field_name, None),
+   236	                "error": f"{exc.__class__.__name__}: {exc}",
+   237	            }
+   238	        )
+   239	        args._model_load_warnings = warnings
+   240	        return None
+--- predict_quality_bundle.py (load/infer) ---
+   372	def load_bundle_models(args: argparse.Namespace) -> dict[str, tf.keras.Model | None]:
+   373	    return {
+   374	        "aadb": _load_optional_bundle_model(
+   375	            args,
+   376	            "aadb_model",
+   377	            lambda: load_model(args.aadb_model),
+   378	        ),
+   379	        "koniq": _load_optional_bundle_model(
+   380	            args,
+   381	            "koniq_model",
+   382	            lambda: load_model(args.koniq_model),
+   383	        ),
+   384	        "flive_image": _load_optional_bundle_model(
+   385	            args,
+   386	            "flive_image_model",
+   387	            lambda: load_model(args.flive_image_model),
+   388	        ),
+   389	        "flive_patch": _load_optional_bundle_model(
+   390	            args,
+   391	            "flive_patch_model",
+   392	            lambda: load_model(args.flive_patch_model),
+   393	        ),
+   394	        "nima": _load_optional_bundle_model(
+   395	            args,
+   396	            "nima_model",
+   397	            lambda: load_model(
+   398	                args.nima_model,
+   399	                custom_objects={"emd_loss": emd_loss, "mean_score_mae": mean_score_mae},
+   400	            ),
+   401	        ),
+   402	        "alamp": _load_optional_bundle_model(
+   403	            args,
+   404	            "alamp_model",
+   405	            lambda: load_model(
+   406	                args.alamp_model,
+   407	                custom_objects={
+   408	                    "LayoutCueAugmentation": LayoutCueAugmentation,
+   409	                    "WeightedPatchPooling": WeightedPatchPooling,
+   410	                },
+   411	                safe_mode=False,
+   412	            ),
+   413	        ),
+   414	        "musiq": _load_optional_bundle_model(
+   415	            args,
+   416	            "musiq_model",
+   417	            lambda: load_musiq_model(args.musiq_model),
+   418	        ),
+   419	        "rgnet": _load_optional_bundle_model(
+   420	            args,
+   421	            "rgnet_model",
+   422	            lambda: load_model(
+   423	                args.rgnet_model,
+   424	                custom_objects={
+   425	                    "RegionGraphBuilder": RegionGraphBuilder,
+   426	                    "GraphConvolution": GraphConvolution,
+   427	                    "RegionWeightedPooling": RegionWeightedPooling,
+   428	                },
+   429	                safe_mode=False,
+   430	            ),
+   431	        ),
+   432	        "pairwise": _load_optional_bundle_model(
+   433	            args,
+   434	            "pairwise_model",
+   435	            lambda: load_model(
+   436	                args.pairwise_model,
+   437	                custom_objects={"AbsoluteDifference": AbsoluteDifference},
+   438	                safe_mode=False,
+   439	            ),
+   440	        ),
+   441	    }
+   442	
+   443	
+   444	def build_summary(per_model: dict[str, dict], fused: dict | None) -> dict[str, object]:
+   445	    ordered_keys = [
+   446	        "baseline_aadb",
+   447	        "baseline_koniq",
+   448	        "baseline_flive_image",
+   449	        "baseline_flive_patch",
+   450	        "nima",
+   451	        "alamp",
+   452	        "musiq",
+   453	        "rgnet",
+   454	        "pairwise",
+   455	    ]
+   456	    available_models = [key for key in ordered_keys if key in per_model]
+   457	    aesthetic_models_present = [
+   458	        key
+   459	        for key in ["baseline_aadb", "nima", "alamp", "rgnet", "pairwise"]
+   460	        if key in per_model
+   461	    ]
+   462	    technical_models_present = [
+   463	        key
+   464	        for key in ["baseline_koniq", "baseline_flive_image", "baseline_flive_patch", "musiq"]
+   465	        if key in per_model
+   466	    ]
+   467	    return {
+   468	        "available_models": available_models,
+   469	        "aesthetic_models_present": aesthetic_models_present,
+   470	        "technical_models_present": technical_models_present,
+   471	        "reranking_ready": bool(aesthetic_models_present) and (bool(technical_models_present) or "pairwise" in per_model),
+   472	        "baseline_fusion_available": fused is not None,
+   473	    }
+   474	
+   475	
+   476	def add_legacy_fields(result: dict[str, object], per_model: dict[str, dict], fused: dict | None, debug: dict | None) -> None:
+   477	    if "baseline_aadb" in per_model:
+   478	        result["aadb_score"] = per_model["baseline_aadb"]["score"]
+   479	    if "baseline_koniq" in per_model:
+   480	        result["koniq_score"] = per_model["baseline_koniq"]["score"]
+   481	    if "baseline_flive_image" in per_model:
+   482	        result["flive_image_score"] = per_model["baseline_flive_image"]["score"]
+   483	    if "baseline_flive_patch" in per_model:
+   484	        result["flive_patch_mean"] = per_model["baseline_flive_patch"]["mean_score"]
+   485	        result["flive_patch_min"] = per_model["baseline_flive_patch"]["min_score"]
+   486	        result["flive_patch_std"] = per_model["baseline_flive_patch"]["std_score"]
+   487	        if debug and "baseline_flive_patch" in debug:
+   488	            result["flive_patch_scores"] = debug["baseline_flive_patch"]["patch_scores"]
+   489	    if fused is not None:
+   490	        result.update(fused)
+   491	    if "nima" in per_model:
+   492	        result["nima_mean_score"] = per_model["nima"]["mean_score"]
+   493	        if debug and "nima" in debug:
+   494	            result["nima_distribution"] = debug["nima"]["distribution"]
+   495	    if "alamp" in per_model:
+   496	        result["alamp_score"] = per_model["alamp"]["score"]
+   497	        if debug and "alamp" in debug:
+   498	            result["alamp_selected_patch_boxes"] = debug["alamp"]["selected_patch_boxes"]
+   499	            result["alamp_patch_selection_scores"] = debug["alamp"]["patch_selection_scores"]
+   500	            result["alamp_patch_attention_weights"] = debug["alamp"]["patch_attention_weights"]
+   501	    if "musiq" in per_model:
+   502	        result["musiq_score"] = per_model["musiq"]["score"]
+   503	    if "rgnet" in per_model:
+   504	        result["rgnet_score"] = per_model["rgnet"]["score"]
+   505	    if "pairwise" in per_model:
+   506	        result["pairwise_recovered_score"] = per_model["pairwise"]["recovered_score"]
+   507	        result["pairwise_num_references"] = per_model["pairwise"]["num_references"]
+   508	        result["pairwise_query_eigen_weight"] = per_model["pairwise"]["query_eigen_weight"]
+   509	
+   510	
+   511	def predict_bundle_for_image(
+   512	    image_path: str | Path,
+   513	    args: argparse.Namespace,
+   514	    models: dict[str, tf.keras.Model | None] | None = None,
+   515	) -> dict[str, object]:
+   516	    if models is None:
+   517	        models = load_bundle_models(args)
+   518	
+   519	    image_path = Path(image_path)
+   520	    img = load_image_rgb(image_path)
+   521	    try:
+   522	        img_arr = preprocess_image_pil(img, size=args.image_size)
+   523	    except Exception as exc:
+   524	        raise BundleInferenceError(
+   525	            stage="image_preprocess",
+   526	            image_path=image_path,
+   527	            message=f"{exc.__class__.__name__}: {exc}",
+   528	            recoverable=False,
+   529	        ) from exc
+   530	    include_debug = bool(getattr(args, "include_debug", False) or getattr(args, "alamp_include_debug", False))
+   531	
+   532	    per_model: dict[str, dict] = {}
+   533	    debug: dict[str, dict] = {}
+   534	    stage_failures: list[dict[str, object]] = []
+   535	
+   536	    aadb_score = koniq_score = flive_image_score = None
+   537	    flive_patch_mean = flive_patch_min = None
+   538	
+   539	    def record_stage_failure(stage: str, exc: Exception) -> None:
+   540	        failure: dict[str, object] = {
+   541	            "image_path": str(image_path),
+   542	            "stage": stage,
+   543	            "recoverable": True,
+   544	            "error": f"{exc.__class__.__name__}: {exc}",
+   545	        }
+   546	        if isinstance(exc, BundleInferenceError):
+   547	            failure["source_stage"] = exc.stage
+   548	            failure["source_image_path"] = exc.image_path
+   549	            failure["source_recoverable"] = exc.recoverable
+   550	        stage_failures.append(failure)
+   551	        logger.warning(
+   552	            "Image stage failure (recoverable): image=%s stage=%s error=%s",
+   553	            image_path,
+   554	            stage,
+   555	            failure["error"],
+   556	        )
+   557	
+   558	    if models["aadb"] is not None:
+   559	        try:
+   560	            aadb_score = predict_single(models["aadb"], img_arr)
+   561	            per_model["baseline_aadb"] = {"score": aadb_score}
+   562	        except Exception as exc:
+   563	            record_stage_failure("model_aadb", exc)
+   564	
+   565	    if models["koniq"] is not None:
+   566	        try:
+   567	            koniq_score = predict_single(models["koniq"], img_arr)
+   568	            per_model["baseline_koniq"] = {"score": koniq_score}
+   569	        except Exception as exc:
+   570	            record_stage_failure("model_koniq", exc)
+   571	
+   572	    if models["flive_image"] is not None:
+   573	        try:
+   574	            flive_image_score = predict_single(models["flive_image"], img_arr)
+   575	            per_model["baseline_flive_image"] = {"score": flive_image_score}
+   576	        except Exception as exc:
+   577	            record_stage_failure("model_flive_image", exc)
+   578	
+   579	    if models["flive_patch"] is not None:
+   580	        try:
+   581	            patch_batch = make_patch_batch(img, size=args.image_size, patch_size_ratio=0.5)
+   582	            patch_scores = predict_batch(models["flive_patch"], patch_batch)
+   583	            flive_patch_mean = float(np.mean(patch_scores))
+   584	            flive_patch_min = float(np.min(patch_scores))
+   585	            per_model["baseline_flive_patch"] = {
+   586	                "mean_score": flive_patch_mean,
+   587	                "min_score": flive_patch_min,
+   588	                "std_score": float(np.std(patch_scores)),
+   589	                "num_patches": int(len(patch_scores)),
+   590	            }
+   591	            if include_debug:
+   592	                debug["baseline_flive_patch"] = {
+   593	                    "patch_scores": patch_scores.tolist(),
+   594	                }
+   595	        except Exception as exc:
+   596	            record_stage_failure("model_flive_patch", exc)
+   597	
+   598	    fused = None
+   599	    if None not in (aadb_score, koniq_score, flive_image_score, flive_patch_mean, flive_patch_min):
+   600	        fused = fuse_scores(
+   601	            aadb_score=aadb_score,
+   602	            koniq_score=koniq_score,
+   603	            flive_img_score=flive_image_score,
+   604	            flive_patch_mean=flive_patch_mean,
+   605	            flive_patch_min=flive_patch_min,
+   606	        )
+   607	
+   608	    if models["nima"] is not None:
+   609	        try:
+   610	            dist = np.squeeze(models["nima"].predict(img_arr[None, ...], verbose=0)).astype("float32")
+   611	            mean_score = float(distribution_mean_score(tf.convert_to_tensor(dist[None, :]))[0].numpy())
+   612	            per_model["nima"] = {"mean_score": mean_score}
+   613	            if include_debug:
+   614	                debug["nima"] = {"distribution": dist.tolist()}
+   615	        except Exception as exc:
+   616	            record_stage_failure("model_nima", exc)
+   617	
+   618	    if models["alamp"] is not None:
+   619	        try:
+   620	            image_tensor = tf.convert_to_tensor(np.asarray(img).astype("float32") / 255.0, dtype=tf.float32)
+   621	            patch_scales = tuple(
+   622	                sorted(
+   623	                    {
+   624	                        max(0.18, args.alamp_patch_scale * 0.7),
+   625	                        args.alamp_patch_scale,
+   626	                        min(0.55, args.alamp_patch_scale * 1.35),
+   627	                    }
+   628	                )
+   629	            )
+   630	            global_view, patches, boxes, proposal_scores = prepare_alamp_inputs(
+   631	                image=image_tensor,
+   632	                global_size=args.alamp_global_size,
+   633	                patch_size=args.alamp_patch_size,
+   634	                num_patches=args.alamp_num_patches,
+   635	                patch_scales=patch_scales,
+   636	            )
+   637	            alamp_inputs = {
+   638	                "global_view": global_view[None, ...].numpy(),
+   639	                "patches": patches[None, ...].numpy(),
+   640	            }
+   641	            alamp_score = float(np.squeeze(models["alamp"].predict(alamp_inputs, verbose=0)))
+   642	            per_model["alamp"] = {
+   643	                "score": alamp_score,
+   644	                "global_size": args.alamp_global_size,
+   645	                "patch_size": args.alamp_patch_size,
+   646	                "num_patches": args.alamp_num_patches,
+   647	            }
+   648	            if include_debug:
+   649	                try:
+   650	                    attention_model = tf.keras.Model(
+   651	                        models["alamp"].inputs,
+   652	                        {
+   653	                            "score": models["alamp"].output,
+   654	                            "patch_attention": models["alamp"].get_layer("patch_attention").output,
+   655	                        },
+   656	                    )
+   657	                    debug_pred = attention_model.predict(alamp_inputs, verbose=0)
+   658	                    patch_attention = np.squeeze(debug_pred["patch_attention"], axis=(0, 2)).astype("float32")
+   659	                    pixel_boxes = normalized_boxes_to_pixels(boxes.numpy(), img.width, img.height)
+   660	                    selection_scores = proposal_scores.numpy().astype("float32").tolist()
+   661	                    debug["alamp"] = {
+   662	                        "selected_patch_boxes": pixel_boxes,
+   663	                        "patch_selection_scores": selection_scores,
+   664	                        "patch_attention_weights": patch_attention.tolist(),
+   665	                        "patch_debug": [
+   666	                            {
+   667	                                "box_xyxy": box,
+   668	                                "selection_score": float(selection),
+   669	                                "attention_weight": float(attn),
+   670	                            }
+   671	                            for box, selection, attn in zip(pixel_boxes, selection_scores, patch_attention.tolist())
+   672	                        ],
+   673	                    }
+   674	                except Exception as exc:
+   675	                    record_stage_failure("debug_alamp", exc)
+   676	        except Exception as exc:
+   677	            record_stage_failure("model_alamp", exc)
+   678	
+   679	    if models["musiq"] is not None:
+   680	        try:
+   681	            scale_sizes = parse_scale_sizes(args.musiq_scale_sizes)
+   682	            musiq_inputs = build_musiq_inputs(
+   683	                img=img,
+   684	                patch_size=args.musiq_patch_size,
+   685	                scale_sizes=scale_sizes,
+   686	                patches_per_scale=args.musiq_patches_per_scale,
+   687	            )
+   688	            musiq_score = float(np.squeeze(models["musiq"].predict(musiq_inputs, verbose=0)))
+   689	            per_model["musiq"] = {
+   690	                "score": musiq_score,
+   691	                "patch_size": args.musiq_patch_size,
+   692	                "scale_sizes": list(scale_sizes),
+   693	                "patches_per_scale": args.musiq_patches_per_scale,
+   694	            }
+   695	        except Exception as exc:
+   696	            record_stage_failure("model_musiq", exc)
+   697	
+   698	    if models["rgnet"] is not None:
+   699	        try:
+   700	            rgnet_arr = preprocess_image_pil(img, size=args.rgnet_image_size)
+   701	            per_model["rgnet"] = {
+   702	                "score": float(np.squeeze(models["rgnet"].predict(rgnet_arr[None, ...], verbose=0))),
+   703	                "image_size": args.rgnet_image_size,
+   704	            }
+   705	        except Exception as exc:
+   706	            record_stage_failure("model_rgnet", exc)
+   707	
+   708	    if models["pairwise"] is not None and args.pairwise_reference_csv:
+   709	        try:
+   710	            reference_df = pd.read_csv(args.pairwise_reference_csv)
+   711	            required_columns = {"image_path", args.pairwise_target_col}
+   712	            if not required_columns.issubset(reference_df.columns):
+   713	                raise ValueError("Pairwise reference CSV is missing required columns.")
+   714	
+   715	            reference_df = reference_df[["image_path", args.pairwise_target_col]].head(args.pairwise_max_references).copy()
+   716	            query_image = preprocess_image_pil(img, size=args.image_size)
+   717	
+   718	            ref_images: list[np.ndarray] = []
+   719	            ref_scores: list[float] = []
+   720	            for ref_row in reference_df.to_dict(orient="records"):
+   721	                ref_path = Path(str(ref_row["image_path"]))
+   722	                try:
+   723	                    ref_rgb = load_image_rgb(ref_path)
+   724	                    ref_images.append(preprocess_image_pil(ref_rgb, size=args.image_size))
+   725	                    ref_scores.append(float(ref_row[args.pairwise_target_col]))
+   726	                except Exception as exc:
+   727	                    record_stage_failure("model_pairwise_reference_decode", exc)
+   728	
+   729	            if len(ref_images) < 2:
+   730	                raise ValueError("Pairwise scoring requires at least two valid reference images.")
+   731	
+   732	            query_strengths = []
+   733	            for ref_image in ref_images:
+   734	                probs = np.squeeze(
+   735	                    models["pairwise"].predict(
+   736	                        {"image_a": query_image[None, ...], "image_b": ref_image[None, ...]},
+   737	                        verbose=0,
+   738	                    )
+   739	                ).astype("float32")
+   740	                query_strengths.append(pairwise_probabilities_to_strength(probs))
+   741	
+   742	            ref_matrix = np.ones((len(ref_images), len(ref_images)), dtype=np.float32)
+   743	            for i in range(len(ref_images)):
+   744	                for j in range(i + 1, len(ref_images)):
+   745	                    probs = np.squeeze(
+   746	                        models["pairwise"].predict(
+   747	                            {"image_a": ref_images[i][None, ...], "image_b": ref_images[j][None, ...]},
+   748	                            verbose=0,
+   749	                        )
+   750	                    ).astype("float32")
+   751	                    strength = pairwise_probabilities_to_strength(probs)
+   752	                    ref_matrix[i, j] = strength
+   753	                    ref_matrix[j, i] = 1.0 / max(strength, 1e-6)
+   754	
+   755	            recovered, eigen_scores = recover_score_from_pairwise_matrix(
+   756	                query_vs_refs=np.asarray(query_strengths, dtype=np.float32),
+   757	                reference_scores=np.asarray(ref_scores, dtype=np.float32),
+   758	                reference_vs_reference=ref_matrix,
+   759	            )
+   760	            per_model["pairwise"] = {
+--- stage5_reference.json ---
+     1	{
+     2	  "pipeline_name": "stage5_reference",
+     3	  "pipeline_version": "2026-04-02",
+     4	  "description": "Accepted practical A-cut ranking stack: baseline models, NIMA, MUSIQ, A-Lamp, RGNet, pairwise rerank, and diversity-aware reranking.",
+     5	  "bundle_args": {
+     6	    "aadb_model": "checkpoints/composition_aadb_gpu/final_model.keras",
+     7	    "koniq_model": "checkpoints/technical_koniq_gpu/final_model.keras",
+     8	    "flive_image_model": "checkpoints/technical_flive_image_gpu/final_model.keras",
+     9	    "flive_patch_model": "checkpoints/technical_flive_patch_gpu/final_model.keras",
+    10	    "nima_model": "checkpoints/nima_ava_gpu/final_model.keras",
+    11	    "alamp_model": "checkpoints/alamp_aadb_gpu/final_model.keras",
+    12	    "musiq_model": "checkpoints/musiq_aadb_gpu/final_model.keras",
+    13	    "rgnet_model": "checkpoints/rgnet_aadb_gpu/final_model.keras",
+    14	    "pairwise_model": "checkpoints/pairwise_aadb_gpu/final_model.keras",
+    15	    "pairwise_reference_csv": "data/processed/aadb/val.csv",
+    16	    "pairwise_target_col": "score",
+    17	    "pairwise_max_references": 16,
+    18	    "image_size": 224,
+    19	    "rgnet_image_size": 256,
+    20	    "alamp_global_size": 384,
+    21	    "alamp_patch_size": 224,
+    22	    "alamp_num_patches": 5,
+    23	    "alamp_patch_scale": 0.35,
+    24	    "musiq_patch_size": 32,
+    25	    "musiq_scale_sizes": "224,384,512",
+    26	    "musiq_patches_per_scale": 16
+    27	  },
+    28	  "selector_args": {
+    29	    "top_k": 5,
+    30	    "enable_pairwise_rerank": true,
+    31	    "rerank_pool_size": 10,
+    32	    "enable_diversity": true,
+    33	    "diversity_threshold": 0.82,
+    34	    "hard_duplicate_threshold": 0.88,
+    35	    "diversity_penalty_strength": 0.12,
+    36	    "score_recursive": false,
+    37	    "score_extensions": ".jpg,.jpeg,.png,.webp,.bmp"
+    38	  }
+    39	}

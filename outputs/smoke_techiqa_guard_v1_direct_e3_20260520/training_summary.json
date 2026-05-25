@@ -1,0 +1,209 @@
+{
+  "args": {
+    "batch_size": 4,
+    "dataset_col": "dataset",
+    "dropout": 0.25,
+    "epochs": 3,
+    "false_positive_lambda": 0.0,
+    "false_positive_margin": 5.0,
+    "freeze_backbone": true,
+    "head_units": 256,
+    "huber_lambda": 1.0,
+    "inspect_batch": false,
+    "lr": 0.0001,
+    "max_steps_per_epoch": 100,
+    "max_val_samples": 512,
+    "out_dir": "outputs/smoke_techiqa_guard_v1_direct_e3_20260520",
+    "pair_csv": null,
+    "plcc_lambda": 0.1,
+    "rank_lambda": 0.0,
+    "seed": 42,
+    "target_col": "normalized_mos",
+    "tau": 0.1,
+    "train_csv": "data/processed/techiqa_guard/smoke_v1.csv",
+    "val_csv": "data/processed/techiqa_guard/val.csv"
+  },
+  "artifacts": {
+    "best_weights": "outputs/smoke_techiqa_guard_v1_direct_e3_20260520/best.weights.h5",
+    "final_model": "outputs/smoke_techiqa_guard_v1_direct_e3_20260520/final_model.keras",
+    "model_summary": "outputs/smoke_techiqa_guard_v1_direct_e3_20260520/model_summary.txt",
+    "training_log": "outputs/smoke_techiqa_guard_v1_direct_e3_20260520/training_log.csv",
+    "training_summary": "outputs/smoke_techiqa_guard_v1_direct_e3_20260520/training_summary.json"
+  },
+  "best_epoch": 3,
+  "best_val_loss": 0.0297432079911232,
+  "best_val_srcc": 0.5929397943385791,
+  "best_val_srcc_epoch": 3,
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python src/train/train_techiqa_guard.py --train_csv data/processed/techiqa_guard/smoke_v1.csv --val_csv data/processed/techiqa_guard/val.csv --target_col normalized_mos --dataset_col dataset --batch_size 4 --epochs 3 --lr 1e-4 --freeze_backbone --huber_lambda 1.0 --plcc_lambda 0.1 --rank_lambda 0.0 --false_positive_lambda 0.0 --max_steps_per_epoch 100 --max_val_samples 512 --out_dir outputs/smoke_techiqa_guard_v1_direct_e3_20260520",
+  "feature_layers": {
+    "high": {
+      "layer_name": "top_activation",
+      "shape": [
+        12,
+        12,
+        1280
+      ]
+    },
+    "low": {
+      "layer_name": "block3b_add",
+      "shape": [
+        48,
+        48,
+        48
+      ]
+    },
+    "mid": {
+      "layer_name": "block5c_add",
+      "shape": [
+        24,
+        24,
+        112
+      ]
+    }
+  },
+  "final_metrics": {
+    "epoch": 3,
+    "mode_collapse": false,
+    "sample_count": 512,
+    "train_false_positive_loss": 0.0,
+    "train_huber_loss": 0.007059863302856684,
+    "train_loss": 0.032302126288414,
+    "train_plcc_loss": 0.25242260098457336,
+    "train_rank_loss": 0.0,
+    "val_bias": -0.012563718482851982,
+    "val_bias_100": -1.2563718482851982,
+    "val_false_positive_loss": 0.0,
+    "val_huber_loss": 0.005849309265613556,
+    "val_loss": 0.0297432079911232,
+    "val_mae": 0.09761257469654083,
+    "val_mae_100": 9.761257469654083,
+    "val_plcc": 0.7610610127449036,
+    "val_plcc_loss": 0.23893898725509644,
+    "val_pred_mean": 0.6066058278083801,
+    "val_pred_std": 0.18364004790782928,
+    "val_rmse": 0.1265714019536972,
+    "val_rmse_100": 12.65714019536972,
+    "val_srcc": 0.5929397943385791,
+    "val_std_ratio": 1.0165423237367102,
+    "val_target_mean": 0.6191695332527161,
+    "val_target_std": 0.18065164983272552
+  },
+  "model_params": {
+    "non_trainable": 5919312,
+    "trainable": 515801
+  },
+  "pair_summary": null,
+  "run_setup": {
+    "false_positive_active": false,
+    "feature_layers": {
+      "high": {
+        "layer_name": "top_activation",
+        "shape": [
+          12,
+          12,
+          1280
+        ]
+      },
+      "low": {
+        "layer_name": "block3b_add",
+        "shape": [
+          48,
+          48,
+          48
+        ]
+      },
+      "mid": {
+        "layer_name": "block5c_add",
+        "shape": [
+          24,
+          24,
+          112
+        ]
+      }
+    },
+    "freeze_backbone": true,
+    "full_steps_per_epoch": 112,
+    "non_trainable_params": 5919312,
+    "rank_active": false,
+    "steps_per_epoch": 100,
+    "train_rows": 447,
+    "trainable_params": 515801,
+    "val_rows": 512
+  },
+  "train_csv": {
+    "columns": [
+      "image_path",
+      "filename",
+      "relative_path",
+      "dataset",
+      "normalized_mos",
+      "mos_100",
+      "split",
+      "hard_false_positive",
+      "strong_hard_false_positive",
+      "manual_false_positive",
+      "missing_image",
+      "existing_combined_score",
+      "koniq_teacher_score",
+      "flive_teacher_score",
+      "mixed112_score",
+      "delta_mixed112_existing",
+      "guard_source_score_100",
+      "guard_cap_100",
+      "false_positive_margin",
+      "source_note"
+    ],
+    "counts_by_dataset": {
+      "flive": 149,
+      "koniq": 149,
+      "spaq": 149
+    },
+    "dropped_missing_image": 0,
+    "dropped_missing_target": 3,
+    "hard_false_positive_count": 0,
+    "original_count": 450,
+    "path": "data/processed/techiqa_guard/smoke_v1.csv",
+    "target_max": 0.9229999780654907,
+    "target_mean": 0.5391739010810852,
+    "target_min": 0.07199999690055847,
+    "used_count": 447
+  },
+  "val_csv": {
+    "columns": [
+      "image_path",
+      "filename",
+      "relative_path",
+      "dataset",
+      "normalized_mos",
+      "mos_100",
+      "split",
+      "hard_false_positive",
+      "strong_hard_false_positive",
+      "manual_false_positive",
+      "missing_image",
+      "existing_combined_score",
+      "koniq_teacher_score",
+      "flive_teacher_score",
+      "mixed112_score",
+      "delta_mixed112_existing",
+      "guard_source_score_100",
+      "guard_cap_100",
+      "false_positive_margin",
+      "source_note"
+    ],
+    "counts_by_dataset": {
+      "flive": 250,
+      "koniq": 126,
+      "spaq": 136
+    },
+    "dropped_missing_image": 0,
+    "dropped_missing_target": 0,
+    "hard_false_positive_count": 0,
+    "original_count": 2048,
+    "path": "data/processed/techiqa_guard/val.csv",
+    "target_max": 0.9049999713897705,
+    "target_mean": 0.6191695332527161,
+    "target_min": 0.04800000041723251,
+    "used_count": 512
+  }
+}

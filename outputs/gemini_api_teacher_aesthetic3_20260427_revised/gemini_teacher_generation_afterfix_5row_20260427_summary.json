@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "manifest": "outputs/gemini_api_teacher_aesthetic3_20260427/stage_a_300_candidate_manifest.jsonl",
+  "output_jsonl": "outputs/gemini_api_teacher_aesthetic3_20260427_revised/gemini_teacher_generation_afterfix_5row_20260427.jsonl",
+  "model": "gemini-2.5-pro",
+  "transport": "rest",
+  "rows_requested_this_run": 5,
+  "rows_previously_existing": 0,
+  "rows_pending_this_run": 5,
+  "rows_generated_this_run": 5,
+  "error_rows_this_run": 5,
+  "invalid_json_rows_this_run": 0,
+  "api_requests_this_run": 5
+}

@@ -1,0 +1,47 @@
+{
+  "accuracy": 0.7625581965204606,
+  "average_precision": 0.9002650001826908,
+  "checkpoint_type": "weights_only",
+  "command": "PYTHONPATH=. /home/omen_pc1/photo_score_project/.venv_gpu/bin/python /home/omen_pc1/photo_score_project/src/eval/evaluate_alamp_multipatch_teacher.py --config configs/paper_benchmarks/alamp_multipatch_teacher_ava.yaml --test_jsonl outputs/alamp_dual_branch_4096_comparison_20260524/multipatch_test_4096_matched.jsonl --weights_path outputs/alamp_multipatch_teacher_full_ava_20260524/best.weights.h5 --output_dir outputs/alamp_dual_branch_4096_comparison_20260524/eval_multipatch_only_4096 --batch_size 4 --threshold 0.5",
+  "config": "configs/paper_benchmarks/alamp_multipatch_teacher_ava.yaml",
+  "confusion_matrix": {
+    "fn": 206,
+    "fp": 763,
+    "tn": 409,
+    "tp": 2703
+  },
+  "elapsed_seconds": 58.78483533859253,
+  "f1": 0.848,
+  "label_rule": "mean_score > 5.0 -> 1, else 0",
+  "max_test_samples": null,
+  "model_description": "VGG16 shared-patch Multi-Patch teacher with orderless mean+max aggregation",
+  "model_path": null,
+  "model_variant": "A-LAMP Multi-Patch teacher baseline",
+  "notice": "A-LAMP Multi-Patch teacher baseline, not full A-LAMP reproduction.",
+  "patch_count": 5,
+  "patch_size": 224,
+  "positive_count": 2909,
+  "positive_ratio": 0.712815486400392,
+  "precision": 0.7798615118291979,
+  "pred_max": 0.9999183416366577,
+  "pred_mean": 0.728571355342865,
+  "pred_min": 0.00018313087639398873,
+  "pred_std": 0.21265748143196106,
+  "preprocessing_mode": "tf.keras.applications.vgg16.preprocess_input_rgb_float_pixels_0_255",
+  "recall": 0.92918528704022,
+  "reproduction_claim": "not full A-LAMP reproduction",
+  "roc_auc": 0.7913719866672455,
+  "sample_count": 4081,
+  "seconds_per_sample": 0.014404517358145682,
+  "skipped_count": 0,
+  "tensorflow_info": {
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.21.0",
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ]
+  },
+  "test_jsonl": "outputs/alamp_dual_branch_4096_comparison_20260524/multipatch_test_4096_matched.jsonl",
+  "threshold": 0.5,
+  "weights_path": "outputs/alamp_multipatch_teacher_full_ava_20260524/best.weights.h5"
+}

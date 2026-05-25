@@ -1,0 +1,56 @@
+{
+  "created_at_local": "2026-05-10T21:22:38.085558+09:00",
+  "model_variant": "RGNet-paper-v1 approximation",
+  "official_reproduction": false,
+  "model_name": "rgnet_paper_v1_aadb_regression",
+  "model_path": "outputs/rgnet_paper_v1_ablation_full_candidates_20260510/full_train/dilation_paper_3_6_12_18_full/final_model.keras",
+  "image_size": 256,
+  "batch_size": 16,
+  "tensorflow": {
+    "visible_gpus": [
+      "PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')"
+    ],
+    "mixed_precision_policy": "<DTypePolicy \"float32\">",
+    "tensorflow_version": "2.20.0"
+  },
+  "splits": {
+    "test": {
+      "num_samples": 1000,
+      "target_min": 0.05000000074505806,
+      "target_max": 1.0,
+      "prediction_min": 0.11469440162181854,
+      "prediction_max": 0.852638304233551,
+      "srcc": 0.6400885478731322,
+      "plcc": 0.6466100381330396,
+      "mae": 0.12406127899885178,
+      "rmse": 0.15534166720353673,
+      "mse": 0.024131033569574356,
+      "split": "test",
+      "csv": "data/processed/aadb/test.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "elapsed_seconds": 24.097449100998347,
+      "seconds_per_image": 0.024097449100998345,
+      "predictions_path": "outputs/rgnet_paper_v1_ablation_full_candidates_20260510/eval/dilation_paper_3_6_12_18_full/test_predictions.csv"
+    },
+    "val": {
+      "num_samples": 846,
+      "target_min": 0.0,
+      "target_max": 0.949999988079071,
+      "prediction_min": 0.21174666285514832,
+      "prediction_max": 0.8261253833770752,
+      "srcc": 0.5698758099797872,
+      "plcc": 0.5799277640249572,
+      "mae": 0.11625704169273376,
+      "rmse": 0.15057321091443604,
+      "mse": 0.022672291845083237,
+      "split": "val",
+      "csv": "data/processed/aadb/val.csv",
+      "target_col": "score",
+      "image_col": "image_path",
+      "elapsed_seconds": 10.826873974991031,
+      "seconds_per_image": 0.01279772337469389,
+      "predictions_path": "outputs/rgnet_paper_v1_ablation_full_candidates_20260510/eval/dilation_paper_3_6_12_18_full/val_predictions.csv"
+    }
+  }
+}

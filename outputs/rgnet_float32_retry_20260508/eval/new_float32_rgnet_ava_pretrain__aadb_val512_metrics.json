@@ -1,0 +1,151 @@
+{
+  "num_samples": 512,
+  "target_min": 0.0,
+  "target_max": 0.949999988079071,
+  "prediction_min": 0.30098792910575867,
+  "prediction_max": 0.569934070110321,
+  "mae": 0.16346511244773865,
+  "mse": 0.03918078541755676,
+  "rmse": 0.19794136863616146,
+  "plcc": 0.3057276205329838,
+  "srcc": 0.2816482715043631,
+  "top_k": 50,
+  "top_k_overlap": 0.26,
+  "pairwise_pairs_scored": 4637,
+  "pairwise_accuracy": 0.5962907051973259,
+  "model_name": "new_float32_rgnet_ava_pretrain__aadb_val512",
+  "model_type": "keras",
+  "model_path": "outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain/final_model.keras",
+  "csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv",
+  "target_col": "score",
+  "seconds_per_image": 0.017897538900390586,
+  "runtime_details": {
+    "load_seconds": 1.5640017240002635,
+    "inference_seconds": 9.16353991699998,
+    "dtype_summary": {
+      "global_policy": "<DTypePolicy \"float32\">",
+      "layer_count": 16,
+      "weight_count": 373,
+      "bad_mixed_float16_layers": [],
+      "bad_non_float32_weights": [],
+      "sample_layers": [
+        {
+          "name": "input_layer_1",
+          "class_name": "InputLayer",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "efficientnetv2-b0",
+          "class_name": "Functional",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "region_proj",
+          "class_name": "Conv2D",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "region_nodes",
+          "class_name": "Reshape",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "region_graph",
+          "class_name": "RegionGraphBuilder",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "gcn_block_1",
+          "class_name": "GraphConvolution",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "gcn_block_2",
+          "class_name": "GraphConvolution",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "region_context",
+          "class_name": "Concatenate",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "region_attention_logits",
+          "class_name": "Dense",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "region_attention",
+          "class_name": "Softmax",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "region_weighted_pool",
+          "class_name": "RegionWeightedPooling",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "global_pool",
+          "class_name": "GlobalAveragePooling2D",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "composition_fusion",
+          "class_name": "Concatenate",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "dropout_2",
+          "class_name": "Dropout",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "head_dense",
+          "class_name": "Dense",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        },
+        {
+          "name": "score",
+          "class_name": "Dense",
+          "dtype_policy": "float32",
+          "compute_dtype": "float32",
+          "variable_dtype": "float32"
+        }
+      ]
+    }
+  },
+  "mixed_precision_policy": "<DTypePolicy \"float32\">",
+  "tensorflow_version": "2.20.0",
+  "metrics_path": "outputs/rgnet_float32_retry_20260508/eval/new_float32_rgnet_ava_pretrain__aadb_val512_metrics.json",
+  "predictions_path": "outputs/rgnet_float32_retry_20260508/eval/new_float32_rgnet_ava_pretrain__aadb_val512_predictions.csv"
+}

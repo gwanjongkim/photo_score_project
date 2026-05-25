@@ -1,0 +1,646 @@
+{
+  "schema_version": "acut_product_app.v1",
+  "generated_at": "2026-04-16T11:42:16.317862Z",
+  "ranking_stage": "post_rerank",
+  "score_semantics": "rank, selected, status, and final_score_after_rerank all reflect the same final post-rerank order because diversity reranking is disabled.",
+  "diversity_enabled": false,
+  "final_ordering_uses_diversity": false,
+  "final_score_matches_final_ranking": true,
+  "top_k": [
+    {
+      "rank": 1,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_11.jpg",
+      "image_file_name": "KakaoTalk_20260330_180646779_11.jpg",
+      "final_score_after_rerank": 0.622747,
+      "final_score": 0.622747,
+      "technical_score": 0.622747,
+      "technical_koniq_score": 48.21875,
+      "technical_flive_image_score": 72.1875,
+      "technical_flive_patch_mean": 72.5625,
+      "technical_flive_patch_min": 69.5625,
+      "aesthetic_score": null,
+      "aesthetic_models_used": [
+        "composition_aadb",
+        "nima_ava",
+        "alamp_aadb",
+        "musiq_aadb",
+        "rgnet_aadb",
+        "pairwise_aadb"
+      ],
+      "technical_reason": "Technical quality is solid at 0.623 (KoNIQ 48.219, FLIVE image 72.188, patch mean 72.562, patch min 69.562).",
+      "aesthetic_reason": null,
+      "final_outcome_reason": "Rank 1 is selected with final score 0.623 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "The selector held this frame on technical quality; technical quality created the clearest edge.",
+      "multimodal_explanations_enabled": false,
+      "multimodal_explanations_attempted": false,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "multimodal_explanations_disabled",
+      "multimodal_explanation_model": null,
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 2,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+      "image_file_name": "KakaoTalk_20260330_180646779_10.jpg",
+      "final_score_after_rerank": 0.607412,
+      "final_score": 0.607412,
+      "technical_score": 0.607412,
+      "technical_koniq_score": 43.0,
+      "technical_flive_image_score": 72.5,
+      "technical_flive_patch_mean": 72.150002,
+      "technical_flive_patch_min": 69.6875,
+      "aesthetic_score": null,
+      "aesthetic_models_used": [
+        "composition_aadb",
+        "nima_ava",
+        "alamp_aadb",
+        "musiq_aadb",
+        "rgnet_aadb",
+        "pairwise_aadb"
+      ],
+      "technical_reason": "Technical quality is solid at 0.607 (KoNIQ 43.000, FLIVE image 72.500, patch mean 72.150, patch min 69.688).",
+      "aesthetic_reason": null,
+      "final_outcome_reason": "Rank 2 is selected with final score 0.607 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "The selector held this frame on technical quality; technical consistency created the clearest edge.",
+      "multimodal_explanations_enabled": false,
+      "multimodal_explanations_attempted": false,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "multimodal_explanations_disabled",
+      "multimodal_explanation_model": null,
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 3,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_07.jpg",
+      "image_file_name": "KakaoTalk_20260330_180646779_07.jpg",
+      "final_score_after_rerank": 0.591933,
+      "final_score": 0.591933,
+      "technical_score": 0.591933,
+      "technical_koniq_score": 39.90625,
+      "technical_flive_image_score": 70.6875,
+      "technical_flive_patch_mean": 71.862503,
+      "technical_flive_patch_min": 70.3125,
+      "aesthetic_score": null,
+      "aesthetic_models_used": [
+        "composition_aadb",
+        "nima_ava",
+        "alamp_aadb",
+        "musiq_aadb",
+        "rgnet_aadb",
+        "pairwise_aadb"
+      ],
+      "technical_reason": "Technical quality is solid at 0.592 (KoNIQ 39.906, FLIVE image 70.688, patch mean 71.863, patch min 70.312).",
+      "aesthetic_reason": null,
+      "final_outcome_reason": "Rank 3 is selected with final score 0.592 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "Selected on technical consistency, with technical quality keeping it ahead of nearby alternatives.",
+      "multimodal_explanations_enabled": false,
+      "multimodal_explanations_attempted": false,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "multimodal_explanations_disabled",
+      "multimodal_explanation_model": null,
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 4,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_12.jpg",
+      "image_file_name": "KakaoTalk_20260330_180646779_12.jpg",
+      "final_score_after_rerank": 0.578625,
+      "final_score": 0.578625,
+      "technical_score": 0.578625,
+      "technical_koniq_score": 36.09375,
+      "technical_flive_image_score": 69.0,
+      "technical_flive_patch_mean": 72.099998,
+      "technical_flive_patch_min": 71.4375,
+      "aesthetic_score": null,
+      "aesthetic_models_used": [
+        "composition_aadb",
+        "nima_ava",
+        "alamp_aadb",
+        "musiq_aadb",
+        "rgnet_aadb",
+        "pairwise_aadb"
+      ],
+      "technical_reason": "Technical quality is mixed at 0.579 (KoNIQ 36.094, FLIVE image 69.000, patch mean 72.100, patch min 71.438).",
+      "aesthetic_reason": null,
+      "final_outcome_reason": "Rank 4 is selected with final score 0.579 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "The selector held this frame on technical quality; technical quality created the clearest edge.",
+      "multimodal_explanations_enabled": false,
+      "multimodal_explanations_attempted": false,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "multimodal_explanations_disabled",
+      "multimodal_explanation_model": null,
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 5,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779.jpg",
+      "image_file_name": "KakaoTalk_20260330_180646779.jpg",
+      "final_score_after_rerank": 0.573307,
+      "final_score": 0.573307,
+      "technical_score": 0.573307,
+      "technical_koniq_score": 38.625,
+      "technical_flive_image_score": 66.0625,
+      "technical_flive_patch_mean": 71.712502,
+      "technical_flive_patch_min": 68.9375,
+      "aesthetic_score": null,
+      "aesthetic_models_used": [
+        "composition_aadb",
+        "nima_ava",
+        "alamp_aadb",
+        "musiq_aadb",
+        "rgnet_aadb",
+        "pairwise_aadb"
+      ],
+      "technical_reason": "Technical quality is mixed at 0.573 (KoNIQ 38.625, FLIVE image 66.062, patch mean 71.713, patch min 68.938).",
+      "aesthetic_reason": null,
+      "final_outcome_reason": "Rank 5 is selected with final score 0.573 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "The selector held this frame on technical quality; technical quality created the clearest edge.",
+      "multimodal_explanations_enabled": false,
+      "multimodal_explanations_attempted": false,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "multimodal_explanations_disabled",
+      "multimodal_explanation_model": null,
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 6,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_06.jpg",
+      "image_file_name": "KakaoTalk_20260330_180646779_06.jpg",
+      "final_score_after_rerank": 0.571542,
+      "final_score": 0.571542,
+      "technical_score": 0.571542,
+      "technical_koniq_score": 37.65625,
+      "technical_flive_image_score": 67.125,
+      "technical_flive_patch_mean": 71.6875,
+      "technical_flive_patch_min": 69.375,
+      "aesthetic_score": null,
+      "aesthetic_models_used": [
+        "composition_aadb",
+        "nima_ava",
+        "alamp_aadb",
+        "musiq_aadb",
+        "rgnet_aadb",
+        "pairwise_aadb"
+      ],
+      "technical_reason": "Technical quality is mixed at 0.572 (KoNIQ 37.656, FLIVE image 67.125, patch mean 71.688, patch min 69.375).",
+      "aesthetic_reason": null,
+      "final_outcome_reason": "Rank 6 is selected with final score 0.572 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "This frame stayed above the cut on technical consistency.",
+      "multimodal_explanations_enabled": false,
+      "multimodal_explanations_attempted": false,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "multimodal_explanations_disabled",
+      "multimodal_explanation_model": null,
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 7,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_08.jpg",
+      "image_file_name": "KakaoTalk_20260330_180646779_08.jpg",
+      "final_score_after_rerank": 0.553669,
+      "final_score": 0.553669,
+      "technical_score": 0.553669,
+      "technical_koniq_score": 35.375,
+      "technical_flive_image_score": 63.40625,
+      "technical_flive_patch_mean": 71.037498,
+      "technical_flive_patch_min": 69.9375,
+      "aesthetic_score": null,
+      "aesthetic_models_used": [
+        "composition_aadb",
+        "nima_ava",
+        "alamp_aadb",
+        "musiq_aadb",
+        "rgnet_aadb",
+        "pairwise_aadb"
+      ],
+      "technical_reason": "Technical quality is mixed at 0.554 (KoNIQ 35.375, FLIVE image 63.406, patch mean 71.037, patch min 69.938).",
+      "aesthetic_reason": null,
+      "final_outcome_reason": "Rank 7 is selected with final score 0.554 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "The A-cut kept it despite a thin margin, with technical quality just covering for weaker supporting cues.",
+      "multimodal_explanations_enabled": false,
+      "multimodal_explanations_attempted": false,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "multimodal_explanations_disabled",
+      "multimodal_explanation_model": null,
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 8,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_02.jpg",
+      "image_file_name": "KakaoTalk_20260330_180646779_02.jpg",
+      "final_score_after_rerank": 0.550225,
+      "final_score": 0.550225,
+      "technical_score": 0.550225,
+      "technical_koniq_score": 32.0,
+      "technical_flive_image_score": 65.3125,
+      "technical_flive_patch_mean": 71.650002,
+      "technical_flive_patch_min": 69.25,
+      "aesthetic_score": null,
+      "aesthetic_models_used": [
+        "composition_aadb",
+        "nima_ava",
+        "alamp_aadb",
+        "musiq_aadb",
+        "rgnet_aadb",
+        "pairwise_aadb"
+      ],
+      "technical_reason": "Technical quality is mixed at 0.550 (KoNIQ 32.000, FLIVE image 65.312, patch mean 71.650, patch min 69.250).",
+      "aesthetic_reason": null,
+      "final_outcome_reason": "Rank 8 is selected with final score 0.550 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "This frame cleared the cut by a small edge, mostly through technical quality.",
+      "multimodal_explanations_enabled": false,
+      "multimodal_explanations_attempted": false,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "multimodal_explanations_disabled",
+      "multimodal_explanation_model": null,
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 9,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_13.jpg",
+      "image_file_name": "KakaoTalk_20260330_180646779_13.jpg",
+      "final_score_after_rerank": 0.549573,
+      "final_score": 0.549573,
+      "technical_score": 0.549573,
+      "technical_koniq_score": 32.5625,
+      "technical_flive_image_score": 62.9375,
+      "technical_flive_patch_mean": 72.787498,
+      "technical_flive_patch_min": 71.0,
+      "aesthetic_score": null,
+      "aesthetic_models_used": [
+        "composition_aadb",
+        "nima_ava",
+        "alamp_aadb",
+        "musiq_aadb",
+        "rgnet_aadb",
+        "pairwise_aadb"
+      ],
+      "technical_reason": "Technical quality is mixed at 0.550 (KoNIQ 32.562, FLIVE image 62.938, patch mean 72.787, patch min 71.000).",
+      "aesthetic_reason": null,
+      "final_outcome_reason": "Rank 9 is selected with final score 0.550 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "It stayed in on a narrow margin because technical consistency barely outweighed technical quality.",
+      "multimodal_explanations_enabled": false,
+      "multimodal_explanations_attempted": false,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "multimodal_explanations_disabled",
+      "multimodal_explanation_model": null,
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "selector_reasoning"
+      ]
+    },
+    {
+      "rank": 10,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_04.jpg",
+      "image_file_name": "KakaoTalk_20260330_180646779_04.jpg",
+      "final_score_after_rerank": 0.548912,
+      "final_score": 0.548912,
+      "technical_score": 0.548912,
+      "technical_koniq_score": 33.96875,
+      "technical_flive_image_score": 63.46875,
+      "technical_flive_patch_mean": 71.074997,
+      "technical_flive_patch_min": 70.25,
+      "aesthetic_score": null,
+      "aesthetic_models_used": [
+        "composition_aadb",
+        "nima_ava",
+        "alamp_aadb",
+        "musiq_aadb",
+        "rgnet_aadb",
+        "pairwise_aadb"
+      ],
+      "technical_reason": "Technical quality is mixed at 0.549 (KoNIQ 33.969, FLIVE image 63.469, patch mean 71.075, patch min 70.250).",
+      "aesthetic_reason": null,
+      "final_outcome_reason": "Rank 10 is selected with final score 0.549 using aesthetic weight 0.600 and technical weight 0.400.",
+      "acut_short_reason": "The A-cut kept it despite a thin margin, with technical quality just covering for weaker supporting cues.",
+      "multimodal_explanations_enabled": false,
+      "multimodal_explanations_attempted": false,
+      "multimodal_explanations_succeeded": false,
+      "multimodal_explanations_skip_reason": "multimodal_explanations_disabled",
+      "multimodal_explanation_model": null,
+      "explanation_source": "baseline_acut",
+      "explanation_status": "generated",
+      "explanation_tags": [
+        "technical",
+        "technical quality",
+        "selector_reasoning"
+      ]
+    }
+  ],
+  "selected_count": 10,
+  "rejected_count": 5,
+  "multimodal_explanations_enabled": false,
+  "multimodal_explanations_attempted": false,
+  "multimodal_explanations_succeeded": false,
+  "multimodal_explanations_skip_reason": "multimodal_explanations_disabled",
+  "multimodal_explanation_model": null,
+  "explanation_source": "baseline_acut",
+  "pipeline_config": {
+    "input_dir": null,
+    "scores_jsonl": null,
+    "scores_csv": "outputs/acut_stage5_full_with_pairwise/scores.csv",
+    "score_failures_json": null,
+    "num_input_images": 15,
+    "num_scored_images": 15,
+    "num_skipped_images": 0,
+    "num_recoverable_stage_failures": 0,
+    "aesthetic_scores_csv": "outputs/acut_stage5_full_with_pairwise/scores.csv",
+    "aesthetic_enabled": true,
+    "aesthetic_backend": "precomputed_scores",
+    "aesthetic_config": null,
+    "aesthetic_weight": 0.6,
+    "technical_weight": 0.4,
+    "score_component_mix": {
+      "aesthetic": 0.6,
+      "technical": 0.4
+    },
+    "score_component_weights": {
+      "aesthetic": {
+        "aadb_score": 0.0,
+        "nima_mean_score": 0.0,
+        "alamp_score": 0.0,
+        "rgnet_score": 0.0,
+        "pairwise_recovered_score": 0.0,
+        "stage5_student_aesthetic_score": 1.0
+      },
+      "technical": {
+        "koniq_score": 0.32,
+        "flive_image_score": 0.24,
+        "flive_patch_mean": 0.22,
+        "flive_patch_min": 0.12,
+        "musiq_score": 0.1
+      },
+      "pairwise_rerank": {
+        "enabled": false,
+        "weight": 0.15,
+        "pool_size": 10.0
+      },
+      "vila_rerank": {
+        "enabled": false,
+        "weight": 0.1,
+        "pool_size": 10.0
+      }
+    },
+    "technical_score_formula": "technical_score is the selector technical_component: each available technical signal is normalized to [0,1], configured technical weights are re-normalized over available signals, then the weighted average is used. Current stage5-student server signals are koniq_score, flive_image_score, flive_patch_mean, flive_patch_min, and musiq_score when available.",
+    "combined_score_formula": "base_score = aesthetic_weight * aesthetic_score + technical_weight * technical_score when both components exist; if one component is missing, base_score falls back to the available component. final_score_after_rerank then reflects optional pairwise/VILA rerank deltas. When diversity is enabled, final_score is the post-diversity ranking score and final_score_after_rerank remains pre-diversity.",
+    "aesthetic_models": [],
+    "aesthetic_model_paths": {},
+    "aesthetic_pairwise_model_paths": {},
+    "aesthetic_missing_model_paths": {},
+    "aesthetic_auto_resolved": false,
+    "aesthetic_disabled_reason": null,
+    "aesthetic_warnings": [],
+    "vila_scores_csv": null,
+    "top_k": 10,
+    "enable_pairwise_rerank": false,
+    "enable_vila_rerank": false,
+    "vila_rerank_weight": 0.1,
+    "enable_vila_explanations": false,
+    "enable_acut_reasoning": true,
+    "explanation_schema_version": "acut_explanation.v1",
+    "explanation_count": 15,
+    "explanation_target_strategy": "selection_review",
+    "explanation_selected_count": 10,
+    "explanation_near_miss_count": 5,
+    "explanation_bottom_count": 5,
+    "explanation_target_ranks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "explanation_target_case_counts": {
+      "selected_top": 10,
+      "near_miss_rejected": 5,
+      "bottom_ranked": 5
+    },
+    "explanation_target_rows": [
+      {
+        "rank": 1,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_11.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 2,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 3,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_07.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 4,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_12.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 5,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 6,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_06.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 7,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_08.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 8,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_02.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 9,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_13.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 10,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_04.jpg",
+        "selected": true,
+        "target_case": "selected_top",
+        "target_cases": [
+          "selected_top"
+        ]
+      },
+      {
+        "rank": 11,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_05.jpg",
+        "selected": false,
+        "target_case": "near_miss_rejected",
+        "target_cases": [
+          "near_miss_rejected",
+          "bottom_ranked"
+        ]
+      },
+      {
+        "rank": 12,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_01.jpg",
+        "selected": false,
+        "target_case": "near_miss_rejected",
+        "target_cases": [
+          "near_miss_rejected",
+          "bottom_ranked"
+        ]
+      },
+      {
+        "rank": 13,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_09.jpg",
+        "selected": false,
+        "target_case": "near_miss_rejected",
+        "target_cases": [
+          "near_miss_rejected",
+          "bottom_ranked"
+        ]
+      },
+      {
+        "rank": 14,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_14.jpg",
+        "selected": false,
+        "target_case": "near_miss_rejected",
+        "target_cases": [
+          "near_miss_rejected",
+          "bottom_ranked"
+        ]
+      },
+      {
+        "rank": 15,
+        "image_path": "test_samples/KakaoTalk_20260330_180646779_03.jpg",
+        "selected": false,
+        "target_case": "near_miss_rejected",
+        "target_cases": [
+          "near_miss_rejected",
+          "bottom_ranked"
+        ]
+      }
+    ],
+    "explanation_backend_requested": "vila_full_local",
+    "reason_reference_mode": "nearest_competitor",
+    "reason_detail_level": "full",
+    "multimodal_explanations_enabled": false,
+    "multimodal_explanations_attempted": false,
+    "multimodal_explanations_succeeded": false,
+    "multimodal_explanation_backend": "vila_full_local",
+    "multimodal_explanation_model": null,
+    "multimodal_explanation_runtime": null,
+    "multimodal_explanations_fallback": false,
+    "multimodal_explanations_target_count": 15,
+    "multimodal_explanations_attempted_count": 0,
+    "multimodal_explanations_succeeded_count": 0,
+    "multimodal_explanations_fallback_count": 0,
+    "multimodal_explanations_skip_reason": "multimodal_explanations_disabled",
+    "explanation_source": "baseline_acut",
+    "vila_full_python": null,
+    "vila_full_model_path": null,
+    "vila_full_device": "auto",
+    "vila_full_max_new_tokens": 256,
+    "enable_diversity": false,
+    "rerank_pool_size": null,
+    "weights_config": "configs/stage5_student_server_weights.json",
+    "export_debug_reasoning": false
+  }
+}

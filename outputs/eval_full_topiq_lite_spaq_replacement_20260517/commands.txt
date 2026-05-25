@@ -1,0 +1,20 @@
+# TOPIQ-lite Replacement Evaluation Commands
+
+The following command categories were used to evaluate the full SPAQ replacement model:
+
+1. Full SPAQ Training (Frozen Backbone):
+   PYTHONPATH=. ./.venv_gpu/bin/python src/train/train_topiq_lite.py \
+     --train_csv data/processed/spaq/train.csv \
+     --val_csv data/processed/spaq/test.csv \
+     --target_col normalized_mos --batch_size 8 --epochs 30 --lr 1e-4 \
+     --freeze_backbone --out_dir outputs/full_topiq_lite_spaq_frozen_e30_20260517
+
+2. Comparative Evaluation (Python/Interpreter):
+   - Existing mobile baselines were run using tf.lite.Interpreter.
+   - New TOPIQ-lite model was run using tf.saved_model.load on the exported SavedModel.
+   - Both used Aspect Ratio Preserving (ARP) preprocessing or equivalent baseline resizing.
+
+3. TFLite Export (Builtin-only):
+   - Keras model converted to FP32 and FP16 using tf.lite.TFLiteConverter.from_keras_model.
+   - optimizations = [tf.lite.Optimize.DEFAULT]
+   - target_spec.supported_types = [tf.float16]

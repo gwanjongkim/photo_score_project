@@ -1,0 +1,60 @@
+{
+  "package": "stage5_vs_weighted_ensemble_human_acut_review",
+  "source_csv": "/home/omen_pc1/photo_score_project/outputs/test_vila_aesthetic_ensemble_experiment_20260423/scores_with_ensemble.csv",
+  "top_k": 10,
+  "num_images": 50,
+  "stage5_top10_count": 10,
+  "ensemble_top10_count": 10,
+  "top10_overlap_count": 4,
+  "stage5_only_top10": [
+    "20250204_170733.jpg",
+    "1720499666964.jpg",
+    "1720499666985.jpg",
+    "1675564674752-15.jpg",
+    "1675564674752-2.jpg",
+    "20250204_135520.jpg"
+  ],
+  "ensemble_only_top10": [
+    "1675342165226-13.jpg",
+    "1675342165226-3.jpg",
+    "1675342165226-5.jpg",
+    "20250204_163550.jpg",
+    "1704296944756.jpg",
+    "1675564423029-9.jpg"
+  ],
+  "stage5_bottom10_count": 10,
+  "ensemble_bottom10_count": 10,
+  "bottom10_overlap_count": 4,
+  "stage5_only_bottom10": [
+    "20250205_072644.jpg",
+    "1720499657653.jpg",
+    "1715855266134.jpg",
+    "20240515_073118.jpg",
+    "20230201_181510.jpg",
+    "IMG_2748.JPG"
+  ],
+  "ensemble_only_bottom10": [
+    "1738744324186.jpg",
+    "IMG_2738.JPG",
+    "IMG_2739.JPG",
+    "20250129_054504.jpg",
+    "20240517_060242.jpg",
+    "20240517_060245.jpg"
+  ],
+  "rank_difference_convention": "rank_difference = ensemble_final_rank - stage5_final_rank; negative means ensemble ranks the image higher.",
+  "bottom_rank_convention": "Bottom-10 uses largest final-rank numbers. Positive rank_difference means the ensemble ranks the image lower; negative means stage5 ranks it lower.",
+  "contact_sheets": {
+    "stage5_top10": "contact_01_stage5_top10.jpg",
+    "ensemble_top10": "contact_02_ensemble_top10.jpg",
+    "top10_overlap": "contact_03_top10_overlap.jpg",
+    "top10_disagreements": "contact_04_top10_disagreements.jpg",
+    "ensemble_much_higher": "contact_05_ensemble_much_higher_than_stage5.jpg",
+    "stage5_much_higher": "contact_06_stage5_much_higher_than_ensemble.jpg",
+    "stage5_bottom10": "contact_07_stage5_bottom10.jpg",
+    "ensemble_bottom10": "contact_08_ensemble_bottom10.jpg",
+    "bottom10_overlap": "contact_09_bottom10_overlap.jpg",
+    "bottom10_disagreements": "contact_10_bottom10_disagreements.jpg",
+    "ensemble_much_lower": "contact_11_ensemble_much_lower_than_stage5.jpg",
+    "stage5_much_lower": "contact_12_stage5_much_lower_than_ensemble.jpg"
+  }
+}

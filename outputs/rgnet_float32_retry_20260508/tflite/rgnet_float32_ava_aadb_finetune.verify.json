@@ -1,0 +1,734 @@
+{
+  "script": "/home/omen_pc1/photo_score_project/outputs/rgnet_float32_retry_20260508/scripts/export_rgnet_float32_tflite.py",
+  "args": {
+    "model_path": "outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain_aadb_finetune/final_model.keras",
+    "saved_model_dir": "outputs/rgnet_float32_retry_20260508/rgnet_float32_ava_pretrain_aadb_finetune/saved_model",
+    "output_tflite": "outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_aadb_finetune.tflite",
+    "metadata_json": "outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_aadb_finetune.metadata.json",
+    "verify_json": "outputs/rgnet_float32_retry_20260508/tflite/rgnet_float32_ava_aadb_finetune.verify.json",
+    "image_path": null,
+    "parity_csv": "outputs/ava_retrain_rgnet_alamp_20260506/subsets/aadb_val_subset_512.csv",
+    "image_size": 256,
+    "parity_count": 20,
+    "threshold": 0.0001,
+    "num_threads": 1,
+    "overwrite": false
+  },
+  "verification_passed": true,
+  "failure_stage": null,
+  "threshold": 0.0001,
+  "num_images": 20,
+  "input_details": [
+    {
+      "name": "serving_default_input_layer_1:0",
+      "shape": [
+        1,
+        256,
+        256,
+        3
+      ],
+      "shape_signature": [
+        -1,
+        256,
+        256,
+        3
+      ],
+      "dtype": "float32",
+      "index": 0
+    }
+  ],
+  "output_details": [
+    {
+      "name": "StatefulPartitionedCall_1:0",
+      "shape": [
+        1,
+        1
+      ],
+      "shape_signature": [
+        -1,
+        1
+      ],
+      "dtype": "float32",
+      "index": 608
+    }
+  ],
+  "op_list": [
+    "MUL",
+    "SUB",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "LOGISTIC",
+    "MUL",
+    "CONV_2D",
+    "MEAN",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "PACK",
+    "RESHAPE",
+    "L2_NORMALIZATION",
+    "BATCH_MATMUL",
+    "SHAPE",
+    "STRIDED_SLICE",
+    "RESHAPE",
+    "CONCATENATION",
+    "FILL",
+    "MATRIX_DIAG",
+    "MUL",
+    "SOFTMAX",
+    "ADD",
+    "SUM",
+    "MAXIMUM",
+    "DIV",
+    "BATCH_MATMUL",
+    "FULLY_CONNECTED",
+    "ADD",
+    "MEAN",
+    "NEG",
+    "SQUARED_DIFFERENCE",
+    "MEAN",
+    "ADD",
+    "RSQRT",
+    "MUL",
+    "MUL",
+    "ADD",
+    "MUL",
+    "ADD",
+    "BATCH_MATMUL",
+    "FULLY_CONNECTED",
+    "ADD",
+    "MEAN",
+    "NEG",
+    "SQUARED_DIFFERENCE",
+    "MEAN",
+    "ADD",
+    "RSQRT",
+    "MUL",
+    "MUL",
+    "ADD",
+    "MUL",
+    "ADD",
+    "CONCATENATION",
+    "FULLY_CONNECTED",
+    "TANH",
+    "TRANSPOSE",
+    "SOFTMAX",
+    "TRANSPOSE",
+    "MUL",
+    "SUM",
+    "CONCATENATION",
+    "FULLY_CONNECTED",
+    "FULLY_CONNECTED",
+    "LOGISTIC",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE",
+    "DELEGATE"
+  ],
+  "flex_ops": [],
+  "reference_image": {
+    "index": 0,
+    "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_316_20145499186_18fcea17fd_b.jpg",
+    "keras_output": [
+      0.6801081299781799
+    ],
+    "tflite_output": [
+      0.6801002025604248
+    ],
+    "max_abs_diff": 7.927417755126953e-06,
+    "mean_abs_diff": 7.927417755126953e-06,
+    "saved_model_output": [
+      0.6801081895828247
+    ],
+    "saved_model_error": null
+  },
+  "comparison": {
+    "reference_max_abs_diff": 7.927417755126953e-06,
+    "reference_mean_abs_diff": 7.927417755126953e-06,
+    "multi_image_max_abs_diff": 1.9490718841552734e-05,
+    "multi_image_mean_abs_diff": 7.037818431854248e-06,
+    "comparison_ok": true,
+    "shape_ok": true
+  },
+  "per_image": [
+    {
+      "index": 0,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_316_20145499186_18fcea17fd_b.jpg",
+      "keras_output": [
+        0.6801081299781799
+      ],
+      "tflite_output": [
+        0.6801002025604248
+      ],
+      "max_abs_diff": 7.927417755126953e-06,
+      "mean_abs_diff": 7.927417755126953e-06
+    },
+    {
+      "index": 1,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_292_20177190071_ed73bfdf45_b.jpg",
+      "keras_output": [
+        0.2984192967414856
+      ],
+      "tflite_output": [
+        0.29841575026512146
+      ],
+      "max_abs_diff": 3.546476364135742e-06,
+      "mean_abs_diff": 3.546476364135742e-06
+    },
+    {
+      "index": 2,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_295_19542413113_995218a1dc_b.jpg",
+      "keras_output": [
+        0.24353371560573578
+      ],
+      "tflite_output": [
+        0.2435448318719864
+      ],
+      "max_abs_diff": 1.1116266250610352e-05,
+      "mean_abs_diff": 1.1116266250610352e-05
+    },
+    {
+      "index": 3,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_342_20268387925_8b3e3ed659_b.jpg",
+      "keras_output": [
+        0.28366756439208984
+      ],
+      "tflite_output": [
+        0.28367266058921814
+      ],
+      "max_abs_diff": 5.0961971282958984e-06,
+      "mean_abs_diff": 5.0961971282958984e-06
+    },
+    {
+      "index": 4,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_307_20167913586_46cdb89136_b.jpg",
+      "keras_output": [
+        0.3140539526939392
+      ],
+      "tflite_output": [
+        0.31405866146087646
+      ],
+      "max_abs_diff": 4.708766937255859e-06,
+      "mean_abs_diff": 4.708766937255859e-06
+    },
+    {
+      "index": 5,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_325_20140979326_04d47e3633_b.jpg",
+      "keras_output": [
+        0.1867469996213913
+      ],
+      "tflite_output": [
+        0.18675199151039124
+      ],
+      "max_abs_diff": 4.991888999938965e-06,
+      "mean_abs_diff": 4.991888999938965e-06
+    },
+    {
+      "index": 6,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_337_20180466022_6cfcf337ed_b.jpg",
+      "keras_output": [
+        0.3140009045600891
+      ],
+      "tflite_output": [
+        0.31401297450065613
+      ],
+      "max_abs_diff": 1.2069940567016602e-05,
+      "mean_abs_diff": 1.2069940567016602e-05
+    },
+    {
+      "index": 7,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_375_20318477612_6070ea9775_b.jpg",
+      "keras_output": [
+        0.35747602581977844
+      ],
+      "tflite_output": [
+        0.3574788272380829
+      ],
+      "max_abs_diff": 2.8014183044433594e-06,
+      "mean_abs_diff": 2.8014183044433594e-06
+    },
+    {
+      "index": 8,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_375_19992327020_c83fa1ee09_b.jpg",
+      "keras_output": [
+        0.767462432384491
+      ],
+      "tflite_output": [
+        0.7674669027328491
+      ],
+      "max_abs_diff": 4.470348358154297e-06,
+      "mean_abs_diff": 4.470348358154297e-06
+    },
+    {
+      "index": 9,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_467_20115649945_789c038be8_b.jpg",
+      "keras_output": [
+        0.5408781170845032
+      ],
+      "tflite_output": [
+        0.5408976078033447
+      ],
+      "max_abs_diff": 1.9490718841552734e-05,
+      "mean_abs_diff": 1.9490718841552734e-05
+    },
+    {
+      "index": 10,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_401_20119453585_9ae520005a_b.jpg",
+      "keras_output": [
+        0.28516462445259094
+      ],
+      "tflite_output": [
+        0.28516602516174316
+      ],
+      "max_abs_diff": 1.4007091522216797e-06,
+      "mean_abs_diff": 1.4007091522216797e-06
+    },
+    {
+      "index": 11,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_325_20016613898_58c7fbdc1f_b.jpg",
+      "keras_output": [
+        0.32213592529296875
+      ],
+      "tflite_output": [
+        0.3221471905708313
+      ],
+      "max_abs_diff": 1.1265277862548828e-05,
+      "mean_abs_diff": 1.1265277862548828e-05
+    },
+    {
+      "index": 12,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_379_19665518553_5a0d7a2b25_b.jpg",
+      "keras_output": [
+        0.2616092562675476
+      ],
+      "tflite_output": [
+        0.26162248849868774
+      ],
+      "max_abs_diff": 1.3232231140136719e-05,
+      "mean_abs_diff": 1.3232231140136719e-05
+    },
+    {
+      "index": 13,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm4_3801_19559973383_26dd16ebc3_b.jpg",
+      "keras_output": [
+        0.596880316734314
+      ],
+      "tflite_output": [
+        0.5968766212463379
+      ],
+      "max_abs_diff": 3.6954879760742188e-06,
+      "mean_abs_diff": 3.6954879760742188e-06
+    },
+    {
+      "index": 14,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_331_20171741416_266a97673d_b.jpg",
+      "keras_output": [
+        0.25623035430908203
+      ],
+      "tflite_output": [
+        0.25623655319213867
+      ],
+      "max_abs_diff": 6.198883056640625e-06,
+      "mean_abs_diff": 6.198883056640625e-06
+    },
+    {
+      "index": 15,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_318_20077285545_a085e14492_b.jpg",
+      "keras_output": [
+        0.32495346665382385
+      ],
+      "tflite_output": [
+        0.3249658942222595
+      ],
+      "max_abs_diff": 1.2427568435668945e-05,
+      "mean_abs_diff": 1.2427568435668945e-05
+    },
+    {
+      "index": 16,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_347_19483246264_8ce8e98300_b.jpg",
+      "keras_output": [
+        0.3215371072292328
+      ],
+      "tflite_output": [
+        0.3215380012989044
+      ],
+      "max_abs_diff": 8.940696716308594e-07,
+      "mean_abs_diff": 8.940696716308594e-07
+    },
+    {
+      "index": 17,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_460_19988549819_6b9ab33ecd_b.jpg",
+      "keras_output": [
+        0.2404218465089798
+      ],
+      "tflite_output": [
+        0.24042920768260956
+      ],
+      "max_abs_diff": 7.361173629760742e-06,
+      "mean_abs_diff": 7.361173629760742e-06
+    },
+    {
+      "index": 18,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_271_20063205446_7f017d0198_b.jpg",
+      "keras_output": [
+        0.45650842785835266
+      ],
+      "tflite_output": [
+        0.4565099775791168
+      ],
+      "max_abs_diff": 1.5497207641601562e-06,
+      "mean_abs_diff": 1.5497207641601562e-06
+    },
+    {
+      "index": 19,
+      "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_421_19463089073_aee5044e4f_b.jpg",
+      "keras_output": [
+        0.16318638622760773
+      ],
+      "tflite_output": [
+        0.16319289803504944
+      ],
+      "max_abs_diff": 6.511807441711426e-06,
+      "mean_abs_diff": 6.511807441711426e-06
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "acut_product_app.v1",
+  "generated_at": "2026-04-03T10:24:54.655908Z",
+  "ranking_stage": "post_diversity",
+  "score_semantics": "rank, selected, and status reflect the canonical final post-diversity order. final_score_after_rerank remains the pre-diversity score after pairwise and VILA rerank.",
+  "diversity_enabled": true,
+  "top_k": [
+    {
+      "rank": 1,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779.jpg",
+      "final_score_after_rerank": null,
+      "acut_short_reason": "Chosen because the combined selector score held up better than nearby alternatives."
+    },
+    {
+      "rank": 2,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_01.jpg",
+      "final_score_after_rerank": null,
+      "acut_short_reason": "This frame stayed above the cut on the combined selector score."
+    },
+    {
+      "rank": 3,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_02.jpg",
+      "final_score_after_rerank": null,
+      "acut_short_reason": "Selected because the combined selector score stayed ahead of nearby alternatives."
+    },
+    {
+      "rank": 4,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_03.jpg",
+      "final_score_after_rerank": null,
+      "acut_short_reason": "Chosen because the combined selector score held up better than nearby alternatives."
+    },
+    {
+      "rank": 5,
+      "image_path": "test_samples/KakaoTalk_20260330_180646779_04.jpg",
+      "final_score_after_rerank": null,
+      "acut_short_reason": "This frame stayed above the cut on the combined selector score."
+    }
+  ],
+  "selected_count": 5,
+  "rejected_count": 10,
+  "pipeline_config": {
+    "input_dir": "test_samples",
+    "scores_jsonl": "outputs/firebase_worker_local_smoke_diversity/scores.jsonl",
+    "scores_csv": "outputs/firebase_worker_local_smoke_diversity/scores.csv",
+    "vila_scores_csv": null,
+    "top_k": 5,
+    "enable_pairwise_rerank": false,
+    "enable_vila_rerank": false,
+    "vila_rerank_weight": 0.1,
+    "enable_vila_explanations": false,
+    "enable_acut_reasoning": true,
+    "reason_reference_mode": "nearest_competitor",
+    "reason_detail_level": "full",
+    "enable_diversity": true,
+    "rerank_pool_size": null,
+    "weights_config": null,
+    "export_debug_reasoning": false
+  }
+}
