@@ -27,6 +27,7 @@ from src.models.alamp_multipatch_teacher import (
     REPRODUCTION_CLAIM,
     build_alamp_multipatch_teacher_model,
     get_alamp_multipatch_teacher_custom_objects,
+    normalize_patch_projection_mode,
     normalize_unfreeze_from_layer,
     summarize_vgg16_trainability,
 )
@@ -121,6 +122,38 @@ def _setup_tensorflow(seed: int) -> dict[str, Any]:
         "mixed_precision_policy": str(tf.keras.mixed_precision.global_policy()),
         "visible_gpus": [str(gpu) for gpu in gpus],
     }
+
+
+def _gpu_memory_info() -> dict[str, Any]:
+    devices = tf.config.list_logical_devices("GPU")
+    info: dict[str, Any] = {}
+    for index, _device in enumerate(devices):
+        device_name = f"GPU:{index}"
+        try:
+            memory_info = tf.config.experimental.get_memory_info(device_name)
+        except Exception as exc:
+            info[device_name] = {"available": False, "error": str(exc)}
+            continue
+        info[device_name] = {
+            "available": True,
+            "current_bytes": int(memory_info.get("current", 0)),
+            "peak_bytes": int(memory_info.get("peak", 0)),
+        }
+    return info
+
+
+def _print_oom_guidance(exc: BaseException, *, batch_size: int, patch_projection_mode: str) -> None:
+    text = str(exc)
+    is_resource_exhausted = isinstance(exc, (tf.errors.ResourceExhaustedError, MemoryError))
+    if not is_resource_exhausted and "OOM" not in text and "ResourceExhausted" not in text:
+        return
+    print(
+        "Memory exhaustion while training the A-LAMP Multi-Patch teacher. "
+        f"Current batch_size={batch_size}, patch_projection_mode={patch_projection_mode}. "
+        "For the paper-capacity 4096 variant, retry with batch_size=1, reduce sample limits, "
+        "or keep the VGG16 backbone frozen.",
+        file=sys.stderr,
+    )
 
 
 def _compile_model(model: tf.keras.Model, learning_rate: float) -> None:
@@ -289,11 +322,13 @@ def _model_summary(model: tf.keras.Model) -> dict[str, Any]:
         tensor.name.split(":")[0]: [int(dim) if dim is not None else None for dim in tensor.shape]
         for tensor in model.inputs
     }
+    model_config = getattr(model, "_alamp_multipatch_teacher_config", {})
     return {
         "name": model.name,
         "variant": MODEL_VARIANT,
         "description": MODEL_DESCRIPTION,
         "reproduction_claim": REPRODUCTION_CLAIM,
+        "capacity_config": model_config,
         "input_shapes": input_shapes,
         "output_shape": [int(dim) if dim is not None else None for dim in model.output.shape],
         "parameter_count": int(model.count_params()),
@@ -329,7 +364,11 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--learning_rate", type=float)
     parser.add_argument("--patch_count", type=int)
     parser.add_argument("--patch_size", type=int)
+    parser.add_argument("--patch_projection_mode", choices=["gap", "flatten_dense"])
+    parser.add_argument("--patch_feature_dim", type=int)
     parser.add_argument("--head_units", type=int)
+    parser.add_argument("--head_layers", type=int)
+    parser.add_argument("--head_dropout", type=float)
     parser.add_argument("--dropout_rate", type=float)
     parser.add_argument("--backbone_weights")
     parser.add_argument("--label_threshold", type=float)
@@ -353,8 +392,21 @@ def main() -> None:
     seed = int(_resolve(args.seed, config, "training", "seed", 42))
     patch_count = int(_resolve(args.patch_count, config, "model", "patch_count", 5))
     patch_size = int(_resolve(args.patch_size, config, "model", "patch_size", 224))
+    patch_projection_mode = normalize_patch_projection_mode(
+        _resolve(args.patch_projection_mode, config, "model", "patch_projection_mode", "gap")
+    )
+    patch_feature_dim = int(_resolve(args.patch_feature_dim, config, "model", "patch_feature_dim", 512))
     head_units = int(_resolve(args.head_units, config, "model", "head_units", 256))
-    dropout_rate = float(_resolve(args.dropout_rate, config, "model", "dropout_rate", 0.5))
+    head_layers = int(_resolve(args.head_layers, config, "model", "head_layers", 1))
+    head_dropout_value = (
+        args.head_dropout
+        if args.head_dropout is not None
+        else args.dropout_rate
+        if args.dropout_rate is not None
+        else _cfg(config, "model", "head_dropout", _cfg(config, "model", "dropout_rate", 0.5))
+    )
+    head_dropout = float(head_dropout_value)
+    dropout_rate = head_dropout
     backbone_weights = _resolve(args.backbone_weights, config, "model", "backbone_weights", "imagenet")
     backbone_trainable = _parse_bool(
         _resolve(args.backbone_trainable, config, "model", "backbone_trainable", False)
@@ -433,21 +485,40 @@ def main() -> None:
         shuffle_seed=seed,
     )
 
-    model = build_alamp_multipatch_teacher_model(
-        patch_count=patch_count,
-        patch_size=patch_size,
-        backbone_weights=backbone_weights,
-        backbone_trainable=backbone_trainable,
-        unfreeze_from_layer=unfreeze_from_layer,
-        head_units=head_units,
-        dropout_rate=dropout_rate,
-    )
-    _compile_model(model, learning_rate=learning_rate)
+    try:
+        model = build_alamp_multipatch_teacher_model(
+            patch_count=patch_count,
+            patch_size=patch_size,
+            backbone_weights=backbone_weights,
+            backbone_trainable=backbone_trainable,
+            unfreeze_from_layer=unfreeze_from_layer,
+            patch_projection_mode=patch_projection_mode,
+            patch_feature_dim=patch_feature_dim,
+            head_units=head_units,
+            head_layers=head_layers,
+            head_dropout=head_dropout,
+            dropout_rate=dropout_rate,
+        )
+        _compile_model(model, learning_rate=learning_rate)
+    except Exception as exc:
+        _print_oom_guidance(exc, batch_size=batch_size, patch_projection_mode=patch_projection_mode)
+        raise
     model_info = _model_summary(model)
+    model_config = getattr(model, "_alamp_multipatch_teacher_config", {})
     print(f"Model parameter count: {model_info['parameter_count']}")
+    print(f"Model trainable parameter count: {model_info['trainable_parameter_count']}")
+    print(f"Model non-trainable parameter count: {model_info['non_trainable_parameter_count']}")
+    print(f"Patch projection mode: {patch_projection_mode}")
+    print(f"Patch feature dim: {model_config.get('patch_feature_dim')}")
+    print(f"Head units: {head_units}")
+    print(f"Head layers: {head_layers}")
+    print(f"Head dropout: {head_dropout}")
     print(f"Backbone trainable: {backbone_trainable}")
     print(f"Unfreeze from layer: {unfreeze_from_layer}")
     print(f"Trainable VGG16 layers: {model_info['vgg16_trainability']['trainable_layers']}")
+    gpu_memory_after_model_build = _gpu_memory_info()
+    if gpu_memory_after_model_build:
+        print(f"GPU memory after model build: {gpu_memory_after_model_build}")
 
     callbacks: list[tf.keras.callbacks.Callback] = [
         tf.keras.callbacks.ModelCheckpoint(
@@ -460,15 +531,20 @@ def main() -> None:
         )
     ]
 
-    history = model.fit(
-        train_dataset,
-        validation_data=val_dataset,
-        epochs=epochs,
-        steps_per_epoch=steps_per_epoch,
-        validation_steps=validation_steps,
-        callbacks=callbacks,
-        verbose=2,
-    )
+    try:
+        history = model.fit(
+            train_dataset,
+            validation_data=val_dataset,
+            epochs=epochs,
+            steps_per_epoch=steps_per_epoch,
+            validation_steps=validation_steps,
+            callbacks=callbacks,
+            verbose=2,
+        )
+    except Exception as exc:
+        _print_oom_guidance(exc, batch_size=batch_size, patch_projection_mode=patch_projection_mode)
+        raise
+    gpu_memory_after_training = _gpu_memory_info()
     history_rows = _history_rows(history)
     _write_training_history(out_dir / "training_history.csv", history_rows)
 
@@ -510,6 +586,14 @@ def main() -> None:
         "backbone_trainable": bool(backbone_trainable),
         "unfreeze_from_layer": unfreeze_from_layer,
         "learning_rate": float(learning_rate),
+        "patch_projection_mode": patch_projection_mode,
+        "patch_feature_dim": int(model_config.get("patch_feature_dim", patch_feature_dim)),
+        "patch_feature_dim_requested": int(patch_feature_dim),
+        "head_units": int(head_units),
+        "head_layers": int(head_layers),
+        "head_dropout": float(head_dropout),
+        "total_parameter_count": int(model_info["parameter_count"]),
+        "trainable_parameter_count": int(model_info["trainable_parameter_count"]),
         "train_count": len(train_records),
         "val_count": len(val_records),
         "steps_per_epoch": int(steps_per_epoch),
@@ -545,6 +629,12 @@ def main() -> None:
             "learning_rate": float(learning_rate),
             "backbone_trainable": bool(backbone_trainable),
             "unfreeze_from_layer": unfreeze_from_layer,
+            "patch_projection_mode": patch_projection_mode,
+            "patch_feature_dim": int(model_config.get("patch_feature_dim", patch_feature_dim)),
+            "patch_feature_dim_requested": int(patch_feature_dim),
+            "head_units": int(head_units),
+            "head_layers": int(head_layers),
+            "head_dropout": float(head_dropout),
             "use_class_weights": bool(use_class_weights),
             "class_weights": class_weights,
             "loss": "binary_crossentropy",
@@ -566,6 +656,8 @@ def main() -> None:
         "best_val_loss": _best_metric(history_rows, "val_loss", "min"),
         "save_load_max_abs_diff": save_load_max_abs_diff,
         "tensorflow_info": tf_info,
+        "gpu_memory_after_model_build": gpu_memory_after_model_build,
+        "gpu_memory_after_training": gpu_memory_after_training,
         "artifacts": {
             "best_weights": str(best_weights_path),
             "final_model": str(final_model_path),

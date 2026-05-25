@@ -20,11 +20,16 @@ model:
   backbone: VGG16
   backbone_weights: imagenet
   backbone_trainable: false
+  unfreeze_from_layer: null
   patch_count: 5
   patch_size: 224
+  patch_projection_mode: gap
+  patch_feature_dim: 512
   patch_feature: global_average_pooling
   aggregation: orderless_mean_plus_orderless_max
   head_units: 256
+  head_layers: 1
+  head_dropout: 0.5
   dropout_rate: 0.5
 
 training:
@@ -32,6 +37,7 @@ training:
   epochs: 10
   batch_size: 4
   learning_rate: 0.0001
+  use_class_weights: false
   loss: binary_crossentropy
   metrics: [accuracy, auc, precision, recall]
   monitor_metric: val_auc
