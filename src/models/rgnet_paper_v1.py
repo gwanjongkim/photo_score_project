@@ -138,6 +138,82 @@ class ASPPContextModule(tf.keras.layers.Layer):
 
 
 @tf.keras.utils.register_keras_serializable(package="photo_score_project")
+class V1CascadedDenseASPP(tf.keras.layers.Layer):
+    """Cascaded DenseASPP context block with dense atrous feature concatenation."""
+
+    def __init__(
+        self,
+        dilation_rates: tuple[int, ...] = (3, 6, 12, 18),
+        growth_rate: int = 64,
+        use_batchnorm: bool = True,
+        activation: str = "relu",
+        **kwargs,
+    ):
+        super().__init__(**kwargs)
+        self.dilation_rates = tuple(int(rate) for rate in dilation_rates)
+        self.growth_rate = int(growth_rate)
+        self.use_batchnorm = bool(use_batchnorm)
+        self.activation_name = activation
+        self.convs: list[tf.keras.layers.Conv2D] = []
+        self.norms: list[tf.keras.layers.BatchNormalization | None] = []
+        self.activations: list[tf.keras.layers.Activation] = []
+        for index, rate in enumerate(self.dilation_rates, start=1):
+            self.convs.append(
+                tf.keras.layers.Conv2D(
+                    self.growth_rate,
+                    3,
+                    padding="same",
+                    dilation_rate=rate,
+                    use_bias=not self.use_batchnorm,
+                    name=f"denseaspp_conv_{index}_d{rate}",
+                )
+            )
+            self.norms.append(
+                tf.keras.layers.BatchNormalization(name=f"denseaspp_bn_{index}_d{rate}")
+                if self.use_batchnorm
+                else None
+            )
+            self.activations.append(tf.keras.layers.Activation(activation, name=f"denseaspp_act_{index}_d{rate}"))
+
+    def build(self, input_shape):
+        shape = tf.TensorShape(input_shape).as_list()
+        if shape[-1] is None:
+            raise ValueError("V1CascadedDenseASPP needs a static input channel count.")
+        input_channels = int(shape[-1])
+        spatial_shape = list(shape)
+        output_shape = list(shape)
+        output_shape[-1] = self.growth_rate
+        for index, (conv, norm, activation) in enumerate(zip(self.convs, self.norms, self.activations)):
+            conv_input_shape = list(spatial_shape)
+            conv_input_shape[-1] = input_channels + (index * self.growth_rate)
+            conv.build(tuple(conv_input_shape))
+            if norm is not None:
+                norm.build(tuple(output_shape))
+            activation.build(tuple(output_shape))
+        super().build(input_shape)
+
+    def call(self, inputs: tf.Tensor, training: bool = False) -> tf.Tensor:
+        outputs: list[tf.Tensor] = []
+        for conv, norm, activation in zip(self.convs, self.norms, self.activations):
+            x = tf.concat([inputs, *outputs], axis=-1)
+            x = conv(x)
+            if norm is not None:
+                x = norm(x, training=training)
+            x = activation(x)
+            outputs.append(x)
+        return tf.concat([inputs, *outputs], axis=-1)
+
+    def get_config(self) -> dict[str, object]:
+        return {
+            **super().get_config(),
+            "dilation_rates": self.dilation_rates,
+            "growth_rate": self.growth_rate,
+            "use_batchnorm": self.use_batchnorm,
+            "activation": self.activation_name,
+        }
+
+
+@tf.keras.utils.register_keras_serializable(package="photo_score_project")
 class V1RegionSimilarityAdjacency(tf.keras.layers.Layer):
     """Builds row-wise softmax adjacency from cosine region similarity."""
 
@@ -328,12 +404,19 @@ def build_rgnet_paper_v1_model(
     adjacency_type: str = "semantic",
     spatial_alpha: float = 0.0,
     spatial_sigma: float = 0.25,
+    context_module_type: str = "parallel_aspp",
+    denseaspp_rates: tuple[int, ...] = (3, 6, 12, 18),
+    denseaspp_growth_rate: int = 64,
+    use_context_batchnorm: bool = True,
 ) -> tf.keras.Model:
     """Builds RGNet-paper-v1 approximation for AADB regression."""
 
     adjacency_type = str(adjacency_type).lower()
     if adjacency_type not in {"semantic", "hybrid_spatial"}:
         raise ValueError(f"Unsupported adjacency_type: {adjacency_type}")
+    context_module_type = str(context_module_type).lower()
+    if context_module_type not in {"parallel_aspp", "cascaded_denseaspp"}:
+        raise ValueError(f"Unsupported context_module_type: {context_module_type}")
 
     backbone = _build_densenet121_backbone(input_shape=input_shape, weights=backbone_weights)
     backbone.trainable = True
@@ -341,13 +424,24 @@ def build_rgnet_paper_v1_model(
     inputs = tf.keras.Input(shape=input_shape, name="image")
     x = DenseNetV1UnitPreprocess(name="densenet_preprocess")(inputs)
     feature_map = backbone(x, training=False)
-    context_map = ASPPContextModule(
-        filters=int(region_dim),
-        dilation_rates=dilation_rates,
-        name="aspp_context",
-    )(feature_map)
+    if context_module_type == "cascaded_denseaspp":
+        context_map = V1CascadedDenseASPP(
+            dilation_rates=denseaspp_rates,
+            growth_rate=denseaspp_growth_rate,
+            use_batchnorm=use_context_batchnorm,
+            name="cascaded_denseaspp_context",
+        )(feature_map)
+    else:
+        context_map = ASPPContextModule(
+            filters=int(region_dim),
+            dilation_rates=dilation_rates,
+            name="aspp_context",
+        )(feature_map)
 
-    node_features = tf.keras.layers.Reshape((-1, int(region_dim)), name="region_nodes")(context_map)
+    context_channels = context_map.shape[-1]
+    if context_channels is None:
+        raise ValueError("RGNet paper-v1 needs a static context channel count before region node reshape.")
+    node_features = tf.keras.layers.Reshape((-1, int(context_channels)), name="region_nodes")(context_map)
     spatial_height = context_map.shape[1]
     spatial_width = context_map.shape[2]
     if adjacency_type == "hybrid_spatial":
@@ -388,6 +482,12 @@ def build_rgnet_paper_v1_model(
     if spatial_height is not None and spatial_width is not None:
         feature_map_node_count = int(spatial_height) * int(spatial_width)
     model._rgnet_paper_v1_config = {
+        "context_module_type": context_module_type,
+        "parallel_aspp_rates": tuple(int(rate) for rate in dilation_rates),
+        "denseaspp_rates": tuple(int(rate) for rate in denseaspp_rates),
+        "denseaspp_growth_rate": int(denseaspp_growth_rate),
+        "use_context_batchnorm": bool(use_context_batchnorm),
+        "context_channels": int(context_channels),
         "adjacency_type": adjacency_type,
         "spatial_alpha": float(spatial_alpha),
         "spatial_sigma": float(spatial_sigma),
@@ -402,6 +502,7 @@ def get_rgnet_paper_v1_custom_objects() -> dict[str, object]:
     return {
         "DenseNetV1UnitPreprocess": DenseNetV1UnitPreprocess,
         "ASPPContextModule": ASPPContextModule,
+        "V1CascadedDenseASPP": V1CascadedDenseASPP,
         "V1RegionSimilarityAdjacency": V1RegionSimilarityAdjacency,
         "V1HybridSpatialAdjacency": V1HybridSpatialAdjacency,
         "V1ResidualGraphConvolution": V1ResidualGraphConvolution,

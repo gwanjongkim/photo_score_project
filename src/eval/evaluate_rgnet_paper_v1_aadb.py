@@ -23,6 +23,7 @@ from src.models.rgnet_paper_v1 import (
 
 PREPROCESS_BACKENDS = ("tf", "pil_bilinear")
 ADJACENCY_TYPES = ("semantic", "hybrid_spatial")
+CONTEXT_MODULE_TYPES = ("parallel_aspp", "cascaded_denseaspp")
 
 
 def _read_yaml(path: str | None) -> dict[str, Any]:
@@ -68,12 +69,32 @@ def _normalize_adjacency_type(value: str | None) -> str:
     return adjacency_type
 
 
+def _normalize_context_module_type(value: str | None) -> str:
+    context_module_type = "parallel_aspp" if value is None else str(value).lower()
+    if context_module_type not in CONTEXT_MODULE_TYPES:
+        raise ValueError(f"Unsupported context_module_type: {value}. Expected one of {CONTEXT_MODULE_TYPES}")
+    return context_module_type
+
+
 def _parse_int_tuple(value: str | list[int] | tuple[int, ...] | None, default: tuple[int, ...]) -> tuple[int, ...]:
     if value is None:
         return default
     if isinstance(value, str):
         return tuple(int(part.strip()) for part in value.split(",") if part.strip())
     return tuple(int(part) for part in value)
+
+
+def _parse_bool(value: Any, default: bool) -> bool:
+    if value is None:
+        return bool(default)
+    if isinstance(value, bool):
+        return value
+    normalized = str(value).strip().lower()
+    if normalized in {"1", "true", "yes", "y", "on"}:
+        return True
+    if normalized in {"0", "false", "no", "n", "off"}:
+        return False
+    raise ValueError(f"Expected boolean value, got: {value}")
 
 
 def _setup_tensorflow() -> dict[str, object]:
@@ -237,6 +258,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--adjacency_type", choices=ADJACENCY_TYPES)
     parser.add_argument("--spatial_alpha", type=float)
     parser.add_argument("--spatial_sigma", type=float)
+    parser.add_argument("--context_module_type", choices=CONTEXT_MODULE_TYPES)
+    parser.add_argument("--denseaspp_rates")
+    parser.add_argument("--denseaspp_growth_rate", type=int)
+    parser.add_argument("--use_context_batchnorm")
     parser.add_argument("--max_test_samples", type=int)
     parser.add_argument("--max_val_samples", type=int)
     return parser.parse_args()
@@ -294,6 +319,18 @@ def main() -> None:
         )
         spatial_alpha = float(_resolve(args.spatial_alpha, config, "model", "spatial_alpha", 0.0))
         spatial_sigma = float(_resolve(args.spatial_sigma, config, "model", "spatial_sigma", 0.25))
+        context_module_type = _normalize_context_module_type(
+            _resolve(args.context_module_type, config, "model", "context_module_type", "parallel_aspp")
+        )
+        denseaspp_rates = _parse_int_tuple(
+            _resolve(args.denseaspp_rates, config, "model", "denseaspp_rates", None),
+            (3, 6, 12, 18),
+        )
+        denseaspp_growth_rate = int(_resolve(args.denseaspp_growth_rate, config, "model", "denseaspp_growth_rate", 64))
+        use_context_batchnorm = _parse_bool(
+            _resolve(args.use_context_batchnorm, config, "model", "use_context_batchnorm", True),
+            True,
+        )
         model = build_rgnet_paper_v1_model(
             input_shape=(image_size, image_size, 3),
             backbone_weights=backbone_weights,
@@ -309,6 +346,10 @@ def main() -> None:
             adjacency_type=adjacency_type,
             spatial_alpha=spatial_alpha,
             spatial_sigma=spatial_sigma,
+            context_module_type=context_module_type,
+            denseaspp_rates=denseaspp_rates,
+            denseaspp_growth_rate=denseaspp_growth_rate,
+            use_context_batchnorm=use_context_batchnorm,
         )
         model.load_weights(str(weights_path))
 

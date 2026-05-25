@@ -4,6 +4,10 @@ experiment:
   label: RGNet-paper-v1 agg_mean ablation
   output_dir: outputs/rgnet_paper_v1_ablation_20260509/agg_mean
 model:
+  context_module_type: parallel_aspp
+  denseaspp_rates: [3, 6, 12, 18]
+  denseaspp_growth_rate: 64
+  use_context_batchnorm: true
   adjacency_type: semantic
   spatial_alpha: 0.0
   spatial_sigma: 0.25
