@@ -22,6 +22,7 @@ from src.models.rgnet_paper_v1 import (
 
 DEFAULT_OUTPUT_DIR = "outputs/rgnet_paper_v1_aadb_regression_20260509/full_train"
 PREPROCESS_BACKENDS = ("tf", "pil_bilinear")
+ADJACENCY_TYPES = ("semantic", "hybrid_spatial")
 
 
 def _read_yaml(path: str | None) -> dict[str, Any]:
@@ -58,6 +59,13 @@ def _normalize_preprocess_backend(value: str | None) -> str:
     if backend not in PREPROCESS_BACKENDS:
         raise ValueError(f"Unsupported preprocess_backend: {value}. Expected one of {PREPROCESS_BACKENDS}")
     return backend
+
+
+def _normalize_adjacency_type(value: str | None) -> str:
+    adjacency_type = "semantic" if value is None else str(value).lower()
+    if adjacency_type not in ADJACENCY_TYPES:
+        raise ValueError(f"Unsupported adjacency_type: {value}. Expected one of {ADJACENCY_TYPES}")
+    return adjacency_type
 
 
 def _parse_int_tuple(value: str | list[int] | tuple[int, ...] | None, default: tuple[int, ...]) -> tuple[int, ...]:
@@ -158,6 +166,54 @@ def _float_history(history: dict[str, list[float]]) -> dict[str, list[float]]:
     return {key: [float(value) for value in values] for key, values in history.items()}
 
 
+def _count_trainable_params(model: tf.keras.Model) -> int:
+    return int(sum(np.prod(variable.shape) for variable in model.trainable_weights))
+
+
+def _row_sum_stats(adjacency: tf.Tensor) -> dict[str, float]:
+    row_sums = tf.reduce_sum(tf.cast(adjacency, tf.float32), axis=-1)
+    return {
+        "row_sum_min": float(tf.reduce_min(row_sums).numpy()),
+        "row_sum_max": float(tf.reduce_max(row_sums).numpy()),
+    }
+
+
+def _collect_adjacency_diagnostic(model: tf.keras.Model, sample_images: tf.Tensor) -> dict[str, object]:
+    layer = None
+    for layer_name in ("hybrid_spatial_adjacency", "region_similarity_adjacency"):
+        try:
+            layer = model.get_layer(layer_name)
+            break
+        except ValueError:
+            continue
+    if layer is None:
+        return {"available": False, "reason": "adjacency layer not found"}
+
+    diagnostic: dict[str, object] = {
+        "available": True,
+        "layer_name": layer.name,
+    }
+    try:
+        diagnostic_model = tf.keras.Model(model.input, [layer.input, layer.output])
+        node_features, adjacency = diagnostic_model(sample_images[:1], training=False)
+        diagnostic["final_adjacency"] = _row_sum_stats(adjacency)
+        semantic_layer = getattr(layer, "semantic_adjacency", None)
+        if semantic_layer is not None:
+            diagnostic["semantic_adjacency"] = _row_sum_stats(semantic_layer(node_features))
+        else:
+            diagnostic["semantic_adjacency"] = _row_sum_stats(adjacency)
+        spatial_adjacency = getattr(layer, "_spatial_adjacency", None)
+        if spatial_adjacency is not None:
+            diagnostic["spatial_adjacency"] = _row_sum_stats(spatial_adjacency)
+    except Exception as exc:
+        diagnostic = {
+            **diagnostic,
+            "available": False,
+            "reason": str(exc),
+        }
+    return diagnostic
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Train the isolated RGNet-paper-v1 AADB regression model.")
     parser.add_argument("--config")
@@ -181,6 +237,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dilation_rates")
     parser.add_argument("--aggregation")
     parser.add_argument("--lse_r", type=float)
+    parser.add_argument("--adjacency_type", choices=ADJACENCY_TYPES)
+    parser.add_argument("--spatial_alpha", type=float)
+    parser.add_argument("--spatial_sigma", type=float)
     parser.add_argument("--preprocess_backend", choices=PREPROCESS_BACKENDS)
     parser.add_argument("--max_train_samples", type=int)
     parser.add_argument("--max_val_samples", type=int)
@@ -215,6 +274,9 @@ def main() -> None:
     dilation_rates = _parse_int_tuple(_resolve(args.dilation_rates, config, "model", "dilation_rates", None), (1, 3, 6, 12, 18))
     aggregation = str(_resolve(args.aggregation, config, "model", "aggregation", "lse")).lower()
     lse_r = float(_resolve(args.lse_r, config, "model", "lse_r", 4.0))
+    adjacency_type = _normalize_adjacency_type(_resolve(args.adjacency_type, config, "model", "adjacency_type", "semantic"))
+    spatial_alpha = float(_resolve(args.spatial_alpha, config, "model", "spatial_alpha", 0.0))
+    spatial_sigma = float(_resolve(args.spatial_sigma, config, "model", "spatial_sigma", 0.25))
     preprocess_backend = _normalize_preprocess_backend(
         _resolve(args.preprocess_backend, config, "data", "preprocess_backend", "tf")
     )
@@ -267,7 +329,18 @@ def main() -> None:
         dilation_rates=dilation_rates,
         aggregation=aggregation,
         lse_r=lse_r,
+        adjacency_type=adjacency_type,
+        spatial_alpha=spatial_alpha,
+        spatial_sigma=spatial_sigma,
     )
+    model_metadata = dict(getattr(model, "_rgnet_paper_v1_config", {}))
+    parameter_count = int(model.count_params())
+    trainable_parameter_count = _count_trainable_params(model)
+    print(f"adjacency_type: {adjacency_type}")
+    print(f"spatial_alpha: {spatial_alpha}")
+    print(f"spatial_sigma: {spatial_sigma}")
+    print(f"feature_map_node_count: {model_metadata.get('feature_map_node_count')}")
+    print(f"model parameters: total={parameter_count}, trainable={trainable_parameter_count}")
     model.compile(
         optimizer=tf.keras.optimizers.Adam(learning_rate),
         loss="mse",
@@ -284,6 +357,7 @@ def main() -> None:
         "all_finite": bool(np.isfinite(forward_sample.numpy()).all()),
         "in_unit_range": bool((forward_sample.numpy() >= 0.0).all() and (forward_sample.numpy() <= 1.0).all()),
     }
+    adjacency_diagnostic = _collect_adjacency_diagnostic(model, sample_images)
 
     callbacks = [
         tf.keras.callbacks.ModelCheckpoint(
@@ -379,14 +453,27 @@ def main() -> None:
             "graph_temperature": graph_temperature,
             "graph_dropout": graph_dropout,
             "head_dropout": head_dropout,
-            "adjacency": "cosine similarity, softmax-normalized",
+            "adjacency": (
+                "hybrid semantic cosine softmax plus spatial Gaussian prior"
+                if adjacency_type == "hybrid_spatial"
+                else "cosine similarity, softmax-normalized"
+            ),
+            "adjacency_type": adjacency_type,
+            "spatial_alpha": spatial_alpha,
+            "spatial_sigma": spatial_sigma,
+            "feature_map_height": model_metadata.get("feature_map_height"),
+            "feature_map_width": model_metadata.get("feature_map_width"),
+            "feature_map_node_count": model_metadata.get("feature_map_node_count"),
             "graph_convolution": "residual graph convolution",
             "region_score_head": "per-node sigmoid scalar score",
             "aggregation": aggregation,
             "lse_r": lse_r,
             "aggregation_formula": "(1 / r) * log(mean(exp(r * region_scores))) for aggregation=lse",
             "output_activation": "region sigmoid before aggregation",
+            "parameter_count": parameter_count,
+            "trainable_parameter_count": trainable_parameter_count,
         },
+        "adjacency_diagnostic": adjacency_diagnostic,
         "tensorflow": tf_info,
         "forward_check": forward_check,
         "save_load_check": save_load_check,

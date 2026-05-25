@@ -22,6 +22,7 @@ from src.models.rgnet_paper_v1 import (
 
 
 PREPROCESS_BACKENDS = ("tf", "pil_bilinear")
+ADJACENCY_TYPES = ("semantic", "hybrid_spatial")
 
 
 def _read_yaml(path: str | None) -> dict[str, Any]:
@@ -58,6 +59,13 @@ def _normalize_preprocess_backend(value: str | None) -> str:
     if backend not in PREPROCESS_BACKENDS:
         raise ValueError(f"Unsupported preprocess_backend: {value}. Expected one of {PREPROCESS_BACKENDS}")
     return backend
+
+
+def _normalize_adjacency_type(value: str | None) -> str:
+    adjacency_type = "semantic" if value is None else str(value).lower()
+    if adjacency_type not in ADJACENCY_TYPES:
+        raise ValueError(f"Unsupported adjacency_type: {value}. Expected one of {ADJACENCY_TYPES}")
+    return adjacency_type
 
 
 def _parse_int_tuple(value: str | list[int] | tuple[int, ...] | None, default: tuple[int, ...]) -> tuple[int, ...]:
@@ -226,6 +234,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output_dir")
     parser.add_argument("--model_name")
     parser.add_argument("--preprocess_backend", choices=PREPROCESS_BACKENDS)
+    parser.add_argument("--adjacency_type", choices=ADJACENCY_TYPES)
+    parser.add_argument("--spatial_alpha", type=float)
+    parser.add_argument("--spatial_sigma", type=float)
     parser.add_argument("--max_test_samples", type=int)
     parser.add_argument("--max_val_samples", type=int)
     return parser.parse_args()
@@ -278,6 +289,11 @@ def main() -> None:
         dilation_rates = _parse_int_tuple(_cfg(config, "model", "dilation_rates", None), (1, 3, 6, 12, 18))
         aggregation = str(_cfg(config, "model", "aggregation", "lse")).lower()
         lse_r = float(_cfg(config, "model", "lse_r", 4.0))
+        adjacency_type = _normalize_adjacency_type(
+            _resolve(args.adjacency_type, config, "model", "adjacency_type", "semantic")
+        )
+        spatial_alpha = float(_resolve(args.spatial_alpha, config, "model", "spatial_alpha", 0.0))
+        spatial_sigma = float(_resolve(args.spatial_sigma, config, "model", "spatial_sigma", 0.25))
         model = build_rgnet_paper_v1_model(
             input_shape=(image_size, image_size, 3),
             backbone_weights=backbone_weights,
@@ -290,6 +306,9 @@ def main() -> None:
             dilation_rates=dilation_rates,
             aggregation=aggregation,
             lse_r=lse_r,
+            adjacency_type=adjacency_type,
+            spatial_alpha=spatial_alpha,
+            spatial_sigma=spatial_sigma,
         )
         model.load_weights(str(weights_path))
 
