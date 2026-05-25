@@ -156,9 +156,16 @@ def _print_oom_guidance(exc: BaseException, *, batch_size: int, patch_projection
     )
 
 
-def _compile_model(model: tf.keras.Model, learning_rate: float) -> None:
+def _compile_model(model: tf.keras.Model, *, learning_rate: float, optimizer_name: str) -> None:
+    normalized_optimizer = str(optimizer_name).strip().lower()
+    if normalized_optimizer == "adam":
+        optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+    elif normalized_optimizer == "sgd":
+        optimizer = tf.keras.optimizers.SGD(learning_rate=learning_rate, momentum=0.9)
+    else:
+        raise ValueError(f"optimizer must be 'adam' or 'sgd', got {optimizer_name!r}.")
     model.compile(
-        optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate),
+        optimizer=optimizer,
         loss="binary_crossentropy",
         metrics=[
             tf.keras.metrics.BinaryAccuracy(name="accuracy"),
@@ -366,9 +373,14 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--patch_size", type=int)
     parser.add_argument("--patch_projection_mode", choices=["gap", "flatten_dense"])
     parser.add_argument("--patch_feature_dim", type=int)
+    parser.add_argument("--patch_projection_layers", type=int)
     parser.add_argument("--head_units", type=int)
     parser.add_argument("--head_layers", type=int)
     parser.add_argument("--head_dropout", type=float)
+    parser.add_argument("--dense_l2", type=float)
+    parser.add_argument("--bias_l2", type=float)
+    parser.add_argument("--random_horizontal_flip", type=_parse_bool)
+    parser.add_argument("--optimizer", choices=["adam", "sgd"])
     parser.add_argument("--dropout_rate", type=float)
     parser.add_argument("--backbone_weights")
     parser.add_argument("--label_threshold", type=float)
@@ -396,6 +408,7 @@ def main() -> None:
         _resolve(args.patch_projection_mode, config, "model", "patch_projection_mode", "gap")
     )
     patch_feature_dim = int(_resolve(args.patch_feature_dim, config, "model", "patch_feature_dim", 512))
+    patch_projection_layers = int(_resolve(args.patch_projection_layers, config, "model", "patch_projection_layers", 1))
     head_units = int(_resolve(args.head_units, config, "model", "head_units", 256))
     head_layers = int(_resolve(args.head_layers, config, "model", "head_layers", 1))
     head_dropout_value = (
@@ -407,6 +420,8 @@ def main() -> None:
     )
     head_dropout = float(head_dropout_value)
     dropout_rate = head_dropout
+    dense_l2 = float(_resolve(args.dense_l2, config, "model", "dense_l2", 0.0))
+    bias_l2 = float(_resolve(args.bias_l2, config, "model", "bias_l2", 0.0))
     backbone_weights = _resolve(args.backbone_weights, config, "model", "backbone_weights", "imagenet")
     backbone_trainable = _parse_bool(
         _resolve(args.backbone_trainable, config, "model", "backbone_trainable", False)
@@ -417,6 +432,10 @@ def main() -> None:
     use_class_weights = _parse_bool(
         _resolve(args.use_class_weights, config, "training", "use_class_weights", False)
     )
+    random_horizontal_flip = _parse_bool(
+        _resolve(args.random_horizontal_flip, config, "training", "random_horizontal_flip", False)
+    )
+    optimizer_name = str(_resolve(args.optimizer, config, "training", "optimizer", "adam")).strip().lower()
     label_threshold = float(_resolve(args.label_threshold, config, "dataset", "label_threshold", 5.0))
     max_train_samples = _optional_int(_resolve(args.max_train_samples, config, "training", "max_train_samples", None))
     max_val_samples = _optional_int(_resolve(args.max_val_samples, config, "training", "max_val_samples", None))
@@ -453,6 +472,7 @@ def main() -> None:
     print(f"Class weights enabled: {use_class_weights}")
     if class_weights is not None:
         print(f"Class weights: {class_weights}")
+    print(f"Random horizontal flip enabled for training: {random_horizontal_flip}")
     print(f"Preprocessing mode: {PREPROCESSING_MODE}")
 
     steps_per_epoch = math.ceil(len(train_records) / batch_size)
@@ -473,6 +493,7 @@ def main() -> None:
         repeat=train_repeat_enabled,
         shuffle_seed=seed,
         class_weights=class_weights,
+        random_horizontal_flip=random_horizontal_flip,
     )
     val_dataset = make_external_patch_dataset(
         val_records,
@@ -494,12 +515,15 @@ def main() -> None:
             unfreeze_from_layer=unfreeze_from_layer,
             patch_projection_mode=patch_projection_mode,
             patch_feature_dim=patch_feature_dim,
+            patch_projection_layers=patch_projection_layers,
             head_units=head_units,
             head_layers=head_layers,
             head_dropout=head_dropout,
             dropout_rate=dropout_rate,
+            dense_l2=dense_l2,
+            bias_l2=bias_l2,
         )
-        _compile_model(model, learning_rate=learning_rate)
+        _compile_model(model, learning_rate=learning_rate, optimizer_name=optimizer_name)
     except Exception as exc:
         _print_oom_guidance(exc, batch_size=batch_size, patch_projection_mode=patch_projection_mode)
         raise
@@ -510,9 +534,13 @@ def main() -> None:
     print(f"Model non-trainable parameter count: {model_info['non_trainable_parameter_count']}")
     print(f"Patch projection mode: {patch_projection_mode}")
     print(f"Patch feature dim: {model_config.get('patch_feature_dim')}")
+    print(f"Patch projection layers: {patch_projection_layers}")
     print(f"Head units: {head_units}")
     print(f"Head layers: {head_layers}")
     print(f"Head dropout: {head_dropout}")
+    print(f"Dense L2: {dense_l2}")
+    print(f"Bias L2: {bias_l2}")
+    print(f"Optimizer: {optimizer_name}")
     print(f"Backbone trainable: {backbone_trainable}")
     print(f"Unfreeze from layer: {unfreeze_from_layer}")
     print(f"Trainable VGG16 layers: {model_info['vgg16_trainability']['trainable_layers']}")
@@ -589,9 +617,14 @@ def main() -> None:
         "patch_projection_mode": patch_projection_mode,
         "patch_feature_dim": int(model_config.get("patch_feature_dim", patch_feature_dim)),
         "patch_feature_dim_requested": int(patch_feature_dim),
+        "patch_projection_layers": int(patch_projection_layers),
         "head_units": int(head_units),
         "head_layers": int(head_layers),
         "head_dropout": float(head_dropout),
+        "dense_l2": float(dense_l2),
+        "bias_l2": float(bias_l2),
+        "random_horizontal_flip": bool(random_horizontal_flip),
+        "optimizer": optimizer_name,
         "total_parameter_count": int(model_info["parameter_count"]),
         "trainable_parameter_count": int(model_info["trainable_parameter_count"]),
         "train_count": len(train_records),
@@ -632,9 +665,14 @@ def main() -> None:
             "patch_projection_mode": patch_projection_mode,
             "patch_feature_dim": int(model_config.get("patch_feature_dim", patch_feature_dim)),
             "patch_feature_dim_requested": int(patch_feature_dim),
+            "patch_projection_layers": int(patch_projection_layers),
             "head_units": int(head_units),
             "head_layers": int(head_layers),
             "head_dropout": float(head_dropout),
+            "dense_l2": float(dense_l2),
+            "bias_l2": float(bias_l2),
+            "random_horizontal_flip": bool(random_horizontal_flip),
+            "optimizer": optimizer_name,
             "use_class_weights": bool(use_class_weights),
             "class_weights": class_weights,
             "loss": "binary_crossentropy",

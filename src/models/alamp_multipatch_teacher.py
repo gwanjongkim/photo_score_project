@@ -38,6 +38,13 @@ def normalize_patch_projection_mode(patch_projection_mode: str) -> str:
     return mode
 
 
+def _l2_regularizer(value: float) -> tf.keras.regularizers.Regularizer | None:
+    value = float(value)
+    if value <= 0.0:
+        return None
+    return tf.keras.regularizers.l2(value)
+
+
 def _set_vgg16_backbone_trainability(
     backbone: tf.keras.Model,
     *,
@@ -140,24 +147,34 @@ def build_alamp_multipatch_teacher_model(
     unfreeze_from_layer: str | None = None,
     patch_projection_mode: str = "gap",
     patch_feature_dim: int = 512,
+    patch_projection_layers: int = 1,
     head_units: int = 256,
     head_layers: int = 1,
     head_dropout: float | None = None,
     dropout_rate: float = 0.5,
+    dense_l2: float = 0.0,
+    bias_l2: float = 0.0,
 ) -> tf.keras.Model:
     backbone_weights = normalize_backbone_weights(backbone_weights)
     unfreeze_from_layer = normalize_unfreeze_from_layer(unfreeze_from_layer)
     patch_projection_mode = normalize_patch_projection_mode(patch_projection_mode)
     patch_feature_dim = int(patch_feature_dim)
+    patch_projection_layers = int(patch_projection_layers)
     head_units = int(head_units)
     head_layers = int(head_layers)
     head_dropout = float(dropout_rate if head_dropout is None else head_dropout)
+    dense_l2 = float(dense_l2)
+    bias_l2 = float(bias_l2)
     if patch_feature_dim <= 0:
         raise ValueError("patch_feature_dim must be positive.")
+    if patch_projection_layers <= 0:
+        raise ValueError("patch_projection_layers must be positive.")
     if head_units <= 0:
         raise ValueError("head_units must be positive.")
     if head_layers <= 0:
         raise ValueError("head_layers must be positive.")
+    kernel_regularizer = _l2_regularizer(dense_l2)
+    bias_regularizer = _l2_regularizer(bias_l2)
 
     patches = tf.keras.Input(
         shape=(patch_count, patch_size, patch_size, 3),
@@ -188,23 +205,46 @@ def build_alamp_multipatch_teacher_model(
         patch_feature_description = "VGG16 include_top=False + GlobalAveragePooling2D"
     else:
         x = tf.keras.layers.Flatten(name="patch_flatten")(x)
-        x = tf.keras.layers.Dense(
-            patch_feature_dim,
-            activation="relu",
-            name="patch_projection_dense",
-        )(x)
+        for index in range(patch_projection_layers):
+            layer_name = "patch_projection_dense" if index == 0 else f"patch_projection_dense_{index + 1}"
+            x = tf.keras.layers.Dense(
+                patch_feature_dim,
+                activation="relu",
+                kernel_regularizer=kernel_regularizer,
+                bias_regularizer=bias_regularizer,
+                name=layer_name,
+            )(x)
         effective_patch_feature_dim = patch_feature_dim
         patch_feature_description = "VGG16 include_top=False + Flatten + shared Dense projection"
     x = RestorePatchBatch(patch_count=patch_count, name="restore_patch_batch")(x)
     x = OrderlessMeanMaxAggregation(name="orderless_mean_max_aggregation")(x)
     if head_layers == 1:
-        x = tf.keras.layers.Dense(head_units, activation="relu", name="teacher_dense")(x)
+        x = tf.keras.layers.Dense(
+            head_units,
+            activation="relu",
+            kernel_regularizer=kernel_regularizer,
+            bias_regularizer=bias_regularizer,
+            name="teacher_dense",
+        )(x)
         x = tf.keras.layers.Dropout(head_dropout, name="teacher_dropout")(x)
     else:
         for index in range(head_layers):
-            x = tf.keras.layers.Dense(head_units, activation="relu", name=f"teacher_dense_{index + 1}")(x)
+            x = tf.keras.layers.Dense(
+                head_units,
+                activation="relu",
+                kernel_regularizer=kernel_regularizer,
+                bias_regularizer=bias_regularizer,
+                name=f"teacher_dense_{index + 1}",
+            )(x)
             x = tf.keras.layers.Dropout(head_dropout, name=f"teacher_dropout_{index + 1}")(x)
-    output = tf.keras.layers.Dense(1, activation="sigmoid", dtype="float32", name="probability")(x)
+    output = tf.keras.layers.Dense(
+        1,
+        activation="sigmoid",
+        kernel_regularizer=kernel_regularizer,
+        bias_regularizer=bias_regularizer,
+        dtype="float32",
+        name="probability",
+    )(x)
 
     model = tf.keras.Model(inputs=patches, outputs=output, name="alamp_multipatch_teacher")
     model._alamp_multipatch_teacher_config = {  # type: ignore[attr-defined]
@@ -220,12 +260,15 @@ def build_alamp_multipatch_teacher_model(
         "patch_projection_mode": patch_projection_mode,
         "patch_feature_dim": int(effective_patch_feature_dim),
         "patch_feature_dim_requested": int(patch_feature_dim),
+        "patch_projection_layers": int(patch_projection_layers),
         "patch_feature": patch_feature_description,
         "aggregation": "orderless mean features concatenated with orderless max features",
         "head_units": int(head_units),
         "head_layers": int(head_layers),
         "head_dropout": float(head_dropout),
         "dropout_rate": float(head_dropout),
+        "dense_l2": float(dense_l2),
+        "bias_l2": float(bias_l2),
     }
     return model
 

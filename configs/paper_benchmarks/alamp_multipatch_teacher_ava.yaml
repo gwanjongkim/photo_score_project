@@ -25,19 +25,24 @@ model:
   patch_size: 224
   patch_projection_mode: gap
   patch_feature_dim: 512
+  patch_projection_layers: 1
   patch_feature: global_average_pooling
   aggregation: orderless_mean_plus_orderless_max
   head_units: 256
   head_layers: 1
   head_dropout: 0.5
   dropout_rate: 0.5
+  dense_l2: 0.0
+  bias_l2: 0.0
 
 training:
   output_dir: outputs/alamp_multipatch_teacher_ava_20260524/train
   epochs: 10
   batch_size: 4
+  optimizer: adam
   learning_rate: 0.0001
   use_class_weights: false
+  random_horizontal_flip: false
   loss: binary_crossentropy
   metrics: [accuracy, auc, precision, recall]
   monitor_metric: val_auc

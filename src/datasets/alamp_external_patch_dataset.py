@@ -162,12 +162,15 @@ def make_external_patch_dataset(
     repeat: bool = False,
     shuffle_seed: int = 42,
     class_weights: dict[int, float] | None = None,
+    random_horizontal_flip: bool = False,
 ) -> tf.data.Dataset:
     normalized_class_weights = (
         {int(label): float(weight) for label, weight in class_weights.items()}
         if class_weights is not None
         else None
     )
+    flip_enabled = bool(training and random_horizontal_flip)
+    rng = np.random.default_rng(shuffle_seed)
 
     def generator() -> Iterator[Any]:
         for patches, label in iter_examples(
@@ -177,6 +180,8 @@ def make_external_patch_dataset(
             patch_count=patch_count,
             label_threshold=label_threshold,
         ):
+            if flip_enabled and rng.random() < 0.5:
+                patches = np.flip(patches, axis=2).copy()
             if normalized_class_weights is None:
                 yield patches, label
                 continue
