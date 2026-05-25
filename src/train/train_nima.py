@@ -9,6 +9,8 @@ import tensorflow as tf
 from src.datasets.ava_distribution_dataset import load_ava_distribution_frame, make_ava_distribution_dataset
 from src.models.nima_distribution import build_nima_distribution_model, emd_loss, mean_score_mae
 
+_CHECKPOINT_ARTIFACT_NAMES = ("best.weights.h5", "final_model.keras", "saved_model")
+
 gpus = tf.config.list_physical_devices("GPU")
 print("Visible GPUs:", gpus)
 
@@ -23,6 +25,15 @@ if gpus:
     print("mixed precision enabled")
 
 
+def _assert_no_existing_checkpoint_artifacts(out_dir: Path) -> None:
+    existing = [str(out_dir / name) for name in _CHECKPOINT_ARTIFACT_NAMES if (out_dir / name).exists()]
+    if existing:
+        raise FileExistsError(
+            "Refusing to overwrite existing NIMA checkpoint artifacts. Use a new fixed-preprocessing output "
+            f"directory instead. Existing artifacts: {existing}"
+        )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Train a paper-faithful NIMA distribution model on AVA-style CSVs.")
     parser.add_argument("--train_csv", required=True)
@@ -31,6 +42,11 @@ def main() -> None:
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--learning_rate", type=float, default=1e-4)
+    parser.add_argument(
+        "--backbone_weights",
+        default="imagenet",
+        help="EfficientNetV2B0 weights argument. Use an explicit ImageNet .h5 path if the Keras alias tries to download.",
+    )
     parser.add_argument("--steps_per_epoch", type=int)
     parser.add_argument("--validation_steps", type=int)
     parser.add_argument("--out_dir", required=True)
@@ -38,6 +54,7 @@ def main() -> None:
 
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
+    _assert_no_existing_checkpoint_artifacts(out_dir)
 
     train_frame = load_ava_distribution_frame(args.train_csv)
     val_frame = load_ava_distribution_frame(args.val_csv)
@@ -72,7 +89,11 @@ def main() -> None:
     print(f"[NIMA] sample train batch image shape={sample_images.shape} dtype={sample_images.dtype}")
     print(f"[NIMA] sample train batch target shape={sample_targets.shape} dtype={sample_targets.dtype}")
 
-    model = build_nima_distribution_model(input_shape=(args.image_size, args.image_size, 3))
+    backbone_weights = None if args.backbone_weights.lower() == "none" else args.backbone_weights
+    model = build_nima_distribution_model(
+        input_shape=(args.image_size, args.image_size, 3),
+        backbone_weights=backbone_weights,
+    )
     model.compile(
         optimizer=tf.keras.optimizers.Adam(args.learning_rate),
         loss=emd_loss,

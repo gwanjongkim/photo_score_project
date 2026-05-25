@@ -10,7 +10,7 @@ import tensorflow as tf
 from src.export.tflite_presets import (
     describe_output,
     get_preset,
-    load_image_array,
+    load_preset_image_array,
     load_source_model,
     preset_choices,
 )
@@ -46,7 +46,7 @@ def main() -> None:
     image_path = Path(args.image_path)
     source_checkpoint = Path(args.source_checkpoint or preset.weights_path)
 
-    image_array = load_image_array(image_path, image_size=preset.input_size)
+    image_array = load_preset_image_array(args.preset, image_path, image_size=preset.input_size)
     batched_input = image_array[None, ...].astype(np.float32)
 
     interpreter = tf.lite.Interpreter(model_path=str(model_path), num_threads=args.num_threads)

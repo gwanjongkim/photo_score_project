@@ -8,7 +8,12 @@ from PIL import Image
 import tensorflow as tf
 
 from src.models.rgnet import GraphConvolution, RegionGraphBuilder, RegionWeightedPooling, build_rgnet_model
-from src.models.nima_distribution import distribution_mean_score, emd_loss, mean_score_mae
+from src.models.nima_distribution import (
+    build_nima_distribution_model,
+    distribution_mean_score,
+    emd_loss,
+    mean_score_mae,
+)
 
 
 @dataclass(frozen=True)
@@ -209,14 +214,7 @@ def build_export_model(preset_name: str) -> tf.keras.Model:
         return tf.keras.Model(inputs, outputs, name="aadb_regressor")
 
     if preset_name == "nima":
-        base = tf.keras.applications.EfficientNetV2B0(include_top=False, weights=None, input_shape=input_shape)
-        inputs = tf.keras.Input(shape=input_shape)
-        x = base(inputs, training=False)
-        x = tf.keras.layers.GlobalAveragePooling2D()(x)
-        x = tf.keras.layers.Dropout(0.3)(x)
-        x = tf.keras.layers.Dense(256, activation="relu")(x)
-        outputs = tf.keras.layers.Dense(10, activation="softmax", dtype="float32")(x)
-        return tf.keras.Model(inputs, outputs, name="nima_distribution")
+        return build_nima_distribution_model(input_shape=input_shape, backbone_weights=None)
 
     if preset_name == "rgnet":
         return build_rgnet_model(input_shape=input_shape, backbone_weights=None)
@@ -228,6 +226,22 @@ def load_image_array(image_path: str | Path, image_size: int) -> np.ndarray:
     image = Image.open(image_path).convert("RGB")
     image = image.resize((image_size, image_size), Image.Resampling.BILINEAR)
     return np.asarray(image, dtype="float32") / 255.0
+
+
+def load_nima_image_array(image_path: str | Path, image_size: int) -> np.ndarray:
+    image = Image.open(image_path).convert("RGB")
+    resize_side = max(256, image_size)
+    image = image.resize((resize_side, resize_side), Image.Resampling.BILINEAR)
+    left = (resize_side - image_size) // 2
+    top = (resize_side - image_size) // 2
+    image = image.crop((left, top, left + image_size, top + image_size))
+    return np.asarray(image, dtype="float32") / 255.0
+
+
+def load_preset_image_array(preset_name: str, image_path: str | Path, image_size: int) -> np.ndarray:
+    if preset_name == "nima":
+        return load_nima_image_array(image_path, image_size=image_size)
+    return load_image_array(image_path, image_size=image_size)
 
 
 def load_source_model(preset_name: str, checkpoint_path: str | Path) -> tf.keras.Model:

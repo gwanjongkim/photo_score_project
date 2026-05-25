@@ -11,9 +11,17 @@ import tensorflow as tf
 from src.models.nima_distribution import distribution_mean_score, emd_loss, mean_score_mae
 
 
+def _resize_center_crop(img: Image.Image, image_size: int) -> Image.Image:
+    resize_side = max(256, image_size)
+    img = img.resize((resize_side, resize_side), Image.Resampling.BILINEAR)
+    left = (resize_side - image_size) // 2
+    top = (resize_side - image_size) // 2
+    return img.crop((left, top, left + image_size, top + image_size))
+
+
 def load_image(path: Path, image_size: int) -> np.ndarray:
     img = Image.open(path).convert("RGB")
-    img = img.resize((image_size, image_size), Image.Resampling.BILINEAR)
+    img = _resize_center_crop(img, image_size=image_size)
     arr = np.asarray(img).astype("float32") / 255.0
     return arr
 
