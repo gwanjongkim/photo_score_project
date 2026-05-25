@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import inspect
 import json
 from io import BytesIO
 from datetime import datetime
@@ -97,6 +98,24 @@ def _parse_bool(value: Any, default: bool) -> bool:
     raise ValueError(f"Expected boolean value, got: {value}")
 
 
+def _polynomial_learning_rate(initial_lr: float, epoch: int, max_epochs: int, power: float) -> float:
+    if max_epochs <= 0:
+        return float(initial_lr)
+    progress = min(max(float(epoch) / float(max_epochs), 0.0), 1.0)
+    return float(initial_lr) * float((1.0 - progress) ** float(power))
+
+
+def _build_adam_optimizer(learning_rate: float, weight_decay: float) -> tuple[tf.keras.optimizers.Optimizer, str]:
+    if float(weight_decay) <= 0.0:
+        return tf.keras.optimizers.Adam(learning_rate=learning_rate), "none"
+    if "weight_decay" in inspect.signature(tf.keras.optimizers.Adam).parameters:
+        return (
+            tf.keras.optimizers.Adam(learning_rate=learning_rate, weight_decay=float(weight_decay)),
+            "optimizer_weight_decay",
+        )
+    return tf.keras.optimizers.Adam(learning_rate=learning_rate), "not_applied_adam_weight_decay_unsupported"
+
+
 def _setup_tensorflow(seed: int) -> dict[str, object]:
     tf.keras.mixed_precision.set_global_policy("float32")
     tf.keras.utils.set_random_seed(seed)
@@ -135,12 +154,21 @@ def _decode_image_pil_bilinear(contents: tf.Tensor, image_size: int) -> np.ndarr
         return np.asarray(image, dtype=np.float32) / 255.0
 
 
-def _decode_image(path: tf.Tensor, image_size: int, training: bool, preprocess_backend: str) -> tf.Tensor:
+def _decode_image(
+    path: tf.Tensor,
+    image_size: int,
+    training: bool,
+    preprocess_backend: str,
+    random_horizontal_flip: bool,
+    random_scale_crop: bool,
+    scale_min: float,
+    scale_max: float,
+    crop_size: int,
+) -> tf.Tensor:
     image = tf.io.read_file(path)
     if preprocess_backend == "tf":
         image = tf.image.decode_jpeg(image, channels=3)
         image = tf.image.convert_image_dtype(image, tf.float32)
-        image = tf.image.resize(image, [image_size, image_size])
     elif preprocess_backend == "pil_bilinear":
         image = tf.py_function(
             lambda contents: _decode_image_pil_bilinear(contents, image_size),
@@ -150,7 +178,20 @@ def _decode_image(path: tf.Tensor, image_size: int, training: bool, preprocess_b
         image.set_shape([image_size, image_size, 3])
     else:
         raise ValueError(f"Unsupported preprocess_backend: {preprocess_backend}")
-    if training:
+
+    if training and random_scale_crop:
+        scale = tf.random.uniform([], float(scale_min), float(scale_max), dtype=tf.float32)
+        scaled_size = tf.cast(tf.round(tf.cast(crop_size, tf.float32) * scale), tf.int32)
+        scaled_size = tf.maximum(scaled_size, int(crop_size))
+        image = tf.image.resize(image, [scaled_size, scaled_size])
+        image = tf.image.random_crop(image, [int(crop_size), int(crop_size), 3])
+        image.set_shape([int(crop_size), int(crop_size), 3])
+        if int(crop_size) != int(image_size):
+            image = tf.image.resize(image, [image_size, image_size])
+    else:
+        image = tf.image.resize(image, [image_size, image_size])
+
+    if training and random_horizontal_flip:
         image = tf.image.random_flip_left_right(image)
     return image
 
@@ -164,6 +205,11 @@ def _make_dataset(
     training: bool,
     shuffle: bool,
     preprocess_backend: str,
+    random_horizontal_flip: bool,
+    random_scale_crop: bool,
+    scale_min: float,
+    scale_max: float,
+    crop_size: int,
 ) -> tf.data.Dataset:
     paths = frame[image_col].astype(str).to_numpy()
     targets = frame[target_col].astype("float32").to_numpy().reshape(-1, 1)
@@ -177,6 +223,11 @@ def _make_dataset(
             image_size=image_size,
             training=training,
             preprocess_backend=preprocess_backend,
+            random_horizontal_flip=random_horizontal_flip,
+            random_scale_crop=random_scale_crop,
+            scale_min=scale_min,
+            scale_max=scale_max,
+            crop_size=crop_size,
         )
         return image, target
 
@@ -247,6 +298,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--epochs", type=int)
     parser.add_argument("--learning_rate", type=float)
     parser.add_argument("--patience", type=int)
+    parser.add_argument("--early_stopping_patience", type=int)
     parser.add_argument("--out_dir")
     parser.add_argument("--backbone_weights")
     parser.add_argument("--region_dim", type=int)
@@ -265,6 +317,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--denseaspp_rates")
     parser.add_argument("--denseaspp_growth_rate", type=int)
     parser.add_argument("--use_context_batchnorm")
+    parser.add_argument("--paper_recipe")
+    parser.add_argument("--random_horizontal_flip")
+    parser.add_argument("--random_scale_crop")
+    parser.add_argument("--scale_min", type=float)
+    parser.add_argument("--scale_max", type=float)
+    parser.add_argument("--crop_size", type=int)
+    parser.add_argument("--lr_schedule", choices=("constant", "polynomial"))
+    parser.add_argument("--poly_power", type=float)
+    parser.add_argument("--weight_decay", type=float)
+    parser.add_argument("--disable_early_stopping")
     parser.add_argument("--preprocess_backend", choices=PREPROCESS_BACKENDS)
     parser.add_argument("--max_train_samples", type=int)
     parser.add_argument("--max_val_samples", type=int)
@@ -287,7 +349,8 @@ def main() -> None:
     batch_size = int(_resolve(args.batch_size, config, "training", "batch_size", 8))
     epochs = int(_resolve(args.epochs, config, "training", "epochs", 20))
     learning_rate = float(_resolve(args.learning_rate, config, "training", "learning_rate", 1e-4))
-    patience = int(_resolve(args.patience, config, "training", "early_stopping_patience", _cfg(config, "training", "patience", 3)))
+    patience_arg = args.early_stopping_patience if args.early_stopping_patience is not None else args.patience
+    patience = int(_resolve(patience_arg, config, "training", "early_stopping_patience", _cfg(config, "training", "patience", 3)))
     out_dir = Path(_resolve(args.out_dir, config, "experiment", "train_output_dir", DEFAULT_OUTPUT_DIR))
     backbone_weights = _normalize_weights(_resolve(args.backbone_weights, config, "model", "backbone_weights", "imagenet"))
     region_dim = int(_resolve(args.region_dim, config, "model", "region_dim", 256))
@@ -314,6 +377,29 @@ def main() -> None:
         _resolve(args.use_context_batchnorm, config, "model", "use_context_batchnorm", True),
         True,
     )
+    paper_recipe = _parse_bool(_resolve(args.paper_recipe, config, "training", "paper_recipe", False), False)
+    random_horizontal_flip = _parse_bool(
+        _resolve(args.random_horizontal_flip, config, "training", "random_horizontal_flip", True),
+        True,
+    )
+    random_scale_crop = _parse_bool(
+        _resolve(args.random_scale_crop, config, "training", "random_scale_crop", False),
+        False,
+    )
+    scale_min = float(_resolve(args.scale_min, config, "training", "scale_min", 1.05))
+    scale_max = float(_resolve(args.scale_max, config, "training", "scale_max", 1.25))
+    crop_size = int(_resolve(args.crop_size, config, "training", "crop_size", image_size))
+    lr_schedule = str(_resolve(args.lr_schedule, config, "training", "lr_schedule", "constant")).lower()
+    if lr_schedule not in {"constant", "polynomial"}:
+        raise ValueError(f"Unsupported lr_schedule: {lr_schedule}")
+    poly_power = float(_resolve(args.poly_power, config, "training", "poly_power", 0.9))
+    weight_decay = float(_resolve(args.weight_decay, config, "training", "weight_decay", 0.0))
+    disable_early_stopping = _parse_bool(
+        _resolve(args.disable_early_stopping, config, "training", "disable_early_stopping", False),
+        False,
+    )
+    if scale_min <= 0.0 or scale_max <= 0.0 or scale_min > scale_max:
+        raise ValueError(f"Invalid scale range: scale_min={scale_min}, scale_max={scale_max}")
     preprocess_backend = _normalize_preprocess_backend(
         _resolve(args.preprocess_backend, config, "data", "preprocess_backend", "tf")
     )
@@ -342,6 +428,11 @@ def main() -> None:
         training=True,
         shuffle=True,
         preprocess_backend=preprocess_backend,
+        random_horizontal_flip=random_horizontal_flip,
+        random_scale_crop=random_scale_crop,
+        scale_min=scale_min,
+        scale_max=scale_max,
+        crop_size=crop_size,
     )
     val_ds = _make_dataset(
         val_frame,
@@ -352,6 +443,11 @@ def main() -> None:
         training=False,
         shuffle=False,
         preprocess_backend=preprocess_backend,
+        random_horizontal_flip=False,
+        random_scale_crop=False,
+        scale_min=scale_min,
+        scale_max=scale_max,
+        crop_size=crop_size,
     )
 
     model = build_rgnet_paper_v1_model(
@@ -387,8 +483,21 @@ def main() -> None:
     print(f"context_channels: {model_metadata.get('context_channels')}")
     print(f"feature_map_node_count: {model_metadata.get('feature_map_node_count')}")
     print(f"model parameters: total={parameter_count}, trainable={trainable_parameter_count}")
+    optimizer, weight_decay_implementation = _build_adam_optimizer(learning_rate, weight_decay)
+    print(f"paper_recipe: {paper_recipe}")
+    print(f"random_horizontal_flip: {random_horizontal_flip}")
+    print(f"random_scale_crop: {random_scale_crop}")
+    print(f"scale_min: {scale_min}")
+    print(f"scale_max: {scale_max}")
+    print(f"crop_size: {crop_size}")
+    print(f"lr_schedule: {lr_schedule}")
+    print(f"poly_power: {poly_power}")
+    print(f"weight_decay: {weight_decay}")
+    print(f"weight_decay_implementation: {weight_decay_implementation}")
+    print(f"early_stopping_enabled: {not disable_early_stopping}")
+    print(f"early_stopping_patience: {patience}")
     model.compile(
-        optimizer=tf.keras.optimizers.Adam(learning_rate),
+        optimizer=optimizer,
         loss="mse",
         metrics=[tf.keras.metrics.MeanAbsoluteError(name="mae")],
     )
@@ -405,7 +514,16 @@ def main() -> None:
     }
     adjacency_diagnostic = _collect_adjacency_diagnostic(model, sample_images)
 
-    callbacks = [
+    callbacks: list[tf.keras.callbacks.Callback] = []
+    if lr_schedule == "polynomial":
+        callbacks.append(
+            tf.keras.callbacks.LearningRateScheduler(
+                lambda epoch, _lr: _polynomial_learning_rate(learning_rate, epoch, epochs, poly_power),
+                verbose=0,
+            )
+        )
+    callbacks.extend(
+        [
         tf.keras.callbacks.ModelCheckpoint(
             str(out_dir / "best.weights.h5"),
             save_best_only=True,
@@ -413,13 +531,17 @@ def main() -> None:
             monitor="val_loss",
             mode="min",
         ),
-        tf.keras.callbacks.EarlyStopping(
-            monitor="val_loss",
-            patience=patience,
-            restore_best_weights=True,
-        ),
         tf.keras.callbacks.CSVLogger(str(out_dir / "training_history.csv")),
-    ]
+        ]
+    )
+    if not disable_early_stopping:
+        callbacks.append(
+            tf.keras.callbacks.EarlyStopping(
+                monitor="val_loss",
+                patience=patience,
+                restore_best_weights=True,
+            )
+        )
 
     history_obj = model.fit(
         train_ds,
@@ -429,6 +551,14 @@ def main() -> None:
         verbose=2,
     )
     history = _float_history(history_obj.history)
+    epochs_completed = int(len(history.get("loss", [])))
+    if lr_schedule == "polynomial":
+        per_epoch_learning_rates = [
+            _polynomial_learning_rate(learning_rate, epoch, epochs, poly_power)
+            for epoch in range(epochs_completed)
+        ]
+    else:
+        per_epoch_learning_rates = [float(learning_rate) for _ in range(epochs_completed)]
 
     final_model_path = out_dir / "final_model.keras"
     trained_sample = model(sample_images, training=False)
@@ -484,14 +614,30 @@ def main() -> None:
             "normalization": "float32_rgb_0_1",
             "resize": "tf.image.resize" if preprocess_backend == "tf" else "PIL.Image.BILINEAR",
         },
+        "augmentation": {
+            "random_horizontal_flip": random_horizontal_flip,
+            "random_scale_crop": random_scale_crop,
+            "scale_min": scale_min,
+            "scale_max": scale_max,
+            "crop_size": crop_size,
+            "training_only": True,
+        },
+        "paper_recipe": paper_recipe,
         "batch_size": batch_size,
         "epochs_requested": epochs,
-        "epochs_completed": int(len(history.get("loss", []))),
+        "epochs_completed": epochs_completed,
         "learning_rate": learning_rate,
+        "initial_learning_rate": learning_rate,
+        "lr_schedule": lr_schedule,
+        "poly_power": poly_power,
+        "per_epoch_learning_rates": per_epoch_learning_rates,
+        "weight_decay": weight_decay,
+        "weight_decay_implementation": weight_decay_implementation,
         "early_stopping": {
+            "enabled": not disable_early_stopping,
             "monitor": "val_loss",
             "patience": patience,
-            "restore_best_weights": True,
+            "restore_best_weights": not disable_early_stopping,
         },
         "model": {
             "backbone": "DenseNet121",

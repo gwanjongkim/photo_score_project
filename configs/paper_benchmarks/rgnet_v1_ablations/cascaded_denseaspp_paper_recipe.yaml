@@ -1,0 +1,50 @@
+experiment:
+  name: cascaded_denseaspp_paper_recipe
+  model_variant: rgnet_paper_v1
+  label: RGNet-v1 cascaded DenseASPP paper-recipe ablation
+  train_output_dir: outputs/rgnet_v1_cascaded_denseaspp_paper_recipe_aadb_20ep_20260526
+
+data:
+  train_csv: data/processed/aadb/train.csv
+  val_csv: data/processed/aadb/val.csv
+  test_csv: data/processed/aadb/test.csv
+  image_col: image_path
+  target_col: score
+  preprocess_backend: tf
+
+model:
+  image_size: 300
+  backbone_weights: imagenet
+  context_module_type: cascaded_denseaspp
+  denseaspp_rates: [3, 6, 12, 18]
+  denseaspp_growth_rate: 64
+  use_context_batchnorm: true
+  adjacency_type: semantic
+  spatial_alpha: 0.0
+  spatial_sigma: 0.25
+  graph_blocks: 3
+  aggregation: lse
+  lse_r: 4.0
+
+training:
+  paper_recipe: true
+  batch_size: 4
+  epochs: 20
+  learning_rate: 0.0001
+  lr_schedule: polynomial
+  poly_power: 0.9
+  weight_decay: 0.00001
+  random_horizontal_flip: true
+  random_scale_crop: true
+  scale_min: 1.05
+  scale_max: 1.25
+  crop_size: 300
+  disable_early_stopping: true
+  early_stopping_patience: 10
+  seed: 42
+  verify_save_load: true
+
+evaluation:
+  output_dir: outputs/eval_rgnet_v1_cascaded_denseaspp_paper_recipe_aadb_20ep_20260526
+  batch_size: 8
+
