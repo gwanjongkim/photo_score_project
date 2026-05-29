@@ -1,0 +1,4 @@
+dataset,protocol,split,rows,content_type,source,notes
+KonIQ-10k,MUSIQ-style 80/20,test (run_01),2015,image,koniq10k_scores_and_distributions.csv,Paper-standard technical IQA.
+SPAQ,Official split,test,1125,image,spaqTest.csv,Smartphone-focused technical IQA.
+FLIVE/PaQ-2-PiQ,IQA-Toolbox standardized,test (image),1827,image,meta_info_FLIVEDataset.csv,Large-scale authentic distortions.
