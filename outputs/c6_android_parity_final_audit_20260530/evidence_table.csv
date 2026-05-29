@@ -1,0 +1,6 @@
+experiment,path,status,key_metric,value,interpretation
+Initial Parity,outputs/c6_android_wsl_parity_20260527/report.md,FAIL,Max AE,7.55,EXIF orientation ignored in WSL.
+EXIF-Fixed Parity,outputs/c6_android_wsl_parity_exif_fixed_20260529/report.md,FAIL,Max AE,5.24,Orientation corrected but model differences remain.
+Backend Ablation,outputs/c6_topiq_preprocess_backend_ablation_20260529/report.md,FAIL,C6 MAE,1.14,PIL Lanczos best for C6 but Max AE still 4.6.
+Tensor Fingerprint,outputs/c6_topiq_tensor_fingerprint_compare_20260529/report.md,FAIL,Rel Checksum Diff,0.013,PIL Bilinear closest to Android tensors.
+Source Match,outputs/c6_topiq_tensor_source_dimension_match_20260529/report.md,FAIL,Rel Checksum Diff,0.014,Matching dimensions worsened parity.
