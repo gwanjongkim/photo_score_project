@@ -1,0 +1,14 @@
+category,item,value,interpretation,source_file
+Final Decision,Baseline Status,Keep current production,Existing ensemble is most robust.,final_decision.md
+Formula,Production Formula,4/7 KonIQ + 3/7 FLIVE,"Weighted combination of 0.32 and 0.24 weights.",production_formula_audit.md
+Scope,Total Test Rows,4967,Image-level test images from 3 primary datasets.,report.md
+Metric,SPAQ SRCC (Production),0.873,Best rank correlation across all models evaluated.,production_technical_metrics.csv
+Metric,SPAQ SRCC (KonIQ),0.8555,Strong but inferior to ensemble.,production_technical_metrics.csv
+Metric,SPAQ SRCC (FLIVE),0.8267,Good but exhibits high bias.,production_technical_metrics.csv
+Bias,SPAQ Bias (FLIVE),+18.42,Severe positive bias on smartphone data.,calibration_diagnosis.csv
+Bias,SPAQ Bias (Production),+7.71,Ensemble significantly smooths standalone bias.,calibration_diagnosis.csv
+Error,KonIQ MAE (Production),3.26,Best pointwise accuracy on KonIQ dataset.,production_technical_metrics.csv
+Error,KonIQ MAE (KonIQ),5.18,Inferior to ensemble despite being home model.,production_technical_metrics.csv
+Correlation,FLIVE SRCC (Production),0.5744,Balanced performance on authentic distortions.,production_technical_metrics.csv
+C6 Decision,Production Status,Keep as log-only,Does not outperform existing ensemble.,decision_summary.md
+Limitation,Evaluation Type,Image-level only,Patch-level evaluation remains for future work.,report.md
