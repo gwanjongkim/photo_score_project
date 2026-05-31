@@ -1,0 +1,90 @@
+{
+  "reference_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp16_20260516_144023/icaa_dat_tf_native_fp16.tflite",
+  "reference_details": {
+    "input_details": [
+      {
+        "name": "serving_default_image:0",
+        "index": 0,
+        "shape": [
+          1,
+          224,
+          224,
+          3
+        ],
+        "dtype": "float32",
+        "quantization": [
+          0.0,
+          0
+        ]
+      }
+    ],
+    "output_details": [
+      {
+        "name": "StatefulPartitionedCall:0",
+        "index": 4763,
+        "shape": [
+          1,
+          2
+        ],
+        "dtype": "float32",
+        "quantization": [
+          0.0,
+          0
+        ]
+      }
+    ]
+  },
+  "image_paths": [
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/geelog29034161553.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/117679407@N0828865500835.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/159973025@N0742445144115.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/139363649@N0233098198304.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/keo621918578914.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/146253389@N0829278222342.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/peter-murrell20822874424.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/28286225@N0239486212422.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/112246188@N0325165986081.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/125572947@N0716737113406.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/jerry_lake38649837566.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/lumenscript41873226310.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/yates77717355466472.jpg"
+  ],
+  "summary": [
+    {
+      "candidate": "icaa_dat_tf_native_dynamic_range_ptq",
+      "status": "ok",
+      "mae": 0.0030072899535298347,
+      "maxae": 0.008145809173583984,
+      "nan_count": 0,
+      "range_errors": 0,
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "output_shape": [
+        1,
+        2
+      ],
+      "error": ""
+    },
+    {
+      "candidate": "icaa_dat_tf_native_full_integer_int8_float_io",
+      "status": "failed",
+      "mae": "",
+      "maxae": "",
+      "nan_count": "",
+      "range_errors": "",
+      "input_dtype": "",
+      "output_dtype": "",
+      "error": "tensorflow/lite/kernels/div.cc:242 data[i] != 0 was not true.Node number 593 (DIV) failed to invoke."
+    }
+  ],
+  "candidate_count": 2
+}

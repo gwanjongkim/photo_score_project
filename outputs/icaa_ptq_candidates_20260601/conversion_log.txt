@@ -1,0 +1,8 @@
+Output directory: /home/omen_pc1/photo_score_project/outputs/icaa_ptq_candidates_20260601
+SavedModel path: /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_134439/saved_model
+Representative images found: 64
+Loading SavedModel
+Converting dynamic_range_ptq
+dynamic_range_ptq succeeded: size=92150672 input=float32 [1, 224, 224, 3] output=float32 [1, 2]
+Converting full_integer_int8_float_io
+full_integer_int8_float_io succeeded: size=91598496 input=float32 [1, 224, 224, 3] output=float32 [1, 2]

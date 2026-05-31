@@ -1,0 +1,478 @@
+{
+  "status": "ok",
+  "command": "python experiments/icaa_tf_native/scripts/stage_l_convert_tflite_ptq.py",
+  "saved_model_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_134439/saved_model",
+  "fp16_reference_path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_tflite_fp16_20260516_144023/icaa_dat_tf_native_fp16.tflite",
+  "output_dir": "/home/omen_pc1/photo_score_project/outputs/icaa_ptq_candidates_20260601",
+  "representative_image_count": 64,
+  "representative_image_paths": [
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0627431714937.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/148560147@N0337039646742.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/geelog29034161553.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/117679407@N0828865500835.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/159973025@N0742445144115.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/139363649@N0233098198304.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/keo621918578914.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/146253389@N0829278222342.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/peter-murrell20822874424.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/28286225@N0239486212422.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/112246188@N0325165986081.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/125572947@N0716737113406.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/jerry_lake38649837566.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/lumenscript41873226310.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/yates77717355466472.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/42766545@N0733776788255.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/dave_whatt30579750216.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/26081675@N0625951356884.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/alexhaeusler24609170851.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/martinhewer30288978388.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/gcampbellphoto39690980691.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/127449667@N0337518686571.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/91820810@N0540624490983.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/kuen-cherng28051533001.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/124733025@N0817382815878.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/jmahto44481647871.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/132644004@N0519675120222.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/todoe30562564656.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/146057066@N0832203074590.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/127102752@N0627540799727.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/142957381@N0428642307022.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/rcb4j30420344820.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/8843323@N0821730327949.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/54842937@N0017266957000.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/quentin-ozanne-photographies30880045506.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/97062902@N0832592404848.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/gert5535813510832.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/marvindeneke26123835096.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/162814817@N0645520251552.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/164494354@N0440457826723.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/63428607@N0529568181460.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/bautisterias43081108062.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/janlupus31506148928.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/collingwoodbarry30019405096.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/43808281@N0037953021332.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/camdiary29342824505.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/124733025@N0816297785724.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/61206119@N0528747911990.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/xiaoping9837848126262.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/132594746@N0325036949366.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/soniaadammurray22482829739.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/grahamvphoto30774754242.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/133916597@N0621538948542.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/manoncmmrs22448452332.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/maureenpp34314439965.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/ntrinkhaus26482713596.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/30957107@N0229889594153.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/jrrondeau20347616636.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/russellcharters26883975021.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/skipplitt19781512672.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/rebel_82nd16670293614.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/129863077@N0743533476300.jpg",
+    "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_yellow/51199609@N0229775127896.jpg"
+  ],
+  "input_shape": [
+    1,
+    224,
+    224,
+    3
+  ],
+  "output_shape": [
+    1,
+    2
+  ],
+  "preprocessing": {
+    "resize": "RGB bilinear resize to 224x224",
+    "normalization": "pixel / 255.0, then ImageNet mean/std",
+    "mean": [
+      0.48500001430511475,
+      0.4560000002384186,
+      0.4059999883174896
+    ],
+    "std": [
+      0.2290000021457672,
+      0.2240000069141388,
+      0.22499999403953552
+    ]
+  },
+  "candidate_results": [
+    {
+      "name": "dynamic_range_ptq",
+      "path": "/home/omen_pc1/photo_score_project/outputs/icaa_ptq_candidates_20260601/icaa_dat_tf_native_dynamic_range_ptq.tflite",
+      "filename": "icaa_dat_tf_native_dynamic_range_ptq.tflite",
+      "status": "succeeded",
+      "started_at": "2026-06-01T04:46:26",
+      "notes": [
+        "converter.optimizations=[tf.lite.Optimize.DEFAULT]",
+        "No representative dataset used."
+      ],
+      "write_performed": true,
+      "completed_at": "2026-06-01T04:46:43",
+      "validation": {
+        "path": "/home/omen_pc1/photo_score_project/outputs/icaa_ptq_candidates_20260601/icaa_dat_tf_native_dynamic_range_ptq.tflite",
+        "exists": true,
+        "size_bytes": 92150672,
+        "input_details": [
+          {
+            "name": "serving_default_image:0",
+            "index": 0,
+            "shape": [
+              1,
+              224,
+              224,
+              3
+            ],
+            "shape_signature": [
+              1,
+              224,
+              224,
+              3
+            ],
+            "dtype": "float32",
+            "quantization": [
+              0.0,
+              0
+            ],
+            "quantization_parameters": {
+              "scales": [],
+              "zero_points": [],
+              "quantized_dimension": 0,
+              "block_size": 0
+            }
+          }
+        ],
+        "output_details": [
+          {
+            "name": "StatefulPartitionedCall:0",
+            "index": 4284,
+            "shape": [
+              1,
+              2
+            ],
+            "shape_signature": [
+              1,
+              2
+            ],
+            "dtype": "float32",
+            "quantization": [
+              0.0,
+              0
+            ],
+            "quantization_parameters": {
+              "scales": [],
+              "zero_points": [],
+              "quantized_dimension": 0,
+              "block_size": 0
+            }
+          }
+        ],
+        "input_shape": [
+          1,
+          224,
+          224,
+          3
+        ],
+        "output_shape": [
+          1,
+          2
+        ],
+        "input_dtype": "float32",
+        "output_dtype": "float32",
+        "input_shape_ok": true,
+        "output_shape_ok": true,
+        "input_float32": true,
+        "output_float32": true,
+        "builtin_operator_codes": [
+          "ABS",
+          "ADD",
+          "BATCH_MATMUL",
+          "CAST",
+          "CONCATENATION",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "DEQUANTIZE",
+          "DIV",
+          "EQUAL",
+          "EXP",
+          "FLOOR",
+          "FULLY_CONNECTED",
+          "GATHER",
+          "GELU",
+          "GREATER_EQUAL",
+          "LESS_EQUAL",
+          "LOGICAL_AND",
+          "LOGISTIC",
+          "MEAN",
+          "MINIMUM",
+          "MUL",
+          "NEG",
+          "REDUCE_MAX",
+          "RELU",
+          "RESHAPE",
+          "RSQRT",
+          "SELECT_V2",
+          "SOFTMAX",
+          "SPLIT",
+          "SQUARED_DIFFERENCE",
+          "STRIDED_SLICE",
+          "SUB",
+          "SUM",
+          "TANH",
+          "TILE",
+          "TRANSPOSE",
+          "ZEROS_LIKE"
+        ],
+        "custom_operator_codes": [],
+        "flex_or_select_tf_ops_found": false,
+        "tflite_builtins_only": true,
+        "op_count": 3608,
+        "op_counts": {
+          "ABS": 1,
+          "ADD": 533,
+          "BATCH_MATMUL": 48,
+          "CAST": 80,
+          "CONCATENATION": 39,
+          "CONV_2D": 4,
+          "DEPTHWISE_CONV_2D": 10,
+          "DEQUANTIZE": 10,
+          "DIV": 10,
+          "EQUAL": 50,
+          "EXP": 10,
+          "FLOOR": 40,
+          "FULLY_CONNECTED": 149,
+          "GATHER": 80,
+          "GELU": 34,
+          "GREATER_EQUAL": 40,
+          "LESS_EQUAL": 70,
+          "LOGICAL_AND": 60,
+          "LOGISTIC": 12,
+          "MEAN": 127,
+          "MINIMUM": 80,
+          "MUL": 522,
+          "NEG": 11,
+          "REDUCE_MAX": 10,
+          "RELU": 132,
+          "RESHAPE": 661,
+          "RSQRT": 63,
+          "SELECT_V2": 100,
+          "SOFTMAX": 14,
+          "SPLIT": 74,
+          "SQUARED_DIFFERENCE": 63,
+          "STRIDED_SLICE": 16,
+          "SUB": 202,
+          "SUM": 10,
+          "TANH": 20,
+          "TILE": 21,
+          "TRANSPOSE": 162,
+          "ZEROS_LIKE": 40
+        },
+        "tensor_dtype_counts": {
+          "bool": 240,
+          "float32": 3810,
+          "int32": 1158,
+          "int8": 298
+        },
+        "internal_float32_tensor_count": 3808,
+        "interpreter_warning": null,
+        "interpreter_or_allocate_error": null
+      }
+    },
+    {
+      "name": "full_integer_int8_float_io",
+      "path": "/home/omen_pc1/photo_score_project/outputs/icaa_ptq_candidates_20260601/icaa_dat_tf_native_full_integer_int8_float_io.tflite",
+      "filename": "icaa_dat_tf_native_full_integer_int8_float_io.tflite",
+      "status": "succeeded",
+      "started_at": "2026-06-01T04:46:43",
+      "notes": [
+        "converter.optimizations=[tf.lite.Optimize.DEFAULT]",
+        "representative_dataset uses data/raw/icaa17k with unchanged preprocessing.",
+        "converter.target_spec.supported_ops=[tf.lite.OpsSet.TFLITE_BUILTINS_INT8]",
+        "converter.inference_input_type=tf.float32",
+        "converter.inference_output_type=tf.float32"
+      ],
+      "write_performed": true,
+      "completed_at": "2026-06-01T04:50:32",
+      "validation": {
+        "path": "/home/omen_pc1/photo_score_project/outputs/icaa_ptq_candidates_20260601/icaa_dat_tf_native_full_integer_int8_float_io.tflite",
+        "exists": true,
+        "size_bytes": 91598496,
+        "input_details": [
+          {
+            "name": "serving_default_image:0",
+            "index": 0,
+            "shape": [
+              1,
+              224,
+              224,
+              3
+            ],
+            "shape_signature": [
+              1,
+              224,
+              224,
+              3
+            ],
+            "dtype": "float32",
+            "quantization": [
+              0.0,
+              0
+            ],
+            "quantization_parameters": {
+              "scales": [],
+              "zero_points": [],
+              "quantized_dimension": 0,
+              "block_size": 0
+            }
+          }
+        ],
+        "output_details": [
+          {
+            "name": "StatefulPartitionedCall:0",
+            "index": 4721,
+            "shape": [
+              1,
+              2
+            ],
+            "shape_signature": [
+              1,
+              2
+            ],
+            "dtype": "float32",
+            "quantization": [
+              0.0,
+              0
+            ],
+            "quantization_parameters": {
+              "scales": [],
+              "zero_points": [],
+              "quantized_dimension": 0,
+              "block_size": 0
+            }
+          }
+        ],
+        "input_shape": [
+          1,
+          224,
+          224,
+          3
+        ],
+        "output_shape": [
+          1,
+          2
+        ],
+        "input_dtype": "float32",
+        "output_dtype": "float32",
+        "input_shape_ok": true,
+        "output_shape_ok": true,
+        "input_float32": true,
+        "output_float32": true,
+        "builtin_operator_codes": [
+          "ABS",
+          "ADD",
+          "BATCH_MATMUL",
+          "CAST",
+          "CONCATENATION",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "DEQUANTIZE",
+          "DIV",
+          "EQUAL",
+          "EXP",
+          "FLOOR",
+          "FULLY_CONNECTED",
+          "GATHER",
+          "GELU",
+          "GREATER_EQUAL",
+          "LESS_EQUAL",
+          "LOGICAL_AND",
+          "LOGISTIC",
+          "MEAN",
+          "MINIMUM",
+          "MUL",
+          "NEG",
+          "QUANTIZE",
+          "REDUCE_MAX",
+          "RELU",
+          "RESHAPE",
+          "RSQRT",
+          "SELECT_V2",
+          "SOFTMAX",
+          "SPLIT",
+          "SQUARED_DIFFERENCE",
+          "STRIDED_SLICE",
+          "SUB",
+          "SUM",
+          "TANH",
+          "TILE",
+          "TRANSPOSE",
+          "ZEROS_LIKE"
+        ],
+        "custom_operator_codes": [],
+        "flex_or_select_tf_ops_found": false,
+        "tflite_builtins_only": true,
+        "op_count": 4171,
+        "op_counts": {
+          "ABS": 1,
+          "ADD": 533,
+          "BATCH_MATMUL": 48,
+          "CAST": 80,
+          "CONCATENATION": 39,
+          "CONV_2D": 4,
+          "DELEGATE": 267,
+          "DEPTHWISE_CONV_2D": 10,
+          "DEQUANTIZE": 172,
+          "DIV": 10,
+          "EQUAL": 50,
+          "EXP": 10,
+          "FLOOR": 40,
+          "FULLY_CONNECTED": 149,
+          "GATHER": 80,
+          "GELU": 34,
+          "GREATER_EQUAL": 40,
+          "LESS_EQUAL": 70,
+          "LOGICAL_AND": 60,
+          "LOGISTIC": 12,
+          "MEAN": 127,
+          "MINIMUM": 80,
+          "MUL": 522,
+          "NEG": 11,
+          "QUANTIZE": 134,
+          "REDUCE_MAX": 10,
+          "RELU": 132,
+          "RESHAPE": 661,
+          "RSQRT": 63,
+          "SELECT_V2": 100,
+          "SOFTMAX": 14,
+          "SPLIT": 74,
+          "SQUARED_DIFFERENCE": 63,
+          "STRIDED_SLICE": 16,
+          "SUB": 202,
+          "SUM": 10,
+          "TANH": 20,
+          "TILE": 21,
+          "TRANSPOSE": 162,
+          "ZEROS_LIKE": 40
+        },
+        "tensor_dtype_counts": {
+          "bool": 240,
+          "float32": 389,
+          "int32": 611,
+          "int8": 3482
+        },
+        "internal_float32_tensor_count": 387,
+        "interpreter_warning": "BUILTIN_REF interpreter failed, retried default interpreter: Didn't find op for builtin opcode 'TILE' version '3'. An older version of this builtin might be supported. Are you using an old TFLite binary with a newer model?\nRegistration failed.\n",
+        "interpreter_or_allocate_error": null
+      }
+    }
+  ],
+  "log_lines": [
+    "Output directory: /home/omen_pc1/photo_score_project/outputs/icaa_ptq_candidates_20260601",
+    "SavedModel path: /home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_134439/saved_model",
+    "Representative images found: 64",
+    "Loading SavedModel",
+    "Converting dynamic_range_ptq",
+    "dynamic_range_ptq succeeded: size=92150672 input=float32 [1, 224, 224, 3] output=float32 [1, 2]",
+    "Converting full_integer_int8_float_io",
+    "full_integer_int8_float_io succeeded: size=91598496 input=float32 [1, 224, 224, 3] output=float32 [1, 2]"
+  ]
+}
