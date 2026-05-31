@@ -1,0 +1,1012 @@
+{
+  "model_path": "/home/omen_pc1/photo_score_project/outputs/icaa_ptq_candidates_20260601/icaa_dat_tf_native_full_integer_int8_float_io.tflite",
+  "model_size_bytes": 91598496,
+  "input_details": [
+    {
+      "name": "serving_default_image:0",
+      "index": 0,
+      "shape": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "shape_signature": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "dtype": "float32",
+      "quantization": [
+        0.0,
+        0
+      ],
+      "quantization_parameters": {
+        "scales": [],
+        "zero_points": [],
+        "quantized_dimension": 0,
+        "block_size": 0
+      }
+    }
+  ],
+  "output_details": [
+    {
+      "name": "StatefulPartitionedCall:0",
+      "index": 4721,
+      "shape": [
+        1,
+        2
+      ],
+      "shape_signature": [
+        1,
+        2
+      ],
+      "dtype": "float32",
+      "quantization": [
+        0.0,
+        0
+      ],
+      "quantization_parameters": {
+        "scales": [],
+        "zero_points": [],
+        "quantized_dimension": 0,
+        "block_size": 0
+      }
+    }
+  ],
+  "op_count": 6471,
+  "op_name_counts": {
+    "ABS": 1,
+    "ADD": 533,
+    "BATCH_MATMUL": 48,
+    "CAST": 80,
+    "CONCATENATION": 39,
+    "CONV_2D": 4,
+    "DELEGATE": 2567,
+    "DEPTHWISE_CONV_2D": 10,
+    "DEQUANTIZE": 172,
+    "DIV": 10,
+    "EQUAL": 50,
+    "EXP": 10,
+    "FLOOR": 40,
+    "FULLY_CONNECTED": 149,
+    "GATHER": 80,
+    "GELU": 34,
+    "GREATER_EQUAL": 40,
+    "LESS_EQUAL": 70,
+    "LOGICAL_AND": 60,
+    "LOGISTIC": 12,
+    "MEAN": 127,
+    "MINIMUM": 80,
+    "MUL": 522,
+    "NEG": 11,
+    "QUANTIZE": 134,
+    "REDUCE_MAX": 10,
+    "RELU": 132,
+    "RESHAPE": 661,
+    "RSQRT": 63,
+    "SELECT_V2": 100,
+    "SOFTMAX": 14,
+    "SPLIT": 74,
+    "SQUARED_DIFFERENCE": 63,
+    "STRIDED_SLICE": 16,
+    "SUB": 202,
+    "SUM": 10,
+    "TANH": 20,
+    "TILE": 21,
+    "TRANSPOSE": 162,
+    "ZEROS_LIKE": 40
+  },
+  "tensor_dtype_counts": {
+    "bool": 240,
+    "float32": 389,
+    "int32": 611,
+    "int8": 3482
+  },
+  "quantization_summary": {
+    "quantized_tensor_count": 3482,
+    "quantized_tensors_missing_scales": 0,
+    "quantized_tensors_with_zero_scales": 0,
+    "quantized_tensors_with_nan_or_inf_scales": 0
+  },
+  "div_summary": {
+    "div_op_count": 10,
+    "div_op_indices": [
+      593,
+      954,
+      1315,
+      1676,
+      2037,
+      2398,
+      2759,
+      3120,
+      3481,
+      3849
+    ],
+    "quantized_div_op_count": 10,
+    "div_ops_with_scale_issues": []
+  },
+  "flatbuffer_operator_codes": {
+    "builtin_operator_codes": [
+      "ABS",
+      "ADD",
+      "BATCH_MATMUL",
+      "CAST",
+      "CONCATENATION",
+      "CONV_2D",
+      "DEPTHWISE_CONV_2D",
+      "DEQUANTIZE",
+      "DIV",
+      "EQUAL",
+      "EXP",
+      "FLOOR",
+      "FULLY_CONNECTED",
+      "GATHER",
+      "GELU",
+      "GREATER_EQUAL",
+      "LESS_EQUAL",
+      "LOGICAL_AND",
+      "LOGISTIC",
+      "MEAN",
+      "MINIMUM",
+      "MUL",
+      "NEG",
+      "QUANTIZE",
+      "REDUCE_MAX",
+      "RELU",
+      "RESHAPE",
+      "RSQRT",
+      "SELECT_V2",
+      "SOFTMAX",
+      "SPLIT",
+      "SQUARED_DIFFERENCE",
+      "STRIDED_SLICE",
+      "SUB",
+      "SUM",
+      "TANH",
+      "TILE",
+      "TRANSPOSE",
+      "ZEROS_LIKE"
+    ],
+    "custom_operator_codes": [],
+    "flex_or_select_tf_ops_found": false
+  },
+  "first_icaa_image": "/home/omen_pc1/photo_score_project/data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+  "invoke_cases": [
+    {
+      "case": "zeros",
+      "status": "failed",
+      "input_details": [
+        {
+          "name": "serving_default_image:0",
+          "index": 0,
+          "shape": [
+            1,
+            224,
+            224,
+            3
+          ],
+          "shape_signature": [
+            1,
+            224,
+            224,
+            3
+          ],
+          "dtype": "float32",
+          "quantization": [
+            0.0,
+            0
+          ],
+          "quantization_parameters": {
+            "scales": [],
+            "zero_points": [],
+            "quantized_dimension": 0,
+            "block_size": 0
+          }
+        }
+      ],
+      "output_details": [
+        {
+          "name": "StatefulPartitionedCall:0",
+          "index": 4721,
+          "shape": [
+            1,
+            2
+          ],
+          "shape_signature": [
+            1,
+            2
+          ],
+          "dtype": "float32",
+          "quantization": [
+            0.0,
+            0
+          ],
+          "quantization_parameters": {
+            "scales": [],
+            "zero_points": [],
+            "quantized_dimension": 0,
+            "block_size": 0
+          }
+        }
+      ],
+      "error": "RuntimeError: tensorflow/lite/kernels/div.cc:242 data[i] != 0 was not true.Node number 593 (DIV) failed to invoke.",
+      "failed_node": 593,
+      "failed_op_tensors": {
+        "available": true,
+        "op_index": 593,
+        "op_name": "DIV",
+        "inputs": [
+          {
+            "tensor_index": 1336,
+            "name": "tf_icaa17k_dat_1/stage2_1/attn_1_1/Exp",
+            "dtype": "int8",
+            "shape": [
+              16,
+              196,
+              196
+            ],
+            "scale_count": 1,
+            "scale_min": 0.003921568859368563,
+            "scale_max": 0.003921568859368563,
+            "zero_scale_count": 0,
+            "nan_or_inf_scale_count": 0,
+            "zero_point_min": -128,
+            "zero_point_max": -128,
+            "runtime_stats": {
+              "shape": [
+                16,
+                196,
+                196
+              ],
+              "dtype": "int8",
+              "size": 614656,
+              "nan_count": 0,
+              "finite_count": 614656,
+              "zero_count": 0,
+              "min": -128.0,
+              "max": 127.0,
+              "mean": -8.340725544044147
+            }
+          },
+          {
+            "tensor_index": 1338,
+            "name": "tf_icaa17k_dat_1/stage2_1/attn_1_1/add_34",
+            "dtype": "int8",
+            "shape": [
+              16,
+              196,
+              1
+            ],
+            "scale_count": 1,
+            "scale_min": 0.7384021282196045,
+            "scale_max": 0.7384021282196045,
+            "zero_scale_count": 0,
+            "nan_or_inf_scale_count": 0,
+            "zero_point_min": -128,
+            "zero_point_max": -128,
+            "runtime_stats": {
+              "shape": [
+                16,
+                196,
+                1
+              ],
+              "dtype": "int8",
+              "size": 3136,
+              "nan_count": 0,
+              "finite_count": 3136,
+              "zero_count": 20,
+              "min": -127.0,
+              "max": 127.0,
+              "mean": -3.65625
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "tensor_index": 1339,
+            "name": "tf_icaa17k_dat_1/stage2_1/attn_1_1/truediv_4",
+            "dtype": "int8",
+            "shape": [
+              16,
+              196,
+              196
+            ],
+            "scale_count": 1,
+            "scale_min": 0.003921549301594496,
+            "scale_max": 0.003921549301594496,
+            "zero_scale_count": 0,
+            "nan_or_inf_scale_count": 0,
+            "zero_point_min": -128,
+            "zero_point_max": -128,
+            "runtime_stats": {
+              "shape": [
+                16,
+                196,
+                196
+              ],
+              "dtype": "int8",
+              "size": 614656,
+              "nan_count": 0,
+              "finite_count": 614656,
+              "zero_count": 614656,
+              "min": 0.0,
+              "max": 0.0,
+              "mean": 0.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "ones",
+      "status": "failed",
+      "input_details": [
+        {
+          "name": "serving_default_image:0",
+          "index": 0,
+          "shape": [
+            1,
+            224,
+            224,
+            3
+          ],
+          "shape_signature": [
+            1,
+            224,
+            224,
+            3
+          ],
+          "dtype": "float32",
+          "quantization": [
+            0.0,
+            0
+          ],
+          "quantization_parameters": {
+            "scales": [],
+            "zero_points": [],
+            "quantized_dimension": 0,
+            "block_size": 0
+          }
+        }
+      ],
+      "output_details": [
+        {
+          "name": "StatefulPartitionedCall:0",
+          "index": 4721,
+          "shape": [
+            1,
+            2
+          ],
+          "shape_signature": [
+            1,
+            2
+          ],
+          "dtype": "float32",
+          "quantization": [
+            0.0,
+            0
+          ],
+          "quantization_parameters": {
+            "scales": [],
+            "zero_points": [],
+            "quantized_dimension": 0,
+            "block_size": 0
+          }
+        }
+      ],
+      "error": "RuntimeError: tensorflow/lite/kernels/div.cc:242 data[i] != 0 was not true.Node number 593 (DIV) failed to invoke.",
+      "failed_node": 593,
+      "failed_op_tensors": {
+        "available": true,
+        "op_index": 593,
+        "op_name": "DIV",
+        "inputs": [
+          {
+            "tensor_index": 1336,
+            "name": "tf_icaa17k_dat_1/stage2_1/attn_1_1/Exp",
+            "dtype": "int8",
+            "shape": [
+              16,
+              196,
+              196
+            ],
+            "scale_count": 1,
+            "scale_min": 0.003921568859368563,
+            "scale_max": 0.003921568859368563,
+            "zero_scale_count": 0,
+            "nan_or_inf_scale_count": 0,
+            "zero_point_min": -128,
+            "zero_point_max": -128,
+            "runtime_stats": {
+              "shape": [
+                16,
+                196,
+                196
+              ],
+              "dtype": "int8",
+              "size": 614656,
+              "nan_count": 0,
+              "finite_count": 614656,
+              "zero_count": 0,
+              "min": -128.0,
+              "max": 127.0,
+              "mean": -28.034601468138277
+            }
+          },
+          {
+            "tensor_index": 1338,
+            "name": "tf_icaa17k_dat_1/stage2_1/attn_1_1/add_34",
+            "dtype": "int8",
+            "shape": [
+              16,
+              196,
+              1
+            ],
+            "scale_count": 1,
+            "scale_min": 0.7384021282196045,
+            "scale_max": 0.7384021282196045,
+            "zero_scale_count": 0,
+            "nan_or_inf_scale_count": 0,
+            "zero_point_min": -128,
+            "zero_point_max": -128,
+            "runtime_stats": {
+              "shape": [
+                16,
+                196,
+                1
+              ],
+              "dtype": "int8",
+              "size": 3136,
+              "nan_count": 0,
+              "finite_count": 3136,
+              "zero_count": 21,
+              "min": -127.0,
+              "max": 127.0,
+              "mean": -24.066007653061224
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "tensor_index": 1339,
+            "name": "tf_icaa17k_dat_1/stage2_1/attn_1_1/truediv_4",
+            "dtype": "int8",
+            "shape": [
+              16,
+              196,
+              196
+            ],
+            "scale_count": 1,
+            "scale_min": 0.003921549301594496,
+            "scale_max": 0.003921549301594496,
+            "zero_scale_count": 0,
+            "nan_or_inf_scale_count": 0,
+            "zero_point_min": -128,
+            "zero_point_max": -128,
+            "runtime_stats": {
+              "shape": [
+                16,
+                196,
+                196
+              ],
+              "dtype": "int8",
+              "size": 614656,
+              "nan_count": 0,
+              "finite_count": 614656,
+              "zero_count": 614656,
+              "min": 0.0,
+              "max": 0.0,
+              "mean": 0.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "random_normal",
+      "status": "failed",
+      "input_details": [
+        {
+          "name": "serving_default_image:0",
+          "index": 0,
+          "shape": [
+            1,
+            224,
+            224,
+            3
+          ],
+          "shape_signature": [
+            1,
+            224,
+            224,
+            3
+          ],
+          "dtype": "float32",
+          "quantization": [
+            0.0,
+            0
+          ],
+          "quantization_parameters": {
+            "scales": [],
+            "zero_points": [],
+            "quantized_dimension": 0,
+            "block_size": 0
+          }
+        }
+      ],
+      "output_details": [
+        {
+          "name": "StatefulPartitionedCall:0",
+          "index": 4721,
+          "shape": [
+            1,
+            2
+          ],
+          "shape_signature": [
+            1,
+            2
+          ],
+          "dtype": "float32",
+          "quantization": [
+            0.0,
+            0
+          ],
+          "quantization_parameters": {
+            "scales": [],
+            "zero_points": [],
+            "quantized_dimension": 0,
+            "block_size": 0
+          }
+        }
+      ],
+      "error": "RuntimeError: tensorflow/lite/kernels/div.cc:242 data[i] != 0 was not true.Node number 593 (DIV) failed to invoke.",
+      "failed_node": 593,
+      "failed_op_tensors": {
+        "available": true,
+        "op_index": 593,
+        "op_name": "DIV",
+        "inputs": [
+          {
+            "tensor_index": 1336,
+            "name": "tf_icaa17k_dat_1/stage2_1/attn_1_1/Exp",
+            "dtype": "int8",
+            "shape": [
+              16,
+              196,
+              196
+            ],
+            "scale_count": 1,
+            "scale_min": 0.003921568859368563,
+            "scale_max": 0.003921568859368563,
+            "zero_scale_count": 0,
+            "nan_or_inf_scale_count": 0,
+            "zero_point_min": -128,
+            "zero_point_max": -128,
+            "runtime_stats": {
+              "shape": [
+                16,
+                196,
+                196
+              ],
+              "dtype": "int8",
+              "size": 614656,
+              "nan_count": 0,
+              "finite_count": 614656,
+              "zero_count": 0,
+              "min": -128.0,
+              "max": 127.0,
+              "mean": -13.093252160558102
+            }
+          },
+          {
+            "tensor_index": 1338,
+            "name": "tf_icaa17k_dat_1/stage2_1/attn_1_1/add_34",
+            "dtype": "int8",
+            "shape": [
+              16,
+              196,
+              1
+            ],
+            "scale_count": 1,
+            "scale_min": 0.7384021282196045,
+            "scale_max": 0.7384021282196045,
+            "zero_scale_count": 0,
+            "nan_or_inf_scale_count": 0,
+            "zero_point_min": -128,
+            "zero_point_max": -128,
+            "runtime_stats": {
+              "shape": [
+                16,
+                196,
+                1
+              ],
+              "dtype": "int8",
+              "size": 3136,
+              "nan_count": 0,
+              "finite_count": 3136,
+              "zero_count": 7,
+              "min": -127.0,
+              "max": 127.0,
+              "mean": -8.698341836734693
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "tensor_index": 1339,
+            "name": "tf_icaa17k_dat_1/stage2_1/attn_1_1/truediv_4",
+            "dtype": "int8",
+            "shape": [
+              16,
+              196,
+              196
+            ],
+            "scale_count": 1,
+            "scale_min": 0.003921549301594496,
+            "scale_max": 0.003921549301594496,
+            "zero_scale_count": 0,
+            "nan_or_inf_scale_count": 0,
+            "zero_point_min": -128,
+            "zero_point_max": -128,
+            "runtime_stats": {
+              "shape": [
+                16,
+                196,
+                196
+              ],
+              "dtype": "int8",
+              "size": 614656,
+              "nan_count": 0,
+              "finite_count": 614656,
+              "zero_count": 614656,
+              "min": 0.0,
+              "max": 0.0,
+              "mean": 0.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "first_icaa_image",
+      "status": "failed",
+      "input_details": [
+        {
+          "name": "serving_default_image:0",
+          "index": 0,
+          "shape": [
+            1,
+            224,
+            224,
+            3
+          ],
+          "shape_signature": [
+            1,
+            224,
+            224,
+            3
+          ],
+          "dtype": "float32",
+          "quantization": [
+            0.0,
+            0
+          ],
+          "quantization_parameters": {
+            "scales": [],
+            "zero_points": [],
+            "quantized_dimension": 0,
+            "block_size": 0
+          }
+        }
+      ],
+      "output_details": [
+        {
+          "name": "StatefulPartitionedCall:0",
+          "index": 4721,
+          "shape": [
+            1,
+            2
+          ],
+          "shape_signature": [
+            1,
+            2
+          ],
+          "dtype": "float32",
+          "quantization": [
+            0.0,
+            0
+          ],
+          "quantization_parameters": {
+            "scales": [],
+            "zero_points": [],
+            "quantized_dimension": 0,
+            "block_size": 0
+          }
+        }
+      ],
+      "error": "RuntimeError: tensorflow/lite/kernels/div.cc:242 data[i] != 0 was not true.Node number 593 (DIV) failed to invoke.",
+      "failed_node": 593,
+      "failed_op_tensors": {
+        "available": true,
+        "op_index": 593,
+        "op_name": "DIV",
+        "inputs": [
+          {
+            "tensor_index": 1336,
+            "name": "tf_icaa17k_dat_1/stage2_1/attn_1_1/Exp",
+            "dtype": "int8",
+            "shape": [
+              16,
+              196,
+              196
+            ],
+            "scale_count": 1,
+            "scale_min": 0.003921568859368563,
+            "scale_max": 0.003921568859368563,
+            "zero_scale_count": 0,
+            "nan_or_inf_scale_count": 0,
+            "zero_point_min": -128,
+            "zero_point_max": -128,
+            "runtime_stats": {
+              "shape": [
+                16,
+                196,
+                196
+              ],
+              "dtype": "int8",
+              "size": 614656,
+              "nan_count": 0,
+              "finite_count": 614656,
+              "zero_count": 0,
+              "min": -128.0,
+              "max": 127.0,
+              "mean": -103.89851233860891
+            }
+          },
+          {
+            "tensor_index": 1338,
+            "name": "tf_icaa17k_dat_1/stage2_1/attn_1_1/add_34",
+            "dtype": "int8",
+            "shape": [
+              16,
+              196,
+              1
+            ],
+            "scale_count": 1,
+            "scale_min": 0.7384021282196045,
+            "scale_max": 0.7384021282196045,
+            "zero_scale_count": 0,
+            "nan_or_inf_scale_count": 0,
+            "zero_point_min": -128,
+            "zero_point_max": -128,
+            "runtime_stats": {
+              "shape": [
+                16,
+                196,
+                1
+              ],
+              "dtype": "int8",
+              "size": 3136,
+              "nan_count": 0,
+              "finite_count": 3136,
+              "zero_count": 3,
+              "min": -127.0,
+              "max": 35.0,
+              "mean": -102.91454081632654
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "tensor_index": 1339,
+            "name": "tf_icaa17k_dat_1/stage2_1/attn_1_1/truediv_4",
+            "dtype": "int8",
+            "shape": [
+              16,
+              196,
+              196
+            ],
+            "scale_count": 1,
+            "scale_min": 0.003921549301594496,
+            "scale_max": 0.003921549301594496,
+            "zero_scale_count": 0,
+            "nan_or_inf_scale_count": 0,
+            "zero_point_min": -128,
+            "zero_point_max": -128,
+            "runtime_stats": {
+              "shape": [
+                16,
+                196,
+                196
+              ],
+              "dtype": "int8",
+              "size": 614656,
+              "nan_count": 0,
+              "finite_count": 614656,
+              "zero_count": 614656,
+              "min": 0.0,
+              "max": 0.0,
+              "mean": 0.0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "failed_node_inventory": {
+    "593": {
+      "op_index": 593,
+      "op_name": "DIV",
+      "is_div": true,
+      "is_quantized_by_tensor_dtype": true,
+      "input_indices": "[1336, 1338]",
+      "output_indices": "[1339]",
+      "input_dtypes": "[\"int8\", \"int8\"]",
+      "output_dtypes": "[\"int8\"]",
+      "input_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_1_1/Exp\", \"tf_icaa17k_dat_1/stage2_1/attn_1_1/add_34\"]",
+      "output_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_1_1/truediv_4\"]",
+      "input_quant": "[{\"quantization\": [0.003921568859368563, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921568859368563, \"scale_max\": 0.003921568859368563, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}, {\"quantization\": [0.7384021282196045, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.7384021282196045, \"scale_max\": 0.7384021282196045, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "output_quant": "[{\"quantization\": [0.003921549301594496, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921549301594496, \"scale_max\": 0.003921549301594496, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "scale_issues": "[]"
+    }
+  },
+  "div_inventory": [
+    {
+      "op_index": 593,
+      "op_name": "DIV",
+      "is_div": true,
+      "is_quantized_by_tensor_dtype": true,
+      "input_indices": "[1336, 1338]",
+      "output_indices": "[1339]",
+      "input_dtypes": "[\"int8\", \"int8\"]",
+      "output_dtypes": "[\"int8\"]",
+      "input_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_1_1/Exp\", \"tf_icaa17k_dat_1/stage2_1/attn_1_1/add_34\"]",
+      "output_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_1_1/truediv_4\"]",
+      "input_quant": "[{\"quantization\": [0.003921568859368563, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921568859368563, \"scale_max\": 0.003921568859368563, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}, {\"quantization\": [0.7384021282196045, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.7384021282196045, \"scale_max\": 0.7384021282196045, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "output_quant": "[{\"quantization\": [0.003921549301594496, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921549301594496, \"scale_max\": 0.003921549301594496, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "scale_issues": "[]"
+    },
+    {
+      "op_index": 954,
+      "op_name": "DIV",
+      "is_div": true,
+      "is_quantized_by_tensor_dtype": true,
+      "input_indices": "[1705, 1707]",
+      "output_indices": "[1708]",
+      "input_dtypes": "[\"int8\", \"int8\"]",
+      "output_dtypes": "[\"int8\"]",
+      "input_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_3_1/Exp\", \"tf_icaa17k_dat_1/stage2_1/attn_3_1/add_34\"]",
+      "output_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_3_1/truediv_4\"]",
+      "input_quant": "[{\"quantization\": [0.003921568859368563, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921568859368563, \"scale_max\": 0.003921568859368563, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}, {\"quantization\": [0.7490503787994385, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.7490503787994385, \"scale_max\": 0.7490503787994385, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "output_quant": "[{\"quantization\": [0.0039193336851894855, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.0039193336851894855, \"scale_max\": 0.0039193336851894855, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "scale_issues": "[]"
+    },
+    {
+      "op_index": 1315,
+      "op_name": "DIV",
+      "is_div": true,
+      "is_quantized_by_tensor_dtype": true,
+      "input_indices": "[2074, 2076]",
+      "output_indices": "[2077]",
+      "input_dtypes": "[\"int8\", \"int8\"]",
+      "output_dtypes": "[\"int8\"]",
+      "input_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_5_1/Exp\", \"tf_icaa17k_dat_1/stage2_1/attn_5_1/add_34\"]",
+      "output_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_5_1/truediv_4\"]",
+      "input_quant": "[{\"quantization\": [0.003921568859368563, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921568859368563, \"scale_max\": 0.003921568859368563, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}, {\"quantization\": [0.7563391923904419, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.7563391923904419, \"scale_max\": 0.7563391923904419, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "output_quant": "[{\"quantization\": [0.003913392312824726, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003913392312824726, \"scale_max\": 0.003913392312824726, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "scale_issues": "[]"
+    },
+    {
+      "op_index": 1676,
+      "op_name": "DIV",
+      "is_div": true,
+      "is_quantized_by_tensor_dtype": true,
+      "input_indices": "[2443, 2445]",
+      "output_indices": "[2446]",
+      "input_dtypes": "[\"int8\", \"int8\"]",
+      "output_dtypes": "[\"int8\"]",
+      "input_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_7_1/Exp\", \"tf_icaa17k_dat_1/stage2_1/attn_7_1/add_34\"]",
+      "output_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_7_1/truediv_4\"]",
+      "input_quant": "[{\"quantization\": [0.003921568859368563, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921568859368563, \"scale_max\": 0.003921568859368563, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}, {\"quantization\": [0.6685686707496643, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.6685686707496643, \"scale_max\": 0.6685686707496643, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "output_quant": "[{\"quantization\": [0.003912454470992088, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003912454470992088, \"scale_max\": 0.003912454470992088, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "scale_issues": "[]"
+    },
+    {
+      "op_index": 2037,
+      "op_name": "DIV",
+      "is_div": true,
+      "is_quantized_by_tensor_dtype": true,
+      "input_indices": "[2812, 2814]",
+      "output_indices": "[2815]",
+      "input_dtypes": "[\"int8\", \"int8\"]",
+      "output_dtypes": "[\"int8\"]",
+      "input_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_9_1/Exp\", \"tf_icaa17k_dat_1/stage2_1/attn_9_1/add_34\"]",
+      "output_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_9_1/truediv_4\"]",
+      "input_quant": "[{\"quantization\": [0.003921568859368563, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921568859368563, \"scale_max\": 0.003921568859368563, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}, {\"quantization\": [0.7604567408561707, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.7604567408561707, \"scale_max\": 0.7604567408561707, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "output_quant": "[{\"quantization\": [0.003919780720025301, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003919780720025301, \"scale_max\": 0.003919780720025301, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "scale_issues": "[]"
+    },
+    {
+      "op_index": 2398,
+      "op_name": "DIV",
+      "is_div": true,
+      "is_quantized_by_tensor_dtype": true,
+      "input_indices": "[3181, 3183]",
+      "output_indices": "[3184]",
+      "input_dtypes": "[\"int8\", \"int8\"]",
+      "output_dtypes": "[\"int8\"]",
+      "input_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_11_1/Exp\", \"tf_icaa17k_dat_1/stage2_1/attn_11_1/add_34\"]",
+      "output_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_11_1/truediv_4\"]",
+      "input_quant": "[{\"quantization\": [0.003921568859368563, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921568859368563, \"scale_max\": 0.003921568859368563, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}, {\"quantization\": [0.7606130838394165, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.7606130838394165, \"scale_max\": 0.7606130838394165, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "output_quant": "[{\"quantization\": [0.00390981137752533, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.00390981137752533, \"scale_max\": 0.00390981137752533, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "scale_issues": "[]"
+    },
+    {
+      "op_index": 2759,
+      "op_name": "DIV",
+      "is_div": true,
+      "is_quantized_by_tensor_dtype": true,
+      "input_indices": "[3550, 3552]",
+      "output_indices": "[3553]",
+      "input_dtypes": "[\"int8\", \"int8\"]",
+      "output_dtypes": "[\"int8\"]",
+      "input_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_13_1/Exp\", \"tf_icaa17k_dat_1/stage2_1/attn_13_1/add_34\"]",
+      "output_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_13_1/truediv_4\"]",
+      "input_quant": "[{\"quantization\": [0.003921568859368563, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921568859368563, \"scale_max\": 0.003921568859368563, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}, {\"quantization\": [0.7475764751434326, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.7475764751434326, \"scale_max\": 0.7475764751434326, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "output_quant": "[{\"quantization\": [0.003915230743587017, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003915230743587017, \"scale_max\": 0.003915230743587017, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "scale_issues": "[]"
+    },
+    {
+      "op_index": 3120,
+      "op_name": "DIV",
+      "is_div": true,
+      "is_quantized_by_tensor_dtype": true,
+      "input_indices": "[3919, 3921]",
+      "output_indices": "[3922]",
+      "input_dtypes": "[\"int8\", \"int8\"]",
+      "output_dtypes": "[\"int8\"]",
+      "input_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_15_1/Exp\", \"tf_icaa17k_dat_1/stage2_1/attn_15_1/add_34\"]",
+      "output_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_15_1/truediv_4\"]",
+      "input_quant": "[{\"quantization\": [0.003921568859368563, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921568859368563, \"scale_max\": 0.003921568859368563, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}, {\"quantization\": [0.7686208486557007, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.7686208486557007, \"scale_max\": 0.7686208486557007, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "output_quant": "[{\"quantization\": [0.003921457566320896, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921457566320896, \"scale_max\": 0.003921457566320896, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "scale_issues": "[]"
+    },
+    {
+      "op_index": 3481,
+      "op_name": "DIV",
+      "is_div": true,
+      "is_quantized_by_tensor_dtype": true,
+      "input_indices": "[4288, 4290]",
+      "output_indices": "[4291]",
+      "input_dtypes": "[\"int8\", \"int8\"]",
+      "output_dtypes": "[\"int8\"]",
+      "input_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_17_1/Exp\", \"tf_icaa17k_dat_1/stage2_1/attn_17_1/add_34\"]",
+      "output_names": "[\"tf_icaa17k_dat_1/stage2_1/attn_17_1/truediv_4\"]",
+      "input_quant": "[{\"quantization\": [0.003921568859368563, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921568859368563, \"scale_max\": 0.003921568859368563, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}, {\"quantization\": [0.7492272853851318, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.7492272853851318, \"scale_max\": 0.7492272853851318, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "output_quant": "[{\"quantization\": [0.003921568859368563, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921568859368563, \"scale_max\": 0.003921568859368563, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "scale_issues": "[]"
+    },
+    {
+      "op_index": 3849,
+      "op_name": "DIV",
+      "is_div": true,
+      "is_quantized_by_tensor_dtype": true,
+      "input_indices": "[4664, 4666]",
+      "output_indices": "[4667]",
+      "input_dtypes": "[\"int8\", \"int8\"]",
+      "output_dtypes": "[\"int8\"]",
+      "input_names": "[\"tf_icaa17k_dat_1/stage3_1/attn_1_1/Exp\", \"tf_icaa17k_dat_1/stage3_1/attn_1_1/add_34\"]",
+      "output_names": "[\"tf_icaa17k_dat_1/stage3_1/attn_1_1/truediv_4\"]",
+      "input_quant": "[{\"quantization\": [0.003921568859368563, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921568859368563, \"scale_max\": 0.003921568859368563, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}, {\"quantization\": [0.1921568661928177, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.1921568661928177, \"scale_max\": 0.1921568661928177, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "output_quant": "[{\"quantization\": [0.003921568859368563, -128], \"scale_count\": 1, \"zero_point_count\": 1, \"scale_min\": 0.003921568859368563, \"scale_max\": 0.003921568859368563, \"zero_scale_count\": 0, \"nan_or_inf_scale_count\": 0, \"zero_point_min\": -128, \"zero_point_max\": -128, \"quantized_dimension\": 0}]",
+      "scale_issues": "[]"
+    }
+  ],
+  "outputs": {
+    "op_inventory_csv": "/home/omen_pc1/photo_score_project/outputs/icaa_ptq_candidates_20260601/review_20260601/full_int8_op_inventory.csv",
+    "report_md": "/home/omen_pc1/photo_score_project/outputs/icaa_ptq_candidates_20260601/review_20260601/full_int8_failure_analysis.md",
+    "analysis_json": "/home/omen_pc1/photo_score_project/outputs/icaa_ptq_candidates_20260601/review_20260601/full_int8_failure_analysis.json"
+  }
+}
