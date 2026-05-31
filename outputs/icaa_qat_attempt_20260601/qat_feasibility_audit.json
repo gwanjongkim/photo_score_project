@@ -1,0 +1,84 @@
+{
+  "imports": {
+    "tensorflow": {
+      "available": true,
+      "version": "2.21.0"
+    },
+    "tf_keras": {
+      "available": true,
+      "version": "2.21.0"
+    },
+    "torch": {
+      "available": true,
+      "version": "2.5.1+cu121"
+    },
+    "tensorflow_model_optimization": {
+      "available": false,
+      "error_type": "ModuleNotFoundError",
+      "error": "No module named 'tensorflow_model_optimization'"
+    }
+  },
+  "saved_model": {
+    "path": "/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_134439/saved_model",
+    "exists": true,
+    "tf_saved_model_load": {
+      "ok": true,
+      "object_type": "_UserObject",
+      "signatures": [
+        "serving_default"
+      ],
+      "structured_input_signature": "((), {'image': TensorSpec(shape=(None, 224, 224, 3), dtype=tf.float32, name='image')})",
+      "structured_outputs": "{'scores': TensorSpec(shape=(None, 2), dtype=tf.float32, name='scores')}"
+    },
+    "keras_load_model": {
+      "ok": false,
+      "error_type": "ValueError",
+      "error": "File format not supported: filepath=/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_134439/saved_model. Keras 3 only supports V3 `.keras` files and legacy H5 format files (`.h5` extension). Note that the legacy SavedModel format is not supported by `load_model()` in Keras 3. In order to reload a TensorFlow SavedModel as an inference-only layer in Keras 3, use `keras.layers.TFSMLayer(/home/omen_pc1/photo_score_project/outputs/icaa_tf_native_savedmodel_20260516_134439/saved_model, call_endpoint='serving_default')` (note that your `call_endpoint` might have a different name)."
+    }
+  },
+  "source_model": {
+    "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+    "checkpoint_exists": true,
+    "source_root": "/home/omen_pc1/photo_score_project/experiments/icaa_tf_native",
+    "import_ok": true,
+    "instantiate_ok": true,
+    "load_pytorch_weights_ok": true,
+    "clone_model_ok": false,
+    "model_kind": "subclassed_keras_model",
+    "is_keras_model": true,
+    "model_class": "TFICAA17KDAT",
+    "has_functional_inputs": false,
+    "has_functional_outputs": false,
+    "layer_count": 13,
+    "layer_classes": [
+      "Dense",
+      "LayerNormalization",
+      "TFDownProjection",
+      "TFPatchProjection",
+      "TFSoftHistogram",
+      "TFTransformerStage0",
+      "TFTransformerStage1",
+      "TFTransformerStage2",
+      "TFTransformerStage3"
+    ],
+    "state_dict_note": "checkpoint object is an OrderedDict state_dict",
+    "state_dict_key_count": 487,
+    "clone_model_error_type": "TypeError",
+    "clone_model_error": "<class 'tf_models.tf_dat_model.TFICAA17KDAT'> could not be deserialized properly. Please ensure that components that are Python object instances (layers, models, etc.) returned by `get_config()` are explicitly deserialized in the model's `from_config()` method.\n\nconfig={'module': 'tf_models.tf_dat_model', 'class_name': 'TFICAA17KDAT', 'config': {'name': 'tf_icaa17k_dat', 'epsilon': 1e-05, 'trainable': True, 'dtype': {'module': 'keras', 'class_name': 'DTypePolicy', 'config': {'name': 'float32'}, 'registered_name': None}}, 'registered_name': 'TFICAA17KDAT', 'compile_config': {}}.\n\nException encountered: Unable to revive model from config. When overriding the `get_config()` method, make sure that the returned config contains all items used as arguments in the  constructor to <class 'tf_models.tf_dat_model.TFICAA17KDAT'>, which is the default behavior. You can override this default behavior by defining a `from_config(cls, config)` class method to specify how to create an instance of TFICAA17KDAT from its config.\n\nReceived config={'name': 'tf_icaa17k_dat', 'epsilon': 1e-05, 'trainable': True, 'dtype': {'module': 'keras', 'class_name': 'DTypePolicy', 'config': {'name': 'float32'}, 'registered_name': None}}\n\nError encountered during deserialization: TFICAA17KDAT.__init__() got an unexpected keyword argument 'trainable'"
+  },
+  "tfmot": {
+    "tfmot_available": false,
+    "quantize_model_available": false,
+    "quantize_apply_available": false,
+    "blocked_reason": "tensorflow_model_optimization is not installed"
+  },
+  "blockers": [
+    "SavedModel is not directly loadable as a trainable Keras model with tf.keras.models.load_model.",
+    "Recoverable source model is subclassed with custom layers, not a Functional/Sequential graph model.",
+    "Source model could not be cloned with tf.keras.models.clone_model, which standard TFMOT QAT commonly requires.",
+    "tensorflow_model_optimization is not installed in the checked interpreters; installing it would modify the environment outside the allowed output directory."
+  ],
+  "direct_qat_possible": false,
+  "qat_can_be_applied_safely": false,
+  "recommended_decision": "E"
+}
