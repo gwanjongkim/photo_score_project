@@ -1,0 +1,6 @@
+checkpoint,path,image_size
+best_model,outputs/mobile_student_iqa_v4b_20260601/best_model.keras,256
+best_by_val_mae_model,outputs/mobile_student_iqa_v4b_20260601/best_by_val_mae_model.keras,256
+best_by_val_srcc_model,outputs/mobile_student_iqa_v4b_20260601/best_by_val_srcc_model.keras,256
+best_by_val_safety_model,outputs/mobile_student_iqa_v4b_20260601/best_by_val_safety_model.keras,256
+final_model,outputs/mobile_student_iqa_v4b_20260601/final_model.keras,256
