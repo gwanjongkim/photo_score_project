@@ -1,0 +1,2 @@
+image_id,image_path,source_image_path,nima_raw_score,nima_score,rgnet_score,alamp_score,image_exists,exclude_reason
+0043_IMG_20240519_215827_510,/home/omen_pc1/photo_score_project/test_vila/IMG_20240519_215827_510.jpg,test_vila/IMG_20240519_215827_510.jpg,5.504689693450928,0.5005210770501031,0.5317418575286865,0.4962379038333893,True,unreadable image: cannot identify image file '/home/omen_pc1/photo_score_project/test_vila/IMG_20240519_215827_510.jpg'
