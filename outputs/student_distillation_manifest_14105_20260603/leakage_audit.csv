@@ -1,0 +1,14 @@
+check,value,status
+input_rows,14105,pass
+valid_rows,14105,pass
+removed_invalid_rows,0,pass
+duplicate_image_path,0,pass
+image_path_overlap_across_splits,0,pass
+source_group_leakage_across_splits,0,pass
+target_out_of_range_0_100,0,pass
+target_norm_out_of_range_0_1,0,pass
+missing_student_split,0,pass
+dataset_missing_from_split,,pass
+train_rows,11283,pass
+val_rows,1409,pass
+test_rows,1413,pass

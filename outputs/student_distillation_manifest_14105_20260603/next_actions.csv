@@ -1,0 +1,4 @@
+priority,action,status,notes
+1,Review Phase 7 student distillation manifest outputs.,ready,STUDENT_MANIFEST_14105_READY_FOR_SMOKE_TRAINING
+2,Run bounded smoke training only after review.,candidate,No full distillation from this task.
+3,"Do not export TFLite, edit Flutter, or modify production scoring.",open,Manifest preparation only.
