@@ -1,0 +1,3 @@
+stage,dataset,image_path,error
+coverage,koniq10k,,expected_or_estimated_rows=10073; valid_cached_rows=8999
+coverage,spaq,,expected_or_estimated_rows=11125; valid_cached_rows=1125

@@ -1,0 +1,8 @@
+dataset,expected_or_estimated_rows,valid_rows,coverage_gap,status,included_in_main_labels,excluded_reason
+koniq10k,10073,8999,1074,coverage_gap,True,
+spaq,11125,1125,10000,coverage_gap,True,
+flive,3981,3981,0,ok,True,
+unknown_fallback,0,0,0,excluded_future_work,False,excluded by final scope decision; product-gold labels are not strict technical MOS
+real_mobile_c6,50,0,0,excluded_holdout,False,c6_parity real-mobile holdout only
+test_weight_gold,40,0,0,excluded_validation_only,False,Test_weight/product-gold is aesthetic/product validation only
+duplicate_image_path,0,0,0,ok,False,audit row

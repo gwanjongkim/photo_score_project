@@ -1,0 +1,4 @@
+priority,action,status,notes
+1,Review known-dataset full-label dry-run outputs.,blocked,KNOWN_DATASET_FULL_LABEL_NEEDS_COVERAGE_FIX
+2,Fill cached MDIQA coverage for missing KonIQ/SPAQ rows before final labels.,required,Do not invent fallback labels.
+3,Do not run 50k/full label generation or student distillation from this dry-run.,open,Dry-run/audit only.
