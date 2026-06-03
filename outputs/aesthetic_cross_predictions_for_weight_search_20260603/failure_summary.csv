@@ -1,0 +1,6 @@
+dataset,model,failure_rows,failure_path,first_failure
+ava,rgnet,1,outputs/aesthetic_cross_predictions_for_weight_search_20260603/ava_rgnet_failures.csv,not a TIFF file (header b'\xff\xd8\xff\xdb\x00C\x00\x07' not valid)
+ava,icaa,1,outputs/aesthetic_cross_predictions_for_weight_search_20260603/ava_icaa_failures.csv,not a TIFF file (header b'\xff\xd8\xff\xdb\x00C\x00\x07' not valid)
+aadb,nima,0,outputs/aesthetic_cross_predictions_for_weight_search_20260603/aadb_nima_failures.csv,
+aadb,alamp_adaptive,0,outputs/aesthetic_cross_predictions_for_weight_search_20260603/aadb_alamp_adaptive_failures.csv,
+aadb,icaa,0,outputs/aesthetic_cross_predictions_for_weight_search_20260603/aadb_icaa_failures.csv,

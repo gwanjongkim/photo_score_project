@@ -1,0 +1,2 @@
+dataset,model,source_id,image_path,failure_reason
+ava,icaa,data/raw/ava/images/3101.jpg,data/raw/ava/images/3101.jpg,not a TIFF file (header b'\xff\xd8\xff\xdb\x00C\x00\x07' not valid)
