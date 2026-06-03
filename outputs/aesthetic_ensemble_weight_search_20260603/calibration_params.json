@@ -1,0 +1,64 @@
+{
+  "AADB": {
+    "rgnet": {
+      "fit_fold": "val",
+      "linear_calibration": {
+        "intercept": 0.8927763566578996,
+        "slope": 0.8352152272974759
+      },
+      "note": "primary 20260603 full RGNet AADB",
+      "path": "outputs/aesthetic_mobile_paper_benchmark_20260603/full/rgnet_aadb/rgnet_predictions.csv",
+      "primary": true,
+      "raw_max": 0.9314902424812316,
+      "raw_min": 0.0555420517921447,
+      "scaled_max": 9.383412182331083,
+      "scaled_min": 1.4998784661293023
+    }
+  },
+  "AVA": {
+    "alamp_adaptive": {
+      "fit_fold": "val",
+      "linear_calibration": {
+        "intercept": 4.652027370065106,
+        "slope": 0.16427439842469835
+      },
+      "note": "primary 20260603 full adaptive A-LAMP AVA",
+      "path": "outputs/aesthetic_rgnet_alamp_paper_protocol_followup_20260603/full_adaptive/alamp_adaptive_predictions.csv",
+      "primary": true,
+      "raw_max": 1.0,
+      "raw_min": 0.0007083019008859,
+      "scaled_max": 10.0,
+      "scaled_min": 0.007083019008859
+    },
+    "nima": {
+      "fit_fold": "val",
+      "linear_calibration": {
+        "intercept": 1.4143228659957046,
+        "slope": 0.8200160183837018
+      },
+      "note": "primary 20260603 full NIMA AVA",
+      "path": "outputs/aesthetic_mobile_paper_benchmark_20260603/full/nima_ava/nima_predictions.csv",
+      "primary": true,
+      "raw_max": 6.999500473262742,
+      "raw_min": 2.60778468195349,
+      "scaled_max": 6.999500473262742,
+      "scaled_min": 2.60778468195349
+    }
+  },
+  "ICAA17K": {
+    "icaa": {
+      "fit_fold": "val",
+      "linear_calibration": {
+        "intercept": 0.18906912692285277,
+        "slope": 0.970838333544345
+      },
+      "note": "primary 20260603 full ICAA17K color prediction",
+      "path": "outputs/aesthetic_mobile_paper_benchmark_20260603/full/icaa_icaa17k/icaa_predictions.csv",
+      "primary": true,
+      "raw_max": 0.7947661280632019,
+      "raw_min": 0.3741256594657898,
+      "scaled_max": 7.947661280632019,
+      "scaled_min": 3.741256594657898
+    }
+  }
+}
