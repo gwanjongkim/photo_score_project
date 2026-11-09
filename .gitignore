@@ -251,3 +251,7 @@ MDIQA/datasets/
 forWeights2/models/aesthetic/icaa_dat_tf_native_fp16.tflite
 
 .venv*/
+
+forWeights/models/aesthetic/*.tflite
+MDIQA/datasets/
+MDIQA/checkpoints/

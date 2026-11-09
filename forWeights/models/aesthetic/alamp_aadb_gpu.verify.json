@@ -1,0 +1,144 @@
+{
+  "model_path": "exports/tflite/alamp_aadb_gpu.tflite",
+  "image_path": "test_samples/KakaoTalk_20260330_180646779_10.jpg",
+  "checkpoint_dir": "checkpoints/alamp_aadb_gpu",
+  "input_details": [
+    {
+      "name": "serving_default_global_view:0",
+      "shape": [
+        1,
+        384,
+        384,
+        3
+      ],
+      "shape_signature": [
+        -1,
+        384,
+        384,
+        3
+      ],
+      "dtype": "float32",
+      "index": 0
+    },
+    {
+      "name": "serving_default_patches:0",
+      "shape": [
+        1,
+        5,
+        224,
+        224,
+        3
+      ],
+      "shape_signature": [
+        -1,
+        5,
+        224,
+        224,
+        3
+      ],
+      "dtype": "float32",
+      "index": 1
+    }
+  ],
+  "output_details": [
+    {
+      "name": "StatefulPartitionedCall_1:0",
+      "shape": [
+        1,
+        1
+      ],
+      "shape_signature": [
+        -1,
+        1
+      ],
+      "dtype": "float32",
+      "index": 1044
+    }
+  ],
+  "preprocessing": {
+    "global_size": 384,
+    "patch_size": 224,
+    "num_patches": 5,
+    "patch_scales": [
+      0.245,
+      0.35,
+      0.4725
+    ],
+    "global_view_shape": [
+      1,
+      384,
+      384,
+      3
+    ],
+    "patches_shape": [
+      1,
+      5,
+      224,
+      224,
+      3
+    ]
+  },
+  "patch_debug": {
+    "boxes": [
+      [
+        0.7549999952316284,
+        0.4183333218097687,
+        1.0,
+        0.5816666483879089
+      ],
+      [
+        0.5662499666213989,
+        0.4183333218097687,
+        0.8112500309944153,
+        0.5816666483879089
+      ],
+      [
+        0.5274999737739563,
+        0.3425000011920929,
+        1.0,
+        0.6575000286102295
+      ],
+      [
+        0.5274999737739563,
+        0.17124997079372406,
+        1.0,
+        0.48624998331069946
+      ],
+      [
+        0.6499999761581421,
+        0.0,
+        1.0,
+        0.23333333432674408
+      ]
+    ],
+    "proposal_scores": [
+      0.08570840209722519,
+      0.03669179975986481,
+      0.036599304527044296,
+      0.029379907995462418,
+      0.025866927579045296
+    ]
+  },
+  "outputs": {
+    "tflite": 0.65646892786026,
+    "rebuild_source": 0.6564820408821106,
+    "checkpoint_model": 0.683251678943634
+  },
+  "comparison": {
+    "tflite_vs_rebuild_max_abs_diff": 1.3113021850585938e-05,
+    "tflite_vs_rebuild_mean_abs_diff": 1.3113021850585938e-05,
+    "rebuild_vs_checkpoint_max_abs_diff": 0.026769638061523438,
+    "rebuild_vs_checkpoint_mean_abs_diff": 0.026769638061523438,
+    "tflite_matches_export_source": true,
+    "rebuild_close_to_checkpoint_model": true
+  },
+  "plausibility": {
+    "finite": true,
+    "within_unit_interval": true
+  },
+  "notes": [
+    "The exported TFLite model is validated against the float32 rebuild used for conversion.",
+    "The mixed-precision .keras checkpoint is reported separately because the direct checkpoint/SavedModel conversion path is blocked by LayoutCueAugmentation BroadcastTo on float16 tensors."
+  ],
+  "verification_passed": true
+}

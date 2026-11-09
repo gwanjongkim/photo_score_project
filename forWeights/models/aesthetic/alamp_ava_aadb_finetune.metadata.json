@@ -1,0 +1,133 @@
+{
+  "model": {
+    "name": "alamp_aadb_gpu",
+    "task": "aesthetic_regression",
+    "variant": "A-Lamp",
+    "inputs": {
+      "global_view": {
+        "shape": [
+          1,
+          384,
+          384,
+          3
+        ],
+        "dtype": "float32",
+        "normalization": "pixel_value / 255.0",
+        "layout": "NHWC"
+      },
+      "patches": {
+        "shape": [
+          1,
+          5,
+          224,
+          224,
+          3
+        ],
+        "dtype": "float32",
+        "normalization": "pixel_value / 255.0",
+        "layout": "NTHWC"
+      }
+    },
+    "output": {
+      "shape": [
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "summary": "Single scalar A-Lamp aesthetic score."
+    }
+  },
+  "source": {
+    "checkpoint_dir": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune",
+    "weights_path": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/best.weights.h5",
+    "keras_path": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/final_model.keras",
+    "saved_model_dir": "outputs/ava_pretrain_aadb_finetune_20260507/alamp_ava_pretrain_aadb_finetune/saved_model"
+  },
+  "export": {
+    "used_export_source": "rebuild_from_weights",
+    "used_conversion_mode": "builtin",
+    "requires_select_tf_ops": false,
+    "tflite_path": "outputs/ava_pretrain_aadb_finetune_20260507/tflite/alamp_ava_aadb_finetune.tflite",
+    "tflite_size_bytes": 39098664,
+    "rebuild_attempts": [
+      {
+        "mode": "builtin",
+        "status": "success",
+        "size_bytes": 39098664
+      }
+    ],
+    "saved_model_attempts": []
+  },
+  "export_adjustments": {
+    "backbone_weights_on_rebuild": null,
+    "keras_global_policy": "float32",
+    "reason": "Rebuild export uses the repo source model under float32 policy and loads checkpoint weights. This avoids the SavedModel mixed-precision layout cue BroadcastTo path that fails TFLite conversion."
+  },
+  "saved_model_signature": {
+    "inputs": {
+      "global_view": {
+        "shape": [
+          null,
+          384,
+          384,
+          3
+        ],
+        "dtype": "float32"
+      },
+      "patches": {
+        "shape": [
+          null,
+          5,
+          224,
+          224,
+          3
+        ],
+        "dtype": "float32"
+      }
+    },
+    "outputs": {
+      "output_0": {
+        "shape": [
+          null,
+          1
+        ],
+        "dtype": "float32"
+      }
+    }
+  },
+  "rebuild_model_io": {
+    "inputs": [
+      {
+        "name": "global_view",
+        "shape": [
+          null,
+          384,
+          384,
+          3
+        ],
+        "dtype": "float32"
+      },
+      {
+        "name": "patches",
+        "shape": [
+          null,
+          5,
+          224,
+          224,
+          3
+        ],
+        "dtype": "float32"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "keras_tensor_454",
+        "shape": [
+          null,
+          1
+        ],
+        "dtype": "float32"
+      }
+    ]
+  }
+}
