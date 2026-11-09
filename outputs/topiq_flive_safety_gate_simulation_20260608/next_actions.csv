@@ -1,0 +1,3 @@
+task,owner,priority,status,notes
+"Investigate alternative safety signals (e.g., MDIQA teacher scores)","agent","medium","pending","To filter the training set or provide better caps."
+"Review log-only deployment criteria for non-zero severe FPs","manager","high","pending","Decide if 2 severe FPs is acceptable given SRCC boost (0.71 -> 0.80)."

@@ -1,0 +1,5 @@
+dataset,n,delta_srcc,paired_preds_available,required_test,status
+KonIQ-10k,20150,+0.0124,No (Aggregate only),Paired bootstrap / Fisher-z,PENDING
+SPAQ,1125,+0.0406,No (Aggregate only),Paired bootstrap / Fisher-z,PENDING
+FLIVE,1827,-0.0048,No (Aggregate only),N/A,Loss
+General,50000+,N/A,No,Real mobile A-cut holdout parity,PENDING

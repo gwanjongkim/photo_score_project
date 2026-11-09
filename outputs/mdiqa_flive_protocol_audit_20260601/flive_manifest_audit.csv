@@ -1,0 +1,13 @@
+metric,value,notes
+Total FLIVE rows in manifest,159240,Includes 39810 images and 119430 patches
+FLIVE rows sampled in sanity,100,
+Images in sample,26,
+Patches in sample,74,
+Test split images in sample,1,Only 1 image from official test set
+Mean MOS (Images),70.16,In our 100-sample
+Mean MOS (Patches),71.88,In our 100-sample
+Mean Prediction (Images),0.6577,mdiqa_xd variant
+Mean Prediction (Patches),0.3491,mdiqa_xd variant
+Aggregate FLIVE SRCC,0.0676,mdiqa_xd variant (mixing images and patches)
+Image-only FLIVE SRCC,0.5070,mdiqa_xd variant (much closer to paper)
+Patch-only FLIVE SRCC,0.2810,mdiqa_xd variant

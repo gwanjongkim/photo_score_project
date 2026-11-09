@@ -29,10 +29,10 @@ forWeights2/
 
 | 모델 | 파일명 | score key | type | score_index | 기본 weight |
 |---|---|---|---|---|---|
-| NIMA | `nima_mobile.tflite` | `nima_score` | `nima_distribution` | 해당 없음 | 0.25 |
-| RGNet | `rgnet_paper_aadb_fp16.tflite` | `rgnet_score` | `scalar_tflite` | 해당 없음 | 0.25 |
-| A-LAMP | `mobile_alamp_v2_fp16.tflite` | `alamp_score` | `alamp_signature` | 해당 없음 | 0.25 |
-| ICAA | `icaa_dat_tf_native_fp16.tflite` | `icaa_score` | `vector_tflite` | 0 | 0.25 |
+| NIMA | `nima_mobile_fixed_preproc_fp16.tflite` | `nima_score` | `nima_distribution` | 해당 없음 | 0.2 |
+| RGNet | `rgnet_pil_resize_aadb_fp16.tflite` | `rgnet_score` | `scalar_tflite` | 해당 없음 | 0.4 |
+| A-LAMP | `mobile_alamp_v2_fp16.tflite` | `alamp_score` | `alamp_signature` | 해당 없음 | 0.2 |
+| ICAA | `icaa_dat_tf_native_fp16.tflite` | `icaa_score` | `vector_tflite` | 0 | 0.2 |
 
 모델 파일은 모두 아래 위치에 있어야 합니다.
 
@@ -170,7 +170,7 @@ ICAA preprocessing은 export마다 다를 수 있습니다. 현재 config는 로
 
 ### 입력 shape 또는 preprocess mismatch
 
-TFLite input shape와 config의 `input_width`, `input_height`, `global_size`, `patch_size`, `patch_count`, `normalization`이 맞지 않으면 추론 오류가 나거나 점수 스케일이 왜곡될 수 있습니다. 특히 A-LAMP v2는 로컬 export metadata 기준으로 float pixel 0-255 입력을 사용합니다.
+TFLite input shape와 config의 `input_width`, `input_height`, `global_size`, `patch_size`, `patch_count`, `normalization`이 맞지 않으면 추론 오류가 나거나 점수 스케일이 왜곡될 수 있습니다. NIMA 모델은 전처리 불일치가 수정된 `fixed_preproc` 버전을 사용하며, RGNet은 PIL 기반 리사이즈 전처리가 적용된 `pil_resize_aadb` 버전을 사용합니다. A-LAMP v2는 로컬 export metadata 기준으로 float pixel 0-255 입력을 사용합니다.
 
 ### output shape mismatch
 

@@ -1,0 +1,30 @@
+{
+  "best_ratio_by_composite": "hybrid_grid_s04",
+  "best_ratio_by_overall_mae": "hybrid_grid_s04",
+  "best_ratio_by_overall_srcc": "hybrid_grid_s02",
+  "common_rows": 596,
+  "final_decision": "HYBRID_STUDENT_FLIVE_NEEDS_RATIO_TUNING",
+  "flive_constraint_pass": true,
+  "image_load_failures": 0,
+  "koniq_spaq_stability": [
+    {
+      "dataset": "koniq10k",
+      "srcc_delta_vs_production": -0.10377645033917171
+    },
+    {
+      "dataset": "spaq",
+      "srcc_delta_vs_production": -0.019067541099624608
+    }
+  ],
+  "koniq_spaq_stability_pass": false,
+  "log_only_candidate": false,
+  "production_overall_mae": 6.684857874090447,
+  "production_overall_srcc": 0.6731473344230058,
+  "production_replacement": false,
+  "selected_composite": 0.8177828489051726,
+  "selected_flive_weight": 0.6,
+  "selected_overall_mae": 6.745608098717055,
+  "selected_overall_srcc": 0.700311922846307,
+  "selected_ratio": "hybrid_4_6",
+  "selected_student_weight": 0.4
+}

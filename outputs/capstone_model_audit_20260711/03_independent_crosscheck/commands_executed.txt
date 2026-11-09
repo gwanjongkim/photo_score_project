@@ -1,0 +1,3 @@
+# 재현성 검토 및 코드 컴파일 테스트를 위해 실행한 명령어 로그.
+python3 -m py_compile src/models/rgnet.py src/models/nima_distribution.py src/models/technical_regressor.py src/models/alamp.py src/models/mobile_alamp_v2.py src/models/musiq.py src/models/topiq_lite.py
+python3 -m py_compile src/train/train_rgnet.py src/train/train_nima.py src/train/train_mobile_alamp_v2.py

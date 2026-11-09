@@ -1,0 +1,16 @@
+section,dataset,split,content_type,selected_teacher_source,n,srcc,plcc,mae,linear_aligned_mae,fp,severe_fp,fn,clipping_count,boundary_0_or_100_count,boundary_0_or_100_pct
+row_count,fallback_proxy,train,image,production_safety_fallback,3,,,,,,,,,,
+row_count,fallback_proxy,val,image,production_safety_fallback,2,,,,,,,,,,
+row_count,flive,test,image,production,1,,,,,,,,,,
+row_count,flive,train,image,production,9,,,,,,,,,,
+row_count,flive,val,image,production,5,,,,,,,,,,
+row_count,koniq10k,test,image,mdiqa_seed1_policy_f_shift_cap3,20,,,,,,,,,,
+row_count,spaq,test,image,mdiqa_xd_policy_f_shift_cap3,10,,,,,,,,,,
+mos_alignment,fallback_proxy,,,,5,0.6,0.32312584274501976,1.8960261041774202,1.0659508685102395,0.0,0.0,0.0,0.0,0.0,0.0
+mos_alignment,flive,,,,15,0.5642857142857143,0.6636565733048078,3.453971508773597,2.8239470396006796,0.0,0.0,0.0,0.0,0.0,0.0
+mos_alignment,koniq10k,,,,20,0.8796992481203008,0.9672740758441272,5.5230746461730345,2.126829706805381,0.0,0.0,0.0,0.0,0.0,0.0
+mos_alignment,spaq,,,,10,0.8303030303030303,0.9660027962724604,4.277263720035553,4.414989370489468,0.0,0.0,0.0,0.0,0.0,0.0
+mos_alignment_by_source,,,,mdiqa_seed1_policy_f_shift_cap3,20,0.8796992481203008,0.9672740758441272,5.5230746461730345,2.126829706805381,0.0,0.0,0.0,0.0,0.0,0.0
+mos_alignment_by_source,,,,mdiqa_xd_policy_f_shift_cap3,10,0.8303030303030303,0.9660027962724604,4.277263720035553,4.414989370489468,0.0,0.0,0.0,0.0,0.0,0.0
+mos_alignment_by_source,,,,production,15,0.5642857142857143,0.6636565733048078,3.453971508773597,2.8239470396006796,0.0,0.0,0.0,0.0,0.0,0.0
+mos_alignment_by_source,,,,production_safety_fallback,5,0.6,0.32312584274501976,1.8960261041774202,1.0659508685102395,0.0,0.0,0.0,0.0,0.0,0.0

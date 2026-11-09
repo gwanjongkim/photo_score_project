@@ -1,0 +1,5 @@
+scope,dataset,raw_srcc,calibrated_srcc,guarded_srcc,production_srcc
+overall,all,0.696,0.946,0.946,0.850
+dataset,flive,0.251,0.925,0.925,0.574
+dataset,koniq10k,0.857,0.978,0.978,0.934
+dataset,spaq,0.803,0.964,0.964,0.873

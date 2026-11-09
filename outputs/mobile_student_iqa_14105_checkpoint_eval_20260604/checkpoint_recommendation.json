@@ -1,0 +1,10 @@
+{
+  "recommended_checkpoint": "best_by_val_mae",
+  "decision": "BEST_CHECKPOINT_NEEDS_FLIVE_HYBRID_PLAN",
+  "reason": "Overall metrics meet quality targets (SRCC 0.69, MAE 4.8), but FLIVE SRCC (0.51) is significantly lower than KonIQ (0.72) and SPAQ (0.89). A hybrid runtime plan using this model for general technical quality and the existing production model for FLIVE robustness is recommended.",
+  "metrics": {
+    "overall_test_srcc": 0.6944865797351567,
+    "overall_test_mae": 4.796281419130225,
+    "flive_test_srcc": 0.5176370574677901
+  }
+}

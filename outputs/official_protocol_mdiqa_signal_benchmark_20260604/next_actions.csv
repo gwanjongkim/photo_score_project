@@ -1,0 +1,5 @@
+task,owner,priority,status,notes
+"Phase 13: Student-Teacher Gap Analysis","agent","high","pending","Investigate 0.08 SRCC loss"
+"Evaluate EfficientNet-V2-B1 backbone for student","agent","medium","pending","Potential gap closure"
+"Implement safety gating for TOPIQ+FLIVE candidates","agent","medium","pending","Address 3 severe FPs"
+"Official benchmark with FLIVE patches","agent","low","pending","Extend to 10k rows"

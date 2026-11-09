@@ -1,0 +1,7 @@
+evidence_id,model,evidence_path,evidence_type,summary,confidence,notes
+EVE_TR_NIMA,NIMA,outputs/nima_preprocessing_fix_20260525/report.md,Report,Contains the exact recommended retraining command and fixed preprocessing logic details,High,Critical for verifying NHWC [0..1] NHWC vs internal rescaling
+EVE_TR_RGNET,RGNet,outputs/rgnet_v1_aadb_pil_resize_retrain_20260524/train_summary.json,Config/Summary,Full training log and hyperparameters for the PIL-consistent retrain,High,Verifies DenseNet121 and ASPP approximation
+EVE_TR_ALAMP,Mobile A-LAMP v2,outputs/mobile_alamp_v2_full_ava_20260519/summary.json,Config/Summary,Contains the shell command used to train the model and dataset jsonl paths,High,Confirms MobileNetV3 and class weighting
+EVE_TR_ICAA,ICAA,outputs/icaa_tf_native_savedmodel_20260516_134439/stage_i_savedmodel_report.json,Report/Log,Traces the conversion from official PyTorch weights to TF SavedModel,High,Confirms rebuild from source weights rather than retrain
+EVE_TR_KONIQ,KonIQ,outputs/audit_model_paper_basis_20260506/audit_report.md,Audit Report,Identifies the training script and dataset preparation logic,High,General provenance documentation
+EVE_TR_FLIVE,FLIVE,outputs/audit_model_paper_basis_20260506/audit_report.md,Audit Report,Identifies the training script and dataset preparation logic,High,General provenance documentation

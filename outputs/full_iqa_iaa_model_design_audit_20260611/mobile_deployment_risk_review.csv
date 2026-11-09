@@ -1,0 +1,12 @@
+model_or_feature,runtime_or_size_risk,platform_risk,production_status,recommendation
+KonIQ (technical),Low ~25 ms,TFLite CPU+XNNPACK portable,Production,Keep
+FLIVE (technical),Low ~25 ms,TFLite CPU+XNNPACK portable,Production,Keep (ensemble only)
+NIMA (aesthetic),Low-moderate ~177 ms FP16,TFLite portable; output mapping must match,Production,Keep
+RGNet (aesthetic),Moderate ~302 ms FP16 (slowest production aesthetic),TFLite portable,Production,Keep
+Mobile A-LAMP v2 (aesthetic),Model ~49 ms but adaptive-patch preprocessing ~0.1-0.2 s CPU,Preprocessing cost on low-end CPUs,Production,Keep; monitor preprocessing on low-end devices
+ICAA (color),High ~1.1 s; no INT8/QAT; FP16 only,Absent from Mac assets; iOS profile unverified,Research/reference,Keep skipped; if revisited use full-integer PTQ with float32 IO + parity check
+MDIQA teacher,High; PyTorch transformer not mobile,Not on device,Research/reference,Performance-ceiling reference / strong reference teacher only; never deploy
+MDIQA student,TFLite-capable but no benefit,Absent from Mac assets,Research/reference,Do not export to Flutter
+TOPIQ+FLIVE,Backbone runtime/battery unprofiled on device,Present on Mac assets (shadow),Log-only candidate,Shadow log-only; profile before any consideration
+Aesthetic late-fusion + calibration,Low compute; constants only,Verified Mac asset presence,Production,Verify Flutter pubspec/contract parity
+Flutter aesthetic contract,N/A,Asset verification completed on Mac project,Verified here,Confirm no production paths for ICAA/MDIQA student

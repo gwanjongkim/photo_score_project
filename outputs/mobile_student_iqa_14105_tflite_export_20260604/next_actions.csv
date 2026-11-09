@@ -1,0 +1,4 @@
+priority,action
+1,Profile FP16 TFLite on-device as log-only candidate; do not change production technical_score.
+2,Collect production-vs-student disagreement logs with FLIVE-heavy real mobile samples.
+3,Design hybrid gate/weight only after log-only mobile evidence review.

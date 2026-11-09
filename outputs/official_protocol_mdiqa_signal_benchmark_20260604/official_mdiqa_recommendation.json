@@ -1,0 +1,7 @@
+{
+  "best_overall_signal": "mdiqa_selected",
+  "best_overall_srcc": 0.8227485140117873,
+  "mdiqa_srcc": 0.8227485140117873,
+  "topiq_flive_srcc": 0.8069288438194987,
+  "decision": "MDIQA_OFFICIAL_BENCHMARK_MDIQA_BEST_BUT_TEACHER_ONLY"
+}

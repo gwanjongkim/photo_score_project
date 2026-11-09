@@ -1,0 +1,47 @@
+{
+  "final_decision": "PHASE20_RECOMMEND_WITHIN_DATASET_RANKING_SMOKE",
+  "optional_smoke_run": false,
+  "recommended_phase21_experiment": "Huber + within-dataset pairwise ranking B0 smoke (R2), no target scaling in first ranking smoke",
+  "recommended_target_policy_if_label_scaling_is_chosen": "S2_koniq_x2",
+  "best_simulated_distribution_policy": "S2_koniq_x2",
+  "ranking_design": "R2_within_dataset_pairwise",
+  "b1_b2_status": "paused",
+  "rationale": "KonIQ target scaling can improve target variance, but prior weighted smoke collapsed after contribution math was fixed and official agreement shows ranking/teacher-following issues remain. Within-dataset ranking avoids cross-dataset scale mismatch and tests ranking signal with lower label-policy risk than combining scaling plus ranking.",
+  "phase21_smoke_config": {
+    "train_samples": 4000,
+    "val_samples": 1000,
+    "test_samples": 1000,
+    "backbone": "efficientnetv2b0",
+    "image_size": 256,
+    "batch_size": 16,
+    "backbone_weights": "imagenet",
+    "head_epochs": 1,
+    "finetune_epochs": 2,
+    "loss": "huber + within-dataset pairwise logistic ranking",
+    "rank_margin_norm": 0.05,
+    "lambda_rank_first": 0.1,
+    "dataset_weights": {
+      "flive": 1.0,
+      "koniq10k": 1.0,
+      "spaq": 1.0
+    },
+    "official_eval": "image-only Track B if feasible"
+  },
+  "evidence": {
+    "phase16_official_srcc": 0.70329,
+    "phase18_w5lite_official_srcc": 0.530639,
+    "phase19_w5v2_official_srcc": 0.516337,
+    "phase19_effective_contribution_fixed": true,
+    "koniq_teacher_vs_mos_srcc": 0.9311151345380967,
+    "koniq_b0_vs_mos_srcc": 0.7390970094838937,
+    "koniq_b0_vs_teacher_srcc": 0.7894151699613897,
+    "flive_teacher_vs_mos_srcc": 0.5692421677138764,
+    "flive_b0_vs_mos_srcc": 0.5070829737747616
+  },
+  "required_code_before_smoke": [
+    "Add custom train_step or custom loss wrapper that receives dataset ids.",
+    "Emit dataset id from tf.data for training only; keep eval/predict path unchanged.",
+    "Start with within-dataset pairwise logistic rank loss, margin 0.05, lambda_rank 0.10.",
+    "Keep B1/B2 paused until ranking smoke beats W5-lite and directionally approaches Phase 16 unweighted B0."
+  ]
+}

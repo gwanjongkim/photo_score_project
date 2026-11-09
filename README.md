@@ -1,172 +1,69 @@
-# photo_score_project
+# A-cut: Mobile Photo Evaluation App (Backend & Research)
 
-이 저장소는 A-cut 캡스톤 프로젝트의 Python 기반 사진 품질 및 미학(Aesthetics) 평가, 모델 학습, 추론, 변환 실험을 위한 저장소입니다.
+This repository contains the backend research, training, evaluation, and model export code for the **A-cut capstone project**. A-cut is designed to evaluate mobile photos across multiple dimensions, including technical quality, overall aesthetics, and color composition.
 
-**주의 사항:**
-- **데이터셋은 본 저장소에 포함되지 않습니다.** 데이터셋은 로컬 환경이나 외부 스토리지에서 별도로 다운로드하여 사용해야 합니다.
-- **모델 가중치, TFLite, outputs, reports** 등은 사용자의 정책상 저장소에 포함될 수 있습니다. 
-- 단, 100MB를 초과하는 대용량 모델 파일(`*.keras`, `*.h5`, `*.pth`, `*.tflite`, `*.safetensors` 등)을 업로드할 경우 **Git LFS(Large File Storage)** 사용을 적극 권장합니다.
+**Note:** This repository focuses on the model engineering, distillation, and export pipelines. It is a research and capstone deliverable repository, not the primary production Flutter application code. Some results are experimental candidates supporting the capstone evidence.
 
-## 데이터셋 다운로드 안내
+## 1. Project Overview
+The A-cut backend pipeline is responsible for:
+1.  **Dataset Curation & Preprocessing:** Handling datasets like AVA, AADB, FLIVE, and KonIQ.
+2.  **Teacher Model Inference:** Running heavy vision-language models (e.g., VILA, Gemma, Gemini API) and state-of-the-art IQA models (TOPIQ, MUSIQ) to generate high-quality pseudo-labels.
+3.  **Student Distillation:** Training lightweight, mobile-friendly models (e.g., MobileNetV3-based) using the teacher's labels.
+4.  **TFLite Export:** Converting trained PyTorch/TensorFlow models to `.tflite` format for integration into the Flutter mobile app.
+5.  **Parity Benchmarking:** Ensuring models behave identically on the WSL backend and Android device.
 
-아래는 본 프로젝트 실험에 사용되는 데이터셋 목록입니다. 원본 이미지와 라벨을 로컬의 `data/raw/` 또는 지정된 경로에 배치해야 합니다.
+## 2. A-cut Pipeline
+Our pipeline separates technical quality (blur, noise, exposure) from subjective aesthetics.
 
-| Dataset | Purpose | Expected local path | Download / Reference |
-|---|---|---|---|
-| AVA | 미학 점수 1~10 분포 학습 | `data/raw/ava/` | [AVA Dataset](https://github.com/mtobeiyf/ava) |
-| AADB | 미학 점수 회귀 / 쌍 비교 학습 | `data/raw/aadb/` | [AADB Dataset](https://github.com/vivoutlaw/AADB) |
-| ICAA17K | 색상 기반 미학 평가 학습 | `data/raw/icaa17k/` | [ICAA Official Repo](https://github.com/woshidandan/Image-Color-Aesthetics-and-Quality-Assessment) |
-| SPAQ | 스마트폰 사진 품질/미학 평가 | `data/raw/spaq/` | [SPAQ Dataset](https://github.com/huster-szq/SPAQ) |
-| KonIQ-10k | 기술적 이미지 품질 평가 | `data/raw/koniq10k/` | [KonIQ-10k](http://database.mmk.ai.tum.de/koniq-10k/) |
-| FLIVE | in-the-wild 기술적 품질 평가 | `data/raw/flive/` | [FLIVE Database](https://live.ece.utexas.edu/research/ChallengeDB/index.html) |
-| PAQ2PIQ | 로컬 패치 기반 품질 평가 | `data/raw/paq2piq/` | [PAQ2PIQ](https://github.com/baidut/paq2piq) |
+### Technical Quality Models (IQA)
+*   **Teacher Models:** TOPIQ, MUSIQ, KonIQ.
+*   **Distillation Target:** MobileNetV3, explicitly trained to regress technical quality scores.
+*   **Key Scripts:** Located in `scripts/technical_iqa/`.
 
----
+### Aesthetic Quality Models
+*   **Teacher Models:** NIMA, A-LAMP, RGNet, and custom multimodal setups (Gemma 4 E4B, VILA 1.5).
+*   **Ensemble Approach:** Combining global context, local patches, and composition graphs.
+*   **Key Scripts:** Located in `src/train/` and `src/eval/`.
 
-이 문서는 아래 3가지 실행 모드를 분리해서 제공합니다.
+### Color Aesthetic Models
+*   **Base Model:** ICAA (Image Color Aesthetics Assessment).
+*   **Engineering Effort:** Reimplemented PyTorch ICAA in native TensorFlow (`experiments/icaa_tf_native/`) to achieve a stable, mobile-ready TFLite export, bypassing ONNX opset limitations.
 
-- 모드 1: 로컬 점수 계산만
-- 모드 2: 로컬 점수 계산 + Gemini 설명 생성
-- 모드 3: Firebase worker 전체 실행
+## 3. Mobile / TFLite Export
+Deploying to mobile required significant effort in model quantization and conversion:
+*   Exports are tracked in `exports/tflite/`.
+*   Parity tests (`outputs/c6_android_wsl_parity*`) guarantee that the math remains identical after floating-point/int8 conversion and Android NNAPI/CPU delegation.
 
-## 1) 권장 환경
+## 4. Benchmark Protocol & Key Results
+*   Extensive benchmarking was performed against established datasets (FLIVE, AVA).
+*   Parity scripts (`run_wsl_c6_parity_with_orientation.py`) verified inference stability.
+*   For detailed benchmark artifacts and logs, refer to the mapped outputs in `docs/capstone_artifact_map_20260605.md`.
 
-- OS: Linux/macOS (Windows는 WSL 권장)
-- Python: **3.12.x** (권장 범위: `>=3.10, <3.13`)
-- Node.js: 20.x (`functions/` 사용 시)
-
-## 2) 설치 (clone 이후 공통)
-
-```bash
-git clone <YOUR_REPO_URL> photo_score_project
-cd photo_score_project
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
+## 5. Reproducibility & Repository Structure
+```
+photo_score_project/
+├── configs/            # Experiment YAML/JSON configs
+├── docs/               # Architecture docs, audits, and capstone reports
+├── experiments/        # Isolated sub-projects (e.g., TF Native ICAA)
+├── exports/            # Allowed TFLite deliverables for mobile
+├── scripts/            # Benchmarking and parity executable scripts
+├── src/                # Core Python model architectures and training loops
+└── tools/              # Utilities for patch extraction and threshold tuning
 ```
 
-의존성은 목적별로 분리되어 있습니다.
+## 6. What is NOT Included in GitHub
+Due to GitHub file size limits and dataset licensing constraints, the following are ignored via `.gitignore`:
+*   **Datasets:** Raw and processed images (`data/`).
+*   **Large Checkpoints:** Original weights for Gemma, VILA, NIMA, etc. (`checkpoints/`, `models/`).
+*   **Virtual Environments:** `.venv*`
+*   **Heavy Outputs:** Huge `.safetensors`, `.h5`, or massive CSV benchmark files (>50MB).
 
-- `requirements.txt`: 로컬 점수 계산/파이프라인 공통
-- `requirements-gemini.txt`: Gemini 설명 생성 포함
-- `requirements-firebase-worker.txt`: Firebase worker 포함
-- `requirements-vila.txt`: 선택 기능(VILA 점수) 포함
-
-예시:
-
+## 7. How to Run Selected Scripts
+Ensure your Python environment (Python 3.10+) is set up according to `requirements.txt`.
 ```bash
-pip install -r requirements.txt
+# Example: Run a technical IQA benchmark
+python -m scripts.technical_iqa.benchmark_technical_iqa_signals_20260604
+
+# Example: Run parity check
+python run_wsl_c6_parity_with_orientation.py
 ```
-
-## 3) 환경변수 템플릿
-
-```bash
-cp .env.example .env
-# .env 내용을 본인 환경에 맞게 수정
-```
-
-코드에서 실제 참조하는 주요 키:
-
-- `ACUT_AESTHETIC_CONFIG`
-- `ACUT_DISABLE_AESTHETIC_SCORING`
-- `GEMINI_API_KEY`
-- `GEMINI_MODEL_NAME`
-- `ENABLE_GEMINI`
-- `FIREBASE_STORAGE_BUCKET`
-- `FIREBASE_PROJECT_ID`
-- `GOOGLE_APPLICATION_CREDENTIALS`
-- `ACUT_VILA_*`
-
-## 4) 모델 파일 배치
-
-기본 설정(`configs/stage5_reference.json`) 기준 필수 경로:
-
-- `checkpoints/composition_aadb_gpu/final_model.keras`
-- `checkpoints/technical_koniq_gpu/final_model.keras`
-- `checkpoints/technical_flive_image_gpu/final_model.keras`
-- `checkpoints/technical_flive_patch_gpu/final_model.keras`
-- `checkpoints/nima_ava_gpu/final_model.keras`
-- `checkpoints/alamp_aadb_gpu/final_model.keras`
-- `checkpoints/musiq_aadb_gpu/final_model.keras`
-- `checkpoints/rgnet_aadb_gpu/final_model.keras`
-
-선택(페어와이즈 rerank용):
-
-- `checkpoints/pairwise_aadb_gpu/final_model.keras`
-- `data/processed/aadb/val.csv`
-
-모델 전달/검증 정책:
-
-- 대형 모델 파일은 Git 외부 전달물(zip/tar/아티팩트 스토리지)로 받아도 됩니다.
-- 전달 후 **저장소 루트 기준 상대경로를 그대로 유지**해야 합니다.
-- 별도 metadata JSON이나 verify JSON은 필수 아님. 이 저장소는 `scripts/preflight_check.py`로 경로/파일 존재를 검증합니다.
-
-## 5) preflight 검사
-
-모드별 실행 전 아래 검사 권장:
-
-```bash
-python scripts/preflight_check.py --mode minimal
-python scripts/preflight_check.py --mode gemini
-python scripts/preflight_check.py --mode worker
-```
-
-## 6) 실행 모드
-
-### 모드 1: 최소 실행 (로컬 점수 계산만)
-
-Firebase/Gemini 없이 점수 산출(`scores.jsonl`, `scores.csv`)만 수행합니다.
-
-```bash
-PYTHONPATH=. python scripts/run_local_scoring.py \
-  --input_dir test_samples \
-  --output_dir outputs/mode1_scores
-```
-
-### 모드 2: 점수 + Gemini 설명 생성 (로컬)
-
-로컬 파이프라인 실행 후 top-k에 대해 Gemini 멀티모달 설명을 생성합니다.
-
-```bash
-pip install -r requirements-gemini.txt
-ENABLE_GEMINI=true GEMINI_API_KEY=<YOUR_KEY> PYTHONPATH=. python -m src.infer.run_acut_pipeline \
-  --input_dir test_samples \
-  --output_dir outputs/mode2_pipeline \
-  --top_k 5 \
-  --enable_gemini
-```
-
-### 모드 3: 전체 worker 실행
-
-#### 3-a) Firebase 없이 로컬 worker smoke
-
-```bash
-pip install -r requirements-firebase-worker.txt
-PYTHONPATH=. python -m src.firebase.acut_job_worker \
-  --local_input_dir test_samples \
-  --local_output_dir outputs/mode3_worker_local \
-  --local_top_k 5
-```
-
-#### 3-b) Firebase 연동 worker
-
-```bash
-pip install -r requirements-firebase-worker.txt
-PYTHONPATH=. python -m src.firebase.acut_job_worker \
-  --job_collection jobs \
-  --bucket "$FIREBASE_STORAGE_BUCKET"
-```
-
-## 7) 자주 발생하는 문제
-
-- `No module named ...`: requirements 파일을 모드에 맞게 다시 설치
-- `Model file missing ...`: 모델 파일 경로/이름 확인 (`configs/stage5_reference.json` 기준)
-- `GEMINI_API_KEY ... not set`: `.env` 또는 셸 환경변수 설정
-- `GOOGLE_APPLICATION_CREDENTIALS ... missing`: 서비스 계정 JSON 경로 확인
-- HEIC 이미지 디코딩 실패: `pillow-heif` 설치 여부 확인
-
-자세한 내용은 아래 문서 참고:
-
-- [SETUP_LOCAL.md](SETUP_LOCAL.md)
-- [SETUP_WORKER.md](SETUP_WORKER.md)
-- [TROUBLESHOOTING.md](TROUBLESHOOTING.md)

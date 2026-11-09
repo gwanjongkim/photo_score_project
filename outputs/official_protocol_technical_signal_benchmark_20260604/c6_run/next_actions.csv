@@ -1,0 +1,4 @@
+priority,action
+1,Keep production technical_score unchanged.
+2,Prefer TOPIQ+FLIVE log-only candidate unless C6 parity/generalization and ratio/cap evidence improves.
+3,Do not ship C6 as replacement; C6 remains offline/log-only evidence only.

@@ -1,0 +1,8 @@
+{
+  "overall_srcc_gap": -0.0791,
+  "overall_mae_gap": 0.9853,
+  "absent_from_train_count": 1856,
+  "absent_srcc": 0.4628,
+  "student_severe_fp": 3,
+  "recommendation": "STUDENT_GAP_MAINLY_CAPACITY_AND_COVERAGE"
+}

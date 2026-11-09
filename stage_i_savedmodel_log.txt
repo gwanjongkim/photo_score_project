@@ -1,0 +1,2 @@
+Loading checkpoint from /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth
+Instantiating TFICAA17KDAT model

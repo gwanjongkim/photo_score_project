@@ -1,0 +1,29 @@
+{
+  "pipeline_name": "stage5_student_server",
+  "pipeline_version": "2026-04-15",
+  "aesthetic_backend": "stage5_student_full_aadb_tensorflow",
+  "description": "Server-side A-cut scoring preset that uses the stage5 aesthetic student as the single aesthetic signal and keeps the existing technical quality models.",
+  "bundle_args": {
+    "stage5_student_model": "checkpoints/student_full_aadb/final_model.keras",
+    "stage5_student_image_size": 224,
+    "koniq_model": "checkpoints/technical_koniq_gpu/final_model.keras",
+    "flive_image_model": "checkpoints/technical_flive_image_gpu/final_model.keras",
+    "flive_patch_model": "checkpoints/technical_flive_patch_gpu/final_model.keras",
+    "pairwise_model": "checkpoints/pairwise_aadb_gpu/final_model.keras",
+    "pairwise_reference_csv": "data/processed/aadb/val.csv",
+    "pairwise_target_col": "score",
+    "pairwise_max_references": 16,
+    "image_size": 224
+  },
+  "selector_args": {
+    "top_k": 5,
+    "enable_pairwise_rerank": false,
+    "rerank_pool_size": 10,
+    "enable_diversity": true,
+    "diversity_threshold": 0.82,
+    "hard_duplicate_threshold": 0.88,
+    "diversity_penalty_strength": 0.12,
+    "score_recursive": false,
+    "score_extensions": ".jpg,.jpeg,.png,.webp,.bmp"
+  }
+}

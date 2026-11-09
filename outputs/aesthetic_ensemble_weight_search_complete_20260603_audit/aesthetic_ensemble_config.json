@@ -1,0 +1,47 @@
+{
+  "ensemble_weights": {
+    "nima": 0.37,
+    "rgnet": 0.41,
+    "alamp": 0.22,
+    "icaa": 0.0
+  },
+  "calibration": {
+    "ava_trained": {
+      "nima": {
+        "slope": 0.8125980377154206,
+        "intercept": 1.4491882894914891
+      },
+      "rgnet": {
+        "slope": 0.08987360035790748,
+        "intercept": 4.8655913963718245
+      },
+      "alamp": {
+        "slope": 0.1637207923173385,
+        "intercept": 4.649287557538494
+      },
+      "icaa": {
+        "slope": 0.5362221032903055,
+        "intercept": 2.164190003126645
+      }
+    },
+    "aadb_trained": {
+      "nima": {
+        "slope": 2.1080065059487305,
+        "intercept": -3.664942875236074
+      },
+      "rgnet": {
+        "slope": 0.8413220059691048,
+        "intercept": 0.9262182759189835
+      },
+      "alamp": {
+        "slope": 0.24552178260890845,
+        "intercept": 4.496795810415769
+      },
+      "icaa": {
+        "slope": 1.5442550787883613,
+        "intercept": -3.759025539005643
+      }
+    }
+  },
+  "note": "Production candidate 2026-06-03. Calibrated on 60% training fold."
+}

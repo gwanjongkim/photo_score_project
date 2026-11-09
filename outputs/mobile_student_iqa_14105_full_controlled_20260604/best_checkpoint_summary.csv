@@ -1,0 +1,3 @@
+monitor,best_epoch,best_value,checkpoint
+val_loss,25,0.0014575691893696785,not_saved_separately
+val_mae,25,0.048011112958192825,outputs/mobile_student_iqa_14105_full_controlled_20260604/best_by_val_mae_model.keras

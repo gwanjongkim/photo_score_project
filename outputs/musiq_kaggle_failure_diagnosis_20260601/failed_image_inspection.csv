@@ -1,0 +1,2 @@
+path,exists,file_size,pil_open_success,mode,width,height,aspect_ratio,has_exif,exif_orientation,transpose_changed_dims,rgb_conversion_success,reencode_success,notes
+data/raw/paq2piq/voc_emotic_ava/AVA__325065.jpg,True,93847,True,L,552,600,0.92,False,,False,True,True,

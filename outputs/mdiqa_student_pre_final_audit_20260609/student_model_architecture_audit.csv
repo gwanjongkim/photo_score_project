@@ -1,0 +1,10 @@
+audit_item,status,verification_source,note
+"Backbone architecture","PASS","scripts/technical_iqa/train_mobile_student_iqa_50k_smoke.py","EfficientNetV2B0 selected. Mobile-friendly and TFLite exportable."
+"Input size (256)","PASS","scripts/technical_iqa/train_mobile_student_iqa_50k_controlled.py","Standard mobile size. EfficientNetV2B0 is flexible but 256 is the default."
+"Preprocessing layer","PASS","scripts/technical_iqa/train_mobile_student_iqa_50k_smoke.py","include_preprocessing=True passed to Keras backbone. Handles [0, 255] input correctly."
+"Input range [0, 255]","PASS","scripts/technical_iqa/train_mobile_student_iqa_50k_smoke.py","load_rgb_resized returns uint8-like float32. Matches Keras preprocessing."
+"Head design","PASS","scripts/technical_iqa/train_mobile_student_iqa_50k_smoke.py","GAP -> Dense 256 -> Dense 64 -> Sigmoid. Standard regression head."
+"Sigmoid activation","PASS","scripts/technical_iqa/train_mobile_student_iqa_50k_smoke.py","Sigmoid used for 0-1 range. Matches target_norm (0-1)."
+"Loss function","PASS","scripts/technical_iqa/train_mobile_student_iqa_50k_smoke.py","Huber loss (delta 0.05). Robust against outliers."
+"Fine-tuning policy","PASS","scripts/technical_iqa/train_mobile_student_iqa_50k_smoke.py","Head-only then unfreeze last 16 layers. BN frozen. Correct."
+"Mobile exportability","PASS","scripts/technical_iqa/train_mobile_student_iqa_14105_smoke.py","Previous 14k student exported successfully. 50k B0 is the same architecture."

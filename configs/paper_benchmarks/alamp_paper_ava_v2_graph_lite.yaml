@@ -1,0 +1,29 @@
+experiment:
+  label: A-LAMP-paper-AVA-v2_graph_lite
+  official_reproduction: false
+  output_dir: outputs/alamp_paper_ava_v2_graph_lite_20260511
+model:
+  patch_count: 5
+  patch_size: 224
+  global_size: 384
+  max_objects: 4
+  backbone: VGG16
+  backbone_weights: imagenet
+  feature_dim: 256
+  dropout: 0.3
+training:
+  batch_size: 4
+  epochs: 10
+  learning_rate: 1.0e-4
+  early_stopping_patience: 3
+dataset:
+  label_rule: paper_strict
+  train_csv: outputs/alamp_object_graph_subset_20260511/subsets/train_ultra_valid_1024.csv
+  val_csv: outputs/alamp_object_graph_subset_20260511/subsets/val_ultra_valid_1024.csv
+  test_csv: outputs/alamp_object_graph_subset_20260511/subsets/test_ultra_valid_1024.csv
+  train_graph_jsonl: outputs/alamp_object_graph_subset_20260511/graphs_conf010/train_graphs_1024.jsonl
+  val_graph_jsonl: outputs/alamp_object_graph_subset_20260511/graphs_conf010/val_graphs_1024.jsonl
+  test_graph_jsonl: outputs/alamp_object_graph_subset_20260511/graphs_conf010/test_graphs_1024.jsonl
+  image_dir: data/raw/ava/images
+  image_col: image_path
+  score_col: mean_score

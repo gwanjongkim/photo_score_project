@@ -1,0 +1,10 @@
+dataset,baseline,srcc,plcc,mae,rmse,max_ae,rank_by_srcc,rank_by_mae,interpretation
+flive,koniq_standalone,0.4863,0.6024,8.9485,11.3053,52.6934,3,3,Weakest on FLIVE.
+flive,flive_standalone,0.6603,0.7732,3.8017,5.0503,31.0912,1,1,Best on FLIVE.
+flive,production_technical_score,0.5744,0.7021,5.6107,7.1966,33.5583,2,2,Balanced; significant improvement over KonIQ.
+koniq10k,koniq_standalone,0.9369,0.9522,5.1802,6.8630,23.9526,1,2,Strongest rank correlation on KonIQ.
+koniq10k,flive_standalone,0.7206,0.7631,9.6415,11.9886,37.0794,3,3,Weakest on KonIQ.
+koniq10k,production_technical_score,0.9345,0.9476,3.2562,4.0592,15.1193,2,1,Best error metrics; preserves KonIQ rank correlation.
+spaq,koniq_standalone,0.8555,0.8451,9.5807,11.8064,42.4665,2,1,Strongest standalone on SPAQ.
+spaq,flive_standalone,0.8267,0.6815,20.8763,24.9845,53.7123,3,3,High error and bias on SPAQ.
+spaq,production_technical_score,0.8730,0.8478,11.8859,14.4976,43.8980,1,2,Best overall rank correlation on SPAQ.

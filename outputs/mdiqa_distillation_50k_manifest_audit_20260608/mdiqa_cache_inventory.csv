@@ -1,0 +1,4 @@
+cache,rows,total_unique_cached
+outputs/mdiqa_correct_protocol_full_benchmark_20260601/predictions.csv,23102.0,
+outputs/official_protocol_mdiqa_signal_benchmark_20260604/predictions.csv,4967.0,
+,,12168.0

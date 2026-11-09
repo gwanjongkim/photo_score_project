@@ -1,0 +1,4 @@
+task,owner,priority,status,notes
+"Scale training data to 50k+ rows","agent","high","pending","14k is insufficient for student generalization."
+"Experiment with larger student backbone (EfficientNetV2B1/B2)","agent","medium","pending","To address capacity gap."
+"Investigate contrastive/ranking loss distillation","agent","low","pending","To improve ranking correlation further."

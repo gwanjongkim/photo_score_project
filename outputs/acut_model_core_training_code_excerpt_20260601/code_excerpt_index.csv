@@ -1,0 +1,13 @@
+model,category,source_file,function_or_class,approx_line_range,excerpt_file,purpose,confidence,notes
+NIMA,Architecture,src/models/nima_distribution.py,build_nima_distribution_model,45-56,snippets/nima_core_code.md,Define 10-bin softmax output,High,Uses EfficientNetV2B0
+NIMA,Preprocessing,src/datasets/ava_distribution_dataset.py,_decode_image,44-59,snippets/nima_core_code.md,Fixed [0..1] range center-crop,High,Crucial fix for performance
+NIMA,Training,src/models/nima_distribution.py,emd_loss,59-66,snippets/nima_core_code.md,Earth Mover's Distance loss,High,Paper-faithful loss
+RGNet,Architecture,src/models/rgnet_paper_v1.py,build_rgnet_paper_v1_model,520-565,snippets/rgnet_core_code.md,GNN-based aesthetic regression,High,Includes ASPP and Graph Conv
+RGNet,Preprocessing,src/train/train_rgnet_paper_v1_aadb.py,_decode_image_pil_bilinear,119-124,snippets/rgnet_core_code.md,PIL resize consistency,High,Ensures parity with mobile
+Mobile A-LAMP v2,Architecture,src/models/mobile_alamp_v2.py,build_mobile_alamp_v2_model,92-127,snippets/mobile_alamp_v2_core_code.md,Dual-branch (Global/Patch) fusion,High,Uses MobileNetV3Small
+Mobile A-LAMP v2,Preprocessing,src/datasets/native_size_dataset.py,prepare_alamp_inputs,156-173,snippets/mobile_alamp_v2_core_code.md,Adaptive patch saliency,High,Complex input preparation
+ICAA,Rebuild,experiments/icaa_tf_native/scripts/stage_i_export_savedmodel.py,run,104-125,snippets/icaa_core_code.md,PyTorch to TF Native conversion,High,Confirmed rebuild from weights
+ICAA,Preprocessing,experiments/icaa_tf_native/scripts/stage_i_export_savedmodel.py,preprocess_real_image,60-66,snippets/icaa_core_code.md,ImageNet normalization,High,Specific to official model contract
+KonIQ/FLIVE,Architecture,src/models/technical_regressor.py,build_technical_regressor,3-18,snippets/koniq_core_code.md,MobileNetV2 technical quality baseline,High,Shared architecture
+KonIQ/FLIVE,Training,src/train/train_regression.py,main,56-85,snippets/koniq_core_code.md,MSE-based regression loop,High,Standard regressor training
+Export,Common,src/export/export_tflite.py,convert_keras_model,45-53,snippets/common_export_code.md,FP16 TFLite conversion,High,Used by most models

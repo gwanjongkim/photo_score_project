@@ -1,0 +1,51 @@
+{
+  "alamp_practical": {
+    "five_patch_default": true,
+    "global_branch": true,
+    "heuristic_saliency_selector": true,
+    "learned_patch_attention": true,
+    "linear_output_head": true,
+    "object_attribute_graph": false
+  },
+  "icaa_tf_native": {
+    "color_head": true,
+    "delegate_transformer_port": true,
+    "histogram_head_36": true,
+    "mos_head": true,
+    "output_order_mos_color": true
+  },
+  "musiq_practical": {
+    "depth_4_default": true,
+    "embed_dim_128_default": true,
+    "masked_mean": true,
+    "multi_scale_tokens": true,
+    "scalar_linear_head": true
+  },
+  "nima_fixed": {
+    "cdf_emd": true,
+    "efficientnet_adaptation": true,
+    "expected_score_1_to_10": true,
+    "ten_bin_softmax": true
+  },
+  "rgnet_paper_v1": {
+    "aspp_or_denseaspp": true,
+    "densenet121": true,
+    "graph": true,
+    "lse": true
+  },
+  "rgnet_practical": {
+    "attention_aggregation": true,
+    "cosine_similarity": true,
+    "denseaspp": false,
+    "learned_phi_theta_affinity": false,
+    "lse_aggregation": false,
+    "real_graph_convolution": true,
+    "real_region_graph": true
+  },
+  "technical_mobile": {
+    "inception_resnet_v2": false,
+    "mobilenetv2": true,
+    "paq_roi_pooling": false,
+    "scalar_linear_head": true
+  }
+}

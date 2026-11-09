@@ -1,0 +1,5 @@
+task,description,priority
+create_weighted_config,Create student_distill_50k_weighted.json with FLIVE=0.3 KonIQ=0.35 SPAQ=0.35 weights,High
+rerun_weighted_b0,Train B0 model using the new weighted config to verify SRCC improvement,High
+koniq_label_expansion,Explore expanding teacher KonIQ labels or adding Ranking Loss to handle compression,Medium
+b1_b2_expansion,Upgrade to B1/B2 only after B0 regression is resolved through weighting,Low

@@ -1,0 +1,18 @@
+{
+  "status": "failed",
+  "errors": [
+    "You called `set_weights(weights)` on layer 'cls_norm' with a weight list of length 2, but the layer was expecting 0 weights.",
+    "Traceback (most recent call last):",
+    "  File \"/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/scripts/stage_i_export_savedmodel.py\", line 152, in run",
+    "    model_tf.load_from_pytorch_state_dict(state_dict)",
+    "  File \"/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/tf_models/tf_dat_model.py\", line 51, in load_from_pytorch_state_dict",
+    "    self.cls_norm.set_weights([np.ones((1024,)), np.zeros((1024,))])",
+    "  File \"/home/omen_pc1/photo_score_project/.venv_gpu/lib/python3.12/site-packages/keras/src/layers/layer.py\", line 734, in set_weights",
+    "    raise ValueError(",
+    "ValueError: You called `set_weights(weights)` on layer 'cls_norm' with a weight list of length 2, but the layer was expecting 0 weights."
+  ],
+  "log_lines": [
+    "Loading checkpoint from /home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+    "Instantiating TFICAA17KDAT model"
+  ]
+}

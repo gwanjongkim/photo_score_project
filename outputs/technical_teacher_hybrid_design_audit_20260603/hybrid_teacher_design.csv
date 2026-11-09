@@ -1,0 +1,5 @@
+dataset,teacher_target,rationale,mobile_runtime_use
+KonIQ-10k,MDIQA koniq_seed1,Wins SRCC (+0.0124) on 20k test set,Offline Labels Only
+SPAQ,MDIQA koniq_xd,Significant Win SRCC (+0.0406) on 1k test set,Offline Labels Only
+FLIVE,Existing Production Score,MDIQA failed to beat production (-0.0048),Production Logic
+A-cut Mobile,Existing Production Score / GT,Ensure stability on non-dataset images,Production Logic

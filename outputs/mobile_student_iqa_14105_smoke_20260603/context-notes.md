@@ -1,0 +1,22 @@
+# Mobile Student IQA 14105 smoke context notes
+
+- Track A remains main path.
+- Input manifest: `outputs/student_distillation_manifest_14105_20260603/student_distillation_manifest.csv`.
+- Manifest is validated known-dataset teacher-cache subset, not MDIQA official full-dataset relabeling.
+- Label policy: KonIQ MDIQA seed1 plus policy_f_shift_cap3, SPAQ MDIQA xd plus policy_f_shift_cap3, FLIVE production technical score.
+- Unknown/fallback excluded; c6_parity holdout only; Test_weight/product-gold aesthetic/product validation only.
+- Existing v3/v4a/v4b trainers assume older `student_split` plus `guarded_target_0_100` schema and full-run defaults.
+- New smoke script is allowed because existing trainers do not safely accept current manifest shape without adaptation.
+- GPU preflight under `.venv_tf`: TensorFlow 2.21.0, GPUs `[]`, cuInit error 100.
+- Because GPU is not visible, CPU smoke must stay tiny: max_train <= 128.
+- Smoke run command used `.venv_tf` with NVIDIA lib path exports and caps: max_train 128, max_val 64, max_test 64, batch_size 16, head_epochs 1, finetune_epochs 1.
+- Script output: `outputs/mobile_student_iqa_14105_smoke_20260603/report.md`.
+- Sample counts used: train 128, val 64, test 64.
+- Image load failures: 0.
+- Final train loss: 0.005784; final val loss: 0.005941.
+- Overall MAE 0..100: val 14.291581, test 14.588823.
+- Overall SRCC: val -0.031410, test -0.038095.
+- Prediction range/std: val 50.807047..55.746537 std 0.931907; test 50.844967..57.078880 std 1.132261.
+- NaN/inf count: 0. FP/severe FP/FN: 0/0/0.
+- ImageNet weights were requested but not loaded due DNS failure; model fell back to random backbone weights for CPU smoke.
+- Final decision: STUDENT_14105_SMOKE_NEEDS_TF_GPU_FIX.

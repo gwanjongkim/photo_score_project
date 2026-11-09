@@ -1,0 +1,10 @@
+metric,value,status
+c6_avg_srcc,0.760,PASS
+c6_hard_fp_v2_max,64.79,PASS
+c6_android_parity_mae,1.3470,PASS
+c6_android_parity_max_ae,5.2387,FAIL
+c6_android_parity_srcc,0.9690,PASS
+log_only_readiness,GO,APPROVED
+production_replacement,NO-GO,BLOCKED
+ui_display,NO-GO,BLOCKED
+existing_score_retirement,NO-GO,BLOCKED

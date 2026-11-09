@@ -1,0 +1,23 @@
+# Aesthetic Weight Lab Checklist
+
+- [x] Create plan, checklist, and context notes before coding.
+- [x] Copy only allowed TFLite model files and sidecar metadata/verify JSON files.
+- [x] Add Git LFS rule for `models/**/*.tflite`.
+- [x] Update `.gitignore` so `outputs/` stays ignored and private `test_images/` files stay ignored.
+- [x] Add baseline and fine-tuned A-LAMP YAML configs.
+- [x] Implement `model_registry.py`.
+- [x] Implement `tflite_model_runner.py`.
+- [x] Implement `html_report.py`.
+- [x] Implement `run_aesthetic_weight_lab.py`.
+- [x] Add `tools/aesthetic_weight_lab/README.md`.
+- [x] Add `test_images/README.md` and `.gitkeep`.
+- [x] Add `models/aesthetic/MODEL_CARD.md`.
+- [x] Generate `models/aesthetic/SHA256SUMS.txt`.
+- [x] Run `python -m py_compile tools/aesthetic_weight_lab/*.py`.
+- [x] Verify model files exist under `models/aesthetic/`.
+- [x] Run baseline config if sample images are available.
+- [x] Run fine-tuned A-LAMP config if sample images are available.
+- [x] Verify `report.html`, `raw_scores.csv`, and `raw_scores.json` exist after smoke run.
+- [x] Verify HTML contains interactive weight controls.
+- [x] Verify no personal images were copied into tracked repo paths.
+- [x] Write final handoff report and command log under `outputs/aesthetic_weight_lab_tflite_tool_20260508/`.

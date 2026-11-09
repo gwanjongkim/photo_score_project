@@ -1,0 +1,7 @@
+feature,official_protocol,wsl_sanity_protocol,status,notes
+Evaluation Unit,Full Image,Mix of Images (26%) and Patches (74%),MISMATCH,PaQ-2-PiQ patches have different score distribution in model
+Dataset Split,Official Test Set (approx 8000 images),Random Sample (includes Train/Val/Test),MISMATCH,Only 1 image in WSL sample was from official test split
+Image Preprocessing,Resize to [384 384] (inferred),Resize to [384 384] BICUBIC,MATCH,Standard TOPIQ/MDIQA preprocessing
+Label Scale,1..100 normalized to 0..1,0..100 scaled to 0..1 (pred_raw),MATCH,Rank correlation invariant to linear scaling
+Semantic Feature,CLIP RN50 (for XD),CLIP RN50 (for XD),MATCH,Implementation verified via SPAQ success
+Local Score Branch,Enabled (for XD),Enabled (for XD),MATCH,Implementation verified via SPAQ success

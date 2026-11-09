@@ -1,0 +1,4 @@
+task,owner,priority,status,notes
+"Approve Phase 6 known-dataset-only labels (14105 rows)","manager","high","pending","Audit complete; coverage is sufficient."
+"Prepare student training manifest (50k potential if augmented)","agent","medium","pending","Use current 14k as primary targets."
+"Resolve KonIQ missing 1074 rows if 100% coverage mandatory","agent","low","open","Requires MDIQA inference rerun."

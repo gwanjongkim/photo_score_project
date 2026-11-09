@@ -1,0 +1,5 @@
+priority,action,rationale
+1,Gather paired production predictions for KonIQ/SPAQ,Enables statistical significance testing (Bootstrap/Fisher-z)
+2,Run MDIQA on real A-cut mobile holdout,Verify generalization beyond laboratory datasets
+3,Draft hybrid label generation script,Implement target logic: MDIQA (KonIQ/SPAQ) + Prod (FLIVE)
+4,Analyze dataset-wise score ranges,Ensure MDIQA and Production scores are on compatible scales

@@ -1,0 +1,6 @@
+1. https://github.com/baidut/PaQ-2-PiQ (Official GitHub)
+2. https://github.com/chaofengc/IQA-PyTorch (IQA-PyTorch / PyIQA GitHub)
+3. https://baidut.github.io/PaQ-2-PiQ/ (Official Website)
+4. https://live.ece.utexas.edu/research.php (UT LIVE Download Page)
+5. https://huggingface.co/datasets/chaofengc/IQA-Toolbox-Datasets-metainfo (Hugging Face Metadata)
+6. https://github.com/chaofengc/IQA-PyTorch/blob/main/docs/Dataset_Preparation.md (Data Prep Docs)

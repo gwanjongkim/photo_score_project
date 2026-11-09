@@ -10,3 +10,8 @@
 - [x] `READ.md`를 독립 실행 문서로 작성한다.
 - [x] 최소 검증 명령을 실행한다.
 - [x] 기존 `forWeights`가 수정되지 않았는지 확인한다.
+- [x] NIMA 고정 전처리 모델(`nima_mobile_fixed_preproc_fp16.tflite`) 및 메타데이터를 배포한다.
+- [x] RGNet PIL 리사이즈 모델(`rgnet_pil_resize_aadb_fp16.tflite`) 및 메타데이터를 배포한다.
+- [x] `configs/aesthetic_weight_lab.yaml`의 모델 경로 및 가중치(RGNet 0.4)를 업데이트한다.
+- [x] `HANDOFF.md` 및 `MODEL_CARD.md` 문서를 업데이트한다.
+- [x] 검증 명령을 통해 새 모델 로드 여부를 확인한다.

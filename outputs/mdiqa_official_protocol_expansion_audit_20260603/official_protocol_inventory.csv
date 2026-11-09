@@ -1,0 +1,4 @@
+dataset,total_rows,split_source,image_path,meta_info_path
+KonIQ-10k,10073,Official (Train/Val/Test),data/raw/koniq10k/images/,MDIQA/datasets/meta_info/meta_info_KonIQ10kDataset.csv
+SPAQ,11125,Random 80/20 (Seed 123),data/raw/spaq/,MDIQA/datasets/SPAQ/Annotations/meta_info_SPAQ512_Dataset_train.csv
+FLIVE,159240,Official (Images + Patches),data/raw/paq2piq/,outputs/paq2piq_flive_toolbox_split_verify_20260530/meta_info_FLIVEDataset.csv

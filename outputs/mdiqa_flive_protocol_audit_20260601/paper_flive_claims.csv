@@ -1,0 +1,5 @@
+dataset,protocol,srcc_paper,plcc_paper,notes
+FLIVE,Cross-dataset (KonIQ->FLIVE),0.612,0.734,arXiv:2508.16887 Table 1
+FLIVE,In-dataset (estimated),0.647,0.627,User reported paper results; likely from different version or model configuration
+KonIQ-10k,In-dataset,0.948,0.956,arXiv:2508.16887 Table 1
+SPAQ,Cross-dataset (KonIQ->SPAQ),0.924,0.925,arXiv:2508.16887 Table 1

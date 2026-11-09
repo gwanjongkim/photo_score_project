@@ -1,0 +1,563 @@
+usage: onnx2tf [-h]
+               (-i INPUT_ONNX_FILE_PATH | -it INPUT_TFLITE_FILE_PATH | -V)
+               [-o OUTPUT_FOLDER_PATH] [-osd] [-oh5] [-okv3] [-otfv1pb] [-ow]
+               [-coion] [-odrqt] [-oiqt]
+               [-tb {tf_converter,flatbuffer_direct}] [-ewo]
+               [-ens EVAL_NUM_SAMPLES] [-ert EVAL_RTOL] [-eat EVAL_ATOL]
+               [-efot]
+               [-ett {float32,float16,dynamic_range_quant,integer_quant,full_integer_quant,integer_quant_with_int16_act,full_integer_quant_with_int16_act}]
+               [-ecm {auto,dequant,raw}] [-esm {unsplit_tflite,onnx}] [-esfot]
+               [-roc] [-fdosm] [-fdopt] [-fdots] [-fdodo] [-fdoep]
+               [-npgts NATIVE_PYTORCH_GENERATION_TIMEOUT_SEC] [-fdaco]
+               [-fdcoa FLATBUFFER_DIRECT_CUSTOM_OP_ALLOWLIST]
+               [-tsmb TFLITE_SPLIT_MAX_BYTES]
+               [-tstb TFLITE_SPLIT_TARGET_BYTES]
+               [-qt {per-channel,per-tensor}] [-qnm QUANT_NORM_MEAN]
+               [-qns QUANT_NORM_STD]
+               [-cind CUSTOM_INPUT_OP_NAME_NP_DATA_PATH [CUSTOM_INPUT_OP_NAME_NP_DATA_PATH ...]]
+               [-iqd {int8,uint8,float32}] [-oqd {int8,uint8,float32}] [-nuo]
+               [-nuonag] [-b BATCH_SIZE]
+               [-ois OVERWRITE_INPUT_SHAPE [OVERWRITE_INPUT_SHAPE ...]]
+               [-sh SHAPE_HINTS [SHAPE_HINTS ...]]
+               [-vh VALUE_HINTS [VALUE_HINTS ...]] [-nlt] [-onwdt] [-onwa]
+               [-snms {v4,v5}]
+               [-k KEEP_NCW_OR_NCHW_OR_NCDHW_INPUT_NAMES [KEEP_NCW_OR_NCHW_OR_NCDHW_INPUT_NAMES ...]]
+               [-kt KEEP_NWC_OR_NHWC_OR_NDHWC_INPUT_NAMES [KEEP_NWC_OR_NHWC_OR_NDHWC_INPUT_NAMES ...]]
+               [-kat KEEP_SHAPE_ABSOLUTELY_INPUT_NAMES [KEEP_SHAPE_ABSOLUTELY_INPUT_NAMES ...]]
+               [-inimc INPUT_NAMES_TO_INTERRUPT_MODEL_CONVERSION [INPUT_NAMES_TO_INTERRUPT_MODEL_CONVERSION ...]]
+               [-onimc OUTPUT_NAMES_TO_INTERRUPT_MODEL_CONVERSION [OUTPUT_NAMES_TO_INTERRUPT_MODEL_CONVERSION ...]]
+               [-easm] [-asms AUTO_SPLIT_MAX_SIZE] [-dgc] [-eatfp16] [-ebu]
+               [-eru] [-dsft]
+               [-nodaftc NUMBER_OF_DIMENSIONS_AFTER_FLEXTRANSPOSE_COMPRESSION]
+               [-dsfs] [-dsm] [-doem] [-oemd ONNXRUNTIME_OUTPUT_MEMMAP_DIR]
+               [-nodafsc NUMBER_OF_DIMENSIONS_AFTER_FLEXSTRIDEDSLICE_COMPRESSION]
+               [-ofgd] [-rari64 | -rarf32 | -rafi64 | -raff32]
+               [-fasr FUSED_ARGMAX_SCALE_RATIO]
+               [-rtpo [{abs,acos,asin,atan,erf,gathernd,gelu,hardswish,inverse,leakyrelu,matmulinteger,neg,pow,power,prelu} ...]]
+               [-me MVN_EPSILON] [-prf PARAM_REPLACEMENT_FILE] [-cgdc]
+               [-coto | -cotof] [-coton {norm,denorm}]
+               [-cotor CHECK_ONNX_TF_OUTPUTS_ELEMENTWISE_CLOSE_RTOL]
+               [-cotoa CHECK_ONNX_TF_OUTPUTS_ELEMENTWISE_CLOSE_ATOL]
+               [-tdnp TEST_DATA_NHWC_PATH] [-agj] [-agje] [-dms] [-n]
+               [-v {debug,info,warn,error}]
+
+options:
+  -h, --help            show this help message and exit
+  -i INPUT_ONNX_FILE_PATH, --input_onnx_file_path INPUT_ONNX_FILE_PATH
+                        Input onnx file path.
+  -it INPUT_TFLITE_FILE_PATH, --input_tflite_file_path INPUT_TFLITE_FILE_PATH
+                        Input tflite file path for direct import mode.
+  -V, --version         Show version and exit.
+  -o OUTPUT_FOLDER_PATH, --output_folder_path OUTPUT_FOLDER_PATH
+                        Output folder path. Default: "saved_model"
+  -osd, --output_signaturedefs
+                        Signature is added to the output for serving or for
+                        conversion to other model formats. However, this can
+                        significantly reduce the speed of model conversion and
+                        significant increase the size of the model.
+  -oh5, --output_h5     Output model in Keras (hdf5) format.
+  -okv3, --output_keras_v3
+                        Output model in Keras (keras_v3) format.
+  -otfv1pb, --output_tfv1_pb
+                        Output model in TF v1 (.pb) format.
+  -ow, --output_weights
+                        Output weights in hdf5 format.
+  -coion, --copy_onnx_input_output_names_to_tflite
+                        Copy the input/output OP name of ONNX to the
+                        input/output OP name of tflite. Due to Tensorflow
+                        internal operating specifications, the input/output
+                        order of ONNX does not necessarily match the
+                        input/output order of tflite. Be sure to check that
+                        the input/output OP names in the generated tflite file
+                        have been converted as expected. Also, this option
+                        generates a huge JSON file as a temporary file for
+                        processing. Therefore, it is strongly discouraged to
+                        use it on large models of hundreds of megabytes or
+                        more.
+  -odrqt, --output_dynamic_range_quantized_tflite
+                        Output of dynamic range quantized tflite.
+  -oiqt, --output_integer_quantized_tflite
+                        Output of integer quantized tflite.
+  -tb {tf_converter,flatbuffer_direct}, --tflite_backend {tf_converter,flatbuffer_direct}
+                        TFLite generation backend.
+                        "flatbuffer_direct"(default): Use direct FlatBuffer
+                        builder path (limited OP/quantization support).
+                        "tf_converter": Use TensorFlow Lite Converter as an
+                        explicit compatibility path.
+  -ewo, --eval_with_onnx
+                        Evaluate generated TFLite against ONNX outputs and
+                        generate *_accuracy_report.json. Currently available
+                        only with --tflite_backend flatbuffer_direct.
+  -ens EVAL_NUM_SAMPLES, --eval_num_samples EVAL_NUM_SAMPLES
+                        Number of samples used for ONNX/TFLite evaluation.
+                        Default: 10
+  -ert EVAL_RTOL, --eval_rtol EVAL_RTOL
+                        Relative tolerance for ONNX/TFLite allclose judgement.
+                        Default: 1e-4
+  -eat EVAL_ATOL, --eval_atol EVAL_ATOL
+                        Absolute tolerance for ONNX/TFLite allclose judgement.
+                        Default: 1e-4
+  -efot, --eval_fail_on_threshold
+                        Return failure when evaluation thresholds are not
+                        satisfied.
+  -ett {float32,float16,dynamic_range_quant,integer_quant,full_integer_quant,integer_quant_with_int16_act,full_integer_quant_with_int16_act}, --eval_target_tflite {float32,float16,dynamic_range_quant,integer_quant,full_integer_quant,integer_quant_with_int16_act,full_integer_quant_with_int16_act}
+                        Target tflite variant to evaluate. Default: float32
+  -ecm {auto,dequant,raw}, --eval_compare_mode {auto,dequant,raw}
+                        Comparison mode for ONNX vs TFLite outputs. "auto":
+                        dequant for quantized outputs, raw for float outputs.
+                        "dequant": compare after dequantization. "raw":
+                        compare raw output tensors. Default: auto
+  -esm {unsplit_tflite,onnx}, --eval_split_models {unsplit_tflite,onnx}
+                        Evaluate split partitions sequentially using split
+                        manifest output. Specify "unsplit_tflite" to compare
+                        against the unsplit/base TFLite model, or "onnx" to
+                        compare against ONNX Runtime output. Writes
+                        *_split_accuracy_report.json. *_accuracy_report.json
+                        remains the unsplit base float32 TFLite vs ONNX
+                        report.
+  -esfot, --eval_split_fail_on_threshold
+                        Return failure when split-model evaluation thresholds
+                        are not satisfied.
+  -roc, --report_op_coverage
+                        Generate *_op_coverage_report.json with machine-
+                        readable unsupported OP reasons. Currently available
+                        only with --tflite_backend flatbuffer_direct.
+  -fdosm, --flatbuffer_direct_output_saved_model
+                        Output SavedModel directly from flatbuffer_direct
+                        ModelIR (float32). With split output, partition
+                        SavedModels are emitted instead of a single root
+                        SavedModel.
+  -fdopt, --flatbuffer_direct_output_pytorch
+                        Output a reloadable PyTorch package directly from
+                        flatbuffer_direct ModelIR. Public spatial
+                        inputs/outputs use NCW/NCHW/NCDHW. Also available with
+                        -it/--input_tflite_file_path.
+  -fdots, --flatbuffer_direct_output_torchscript
+                        Trace and save a TorchScript artifact from the
+                        generated native PyTorch package. This implicitly
+                        enables -fdopt. If a public input is dynamic, use
+                        --shape_hints as the recommended trace hint.
+                        --test_data_nhwc_path is also accepted for 4D RGB
+                        inputs, and -cind remains available.
+  -fdodo, --flatbuffer_direct_output_dynamo_onnx
+                        Export a Dynamo ONNX artifact from the generated
+                        native PyTorch package. This implicitly enables
+                        -fdopt. If a public input is dynamic, use
+                        --shape_hints as the recommended example-input hint.
+                        --test_data_nhwc_path is also accepted for 4D RGB
+                        inputs, and -cind remains available.
+  -fdoep, --flatbuffer_direct_output_exported_program
+                        Export a PyTorch ExportedProgram (.pt2) artifact from
+                        the generated native PyTorch package. This implicitly
+                        enables -fdopt. If a public input is dynamic, use
+                        --shape_hints as the recommended example-input hint.
+                        --test_data_nhwc_path is also accepted for 4D RGB
+                        inputs, and -cind remains available.
+  -npgts NATIVE_PYTORCH_GENERATION_TIMEOUT_SEC, --native_pytorch_generation_timeout_sec NATIVE_PYTORCH_GENERATION_TIMEOUT_SEC
+                        Timeout in seconds for generated native PyTorch
+                        package creation. When exceeded, onnx2tf treats the
+                        generation as a recursion explosion, skips PyTorch
+                        artifact generation for the current model, and
+                        continues. 0 disables this timeout.
+  -fdaco, --flatbuffer_direct_allow_custom_ops
+                        Allow lowering selected unsupported ONNX ops as TFLite
+                        CUSTOM ops in flatbuffer_direct backend.
+  -fdcoa FLATBUFFER_DIRECT_CUSTOM_OP_ALLOWLIST, --flatbuffer_direct_custom_op_allowlist FLATBUFFER_DIRECT_CUSTOM_OP_ALLOWLIST
+                        Comma-separated ONNX op names allowed for CUSTOM
+                        lowering. Requires
+                        --flatbuffer_direct_allow_custom_ops.
+  -tsmb TFLITE_SPLIT_MAX_BYTES, --tflite_split_max_bytes TFLITE_SPLIT_MAX_BYTES
+                        Hard upper bound for split planning (bytes). Default:
+                        1073741824 (1GiB)
+  -tstb TFLITE_SPLIT_TARGET_BYTES, --tflite_split_target_bytes TFLITE_SPLIT_TARGET_BYTES
+                        Target size for split planning convergence (bytes).
+                        Default: 1060000000
+  -qt {per-channel,per-tensor}, --quant_type {per-channel,per-tensor}
+                        Selects whether "per-channel" or "per-tensor"
+                        quantization is used. Default: "per-channel"
+  -qnm QUANT_NORM_MEAN, --quant_norm_mean QUANT_NORM_MEAN
+                        Normalized average value during quantization. Default:
+                        "[[[[0.485, 0.456, 0.406]]]]"
+  -qns QUANT_NORM_STD, --quant_norm_std QUANT_NORM_STD
+                        Normalized standard deviation during quantization.
+                        Default: "[[[[0.229, 0.224, 0.225]]]]"
+  -cind CUSTOM_INPUT_OP_NAME_NP_DATA_PATH [CUSTOM_INPUT_OP_NAME_NP_DATA_PATH ...], --custom_input_op_name_np_data_path CUSTOM_INPUT_OP_NAME_NP_DATA_PATH [CUSTOM_INPUT_OP_NAME_NP_DATA_PATH ...]
+                        Input name of OP and path of data file (Numpy) for
+                        custom input for -cotof, -fdots, -fdodo, -fdoep, or
+                        -oiqt, and mean (optional) and std (optional). <Usage
+                        in -cotof> When using -cotof, custom input defined by
+                        the user, instead of dummy data, is used. In this
+                        case, mean and std are omitted from the input. -cind
+                        {input_op_name} {numpy_file_path} ex) -cind
+                        onnx::Equal_0 test_cind/x_1.npy -cind onnx::Add_1
+                        test_cind/x_2.npy -cotof The input_op_name must be the
+                        same as in ONNX, and it may not work if the input
+                        format is different between ONNX and TF. <Usage in
+                        -fdots / -fdodo / -fdoep> When using -fdots, -fdodo,
+                        or -fdoep, -cind can be used to provide a concrete
+                        example input for a dynamic public input. For shape-
+                        only hints, prefer --shape_hints. For 4D RGB inputs,
+                        --test_data_nhwc_path is also supported. In these
+                        modes, mean and std are omitted from the input. -cind
+                        {input_op_name} {numpy_file_path} -fdots <Usage in
+                        -oiqt> INPUT Name of OP and path of calibration data
+                        file (Numpy) for quantization and mean and std. This
+                        option is required when using -oiqt. The type of the
+                        input OP must be Float32. Data for calibration must be
+                        pre-normalized to a range of 0 to 1. -cind
+                        {input_op_name} {numpy_file_path} {mean} {std} Numpy
+                        file paths must be specified the same number of times
+                        as the number of input OPs. Normalize the value of the
+                        input OP based on the tensor specified in mean and
+                        std. (input_value - mean) / std Tensors in Numpy file
+                        format must be in dimension order after conversion to
+                        TF. Note that this is intended for deployment on low-
+                        resource devices, so the batch size is limited to 1
+                        only. e.g. The example below shows a case where there
+                        are three input OPs. Assume input0 is 128x128 RGB
+                        image data. In addition, input0 should be a value that
+                        has been divided by 255 in the preprocessing and
+                        normalized to a range between 0 and 1. input1 and
+                        input2 assume the input of something that is not an
+                        image. Because input1 and input2 assume something that
+                        is not an image, the divisor is not 255 when
+                        normalizing from 0 to 1. "n" is the number of
+                        calibration data. ONNX INPUT shapes: input0:
+                        [n,3,128,128] mean: [1,3,1,1] ->
+                        [[[[0.485]],[[0.456]],[[0.406]]]] std: [1,3,1,1] ->
+                        [[[[0.229]],[[0.224]],[[0.225]]]] input1: [n,64,64]
+                        mean: [1,64] -> [0.1, ..., 0.64] std: [1,64] -> [0.05,
+                        ..., 0.08] input2: [n,5] mean: [1] -> [0.3] std: [1]
+                        -> [0.07] TensorFlow INPUT shapes (Numpy file ndarray
+                        shapes): input0: [n,128,128,3] mean: [1,1,1,3] ->
+                        [[[[0.485, 0.456, 0.406]]]] std: [1,1,1,3] ->
+                        [[[[0.229, 0.224, 0.225]]]] input1: [n,64,64] mean:
+                        [1,64] -> [0.1, ..., 0.64] std: [1,64] -> [0.05, ...,
+                        0.08] input2: [n,5] mean: [1] -> [0.3] std: [1] ->
+                        [0.07] -cind "input0" "../input0.npy"
+                        "[[[[0.485,0.456,0.406]]]]"
+                        "[[[[0.229,0.224,0.225]]]]" -cind "input1"
+                        "./input1.npy" "[0.1,...,0.64]" "[0.05,...,0.08]"
+                        -cind "input2" "input2.npy" "[0.3]" "[0.07]" <Using
+                        -cotof and -oiqt at the same time> To use -cotof and
+                        -oiqt simultaneously, you need to enter the Input name
+                        of OP, path of data file, mean, and std all together.
+                        And the data file must be in Float32 format, and
+                        {input_op_name}, {numpy_file_path}, {mean}, and {std}
+                        must all be entered. Otherwise, an error will occur
+                        during the -oiqt stage.
+  -iqd {int8,uint8,float32}, --input_quant_dtype {int8,uint8,float32}
+                        Input dtypes when doing Full INT8 Quantization.
+                        "int8"(default) or "uint8" or "float32"
+  -oqd {int8,uint8,float32}, --output_quant_dtype {int8,uint8,float32}
+                        Output dtypes when doing Full INT8 Quantization.
+                        "int8"(default) or "uint8" or "float32"
+  -nuo, --not_use_onnxsim
+                        No optimization by onnx-simplifier is performed. If
+                        this option is used, the probability of a conversion
+                        error is very high.
+  -nuonag, --not_use_opname_auto_generate
+                        Automatic generation of each OP name in the old format
+                        ONNX file and assignment of OP name are not performed.
+  -b BATCH_SIZE, --batch_size BATCH_SIZE
+                        Fixes the dynamic batch size to the specified numeric
+                        batch size. A value of 1 or more must be specified.
+  -ois OVERWRITE_INPUT_SHAPE [OVERWRITE_INPUT_SHAPE ...], --overwrite_input_shape OVERWRITE_INPUT_SHAPE [OVERWRITE_INPUT_SHAPE ...]
+                        Overwrite the input shape. The format is
+                        "input_name_1:dim0,...,dimN"
+                        "input_name_2:dim0,...,dimN"
+                        "input_name_3:dim0,...,dimN". When there is only one
+                        input, for example, "data:1,3,224,224" When there are
+                        multiple inputs, for example, "data1:1,3,224,224"
+                        "data2:1,3,112,112" "data3:5" A value of 1 or more
+                        must be specified. Numerical values other than dynamic
+                        dimensions are ignored. Ignores --batch_size if
+                        specified at the same time as --batch_size.
+  -sh SHAPE_HINTS [SHAPE_HINTS ...], --shape_hints SHAPE_HINTS [SHAPE_HINTS ...]
+                        Shape hints for input tensors containing dynamic
+                        dimensions. Specify input shapes for test inference
+                        with -cotof or -coto. Unlike
+                        `--overwrite_input_shape`, this operation does not
+                        overwrite the ONNX input shape with a static shape.
+                        The format is "input_name_1:dim0,...,dimN"
+                        "input_name_2:dim0,...,dimN"
+                        "input_name_3:dim0,...,dimN". When there is only one
+                        input, for example, "data:1,3,224,224" When there are
+                        multiple inputs, for example, "data1:1,3,224,224"
+                        "data2:1,3,112,112" "data3:5" Only applied to dynamic
+                        dimensions in inputs. Also used as the recommended
+                        example-input hint source for -fdots, -fdodo, and
+                        -fdoep.
+  -vh VALUE_HINTS [VALUE_HINTS ...], --value_hints VALUE_HINTS [VALUE_HINTS ...]
+                        Value hints for dummy inference input tensors. The
+                        format is "input_name_1:value" "input_name_2:value"
+                        "*:default_value". "*" applies to all inputs not
+                        explicitly specified. Values are scalar only.
+  -nlt, --no_large_tensor
+                        Suppresses constant bloat caused by Tile OP when
+                        optimizing models in onnxsim. See:
+                        https://github.com/daquexian/onnx-
+                        simplifier/issues/178
+  -onwdt, --output_nms_with_dynamic_tensor
+                        The number of bounding boxes in the NMS output results
+                        is not fixed at the maximum number of
+                        max_output_boxes_per_class, but rather at the smallest
+                        possible number of dynamic tensors. If this option is
+                        disabled, NMS output is padded to the number set in
+                        the max_output_boxes_per_class attribute. e.g. disable
+                        --output_nms_with_dynamic_tensor: output_tensor_shape:
+                        [100, 7] enable --output_nms_with_dynamic_tensor:
+                        output_tensor_shape: [N, 7]
+  -onwa, --output_nms_with_argmax
+                        Apply argmax to class scores dimension in
+                        NonMaxSuppression and shrink scores tensor from [B, C,
+                        N] to [B, 1, N].
+  -snms {v4,v5}, --switch_nms_version {v4,v5}
+                        Switch the NMS version to V4 or V5 to convert. e.g.
+                        NonMaxSuppressionV4(default): --switch_nms_version v4
+                        NonMaxSuppressionV5: --switch_nms_version v5
+  -k KEEP_NCW_OR_NCHW_OR_NCDHW_INPUT_NAMES [KEEP_NCW_OR_NCHW_OR_NCDHW_INPUT_NAMES ...], --keep_ncw_or_nchw_or_ncdhw_input_names KEEP_NCW_OR_NCHW_OR_NCDHW_INPUT_NAMES [KEEP_NCW_OR_NCHW_OR_NCDHW_INPUT_NAMES ...]
+                        Holds the NCW or NCHW or NCDHW of the input shape for
+                        the specified INPUT OP names. If a nonexistent INPUT
+                        OP name is specified, it is ignored. Valid only for
+                        3D, 4D and 5D input tensors. e.g.
+                        --keep_ncw_or_nchw_or_ncdhw_input_names "input0"
+                        "input1" "input2"
+  -kt KEEP_NWC_OR_NHWC_OR_NDHWC_INPUT_NAMES [KEEP_NWC_OR_NHWC_OR_NDHWC_INPUT_NAMES ...], --keep_nwc_or_nhwc_or_ndhwc_input_names KEEP_NWC_OR_NHWC_OR_NDHWC_INPUT_NAMES [KEEP_NWC_OR_NHWC_OR_NDHWC_INPUT_NAMES ...]
+                        Holds the NWC or NHWC or NDHWC of the input shape for
+                        the specified INPUT OP names. If a nonexistent INPUT
+                        OP name is specified, it is ignored. If the input OP
+                        name is the same as the input OP name specified in the
+                        keep_ncw_or_nchw_or_ncdhw_input_names option, it is
+                        ignored. Valid only for 3D, 4D and 5D input tensors.
+                        e.g. --keep_nwc_or_nhwc_or_ndhwc_input_names "input0"
+                        "input1" "input2"
+  -kat KEEP_SHAPE_ABSOLUTELY_INPUT_NAMES [KEEP_SHAPE_ABSOLUTELY_INPUT_NAMES ...], --keep_shape_absolutely_input_names KEEP_SHAPE_ABSOLUTELY_INPUT_NAMES [KEEP_SHAPE_ABSOLUTELY_INPUT_NAMES ...]
+                        Name of the INPUT that unconditionally maintains its
+                        shape. If a nonexistent INPUT OP name is specified, it
+                        is ignored. e.g. --keep_shape_absolutely_input_names
+                        "input0" "input1" "input2"
+  -inimc INPUT_NAMES_TO_INTERRUPT_MODEL_CONVERSION [INPUT_NAMES_TO_INTERRUPT_MODEL_CONVERSION ...], --input_names_to_interrupt_model_conversion INPUT_NAMES_TO_INTERRUPT_MODEL_CONVERSION [INPUT_NAMES_TO_INTERRUPT_MODEL_CONVERSION ...]
+                        Input names that interrupt model conversion.
+                        Interrupts model transformation at the specified input
+                        name and inputs the model partitioned into subgraphs.
+                        With --tflite_backend flatbuffer_direct, this crops
+                        ModelIR and treats the specified tensors as runtime
+                        inputs. e.g.
+                        --input_names_to_interrupt_model_conversion "input0"
+                        "input1" "input2"
+  -onimc OUTPUT_NAMES_TO_INTERRUPT_MODEL_CONVERSION [OUTPUT_NAMES_TO_INTERRUPT_MODEL_CONVERSION ...], --output_names_to_interrupt_model_conversion OUTPUT_NAMES_TO_INTERRUPT_MODEL_CONVERSION [OUTPUT_NAMES_TO_INTERRUPT_MODEL_CONVERSION ...]
+                        Output names that interrupt model conversion.
+                        Interrupts model transformation at the specified
+                        output name and outputs the model partitioned into
+                        subgraphs. With --tflite_backend flatbuffer_direct,
+                        this crops ModelIR and treats the specified tensors as
+                        runtime outputs. e.g.
+                        --output_names_to_interrupt_model_conversion "output0"
+                        "output1" "output2"
+  -easm, --enable_auto_split_model
+                        Force auto split regardless of the ONNX file size.
+                        Uses --auto_split_max_size as the target partition
+                        size. With --tflite_backend flatbuffer_direct, this
+                        forces the shared ModelIR split planner and split
+                        manifest output even when the estimated size fits in
+                        one partition.
+  -asms AUTO_SPLIT_MAX_SIZE, --auto_split_max_size AUTO_SPLIT_MAX_SIZE
+                        Target maximum size per partition when auto-split is
+                        triggered or forced. Supported units: KB, MB, GB (e.g.
+                        900MB, 1GB, 1536KB). Bare numbers are treated as MB.
+                        When specified, this value is also used as the target
+                        size for --enable_auto_split_model. Default: 1GB
+  -dgc, --disable_group_convolution
+                        Disable GroupConvolution and replace it with
+                        SeparableConvolution for output to saved_model format.
+  -eatfp16, --enable_accumulation_type_float16
+                        Hint for XNNPack fp16 inference on float16 tflite
+                        model. XNNPACK float16 inference on certain ARM64
+                        cores is 2x faster. Float16 inference doubling on
+                        devices with ARM64 ARMv8.2 or higher instruction set.
+  -ebu, --enable_batchmatmul_unfold
+                        BatchMatMul is separated batch by batch to generate a
+                        primitive MatMul.
+  -eru, --enable_rnn_unroll
+                        Instead of increasing inference speed by expanding all
+                        symbolic loops of the RNN (LSTM, GRU, RNN), RAM
+                        consumption will increase because all tensors are
+                        expanded and embedded in the model.
+                        https://keras.io/api/layers/recurrent_layers/
+  -dsft, --disable_suppression_flextranspose
+                        Disables FlexTranspose generation suppression.
+  -nodaftc NUMBER_OF_DIMENSIONS_AFTER_FLEXTRANSPOSE_COMPRESSION, --number_of_dimensions_after_flextranspose_compression NUMBER_OF_DIMENSIONS_AFTER_FLEXTRANSPOSE_COMPRESSION
+                        Number of Transpose OP dimensions generated after
+                        avoiding FlexTranspose generation. Also suppress the
+                        creation of the Transpose itself by specifying 2.
+                        Default: 6
+  -dsfs, --disable_suppression_flexstridedslice
+                        Disables FlexStridedSlice generation suppression.
+  -dsm, --disable_strict_mode
+                        If specified, the conversion speed is greatly
+                        accelerated because the strict accuracy correction
+                        process is skipped, but the frequency of transposition
+                        errors increases and accuracy errors are more likely
+                        to occur. Strict mode is enabled by default.
+  -doem, --disable_onnxruntime_output_memmap
+                        Disable onnxruntime output memmap. By default, onnx2tf
+                        uses onnxruntime IOBinding with np.memmap for dummy
+                        inference outputs. Use this flag to force the standard
+                        in-memory output path instead. Default: disabled
+                        (memmap enabled).
+  -oemd ONNXRUNTIME_OUTPUT_MEMMAP_DIR, --onnxruntime_output_memmap_dir ONNXRUNTIME_OUTPUT_MEMMAP_DIR
+                        Directory for memmap files used by onnxruntime output
+                        memmap. If omitted, a temporary directory is created
+                        and removed on exit. This setting is used only when
+                        memmap is actually enabled.
+  -nodafsc NUMBER_OF_DIMENSIONS_AFTER_FLEXSTRIDEDSLICE_COMPRESSION, --number_of_dimensions_after_flexstridedslice_compression NUMBER_OF_DIMENSIONS_AFTER_FLEXSTRIDEDSLICE_COMPRESSION
+                        Number of StricedSlice OP dimensions generated after
+                        avoiding FlexStridedSlice generation. Default: 5
+  -ofgd, --optimization_for_gpu_delegate
+                        Replace operations that do not support gpu delegate
+                        with those that do as much as possible.
+  -rari64, --replace_argmax_to_reducemax_and_indices_is_int64
+                        Replace ArgMax with a ReduceMax. The returned indices
+                        are int64. Only one of
+                        replace_argmax_to_reducemax_and_indices_is_int64 and
+                        replace_argmax_to_reducemax_and_indices_is_float32 and
+                        replace_argmax_to_fused_argmax_and_indices_is_int64
+                        and
+                        replace_argmax_to_fused_argmax_and_indices_is_float32
+                        can be specified.
+  -rarf32, --replace_argmax_to_reducemax_and_indices_is_float32
+                        Replace ArgMax with a ReduceMax. The returned indices
+                        are float32. Only one of
+                        replace_argmax_to_reducemax_and_indices_is_int64 and
+                        replace_argmax_to_reducemax_and_indices_is_float32 and
+                        replace_argmax_to_fused_argmax_and_indices_is_int64
+                        and
+                        replace_argmax_to_fused_argmax_and_indices_is_float32
+                        can be specified.
+  -rafi64, --replace_argmax_to_fused_argmax_and_indices_is_int64
+                        Replace ArgMax with a Fused_ArgMax. The returned
+                        indices are int64. It improves inference speed at the
+                        cost of a small sacrifice in accuracy. See. https://gi
+                        thub.com/tensorflow/models/tree/master/official/projec
+                        ts/edgetpu/vision#argmax-fusion-to-improve-
+                        segmentation-model-latency Currently, only 4D tensors
+                        are supported. Only one of
+                        replace_argmax_to_reducemax_and_indices_is_int64 and
+                        replace_argmax_to_reducemax_and_indices_is_float32 and
+                        replace_argmax_to_fused_argmax_and_indices_is_int64
+                        and
+                        replace_argmax_to_fused_argmax_and_indices_is_float32
+                        can be specified.
+  -raff32, --replace_argmax_to_fused_argmax_and_indices_is_float32
+                        Replace ArgMax with a Fused_ArgMax. The returned
+                        indices are float32. It improves inference speed at
+                        the cost of a small sacrifice in accuracy. See. https:
+                        //github.com/tensorflow/models/tree/master/official/pr
+                        ojects/edgetpu/vision#argmax-fusion-to-improve-
+                        segmentation-model-latency Currently, only 4D tensors
+                        are supported. Only one of
+                        replace_argmax_to_reducemax_and_indices_is_int64 and
+                        replace_argmax_to_reducemax_and_indices_is_float32 and
+                        replace_argmax_to_fused_argmax_and_indices_is_int64
+                        and
+                        replace_argmax_to_fused_argmax_and_indices_is_float32
+                        can be specified.
+  -fasr FUSED_ARGMAX_SCALE_RATIO, --fused_argmax_scale_ratio FUSED_ARGMAX_SCALE_RATIO
+                        For Fused ArgMax. Scale ratio when generating Fused
+                        ArgMax. 0.0 < fused_argmax_scale_ratio <= 1.0 Default:
+                        0.5
+  -rtpo [{abs,acos,asin,atan,erf,gathernd,gelu,hardswish,inverse,leakyrelu,matmulinteger,neg,pow,power,prelu} ...], --replace_to_pseudo_operators [{abs,acos,asin,atan,erf,gathernd,gelu,hardswish,inverse,leakyrelu,matmulinteger,neg,pow,power,prelu} ...]
+                        Replace list of operators to pseudo operators. Full
+                        name of the target operators should be given.
+                        Currently supported operators : Asin, Acos, Atan, Abs,
+                        PReLU, LeakyReLU, Power, GatherND, Neg, HardSwish,
+                        Erf, GeLU, MatMulInteger, Inverse Note: Inverse is
+                        pseudo-lowered by default. Specifying Inverse keeps
+                        tf.linalg.inv (FlexMatrixInverse may remain).
+  -me MVN_EPSILON, --mvn_epsilon MVN_EPSILON
+                        For MeanVarianceNormalization. The number to be added
+                        to the variance to avoid division by zero when
+                        normalizing the value. (input_tensor - mean) /
+                        tf.sqrt(variance + mvn_epsilon) Default: 0.0000000001
+  -prf PARAM_REPLACEMENT_FILE, --param_replacement_file PARAM_REPLACEMENT_FILE
+                        Parameter replacement file path. (.json)
+  -cgdc, --check_gpu_delegate_compatibility
+                        Run TFLite ModelAnalyzer on the generated Float16
+                        tflite model to check if the model can be supported by
+                        GPU Delegate.
+  -coto, --check_onnx_tf_outputs_elementwise_close
+                        Returns "Matches" if the output of onnx and the output
+                        of TF arewithin acceptable proximity element by
+                        element. Returns "Unmatched" if the output of onnx and
+                        the output of TF are not within acceptable proximity
+                        element by element. If the output of onnx is 1D, it
+                        returns "Skipped" and skips the comparison between the
+                        output of onnx and that of TF. This is because when
+                        undefined dimensions are present, a situation often
+                        arises where very large index values are compared,
+                        causing OutOfMemory. Only the output content of the
+                        models final output OP is checked.
+  -cotof, --check_onnx_tf_outputs_elementwise_close_full
+                        Returns "Matches" if the output of onnx and the output
+                        of TF are within acceptable proximity element by
+                        element. Check the output of all OPs in sequence from
+                        the beginning, including all but the final output OP
+                        of the model. Returns "Unmatched" if the output of
+                        onnx and the output of TF are not within acceptable
+                        proximity element by element. If the output of onnx is
+                        1D, it returns "Skipped" and skips the comparison
+                        between the output of onnx and that of TF. This is
+                        because when undefined dimensions are present, a
+                        situation often arises where very large index values
+                        are compared, causing OutOfMemory. It is very time
+                        consuming because it performs as many inferences as
+                        there are operations. With --tflite_backend
+                        flatbuffer_direct, this runs the TensorFlow-free
+                        ONNX/TFLite comparison path and final ONNX vs
+                        generated TFLite output error check. With -it and
+                        -fdopt, this compares TFLite and PyTorch outputs
+                        instead of ONNX-based outputs.
+  -coton {norm,denorm}, --check_onnx_tf_outputs_sample_data_normalization {norm,denorm}
+                        norm: Validate using random data normalized to the
+                        range 0.0 to 1.0 denorm: Validate using random data in
+                        the range 0.0 to 255.0 If there is a normalization
+                        layer at the models entry point, or if the model was
+                        trained on denormalized data, "denorm" must be
+                        specified. Default: "norm"
+  -cotor CHECK_ONNX_TF_OUTPUTS_ELEMENTWISE_CLOSE_RTOL, --check_onnx_tf_outputs_elementwise_close_rtol CHECK_ONNX_TF_OUTPUTS_ELEMENTWISE_CLOSE_RTOL
+                        The relative tolerance parameter Default: 0.0
+  -cotoa CHECK_ONNX_TF_OUTPUTS_ELEMENTWISE_CLOSE_ATOL, --check_onnx_tf_outputs_elementwise_close_atol CHECK_ONNX_TF_OUTPUTS_ELEMENTWISE_CLOSE_ATOL
+                        The absolute tolerance parameter Default: 1e-4
+  -tdnp TEST_DATA_NHWC_PATH, --test_data_nhwc_path TEST_DATA_NHWC_PATH
+                        Path to a numpy file (.npy) containing custom test
+                        data in NHWC format. This is used for test inference
+                        and validation when check_onnx_tf_outputs options are
+                        enabled. The numpy array should have shape
+                        [batch_size, height, width, 3] with values normalized
+                        to the range [0, 1]. This option is useful for offline
+                        environments or when you want to use specific test
+                        data for validation. It is also accepted by -fdots,
+                        -fdodo, and -fdoep for 4D RGB image inputs. e.g.
+                        --test_data_nhwc_path "./my_test_data.npy"
+  -agj, --auto_generate_json
+                        Automatically generates a parameter replacement JSON
+                        file that achieves minimal error when converting the
+                        model. This option explores various parameter
+                        combinations to find the best settings that result in
+                        successful conversion and highest accuracy. The search
+                        stops when the final output OP accuracy check shows
+                        "Matches". Cannot be used together with -cotof. When
+                        -cotof is specified, JSON auto-generation is disabled.
+  -agje, --auto_generate_json_on_error
+                        Attempts to generate a parameter replacement JSON when
+                        accuracy validation detects errors greater than 1e-2.
+                        Requires -cotof to collect accuracy metrics. Disabled
+                        by default.
+  -dms, --disable_model_save
+                        Does not save the converted model. For CIs RAM
+                        savings.
+  -n, --non_verbose     Shorthand to specify a verbosity of "error".
+  -v {debug,info,warn,error}, --verbosity {debug,info,warn,error}
+                        Change the level of information printed. Default:
+                        "debug" (for backwards compatability)

@@ -1,0 +1,17 @@
+checkpoint,split,dataset,n_mos,fp_count,severe_fp_count,fn_count
+best_by_val_mae,test,overall,1413,1,0,0
+best_by_val_mae,test,flive,399,0,0,0
+best_by_val_mae,test,koniq10k,901,0,0,0
+best_by_val_mae,test,spaq,113,1,0,0
+best_by_val_mae,val,overall,1409,5,1,0
+best_by_val_mae,val,flive,398,1,0,0
+best_by_val_mae,val,koniq10k,899,2,0,0
+best_by_val_mae,val,spaq,112,2,1,0
+final,test,overall,1413,1,0,0
+final,test,flive,399,0,0,0
+final,test,koniq10k,901,0,0,0
+final,test,spaq,113,1,0,0
+final,val,overall,1409,5,1,0
+final,val,flive,398,1,0,0
+final,val,koniq10k,899,2,0,0
+final,val,spaq,112,2,1,0

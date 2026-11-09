@@ -1,0 +1,11 @@
+metric,value
+total_rows_filtered,21275.0
+missing_image_count,0.0
+duplicate_image_path_count,11151.0
+final_paired_rows,10124.0
+koniq10k_rows,8999.0
+spaq_rows,1125.0
+mdiqa_pred_min,11.804594844579697
+mdiqa_pred_max,79.98648285865784
+mos_min,4.8
+mos_max,91.7

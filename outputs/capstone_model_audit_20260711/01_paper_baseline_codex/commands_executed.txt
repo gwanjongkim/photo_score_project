@@ -1,0 +1,11 @@
+# Commands executed for the independent Phase 2 paper baseline
+# Default working directory: /home/omen_pc1/photo_score_project
+
+mkdir -p outputs/capstone_model_audit_20260711/01_paper_baseline_codex
+sed -n '1,90p' outputs/capstone_model_audit_20260711/00_inventory/model_inventory.md
+rg -n '^### |^## Vendored|^\| .* \|' outputs/capstone_model_audit_20260711/00_inventory/model_inventory.md
+sed -n '1,160p' outputs/capstone_model_audit_20260711/01_paper_baseline_codex/context-notes.md
+sed -n '1,160p' outputs/capstone_model_audit_20260711/01_paper_baseline_codex/checklist.md
+find outputs/capstone_model_audit_20260711/01_paper_baseline_codex -maxdepth 1 -type f -printf '%f\n'
+wc -l outputs/capstone_model_audit_20260711/01_paper_baseline_codex/*
+git status --short outputs/capstone_model_audit_20260711/01_paper_baseline_codex

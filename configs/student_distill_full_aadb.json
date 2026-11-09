@@ -1,0 +1,16 @@
+{
+  "experiment_name": "stage5_student_full_aadb",
+  "manifest_csv": "outputs/distill_full_aadb/teacher_labels_trainval.csv",
+  "output_dir": "checkpoints/student_full_aadb",
+  "data": {
+    "train_splits": ["train"],
+    "val_splits": ["val"],
+    "test_splits": []
+  },
+  "model": {
+    "backbone_weights_path": "weights/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_0.5_224_no_top.h5"
+  },
+  "train": {
+    "epochs": 20
+  }
+}

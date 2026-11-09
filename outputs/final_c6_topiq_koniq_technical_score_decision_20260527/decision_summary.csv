@@ -1,0 +1,10 @@
+metric,B5 (Baseline),C6 (Candidate),Delta,Status
+Avg SRCC,0.745,0.760,+0.015,Improved
+KonIQ SRCC,0.867,0.892,+0.025,Improved
+SPAQ SRCC,0.861,0.900,+0.039,Improved
+FLIVE SRCC,0.508,0.487,-0.021,Competitive
+Hard-FP Mean,52.8,54.1,+1.3,Safe (<60)
+Hard-FP >65 Count,0,0,0,Safe
+Max Hard-FP Score,64.25,64.79,+0.54,Safe (<65)
+WSL Status,Active,Promoted,-,GO
+Flutter Status,Active,Blocked,-,Pending Audit

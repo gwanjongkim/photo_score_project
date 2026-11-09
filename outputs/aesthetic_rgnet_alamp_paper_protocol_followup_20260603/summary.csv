@@ -1,0 +1,5 @@
+item,previous_status,new_status,evidence_strength,can_claim_full_paper,caveat,next_action
+RGNet/AADB,PASS,PASS,STRONG (Official MAT match),yes,None,None
+ICAA/ICAA17K,PASS,PASS,STRONG (Official CSV match),yes,MAE scale corrected (0.21),None
+NIMA/AVA,PASS,LOCAL PASS,MEDIUM (Random split),partial,Official split not proven,Obtain official split IDs
+A-LAMP v2/AVA,PARTIAL PROXY,PAPER-INSPIRED ADAPTIVE,MEDIUM (Improved protocol),partial,Missing layout graph branch,None

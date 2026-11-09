@@ -1,0 +1,649 @@
+{
+  "status": "ok",
+  "command_used": "python experiments/icaa_tf_native/scripts/inspect_pytorch_state_dict.py",
+  "checkpoint_path": "/home/omen_pc1/photo_score_project/weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+  "checkpoint_object_type": "OrderedDict",
+  "state_dict_confirmation": "checkpoint object is an OrderedDict state_dict",
+  "is_ordered_dict_state_dict": true,
+  "total_parameter_tensors": 487,
+  "total_parameter_count": 87138907,
+  "top_level_module_breakdown": {
+    "patch_proj": {
+      "tensor_count": 4,
+      "numel": 6528
+    },
+    "stages": {
+      "tensor_count": 458,
+      "numel": 84334580
+    },
+    "down_projs": {
+      "tensor_count": 9,
+      "numel": 2756096
+    },
+    "cls_norm": {
+      "tensor_count": 2,
+      "numel": 2048
+    },
+    "hst_head": {
+      "tensor_count": 2,
+      "numel": 36900
+    },
+    "SoftHistogram-related layers": {
+      "tensor_count": 6,
+      "numel": 1296
+    },
+    "class_head": {
+      "tensor_count": 2,
+      "numel": 217
+    },
+    "class_head2": {
+      "tensor_count": 2,
+      "numel": 217
+    },
+    "others": {
+      "tensor_count": 2,
+      "numel": 1025
+    }
+  },
+  "layer_type_breakdown": {
+    "Bias": 151,
+    "Conv2D": 74,
+    "Dense": 80,
+    "DepthwiseConv2D": 10,
+    "LayerNormalization_beta": 63,
+    "LayerNormalization_gamma": 63,
+    "PositionalEncoding_or_Buffer": 40,
+    "SoftHistogram": 6
+  },
+  "mapping_rule_breakdown": {
+    "Bias -> direct copy": 151,
+    "Depthwise Conv if present -> inspect carefully, do not guess": 10,
+    "LayerNorm weight/bias -> direct copy": 126,
+    "PyTorch Conv2d [out_c,in_c,kH,kW] -> TF Conv2D [kH,kW,in_c,out_c]": 74,
+    "PyTorch Linear [out,in] -> TF Dense [in,out]": 80,
+    "SoftHistogram grouped Conv1d parameters -> inspect manually before TensorFlow mapping": 6,
+    "Unknown -> mark unknown": 40
+  },
+  "uncertain_or_unknown_parameter_groups": [
+    {
+      "name": "stages.0.attns.0.relative_position_bias_table",
+      "shape": "[169, 4]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.0.attns.0:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.0.attns.0.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.0.attns.0:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.0.attns.1.relative_position_bias_table",
+      "shape": "[169, 4]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.0.attns.1:ShiftWindowAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.0.attns.1.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.0.attns.1:ShiftWindowAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.0.attns.1.attn_mask",
+      "shape": "[64, 49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.0.attns.1:ShiftWindowAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.1.attns.0.relative_position_bias_table",
+      "shape": "[169, 8]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.1.attns.0:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.1.attns.0.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.1.attns.0:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.1.attns.1.relative_position_bias_table",
+      "shape": "[169, 8]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.1.attns.1:ShiftWindowAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.1.attns.1.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.1.attns.1:ShiftWindowAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.1.attns.1.attn_mask",
+      "shape": "[16, 49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.1.attns.1:ShiftWindowAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.0.relative_position_bias_table",
+      "shape": "[169, 16]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.0:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.0.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.0:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.1.rpe_table",
+      "shape": "[16, 27, 27]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.1:DAttentionBaseline; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.1.conv_offset.0.weight",
+      "shape": "[128, 1, 5, 5]",
+      "likely_tf_layer_type": "DepthwiseConv2D",
+      "likely_mapping_rule": "Depthwise Conv if present -> inspect carefully, do not guess",
+      "notes": "module=stages.2.attns.1.conv_offset.0:Conv2d; groups=128; shape=[128, 1, 5, 5]; depthwise/grouped Conv2d metadata verified"
+    },
+    {
+      "name": "stages.2.attns.2.relative_position_bias_table",
+      "shape": "[169, 16]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.2:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.2.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.2:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.3.rpe_table",
+      "shape": "[16, 27, 27]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.3:DAttentionBaseline; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.3.conv_offset.0.weight",
+      "shape": "[128, 1, 5, 5]",
+      "likely_tf_layer_type": "DepthwiseConv2D",
+      "likely_mapping_rule": "Depthwise Conv if present -> inspect carefully, do not guess",
+      "notes": "module=stages.2.attns.3.conv_offset.0:Conv2d; groups=128; shape=[128, 1, 5, 5]; depthwise/grouped Conv2d metadata verified"
+    },
+    {
+      "name": "stages.2.attns.4.relative_position_bias_table",
+      "shape": "[169, 16]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.4:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.4.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.4:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.5.rpe_table",
+      "shape": "[16, 27, 27]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.5:DAttentionBaseline; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.5.conv_offset.0.weight",
+      "shape": "[128, 1, 5, 5]",
+      "likely_tf_layer_type": "DepthwiseConv2D",
+      "likely_mapping_rule": "Depthwise Conv if present -> inspect carefully, do not guess",
+      "notes": "module=stages.2.attns.5.conv_offset.0:Conv2d; groups=128; shape=[128, 1, 5, 5]; depthwise/grouped Conv2d metadata verified"
+    },
+    {
+      "name": "stages.2.attns.6.relative_position_bias_table",
+      "shape": "[169, 16]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.6:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.6.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.6:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.7.rpe_table",
+      "shape": "[16, 27, 27]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.7:DAttentionBaseline; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.7.conv_offset.0.weight",
+      "shape": "[128, 1, 5, 5]",
+      "likely_tf_layer_type": "DepthwiseConv2D",
+      "likely_mapping_rule": "Depthwise Conv if present -> inspect carefully, do not guess",
+      "notes": "module=stages.2.attns.7.conv_offset.0:Conv2d; groups=128; shape=[128, 1, 5, 5]; depthwise/grouped Conv2d metadata verified"
+    },
+    {
+      "name": "stages.2.attns.8.relative_position_bias_table",
+      "shape": "[169, 16]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.8:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.8.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.8:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.9.rpe_table",
+      "shape": "[16, 27, 27]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.9:DAttentionBaseline; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.9.conv_offset.0.weight",
+      "shape": "[128, 1, 5, 5]",
+      "likely_tf_layer_type": "DepthwiseConv2D",
+      "likely_mapping_rule": "Depthwise Conv if present -> inspect carefully, do not guess",
+      "notes": "module=stages.2.attns.9.conv_offset.0:Conv2d; groups=128; shape=[128, 1, 5, 5]; depthwise/grouped Conv2d metadata verified"
+    },
+    {
+      "name": "stages.2.attns.10.relative_position_bias_table",
+      "shape": "[169, 16]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.10:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.10.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.10:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.11.rpe_table",
+      "shape": "[16, 27, 27]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.11:DAttentionBaseline; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.11.conv_offset.0.weight",
+      "shape": "[128, 1, 5, 5]",
+      "likely_tf_layer_type": "DepthwiseConv2D",
+      "likely_mapping_rule": "Depthwise Conv if present -> inspect carefully, do not guess",
+      "notes": "module=stages.2.attns.11.conv_offset.0:Conv2d; groups=128; shape=[128, 1, 5, 5]; depthwise/grouped Conv2d metadata verified"
+    },
+    {
+      "name": "stages.2.attns.12.relative_position_bias_table",
+      "shape": "[169, 16]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.12:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.12.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.12:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.13.rpe_table",
+      "shape": "[16, 27, 27]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.13:DAttentionBaseline; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.13.conv_offset.0.weight",
+      "shape": "[128, 1, 5, 5]",
+      "likely_tf_layer_type": "DepthwiseConv2D",
+      "likely_mapping_rule": "Depthwise Conv if present -> inspect carefully, do not guess",
+      "notes": "module=stages.2.attns.13.conv_offset.0:Conv2d; groups=128; shape=[128, 1, 5, 5]; depthwise/grouped Conv2d metadata verified"
+    },
+    {
+      "name": "stages.2.attns.14.relative_position_bias_table",
+      "shape": "[169, 16]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.14:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.14.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.14:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.15.rpe_table",
+      "shape": "[16, 27, 27]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.15:DAttentionBaseline; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.15.conv_offset.0.weight",
+      "shape": "[128, 1, 5, 5]",
+      "likely_tf_layer_type": "DepthwiseConv2D",
+      "likely_mapping_rule": "Depthwise Conv if present -> inspect carefully, do not guess",
+      "notes": "module=stages.2.attns.15.conv_offset.0:Conv2d; groups=128; shape=[128, 1, 5, 5]; depthwise/grouped Conv2d metadata verified"
+    },
+    {
+      "name": "stages.2.attns.16.relative_position_bias_table",
+      "shape": "[169, 16]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.16:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.16.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.16:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.17.rpe_table",
+      "shape": "[16, 27, 27]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.2.attns.17:DAttentionBaseline; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.2.attns.17.conv_offset.0.weight",
+      "shape": "[128, 1, 5, 5]",
+      "likely_tf_layer_type": "DepthwiseConv2D",
+      "likely_mapping_rule": "Depthwise Conv if present -> inspect carefully, do not guess",
+      "notes": "module=stages.2.attns.17.conv_offset.0:Conv2d; groups=128; shape=[128, 1, 5, 5]; depthwise/grouped Conv2d metadata verified"
+    },
+    {
+      "name": "stages.3.attns.0.relative_position_bias_table",
+      "shape": "[169, 32]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.3.attns.0:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.3.attns.0.relative_position_index",
+      "shape": "[49, 49]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.3.attns.0:LocalAttention; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.3.attns.1.rpe_table",
+      "shape": "[32, 13, 13]",
+      "likely_tf_layer_type": "PositionalEncoding_or_Buffer",
+      "likely_mapping_rule": "Unknown -> mark unknown",
+      "notes": "module=stages.3.attns.1:DAttentionBaseline; attention positional/buffer tensor; verify semantics before mapping"
+    },
+    {
+      "name": "stages.3.attns.1.conv_offset.0.weight",
+      "shape": "[128, 1, 3, 3]",
+      "likely_tf_layer_type": "DepthwiseConv2D",
+      "likely_mapping_rule": "Depthwise Conv if present -> inspect carefully, do not guess",
+      "notes": "module=stages.3.attns.1.conv_offset.0:Conv2d; groups=128; shape=[128, 1, 3, 3]; depthwise/grouped Conv2d metadata verified"
+    },
+    {
+      "name": "hist_feature.centers",
+      "shape": "[216]",
+      "likely_tf_layer_type": "SoftHistogram",
+      "likely_mapping_rule": "SoftHistogram grouped Conv1d parameters -> inspect manually before TensorFlow mapping",
+      "notes": "module=hist_feature:SoftHistogram; grouped Conv1d histogram path"
+    },
+    {
+      "name": "hist_feature.widths",
+      "shape": "[216, 1, 1]",
+      "likely_tf_layer_type": "SoftHistogram",
+      "likely_mapping_rule": "SoftHistogram grouped Conv1d parameters -> inspect manually before TensorFlow mapping",
+      "notes": "module=hist_feature:SoftHistogram; grouped Conv1d histogram path"
+    },
+    {
+      "name": "hist_feature.bin_centers_conv.weight",
+      "shape": "[216, 1, 1]",
+      "likely_tf_layer_type": "SoftHistogram",
+      "likely_mapping_rule": "SoftHistogram grouped Conv1d parameters -> inspect manually before TensorFlow mapping",
+      "notes": "module=hist_feature.bin_centers_conv:Conv1d; groups=36; grouped Conv1d histogram path"
+    },
+    {
+      "name": "hist_feature.bin_centers_conv.bias",
+      "shape": "[216]",
+      "likely_tf_layer_type": "SoftHistogram",
+      "likely_mapping_rule": "SoftHistogram grouped Conv1d parameters -> inspect manually before TensorFlow mapping",
+      "notes": "module=hist_feature.bin_centers_conv:Conv1d; groups=36; grouped Conv1d histogram path"
+    },
+    {
+      "name": "hist_feature.bin_widths_conv.weight",
+      "shape": "[216, 1, 1]",
+      "likely_tf_layer_type": "SoftHistogram",
+      "likely_mapping_rule": "SoftHistogram grouped Conv1d parameters -> inspect manually before TensorFlow mapping",
+      "notes": "module=hist_feature.bin_widths_conv:Conv1d; groups=216; grouped Conv1d histogram path"
+    },
+    {
+      "name": "hist_feature.bin_widths_conv.bias",
+      "shape": "[216]",
+      "likely_tf_layer_type": "SoftHistogram",
+      "likely_mapping_rule": "SoftHistogram grouped Conv1d parameters -> inspect manually before TensorFlow mapping",
+      "notes": "module=hist_feature.bin_widths_conv:Conv1d; groups=216; grouped Conv1d histogram path"
+    }
+  ],
+  "csv_path": "/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/weight_maps/pytorch_state_dict_inventory.csv",
+  "summary_path": "/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/weight_maps/pytorch_state_dict_summary.json",
+  "report_path": "/home/omen_pc1/photo_score_project/experiments/icaa_tf_native/reports/stage_a_state_dict_inspection.md",
+  "export_safe_model_path": "/home/omen_pc1/photo_score_project/experiments/icaa_export_safe_v3/export_safe_models",
+  "export_safe_model": {
+    "model_class": "icaa_export_safe_v3_export_safe_models_stage_a.dat.DAT",
+    "total_parameter_count": 86912997,
+    "strict_load": {
+      "attempted": true,
+      "success": true,
+      "missing_keys": [],
+      "unexpected_keys": [],
+      "error": null
+    },
+    "dummy_input_shape": [
+      1,
+      3,
+      224,
+      224
+    ],
+    "dummy_output_shape": {
+      "type": "tuple",
+      "length": 3,
+      "primary_item": {
+        "type": "Tensor",
+        "shape": [
+          1,
+          2
+        ]
+      },
+      "auxiliary_item_count": 2,
+      "auxiliary_items": [
+        {
+          "type": "list",
+          "length": 4,
+          "first_item": {
+            "type": "list",
+            "length": 2,
+            "first_item": {
+              "type": "NoneType",
+              "shape": null
+            }
+          }
+        },
+        {
+          "type": "list",
+          "length": 4,
+          "first_item": {
+            "type": "list",
+            "length": 2,
+            "first_item": {
+              "type": "NoneType",
+              "shape": null
+            }
+          }
+        }
+      ]
+    }
+  },
+  "warnings": [
+    "inspect_pytorch_state_dict.py:114: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.",
+    "__init__.py:49: Importing from timm.models.layers is deprecated, please import via timm.layers",
+    "functional.py:534: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)"
+  ],
+  "errors": [],
+  "model_config": {
+    "img_size": 224,
+    "patch_size": 4,
+    "num_classes": 1,
+    "expansion": 4,
+    "dim_stem": 128,
+    "dims": [
+      128,
+      256,
+      512,
+      1024
+    ],
+    "depths": [
+      2,
+      2,
+      18,
+      2
+    ],
+    "stage_spec": [
+      [
+        "L",
+        "S"
+      ],
+      [
+        "L",
+        "S"
+      ],
+      [
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D",
+        "L",
+        "D"
+      ],
+      [
+        "L",
+        "D"
+      ]
+    ],
+    "heads": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "window_sizes": [
+      7,
+      7,
+      7,
+      7
+    ],
+    "groups": [
+      -1,
+      -1,
+      4,
+      8
+    ],
+    "use_pes": [
+      false,
+      false,
+      true,
+      true
+    ],
+    "dwc_pes": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "strides": [
+      -1,
+      -1,
+      1,
+      1
+    ],
+    "sr_ratios": [
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "offset_range_factor": [
+      -1,
+      -1,
+      2,
+      2
+    ],
+    "no_offs": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "fixed_pes": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "use_dwc_mlps": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "use_conv_patches": false,
+    "drop_rate": 0.0,
+    "attn_drop_rate": 0.0,
+    "drop_path_rate": 0.5
+  }
+}

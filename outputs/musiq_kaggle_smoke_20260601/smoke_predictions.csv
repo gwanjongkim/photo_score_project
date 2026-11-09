@@ -1,0 +1,16 @@
+variant,load_method,call_method,image_path,raw_outputs,score_scale_hint
+koniq-10k,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779.jpg,[50.370460510253906],likely 0..100
+koniq-10k,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_01.jpg,[46.02167892456055],likely 0..100
+koniq-10k,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_02.jpg,[48.73417282104492],likely 0..100
+koniq-10k,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_03.jpg,[41.04152297973633],likely 0..100
+koniq-10k,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_04.jpg,[42.61762619018555],likely 0..100
+spaq,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779.jpg,[46.096343994140625],likely 0..100
+spaq,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_01.jpg,[49.39756393432617],likely 0..100
+spaq,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_02.jpg,[53.724143981933594],likely 0..100
+spaq,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_03.jpg,[22.95502471923828],likely 0..100
+spaq,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_04.jpg,[27.756412506103516],likely 0..100
+paq2piq,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779.jpg,[68.4849624633789],likely 0..100
+paq2piq,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_01.jpg,[62.10719299316406],likely 0..100
+paq2piq,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_02.jpg,[67.71418762207031],likely 0..100
+paq2piq,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_03.jpg,[59.44013595581055],likely 0..100
+paq2piq,tensorflow_hub_direct,signature_image_bytes_tensor_bytes_scalar,/home/omen_pc1/photo_score_project/test_samples/KakaoTalk_20260330_180646779_04.jpg,[62.70600509643555],likely 0..100

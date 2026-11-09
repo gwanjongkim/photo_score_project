@@ -1,0 +1,4 @@
+task,owner,priority,status,notes
+"Run full missing MDIQA inference (~38k rows)","agent","high","pending","Use the same logic as the 5k smoke run."
+"Consolidate 50k manifest","agent","high","pending","Combine cached rows, 5k smoke rows, and the remaining 38k rows."
+"Prepare student training pipeline for 50k manifest","agent","medium","pending","Ensure data loaders can handle 50k efficiently."

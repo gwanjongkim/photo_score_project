@@ -1,0 +1,17 @@
+section,dataset,split,content_type,selected_teacher_source,n,srcc,plcc,mae,linear_aligned_mae
+row_count,fallback_proxy,test,image,production_safety_fallback,23,,,,
+row_count,fallback_proxy,train,image,production_safety_fallback,221,,,,
+row_count,fallback_proxy,val,image,production_safety_fallback,56,,,,
+row_count,flive,test,image,production,28,,,,
+row_count,flive,train,image,production,518,,,,
+row_count,flive,val,image,production,154,,,,
+row_count,koniq10k,test,image,mdiqa_seed1,500,,,,
+row_count,spaq,test,image,mdiqa_xd,500,,,,
+mos_alignment_policy_a,fallback_proxy,,,,300,0.5677680863120701,0.7382489083034942,3.136285056455453,3.0792158338345312
+mos_alignment_policy_b,fallback_proxy,,,,300,0.5677680863120701,0.7382489083034942,3.136285056455453,3.0792158338345312
+mos_alignment_policy_a,flive,,,,700,0.6212216409771099,0.7550911988783197,3.1214117396925447,2.9830938744258813
+mos_alignment_policy_b,flive,,,,700,0.6212216409771099,0.7550911988783197,3.1214117396925447,2.9830938744258813
+mos_alignment_policy_a,koniq10k,,,,500,0.948713772081456,0.9585761788295439,6.462455174536545,2.3837310763336554
+mos_alignment_policy_b,koniq10k,,,,490,0.9392590389423874,0.952206114621073,6.438826923980076,2.5496000774670784
+mos_alignment_policy_a,spaq,,,,500,0.9086102286792862,0.9169455645994384,7.604331086754799,6.345791501091388
+mos_alignment_policy_b,spaq,,,,500,0.9083970108797258,0.9176431972028458,7.288832122998344,6.341535713721729

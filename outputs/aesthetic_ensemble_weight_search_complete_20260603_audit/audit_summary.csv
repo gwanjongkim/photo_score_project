@@ -1,0 +1,11 @@
+item,status,value,note
+final_verdict,READY_FOR_PRODUCTION_IMPLEMENTATION_PROMPT,-,Results and calibration params verified
+nima_weight,PASS,0.37,Holistic baseline
+rgnet_weight,PASS,0.41,Compositional weight
+alamp_weight,PASS,0.22,Adaptive-local weight
+icaa_weight,PASS,0.0,Kept as separate subscore
+ava_srcc,PASS,0.6536,Held-out test
+aadb_srcc,PASS,0.6733,Held-out test
+combined_srcc,PASS,0.6596,70/30 weighted average
+leakage_check,PASS,None,Clean 60/20/20 split
+data_integrity,PASS,25548/1000 rows,Aligned and verified

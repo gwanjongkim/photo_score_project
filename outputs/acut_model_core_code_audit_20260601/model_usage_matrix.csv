@@ -1,0 +1,10 @@
+model,production_used,research_candidate,flutter_used,python_pipeline_used,tflite_file,metadata_file,input_shape,normalization,output,score_weight,code_path,confidence,notes
+NIMA,Yes,No,Yes,Yes,nima_mobile_fixed_preproc_fp16.tflite,nima_mobile_fixed_preproc.metadata.json,224x224x3,0..1,1x10 dist,0.24,src/infer/predict_nima.py,High,Mean score converted to 0..1
+RGNet,Yes,No,Yes,Yes,rgnet_pil_resize_aadb_fp16.tflite,rgnet_pil_resize_aadb.metadata.json,256x256x3,0..1,scalar unit,0.18,src/infer/predict_rgnet.py,High,PIL resize critical
+Mobile A-LAMP v2,Yes,No,Yes,Yes,mobile_alamp_v2_fp16.tflite,mobile_alamp_v2.metadata.json,"Global 384, Patch 224",0..255,scalar unit,0.22,src/models/alamp.py,High,Multi-input required
+ICAA,Yes,No,Likely,No,icaa_dat_tf_native_fp16.tflite,icaa_dat_tf_native.metadata.json,224x224x3,0..1,vector [MOS Color],- (Color Index 1),forWeights2/configs/aesthetic_weight_lab.yaml,High,Color signal is Index 1
+KonIQ,Yes,No,Yes,Yes,koniq_mobile.tflite,koniq_mobile.metadata.json,224x224x3,0..100,scalar,4/7 (intended),src/infer/predict_quality_bundle.py,High,Technical quality baseline
+FLIVE,Yes,No,Yes,Yes,flive_image_mobile.tflite,flive_image_mobile.metadata.json,224x224x3,0..100,scalar,3/7 (intended),src/infer/predict_quality_bundle.py,High,Technical quality baseline
+TOPIQ-lite,No,Yes,No,No,topiq_lite_mixed112_frozen_fp16.tflite,-,224x224x3,0..1,scalar,-,scripts/technical_iqa/,High,Research candidate
+C6 Soft-Cap,No,Yes,No,No,-,-,-,-,corrected score,-,run_wsl_c6_parity_with_orientation.py,Medium,Log-only experiment
+DistortionGuard,No,Yes,No,No,-,-,-,-,distortion tags,-,check_severe.py,Medium,Log-only experiment

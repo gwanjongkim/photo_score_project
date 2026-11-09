@@ -1,0 +1,14 @@
+Model,Role,Metric,Mobile Ready,Implementation Diff,Decision,Reason
+A-LAMP Multi-Patch Teacher,Aesthetic,Accuracy 0.7633,True,Medium,Adopted,Best practical A-LAMP candidate. High positive bias.
+RGNet AADB (Mean Agg),Aesthetic,SRCC 0.6819,True,Medium,Adopted,Best practical RGNet AADB regression result.
+RGNet AVA (LSE r=4),Aesthetic,Accuracy 0.7697,True,Medium,Adopted,Best practical RGNet AVA classification result.
+NIMA (Fixed Preproc),Aesthetic,SRCC 0.5894,True,Medium,Adopted,EfficientNetV2 bug fixed. Massive improvement in ranking.
+ICAA Color,Aesthetic,SRCC 0.8791,True,Medium,Adopted,Color aesthetic assessment. Highly reliable.
+Stage 5 Student,Aesthetic,Pairwise Accuracy 0.90568,True,Medium,Adopted,Mobile proxy for A-LAMP/RGNet ensemble.
+TOPIQ-lite (mixed112),Technical,SRCC 0.899,True,Medium,Adopted,Strong candidate for general technical quality.
+TOPIQ-lite (mixed112),Technical,SRCC 0.863,True,Medium,Adopted,
+FLIVE Image Mobile,Technical,SRCC 0.63,True,Medium,Adopted,Existing mobile technical quality model.
+KonIQ Mobile,Technical,SRCC 0.866,True,Medium,Adopted,Existing mobile technical quality model.
+A-LAMP GraphLite Fusion,Aesthetic,ROC-AUC 0.7067,False,Medium,Discarded,Failed fusion attempt. Overfit.
+A-LAMP GraphGCN Fusion,Aesthetic,ROC-AUC 0.7062,False,Medium,Discarded,Failed fusion attempt. Overfit.
+RGNet DenseASPP WD3e-5,Aesthetic,SRCC 0.6518,False,Medium,Hold,Paper approximation ablation. Underperformed baseline.

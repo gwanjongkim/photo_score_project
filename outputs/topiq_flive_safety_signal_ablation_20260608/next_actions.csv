@@ -1,0 +1,4 @@
+task,owner,priority,status,notes
+"Prototype lightweight safety gate using classical noise/sharpness","agent","high","pending","Use Laplacian variance and median-subtracted noise."
+"Profile CPU/latency cost of heuristic gate in Flutter","developer","medium","pending","Ensure <5ms impact."
+"Deploy TOPIQ+FLIVE 60:40 + heuristic gate for log-only profiling","manager","high","pending","Monitor severe FPs in the wild."

@@ -1,0 +1,249 @@
+Resolution audit command log
+Date: 2026-07-11
+Working directory: /home/omen_pc1/photo_score_project
+
+[SETUP-001]
+Command: find outputs/capstone_model_audit_20260711 -maxdepth 3 -type f -printf '%p\t%s bytes\n' | sort
+Exit status: 0
+Output summary: supplied evidence directories 00_inventory, 01_paper_baseline_codex, 02_codex_implementation_audit, and 03_independent_crosscheck were present. Requested 01_paper_baseline was absent.
+
+[SETUP-002]
+Command: git status --short -- outputs/capstone_model_audit_20260711
+Exit status: 0
+Output:
+?? outputs/capstone_model_audit_20260711/
+
+[SETUP-003]
+Command: mkdir -p outputs/capstone_model_audit_20260711/04_resolution_tests outputs/capstone_model_audit_20260711/05_final_report
+Exit status: 0
+Output: none
+
+[COMPILE-001]
+Command: ./.venv_gpu/bin/python -m py_compile outputs/capstone_model_audit_20260711/04_resolution_tests/test_dataset_and_contracts.py outputs/capstone_model_audit_20260711/04_resolution_tests/test_preprocessing_and_outputs.py outputs/capstone_model_audit_20260711/04_resolution_tests/test_metrics_and_ensembles.py outputs/capstone_model_audit_20260711/04_resolution_tests/test_hashes_and_lineage.py outputs/capstone_model_audit_20260711/04_resolution_tests/test_python_tflite_parity.py
+Exit status: 0
+Output: none
+
+[DATA-001]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_dataset_and_contracts.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/dataset_and_contract_results.json
+Output summary:
+- KonIQ manifest labels match raw MOS_zscore on 10073/10073 rows with max absolute difference 0; they do not match raw MOS.
+- FLIVE image parent overlap is 0 for train/val/test.
+- FLIVE patch train/test parent overlap is 10452, covering 97.2008% of test parents.
+- FLIVE all train/test parent overlap is 13589, covering 99.5385% of test parents.
+- Exact content hash groups across splits: KonIQ 0; FLIVE image 9; AADB 4.
+- Exact path overlap is 0 for KonIQ, FLIVE image, AADB, and AVA.
+- Label ranges: KonIQ 3.9118..88.3889; FLIVE image 0..94.3332; FLIVE patch 14.6903..100; AADB 0..1; AVA 1.8090..8.6000.
+
+[PREPROC-001]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_preprocessing_and_outputs.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/preprocessing_and_output_results.json
+Output summary:
+- KonIQ/FLIVE image/FLIVE patch serialized MobileNetV2 checkpoints contain no Rescaling layer; loaders provide [0,1], while installed preprocess_input docs require [-1,1].
+- NIMA fixed contains no Rescaling; EfficientNetV2 docs require [-1,1] when include_preprocessing=False.
+- NIMA legacy and RGNet practical contain Rescaling(1/255) plus ImageNet Normalization while loaders supply [0,1].
+- Practical A-LAMP global EfficientNet branch contains Rescaling(1/255), its patch MobileNetV2 branch has no matching external preprocess, and its output head is linear.
+- Mobile A-LAMP v2 has embedded MobileNetV3 Rescaling(1/127.5,-1), raw [0,255] trainer inputs, and a sigmoid scalar head.
+- No model-config inspection failed.
+
+[METRIC-001]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_metrics_and_ensembles.py
+Exit status: 0
+Output status: SUPERSEDED because it compared metrics across two distinct protocol snapshots. See failed_tests.md.
+
+[METRIC-002]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_metrics_and_ensembles.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/metric_and_ensemble_results.json
+Output summary:
+- production_technical_predictions.csv has quality_score_0_100 and 4967 paired rows.
+- Recomputed production-table metrics: SRCC 0.7957844526; raw PLCC 0.8604135553; MAE 6.0768320976; RMSE 8.5638332632.
+- Technical ensemble formula reconstruction max absolute error 7.105427e-15.
+- Diagnostic fitted PLCC 0.8643327286; no supplied paper-specific source makes it mandatory.
+- The separate official_signal_predictions metrics replay exactly: SRCC 0.7168146788; PLCC 0.7874128973.
+- Aesthetic 0.37/0.41/0.22 metrics replay exactly: AVA SRCC 0.6536477389; AADB SRCC 0.6733368948; combined 0.6595544857.
+- Final ensemble selection sorts on test_combined_70_30_srcc and builds its stable pool from that test metric.
+- Exported AADB calibration parameters do not match recomputation; AVA parameters match exactly.
+
+[HASH-001]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_hashes_and_lineage.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/hash_and_lineage_results.json
+Output summary:
+- Recomputed checkpoint/artifact hashes match the phase-00 inventory.
+- Byte-identical copy groups confirmed for legacy NIMA, fixed NIMA FP16, practical RGNet, RGNet-PIL FP16, practical A-LAMP, Mobile A-LAMP FP16, and ICAA FP16.
+- ICAA FP16 canonical/copy size 175885416 bytes; SHA-256 10ae68a3283bdabf05ecfa8b679e1e89865f3c960687ce5495500455bbd111ff.
+- Default Stage5 config points to legacy NIMA.
+- No production source reads the exact calibrated aesthetic config path.
+
+[PARITY-001]
+Command: PYTHONPATH=. ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_python_tflite_parity.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/python_tflite_parity_results.json
+Output summary for two real manifest images/model:
+- KonIQ final_model.keras vs TFLite max difference 0.44208145.
+- FLIVE image max difference 0.05434418.
+- NIMA legacy distribution max difference 0.02780989.
+- NIMA fixed FP32 distribution max difference 0.00025128.
+- RGNet practical max difference 0.02760524.
+- A-LAMP practical max difference 0.00966477.
+- All models loaded and invoked; no parity test crashed.
+
+[ICAA-001]
+Command: PYTHONPATH=. ./.venv_gpu/bin/python scripts/smoke_test_icaa_weight_load.py
+Exit status: 0
+Output:
+DAT import: ok
+checkpoint key count: 487
+missing keys: []
+unexpected keys: []
+load result: <All keys matched successfully>
+checkpoint load succeeded: yes
+device: cpu
+output tuple length: 3
+x shape: (1, 2)
+first output values: [0.202788, 0.401011]
+ICAA17K DAT checkpoint weight-load smoke test succeeded.
+
+[CONTRACT-001]
+Command: PYTHONPATH=. ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_icaa_and_patch_contracts.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/icaa_and_patch_contract_results.json
+Output summary:
+- ICAA output shape [1,2], semantic order [MOS,color], validated color index 1, lab index 0.
+- Same real image: ImageNet-normalized output [0.655066,0.589033], zero-to-one output [0.433797,0.598445], max contract difference 0.221268.
+- FLIVE patch runtime creates [5,224,224,3] in [0,1]; actual predictions aggregate mean 75.35, min 74.375, std 0.562639.
+
+[DUPLICATE-001]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_duplicate_label_conflicts.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/duplicate_label_conflict_results.json
+Output summary:
+- All 9 FLIVE image byte-duplicate groups have conflicting MOS labels; ranges span 1.2712 to 12.6498 points.
+- All 4 AADB byte-duplicate groups have conflicting labels; ranges span 0.025 to 0.15.
+
+[REPLAY-001]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_existing_metric_replays.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/existing_metric_replay_results.json
+Output summary:
+- NIMA fixed 2000-row metrics replay: SRCC 0.5893975805, PLCC 0.5929037034, MAE 0.6581177276, accuracy 0.6025.
+- RGNet-PIL AADB 1000-row metrics replay: SRCC 0.6647899852, PLCC 0.6707976845, MAE 0.1218942750, RMSE 0.1521534225.
+- ICAA 1617-row color metrics replay: SRCC 0.8790617001, PLCC 0.8957717013, MAE 0.0213714449; MOS SRCC 0.9058089086.
+- MDIQA nine variant/dataset metric groups replay with maximum SRCC error 1.11e-16 and no recorded inference failures.
+- Mobile A-LAMP 1024-row parity statistics replay exactly; FP16 Pearson 0.9998949519.
+
+[ARCH-001]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_architecture_claims.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/architecture_claim_results.json
+Output summary:
+- Technical models: MobileNetV2 scalar heads; no Inception-ResNet-v2 or PaQ ROI path.
+- Practical RGNet: real region graph/GCN/cosine/attention; no DenseASPP, learned phi/theta affinity, or LSE.
+- RGNet paper-v1: DenseNet121, ASPP/DenseASPP, graph, and configurable LSE implementation present.
+- A-LAMP practical: five patches, global branch, learned attention, heuristic selector; no object attribute graph.
+- NIMA head/loss/expected-score mechanisms and ICAA TF-native heads confirmed.
+
+[DIAG-001]
+Command: ./.venv_mdiqa/bin/python scripts/technical_iqa/run_mdiqa_official_variant_sanity_benchmark.py --help
+Exit status: 0
+Output summary: the runner has no argparse help path and only emitted dependency warnings. It was not rerun because it writes to a fixed prior output directory.
+
+[DIAG-ERR-001]
+Command: ./ .venv_gpu/bin/python --version
+Exit status: 126
+Output: /bin/bash: line 1: ./: Is a directory
+Consequence: none; recorded in failed_tests.md.
+
+[PREPROC-002]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_preprocessing_and_outputs.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/preprocessing_and_output_results.json
+Output summary: Corrected the static dataset-source detector to match the source variable name `img`; the result now records `nima_dataset_convert_image_dtype_float32: true`. All previously reported serialized-model findings are unchanged. TensorFlow used CPU and emitted only non-fatal environment warnings.
+
+[METRIC-003]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_metrics_and_ensembles.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/metric_and_ensemble_results.json
+Output summary: Added an exact boundary replay for value-inferred normalization. Values 1.04 and 1.05 map to 1.0, while 1.06 maps to 0.0066666667. All technical and aesthetic metric replays remain unchanged.
+
+[ARCH-002]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_architecture_claims.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/architecture_claim_results.json
+Output summary: Corrected the LSE static detector to recognize the custom `RegionScoreAggregation` implementation. The final result records RGNet paper-v1 DenseNet121=true, ASPP/DenseASPP=true, graph=true, and LSE=true.
+
+[DATA-002]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/test_dataset_and_contracts.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/dataset_and_contract_results.json
+Output summary: Corrected only the AVA bounded-scope explanation from 255,555 to the observed 255,508 rows and reran the complete script. All computed dataset, overlap, label-scale, and content-hash findings were unchanged.
+
+[CONTINUE-001]
+Command: find outputs/capstone_model_audit_20260711/04_resolution_tests outputs/capstone_model_audit_20260711/05_final_report -maxdepth 1 -type f -printf '%p\t%s bytes\n' | sort; git status --short -- outputs/capstone_model_audit_20260711; for path in outputs/capstone_model_audit_20260711/01_paper_baseline outputs/capstone_model_audit_20260711/01_paper_baseline_codex outputs/capstone_model_audit_20260711/01_paper_baseline_claude_crosscheck outputs/capstone_model_audit_20260711/03_independent_crosscheck; do if [ -d "$path" ]; then echo "PRESENT $path"; else echo "ABSENT $path"; fi; done
+Exit status: 0
+Output summary: Existing 04/05 work was inventoried before continuation; every required report except final_evidence_manifest.tsv was present and non-empty. The audit tree remains untracked. The Codex baseline and phase-03 cross-check are present; the two separately named baseline directories are absent.
+
+[CONTINUE-002]
+Commands: bounded `sed`, `head`, `cut`, `find`, and `rg` inspections of all required 04 files, all partially completed 05 reports, the scorecard/verdict tables, claim registers, manifest builder, validator, inventory schema, baseline availability, and stale terminology.
+Exit status: 0
+Output summary: Valid completed resolution outputs were preserved. Incomplete closeout items were the final manifest, final validator output, unchecked checklist items, final command/context logging, one missing 0.60/0.40 policy claim, stale validator assumptions, and final self-review. Cross-report policy/lineage conflations found during review were repaired rather than regenerated wholesale.
+
+[COMPILE-002]
+Command: ./.venv_gpu/bin/python -m py_compile outputs/capstone_model_audit_20260711/04_resolution_tests/build_final_evidence_manifest.py outputs/capstone_model_audit_20260711/04_resolution_tests/validate_audit_outputs.py outputs/capstone_model_audit_20260711/04_resolution_tests/verify_source_drift.py
+Exit status: 0
+Output: none
+
+[SOURCE-VERIFY-001]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/verify_source_drift.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/source_drift_validation.json
+Output summary: Rehashed 77 unique phase-00 inventoried architecture, training, data-pipeline, export, runtime-inference, evaluation, and configuration files. Missing paths: 0. Hash mismatches: 0. Duplicate inventory hash conflicts: 0. This proves no drift from the supplied phase-00 source/config snapshot, not Git working-tree cleanliness before phase 00.
+
+[MANIFEST-001]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/build_final_evidence_manifest.py
+Exit status: 0
+Output: final_evidence_manifest.tsv generated with 183 unique evidence rows and no missing-file rows. The manifest includes audit inputs/outputs, direct source/runtime contracts, raw prediction/split evidence, and parity/lineage artifact anchors. It is regenerated after final report/log edits before the final validator pass.
+
+[VALIDATION-PRE-001]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/validate_audit_outputs.py
+Exit status: 1
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/validation_results.json
+Output summary: All preliminary structure, score/verdict, claim-schema, result-JSON, manifest-hash, source-drift, and command checks passed except D16's wildcard evidence locator `exports/tflite/*.verify.json`. The TSV now cites five concrete verification JSON files. This failed pass is retained in failed_tests.md and is not presented as final validation success.
+
+[INSPECT-ERR-001]
+Command: head -n 5 outputs/capstone_model_audit_20260711/00_inventory/model_inventory.tsv; wc -l outputs/capstone_model_audit_20260711/00_inventory/model_inventory.tsv
+Result: Both read commands reported “No such file or directory”; this was a read-only filename assumption, not a resolution test. The actual `00_inventory/model_inventory.md` was then located with `find` and read in full. No evidence changed.
+
+[VALIDATION-PRE-002]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/build_final_evidence_manifest.py; ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/validate_audit_outputs.py
+Exit status: 0
+Output summary: After replacing D16's wildcard with concrete files, the preliminary validator passed: 38 disputes, 33 score rows, 33 detailed verdicts, 37 defensible claims, 50 unsafe claims, 9 bounded result JSONs, 183 live-hashed manifest rows, and 77 unchanged inventoried source/config files.
+
+[CONTINUE-003]
+Commands: read-only `rg`, `sed`, `awk`, `cut`, `column`, `find`, `head`, `wc`, and `nl` consistency inspections over the phase-00 model/artifact inventories, all required final reports, dispute rows, source policy formulas, manifest anchors/statuses, evidence vocabulary, model coverage, lineage states, and stale or contradictory wording.
+Exit status: 0, except the separately recorded INSPECT-ERR-001 filename probe.
+Output summary: The review found and repaired the technical-policy aggregate, mobile-helper parent/subcomponent distinction, Pairwise paper-fidelity wording, controlled evidence levels, lineage UNKNOWN_LINK/NOT_AVAILABLE boundaries, score-confidence semantics, and stale closeout documentation. No production files were edited.
+
+[COMPILE-003]
+Command: ./.venv_gpu/bin/python -m py_compile outputs/capstone_model_audit_20260711/04_resolution_tests/build_final_evidence_manifest.py outputs/capstone_model_audit_20260711/04_resolution_tests/validate_audit_outputs.py outputs/capstone_model_audit_20260711/04_resolution_tests/verify_source_drift.py
+Exit status: 0
+Output: none
+
+[SOURCE-VERIFY-002]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/verify_source_drift.py
+Exit status: 0
+Raw output: outputs/capstone_model_audit_20260711/04_resolution_tests/source_drift_validation.json
+Output summary: Final pre-closeout source/config rehash checked 77 unique phase-00 paths with 0 missing, 0 mismatches, and 0 duplicate inventory conflicts.
+
+[VALIDATION-PRE-003]
+Command: ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/build_final_evidence_manifest.py; ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/validate_audit_outputs.py
+Exit status: 0
+Output summary: Strengthened pre-closeout checks passed: 38 disputes, 33 score rows and detailed verdicts, exact model inventory coverage, 43 controlled-evidence paper-to-code rows, 37 defensible claims, 50 unsafe claims, 9 result JSONs, 184 live-hashed manifest rows including required lineage/parity anchors, and 77 unchanged source/config paths.
+
+[VALIDATION-001]
+Command: git status --short -- outputs/capstone_model_audit_20260711; ./.venv_gpu/bin/python -m py_compile outputs/capstone_model_audit_20260711/04_resolution_tests/build_final_evidence_manifest.py outputs/capstone_model_audit_20260711/04_resolution_tests/validate_audit_outputs.py outputs/capstone_model_audit_20260711/04_resolution_tests/verify_source_drift.py; ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/verify_source_drift.py; ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/build_final_evidence_manifest.py; ./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/04_resolution_tests/validate_audit_outputs.py
+Exit status: 0
+Output summary: Immutable closeout validation passed. The audit tree remains untracked as a whole; all three audit utilities compile; 77 phase-00 source/config paths have zero drift; the final manifest contains 184 unique live-hashed rows; all required files, TSV schemas, dispute states, 33 score/verdict pairs, controlled claim evidence, exact inventory coverage, concrete evidence paths, artifact anchors, and failed-test records pass validation. No manifest-covered file is edited after this command.

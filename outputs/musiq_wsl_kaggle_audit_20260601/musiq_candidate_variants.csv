@@ -1,0 +1,5 @@
+variant,dataset,focus,kaggle_handle,priority
+koniq-10k,KonIQ-10k,Technical,google/musiq/tf2/koniq-10k/1,High
+spaq,SPAQ,Technical,google/musiq/tf2/spaq/1,High
+paq2piq,PaQ-2-PiQ,Technical,google/musiq/tf2/paq2piq/1,High
+ava,AVA,Aesthetic,google/musiq/tf2/ava/1,Low (Aesthetic reference)

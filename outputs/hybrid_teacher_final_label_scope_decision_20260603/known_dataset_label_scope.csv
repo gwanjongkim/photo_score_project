@@ -1,0 +1,7 @@
+dataset,teacher_source,calibration_policy,status,estimated_rows
+koniq10k,mdiqa_seed1,policy_f_shift_cap3,included,10073
+spaq,mdiqa_xd,policy_f_shift_cap3,included,11125
+flive,production,none,included,3981
+real_mobile_c6,production,none,excluded_holdout,50
+test_weight_gold,production,none,excluded_validation_only,40
+unknown_fallback,production,none,excluded_future_work,0

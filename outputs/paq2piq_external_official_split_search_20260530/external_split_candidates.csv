@@ -1,0 +1,5 @@
+source_url,source_type,candidate_path_or_file,file_type,contains_split_labels,contains_train_indices,contains_val_indices,contains_test_indices,count_match_paper_protocol,usable_for_paper_protocol,confidence,notes
+https://huggingface.co/datasets/chaofengc/IQA-Toolbox-Datasets-metainfo,near-official,meta_info_FLIVEDataset.csv,csv,YES,YES,YES,YES,YES,YES,High,"Contains 'official_split' column with train(30k)/val(7.7k)/test(1.8k). Standard in PyIQA."
+https://github.com/chaofengc/IQA-PyTorch,near-official,data/train_split_info/flive_82_seed3407.pkl,pkl,YES,YES,NO,YES,NO,PARTIAL,Medium,"Likely an 80/20 split used in LoDa/PyIQA, not the 30k/7.7k/1.8k one."
+https://github.com/baidut/PaQ-2-PiQ,official,database_prep.ipynb,notebook,NO,NO,NO,NO,NO,NO,Low,"Notebook for data preparation only. Training relies on random split with valid_pct=0.2."
+https://live.ece.utexas.edu/research.php,official,All_Labels.csv,csv,NO,NO,NO,NO,NO,NO,Medium,"Raw labels and MOS only. Does not contain split indicators."

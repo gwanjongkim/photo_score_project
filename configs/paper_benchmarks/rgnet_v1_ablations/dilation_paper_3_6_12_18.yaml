@@ -1,0 +1,10 @@
+experiment:
+  name: dilation_paper_3_6_12_18
+  model_variant: rgnet_paper_v1
+  label: RGNet-paper-v1 dilation ablation
+  output_dir: outputs/rgnet_paper_v1_ablation_20260509/dilation_paper_3_6_12_18
+model:
+  dilation_rates: [3, 6, 12, 18]
+  aggregation: lse
+  lse_r: 4.0
+  region_score_activation: sigmoid_before_aggregation

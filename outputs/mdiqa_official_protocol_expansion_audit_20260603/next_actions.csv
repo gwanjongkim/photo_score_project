@@ -1,0 +1,6 @@
+step,description,priority
+1,Finalize Track A Capstone delivery,P0
+2,Generate Track B base manifest for KonIQ/SPAQ (Full),P1
+3,Run MDIQA inference for KonIQ/SPAQ missing rows,P1
+4,Evaluate FLIVE expansion priority (Images vs Patches),P2
+5,Consolidate Track B for research-only publication,P3

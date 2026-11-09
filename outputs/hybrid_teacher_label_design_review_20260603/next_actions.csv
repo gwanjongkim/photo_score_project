@@ -1,0 +1,5 @@
+task,status,owner,priority,eta
+"Build dry-run manifest (300 rows)","completed","agent","high","2026-06-03"
+"Hybrid label design review report","completed","agent","high","2026-06-03"
+"Phase 4: Full-scale label generation dry-run (2k)","pending","agent","medium","2026-06-04"
+"Range calibration audit for MDIQA vs Production","pending","agent","medium","2026-06-04"

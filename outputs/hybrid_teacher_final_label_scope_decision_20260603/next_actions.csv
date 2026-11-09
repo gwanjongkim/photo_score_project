@@ -1,0 +1,5 @@
+task,owner,priority,status,notes
+"Prepare known-dataset-only full-label dry-run manifest","agent","high","pending","Use policy_f_shift_cap3 for KonIQ/SPAQ."
+"Document lens/waterdrop artifact behavior as future work","agent","medium","pending","Reference IMG_2785.JPG."
+"Resolve .venv_tf CuDNN mismatch","devops","medium","open","Needed for bulk production scoring."
+"Design Phase 6 full-scale generation script","agent","high","pending","Exclude all unknown/fallback rows."

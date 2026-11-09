@@ -1,0 +1,4 @@
+priority,action,status
+1,Run full 2k adjusted calibration revalidation.,pending
+2,Do not run 10k until full 2k adjusted revalidation passes.,open
+3,Replace fallback proxy with real mobile/unknown rows before final label design.,open

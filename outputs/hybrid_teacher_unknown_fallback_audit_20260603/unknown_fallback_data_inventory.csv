@@ -1,0 +1,6 @@
+path,file_type,row_count,image_count,has_image_path,has_dataset_source,has_production_score,has_mos,likely_category,reason
+data/debug/c6_parity_20260527/android_c6_scores.csv,csv,50,0,True,False,True,False,real_mobile,Contains 2025* filenames from Android device with existing_technical_score_100.
+data/Test_weight/,directory,0,40,True,True,False,True,A-cut user sample,Product-labeled Bad/Soso/Good images for aesthetic evaluation.
+outputs/acut_product_gold_weight_eval_20260603/product_gold_predictions.csv,csv,40,0,True,True,False,True,A-cut user sample,Contains aesthetic scores for Test_weight images.
+outputs/hybrid_teacher_label_dryrun_10k_20260603/hybrid_label_dryrun_10k_manifest.csv,csv,7606,0,True,True,True,True,FLIVE proxy,Used FLIVE images as fallback proxy in 10k dry-run.
+outputs/research_protocol_iqa_manifests_20260530/benchmark_all_research_protocol_iqa.csv,csv,258971,0,True,True,False,True,dataset proxy,Base manifest for academic datasets.

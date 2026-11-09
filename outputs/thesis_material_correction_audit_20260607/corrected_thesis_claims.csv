@@ -1,0 +1,7 @@
+claim,status_safe_or_unsafe,evidence_path,correction_needed,thesis_section
+"We distilled all aesthetic models into a single Stage 5 MobileNetV2 for final deployment.",UNSAFE,docs/pozy_app_stage5_aesthetic_student_handoff.md,Must be rewritten as an attempted but ultimately rejected approach due to unreliability.,Experiments / Discussion
+"Final aesthetic evaluation is performed by a 4-model ensemble (NIMA, RGNet, A-LAMP, ICAA) deployed as individual TFLite models.",SAFE,forWeights2/READ.md,None.,Proposed System
+"A-LAMP was heavily modified to use MobileNetV3Small and remove graph operations for mobile compatibility.",SAFE,src/models/mobile_alamp_v2.py,None.,Proposed System
+"Our modified A-LAMP achieves State-of-the-Art performance identical to the original paper.",UNSAFE,src/models/mobile_alamp_v2.py,Must focus on the engineering achievement of making it run on mobile (TFLite) rather than raw accuracy beats.,Proposed System
+"ICAA was exported natively via TensorFlow because PyTorch-ONNX-TFLite conversion failed.",SAFE,experiments/icaa_tf_native/reports/,None.,Proposed System / Engineering Trade-offs
+"Weights for the final ensemble were fixed at NIMA 0.2, RGNet 0.4, A-LAMP 0.2, ICAA 0.2 after local validation.",SAFE,forWeights2/READ.md; configs/aesthetic_weight_lab.yaml,None.,Experiments / Evaluation

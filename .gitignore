@@ -229,3 +229,25 @@ outputs/**
 !assets/models/
 !assets/models/*nima*.tflite
 !assets/models/*rgnet*.tflite
+
+# --- Gemini Workspace Artifacts ---
+.agents/
+.gemini/
+
+# --- Prevent uploading massive CSVs from outputs ---
+# Note: GitHub limits files to 100MB.
+outputs/**/*benchmark*.csv
+outputs/**/*_split.csv
+
+
+# Node modules & external git repos
+node_modules/
+functions/node_modules/
+external/
+open_clip/
+MDIQA/checkpoints/
+MDIQA/datasets/
+.codex
+forWeights2/models/aesthetic/icaa_dat_tf_native_fp16.tflite
+
+.venv*/

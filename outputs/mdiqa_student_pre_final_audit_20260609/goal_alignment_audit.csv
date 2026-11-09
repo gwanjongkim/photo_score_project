@@ -1,0 +1,5 @@
+goal_item,status,note
+"Replace KonIQ+FLIVE hybrid (0.80 SRCC)","AT_RISK","Current best student (0.74) lags behind hybrid (0.80). Gap 0.06 is large."
+"Single mobile-plausible model","PASS","EfficientNetV2B0 is used and successfully distilled from teacher."
+"Surpass Production (0.71 SRCC)","PASS","14k student (0.74) already beats production (0.71). 50k B0 (0.70) is borderline."
+"Beat MDIQA Teacher (0.82 SRCC)","FAILED","Student cannot beat teacher in distillation without external signal or better capacity."

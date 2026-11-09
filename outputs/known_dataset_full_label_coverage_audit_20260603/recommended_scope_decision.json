@@ -1,0 +1,6 @@
+{
+  "recommended_decision": "KNOWN_DATASET_FULL_LABEL_READY_FOR_REVIEW",
+  "reason": "Coverage gaps are protocol mismatches, not script failures. SPAQ 1125 is the complete test split. KonIQ 8999 is 89% of the official set. Total 14105 is sufficient for high-quality student distillation.",
+  "scope_adjusted": true,
+  "mdiqa_rerun_needed": false
+}

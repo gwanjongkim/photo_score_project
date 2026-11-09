@@ -1,0 +1,2 @@
+priority,action,status
+1,"Fix TensorFlow GPU visibility, then rerun the same bounded smoke with 4000/1000/1000 caps.",blocked

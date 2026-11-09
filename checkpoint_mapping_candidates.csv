@@ -1,0 +1,6 @@
+variant,candidate_filename,rationale
+mdiqa_flive,mdiqa_shared_5t_4a_mbv3_koniq_xd.pth,Cross-dataset model explicitly mentioned in FLIVE validation config.
+mdiqa_spaq,mdiqa_shared_5t_4a_mbv3_koniq_xd.pth,Cross-dataset model likely best fallback for SPAQ if specific one missing.
+mdiqa_spaq,net_best.pth,Unified best model for evaluation/restoration.
+mdiqa_koniq,mdiqa_shared_5t_4a_mbv3_koniq_seed1.pth,Standard model for KonIQ-10k.
+mdiqa_koniq,net_best.pth,Alternative unified model.

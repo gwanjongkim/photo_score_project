@@ -1,0 +1,9 @@
+audit,group_a,group_b,mean_a,mean_b,mean_shift,std_a,std_b,std_ratio,p05_a,p05_b,p95_a,p95_b,p95_p05_gap_mismatch,baseline_2k_mean_shift,baseline_2k_gap_mismatch,delta_vs_2k_mean_shift,delta_vs_2k_gap_mismatch,flag_mean_shift_gt10,flag_std_ratio,flag_gap_mismatch_gt20,error,rows_total,clipped_count,clipped_pct,near_0_or_100_count,near_0_or_100_pct,near_5_or_95_count,near_5_or_95_pct,flag_clipped_pct_gt5
+mdiqa_vs_production_source_range,mdiqa_sources,production_sources,57.824659063281686,73.26109787855458,15.436438815272894,13.500148917929595,4.538091749714266,2.974851471167283,25.12678849697113,65.88152313232422,69.92692041397093,78.2873306274414,32.394324421882615,19.62347284692526,34.99398746788501,-4.187034031652367,-2.599663046002398,True,True,True,,,,,,,,,
+dataset_boundary_mean_gap,fallback_proxy,flive,,,,,,,,,,,,,,,,,,,missing group,,,,,,,,
+dataset_boundary_mean_gap,fallback_proxy,koniq10k,,,,,,,,,,,,,,,,,,,missing group,,,,,,,,
+dataset_boundary_mean_gap,fallback_proxy,spaq,,,,,,,,,,,,,,,,,,,missing group,,,,,,,,
+dataset_boundary_mean_gap,flive,koniq10k,73.26109787855458,62.86280318260193,10.39829469595265,4.538091749714266,4.9165502649133135,0.9230235643272285,65.88152313232422,52.84320968389511,78.2873306274414,68.89364737272263,3.644630193710327,,,,,True,False,False,,,,,,,,,
+dataset_boundary_mean_gap,flive,spaq,73.26109787855458,46.62878324257003,26.63231463598455,4.538091749714266,18.76072047889873,0.24189325536929784,65.88152313232422,21.062826991081238,78.2873306274414,74.31973505020142,40.85110056400299,,,,,True,True,True,,,,,,,,,
+dataset_boundary_mean_gap,koniq10k,spaq,62.86280318260193,46.62878324257003,16.2340199400319,4.9165502649133135,18.76072047889873,0.2620661754671545,52.84320968389511,21.062826991081238,68.89364737272263,74.31973505020142,37.206470370292664,,,,,True,True,True,,,,,,,,,
+boundary_and_clipping,policy_f_shift_cap3,,,,,,,,,,,,,,,,,,,,,7606.0,0.0,0.0,0.0,0.0,0.0,0.0,False

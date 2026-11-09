@@ -1,0 +1,43 @@
+# Commands executed
+
+All paths are relative to `/home/omen_pc1/photo_score_project` unless absolute. Web research is not used in this implementation phase.
+
+```text
+mkdir -p outputs/capstone_model_audit_20260711/02_codex_implementation_audit
+find outputs/capstone_model_audit_20260711 -maxdepth 2 -type f -printf '%p\n'
+sed -n '1,240p' outputs/capstone_model_audit_20260711/00_inventory/model_inventory.md
+sed -n '1,240p' outputs/capstone_model_audit_20260711/00_inventory/preliminary_lineage.md
+sed -n '1,220p' outputs/capstone_model_audit_20260711/00_inventory/artifact_manifest.tsv
+test -d outputs/capstone_model_audit_20260711/01_paper_baseline
+test -d outputs/capstone_model_audit_20260711/01_paper_baseline_codex
+rg -n "class |def |include_preprocessing|Rescaling|softmax|emd|expected|resize|crop|MobileNet|EfficientNet|graph|attention|patch" src/models src/train src/datasets src/preprocess src/infer | head -n 1200
+nl -ba src/models/technical_regressor.py
+nl -ba src/models/nima_distribution.py
+nl -ba src/models/rgnet.py
+nl -ba src/models/alamp.py
+nl -ba src/models/mobile_alamp_v2.py
+nl -ba src/models/musiq.py
+nl -ba src/datasets/csv_dataset.py
+nl -ba src/datasets/ava_distribution_dataset.py
+nl -ba src/preprocess/make_koniq_csv.py
+nl -ba src/preprocess/make_flive_csv.py
+nl -ba src/preprocess/make_aadb_csv.py
+python -c "import pandas as pd; p='outputs/research_protocol_production_technical_eval_20260530/production_technical_predictions.csv'; d=pd.read_csv(p,nrows=3); print(d.columns.tolist()); print(d.to_string(index=False))"
+find outputs/mobile_alamp_v2_full_ava_20260519_tflite checkpoints/nima_ava_gpu_fixed_preproc_20260525 exports/tflite -maxdepth 3 -type f \( -name '*.tflite' -o -name '*.keras' -o -name '*.json' \) -printf '%p\n'
+./.venv_gpu/bin/python outputs/capstone_model_audit_20260711/02_codex_implementation_audit/run_bounded_checks.py
+nl -ba src/models/technical_regressor.py | sed -n '1,140p'
+nl -ba src/models/nima_distribution.py | sed -n '1,220p'
+nl -ba src/models/rgnet.py | sed -n '1,260p'
+nl -ba src/models/alamp.py | sed -n '1,280p'
+nl -ba src/models/mobile_alamp_v2.py | sed -n '1,260p'
+nl -ba src/models/musiq.py | sed -n '1,170p'
+nl -ba src/infer/select_best_shots.py | sed -n '1,220p'
+nl -ba src/infer/predict_quality_bundle.py | sed -n '1,300p'
+nl -ba configs/stage5_reference.json | sed -n '1,240p'
+nl -ba MDIQA/MDIQA/archs/topiq_shared_fusion_arch.py | sed -n '1,260p'
+nl -ba src/models/icaa_dat.py | sed -n '1,300p'
+for f in exports/tflite/koniq_mobile.metadata.json exports/tflite/flive_image_mobile.metadata.json exports/tflite/nima_mobile.metadata.json outputs/mobile_alamp_v2_full_ava_20260519_tflite/parity_1024/export_metadata.json outputs/mobile_alamp_v2_full_ava_20260519_tflite/parity_1024/parity_report.json; do echo "FILE $f"; sed -n '1,240p' "$f"; done
+find outputs/capstone_model_audit_20260711/02_codex_implementation_audit -maxdepth 1 -type f -printf '%f\n' | sort
+wc -l outputs/capstone_model_audit_20260711/02_codex_implementation_audit/*
+git status --short outputs/capstone_model_audit_20260711/02_codex_implementation_audit
+```

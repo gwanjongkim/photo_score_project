@@ -1,0 +1,18 @@
+{
+  "artifact_types": [
+    "architecture_source",
+    "configuration",
+    "data_pipeline_source",
+    "evaluation_source",
+    "export_source",
+    "runtime_inference_source",
+    "training_source"
+  ],
+  "checked_unique_paths": 77,
+  "duplicate_inventory_hash_conflicts": [],
+  "hash_mismatches": [],
+  "inventory_rows_selected": 77,
+  "missing": [],
+  "scope_note": "Comparison is against the supplied phase-00 inventory, not against Git HEAD or pre-audit working-tree cleanliness.",
+  "status": "PASS"
+}

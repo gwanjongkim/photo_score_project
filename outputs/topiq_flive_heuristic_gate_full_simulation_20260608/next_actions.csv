@@ -1,0 +1,3 @@
+task,owner,priority,status,notes
+"Proceed with log-only profiling of TOPIQ+FLIVE 60:40","manager","high","pending","Accept 3 severe FPs; monitor real-world impact."
+"Prepare expanded Phase 14 student distillation","agent","high","pending","Use MDIQA teacher on 50k+ rows to implicitly learn safety boundaries."

@@ -1,0 +1,9 @@
+split,dataset,n,finite_n,fp_count,severe_fp_count,fn_count
+val,overall,1354,1354,28,8,1
+val,flive,452,452,2,1,1
+val,koniq10k,451,451,11,1,0
+val,spaq,451,451,15,6,0
+test,overall,1345,1345,23,5,0
+test,flive,448,448,3,1,0
+test,koniq10k,448,448,10,1,0
+test,spaq,449,449,10,3,0

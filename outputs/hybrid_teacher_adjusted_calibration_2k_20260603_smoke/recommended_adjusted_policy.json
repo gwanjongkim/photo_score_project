@@ -1,0 +1,31 @@
+{
+  "final_decision": "SMOKE_ONLY_NOT_A_FULL_2K_DECISION",
+  "recommended_policy": {
+    "policy": "policy_f_shift_cap8",
+    "source_mean_shift": 18.665477491342102,
+    "source_mean_shift_improvement": 8.0,
+    "source_std_ratio": 8.21697762992906,
+    "source_gap_mismatch": 38.71201068162918,
+    "source_gap_mismatch_improvement": 0.0,
+    "severe_fp": 0.0,
+    "fp": 0.0,
+    "clipping_count": 0.0,
+    "clipping_pct": 0.0,
+    "max_srcc_drop_vs_policy_a": 0.0,
+    "fallback_proxy_srcc": 0.3356643356643357,
+    "fallback_proxy_srcc_drop_vs_policy_a": 0.0,
+    "fallback_proxy_mae": 2.6598642069231233,
+    "flive_srcc": 0.23776223776223776,
+    "flive_srcc_drop_vs_policy_a": 0.0,
+    "flive_mae": 3.456222748277964,
+    "koniq10k_srcc": 0.9648351648351648,
+    "koniq10k_srcc_drop_vs_policy_a": 0.0,
+    "koniq10k_mae": 6.059207858774911,
+    "spaq_srcc": 0.8391608391608392,
+    "spaq_srcc_drop_vs_policy_a": 0.0,
+    "spaq_mae": 5.862811555465064,
+    "selection_score": 8.0,
+    "full_2k_decision_if_pattern_holds": "ADJUSTED_CALIBRATION_READY_FOR_10K_DRYRUN",
+    "smoke_only": true
+  }
+}

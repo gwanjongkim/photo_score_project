@@ -1,0 +1,10 @@
+student_split,dataset,row_count
+test,flive,4799
+test,koniq10k,1348
+test,spaq,1348
+train,flive,22400
+train,koniq10k,6299
+train,spaq,6299
+val,flive,4801
+val,koniq10k,1353
+val,spaq,1353

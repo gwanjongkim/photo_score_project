@@ -1,0 +1,9 @@
+model_name,domain,role,status,reason,thesis_usage
+NIMA,Aesthetic,Ensemble Component,Production,"Preproc fixed, runs fast, valid fallback.",Proposed System
+RGNet,Aesthetic,Ensemble Component,Production,"Heavy weight in aesthetic lab (0.4), mobile compatible.",Proposed System
+Mobile A-LAMP v2,Aesthetic,Ensemble Component,Production,"Stripped of graph/object detection, simplified to MobileNetV3 for speed.",Proposed System
+ICAA (Color),Aesthetic,Candidate / Excluded,Rejected for Mobile Prod,"Exported to native TF and performed well (SRCC 0.879), but latency was too high for mobile default flow.",Limitation / Discussion
+Stage 5 Student,Aesthetic,Distillation Attempt,Rejected / Ablation Baseline,"Good quantitative metrics, but suffered qualitative unreliability / ranking collapse.",Ablation Study
+KonIQ,Technical,Ensemble Component,Production,"Stable, low MAE, single input.",Proposed System
+FLIVE (Image),Technical,Ensemble Component,Production,"High SRCC, but extreme bias smoothed out by KonIQ ensemble.",Proposed System
+TOPIQ/C6,Technical,Candidate,Rejected / Log-only,"Failed to beat the stable KonIQ+FLIVE ensemble in production safety.",Related Work / Baseline

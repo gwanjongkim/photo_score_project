@@ -1,0 +1,2 @@
+PYTHONPYCACHEPREFIX=/tmp/pycache ./.venv_gpu/bin/python -m py_compile outputs/research_protocol_production_technical_eval_20260530/run_production_technical_eval.py
+PYTHONPATH=. ./.venv_gpu/bin/python outputs/research_protocol_production_technical_eval_20260530/run_production_technical_eval.py

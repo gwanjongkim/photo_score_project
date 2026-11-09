@@ -1,0 +1,62 @@
+nvidia-smi:
+- NVIDIA-SMI 590.48.01
+- Driver Version: 591.55
+- CUDA Version: 13.1
+- GPU: NVIDIA GeForce RTX 4070-class, 1234 MiB / 12282 MiB used by display process.
+
+Trainer inspection:
+- `scripts/technical_iqa/train_mobile_student_iqa_50k_smoke.py` has `--out_dir`.
+- Defaults are `--max_train_samples 4000`, `--max_val_samples 1000`, `--max_test_samples 1000`, `--backbone_weights imagenet`.
+- No trainer patch needed for output isolation.
+
+Sandboxed `.venv_gpu` preflight:
+- TensorFlow: 2.21.0
+- built_cuda: True
+- NVIDIA wheel lib dirs exist.
+- Error: `failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (100)`
+- GPUs: `[]`
+- PyTorch also failed CUDA init: `cuda_available False`, `device_count 0`, `Can't initialize NVML`.
+- `/dev/dxg` absent in sandbox.
+
+Sandboxed `.venv_tf` preflight:
+- TensorFlow: 2.21.0
+- built_cuda: True
+- NVIDIA wheel lib dirs exist.
+- Error: `failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (100)`
+- GPUs: `[]`
+
+Unsandboxed `.venv_gpu` preflight:
+- TensorFlow: 2.21.0
+- built_cuda: True
+- `/dev/dxg`: True
+- GPUs: `[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]`
+
+Unsandboxed `.venv_gpu` bounded smoke attempt:
+- Output: `outputs/mobile_student_iqa_50k_smoke_gpu_fixed_20260608/`
+- Counts: train 4000, val 1000, test 1000
+- Runtime: 53.55 seconds
+- TensorFlow GPU visible: yes
+- Failure: `Loaded runtime CuDNN library: 9.1.0 but source was compiled with: 9.3.0`
+- Trainer decision: `STUDENT_50K_SMOKE_FAILED`
+- Failure CSV: `training failed: FailedPreconditionError()`
+
+Unsandboxed `.venv_tf` preflight:
+- TensorFlow: 2.21.0
+- built_cuda: True
+- `/dev/dxg`: True
+- GPUs: `[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]`
+- NVIDIA packages include newer CuDNN: `nvidia-cudnn-cu12 9.23.0.39`
+
+Unsandboxed `.venv_tf` bounded smoke:
+- Output: `outputs/mobile_student_iqa_50k_smoke_gpu_fixed_venv_tf_20260608/`
+- Counts: train 4000, val 1000, test 1000
+- Runtime: 155.24 seconds
+- TensorFlow GPU visible: yes, GPU count 1
+- ImageNet weights loaded: True
+- Final train loss: 0.002758
+- Final val loss: 0.002619
+- Prediction std: train 9.462186, val 8.815579, test 7.993017
+- Failure count: 0
+- NaN/Inf count: 0
+- Collapse: false, `pred_std_too_low=False`, `pred_outside_0_100=False`
+- Trainer decision: `STUDENT_50K_SMOKE_READY_FOR_CONTROLLED_TRAINING`

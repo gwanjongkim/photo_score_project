@@ -1,0 +1,27 @@
+{
+  "c6_overall_mae": 15.387165076362928,
+  "c6_overall_srcc": 0.7036146335915561,
+  "c6_severe_fp": 0,
+  "c6_signal": "c6_topiq_koniq_cap",
+  "comparison_signal": "topiq_existing_flive_57_43",
+  "dataset_deltas": [
+    {
+      "c6_srcc_delta_vs_topiq_flive": -0.1496699663732195,
+      "dataset": "flive"
+    },
+    {
+      "c6_srcc_delta_vs_topiq_flive": -0.05946563763492496,
+      "dataset": "koniq10k"
+    },
+    {
+      "c6_srcc_delta_vs_topiq_flive": -0.0005946910310242748,
+      "dataset": "spaq"
+    }
+  ],
+  "final_decision": "TOPIQ_FLIVE_REMAINS_BEST_LOG_ONLY_CANDIDATE",
+  "log_only_candidate": false,
+  "production_replacement": false,
+  "topiq_flive_overall_mae": 5.039496979596648,
+  "topiq_flive_overall_srcc": 0.8221780661566745,
+  "topiq_flive_severe_fp": 0
+}

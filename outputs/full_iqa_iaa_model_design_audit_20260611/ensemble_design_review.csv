@@ -1,0 +1,8 @@
+design_choice,assessment,benefit,risk,recommendation
+late fusion IQA/IAA,Sound; combine technical and aesthetic scores after each model runs,Preserves both signals; debuggable; per-model sub-scores visible,Requires consistent calibration/scale across models,Keep late fusion
+technical/aesthetic separation,Sound; two distinct judgments with distinct ground truth,Avoids single-head interference seen in TechIQA-Guard v1,None material; slightly more models to maintain,Keep axes separate; do not collapse into one model
+multi-model ensemble,Sound; each model covers others' weak datasets,Cross-dataset robustness (RGNet->AADB NIMA->AVA KonIQ guards FLIVE),Added latency and maintenance,Keep submitted set (NIMA/RGNet/A-LAMP); weights 0.40/0.45/0.15
+ICAA skip,Justified; ~0 rank benefit and ~1.1 s latency,Saves ~3x aesthetic latency with negligible SRCC loss,Loses an explicit color signal in ranking,Keep skipped; expose only as research/color subscore
+MDIQA student no-go,Justified; below production and all variants regressed,Avoids accuracy loss and severe-FP risk; validates existing stack,None; archived,Keep no-go; do not integrate
+score calibration,Necessary and already applied (linear slopes/intercepts fit on train fold),Aligns heterogeneous scales before fusion,Audit constants must stay in sync with Flutter,Keep calibration; verify Flutter parity
+debug/explanation UI,Enabled by late fusion; shows per-model sub-scores,Diagnose bad ranks; strong for capstone demo,None,Keep; surface ICAA/TOPIQ+FLIVE as log-only sub-scores

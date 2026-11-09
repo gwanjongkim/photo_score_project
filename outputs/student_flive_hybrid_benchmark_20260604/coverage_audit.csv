@@ -1,0 +1,5 @@
+dataset,test_manifest_rows,cached_fusion_rows,common_rows,common_pct_of_test
+overall,1413,6114,596,0.42179759377211606
+flive,399,3981,399,1.0
+koniq10k,901,1008,84,0.0932297447280799
+spaq,113,1125,113,1.0

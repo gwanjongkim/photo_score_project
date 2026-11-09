@@ -1,0 +1,4 @@
+task,priority,owner
+"Run S2_koniq_x2 label scaling smoke","HIGH","Agent"
+"Verify SRCC gain on KonIQ official test","HIGH","Agent"
+"Final go/no-go for MDIQA student line","HIGH","User/Agent"

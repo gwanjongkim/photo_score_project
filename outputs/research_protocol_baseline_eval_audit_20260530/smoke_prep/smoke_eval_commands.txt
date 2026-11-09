@@ -1,0 +1,11 @@
+KonIQ smoke sample size per split: 5
+FLIVE smoke sample size per split: 5
+SPAQ smoke sample size per split: 5
+
+Suggested manual evaluation commands after sampling:
+PYTHONPATH=. ./.venv_gpu/bin/python scripts/eval_final_topiq_candidates_vs_existing_technical.py --out_dir outputs/research_protocol_baseline_eval_audit_20260530/smoke_prep/existing_vs_topiq --max_samples 5
+PYTHONPATH=. ./.venv_gpu/bin/python src/infer/run_acut_pipeline.py --input_dir outputs/research_protocol_baseline_eval_audit_20260530/smoke_prep/inputs --output_dir outputs/research_protocol_baseline_eval_audit_20260530/smoke_prep/acut --top_k 5 --disable_vila_rerank --disable_vila_explanations --disable_acut_reasoning
+
+Note: the existing benchmark script uses its own internal dataset order;
+the sampled CSVs written by this helper are for manual smoke runs and
+do not mutate production scoring behavior.

@@ -1,0 +1,5 @@
+priority,action,rationale
+1,Filter FLIVE manifest to images only,MDIQA is designed and reported on full images
+2,Strictly follow official FLIVE test split,Consistency with paper reporting protocol
+3,Increase sample size for FLIVE image sanity,n=26 is too small for stable SRCC (current 0.507)
+4,Proceed with SPAQ and KonIQ as teacher candidates,Performance on these datasets is verified and beats production

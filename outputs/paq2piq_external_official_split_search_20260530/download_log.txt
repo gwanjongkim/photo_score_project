@@ -1,0 +1,3 @@
+2026-05-30: Performed web fetch on metadata URLs. No large image files were downloaded. Split metadata identified on Hugging Face.
+URL: https://huggingface.co/datasets/chaofengc/IQA-Toolbox-Datasets-metainfo/raw/main/meta_info_FLIVEDataset.csv
+Status: Identified as Git LFS file. Ready for download via curl/wget if requested.

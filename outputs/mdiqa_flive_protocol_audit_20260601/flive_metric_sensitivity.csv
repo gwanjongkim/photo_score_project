@@ -1,0 +1,7 @@
+variant,condition,n,srcc,notes
+mdiqa_xd,Mixed (Images+Patches),100,0.0676,WSL sanity aggregate
+mdiqa_xd,Images only,26,0.5070,Stronger correlation but still below paper 0.612
+mdiqa_xd,Patches only,74,0.2810,Weak correlation
+mdiqa_xd,Inverted scores,-100,-0.0676,Not an orientation issue
+mdiqa_koniq,Images only,26,0.4509,Standard model also shows signal on images
+mdiqa_unified,Images only,26,0.4660,Unified model shows signal on images

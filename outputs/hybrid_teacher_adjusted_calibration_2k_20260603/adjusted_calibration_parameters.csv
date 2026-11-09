@@ -1,0 +1,22 @@
+policy,source,adjustment_type,raw_shift,applied_shift,cap,bias_median_target_minus_mos,fraction,candidate_adjustment,applied_adjustment,candidate_fp,baseline_fp,clamp_rule,diagnostic_only,alpha,raw_mean,raw_std,mos_mean,mos_std,std_ratio
+policy_f_shift_cap3,mdiqa_sources,constant_shift_toward_production_mean,22.62347284692526,3.0,3.0,,,,,,,,,,,,,,
+policy_f_shift_cap5,mdiqa_sources,constant_shift_toward_production_mean,22.62347284692526,5.0,5.0,,,,,,,,,,,,,,
+policy_f_shift_cap8,mdiqa_sources,constant_shift_toward_production_mean,22.62347284692526,8.0,8.0,,,,,,,,,,,,,,
+policy_g_residual_25_cap5,mdiqa_seed1,median_residual_fraction,,,,-4.798566595706337,0.25,1.1996416489265842,1.1996416489265842,0.0,0.0,,,,,,,,
+policy_g_residual_25_cap5,mdiqa_xd,median_residual_fraction,,,,-4.304436087608336,0.25,1.076109021902084,1.076109021902084,0.0,0.0,,,,,,,,
+policy_g_residual_25_cap5,production,median_residual_fraction,,,,1.0932740507073646,0.25,-0.27331851267684115,-0.27331851267684115,0.0,0.0,,,,,,,,
+policy_g_residual_25_cap5,production_safety_fallback,median_residual_fraction,,,,0.8337215951751489,0.25,-0.20843039879378722,-0.20843039879378722,0.0,0.0,,,,,,,,
+policy_g_residual_50_cap5,mdiqa_seed1,median_residual_fraction,,,,-4.798566595706337,0.5,2.3992832978531684,2.3992832978531684,0.0,0.0,,,,,,,,
+policy_g_residual_50_cap5,mdiqa_xd,median_residual_fraction,,,,-4.304436087608336,0.5,2.152218043804168,2.152218043804168,0.0,0.0,,,,,,,,
+policy_g_residual_50_cap5,production,median_residual_fraction,,,,1.0932740507073646,0.5,-0.5466370253536823,-0.5466370253536823,0.0,0.0,,,,,,,,
+policy_g_residual_50_cap5,production_safety_fallback,median_residual_fraction,,,,0.8337215951751489,0.5,-0.41686079758757444,-0.41686079758757444,0.0,0.0,,,,,,,,
+policy_h_a_fp_clamp,all,diagnostic_mos_fp_clamp,,,,,,,,,,if MOS < 40 and target > 60 then target = 60,True,,,,,,
+policy_h_f5_fp_clamp,all,diagnostic_mos_fp_clamp,,,,,,,,,,if MOS < 40 and target > 60 then target = 60,True,,,,,,
+policy_i_zsoft_25_cap5,fallback_proxy,dataset_local_soft_zscore,,,5.0,,,,,,,,,0.25,73.42444828033447,4.21771121660843,72.3196416672346,5.952004007368576,1.4111928725539287
+policy_i_zsoft_25_cap5,flive,dataset_local_soft_zscore,,,5.0,,,,,,,,,0.25,73.39521672930036,4.271013873553231,72.1244778506199,5.972840887955446,1.3984597252048718
+policy_i_zsoft_25_cap5,koniq10k,dataset_local_soft_zscore,,,5.0,,,,,,,,,0.25,59.88892571926117,4.8928473739569185,63.25335085133246,11.31417462560139,2.312390671702365
+policy_i_zsoft_25_cap5,spaq,dataset_local_soft_zscore,,,5.0,,,,,,,,,0.25,41.672100976109505,18.323626606490716,45.999,21.13127920694447,1.1532258139040668
+policy_i_zsoft_50_cap5,fallback_proxy,dataset_local_soft_zscore,,,5.0,,,,,,,,,0.5,73.42444828033447,4.21771121660843,72.3196416672346,5.952004007368576,1.4111928725539287
+policy_i_zsoft_50_cap5,flive,dataset_local_soft_zscore,,,5.0,,,,,,,,,0.5,73.39521672930036,4.271013873553231,72.1244778506199,5.972840887955446,1.3984597252048718
+policy_i_zsoft_50_cap5,koniq10k,dataset_local_soft_zscore,,,5.0,,,,,,,,,0.5,59.88892571926117,4.8928473739569185,63.25335085133246,11.31417462560139,2.312390671702365
+policy_i_zsoft_50_cap5,spaq,dataset_local_soft_zscore,,,5.0,,,,,,,,,0.5,41.672100976109505,18.323626606490716,45.999,21.13127920694447,1.1532258139040668

@@ -1,0 +1,8 @@
+item,official_srcc,role,decision,note
+MDIQA teacher,0.8227,reference,keep as reference,Confirmed gold standard teacher but unsuitable for mobile runtime.
+14k student,0.7436,prior student,stronger than 50k line,Previous distillation attempt with smaller dataset performed better.
+production KonIQ+FLIVE,0.7168,current production,keep,Existing production stack remains the most robust choice.
+Phase 16 unweighted 50k B0,0.70329,baseline 50k student,below production,Large data B0 baseline failed to beat 14k student or production.
+Phase 19 W5-v2,0.516337,weighted smoke,no-go,Inverse-frequency weighting regressed performance.
+Phase 21 ranking smoke,0.48026,rank-loss test,no-go,Ranking loss implementation was valid but regressed metrics further.
+Phase 23 S2 KonIQ x2,0.540411,final label-scaling smoke,final no-go,Target scaling improved over ranking but remained far below baseline.

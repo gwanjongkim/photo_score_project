@@ -1,0 +1,12 @@
+filename,size_bytes,status
+mdiqa_shared_5t_4a_mbv3_koniq_seed1.pth,19930987,Present
+net_best_PARA_val_color.pth,290502209,Present
+net_best_koniq10k_val_head0_head0.pth,36428809,Present
+net_best_koniq10k_val_head1_head1.pth,36428809,Present
+net_best_koniq10k_val_head2_head2.pth,36428809,Present
+net_best_koniq10k_val_head3_head3.pth,36428809,Present
+net_best_koniq10k_val_head4_head4.pth,36428809,Present
+net_freeze_backbone.pth,144754849,Present
+mdiqa_shared_5t_4a_mbv3_koniq_xd.pth,466238667,Present
+net_best.pth,105006103,Present
+mdiqa_shared_5t_4a_clipfeat_localv4_mbv3_koniq_seed1.pth,0,Missing

@@ -1,0 +1,5 @@
+policy,total_rows,koniq_rows,spaq_rows,flive_img_rows,flive_patch_rows,cached_rows,missing_rows
+Policy A (Image-only),50000,7193,8916,33891,0,6431,43569
+Policy B (Balanced),50000,7193,8916,33891,0,6418,43582
+Policy C (Hard-absent),18058,8058,10000,0,0,7201,10857
+Policy D (Cache-first),50000,7426,2564,9907,30103,7201,42799

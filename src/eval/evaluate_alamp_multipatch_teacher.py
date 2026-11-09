@@ -122,8 +122,15 @@ def _load_model_from_args(
     patch_count = int(_cfg(config, "model", "patch_count", 5))
     patch_size = int(_cfg(config, "model", "patch_size", 224))
     backbone_trainable = _parse_bool(_cfg(config, "model", "backbone_trainable", False))
+    unfreeze_from_layer = _cfg(config, "model", "unfreeze_from_layer", None)
+    patch_projection_mode = _cfg(config, "model", "patch_projection_mode", "gap")
+    patch_feature_dim = int(_cfg(config, "model", "patch_feature_dim", 512))
+    patch_projection_layers = int(_cfg(config, "model", "patch_projection_layers", 1))
     head_units = int(_cfg(config, "model", "head_units", 256))
-    dropout_rate = float(_cfg(config, "model", "dropout_rate", 0.5))
+    head_layers = int(_cfg(config, "model", "head_layers", 1))
+    head_dropout = float(_cfg(config, "model", "head_dropout", _cfg(config, "model", "dropout_rate", 0.5)))
+    dense_l2 = float(_cfg(config, "model", "dense_l2", 0.0))
+    bias_l2 = float(_cfg(config, "model", "bias_l2", 0.0))
 
     # The weights checkpoint fills the VGG16 backbone, so avoid any ImageNet download during eval.
     model = build_alamp_multipatch_teacher_model(
@@ -131,8 +138,16 @@ def _load_model_from_args(
         patch_size=patch_size,
         backbone_weights=None,
         backbone_trainable=backbone_trainable,
+        unfreeze_from_layer=unfreeze_from_layer,
+        patch_projection_mode=patch_projection_mode,
+        patch_feature_dim=patch_feature_dim,
+        patch_projection_layers=patch_projection_layers,
         head_units=head_units,
-        dropout_rate=dropout_rate,
+        head_layers=head_layers,
+        head_dropout=head_dropout,
+        dropout_rate=head_dropout,
+        dense_l2=dense_l2,
+        bias_l2=bias_l2,
     )
     model.load_weights(str(weights_path))
     return model, "weights_only", {"model_path": None, "weights_path": str(weights_path)}

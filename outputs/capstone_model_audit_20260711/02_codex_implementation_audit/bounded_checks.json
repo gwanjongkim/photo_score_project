@@ -1,0 +1,442 @@
+{
+  "manifests": {
+    "koniq": {
+      "splits": {
+        "train": {
+          "rows": 8058,
+          "unique_paths": 8058,
+          "missing_files": 0,
+          "label_min": 3.91176470588235,
+          "label_max": 88.3888888888889,
+          "label_nan": 0
+        },
+        "val": {
+          "rows": 1007,
+          "unique_paths": 1007,
+          "missing_files": 0,
+          "label_min": 5.08974358974359,
+          "label_max": 86.35,
+          "label_nan": 0
+        },
+        "test": {
+          "rows": 1008,
+          "unique_paths": 1008,
+          "missing_files": 0,
+          "label_min": 7.51680672268908,
+          "label_max": 86.0044642857143,
+          "label_nan": 0
+        }
+      },
+      "exact_path_overlaps": {
+        "train__val": 0,
+        "train__test": 0,
+        "val__test": 0
+      }
+    },
+    "flive_image": {
+      "splits": {
+        "image_train": {
+          "rows": 31848,
+          "unique_paths": 31848,
+          "missing_files": 0,
+          "label_min": 0.0,
+          "label_max": 94.3332343725568,
+          "label_nan": 0
+        },
+        "image_val": {
+          "rows": 3981,
+          "unique_paths": 3981,
+          "missing_files": 0,
+          "label_min": 21.012450896859225,
+          "label_max": 93.1093761480135,
+          "label_nan": 0
+        },
+        "image_test": {
+          "rows": 3981,
+          "unique_paths": 3981,
+          "missing_files": 0,
+          "label_min": 13.02723027917686,
+          "label_max": 89.7896374033182,
+          "label_nan": 0
+        }
+      },
+      "exact_path_overlaps": {
+        "image_train__image_val": 0,
+        "image_train__image_test": 0,
+        "image_val__image_test": 0
+      }
+    },
+    "aadb": {
+      "splits": {
+        "train": {
+          "rows": 7612,
+          "unique_paths": 7612,
+          "missing_files": 0,
+          "label_min": 0.0,
+          "label_max": 1.0,
+          "label_nan": 0
+        },
+        "val": {
+          "rows": 846,
+          "unique_paths": 846,
+          "missing_files": 0,
+          "label_min": 0.0,
+          "label_max": 0.95,
+          "label_nan": 0
+        },
+        "test": {
+          "rows": 1000,
+          "unique_paths": 1000,
+          "missing_files": 0,
+          "label_min": 0.05,
+          "label_max": 1.0,
+          "label_nan": 0
+        }
+      },
+      "exact_path_overlaps": {
+        "train__val": 0,
+        "train__test": 0,
+        "val__test": 0
+      }
+    }
+  },
+  "tflite": {
+    "koniq": {
+      "status": "PASS",
+      "path": "exports/tflite/koniq_mobile.tflite",
+      "sha256": "67faf88050c73ba77cc76e93f02b854095e483b8dff72577cb03f55199b8be56",
+      "size": 9545852,
+      "inputs": [
+        {
+          "name": "serving_default_keras_tensor_154:0",
+          "shape": [
+            1,
+            224,
+            224,
+            3
+          ],
+          "dtype": "<class 'numpy.float32'>",
+          "min": 1.0967254638671875e-05,
+          "max": 0.9999961853027344,
+          "quantization": [
+            0.0,
+            0
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            1
+          ],
+          "dtype": "float32",
+          "values": [
+            59.140602111816406
+          ],
+          "finite": true,
+          "sum": 59.140602111816406
+        }
+      ]
+    },
+    "flive_image": {
+      "status": "PASS",
+      "path": "exports/tflite/flive_image_mobile.tflite",
+      "sha256": "58aee1e11f6ec2baf6f9705c457b3bd2fa3e22e7151582ebae3e68c838f5ebdb",
+      "size": 9545852,
+      "inputs": [
+        {
+          "name": "serving_default_keras_tensor_154:0",
+          "shape": [
+            1,
+            224,
+            224,
+            3
+          ],
+          "dtype": "<class 'numpy.float32'>",
+          "min": 1.0967254638671875e-05,
+          "max": 0.9999961853027344,
+          "quantization": [
+            0.0,
+            0
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            1
+          ],
+          "dtype": "float32",
+          "values": [
+            76.5195083618164
+          ],
+          "finite": true,
+          "sum": 76.5195083618164
+        }
+      ]
+    },
+    "nima_legacy": {
+      "status": "PASS",
+      "path": "exports/tflite/nima_mobile.tflite",
+      "sha256": "48ed5a9f1e82e3f162c75ac6f6931004041736a4641002d282408d8fecf8800a",
+      "size": 24765068,
+      "inputs": [
+        {
+          "name": "serving_default_keras_tensor_270:0",
+          "shape": [
+            1,
+            224,
+            224,
+            3
+          ],
+          "dtype": "<class 'numpy.float32'>",
+          "min": 1.0967254638671875e-05,
+          "max": 0.9999961853027344,
+          "quantization": [
+            0.0,
+            0
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            10
+          ],
+          "dtype": "float32",
+          "values": [
+            0.025629999116063118,
+            0.05346086621284485,
+            0.12227867543697357,
+            0.23807461559772491,
+            0.2602892816066742,
+            0.1590784639120102,
+            0.07896732538938522,
+            0.03730849176645279,
+            0.013773207552731037,
+            0.011139066889882088
+          ],
+          "finite": true,
+          "sum": 1.0
+        }
+      ]
+    },
+    "rgnet_practical": {
+      "status": "PASS",
+      "path": "exports/tflite/rgnet_aadb_gpu.tflite",
+      "sha256": "b81461fe49d1ff4ff83ccccdc8bbdee958558552472f4d5db74a6217e24cdeb2",
+      "size": 26085072,
+      "inputs": [
+        {
+          "name": "serving_default_keras_tensor_270:0",
+          "shape": [
+            1,
+            256,
+            256,
+            3
+          ],
+          "dtype": "<class 'numpy.float32'>",
+          "min": 1.0967254638671875e-05,
+          "max": 0.9999992251396179,
+          "quantization": [
+            0.0,
+            0
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            1
+          ],
+          "dtype": "float32",
+          "values": [
+            0.3891075849533081
+          ],
+          "finite": true,
+          "sum": 0.3891075849533081
+        }
+      ]
+    },
+    "alamp_practical": {
+      "status": "PASS",
+      "path": "exports/tflite/alamp_aadb_gpu.tflite",
+      "sha256": "8b579a0cabc3e51a548f8e3a25ab4ee9f8ecc016632764e11b38ff9a58f288c7",
+      "size": 39158340,
+      "inputs": [
+        {
+          "name": "serving_default_global_view:0",
+          "shape": [
+            1,
+            384,
+            384,
+            3
+          ],
+          "dtype": "<class 'numpy.float32'>",
+          "min": 4.172325134277344e-07,
+          "max": 0.9999992251396179,
+          "quantization": [
+            0.0,
+            0
+          ]
+        },
+        {
+          "name": "serving_default_patches:0",
+          "shape": [
+            1,
+            5,
+            224,
+            224,
+            3
+          ],
+          "dtype": "<class 'numpy.float32'>",
+          "min": 1.7881393432617188e-07,
+          "max": 0.999999463558197,
+          "quantization": [
+            0.0,
+            0
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            1
+          ],
+          "dtype": "float32",
+          "values": [
+            0.72395920753479
+          ],
+          "finite": true,
+          "sum": 0.72395920753479
+        }
+      ]
+    },
+    "alamp_v2_fp16": {
+      "status": "PASS",
+      "path": "outputs/mobile_alamp_v2_full_ava_20260519_tflite/parity_1024/mobile_alamp_v2_fp16.tflite",
+      "sha256": "70cbc5c75d5468a3bfd825047f83eda32f4a8da36150f6905013e967c90efa43",
+      "size": 2930400,
+      "inputs": [
+        {
+          "name": "serving_default_patches:0",
+          "shape": [
+            1,
+            5,
+            224,
+            224,
+            3
+          ],
+          "dtype": "<class 'numpy.float32'>",
+          "min": 4.172325134277344e-07,
+          "max": 0.9999992251396179,
+          "quantization": [
+            0.0,
+            0
+          ]
+        },
+        {
+          "name": "serving_default_full_image:0",
+          "shape": [
+            1,
+            384,
+            384,
+            3
+          ],
+          "dtype": "<class 'numpy.float32'>",
+          "min": 1.7881393432617188e-07,
+          "max": 0.999999463558197,
+          "quantization": [
+            0.0,
+            0
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            1
+          ],
+          "dtype": "float32",
+          "values": [
+            0.06437358260154724
+          ],
+          "finite": true,
+          "sum": 0.06437358260154724
+        }
+      ]
+    },
+    "stage5_student": {
+      "status": "PASS",
+      "path": "exports/tflite/stage5_student_full_aadb_aesthetic_mobile_fp32.tflite",
+      "sha256": "0e983dc26ee0ecc2f1140d6108e68b0fe5a96f095831db50c501b6b499d63940",
+      "size": 3411060,
+      "inputs": [
+        {
+          "name": "serving_default_image:0",
+          "shape": [
+            1,
+            224,
+            224,
+            3
+          ],
+          "dtype": "<class 'numpy.float32'>",
+          "min": 1.0967254638671875e-05,
+          "max": 0.9999961853027344,
+          "quantization": [
+            0.0,
+            0
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            1
+          ],
+          "dtype": "float32",
+          "values": [
+            0.4751748740673065
+          ],
+          "finite": true,
+          "sum": 0.4751748740673065
+        }
+      ]
+    }
+  },
+  "metrics": {
+    "path": "outputs/research_protocol_production_technical_eval_20260530/production_technical_predictions.csv",
+    "columns": [
+      "dataset",
+      "protocol",
+      "run_id",
+      "split",
+      "content_type",
+      "image_id",
+      "image_path",
+      "quality_score_0_100",
+      "flive_standalone",
+      "koniq_standalone",
+      "production_technical_score",
+      "formula_source",
+      "notes"
+    ],
+    "rows": 4967,
+    "recomputed": {},
+    "status": "no_ground_truth_column_identified"
+  }
+}

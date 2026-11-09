@@ -1,0 +1,2 @@
+checkpoint,split,pred_min,pred_max,pred_mean,pred_std
+best_by_val_mae,test,11.61990836262703,76.82833671569824,61.107972911272334,8.084930131068623

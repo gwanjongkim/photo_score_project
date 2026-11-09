@@ -1,0 +1,4 @@
+task,owner,priority,status,notes
+"Split 50k manifest into train/val for distillation","agent","high","pending","E.g., 45k train, 5k val. Keep separate from official test."
+"Execute student distillation smoke run","agent","medium","pending","Verify training stability on the new 50k dataset."
+"Begin full student training with larger backbone","agent","medium","pending","Experiment with EfficientNetV2B1/B2."

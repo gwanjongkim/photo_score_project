@@ -1,0 +1,87 @@
+{
+  "flive_patch": {
+    "actual_aggregation": {
+      "mean": 75.3499984741211,
+      "min": 74.375,
+      "num_patches": 5,
+      "std": 0.5626388788223267
+    },
+    "actual_patch_predictions": [
+      75.875,
+      75.25,
+      75.9375,
+      74.375,
+      75.3125
+    ],
+    "image_path": "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/AVA__542870.jpg",
+    "patch_batch_shape": [
+      5,
+      224,
+      224,
+      3
+    ],
+    "patch_range": [
+      0.0,
+      1.0
+    ],
+    "semantic_finding": "Five-crop mean/min/std is an application heuristic, not PaQ-2-PiQ learned image aggregation.",
+    "synthetic_aggregation": {
+      "mean": 30.0,
+      "min": 10.0,
+      "std": 14.142135620117188
+    },
+    "synthetic_predictions": [
+      10.0,
+      20.0,
+      30.0,
+      40.0,
+      50.0
+    ]
+  },
+  "icaa": {
+    "image_path": "data/raw/icaa17k/complementary/orange_blue/juiedesai19391601268.jpg",
+    "imagenet_normalized_output": [
+      0.6550655364990234,
+      0.5890328884124756
+    ],
+    "input_ranges": {
+      "imagenet_normalized": [
+        -2.1179039478302,
+        2.640000104904175
+      ],
+      "zero_to_one": [
+        0.0,
+        1.0
+      ]
+    },
+    "max_abs_difference_between_contracts": 0.2212681770324707,
+    "model_path": "forWeights2/models/aesthetic/icaa_dat_tf_native_fp16.tflite",
+    "port_output_order": [
+      "mos",
+      "color"
+    ],
+    "tensor_contract": {
+      "input_dtype": "<class 'numpy.float32'>",
+      "input_name": "serving_default_image:0",
+      "input_shape": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "output_dtype": "<class 'numpy.float32'>",
+      "output_name": "StatefulPartitionedCall:0",
+      "output_shape": [
+        1,
+        2
+      ]
+    },
+    "validated_color_index": 1,
+    "weight_lab_config_index": 0,
+    "zero_to_one_output": [
+      0.43379735946655273,
+      0.5984445810317993
+    ]
+  },
+  "tensorflow_version": "2.21.0"
+}

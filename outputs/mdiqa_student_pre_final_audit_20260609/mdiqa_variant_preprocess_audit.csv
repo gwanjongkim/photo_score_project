@@ -1,0 +1,3 @@
+variant,dataset_group,checkpoint_path,semantic_feat,local_score
+"mdiqa_koniq (seed1)","KonIQ-10k","checkpoints/mdiqa_shared_5t_4a_mbv3_koniq_seed1.pth","without","False"
+"mdiqa_xd","SPAQ, FLIVE","checkpoints/mdiqa_shared_5t_4a_mbv3_koniq_xd.pth","clip_RN50","True"

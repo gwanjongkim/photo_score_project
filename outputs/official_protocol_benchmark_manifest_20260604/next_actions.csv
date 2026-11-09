@@ -1,0 +1,5 @@
+task,owner,priority,status,notes
+Run MDIQA inference on official test splits,agent,high,pending,Approx 5000 images (KonIQ 2015 + SPAQ 1125 + FLIVE 1827)
+Compare MDIQA vs Production on official splits,agent,high,pending,Generate official metrics (SRCC/PLCC/MAE)
+Inference on FLIVE patches (optional),agent,medium,pending,Approx 5481 patches
+Review SPAQ 80/20 seed consistency,agent,low,pending,Verify if Seed 123 is the standard SPAQ research protocol

@@ -1,6 +1,7 @@
 from pathlib import Path
+import re
 import pandas as pd
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GroupShuffleSplit, train_test_split
 
 ROOT = Path.home() / "photo_score_project"
 RAW = ROOT / "data" / "raw" / "paq2piq"
@@ -8,6 +9,13 @@ PROC = ROOT / "data" / "processed" / "paq2piq"
 IMG_ROOT = RAW   # 중요: 현재 구조에 맞게 RAW로 둔다
 
 PROC.mkdir(parents=True, exist_ok=True)
+
+
+def extract_parent_id(relative_path: str) -> str:
+    stem = Path(str(relative_path)).stem
+    # Strip patch suffix like _patch_0, _p1, etc. so patches stay in the same fold as parent image
+    parent = re.sub(r"(_patch_\d+|_p\d+)$", "", stem)
+    return parent
 
 def build_image_csv():
     df = pd.read_csv(RAW / "labels_image.csv")
@@ -38,8 +46,17 @@ def build_patch_csv():
     return df[["image_path", "mos", "dataset", "is_patch", "relative_path"]]
 
 def split_and_save(df, prefix):
-    train_df, temp_df = train_test_split(df, test_size=0.2, random_state=42)
-    val_df, test_df = train_test_split(temp_df, test_size=0.5, random_state=42)
+    df = df.copy()
+    df["parent_id"] = df["relative_path"].apply(extract_parent_id)
+    gss_outer = GroupShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+    train_idx, temp_idx = next(gss_outer.split(df, groups=df["parent_id"]))
+    train_df = df.iloc[train_idx].drop(columns=["parent_id"]).copy()
+    temp_df = df.iloc[temp_idx].copy()
+
+    gss_inner = GroupShuffleSplit(n_splits=1, test_size=0.5, random_state=42)
+    val_idx, test_idx = next(gss_inner.split(temp_df, groups=temp_df["parent_id"]))
+    val_df = temp_df.iloc[val_idx].drop(columns=["parent_id"]).copy()
+    test_df = temp_df.iloc[test_idx].drop(columns=["parent_id"]).copy()
 
     train_df.to_csv(PROC / f"{prefix}_train.csv", index=False)
     val_df.to_csv(PROC / f"{prefix}_val.csv", index=False)

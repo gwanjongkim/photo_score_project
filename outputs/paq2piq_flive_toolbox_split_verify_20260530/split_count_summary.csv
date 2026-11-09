@@ -1,0 +1,10 @@
+category,split,count
+all,train,121024
+all,val,30908
+all,test,7308
+image,train,30256
+image,val,7727
+image,test,1827
+patch,train,90768
+patch,val,23181
+patch,test,5481

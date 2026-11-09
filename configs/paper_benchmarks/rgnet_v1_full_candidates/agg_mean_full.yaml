@@ -1,0 +1,9 @@
+experiment:
+  name: agg_mean_full
+  model_variant: rgnet_paper_v1
+  label: RGNet-paper-v1 mean candidate
+model:
+  dilation_rates: [1, 3, 6, 12, 18]
+  graph_blocks: 3
+  aggregation: mean
+  region_score_activation: sigmoid_before_aggregation

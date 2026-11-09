@@ -1,0 +1,14 @@
+model_name,category,dataset,tflite_exported,notes
+A-LAMP Multi-Patch Teacher,Aesthetic,AVA,True,Best practical A-LAMP candidate. High positive bias.
+RGNet AADB (Mean Agg),Aesthetic,AADB,True,Best practical RGNet AADB regression result.
+RGNet AVA (LSE r=4),Aesthetic,AVA,True,Best practical RGNet AVA classification result.
+NIMA (Fixed Preproc),Aesthetic,AVA,True,EfficientNetV2 bug fixed. Massive improvement in ranking.
+ICAA Color,Aesthetic,ICAA17K,True,Color aesthetic assessment. Highly reliable.
+Stage 5 Student,Aesthetic,AADB,True,Mobile proxy for A-LAMP/RGNet ensemble.
+TOPIQ-lite (mixed112),Technical,SPAQ,True,Strong candidate for general technical quality.
+TOPIQ-lite (mixed112),Technical,KonIQ,True,
+FLIVE Image Mobile,Technical,FLIVE,True,Existing mobile technical quality model.
+KonIQ Mobile,Technical,KonIQ,True,Existing mobile technical quality model.
+A-LAMP GraphLite Fusion,Aesthetic,AVA (4096),False,Failed fusion attempt. Overfit.
+A-LAMP GraphGCN Fusion,Aesthetic,AVA (4096),False,Failed fusion attempt. Overfit.
+RGNet DenseASPP WD3e-5,Aesthetic,AADB,False,Paper approximation ablation. Underperformed baseline.

@@ -1,0 +1,97 @@
+stage,variant,dataset,image_path,error
+inference,koniq-10k,flive,/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/AVA__325065.jpg,"Traceback (most recent call last):
+  File ""/home/omen_pc1/photo_score_project/scripts/technical_iqa/run_musiq_kaggle_sanity_benchmark.py"", line 498, in main
+    prediction, call_method = predict_one(model, row[""image_path""])
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/scripts/technical_iqa/run_musiq_kaggle_sanity_benchmark.py"", line 206, in predict_one
+    values = flatten_output(signature(**{input_name: image_bytes}))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/concrete_function.py"", line 1170, in __call__
+    return self._call_impl(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/concrete_function.py"", line 1179, in _call_impl
+    return self._call_with_structured_signature(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/concrete_function.py"", line 1263, in _call_with_structured_signature
+    return self._call_flat(
+           ^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/saved_model/load.py"", line 146, in _call_flat
+    return super()._call_flat(args, captured_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/concrete_function.py"", line 1322, in _call_flat
+    return self._inference_function.call_preflattened(args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/atomic_function.py"", line 216, in call_preflattened
+    flat_outputs = self.call_flat(*args)
+                   ^^^^^^^^^^^^^^^^^^^^^
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+
+Detected at node concat_4 defined at (most recent call last):
+<stack traces unavailable>
+ConcatOp : Dimension 1 in both shapes must be equal: shape[0] = [1,114,3072] vs. shape[1] = [1,342,1]
+	 [[{{node concat_4}}]] [Op:__inference_signature_wrapper_25722]
+"
+inference,spaq,flive,/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/AVA__325065.jpg,"Traceback (most recent call last):
+  File ""/home/omen_pc1/photo_score_project/scripts/technical_iqa/run_musiq_kaggle_sanity_benchmark.py"", line 498, in main
+    prediction, call_method = predict_one(model, row[""image_path""])
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/scripts/technical_iqa/run_musiq_kaggle_sanity_benchmark.py"", line 206, in predict_one
+    values = flatten_output(signature(**{input_name: image_bytes}))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/concrete_function.py"", line 1170, in __call__
+    return self._call_impl(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/concrete_function.py"", line 1179, in _call_impl
+    return self._call_with_structured_signature(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/concrete_function.py"", line 1263, in _call_with_structured_signature
+    return self._call_flat(
+           ^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/saved_model/load.py"", line 146, in _call_flat
+    return super()._call_flat(args, captured_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/concrete_function.py"", line 1322, in _call_flat
+    return self._inference_function.call_preflattened(args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/atomic_function.py"", line 216, in call_preflattened
+    flat_outputs = self.call_flat(*args)
+                   ^^^^^^^^^^^^^^^^^^^^^
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+
+Detected at node concat_4 defined at (most recent call last):
+<stack traces unavailable>
+ConcatOp : Dimension 1 in both shapes must be equal: shape[0] = [1,114,3072] vs. shape[1] = [1,342,1]
+	 [[{{node concat_4}}]] [Op:__inference_signature_wrapper_52954]
+"
+inference,paq2piq,flive,/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/AVA__325065.jpg,"Traceback (most recent call last):
+  File ""/home/omen_pc1/photo_score_project/scripts/technical_iqa/run_musiq_kaggle_sanity_benchmark.py"", line 498, in main
+    prediction, call_method = predict_one(model, row[""image_path""])
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/scripts/technical_iqa/run_musiq_kaggle_sanity_benchmark.py"", line 206, in predict_one
+    values = flatten_output(signature(**{input_name: image_bytes}))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/concrete_function.py"", line 1170, in __call__
+    return self._call_impl(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/concrete_function.py"", line 1179, in _call_impl
+    return self._call_with_structured_signature(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/concrete_function.py"", line 1263, in _call_with_structured_signature
+    return self._call_flat(
+           ^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/saved_model/load.py"", line 146, in _call_flat
+    return super()._call_flat(args, captured_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/concrete_function.py"", line 1322, in _call_flat
+    return self._inference_function.call_preflattened(args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/home/omen_pc1/photo_score_project/.venv_tf/lib/python3.12/site-packages/tensorflow/python/eager/polymorphic_function/atomic_function.py"", line 216, in call_preflattened
+    flat_outputs = self.call_flat(*args)
+                   ^^^^^^^^^^^^^^^^^^^^^
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+
+Detected at node concat_4 defined at (most recent call last):
+<stack traces unavailable>
+ConcatOp : Dimension 1 in both shapes must be equal: shape[0] = [1,114,3072] vs. shape[1] = [1,342,1]
+	 [[{{node concat_4}}]] [Op:__inference_signature_wrapper_80185]
+"

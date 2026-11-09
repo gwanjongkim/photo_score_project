@@ -1,0 +1,4 @@
+priority,action
+1,Keep production technical_score unchanged.
+2,Use dataset-wise results to design gated/log-only candidate; fixed global ratios are risky.
+3,Treat local MUSIQ probes separately from official Kaggle MUSIQ; do not merge naming.

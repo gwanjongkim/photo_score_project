@@ -1,0 +1,11 @@
+artifact_type,path,description
+checkpoint,checkpoints/musiq_aadb_gpu/final_model.keras,Locally trained aesthetic MUSIQ (AADB)
+checkpoint,outputs/probe1024_musiq_koniq/final_model.keras,Locally trained technical MUSIQ (KonIQ)
+checkpoint,outputs/probe1024_musiq_spaq/final_model.keras,Locally trained technical MUSIQ (SPAQ)
+checkpoint,outputs/probe1024_musiq_flive/final_model.keras,Locally trained technical MUSIQ (FLIVE)
+tflite,exports/tflite/musiq_koniq_probe1024/musiq_koniq_probe1024_fp16.tflite,Mobile-ready KonIQ MUSIQ
+tflite,exports/tflite/musiq_spaq_probe1024/musiq_spaq_probe1024_fp16.tflite,Mobile-ready SPAQ MUSIQ
+tflite,exports/tflite/musiq_flive_probe1024/musiq_flive_probe1024_fp16.tflite,Mobile-ready FLIVE MUSIQ
+code,src/models/musiq.py,Practical MUSIQ-style architecture definition
+code,src/infer/predict_musiq.py,Inference script for local MUSIQ models
+results,outputs/eval_tflite_technical_compare/summary.csv,Comparison of local MUSIQ TFLite models (showing poor SRCC)

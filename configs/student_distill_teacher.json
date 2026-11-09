@@ -1,0 +1,8 @@
+{
+  "name": "stage5_production_aesthetic_target_v2",
+  "description": "Reuse the production selector aesthetic_component path as the student teacher target.",
+  "aggregation_mode": "production_aesthetic_component",
+  "production_selector_weights_config": null,
+  "required_score_keys": [],
+  "allow_partial_teacher_scores": true
+}

@@ -1,0 +1,678 @@
+{
+  "failures": [],
+  "installed_keras_contract_docs": {
+    "efficientnet_v2_b0": [
+      "https://arxiv.org/abs/2104.00298) (ICML 2021)",
+      "inputs to be float tensors of pixels with values in the `[0, 255]` range.",
+      "layer) can be disabled by setting `include_preprocessing` argument to `False`.",
+      "float tensors of pixels with values in the `[-1, 1]` range.",
+      "if no `weights` argument is specified. Defaults to 1000 (number of"
+    ],
+    "mobilenet_v2_preprocess_input": [
+      "i = keras.layers.Input([None, None, 3], dtype=\"uint8\")",
+      "x = keras.applications.mobilenet.preprocess_input(x)",
+      "model = keras.Model(inputs=[i], outputs=[x])",
+      "The preprocessed data are written over the input data",
+      "The inputs pixel values are scaled between -1 and 1, sample-wise."
+    ],
+    "mobilenet_v3_small": [
+      "https://arxiv.org/pdf/1905.02244.pdf) (ICCV 2019)",
+      "|Classification Checkpoint|MACs(M)|Parameters(M)|Top1 Accuracy|Pixel1 CPU(ms)|",
+      "| mobilenet_v3_large_1.0_224 | 217 | 5.4 | 75.6 | 51.2 |",
+      "| mobilenet_v3_large_0.75_224 | 155 | 4.0 | 73.3 | 39.8 |",
+      "| mobilenet_v3_large_minimalistic_1.0_224 | 209 | 3.9 | 72.3 | 44.1 |",
+      "| mobilenet_v3_small_1.0_224 | 66 | 2.9 | 68.1 | 15.8 |",
+      "| mobilenet_v3_small_0.75_224 | 44 | 2.4 | 65.4 | 12.8 |",
+      "| mobilenet_v3_small_minimalistic_1.0_224 | 65 | 2.0 | 61.9 | 12.2 |",
+      "inputs to be float tensors of pixels with values in the `[0-255]` range.",
+      "layer) can be disabled by setting `include_preprocessing` argument to `False`.",
+      "tensors of pixels with values in the `[-1, 1]` range.",
+      "E.g. `(160, 160, 3)` would be one valid value.",
+      "consistency with MobileNetV1 in Keras.",
+      "When `weights` is `imagenet`, `alpha` can be one of `0.75` or `1.0`",
+      "for non-minimalistic models, and `1.0` for minimalistic models.",
+      "- If `alpha < 1.0`, proportionally decreases the number",
+      "- If `alpha > 1.0`, proportionally increases the number",
+      "- If `alpha == 1`, default number of filters from the paper",
+      "include_preprocessing: Boolean, whether to include the preprocessing",
+      "4D with 3 color channels, with values in the range `[0, 255]`"
+    ]
+  },
+  "range_examples": {
+    "efficientnet_internal_1_over_255": {
+      "byte_max": 1.0,
+      "unit_max": 0.00392156862745098,
+      "zero": 0.0
+    },
+    "mobilenet_v2_external_minus1_to1": {
+      "byte_max": 1.0,
+      "unit_max": -0.9921568627450981,
+      "zero": -1.0
+    },
+    "nima_expected_score_examples": {
+      "all_mass_bin_1": 1.0,
+      "all_mass_bin_10": 10.0,
+      "uniform_distribution": 5.5
+    }
+  },
+  "serialized_models": {
+    "alamp_practical": {
+      "class_counts": {
+        "Activation": 39,
+        "Adam": 1,
+        "Add": 25,
+        "BatchNormalization": 111,
+        "Concatenate": 3,
+        "Conv2D": 114,
+        "DTypePolicy": 448,
+        "Dense": 8,
+        "DepthwiseConv2D": 33,
+        "Dropout": 18,
+        "Functional": 4,
+        "GlobalAveragePooling2D": 19,
+        "GlorotUniform": 64,
+        "InputLayer": 5,
+        "LayoutCueAugmentation": 1,
+        "Multiply": 16,
+        "Normalization": 1,
+        "Ones": 222,
+        "ReLU": 35,
+        "RepeatVector": 1,
+        "Rescaling": 1,
+        "Reshape": 16,
+        "Softmax": 1,
+        "TimeDistributed": 1,
+        "VarianceScaling": 91,
+        "WeightedPatchPooling": 1,
+        "ZeroPadding2D": 4,
+        "Zeros": 377,
+        "__keras_tensor__": 495
+      },
+      "input_layers": {
+        "global_view": [
+          "global_view",
+          0,
+          0
+        ],
+        "patches": [
+          "patches",
+          0,
+          0
+        ]
+      },
+      "model_name": "alamp_refined",
+      "normalization_layers": [
+        {
+          "axis": [
+            3
+          ],
+          "location": "root.config.layers[5].config.layers[2]",
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "name": "normalization",
+          "variance": [
+            0.052441,
+            0.050176000000000005,
+            0.050625
+          ]
+        }
+      ],
+      "output_layers": [
+        "alamp_score",
+        0,
+        0
+      ],
+      "path": "checkpoints/alamp_aadb_gpu/final_model.keras",
+      "rescaling_layers": [
+        {
+          "location": "root.config.layers[5].config.layers[1]",
+          "name": "rescaling",
+          "offset": 0.0,
+          "scale": 0.00392156862745098
+        }
+      ],
+      "root_class": "Functional",
+      "size_bytes": 191908754,
+      "top_level_output_head": {
+        "activation": "linear",
+        "dtype": {
+          "class_name": "DTypePolicy",
+          "config": {
+            "name": "float32"
+          },
+          "module": "keras",
+          "registered_name": null
+        },
+        "name": "alamp_score",
+        "units": 1
+      }
+    },
+    "flive_image_mobile": {
+      "class_counts": {
+        "Adam": 1,
+        "Add": 10,
+        "BatchNormalization": 52,
+        "Conv2D": 35,
+        "DTypePolicy": 157,
+        "Dense": 2,
+        "DepthwiseConv2D": 17,
+        "Dropout": 1,
+        "Functional": 2,
+        "GlobalAveragePooling2D": 1,
+        "GlorotUniform": 54,
+        "InputLayer": 2,
+        "Ones": 104,
+        "ReLU": 35,
+        "ZeroPadding2D": 4,
+        "Zeros": 158,
+        "__keras_tensor__": 168
+      },
+      "input_layers": [
+        "input_layer_1",
+        0,
+        0
+      ],
+      "model_name": "technical_regressor",
+      "normalization_layers": [],
+      "output_layers": [
+        "dense_1",
+        0,
+        0
+      ],
+      "path": "checkpoints/technical_flive_image_gpu/final_model.keras",
+      "rescaling_layers": [],
+      "root_class": "Functional",
+      "size_bytes": 48725759,
+      "top_level_output_head": {
+        "activation": "linear",
+        "dtype": {
+          "class_name": "DTypePolicy",
+          "config": {
+            "name": "mixed_float16"
+          },
+          "module": "keras",
+          "registered_name": null,
+          "shared_object_id": 140487553164320
+        },
+        "name": "dense_1",
+        "units": 1
+      }
+    },
+    "flive_patch": {
+      "class_counts": {
+        "Adam": 1,
+        "Add": 10,
+        "BatchNormalization": 52,
+        "Conv2D": 35,
+        "DTypePolicy": 157,
+        "Dense": 2,
+        "DepthwiseConv2D": 17,
+        "Dropout": 1,
+        "Functional": 2,
+        "GlobalAveragePooling2D": 1,
+        "GlorotUniform": 54,
+        "InputLayer": 2,
+        "Ones": 104,
+        "ReLU": 35,
+        "ZeroPadding2D": 4,
+        "Zeros": 158,
+        "__keras_tensor__": 168
+      },
+      "input_layers": [
+        "input_layer_1",
+        0,
+        0
+      ],
+      "model_name": "technical_regressor",
+      "normalization_layers": [],
+      "output_layers": [
+        "dense_1",
+        0,
+        0
+      ],
+      "path": "checkpoints/technical_flive_patch_gpu/final_model.keras",
+      "rescaling_layers": [],
+      "root_class": "Functional",
+      "size_bytes": 48725759,
+      "top_level_output_head": {
+        "activation": "linear",
+        "dtype": {
+          "class_name": "DTypePolicy",
+          "config": {
+            "name": "mixed_float16"
+          },
+          "module": "keras",
+          "registered_name": null,
+          "shared_object_id": 129283001590816
+        },
+        "name": "dense_1",
+        "units": 1
+      }
+    },
+    "koniq_mobile": {
+      "class_counts": {
+        "Adam": 1,
+        "Add": 10,
+        "BatchNormalization": 52,
+        "Conv2D": 35,
+        "DTypePolicy": 157,
+        "Dense": 2,
+        "DepthwiseConv2D": 17,
+        "Dropout": 1,
+        "Functional": 2,
+        "GlobalAveragePooling2D": 1,
+        "GlorotUniform": 54,
+        "InputLayer": 2,
+        "Ones": 104,
+        "ReLU": 35,
+        "ZeroPadding2D": 4,
+        "Zeros": 158,
+        "__keras_tensor__": 168
+      },
+      "input_layers": [
+        "input_layer_1",
+        0,
+        0
+      ],
+      "model_name": "technical_regressor",
+      "normalization_layers": [],
+      "output_layers": [
+        "dense_1",
+        0,
+        0
+      ],
+      "path": "checkpoints/technical_koniq_gpu/final_model.keras",
+      "rescaling_layers": [],
+      "root_class": "Functional",
+      "size_bytes": 48725759,
+      "top_level_output_head": {
+        "activation": "linear",
+        "dtype": {
+          "class_name": "DTypePolicy",
+          "config": {
+            "name": "mixed_float16"
+          },
+          "module": "keras",
+          "registered_name": null,
+          "shared_object_id": 124122512718592
+        },
+        "name": "dense_1",
+        "units": 1
+      }
+    },
+    "mobile_alamp_v2": {
+      "class_counts": {
+        "AUC": 1,
+        "Activation": 36,
+        "Adam": 1,
+        "Add": 30,
+        "BatchNormalization": 68,
+        "Concatenate": 1,
+        "Conv2D": 83,
+        "DTypePolicy": 332,
+        "Dense": 7,
+        "DepthwiseConv2D": 22,
+        "Dot": 2,
+        "Dropout": 1,
+        "Functional": 3,
+        "GlobalAveragePooling1D": 2,
+        "GlobalAveragePooling2D": 19,
+        "GlorotUniform": 112,
+        "InputLayer": 4,
+        "MergePatchBatch": 1,
+        "Multiply": 36,
+        "Ones": 136,
+        "ReLU": 46,
+        "Rescaling": 3,
+        "Reshape": 1,
+        "RestorePatchBatch": 1,
+        "Softmax": 1,
+        "ZeroPadding2D": 8,
+        "Zeros": 248,
+        "__keras_tensor__": 403
+      },
+      "input_layers": {
+        "full_image": [
+          "full_image",
+          0,
+          0
+        ],
+        "patches": [
+          "patches",
+          0,
+          0
+        ]
+      },
+      "model_name": "mobile_alamp_v2",
+      "normalization_layers": [],
+      "output_layers": [
+        "score",
+        0,
+        0
+      ],
+      "path": "outputs/mobile_alamp_v2_full_ava_20260519/final_model.keras",
+      "rescaling_layers": [
+        {
+          "location": "root.config.layers[1].config.layers[1]",
+          "name": "rescaling_1",
+          "offset": -1.0,
+          "scale": 0.00784313725490196
+        },
+        {
+          "location": "root.config.layers[9].config.layers[1]",
+          "name": "rescaling",
+          "offset": -1.0,
+          "scale": 0.00784313725490196
+        },
+        {
+          "location": "root.config.layers[10]",
+          "name": "region_attention_scale",
+          "offset": 0.0,
+          "scale": 0.08838834764831843
+        }
+      ],
+      "root_class": "Functional",
+      "size_bytes": 14608786,
+      "top_level_output_head": {
+        "activation": "sigmoid",
+        "dtype": {
+          "class_name": "DTypePolicy",
+          "config": {
+            "name": "float32"
+          },
+          "module": "keras",
+          "registered_name": null,
+          "shared_object_id": 125964202257552
+        },
+        "name": "score",
+        "units": 1
+      }
+    },
+    "nima_fixed": {
+      "class_counts": {
+        "Activation": 39,
+        "Adam": 1,
+        "Add": 15,
+        "BatchNormalization": 59,
+        "Conv2D": 75,
+        "DTypePolicy": 271,
+        "Dense": 2,
+        "DepthwiseConv2D": 16,
+        "Dropout": 16,
+        "Functional": 2,
+        "GlobalAveragePooling2D": 17,
+        "GlorotUniform": 2,
+        "InputLayer": 2,
+        "KLDivergence": 1,
+        "Multiply": 16,
+        "Ones": 118,
+        "Reshape": 16,
+        "VarianceScaling": 91,
+        "Zeros": 211,
+        "__keras_tensor__": 303,
+        "function": 2
+      },
+      "input_layers": [
+        "input_layer_1",
+        0,
+        0
+      ],
+      "model_name": "nima_distribution",
+      "normalization_layers": [],
+      "output_layers": [
+        "dense_1",
+        0,
+        0
+      ],
+      "path": "checkpoints/nima_ava_gpu_fixed_preproc_20260525/final_model.keras",
+      "rescaling_layers": [],
+      "root_class": "Functional",
+      "size_bytes": 125347783,
+      "top_level_output_head": {
+        "activation": "softmax",
+        "dtype": {
+          "class_name": "DTypePolicy",
+          "config": {
+            "name": "float32"
+          },
+          "module": "keras",
+          "registered_name": null
+        },
+        "name": "dense_1",
+        "units": 10
+      }
+    },
+    "nima_legacy": {
+      "class_counts": {
+        "Activation": 39,
+        "Adam": 1,
+        "Add": 15,
+        "BatchNormalization": 59,
+        "Conv2D": 75,
+        "DTypePolicy": 273,
+        "Dense": 2,
+        "DepthwiseConv2D": 16,
+        "Dropout": 16,
+        "Functional": 2,
+        "GlobalAveragePooling2D": 17,
+        "GlorotUniform": 2,
+        "InputLayer": 2,
+        "KLDivergence": 1,
+        "Multiply": 16,
+        "Normalization": 1,
+        "Ones": 118,
+        "Rescaling": 1,
+        "Reshape": 16,
+        "VarianceScaling": 91,
+        "Zeros": 211,
+        "__keras_tensor__": 305,
+        "function": 2
+      },
+      "input_layers": [
+        "input_layer_1",
+        0,
+        0
+      ],
+      "model_name": "nima_distribution",
+      "normalization_layers": [
+        {
+          "axis": [
+            3
+          ],
+          "location": "root.config.layers[1].config.layers[2]",
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "name": "normalization",
+          "variance": [
+            0.052441,
+            0.050176000000000005,
+            0.050625
+          ]
+        }
+      ],
+      "output_layers": [
+        "dense_1",
+        0,
+        0
+      ],
+      "path": "checkpoints/nima_ava_gpu/final_model.keras",
+      "rescaling_layers": [
+        {
+          "location": "root.config.layers[1].config.layers[1]",
+          "name": "rescaling",
+          "offset": 0.0,
+          "scale": 0.00392156862745098
+        }
+      ],
+      "root_class": "Functional",
+      "size_bytes": 125352765,
+      "top_level_output_head": {
+        "activation": "softmax",
+        "dtype": {
+          "class_name": "DTypePolicy",
+          "config": {
+            "name": "float32"
+          },
+          "module": "keras",
+          "registered_name": null
+        },
+        "name": "dense_1",
+        "units": 10
+      }
+    },
+    "rgnet_practical": {
+      "class_counts": {
+        "Activation": 39,
+        "Adam": 1,
+        "Add": 15,
+        "BatchNormalization": 59,
+        "Concatenate": 2,
+        "Conv2D": 76,
+        "DTypePolicy": 283,
+        "Dense": 3,
+        "DepthwiseConv2D": 16,
+        "Dropout": 16,
+        "Functional": 2,
+        "GlobalAveragePooling2D": 17,
+        "GlorotUniform": 4,
+        "GraphConvolution": 2,
+        "InputLayer": 2,
+        "Multiply": 16,
+        "Normalization": 1,
+        "Ones": 118,
+        "RegionGraphBuilder": 1,
+        "RegionWeightedPooling": 1,
+        "Rescaling": 1,
+        "Reshape": 17,
+        "Softmax": 1,
+        "VarianceScaling": 91,
+        "Zeros": 213,
+        "__keras_tensor__": 320
+      },
+      "input_layers": [
+        "input_layer_1",
+        0,
+        0
+      ],
+      "model_name": "rgnet_practical",
+      "normalization_layers": [
+        {
+          "axis": [
+            3
+          ],
+          "location": "root.config.layers[1].config.layers[2]",
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "name": "normalization",
+          "variance": [
+            0.052441,
+            0.050176000000000005,
+            0.050625
+          ]
+        }
+      ],
+      "output_layers": [
+        "score",
+        0,
+        0
+      ],
+      "path": "checkpoints/rgnet_aadb_gpu/final_model.keras",
+      "rescaling_layers": [
+        {
+          "location": "root.config.layers[1].config.layers[1]",
+          "name": "rescaling",
+          "offset": 0.0,
+          "scale": 0.00392156862745098
+        }
+      ],
+      "root_class": "Functional",
+      "size_bytes": 131951528,
+      "top_level_output_head": {
+        "activation": "sigmoid",
+        "dtype": {
+          "class_name": "DTypePolicy",
+          "config": {
+            "name": "float32"
+          },
+          "module": "keras",
+          "registered_name": null
+        },
+        "name": "score",
+        "units": 1
+      }
+    },
+    "stage5_student": {
+      "class_counts": {
+        "AdamW": 1,
+        "Add": 10,
+        "BatchNormalization": 52,
+        "Conv2D": 35,
+        "DTypePolicy": 157,
+        "Dense": 2,
+        "DepthwiseConv2D": 17,
+        "Dropout": 1,
+        "Functional": 2,
+        "GlobalAveragePooling2D": 1,
+        "GlorotUniform": 54,
+        "InputLayer": 2,
+        "MeanAbsoluteError": 1,
+        "Ones": 104,
+        "ReLU": 35,
+        "RootMeanSquaredError": 1,
+        "ZeroPadding2D": 4,
+        "Zeros": 158,
+        "__keras_tensor__": 168,
+        "function": 1
+      },
+      "input_layers": [
+        "image",
+        0,
+        0
+      ],
+      "model_name": "stage5_student_mobilenetv2",
+      "normalization_layers": [],
+      "output_layers": [
+        "teacher_score",
+        0,
+        0
+      ],
+      "path": "checkpoints/student_full_aadb/final_model.keras",
+      "rescaling_layers": [],
+      "root_class": "Functional",
+      "size_bytes": 17939905,
+      "top_level_output_head": {
+        "activation": "sigmoid",
+        "dtype": {
+          "class_name": "DTypePolicy",
+          "config": {
+            "name": "float32"
+          },
+          "module": "keras",
+          "registered_name": null
+        },
+        "name": "teacher_score",
+        "units": 1
+      }
+    }
+  },
+  "source_contracts": {
+    "generic_dataset_convert_image_dtype_float32": true,
+    "mobile_alamp_enables_internal_preprocessing": true,
+    "mobile_alamp_trainer_reads_raw_float_0_255": true,
+    "native_dataset_convert_image_dtype_float32": true,
+    "nima_dataset_convert_image_dtype_float32": true,
+    "nima_fixed_disables_internal_preprocessing": true,
+    "rgnet_disables_internal_preprocessing": false,
+    "technical_calls_external_preprocess_input": false
+  },
+  "tensorflow_version": "2.21.0"
+}

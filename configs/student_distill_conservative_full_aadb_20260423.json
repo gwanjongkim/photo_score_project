@@ -1,0 +1,49 @@
+{
+  "experiment_name": "student_conservative_aesthetic_full_aadb_20260423",
+  "manifest_csv": "outputs/distill_conservative_aesthetic_full_aadb_20260423/teacher_labels_trainval.csv",
+  "output_dir": "checkpoints/student_conservative_aesthetic_full_aadb_20260423",
+  "seed": 42,
+  "data": {
+    "train_splits": [
+      "train"
+    ],
+    "val_splits": [
+      "val"
+    ],
+    "test_splits": [],
+    "image_size": 224,
+    "batch_size": 64,
+    "shuffle_buffer": 4096,
+    "augment_horizontal_flip": false,
+    "cache": false
+  },
+  "model": {
+    "alpha": 0.5,
+    "head_units": 128,
+    "dropout_rate": 0.2,
+    "backbone_trainable": true,
+    "backbone_weights": "imagenet",
+    "backbone_weights_path": "weights/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_0.5_224_no_top.h5",
+    "initial_weights_path": "checkpoints/student_full_aadb/best.weights.h5"
+  },
+  "train": {
+    "epochs": 20,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.00001,
+    "loss": "huber",
+    "huber_delta": 0.05,
+    "use_ranking_loss": false,
+    "ranking_weight": 0.0,
+    "ranking_margin": 0.03,
+    "early_stopping_patience": 6,
+    "reduce_lr_patience": 2,
+    "min_learning_rate": 0.000001,
+    "checkpoint_monitor": "val_spearman",
+    "checkpoint_monitor_mode": "max"
+  },
+  "eval": {
+    "pairwise_margin": 0.03,
+    "pairwise_max_pairs": 50000,
+    "top_k": 10
+  }
+}

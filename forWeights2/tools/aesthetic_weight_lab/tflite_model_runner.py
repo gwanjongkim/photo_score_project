@@ -58,6 +58,13 @@ def normalize_array(arr: np.ndarray, normalization: str) -> np.ndarray:
         return arr.astype(np.float32) / np.float32(255.0)
     if normalization == "zero_to_255":
         return arr.astype(np.float32)
+    if normalization == "minus_one_to_one":
+        return (arr.astype(np.float32) / np.float32(127.5)) - np.float32(1.0)
+    if normalization == "imagenet":
+        unit = arr.astype(np.float32) / np.float32(255.0)
+        mean = np.array([0.485, 0.456, 0.406], dtype=np.float32)
+        std = np.array([0.229, 0.224, 0.225], dtype=np.float32)
+        return ((unit - mean) / std).astype(np.float32)
     raise ValueError(f"Unsupported normalization: {normalization}")
 
 

@@ -1,0 +1,8 @@
+gate,original_sfp_fixed,new_sfp_introduced,total_sfp_remaining
+gate_a,1,0,2
+gate_b,1,0,2
+gate_c,1,0,2
+gate_d,0,0,3
+gate_e,1,0,2
+gate_f,1,0,2
+gate_g,1,0,2

@@ -1,0 +1,6 @@
+priority,action,owner,status,note
+High,Archive all MDIQA student outputs,Agent,Completed,Move to research artifact storage.
+High,Add no-go note to README,Agent,Pending,Prevent accidental use in production.
+High,Maintain KonIQ+FLIVE in production,Team,Active,Current stack is the validated baseline.
+Medium,Use no-go results in thesis/capstone,User,Planned,Documenting the negative result provides scientific value.
+Low,Pause B1/B2 research,Team,On Hold,Do not restart unless new training paradigms are proposed.

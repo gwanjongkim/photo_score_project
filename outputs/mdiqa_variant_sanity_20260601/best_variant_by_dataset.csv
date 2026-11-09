@@ -1,0 +1,4 @@
+dataset,dataset_label,best_variant,best_srcc,production_baseline_srcc,delta_vs_production,n,failures
+flive,FLIVE,mdiqa_xd,0.06755475547554755,0.574,-0.5064452445244524,100,0
+koniq10k,KonIQ-10k,mdiqa_koniq,0.9452078633487576,0.934,0.011207863348757563,100,0
+spaq,SPAQ,mdiqa_xd,0.9341002239777714,0.873,0.06110022397777137,100,0

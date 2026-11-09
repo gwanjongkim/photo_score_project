@@ -1,0 +1,21 @@
+{
+  "details": {
+    "defensible_claim_rows": 37,
+    "detailed_verdict_rows": 33,
+    "dispute_rows": 38,
+    "dispute_status_counts": {
+      "PARTIALLY_RESOLVED": 13,
+      "RESOLVED_CONFIRMED": 1,
+      "RESOLVED_REFUTED": 17,
+      "UNRESOLVED": 7
+    },
+    "manifest_rows": 184,
+    "paper_to_code_rows": 43,
+    "parsed_resolution_json_files": 9,
+    "scorecard_rows": 33,
+    "source_drift_checked_paths": 77,
+    "unsafe_claim_rows": 50
+  },
+  "failures": [],
+  "status": "PASS"
+}

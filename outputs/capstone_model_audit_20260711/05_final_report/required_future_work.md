@@ -1,0 +1,54 @@
+# Required Future Work
+
+## Decision rule
+
+The work below is evidence needed to upgrade current classifications or deployment claims. It is not authorization to retrain models, modify production code, or ship assets as part of this audit. Each item defines an observable close condition so a later audit can distinguish completion from activity.
+
+## P0 — required before deployment or strong performance claims
+
+| ID | Required work | Affected models or claims | Minimum acceptable method | Close condition |
+|---|---|---|---|---|
+| FW-001 | Capture the active runtime state. | Stage5 default, legacy/fixed NIMA, calibrated ensemble, all claimed mobile assets | Export immutable server config/process evidence and the exact submitted Flutter checkout's asset list, SHA-256 values, preprocessing, output-index mapping, and effective ensemble weights. | A signed or hashed evidence bundle maps every active runtime component to a manifest artifact and exact contract; repository default and external app differences are explicitly reconciled. |
+| FW-002 | Repair and re-evaluate technical MobileNetV2 preprocessing. | KonIQ, FLIVE Image, FLIVE Patch, technical ensembles | Train/evaluate from a frozen protocol with a single explicit [0,255]→[-1,1] transform; retain an unchanged-control run. | Same split, seed, checkpoint rule, raw predictions, SRCC/PLCC/MAE/RMSE, and safety cases show the corrected model's effect; serialized graph and runtime tensors pass range assertions. |
+| FW-003 | Rebuild leakage-safe FLIVE splits. | FLIVE Image and FLIVE Patch validity claims | Group by original parent and exact-content hash before splitting; prevent parent/content groups crossing folds. | Cross-split parent and SHA-256 overlap are both zero, conflicting duplicates are quarantined, and models are retrained/evaluated only after manifests are frozen and hashed. |
+| FW-004 | Resolve the NIMA fixed preprocessing contract. | Fixed NIMA and its FP16 handoff | Choose one documented EfficientNetV2 contract and apply it identically in training, Keras inference, export, and mobile code. | Tensor-range probes agree at all four stages; new evaluation and parity artifacts identify the exact checkpoint/export source and no duplicate or missing normalization remains. |
+| FW-005 | Repair or retire practical RGNet. | Practical RGNet server/TFLite line | Correct the [0,1]→Rescaling(1/255) under-scaling path, then run a controlled comparison; alternatively remove the line from active configuration. | Either a corrected, independently evaluated artifact with explicit lineage replaces it, or runtime manifests prove it is no longer active. |
+| FW-006 | Resolve the ICAA deployment contract. | ICAA FP16 mobile candidate | Standardize on ImageNet preprocessing, output [MOS,color], and color index 1 across config, Python, exporter, and Dart; evaluate whether the 175,885,416-byte asset is operationally acceptable. | A single machine-readable contract passes Python/TFLite/Dart same-image tests; asset hash, model size, peak memory, latency, and thermal results meet predeclared device budgets. |
+| FW-007 | Create a pristine final ensemble evaluation. | Calibrated NIMA/RGNet/A-LAMP ensemble | Use nested selection or freeze variants/weights before touching a new holdout; fit calibration only on training data. | The final holdout is never consulted by variant, preparation, stable-pool, calibration, or weight selection, and an audit log demonstrates this separation. |
+| FW-008 | Regenerate the calibrated runtime contract. | Calibrated aesthetic ensemble | Export the exact selected AVA and AADB calibration parameters, typed model output scales, weights, model hashes, and missing-signal policy. | An isolated reconstruction script reads only the exported contract and reproduces every published dataset score within a declared tolerance; runtime source references that exact versioned file. |
+| FW-009 | Replace heuristic scale inference. | Default Stage5 aesthetic selector | Assign each model an explicit typed output schema and deterministic transform rather than dispatching from observed value magnitude. | Boundary tests around 1.0, 1.05, 1.06, 10, and 100 are continuous where intended and map according to declared model identity; missing-signal renormalization is separately tested. |
+
+## P1 — required for reproducible scientific claims
+
+| ID | Required work | Affected models or claims | Minimum acceptable method | Close condition |
+|---|---|---|---|---|
+| FW-010 | Produce immutable training provenance. | KonIQ, FLIVE, NIMA, RGNet, A-LAMP, MUSIQ, students, guards | For every promoted checkpoint, store command, commit, environment lock, seed, raw-data hashes, manifest hashes, label column, preprocessing, checkpoint-selection rule, and stdout. | A clean checkout can reproduce the training/evaluation graph from the record without guessing an argument or source file. |
+| FW-011 | Lock method-specific paper protocols. | NIMA, RGNet, A-LAMP, MUSIQ, ICAA, MDIQA | Archive authoritative paper/version references and a component-by-component protocol specification before rerunning comparisons. | Every fidelity claim links to a stable source and records dataset split, preprocessing, augmentation, optimizer/schedule, loss, output semantics, and metric protocol; disagreements such as NIMA split wording are closed. |
+| FW-012 | Complete content-overlap audits. | AVA and any dataset used for final claims | Run exact-byte hashes over all rows, then bounded perceptual-duplicate analysis with group-level review. | Cross-fold exact and near-duplicate reports are complete, conflicts are resolved or disclosed, and the frozen split manifests carry group IDs and hashes. |
+| FW-013 | Standardize metric evidence. | All IQA/IAA evaluations | Publish raw prediction tables with ground truth, stable row IDs, sample exclusions, score range, and one dependency-locked recomputation command. | SRCC, raw PLCC, MAE, and RMSE replay within tolerance; any nonlinear fitted PLCC is separately labeled and justified by a named protocol. |
+| FW-014 | Establish deterministic export lineage. | KonIQ, FLIVE, NIMA, RGNet, A-LAMP, TOPIQ, students, ICAA | Rebuild each export from a named checkpoint in a locked environment and record converter options, hashes, and test vectors. | The manifest distinguishes `final_model.keras` from `best.weights.h5` rebuild sources and same-input Python/TFLite outputs meet predeclared absolute/relative tolerances. |
+| FW-015 | Validate end-to-end mobile parity. | Every proposed TFLite asset | Test identical decoded image bytes through reference Python preprocessing, TFLite host inference, and the actual Dart/mobile pipeline. | A versioned test corpus, per-sample outputs, max/mean error, output-index checks, and failure logs pass for every shipped asset; conversion correlation alone is not accepted. |
+| FW-016 | Measure device fitness. | ICAA, RGNet PIL, fixed NIMA, Mobile A-LAMP, TOPIQ and any future candidate | Benchmark target devices under cold/warm and sustained use, including load time, latency, peak RAM, binary/app size, battery, and thermal behavior. | Each model passes a predeclared device budget and quality/safety gate; otherwise it remains a production candidate or is rejected. |
+| FW-017 | Re-evaluate paper-v1 RGNet separately from practical RGNet. | RGNet family classification | Use frozen AADB manifests and the same metric implementation; report architectural variant, preprocessing, and export source explicitly. | Results and fidelity matrices never borrow evidence across variants, and the selected model's lineage is unambiguous. |
+| FW-018 | Separate local MUSIQ and official MUSIQ evidence. | Practical AADB MUSIQ, local probes, Kaggle variants | Give each architecture/checkpoint a unique identifier and independent data/runtime report. | No table or presentation row labels a local approximation as official, and external-handle results are not presented as local deployment evidence. |
+| FW-019 | Preserve rejected-line closure evidence. | C6, MDIQA students, TechIQA-Guard, DistortionGuard, Stage5 student | Record an authoritative model-status registry tied to artifact hashes and decision reports. | Default configs and release manifests fail validation if a rejected hash or line is activated without a new approved decision record. |
+
+## P2 — required for a maintainable evidence package
+
+| ID | Required work | Affected models or claims | Minimum acceptable method | Close condition |
+|---|---|---|---|---|
+| FW-020 | Version the model registry and contracts. | Entire capstone | One canonical registry should contain artifact role, class, confidence, data lineage, input/output contract, runtime status, and supersession relationship. | Reports, server config, export scripts, and handoff manifests resolve model identity from the same immutable IDs. |
+| FW-021 | Archive failed and superseded claims beside artifacts. | ICAA size, TOPIQ adoption, Mobile A-LAMP smoke wording, old app weights | Mark stale reports as superseded without deleting historical evidence. | A reader cannot encounter a stale claim without a link to the correction and authoritative successor. |
+| FW-022 | Add automated contract and evidence checks. | Core server and mobile candidates | CI should verify artifact hashes, serialized preprocessing layers, tensor ranges, output shapes/semantics, config references, metric replay, and prohibited rejected-model activation. | A clean audit fixture passes; deliberate changes to a hash, score index, input range, or rejected status fail with a specific message. |
+| FW-023 | Define promotion and retirement gates. | All experimental and production-candidate lines | Require independent held-out validity, export lineage, host/mobile parity, device budget, safety cases, and rollback artifact before promotion. | Every active model has an approved gate record; legacy/rejected models have an explicit retirement or retention reason. |
+
+## Recommended execution order
+
+1. Freeze the exact currently active server and mobile state (`FW-001`).
+2. Prevent unsafe contract use immediately (`FW-004`, `FW-005`, `FW-006`, `FW-009`).
+3. Rebuild dataset and evaluation validity (`FW-003`, `FW-007`, `FW-012`, `FW-013`).
+4. Retrain only the model lines that remain necessary after the runtime inventory (`FW-002`, `FW-004`, `FW-005`).
+5. Rebuild exports and prove app parity/device fitness (`FW-008`, `FW-014`–`FW-016`).
+6. Consolidate provenance and status controls (`FW-010`, `FW-011`, `FW-017`–`FW-023`).
+
+Until the relevant close conditions are met, the unresolved deployment, paper-equivalence, or performance claim must remain `UNVERIFIED`, or the affected line must be described with its current qualified classification and explicit candidate/experimental boundary. A missing link does not automatically erase a separately proven repository role.

@@ -1,0 +1,6 @@
+action,filename,source_id,target_path
+Verify,mdiqa_shared_5t_4a_mbv3_koniq_xd.pth,,Run sanity on SPAQ/FLIVE.
+Verify,net_best.pth,,Run sanity on SPAQ/FLIVE.
+Map (FLIVE),mdiqa_shared_5t_4a_mbv3_koniq_xd.pth,,Primary candidate.
+Map (SPAQ),mdiqa_shared_5t_4a_mbv3_koniq_xd.pth,,Primary candidate.
+Map (SPAQ),net_best.pth,,Secondary candidate.

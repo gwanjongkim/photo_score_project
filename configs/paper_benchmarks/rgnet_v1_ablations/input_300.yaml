@@ -1,0 +1,10 @@
+experiment:
+  name: input_300
+  model_variant: rgnet_paper_v1
+  label: RGNet-paper-v1 input_300 ablation
+  output_dir: outputs/rgnet_paper_v1_ablation_20260509/input_300
+model:
+  image_size: 300
+  aggregation: lse
+  lse_r: 4.0
+  region_score_activation: sigmoid_before_aggregation

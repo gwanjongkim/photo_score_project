@@ -1,0 +1,10 @@
+audit_item,status,value,note
+"Manifest row count","PASS","50,000","Exactly 50,000 rows as requested."
+"FLIVE row count","PASS","33,891","Matches dataset proportions."
+"SPAQ row count","PASS","8,916","Matches dataset proportions."
+"KonIQ row count","PASS","7,193","Matches dataset proportions."
+"FLIVE patches","PASS","0","Strictly excluded."
+"Duplicate image paths","PASS","0","Clean manifest."
+"Official test leakage","PASS","0","Strictly excluded via official_benchmark_test_manifest.csv."
+"Target range check","PASS","[9.46, 87.82]","All within [0, 100]. No NaN/Inf."
+"Data decode failures","PASS","0","All images are readable by PIL."

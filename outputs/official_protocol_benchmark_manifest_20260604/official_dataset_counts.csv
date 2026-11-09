@@ -1,0 +1,4 @@
+dataset,total,train,val,test
+koniq10k,10073,7058,1000,2015
+spaq,11125,10000,0,1125
+flive,159240,121024,30908,7308

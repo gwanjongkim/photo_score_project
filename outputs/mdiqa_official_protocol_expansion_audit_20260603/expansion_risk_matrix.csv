@@ -1,0 +1,5 @@
+task,risk_level,impact,mitigation
+FLIVE Full Inference,High,Process Timeout / Storage,Restrict to images only or run in batches
+SPAQ Label Alignment,Low,Teacher Target Noise,Verify against existing 1125 rows
+KonIQ Split Parity,Low,Evaluation Bias,Use official .csv split column
+Track A Contamination,Medium,Inconsistent Baseline,Maintain strictly separate manifest files

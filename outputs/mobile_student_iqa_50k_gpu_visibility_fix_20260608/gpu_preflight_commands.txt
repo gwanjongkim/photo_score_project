@@ -1,0 +1,47 @@
+nvidia-smi
+
+rg -n "out_dir|backbone_weights|max_train_samples|max_val_samples|max_test_samples" scripts/technical_iqa/train_mobile_student_iqa_50k_smoke.py outputs/mobile_student_iqa_50k_smoke_20260608/report.md
+
+find .venv_gpu/lib/python3.12/site-packages/nvidia -type d -name lib
+
+find .venv_tf/lib/python3.12/site-packages/nvidia -type d -name lib
+
+env -u LD_LIBRARY_PATH bash -lc 'source .venv_gpu/bin/activate; export NVIDIA_LIB_DIRS=$(find "$PWD/.venv_gpu/lib/python3.12/site-packages/nvidia" -type d -name lib | paste -sd: -); export LD_LIBRARY_PATH="$NVIDIA_LIB_DIRS:$LD_LIBRARY_PATH"; python - <<PY
+import os
+import tensorflow as tf
+print("tf", tf.__version__)
+print("built_cuda", tf.test.is_built_with_cuda())
+print("ld_library_path", os.environ.get("LD_LIBRARY_PATH", ""))
+print("gpus", tf.config.list_physical_devices("GPU"))
+PY'
+
+env -u LD_LIBRARY_PATH bash -lc 'source .venv_tf/bin/activate; export NVIDIA_LIB_DIRS=$(find "$PWD/.venv_tf/lib/python3.12/site-packages/nvidia" -type d -name lib | paste -sd: -); export LD_LIBRARY_PATH="$NVIDIA_LIB_DIRS:$LD_LIBRARY_PATH"; python - <<PY
+import os
+import tensorflow as tf
+print("tf", tf.__version__)
+print("built_cuda", tf.test.is_built_with_cuda())
+print("ld_library_path", os.environ.get("LD_LIBRARY_PATH", ""))
+print("gpus", tf.config.list_physical_devices("GPU"))
+PY'
+
+env -u LD_LIBRARY_PATH bash -lc 'cd /home/omen_pc1/photo_score_project; source .venv_gpu/bin/activate; export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$(find "$PWD/.venv_gpu/lib/python3.12/site-packages/nvidia" -type d -name lib | paste -sd: -); python - <<PY
+import os
+import tensorflow as tf
+print("tf", tf.__version__)
+print("built_cuda", tf.test.is_built_with_cuda())
+print("dev_dxg", os.path.exists("/dev/dxg"))
+print("gpus", tf.config.list_physical_devices("GPU"))
+PY'
+
+env -u LD_LIBRARY_PATH bash -lc 'cd /home/omen_pc1/photo_score_project; source .venv_gpu/bin/activate; export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$(find "$PWD/.venv_gpu/lib/python3.12/site-packages/nvidia" -type d -name lib | paste -sd: -); python scripts/technical_iqa/train_mobile_student_iqa_50k_smoke.py --out_dir outputs/mobile_student_iqa_50k_smoke_gpu_fixed_20260608 --max_train_samples 4000 --max_val_samples 1000 --max_test_samples 1000 --batch_size 16 --backbone_weights imagenet'
+
+env -u LD_LIBRARY_PATH bash -lc 'cd /home/omen_pc1/photo_score_project; source .venv_tf/bin/activate; export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$(find "$PWD/.venv_tf/lib/python3.12/site-packages/nvidia" -type d -name lib | paste -sd: -); python - <<PY
+import os
+import tensorflow as tf
+print("tf", tf.__version__)
+print("built_cuda", tf.test.is_built_with_cuda())
+print("dev_dxg", os.path.exists("/dev/dxg"))
+print("gpus", tf.config.list_physical_devices("GPU"))
+PY'
+
+env -u LD_LIBRARY_PATH bash -lc 'cd /home/omen_pc1/photo_score_project; source .venv_tf/bin/activate; export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$(find "$PWD/.venv_tf/lib/python3.12/site-packages/nvidia" -type d -name lib | paste -sd: -); python scripts/technical_iqa/train_mobile_student_iqa_50k_smoke.py --out_dir outputs/mobile_student_iqa_50k_smoke_gpu_fixed_venv_tf_20260608 --max_train_samples 4000 --max_val_samples 1000 --max_test_samples 1000 --batch_size 16 --backbone_weights imagenet'

@@ -1,0 +1,8 @@
+experiment_name,area,model_or_method,dataset,metric_1,metric_2,metric_3,result_summary,decision,source_path
+Production Baseline Audit,TQA,KonIQ+FLIVE Ensemble,SPAQ/KonIQ/FLIVE,SPAQ SRCC: 0.873,SPAQ Bias: +7.71,KonIQ MAE: 3.26,Ensemble effectively smooths high positive bias of FLIVE.,Keep Production,outputs/capstone_technical_iqa_baseline_summary_20260530/evidence_table.csv
+TOPIQ Evaluation,TQA,TOPIQ-lite (mixed112),SPAQ/KonIQ,SPAQ SRCC: 0.899,KonIQ SRCC: 0.863,,Strong metrics but did not replace ensemble due to stability.,Rejected/Candidate,outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/report.md
+A-LAMP Baseline,AQA,A-LAMP Multi-Patch,AVA,Accuracy: 0.7633,ROC-AUC: 0.7877,,Best multi-patch candidate but blocked from mobile deployment.,Teacher/Server,outputs/acut_capstone_final_report_20260526/model_metrics_summary.csv
+Stage 5 Student Distill,AQA,Student Mobile Proxy,AADB,Pairwise Acc: 0.90568,SRCC: 0.8586,,Successfully distilled complex ensemble into mobile-ready proxy.,Production,outputs/acut_capstone_final_report_20260526/model_metrics_summary.csv
+NIMA Preproc Fix,AQA,NIMA,AVA,SRCC: 0.5894,,,Fixed bug led to massive ranking improvement.,Production,outputs/acut_capstone_final_report_20260526/model_metrics_summary.csv
+ICAA Color Validation,AQA,ICAA Color,ICAA17K,SRCC: 0.8791,,,Highly reliable color assessment.,Production,outputs/acut_capstone_final_report_20260526/model_metrics_summary.csv
+A-LAMP Fusion,AQA,A-LAMP GraphLite,AVA,ROC-AUC: 0.7067,,,Failed to improve baseline; overfit heavily.,Rejected,outputs/acut_capstone_final_report_20260526/model_metrics_summary.csv

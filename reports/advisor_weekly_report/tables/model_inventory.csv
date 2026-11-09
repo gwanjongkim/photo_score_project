@@ -1,0 +1,16 @@
+Model,Role,Dataset,Input Size,Output,TFLite,Flutter,Status,Reason,Files
+TOPIQ-lite (mixed112),Technical Quality,SPAQ,224x224 (Assumed),SRCC 0.899,Yes,Yes,사용,Best Technical Performance,eval_final_topiq_candidates_vs_existing_technical_20260520
+FLIVE Image Mobile,Technical Quality,FLIVE,Unknown,SRCC 0.630,Yes,Unknown,보류,Lower performance than TOPIQ-lite,eval_final_topiq_candidates_vs_existing_technical_20260520
+KonIQ Mobile,Technical Quality,KonIQ,Unknown,SRCC 0.866,Yes,Unknown,보류,Lower performance than TOPIQ-lite,eval_final_topiq_candidates_vs_existing_technical_20260520
+DistortionGuard,Technical Quality,Synthetic/FLIVE,Unknown,Bias Issue,No,No,실패,False positive bias on FLIVE data,eval_techiqa_guard_v1...
+Stage 5 Student,Aesthetic Quality,AADB,224x224,Acc 0.905,Yes,Yes,사용 안 함,Ultimately discarded per project direction,distill_conservative_aesthetic_full_aadb_20260423
+NIMA (Fixed),Aesthetic Quality,AVA,Unknown,SRCC 0.589,Yes,Yes,사용,Reliable after preproc bug fix,nima_fixed_preproc_eval_20260525
+RGNet AADB,Aesthetic Quality,AADB,Unknown,SRCC 0.681,Yes,Yes,사용,Stable baseline regression,rgnet_paper_v1_agg_mean_full
+RGNet DenseASPP,Aesthetic Quality,AADB,Unknown,SRCC 0.651,No,No,실패,Did not surpass baseline,rgnet_v1_cascaded_denseaspp...
+A-LAMP Multi-Patch,Aesthetic Teacher,AVA,Unknown,Acc 0.763,Yes,No,사용,"Used as teacher, not on-device",alamp_multipatch_teacher_full_ava_20260524
+A-LAMP Graph Fusion,Aesthetic Quality,AVA (4096),Unknown,Overfit,No,No,실패,Overfitting on small dataset,alamp_paper_fusion_4096_final_report.md
+ICAA Color,Color Aesthetic,ICAA17K,Unknown,SRCC 0.879,Yes,Yes,사용,Reproduced paper performance,icaa_performance_reverification_20260525
+NVILA-8B,Explanation,Unknown,Unknown,Text,No,No,보류,GPU memory constraints,acut_product_nvila8b_probe...
+VILA-lite,Explanation,Unknown,Unknown,Text,Unknown,Unknown,보류,Pending further testing,docs/vila_lite_handoff.md
+Gemma 4-E4B-it,Explanation,JSON Schema,Unknown,Text,No,No,실패,Visual Hallucination,gemini_api_teacher_aesthetic3_20260427_revised
+Gemini API,Explanation,N/A,Image,Text,N/A,Yes,사용,Reliable cloud API fallback,docs/acut_product_integration.md

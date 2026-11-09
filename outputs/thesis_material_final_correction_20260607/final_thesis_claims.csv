@@ -1,0 +1,7 @@
+claim,status,correction_required
+"Final aesthetic evaluation is performed by a 3-model ensemble (NIMA, RGNet, Mobile A-LAMP v2) deployed as individual TFLite models.",SAFE,None.
+"ICAA is part of the final production aesthetic ensemble.",UNSAFE,Must state ICAA was excluded from the default mobile ensemble due to latency constraints.
+"Stage 5 Student is the final deployed aesthetic model.",UNSAFE,Must state Stage 5 was an ablation attempt rejected due to qualitative unreliability.
+"Mobile A-LAMP v2 is a mobile-oriented structural simplification of the original A-LAMP.",SAFE,None.
+"PyTorch ICAA was natively reimplemented in TensorFlow to overcome PyTorch-to-TFLite export bugs.",SAFE,None.
+"KonIQ and FLIVE were combined in an ensemble to reduce FLIVE's high positive bias (+18.42).",SAFE,None.

@@ -2,7 +2,7 @@ models:
   nima:
     enabled: true
     type: nima_distribution
-    model_path: models/aesthetic/nima_mobile.tflite
+    model_path: models/aesthetic/nima_mobile_fixed_preproc_fp16.tflite
     score_column: nima_score
     input_width: 224
     input_height: 224
@@ -11,7 +11,7 @@ models:
   rgnet:
     enabled: true
     type: scalar_tflite
-    model_path: models/aesthetic/rgnet_paper_aadb_fp16.tflite
+    model_path: models/aesthetic/rgnet_pil_resize_aadb_fp16.tflite
     score_column: rgnet_score
     input_width: 256
     input_height: 256
@@ -38,8 +38,8 @@ models:
     score_column: icaa_score
     input_width: 224
     input_height: 224
-    normalization: zero_to_one
-    score_index: 0
+    normalization: imagenet
+    score_index: 1
     output_labels:
       - MOS
       - Color
@@ -47,10 +47,10 @@ models:
       note: ICAA preprocessing may differ by export. Keep zero_to_one unless the model's own metadata proves another contract.
 
 weights:
-  nima: 0.25
-  rgnet: 0.25
-  alamp: 0.25
-  icaa: 0.25
+  nima: 0.2
+  rgnet: 0.4
+  alamp: 0.2
+  icaa: 0.2
 
 report:
   title: "A-cut Aesthetic Weight Lab forWeights2"

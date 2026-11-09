@@ -1,0 +1,16 @@
+{
+    "experiment_name": "stage5_student_dry_run",
+    "manifest_csv": "outputs/distill_exec_20260411/aadb_subset_teacher_labels.csv",
+    "output_dir": "test_outputs/distill_dry_run",
+    "data": {
+        "train_splits": ["train"],
+        "val_splits": ["val"],
+        "test_splits": []
+    },
+    "model": {
+        "backbone_weights_path": "weights/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_0.5_224_no_top.h5"
+    },
+    "train": {
+        "epochs": 1
+    }
+}

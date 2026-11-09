@@ -1,0 +1,4 @@
+dataset,base_manifest_unique,mdiqa_cached_unique,final_manifest_unique,pct_of_base,pct_of_mdiqa
+koniq10k,10073,8999,8999,0.893378338131639,1.0
+spaq,11125,1125,1125,0.10112359550561797,1.0
+flive,159240,1827,3981,0.025,2.1789819376026274

@@ -1,0 +1,13 @@
+date,week_no,model,experiment_name,dataset,task_type,metric_name,metric_value,output_dir,evidence_file,interpretation,status
+2026.04.23,1,Stage 5 Student,student_conservative_aesthetic_full_aadb_20260423,AADB,distillation,Pairwise Acc,0.90568,outputs/student_conservative_aesthetic_full_aadb_20260423,handoff.md,모바일용 경량 미적 품질 모델로서 우수한 성능 확보,성공
+2026.04.27,2,Gemini API,gemini_api_teacher_aesthetic3_20260427,AADB,labeling,N/A,N/A,outputs/gemini_api_teacher_aesthetic3_20260427,N/A,VLM 기반 교사 데이터 생성 실험,진행중
+2026.05.09,3,RGNet,rgnet_paper_aadb_regression_20260509,AADB,regression,SRCC,0.6819,outputs/rgnet_paper_aadb_regression_20260509,summary.md,실용적 RGNet 베이스라인 수립,성공
+2026.05.10,3,RGNet,rgnet_paper_ava_classification_20260510,AVA,classification,Accuracy,0.7697,outputs/rgnet_paper_ava_classification_20260510,summary.md,AVA 데이터셋 기반 RGNet 분류 모델 수립,성공
+2026.05.11,4,A-LAMP,alamp_paper_ava_v2_graph_lite_20260511,AVA,classification,ROC-AUC,0.7067,outputs/alamp_paper_ava_v2_graph_lite_20260511,report.md,그래프 기반 레이아웃 퓨전 시도 중 과적합 발생,보류
+2026.05.16,4,ICAA,icaa_tf_native_savedmodel_20260516,ICAA17K,regression,N/A,N/A,outputs/icaa_tf_native_savedmodel_20260516,N/A,ICAA 모델 TF Native 재구현 완료,성공
+2026.05.17,4,TOPIQ-lite,final_topiq_lite_mixed112_export_20260517,Mixed,regression,N/A,N/A,outputs/final_topiq_lite_mixed112_export_20260517,N/A,TOPIQ-lite 모델 TFLite 수출 준비,성공
+2026.05.20,5,TOPIQ-lite,eval_final_topiq_candidates_vs_existing_technical_20260520,SPAQ,regression,SRCC,0.899,outputs/eval_final_topiq_candidates_vs_existing_technical_20260520,report.md,범용 기술적 품질 모델로서 TOPIQ-lite 우수성 확인,성공
+2026.05.24,5,A-LAMP,alamp_multipatch_teacher_full_ava_20260524,AVA,classification,Accuracy,0.7633,outputs/alamp_multipatch_teacher_full_ava_20260524,report.md,A-LAMP Multi-Patch 교사 모델 개선 및 편향 분석,성공
+2026.05.25,6,NIMA,nima_fixed_preproc_eval_20260525,AVA,regression/rank,SRCC,0.5894,outputs/nima_fixed_preproc_eval_20260525,report.md,전처리 버그 수정을 통한 NIMA 성능 정상화,성공
+2026.05.25,6,ICAA,icaa_performance_reverification_20260525,ICAA17K,regression,SRCC,0.8791,outputs/icaa_performance_reverification_20260525,report.md,ICAA 공식 가중치 성능 완벽 재현 확인,성공
+2026.05.26,6,RGNet,rgnet_v1_cascaded_denseaspp_paper_recipe_wd3e5_aadb_20ep_20260526,AADB,regression,SRCC,0.6518,outputs/rgnet_v1_cascaded_denseaspp_paper_recipe_wd3e5_aadb_20ep_20260526,report.md,DenseASPP 적용 실험 결과 베이스라인 미도달,실패

@@ -1,0 +1,4 @@
+priority,action
+1,Do not profile hybrid yet; keep production technical_score unchanged.
+2,Increase KonIQ common-row coverage or run controlled student inference on cached production benchmark rows before any runtime decision.
+3,Review FLIVE-heavy disagreement rows and severe/standard FP cases before ratio tuning.

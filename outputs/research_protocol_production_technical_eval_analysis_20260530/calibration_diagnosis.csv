@@ -1,0 +1,4 @@
+dataset,baseline,prediction_min,prediction_max,prediction_mean,prediction_std,ground_truth_min,ground_truth_max,ground_truth_mean,ground_truth_std,bias,out_of_range_count,suspected_issue
+flive,production_technical_score,21.55,82.69,67.96,7.83,13.52,90.53,71.88,7.82,-3.91,0,Negative bias; inherits half of KonIQ's bias.
+koniq10k,production_technical_score,19.63,86.17,64.96,10.84,23.85,84.91,63.01,11.09,1.95,0,Well calibrated; bias reduced compared to standalones.
+spaq,production_technical_score,12.79,78.54,55.66,14.68,4.80,91.70,47.95,21.94,7.71,0,Positive bias inherited from FLIVE but significantly smoothed.

@@ -1,0 +1,4 @@
+task,owner,priority,status,notes
+"Phase 12: Export best model to TFLite (FP16)","agent","high","pending","Convert outputs/mobile_student_iqa_14105_full_controlled_20260604/best_by_val_mae_model.keras"
+"Hybrid runtime design for FLIVE robustness","agent","medium","pending","Evaluate blending logic with production model"
+"Mobile profiling of new technical student","agent","medium","pending","Measure latency and battery impact"

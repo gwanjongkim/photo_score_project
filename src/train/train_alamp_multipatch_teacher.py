@@ -156,12 +156,33 @@ def _print_oom_guidance(exc: BaseException, *, batch_size: int, patch_projection
     )
 
 
-def _compile_model(model: tf.keras.Model, *, learning_rate: float, optimizer_name: str) -> None:
+def _compile_model(
+    model: tf.keras.Model,
+    *,
+    learning_rate: float,
+    optimizer_name: str,
+    momentum: float = 0.0,
+    nesterov: bool = False,
+    weight_decay: float = 0.0,
+) -> None:
     normalized_optimizer = str(optimizer_name).strip().lower()
     if normalized_optimizer == "adam":
         optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     elif normalized_optimizer == "sgd":
-        optimizer = tf.keras.optimizers.SGD(learning_rate=learning_rate, momentum=0.9)
+        kwargs: dict[str, Any] = {
+            "learning_rate": learning_rate,
+            "momentum": float(momentum),
+            "nesterov": bool(nesterov),
+        }
+        if float(weight_decay) > 0.0:
+            kwargs["weight_decay"] = float(weight_decay)
+        try:
+            optimizer = tf.keras.optimizers.SGD(**kwargs)
+        except TypeError:
+            if float(weight_decay) > 0.0:
+                raise
+            kwargs.pop("weight_decay", None)
+            optimizer = tf.keras.optimizers.SGD(**kwargs)
     else:
         raise ValueError(f"optimizer must be 'adam' or 'sgd', got {optimizer_name!r}.")
     model.compile(
@@ -381,6 +402,9 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--bias_l2", type=float)
     parser.add_argument("--random_horizontal_flip", type=_parse_bool)
     parser.add_argument("--optimizer", choices=["adam", "sgd"])
+    parser.add_argument("--momentum", type=float)
+    parser.add_argument("--nesterov", type=_parse_bool)
+    parser.add_argument("--weight_decay", type=float)
     parser.add_argument("--dropout_rate", type=float)
     parser.add_argument("--backbone_weights")
     parser.add_argument("--label_threshold", type=float)
@@ -436,6 +460,9 @@ def main() -> None:
         _resolve(args.random_horizontal_flip, config, "training", "random_horizontal_flip", False)
     )
     optimizer_name = str(_resolve(args.optimizer, config, "training", "optimizer", "adam")).strip().lower()
+    momentum = float(_resolve(args.momentum, config, "training", "momentum", 0.0))
+    nesterov = _parse_bool(_resolve(args.nesterov, config, "training", "nesterov", False))
+    weight_decay = float(_resolve(args.weight_decay, config, "training", "weight_decay", 0.0))
     label_threshold = float(_resolve(args.label_threshold, config, "dataset", "label_threshold", 5.0))
     max_train_samples = _optional_int(_resolve(args.max_train_samples, config, "training", "max_train_samples", None))
     max_val_samples = _optional_int(_resolve(args.max_val_samples, config, "training", "max_val_samples", None))
@@ -523,7 +550,14 @@ def main() -> None:
             dense_l2=dense_l2,
             bias_l2=bias_l2,
         )
-        _compile_model(model, learning_rate=learning_rate, optimizer_name=optimizer_name)
+        _compile_model(
+            model,
+            learning_rate=learning_rate,
+            optimizer_name=optimizer_name,
+            momentum=momentum,
+            nesterov=nesterov,
+            weight_decay=weight_decay,
+        )
     except Exception as exc:
         _print_oom_guidance(exc, batch_size=batch_size, patch_projection_mode=patch_projection_mode)
         raise
@@ -541,6 +575,9 @@ def main() -> None:
     print(f"Dense L2: {dense_l2}")
     print(f"Bias L2: {bias_l2}")
     print(f"Optimizer: {optimizer_name}")
+    print(f"Momentum: {momentum}")
+    print(f"Nesterov: {nesterov}")
+    print(f"Optimizer weight decay: {weight_decay}")
     print(f"Backbone trainable: {backbone_trainable}")
     print(f"Unfreeze from layer: {unfreeze_from_layer}")
     print(f"Trainable VGG16 layers: {model_info['vgg16_trainability']['trainable_layers']}")
@@ -625,6 +662,9 @@ def main() -> None:
         "bias_l2": float(bias_l2),
         "random_horizontal_flip": bool(random_horizontal_flip),
         "optimizer": optimizer_name,
+        "momentum": float(momentum),
+        "nesterov": bool(nesterov),
+        "weight_decay": float(weight_decay),
         "total_parameter_count": int(model_info["parameter_count"]),
         "trainable_parameter_count": int(model_info["trainable_parameter_count"]),
         "train_count": len(train_records),
@@ -673,6 +713,9 @@ def main() -> None:
             "bias_l2": float(bias_l2),
             "random_horizontal_flip": bool(random_horizontal_flip),
             "optimizer": optimizer_name,
+            "momentum": float(momentum),
+            "nesterov": bool(nesterov),
+            "weight_decay": float(weight_decay),
             "use_class_weights": bool(use_class_weights),
             "class_weights": class_weights,
             "loss": "binary_crossentropy",

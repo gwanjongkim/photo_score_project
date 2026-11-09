@@ -1,0 +1,31 @@
+{
+  "component_mix": {
+    "aesthetic": 0.6,
+    "technical": 0.4
+  },
+  "aesthetic": {
+    "stage5_student_aesthetic_score": 1.0,
+    "aadb_score": 0.0,
+    "nima_mean_score": 0.0,
+    "alamp_score": 0.0,
+    "rgnet_score": 0.0,
+    "pairwise_recovered_score": 0.0
+  },
+  "technical": {
+    "koniq_score": 0.32,
+    "flive_image_score": 0.24,
+    "flive_patch_mean": 0.22,
+    "flive_patch_min": 0.12,
+    "musiq_score": 0.10
+  },
+  "pairwise_rerank": {
+    "enabled": false,
+    "weight": 0.15,
+    "pool_size": 10
+  },
+  "vila_rerank": {
+    "enabled": false,
+    "weight": 0.10,
+    "pool_size": 10
+  }
+}

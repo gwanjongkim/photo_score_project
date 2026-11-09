@@ -1,0 +1,8 @@
+experiment:
+  name: agg_max
+  model_variant: rgnet_paper_v1
+  label: RGNet-paper-v1 agg_max ablation
+  output_dir: outputs/rgnet_paper_v1_ablation_20260509/agg_max
+model:
+  aggregation: max
+  region_score_activation: sigmoid_before_aggregation

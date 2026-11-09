@@ -1,0 +1,32 @@
+{
+  "final_decision": "CALIBRATION_POLICY_NEEDS_ADJUSTMENT",
+  "recommended_policy": {
+    "policy": "policy_d_group_mean_std",
+    "source_mean_shift": 17.55685156993807,
+    "source_mean_shift_improvement": 5.066621276987192,
+    "source_std_ratio": 3.187769415917544,
+    "source_gap_mismatch": 39.680481232311195,
+    "source_gap_mismatch_improvement": -4.6864937644261815,
+    "severe_fp": 0.0,
+    "clipping_count": 0.0,
+    "clipping_pct": 0.0,
+    "max_srcc_drop_vs_policy_a": 0.0,
+    "fallback_proxy_srcc": 0.5677680863120701,
+    "fallback_proxy_srcc_drop_vs_policy_a": 0.0,
+    "fallback_proxy_mae": 3.291685179405057,
+    "fallback_proxy_mae_delta_vs_policy_a": 0.1554001229496036,
+    "flive_srcc": 0.6212216409771099,
+    "flive_srcc_drop_vs_policy_a": 0.0,
+    "flive_mae": 3.2125849237294384,
+    "flive_mae_delta_vs_policy_a": 0.09117318403689367,
+    "koniq10k_srcc": 0.948713772081456,
+    "koniq10k_srcc_drop_vs_policy_a": 0.0,
+    "koniq10k_mae": 2.4346209705500668,
+    "koniq10k_mae_delta_vs_policy_a": -4.027834203986478,
+    "spaq_srcc": 0.9086102286792862,
+    "spaq_srcc_drop_vs_policy_a": 0.0,
+    "spaq_mae": 6.454229951486966,
+    "spaq_mae_delta_vs_policy_a": -1.1501011352678328,
+    "rejection_reason": "helpful_but_failed_selection_gate"
+  }
+}

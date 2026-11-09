@@ -1,0 +1,4 @@
+priority,action,status
+1,Use unsandboxed `.venv_tf` with `env -u LD_LIBRARY_PATH` and `/usr/lib/wsl/lib` plus `.venv_tf` NVIDIA lib dirs for 50k student GPU smoke reruns,ready
+2,Avoid `.venv_gpu` for TensorFlow 2.21 training until CuDNN is upgraded from 9.1.0 to at least 9.3.0,blocked_for_tf_training
+3,Do not judge GPU visibility from sandboxed Codex commands because `/dev/dxg` is hidden there,documented

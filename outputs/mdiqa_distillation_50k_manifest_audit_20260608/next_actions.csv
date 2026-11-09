@@ -1,0 +1,4 @@
+task,owner,priority,status,notes
+"Generate MDIQA targets for 43,582 missing rows","agent","high","pending","Use mdiqa_xd for SPAQ/FLIVE and mdiqa_koniq seed1 for KonIQ."
+"Merge into final 50k distillation manifest","agent","high","pending","Include cached and newly inferred targets."
+"Execute 5k student distillation smoke run","agent","medium","pending","Verify training stability on the new dataset mix."

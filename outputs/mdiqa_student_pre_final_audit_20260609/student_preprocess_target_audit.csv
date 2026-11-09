@@ -1,0 +1,5 @@
+item,configuration,normalization,note
+"Training Target","teacher_target_0_100 / 100.0","[0.0, 1.0]","Sigmoid head outputs 0-1."
+"Evaluation Target","pred_norm * 100.0","[0.0, 100.0]","Matches MOS/Teacher scale."
+"Preprocessing","Keras EfficientNetV2 builtin","None","Expects [0, 255] float32."
+"Sigmoid Usage","Final Layer Activation","[0.0, 1.0]","Appropriate for bounded regression."

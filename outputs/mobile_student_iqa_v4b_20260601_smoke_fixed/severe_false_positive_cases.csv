@@ -1,0 +1,5 @@
+fp_type,dataset,split,image_path,source_group,quality_score_0_100,guarded_target_0_100,pred_0_100,absolute_error_to_target
+fp,spaq,val,/home/omen_pc1/photo_score_project/data/raw/spaq/09270.jpg,09270.jpg,45.7,39.12586206896552,65.56692123413086,26.441059165165342
+fp,koniq10k,val,/home/omen_pc1/photo_score_project/data/raw/koniq10k/images/9246527762.jpg,9246527762.jpg,45.7943925233644,45.466248466248416,67.81798005104065,22.351731584792233
+fp,koniq10k,val,/home/omen_pc1/photo_score_project/data/raw/koniq10k/images/6329859114.jpg,6329859114.jpg,42.803738317757,43.97092136344472,65.32923579216003,21.358314428715317
+fp,koniq10k,test,/home/omen_pc1/photo_score_project/data/raw/koniq10k/images/8556005393.jpg,8556005393.jpg,48.4615384615384,53.2598954443614,65.54263234138489,12.28273689702349

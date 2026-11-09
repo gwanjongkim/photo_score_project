@@ -1,0 +1,352 @@
+{
+  "hash_groups": {
+    "alamp_practical": {
+      "all_exist": true,
+      "artifacts": [
+        {
+          "exists": true,
+          "inventory_sha256": "8b579a0cabc3e51a548f8e3a25ab4ee9f8ecc016632764e11b38ff9a58f288c7",
+          "matches_inventory": true,
+          "path": "exports/tflite/alamp_aadb_gpu.tflite",
+          "sha256": "8b579a0cabc3e51a548f8e3a25ab4ee9f8ecc016632764e11b38ff9a58f288c7",
+          "size_bytes": 39158340
+        },
+        {
+          "exists": true,
+          "inventory_sha256": "8b579a0cabc3e51a548f8e3a25ab4ee9f8ecc016632764e11b38ff9a58f288c7",
+          "matches_inventory": true,
+          "path": "models/aesthetic/alamp_aadb_gpu.tflite",
+          "sha256": "8b579a0cabc3e51a548f8e3a25ab4ee9f8ecc016632764e11b38ff9a58f288c7",
+          "size_bytes": 39158340
+        },
+        {
+          "exists": true,
+          "inventory_sha256": null,
+          "matches_inventory": null,
+          "path": "forWeights/models/aesthetic/alamp_aadb_gpu.tflite",
+          "sha256": "8b579a0cabc3e51a548f8e3a25ab4ee9f8ecc016632764e11b38ff9a58f288c7",
+          "size_bytes": 39158340
+        }
+      ],
+      "byte_identical": true,
+      "size_identical": true
+    },
+    "icaa_tf_native_fp16": {
+      "all_exist": true,
+      "artifacts": [
+        {
+          "exists": true,
+          "inventory_sha256": "10ae68a3283bdabf05ecfa8b679e1e89865f3c960687ce5495500455bbd111ff",
+          "matches_inventory": true,
+          "path": "outputs/icaa_tf_native_tflite_fp16_20260516_144023/icaa_dat_tf_native_fp16.tflite",
+          "sha256": "10ae68a3283bdabf05ecfa8b679e1e89865f3c960687ce5495500455bbd111ff",
+          "size_bytes": 175885416
+        },
+        {
+          "exists": true,
+          "inventory_sha256": "10ae68a3283bdabf05ecfa8b679e1e89865f3c960687ce5495500455bbd111ff",
+          "matches_inventory": true,
+          "path": "forWeights2/models/aesthetic/icaa_dat_tf_native_fp16.tflite",
+          "sha256": "10ae68a3283bdabf05ecfa8b679e1e89865f3c960687ce5495500455bbd111ff",
+          "size_bytes": 175885416
+        }
+      ],
+      "byte_identical": true,
+      "size_identical": true
+    },
+    "mobile_alamp_v2_fp16": {
+      "all_exist": true,
+      "artifacts": [
+        {
+          "exists": true,
+          "inventory_sha256": "70cbc5c75d5468a3bfd825047f83eda32f4a8da36150f6905013e967c90efa43",
+          "matches_inventory": true,
+          "path": "outputs/mobile_alamp_v2_full_ava_20260519_tflite/parity_1024/mobile_alamp_v2_fp16.tflite",
+          "sha256": "70cbc5c75d5468a3bfd825047f83eda32f4a8da36150f6905013e967c90efa43",
+          "size_bytes": 2930400
+        },
+        {
+          "exists": true,
+          "inventory_sha256": "70cbc5c75d5468a3bfd825047f83eda32f4a8da36150f6905013e967c90efa43",
+          "matches_inventory": true,
+          "path": "forWeights2/models/aesthetic/mobile_alamp_v2_fp16.tflite",
+          "sha256": "70cbc5c75d5468a3bfd825047f83eda32f4a8da36150f6905013e967c90efa43",
+          "size_bytes": 2930400
+        }
+      ],
+      "byte_identical": true,
+      "size_identical": true
+    },
+    "nima_fixed_fp16": {
+      "all_exist": true,
+      "artifacts": [
+        {
+          "exists": true,
+          "inventory_sha256": "ccbb51123f8414fdb40e2ba6a9c4a3b7be11cbf00e0bd14442923da0de46d255",
+          "matches_inventory": true,
+          "path": "outputs/nima_fixed_preproc_eval_20260525/nima_mobile_fixed_preproc_fp16.tflite",
+          "sha256": "ccbb51123f8414fdb40e2ba6a9c4a3b7be11cbf00e0bd14442923da0de46d255",
+          "size_bytes": 12495220
+        },
+        {
+          "exists": true,
+          "inventory_sha256": "ccbb51123f8414fdb40e2ba6a9c4a3b7be11cbf00e0bd14442923da0de46d255",
+          "matches_inventory": true,
+          "path": "forWeights2/models/aesthetic/nima_mobile_fixed_preproc_fp16.tflite",
+          "sha256": "ccbb51123f8414fdb40e2ba6a9c4a3b7be11cbf00e0bd14442923da0de46d255",
+          "size_bytes": 12495220
+        }
+      ],
+      "byte_identical": true,
+      "size_identical": true
+    },
+    "nima_legacy": {
+      "all_exist": true,
+      "artifacts": [
+        {
+          "exists": true,
+          "inventory_sha256": "48ed5a9f1e82e3f162c75ac6f6931004041736a4641002d282408d8fecf8800a",
+          "matches_inventory": true,
+          "path": "exports/tflite/nima_mobile.tflite",
+          "sha256": "48ed5a9f1e82e3f162c75ac6f6931004041736a4641002d282408d8fecf8800a",
+          "size_bytes": 24765068
+        },
+        {
+          "exists": true,
+          "inventory_sha256": null,
+          "matches_inventory": null,
+          "path": "models/aesthetic/nima_mobile.tflite",
+          "sha256": "48ed5a9f1e82e3f162c75ac6f6931004041736a4641002d282408d8fecf8800a",
+          "size_bytes": 24765068
+        },
+        {
+          "exists": true,
+          "inventory_sha256": null,
+          "matches_inventory": null,
+          "path": "forWeights/models/aesthetic/nima_mobile.tflite",
+          "sha256": "48ed5a9f1e82e3f162c75ac6f6931004041736a4641002d282408d8fecf8800a",
+          "size_bytes": 24765068
+        },
+        {
+          "exists": true,
+          "inventory_sha256": null,
+          "matches_inventory": null,
+          "path": "forWeights2/models/aesthetic/nima_mobile.tflite",
+          "sha256": "48ed5a9f1e82e3f162c75ac6f6931004041736a4641002d282408d8fecf8800a",
+          "size_bytes": 24765068
+        }
+      ],
+      "byte_identical": true,
+      "size_identical": true
+    },
+    "rgnet_pil_fp16": {
+      "all_exist": true,
+      "artifacts": [
+        {
+          "exists": true,
+          "inventory_sha256": "1d3b19a937581947400248d8a29e0e3125877bb89d9833cd42dcfe3cb48e7418",
+          "matches_inventory": true,
+          "path": "outputs/rgnet_v1_aadb_pil_resize_retrain_20260524_tflite/rgnet_pil_resize_aadb_fp16.tflite",
+          "sha256": "1d3b19a937581947400248d8a29e0e3125877bb89d9833cd42dcfe3cb48e7418",
+          "size_bytes": 38934148
+        },
+        {
+          "exists": true,
+          "inventory_sha256": "1d3b19a937581947400248d8a29e0e3125877bb89d9833cd42dcfe3cb48e7418",
+          "matches_inventory": true,
+          "path": "forWeights2/models/aesthetic/rgnet_pil_resize_aadb_fp16.tflite",
+          "sha256": "1d3b19a937581947400248d8a29e0e3125877bb89d9833cd42dcfe3cb48e7418",
+          "size_bytes": 38934148
+        }
+      ],
+      "byte_identical": true,
+      "size_identical": true
+    },
+    "rgnet_practical": {
+      "all_exist": true,
+      "artifacts": [
+        {
+          "exists": true,
+          "inventory_sha256": "b81461fe49d1ff4ff83ccccdc8bbdee958558552472f4d5db74a6217e24cdeb2",
+          "matches_inventory": true,
+          "path": "exports/tflite/rgnet_aadb_gpu.tflite",
+          "sha256": "b81461fe49d1ff4ff83ccccdc8bbdee958558552472f4d5db74a6217e24cdeb2",
+          "size_bytes": 26085072
+        },
+        {
+          "exists": true,
+          "inventory_sha256": "b81461fe49d1ff4ff83ccccdc8bbdee958558552472f4d5db74a6217e24cdeb2",
+          "matches_inventory": true,
+          "path": "models/aesthetic/rgnet_aadb_gpu.tflite",
+          "sha256": "b81461fe49d1ff4ff83ccccdc8bbdee958558552472f4d5db74a6217e24cdeb2",
+          "size_bytes": 26085072
+        },
+        {
+          "exists": true,
+          "inventory_sha256": null,
+          "matches_inventory": null,
+          "path": "forWeights/models/aesthetic/rgnet_aadb_gpu.tflite",
+          "sha256": "b81461fe49d1ff4ff83ccccdc8bbdee958558552472f4d5db74a6217e24cdeb2",
+          "size_bytes": 26085072
+        }
+      ],
+      "byte_identical": true,
+      "size_identical": true
+    }
+  },
+  "icaa_port_and_contract": {
+    "expected_src_models_file_exists": false,
+    "lab_config_score_index_0": true,
+    "lab_config_zero_to_one": true,
+    "savedmodel_vs_fp16_64_real_full_max_abs_diff": 0.002588331699371338,
+    "tf_native_class_present": true,
+    "tf_native_color_head_present": true,
+    "tf_native_mos_head_present": true,
+    "tf_native_output_order_mos_color": true,
+    "tf_native_port_exists": true,
+    "tf_native_port_path": "experiments/icaa_tf_native/tf_models/tf_dat_model.py",
+    "tflite_fp16_size_bytes": 175885416,
+    "tflite_invoke_success": true,
+    "tflite_output_shape": [
+      1,
+      2
+    ],
+    "validated_color_output_index": 1,
+    "validated_contract_preprocessing": "external ImageNet normalization; verified by port/export reports"
+  },
+  "key_single_artifacts": [
+    {
+      "exists": true,
+      "inventory_sha256": "932099ed846e7467ff8be1d3e9a010bbc902eccc48aae2677d58f4b29d085546",
+      "matches_inventory": true,
+      "path": "checkpoints/technical_koniq_gpu/final_model.keras",
+      "sha256": "932099ed846e7467ff8be1d3e9a010bbc902eccc48aae2677d58f4b29d085546",
+      "size_bytes": 48725759
+    },
+    {
+      "exists": true,
+      "inventory_sha256": "e3af51c6eae714d66c2d1dbe6838099cecb56b3247f04e688550aa47290d982a",
+      "matches_inventory": true,
+      "path": "checkpoints/technical_flive_image_gpu/final_model.keras",
+      "sha256": "e3af51c6eae714d66c2d1dbe6838099cecb56b3247f04e688550aa47290d982a",
+      "size_bytes": 48725759
+    },
+    {
+      "exists": true,
+      "inventory_sha256": "f1b5f886a6fe01cab7dbac1cae8faed5c5d2678f73d6609078571962b8bfa177",
+      "matches_inventory": true,
+      "path": "checkpoints/technical_flive_patch_gpu/final_model.keras",
+      "sha256": "f1b5f886a6fe01cab7dbac1cae8faed5c5d2678f73d6609078571962b8bfa177",
+      "size_bytes": 48725759
+    },
+    {
+      "exists": true,
+      "inventory_sha256": "bb20e6e06840a2d01caf42bf9e233358dbe92515187ca5e5de362b65164ae66c",
+      "matches_inventory": true,
+      "path": "checkpoints/nima_ava_gpu/final_model.keras",
+      "sha256": "bb20e6e06840a2d01caf42bf9e233358dbe92515187ca5e5de362b65164ae66c",
+      "size_bytes": 125352765
+    },
+    {
+      "exists": true,
+      "inventory_sha256": "513bab97d3bad2bd9cd03922264d5cba74cd9a5a5136c1e35e2a61e1ed9e7002",
+      "matches_inventory": true,
+      "path": "checkpoints/nima_ava_gpu_fixed_preproc_20260525/final_model.keras",
+      "sha256": "513bab97d3bad2bd9cd03922264d5cba74cd9a5a5136c1e35e2a61e1ed9e7002",
+      "size_bytes": 125347783
+    },
+    {
+      "exists": true,
+      "inventory_sha256": "49b7f0fa768fa85068d4b4c69633588dc49158728c9119f97a161953404937b8",
+      "matches_inventory": true,
+      "path": "checkpoints/rgnet_aadb_gpu/final_model.keras",
+      "sha256": "49b7f0fa768fa85068d4b4c69633588dc49158728c9119f97a161953404937b8",
+      "size_bytes": 131951528
+    },
+    {
+      "exists": true,
+      "inventory_sha256": "9ad9199a844138f1e38ee2805e2111e3891d9574f36ad3420bb995d604ee68e8",
+      "matches_inventory": true,
+      "path": "checkpoints/alamp_aadb_gpu/final_model.keras",
+      "sha256": "9ad9199a844138f1e38ee2805e2111e3891d9574f36ad3420bb995d604ee68e8",
+      "size_bytes": 191908754
+    },
+    {
+      "exists": true,
+      "inventory_sha256": "6d64d8fe6411842c944d873325ab563c76ff92ae19a38b007290f6afb039bff0",
+      "matches_inventory": true,
+      "path": "checkpoints/musiq_aadb_gpu/final_model.keras",
+      "sha256": "6d64d8fe6411842c944d873325ab563c76ff92ae19a38b007290f6afb039bff0",
+      "size_bytes": 13519919
+    },
+    {
+      "exists": true,
+      "inventory_sha256": "3d8850d996a6376dded969bce17b7afddc4241fceccdd3602d881ec2ddc95a42",
+      "matches_inventory": true,
+      "path": "checkpoints/student_full_aadb/final_model.keras",
+      "sha256": "3d8850d996a6376dded969bce17b7afddc4241fceccdd3602d881ec2ddc95a42",
+      "size_bytes": 17939905
+    },
+    {
+      "exists": true,
+      "inventory_sha256": "063059b0b62aa3e5e352b1bd642ac6cd1bbaf1c729343787c87168ba1524f282",
+      "matches_inventory": true,
+      "path": "weights/icaa_official/e_30_ICAA17K_multi_tacc0.9622_srcc0.8811_tlcc0.8981.pth",
+      "sha256": "063059b0b62aa3e5e352b1bd642ac6cd1bbaf1c729343787c87168ba1524f282",
+      "size_bytes": 348884485
+    },
+    {
+      "exists": true,
+      "inventory_sha256": "4e15a07a38ffe82d6e00b60cb1369a725c937ddc94e21757e2e26b5d4e576003",
+      "matches_inventory": true,
+      "path": "MDIQA/checkpoints/mdiqa_shared_5t_4a_mbv3_koniq_seed1.pth",
+      "sha256": "4e15a07a38ffe82d6e00b60cb1369a725c937ddc94e21757e2e26b5d4e576003",
+      "size_bytes": 19930987
+    },
+    {
+      "exists": true,
+      "inventory_sha256": "dfbb76e2d4338f91d0f247cdd476ce47c1d03593e1a5b4785bbe5fe8b5e3a35d",
+      "matches_inventory": true,
+      "path": "MDIQA/checkpoints/mdiqa_shared_5t_4a_mbv3_koniq_xd.pth",
+      "sha256": "dfbb76e2d4338f91d0f247cdd476ce47c1d03593e1a5b4785bbe5fe8b5e3a35d",
+      "size_bytes": 466238667
+    },
+    {
+      "exists": true,
+      "inventory_sha256": "0e6b896bb477f044150c5f000ecb7d77c767fbda27b61032e9e57a91b3b761f7",
+      "matches_inventory": true,
+      "path": "MDIQA/checkpoints/net_best.pth",
+      "sha256": "0e6b896bb477f044150c5f000ecb7d77c767fbda27b61032e9e57a91b3b761f7",
+      "size_bytes": 105006103
+    }
+  ],
+  "runtime_references": {
+    "calibrated_config_default_runtime_link_proven": false,
+    "calibrated_config_exact_path_source_hits": [],
+    "selector_default_weights_present": true,
+    "stage5_bundle_args": {
+      "aadb_model": "checkpoints/composition_aadb_gpu/final_model.keras",
+      "alamp_global_size": 384,
+      "alamp_model": "checkpoints/alamp_aadb_gpu/final_model.keras",
+      "alamp_num_patches": 5,
+      "alamp_patch_scale": 0.35,
+      "alamp_patch_size": 224,
+      "flive_image_model": "checkpoints/technical_flive_image_gpu/final_model.keras",
+      "flive_patch_model": "checkpoints/technical_flive_patch_gpu/final_model.keras",
+      "image_size": 224,
+      "koniq_model": "checkpoints/technical_koniq_gpu/final_model.keras",
+      "musiq_model": "checkpoints/musiq_aadb_gpu/final_model.keras",
+      "musiq_patch_size": 32,
+      "musiq_patches_per_scale": 16,
+      "musiq_scale_sizes": "224,384,512",
+      "nima_model": "checkpoints/nima_ava_gpu/final_model.keras",
+      "pairwise_max_references": 16,
+      "pairwise_model": "checkpoints/pairwise_aadb_gpu/final_model.keras",
+      "pairwise_reference_csv": "data/processed/aadb/val.csv",
+      "pairwise_target_col": "score",
+      "rgnet_image_size": 256,
+      "rgnet_model": "checkpoints/rgnet_aadb_gpu/final_model.keras"
+    },
+    "stage5_default_nima_is_legacy": true
+  }
+}

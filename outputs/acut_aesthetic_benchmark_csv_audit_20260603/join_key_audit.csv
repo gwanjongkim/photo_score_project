@@ -1,0 +1,3 @@
+dataset,join_key,aligned_rows,duplicates,nima_missing,rgnet_missing,rgnet_src_rows,alamp_missing,icaa_missing,icaa_src_rows,nima_src_rows,alamp_src_rows
+ava,join_key,25548,0,no_key,0,25550.0,no_key,0,25550,,
+aadb,join_key,1000,0,0,no_key,,0,0,1000,1000.0,1000.0

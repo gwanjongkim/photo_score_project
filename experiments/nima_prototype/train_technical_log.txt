@@ -1,0 +1,403 @@
+2026-03-26 13:50:42.173179: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-03-26 13:50:42.181987: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:479] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-03-26 13:50:42.194484: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:10575] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-03-26 13:50:42.194524: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1442] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-03-26 13:50:42.202399: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-03-26 13:50:42.632648: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2026-03-26 13:50:42.959405: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:50:42.992573: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:50:42.992637: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:50:43.522003: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:50:43.522050: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:50:43.522063: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:50:43.619776: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:50:43.619827: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:50:43.619834: I tensorflow/core/common_runtime/gpu/gpu_device.cc:2019] Could not identify NUMA node of platform GPU id 0, defaulting to 0.  Your kernel may not have been built with NUMA support.
+2026-03-26 13:50:43.619855: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:50:43.619883: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1928] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9513 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 4070 SUPER, pci bus id: 0000:01:00.0, compute capability: 8.9
+TF version: 2.16.2
+GPUs: [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
+train: 2700 val: 300
+>> Resuming from: /home/omen_pc1/nima_project/out/ckpt_technical/latest.weights.h5
+>> Stage2 fit
+Epoch 1/2
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1774500655.211145    7983 service.cc:145] XLA service 0x782d8022c6c0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1774500655.211187    7983 service.cc:153]   StreamExecutor device (0): NVIDIA GeForce RTX 4070 SUPER, Compute Capability 8.9
+2026-03-26 13:50:55.408075: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:268] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2026-03-26 13:50:56.842105: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:465] Loaded cuDNN version 8907
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1774500658.504094    8129 asm_compiler.cc:369] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_17739', 8 bytes spill stores, 8 bytes spill loads
+
+I0000 00:00:1774500658.788315    8129 asm_compiler.cc:369] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_5663', 8 bytes spill stores, 8 bytes spill loads
+
+I0000 00:00:1774500676.312437    7983 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[1m 1/80[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m42:13[0m 32s/step - loss: 0.0794[1m 3/80[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m3s[0m 41ms/step - loss: 0.0764  [1m 5/80[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m3s[0m 41ms/step - loss: 0.0748[1m 7/80[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m2s[0m 41ms/step - loss: 0.0739[1m 9/80[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m2s[0m 40ms/step - loss: 0.0729[1m11/80[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m2s[0m 40ms/step - loss: 0.0719[1m13/80[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m2s[0m 40ms/step - loss: 0.0711[1m15/80[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m2s[0m 40ms/step - loss: 0.0704[1m17/80[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m2s[0m 40ms/step - loss: 0.0697[1m19/80[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m2s[0m 39ms/step - loss: 0.0692[1m21/80[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m2s[0m 39ms/step - loss: 0.0687[1m23/80[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m2s[0m 39ms/step - loss: 0.0684[1m25/80[0m [32m━━━━━━[0m[37m━━━━━━━━━━━━━━[0m [1m2s[0m 39ms/step - loss: 0.0680[1m27/80[0m [32m━━━━━━[0m[37m━━━━━━━━━━━━━━[0m [1m2s[0m 39ms/step - loss: 0.0677[1m29/80[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m1s[0m 39ms/step - loss: 0.0674[1m31/80[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m1s[0m 39ms/step - loss: 0.0671[1m33/80[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m1s[0m 39ms/step - loss: 0.0669[1m35/80[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m1s[0m 39ms/step - loss: 0.0667[1m37/80[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m1s[0m 39ms/step - loss: 0.0665[1m39/80[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m1s[0m 39ms/step - loss: 0.0663[1m41/80[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m1s[0m 39ms/step - loss: 0.0661[1m43/80[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m1s[0m 39ms/step - loss: 0.0659[1m45/80[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m1s[0m 39ms/step - loss: 0.0657[1m47/80[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m1s[0m 39ms/step - loss: 0.0656[1m49/80[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m1s[0m 39ms/step - loss: 0.0655[1m51/80[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m1s[0m 39ms/step - loss: 0.0653[1m53/80[0m [32m━━━━━━━━━━━━━[0m[37m━━━━━━━[0m [1m1s[0m 39ms/step - loss: 0.0652[1m55/80[0m [32m━━━━━━━━━━━━━[0m[37m━━━━━━━[0m [1m0s[0m 39ms/step - loss: 0.0651[1m57/80[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m0s[0m 39ms/step - loss: 0.0649[1m59/80[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m0s[0m 40ms/step - loss: 0.0648[1m61/80[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m0s[0m 40ms/step - loss: 0.0646[1m63/80[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m0s[0m 40ms/step - loss: 0.0645[1m65/80[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 40ms/step - loss: 0.0644[1m67/80[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 40ms/step - loss: 0.0643[1m69/80[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m0s[0m 40ms/step - loss: 0.0641[1m71/80[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m0s[0m 40ms/step - loss: 0.0640[1m73/80[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 40ms/step - loss: 0.0639[1m75/80[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 40ms/step - loss: 0.0638[1m77/80[0m [32m━━━━━━━━━━━━━━━━━━━[0m[37m━[0m [1m0s[0m 40ms/step - loss: 0.0637[1m79/80[0m [32m━━━━━━━━━━━━━━━━━━━[0m[37m━[0m [1m0s[0m 40ms/step - loss: 0.0636[1m80/80[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m37s[0m 67ms/step - loss: 0.0598 - val_loss: 0.0482
+Epoch 2/2
+[1m 1/80[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m5s[0m 67ms/step - loss: 0.0560[1m 2/80[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m5s[0m 68ms/step - loss: 0.0555[1m 3/80[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m5s[0m 68ms/step - loss: 0.0570[1m 5/80[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m4s[0m 55ms/step - loss: 0.0577[1m 7/80[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m3s[0m 50ms/step - loss: 0.0580[1m 9/80[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m3s[0m 48ms/step - loss: 0.0578[1m11/80[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m3s[0m 47ms/step - loss: 0.0579[1m13/80[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m3s[0m 45ms/step - loss: 0.0579[1m15/80[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m2s[0m 45ms/step - loss: 0.0579[1m17/80[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m2s[0m 44ms/step - loss: 0.0578[1m19/80[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m2s[0m 44ms/step - loss: 0.0577[1m21/80[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m2s[0m 43ms/step - loss: 0.0576[1m23/80[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m2s[0m 43ms/step - loss: 0.0575[1m25/80[0m [32m━━━━━━[0m[37m━━━━━━━━━━━━━━[0m [1m2s[0m 43ms/step - loss: 0.0573[1m27/80[0m [32m━━━━━━[0m[37m━━━━━━━━━━━━━━[0m [1m2s[0m 43ms/step - loss: 0.0571[1m29/80[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m2s[0m 43ms/step - loss: 0.0570[1m31/80[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m2s[0m 42ms/step - loss: 0.0569[1m33/80[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m1s[0m 42ms/step - loss: 0.0567[1m35/80[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m1s[0m 42ms/step - loss: 0.0566[1m37/80[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m1s[0m 42ms/step - loss: 0.0565[1m39/80[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m1s[0m 42ms/step - loss: 0.0563[1m41/80[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m1s[0m 42ms/step - loss: 0.0562[1m43/80[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m1s[0m 42ms/step - loss: 0.0560[1m45/80[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m1s[0m 42ms/step - loss: 0.0559[1m47/80[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m1s[0m 42ms/step - loss: 0.0558[1m49/80[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m1s[0m 42ms/step - loss: 0.0557[1m51/80[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m1s[0m 42ms/step - loss: 0.0556[1m53/80[0m [32m━━━━━━━━━━━━━[0m[37m━━━━━━━[0m [1m1s[0m 41ms/step - loss: 0.0555[1m55/80[0m [32m━━━━━━━━━━━━━[0m[37m━━━━━━━[0m [1m1s[0m 41ms/step - loss: 0.0554[1m57/80[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m0s[0m 41ms/step - loss: 0.0553[1m59/80[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m0s[0m 41ms/step - loss: 0.0552[1m61/80[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m0s[0m 41ms/step - loss: 0.0551[1m63/80[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m0s[0m 41ms/step - loss: 0.0550[1m65/80[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 41ms/step - loss: 0.0549[1m67/80[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 41ms/step - loss: 0.0548[1m69/80[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m0s[0m 41ms/step - loss: 0.0548[1m71/80[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m0s[0m 41ms/step - loss: 0.0547[1m73/80[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 41ms/step - loss: 0.0546[1m75/80[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 41ms/step - loss: 0.0545[1m77/80[0m [32m━━━━━━━━━━━━━━━━━━━[0m[37m━[0m [1m0s[0m 41ms/step - loss: 0.0544[1m79/80[0m [32m━━━━━━━━━━━━━━━━━━━[0m[37m━[0m [1m0s[0m 41ms/step - loss: 0.0544[1m80/80[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m4s[0m 52ms/step - loss: 0.0515 - val_loss: 0.0477
+Saved artifact at '/home/omen_pc1/nima_project/out/saved_nima_technical'. The following endpoints are available:
+
+* Endpoint 'serve'
+  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 224, 224, 3), dtype=tf.float32, name='keras_tensor')
+Output Type:
+  TensorSpec(shape=(None, 10), dtype=tf.float32, name=None)
+Captures:
+  132142857424528: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857424912: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857425488: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857426256: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857425296: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857424720: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857426448: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857427408: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857427024: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857425104: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857427216: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857429328: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857429520: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857428752: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857425680: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857429136: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857431056: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857430864: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857430480: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857431632: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857430096: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857432784: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857432976: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857432208: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857430288: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857431824: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857431440: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857431248: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857432400: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857433936: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857433360: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857433552: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857433744: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857432592: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857434896: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857434320: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857434512: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857434704: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857428944: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857435856: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857436240: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857436432: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857435088: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857436048: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857437008: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857435664: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857435472: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857436816: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857436624: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142857435280: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578286864: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578288016: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578287824: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578287440: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578288592: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578287056: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578288208: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578288400: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578286672: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578289552: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578288976: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578289168: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578289360: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578287248: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578290512: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578289936: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578290128: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578290320: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578287632: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578291472: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578290896: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578291088: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578291280: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578288784: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578292432: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578291856: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578292048: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578292240: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578289744: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578293392: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578292816: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578293008: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578293200: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578290704: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578294352: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578293776: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578293968: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578294160: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578291664: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578295312: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578294736: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578294928: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578295120: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578292624: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578296272: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578295696: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578295888: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578296080: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578293584: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578297232: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578296656: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578296848: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578297040: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578294544: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578298192: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578297616: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578297808: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578298000: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578295504: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578299152: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578298576: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578298768: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578298960: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578296464: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578300112: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578299536: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578299728: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578299920: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578297424: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578301072: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578300496: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578300688: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578300880: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578298384: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578302032: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578301456: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578301648: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578301264: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578302800: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578302224: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578300304: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578302416: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578302608: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578301840: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142578299344: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579187984: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579189136: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579188944: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579188560: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579189712: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579188176: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579189328: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579189520: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579187792: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579190672: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579190096: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579190288: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579190480: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579188368: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579191632: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579191056: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579191248: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579191440: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579188752: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579192592: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579192016: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579192208: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579192400: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579189904: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579193552: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579192976: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579193168: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579193360: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579190864: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579194512: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579193936: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579194128: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579194320: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579191824: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579195472: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579194896: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579195088: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579195280: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579192784: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579196432: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579195856: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579196048: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579196240: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579193744: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579197392: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579196816: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579197008: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579197200: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579194704: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579198352: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579197776: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579197968: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579198160: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579195664: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579199312: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579198736: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579198928: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579199120: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579196624: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579200272: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579199696: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579199888: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579200080: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579197584: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579201232: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579200656: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579200848: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579201040: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579198544: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579202192: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579201616: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579201808: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579202000: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579199504: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579203152: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579202576: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579202768: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579202384: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579203920: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579203344: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579201424: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579203536: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579203728: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579202960: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132142579200464: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815709968: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815711120: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815710928: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815710544: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815711696: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815710160: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815711312: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815711504: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815709776: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815712656: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815712080: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815712272: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815712464: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815710352: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815713616: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815713040: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815713232: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815713424: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815710736: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815714576: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815714000: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815714192: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815714384: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815711888: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815715536: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815714960: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815715152: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815715344: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815712848: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815716496: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815715920: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815716112: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815716304: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815713808: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815717456: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815716880: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815717072: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815717264: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815714768: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815718416: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815715728: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  132141815718032: TensorSpec(shape=(), dtype=tf.resource, name=None)
+W0000 00:00:1774500689.185595    7883 tf_tfl_flatbuffer_helpers.cc:390] Ignored output_format.
+W0000 00:00:1774500689.185624    7883 tf_tfl_flatbuffer_helpers.cc:393] Ignored drop_control_dependency.
+2026-03-26 13:51:29.185906: I tensorflow/cc/saved_model/reader.cc:83] Reading SavedModel from: /home/omen_pc1/nima_project/out/saved_nima_technical
+2026-03-26 13:51:29.193250: I tensorflow/cc/saved_model/reader.cc:51] Reading meta graph with tags { serve }
+2026-03-26 13:51:29.193278: I tensorflow/cc/saved_model/reader.cc:146] Reading SavedModel debug info (if present) from: /home/omen_pc1/nima_project/out/saved_nima_technical
+2026-03-26 13:51:29.282466: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+2026-03-26 13:51:29.291789: I tensorflow/cc/saved_model/loader.cc:234] Restoring SavedModel bundle.
+2026-03-26 13:51:29.628326: I tensorflow/cc/saved_model/loader.cc:218] Running initialization op on SavedModel bundle at path: /home/omen_pc1/nima_project/out/saved_nima_technical
+2026-03-26 13:51:29.708900: I tensorflow/cc/saved_model/loader.cc:317] SavedModel load for tags { serve }; Status: success: OK. Took 522997 microseconds.
+2026-03-26 13:51:30.000428: W tensorflow/compiler/mlir/lite/flatbuffer_export.cc:2996] TFLite interpreter needs to link Flex delegate in order to run the model since it contains the following Select TFop(s):
+Flex ops: FlexAddV2, FlexConv2D, FlexDepthwiseConv2dNative, FlexPad, FlexRelu6
+Details:
+	tf.AddV2(tensor<?x14x14x64xf16>, tensor<?x14x14x64xf16>) -> (tensor<?x14x14x64xf16>) : {device = ""}
+	tf.AddV2(tensor<?x14x14x96xf16>, tensor<?x14x14x96xf16>) -> (tensor<?x14x14x96xf16>) : {device = ""}
+	tf.AddV2(tensor<?x28x28x32xf16>, tensor<?x28x28x32xf16>) -> (tensor<?x28x28x32xf16>) : {device = ""}
+	tf.AddV2(tensor<?x56x56x24xf16>, tensor<?x56x56x24xf16>) -> (tensor<?x56x56x24xf16>) : {device = ""}
+	tf.AddV2(tensor<?x7x7x160xf16>, tensor<?x7x7x160xf16>) -> (tensor<?x7x7x160xf16>) : {device = ""}
+	tf.Conv2D(tensor<?x112x112x16xf16>, tensor<1x1x16x96xf16>) -> (tensor<?x112x112x96xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x112x112x32xf16>, tensor<1x1x32x16xf16>) -> (tensor<?x112x112x16xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x14x14x192xf16>, tensor<1x1x192x64xf16>) -> (tensor<?x14x14x64xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x14x14x384xf16>, tensor<1x1x384x64xf16>) -> (tensor<?x14x14x64xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x14x14x384xf16>, tensor<1x1x384x96xf16>) -> (tensor<?x14x14x96xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x14x14x576xf16>, tensor<1x1x576x96xf16>) -> (tensor<?x14x14x96xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x14x14x64xf16>, tensor<1x1x64x384xf16>) -> (tensor<?x14x14x384xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x14x14x96xf16>, tensor<1x1x96x576xf16>) -> (tensor<?x14x14x576xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x224x224x3xf16>, tensor<3x3x3x32xf16>) -> (tensor<?x112x112x32xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 2, 2, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x28x28x144xf16>, tensor<1x1x144x32xf16>) -> (tensor<?x28x28x32xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x28x28x192xf16>, tensor<1x1x192x32xf16>) -> (tensor<?x28x28x32xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x28x28x32xf16>, tensor<1x1x32x192xf16>) -> (tensor<?x28x28x192xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x56x56x144xf16>, tensor<1x1x144x24xf16>) -> (tensor<?x56x56x24xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x56x56x24xf16>, tensor<1x1x24x144xf16>) -> (tensor<?x56x56x144xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x56x56x96xf16>, tensor<1x1x96x24xf16>) -> (tensor<?x56x56x24xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x7x7x160xf16>, tensor<1x1x160x960xf16>) -> (tensor<?x7x7x960xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x7x7x320xf16>, tensor<1x1x320x1280xf16>) -> (tensor<?x7x7x1280xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "VALID", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x7x7x576xf16>, tensor<1x1x576x160xf16>) -> (tensor<?x7x7x160xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x7x7x960xf16>, tensor<1x1x960x160xf16>) -> (tensor<?x7x7x160xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.Conv2D(tensor<?x7x7x960xf16>, tensor<1x1x960x320xf16>) -> (tensor<?x7x7x320xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1], use_cudnn_on_gpu = true}
+	tf.DepthwiseConv2dNative(tensor<?x112x112x32xf16>, tensor<3x3x32x1xf16>) -> (tensor<?x112x112x32xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1]}
+	tf.DepthwiseConv2dNative(tensor<?x113x113x96xf16>, tensor<3x3x96x1xf16>) -> (tensor<?x56x56x96xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "VALID", strides = [1, 2, 2, 1]}
+	tf.DepthwiseConv2dNative(tensor<?x14x14x384xf16>, tensor<3x3x384x1xf16>) -> (tensor<?x14x14x384xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1]}
+	tf.DepthwiseConv2dNative(tensor<?x14x14x576xf16>, tensor<3x3x576x1xf16>) -> (tensor<?x14x14x576xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1]}
+	tf.DepthwiseConv2dNative(tensor<?x15x15x576xf16>, tensor<3x3x576x1xf16>) -> (tensor<?x7x7x576xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "VALID", strides = [1, 2, 2, 1]}
+	tf.DepthwiseConv2dNative(tensor<?x28x28x192xf16>, tensor<3x3x192x1xf16>) -> (tensor<?x28x28x192xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1]}
+	tf.DepthwiseConv2dNative(tensor<?x29x29x192xf16>, tensor<3x3x192x1xf16>) -> (tensor<?x14x14x192xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "VALID", strides = [1, 2, 2, 1]}
+	tf.DepthwiseConv2dNative(tensor<?x56x56x144xf16>, tensor<3x3x144x1xf16>) -> (tensor<?x56x56x144xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1]}
+	tf.DepthwiseConv2dNative(tensor<?x57x57x144xf16>, tensor<3x3x144x1xf16>) -> (tensor<?x28x28x144xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "VALID", strides = [1, 2, 2, 1]}
+	tf.DepthwiseConv2dNative(tensor<?x7x7x960xf16>, tensor<3x3x960x1xf16>) -> (tensor<?x7x7x960xf16>) : {data_format = "NHWC", device = "", dilations = [1, 1, 1, 1], explicit_paddings = [], padding = "SAME", strides = [1, 1, 1, 1]}
+	tf.Pad(tensor<?x112x112x96xf16>, tensor<4x2xi32>) -> (tensor<?x113x113x96xf16>) : {device = ""}
+	tf.Pad(tensor<?x14x14x576xf16>, tensor<4x2xi32>) -> (tensor<?x15x15x576xf16>) : {device = ""}
+	tf.Pad(tensor<?x28x28x192xf16>, tensor<4x2xi32>) -> (tensor<?x29x29x192xf16>) : {device = ""}
+	tf.Pad(tensor<?x56x56x144xf16>, tensor<4x2xi32>) -> (tensor<?x57x57x144xf16>) : {device = ""}
+	tf.Relu6(tensor<?x112x112x32xf16>) -> (tensor<?x112x112x32xf16>) : {device = ""}
+	tf.Relu6(tensor<?x112x112x96xf16>) -> (tensor<?x112x112x96xf16>) : {device = ""}
+	tf.Relu6(tensor<?x14x14x192xf16>) -> (tensor<?x14x14x192xf16>) : {device = ""}
+	tf.Relu6(tensor<?x14x14x384xf16>) -> (tensor<?x14x14x384xf16>) : {device = ""}
+	tf.Relu6(tensor<?x14x14x576xf16>) -> (tensor<?x14x14x576xf16>) : {device = ""}
+	tf.Relu6(tensor<?x28x28x144xf16>) -> (tensor<?x28x28x144xf16>) : {device = ""}
+	tf.Relu6(tensor<?x28x28x192xf16>) -> (tensor<?x28x28x192xf16>) : {device = ""}
+	tf.Relu6(tensor<?x56x56x144xf16>) -> (tensor<?x56x56x144xf16>) : {device = ""}
+	tf.Relu6(tensor<?x56x56x96xf16>) -> (tensor<?x56x56x96xf16>) : {device = ""}
+	tf.Relu6(tensor<?x7x7x1280xf16>) -> (tensor<?x7x7x1280xf16>) : {device = ""}
+	tf.Relu6(tensor<?x7x7x576xf16>) -> (tensor<?x7x7x576xf16>) : {device = ""}
+	tf.Relu6(tensor<?x7x7x960xf16>) -> (tensor<?x7x7x960xf16>) : {device = ""}
+See instructions: https://www.tensorflow.org/lite/guide/ops_select
+2026-03-26 13:51:30.148509: E tensorflow/core/util/util.cc:131] oneDNN supports DT_HALF only on platforms with AVX-512. Falling back to the default Eigen-based implementation if present.
+INFO: Created TensorFlow Lite delegate for select TF ops.
+2026-03-26 13:51:30.424353: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:51:30.424391: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:51:30.424415: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:51:30.424615: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:51:30.424631: I tensorflow/core/common_runtime/gpu/gpu_device.cc:2019] Could not identify NUMA node of platform GPU id 0, defaulting to 0.  Your kernel may not have been built with NUMA support.
+2026-03-26 13:51:30.424646: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:984] could not open file to read NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node
+Your kernel may have been built without NUMA support.
+2026-03-26 13:51:30.424663: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1928] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9513 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 4070 SUPER, pci bus id: 0000:01:00.0, compute capability: 8.9
+INFO: TfLiteFlexDelegate delegate: 101 nodes delegated out of 422 nodes with 53 partitions.
+
+2026-03-26 13:51:30.426021: E tensorflow/core/framework/node_def_util.cc:676] NodeDef mentions attribute use_inter_op_parallelism which is not in the op definition: Op<name=Conv2D; signature=input:T, filter:T -> output:T; attr=T:type,allowed=[DT_HALF, DT_BFLOAT16, DT_FLOAT, DT_DOUBLE, DT_INT32]; attr=strides:list(int); attr=use_cudnn_on_gpu:bool,default=true; attr=padding:string,allowed=["SAME", "VALID", "EXPLICIT"]; attr=explicit_paddings:list(int),default=[]; attr=data_format:string,default="NHWC",allowed=["NHWC", "NCHW"]; attr=dilations:list(int),default=[1, 1, 1, 1]> This may be expected if your graph generating binary is newer  than this binary. Unknown attributes will be ignored. NodeDef: {{node Conv2D}}
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+SavedModel: /home/omen_pc1/nima_project/out/saved_nima_technical
+Saved TFLite: /home/omen_pc1/nima_project/out/nima_technical_fp16_flex.tflite
+keras mean: 7.473082542419434 sum: 1.0000001192092896
+tfl   mean: 7.473901748657227 sum: 1.0
+max abs diff: 0.0019306838512420654

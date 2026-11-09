@@ -1,0 +1,3 @@
+image_id,product_label,technical_score,diagnosis,action
+IMG_2785.JPG,Bad,68.26,"Lens/waterdrop artifacts and low contrast. Model optimistic; Product Bad includes aesthetic/lens preference.","Classify as mismatch; exclude from training targets."
+Test_weight_Bad_Region,Bad,High_Range,"Labels reflect 'unpleasant' content or framing rather than pixel-level degradation.","Keep as validation holdout; do not use as labels."

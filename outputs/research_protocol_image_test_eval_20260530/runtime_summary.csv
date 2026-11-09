@@ -1,0 +1,4 @@
+scope,baseline,input_images,prediction_rows,seconds,avg_ms_per_input_image,avg_ms_per_prediction,notes
+all,all,4967,9934,74.46014558899333,14.99096951660828,7.49548475830414,"wall time includes image decode, preprocessing, and both standalone model invocations"
+model_invoke_only,flive_standalone,4967,4967,24.478581594434218,4.928242720844416,4.928242720844416,model invoke timing excludes image decode and preprocessing
+model_invoke_only,koniq_standalone,4967,4967,25.416735880673514,5.1171201692517645,5.1171201692517645,model invoke timing excludes image decode and preprocessing

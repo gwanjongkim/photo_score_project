@@ -1,0 +1,2 @@
+priority,action,status
+1,Investigate KonIQ label scaling or ranking loss before more dataset-weight sweeps.,required

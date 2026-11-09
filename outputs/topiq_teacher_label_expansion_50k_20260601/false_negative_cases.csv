@@ -1,0 +1,1 @@
+case_type,severity,dataset,split,source_group,image_path,quality_score_0_100,topiq_raw,topiq_raw_x100,calibrated_topiq_0_100,guarded_target_0_100,gap

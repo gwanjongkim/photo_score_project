@@ -1,0 +1,7 @@
+policy,flive_weight,koniq_weight,spaq_weight,rationale
+W0: Current Raw,0.67782,0.14386,0.17832,Current
+W1: Balanced (1/3),0.3333333333333333,0.3333333333333333,0.3333333333333333,Equal
+W2: Cap FLIVE 40%,0.4,0.3,0.3,Cap
+W3: Cap FLIVE 50%,0.5,0.25,0.25,Cap
+W4: Official Proportional,0.6035836521038856,0.20132876988121604,0.19508757801489832,Official Dist
+W5: Reliability-based,0.2,0.4,0.4,Teacher quality

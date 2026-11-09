@@ -1,0 +1,7 @@
+dataset,metric,raw_teacher,guarded_label,existing_production,student_v4b
+flive,srcc,0.251,0.925,0.574,0.470
+flive,mae,18.47,2.54,5.61,4.37
+koniq10k,srcc,0.857,0.974,0.934,0.654
+koniq10k,mae,16.82,1.59,3.26,5.50
+spaq,srcc,0.803,0.957,0.873,0.854
+spaq,mae,12.92,5.05,11.89,7.33

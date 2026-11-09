@@ -1,0 +1,9 @@
+{
+  "internal_test_srcc": 0.80172,
+  "official_srcc": 0.7032895850027917,
+  "delta": -0.09843041499720828,
+  "internal_flive_pct": 67.782,
+  "official_flive_pct": 60.35836521038856,
+  "flive_srcc_official": 0.5070829737747616,
+  "flive_srcc_internal": 0.7011
+}

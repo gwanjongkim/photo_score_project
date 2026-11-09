@@ -137,9 +137,10 @@ def _load_manifest(
     df = df.loc[~missing_image_mask].copy()
 
     targets = pd.to_numeric(df[target_col], errors="coerce")
-    missing_target_mask = targets.isna()
+    is_fp = _bool_series(df["hard_false_positive"]) if "hard_false_positive" in df.columns else pd.Series(False, index=df.index)
+    missing_target_mask = targets.isna() & ~is_fp
     df = df.loc[~missing_target_mask].copy()
-    targets = targets.loc[~missing_target_mask].clip(0.0, 1.0).astype("float32")
+    targets = targets.loc[~missing_target_mask].fillna(0.0).clip(0.0, 1.0).astype("float32")
     df[target_col] = targets
 
     if "hard_false_positive" in df.columns:

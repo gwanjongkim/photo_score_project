@@ -1,0 +1,11 @@
+image,error
+complementary/orange_green/anar_sillakivi33200552462.jpg,"Cannot set tensor: Got value of type FLOAT64 but expected type FLOAT32 for input 0, name: serving_default_image:0 "
+complementary/yellow_green/dick_pountain24467055962.jpg,"Cannot set tensor: Got value of type FLOAT64 but expected type FLOAT32 for input 0, name: serving_default_image:0 "
+monochromatic/gray/37409944@N0241505680004.jpg,"Cannot set tensor: Got value of type FLOAT64 but expected type FLOAT32 for input 0, name: serving_default_image:0 "
+complementary/blue_violet/muchlove201637688816836.jpg,"Cannot set tensor: Got value of type FLOAT64 but expected type FLOAT32 for input 0, name: serving_default_image:0 "
+complementary/green_blue/airportgirl318194013431.jpg,"Cannot set tensor: Got value of type FLOAT64 but expected type FLOAT32 for input 0, name: serving_default_image:0 "
+monochromatic/gray/lennykphotography26476234896.jpg,"Cannot set tensor: Got value of type FLOAT64 but expected type FLOAT32 for input 0, name: serving_default_image:0 "
+monochromatic/white/th3ch0s3n0n320004765505.jpg,"Cannot set tensor: Got value of type FLOAT64 but expected type FLOAT32 for input 0, name: serving_default_image:0 "
+monochromatic/darkyellow/arthur-f33609919955.jpg,"Cannot set tensor: Got value of type FLOAT64 but expected type FLOAT32 for input 0, name: serving_default_image:0 "
+monochromatic/green/gert5529098121936.jpg,"Cannot set tensor: Got value of type FLOAT64 but expected type FLOAT32 for input 0, name: serving_default_image:0 "
+complementary/red_yellow/mr-baz4695800279.jpg,"Cannot set tensor: Got value of type FLOAT64 but expected type FLOAT32 for input 0, name: serving_default_image:0 "

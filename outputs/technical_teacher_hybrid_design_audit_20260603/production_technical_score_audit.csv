@@ -1,0 +1,5 @@
+implementation_file,component_mix,technical_weights,models_used,status
+src/infer/select_best_shots.py,0.6 Aesthetic / 0.4 Technical,"KonIQ: 0.32, FLIVE-Image: 0.24, FLIVE-Patch-Mean: 0.22, FLIVE-Patch-Min: 0.12, MUSIQ-AADB: 0.10","KonIQ-Mobile, FLIVE-Image-Mobile, FLIVE-Patch, MUSIQ-AADB",Production
+src/infer/predict_mobile_aesthetic.py,0.5 Aesthetic / 0.5 Technical,"KonIQ: 0.60, FLIVE-Image: 0.40","KonIQ-Mobile, FLIVE-Image-Mobile",Mobile Fallback
+N/A,N/A,KonIQ: 4/7 (~0.57) / FLIVE-Image: 3/7 (~0.43),Normalized relative weights between image models,Analytical
+C6 / TOPIQ / MDIQA / MUSIQ-Official,N/A,N/A,N/A,Log-only / Comparison-only

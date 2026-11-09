@@ -1,0 +1,5 @@
+dataset,missing_rows,local_images_available,inference_time_est_mins,complexity
+KonIQ-10k,1074,Yes (10373 on disk),9,Low
+SPAQ,10000,Yes (11126 on disk),83,Medium
+FLIVE (Images),35829,Yes (199926 on disk),298,High
+FLIVE (Patches),119430,Yes (Virtual),995,Very High

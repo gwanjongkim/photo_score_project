@@ -1,0 +1,4 @@
+priority,action,status
+1,Implement one bounded R2 within-dataset pairwise ranking B0 smoke; no B1/B2 and no full controlled training.,recommended
+2,Keep S2_koniq_x2 as fallback target-scaling smoke if ranking implementation is blocked.,fallback
+3,Do not run weighted controlled rerun from W5-lite or W5-v2 results.,blocked

@@ -1,0 +1,2 @@
+PYTHONPYCACHEPREFIX=/tmp/pycache ./.venv_gpu/bin/python -m py_compile outputs/research_protocol_smoke_scoring_20260530/run_smoke_scoring.py
+PYTHONPATH=. ./.venv_gpu/bin/python outputs/research_protocol_smoke_scoring_20260530/run_smoke_scoring.py

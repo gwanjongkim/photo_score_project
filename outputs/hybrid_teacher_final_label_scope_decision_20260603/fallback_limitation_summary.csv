@@ -1,0 +1,5 @@
+limitation,description,impact
+technical_aesthetic_mismatch,Product-gold labels (Bad/Soso/Good) reflect aesthetic preferences not strictly captured by technical IQA models.,Risk of severe FP false alarms.
+artifact_specifics,Artifacts like lens waterdrops (IMG_2785.JPG) are partially technical but also aesthetic; current technical models might be optimistic.,Potential optimistic targets for specific real-world failures.
+environment_mismatch,CuDNN mismatch in .venv_tf prevents new bulk production technical scoring for unknown images.,Cannot score new real-mobile datasets at scale.
+sample_size_limited,Confirmed real-mobile scored set (c6_parity) is only 50 rows.,Insufficient for representative fallback training.

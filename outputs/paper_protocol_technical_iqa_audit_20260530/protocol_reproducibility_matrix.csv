@@ -1,0 +1,8 @@
+dataset,protocol,exact_reproduction_possible,annotation_file,image_root,split_file_or_rule,score_column,score_scale,required_preprocessing,metrics,missing_items,include_in_first_benchmark
+koniq10k,MUSIQ,YES,data/raw/koniq10k/koniq10k_scores_and_distributions.csv,data/raw/koniq10k/images,"Random 80/20, 10 runs",MOS,1-5,None,"SRCC, PLCC",None,YES
+spaq,MUSIQ,YES,external/icaa_official_repo/SPAQ_code/dataset/SPAQ/spaqTrain.csv,data/raw/spaq,Official Train/Test,MOS,1-10,Resize shorter side to 512,"SRCC, PLCC",None,YES
+paq2piq,MUSIQ,PARTIAL,data/raw/paq2piq/labels_image.csv,data/raw/paq2piq,30k/7.7k/1.8k split,mos,0-100,None (MUSIQ) / Pad 640x640 (Original),"SRCC, PLCC",Official split file for 30k/7.7k/1.8k,YES
+flive,NR-IQA 70/10/20,YES,data/raw/flive/labels_image.csv,data/raw/flive,Random 70/10/20,mos,0-100,None,"SRCC, PLCC",None,YES
+aadb,N/A,NO,data/raw/aadb/AADBinfo.mat,data/raw/aadb/images,N/A,N/A,N/A,N/A,N/A,Confirmed aesthetic dataset,NO
+ava,N/A,NO,/home/omen_pc1/ava/ground_truth_dataset.csv,/home/omen_pc1/ava/images,N/A,N/A,N/A,N/A,N/A,Confirmed aesthetic dataset,NO
+icaa17k,N/A,NO,N/A,data/raw/icaa17k,N/A,N/A,N/A,N/A,N/A,Confirmed aesthetic dataset,NO

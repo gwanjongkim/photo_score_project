@@ -1,0 +1,7 @@
+{
+  "final_decision": "B0_50K_REGRESSION_NEEDS_WEIGHTED_B0_RERUN",
+  "root_cause": "FLIVE overrepresentation (68%) and teacher label compression on KonIQ (ratio 0.31).",
+  "recommended_action": "Rerun B0 training with dataset-balanced weights (e.g., FLIVE capped at 30%) and consider ranking loss or label expansion for KonIQ.",
+  "official_srcc": 0.703290,
+  "delta_vs_14k": -0.040310
+}

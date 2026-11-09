@@ -1,0 +1,40 @@
+rg -n "PaQ|paq2piq|FLIVE|LIVEFB|paper_protocol|split" /home/omen_pc1/.codex/memories/MEMORY.md
+pwd
+hostname
+date
+whoami
+nl -ba /home/omen_pc1/.codex/memories/MEMORY.md
+ls /home/omen_pc1/.codex/memories/rollout_summaries
+find /home/omen_pc1/photo_score_project -maxdepth 2 -name AGENTS.md -print
+ls -la /home/omen_pc1/photo_score_project
+sed -n '1,220p' /home/omen_pc1/photo_score_project/AGENTS.md
+sed -n '700,740p' /home/omen_pc1/.codex/memories/MEMORY.md
+sed -n '1,260p' /home/omen_pc1/.codex/memories/rollout_summaries/2026-05-17T08-46-06-TlWS-spaq_flive_manifest_and_rgnet_ava_load_fix.md
+sed -n '1,260p' /home/omen_pc1/photo_score_project/outputs/paper_protocol_technical_iqa_audit_20260530/report.md
+sed -n '1,220p' /home/omen_pc1/photo_score_project/outputs/paper_protocol_technical_iqa_audit_20260530/next_action.md
+find /home/omen_pc1/photo_score_project/data/raw/paq2piq -maxdepth 4 -type f -printf '%p\t%s\n'
+find /home/omen_pc1/photo_score_project/data/processed/paq2piq -maxdepth 4 -type f -printf '%p\t%s\n'
+find /home/omen_pc1/photo_score_project/data/raw/flive -maxdepth 5 -type f -printf '%p\t%s\n'
+find /home/omen_pc1/photo_score_project/data/processed/flive -maxdepth 4 -type f -printf '%p\t%s\n'
+find /home/omen_pc1/photo_score_project/scripts /home/omen_pc1/photo_score_project/src /home/omen_pc1/photo_score_project/external /home/omen_pc1/photo_score_project/configs -type f -printf '%p\t%s\n'
+find /home/omen_pc1/photo_score_project/data/raw/paq2piq /home/omen_pc1/photo_score_project/data/raw/flive -type f \( -iname '*.csv' -o -iname '*.json' -o -iname '*.jsonl' -o -iname '*.txt' -o -iname '*.pkl' -o -iname '*.pickle' -o -iname '*.mat' -o -iname '*.npy' -o -iname '*.npz' \) -printf '%p\t%s\n'
+find /home/omen_pc1/photo_score_project/outputs -type f \( -iname '*paq*' -o -iname '*piq*' -o -iname '*flive*' -o -iname '*livefb*' -o -iname '*split*' \) -printf '%p\t%s\n'
+rg -l -i 'paq-?2-?piq|paq2piq|flive|livefb|LIVEFB|39810|119430|30000|30k|7700|7\.7k|1800|1\.8k' /home/omen_pc1/photo_score_project/scripts /home/omen_pc1/photo_score_project/src /home/omen_pc1/photo_score_project/external /home/omen_pc1/photo_score_project/configs /home/omen_pc1/photo_score_project/outputs --glob '*.py' --glob '*.sh' --glob '*.md' --glob '*.txt' --glob '*.csv' --glob '*.json' --glob '*.jsonl' --glob '*.yaml' --glob '*.yml' --glob '!**/__pycache__/**' --glob '!**/.git/**'
+rg -n -i 'paq-?2-?piq|paq2piq|flive|livefb|LIVEFB|39810|119430|30000|30k|7700|7\.7k|1800|1\.8k|official|paper.*split|split.*paper' /home/omen_pc1/photo_score_project/scripts /home/omen_pc1/photo_score_project/src /home/omen_pc1/photo_score_project/external /home/omen_pc1/photo_score_project/configs /home/omen_pc1/photo_score_project/outputs --glob '*.py' --glob '*.sh' --glob '*.md' --glob '*.txt' --glob '*.json' --glob '*.jsonl' --glob '*.yaml' --glob '*.yml' --glob '!**/__pycache__/**' --glob '!**/.git/**' --max-count 80
+sed -n '1,220p' /home/omen_pc1/photo_score_project/src/data/build_flive_csv.py
+sed -n '1,220p' /home/omen_pc1/photo_score_project/src/preprocess/make_flive_csv.py
+sed -n '1,260p' /home/omen_pc1/photo_score_project/src/preprocess/make_spaq_flive_csv.py
+sed -n '1,180p' /home/omen_pc1/photo_score_project/src/data/prepare_flive.py
+sed -n '1,220p' /home/omen_pc1/photo_score_project/src/data/flive_utils.py
+sed -n '260,520p' /home/omen_pc1/photo_score_project/src/preprocess/make_spaq_flive_csv.py
+find /home/omen_pc1/photo_score_project/data/processed -type f \( -iname '*paq*' -o -iname '*piq*' -o -iname '*flive*' -o -iname '*livefb*' -o -iname '*split*' \) -printf '%p\t%s\n'
+find /home/omen_pc1/photo_score_project/data/raw -maxdepth 5 -type f \( -iname '*paq*' -o -iname '*piq*' -o -iname '*flive*' -o -iname '*livefb*' -o -iname '*split*' \) -printf '%p\t%s\n'
+find /home/omen_pc1/photo_score_project/external -type f \( -iname '*paq*' -o -iname '*piq*' -o -iname '*flive*' -o -iname '*livefb*' -o -iname '*split*' \) -printf '%p\t%s\n'
+rg -n -i 'labels_image|labels_patch|image_train|image_val|image_test|train_test_split|random_state=42|0\.8|0\.1|31848|3981|39810|119430|patch split|official.*flive|flive.*official|paper.*flive|flive.*paper' /home/omen_pc1/photo_score_project/src/data /home/omen_pc1/photo_score_project/src/preprocess /home/omen_pc1/photo_score_project/scripts /home/omen_pc1/photo_score_project/configs --glob '*.py' --glob '*.md' --glob '*.yaml' --glob '*.json' --glob '!**/__pycache__/**'
+rg -n -i '640|dimension|picture|pictures|patch|patches|SRCC|PLCC|LCC' /home/omen_pc1/photo_score_project/src/data /home/omen_pc1/photo_score_project/src/preprocess /home/omen_pc1/photo_score_project/scripts /home/omen_pc1/photo_score_project/external /home/omen_pc1/photo_score_project/configs --glob '*.py' --glob '*.md' --glob '*.txt' --glob '*.yaml' --glob '*.json' --glob '!**/__pycache__/**' --glob '!**/.git/**' --max-count 60
+head -n 5 /home/omen_pc1/photo_score_project/data/raw/flive/labels_image.csv
+head -n 5 /home/omen_pc1/photo_score_project/data/raw/flive/labels_patch.csv
+head -n 5 /home/omen_pc1/photo_score_project/data/processed/flive/image_train.csv
+head -n 5 /home/omen_pc1/photo_score_project/data/processed/paq2piq/image_train.csv
+python3 - <<'PY' ... row count and header inspection for raw/processed FLIVE/PaQ-2-PiQ candidate CSVs ... PY
+python3 - <<'PY' ... write report.md, candidate_split_files.csv, search_commands_used.txt ... PY

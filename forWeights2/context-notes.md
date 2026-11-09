@@ -15,3 +15,12 @@
 - 복사본에 있던 legacy RGNet/A-LAMP 모델 파일과 오래된 `outputs/` 감사 산출물은 `forWeights2`에서 제거했다.
 - `./.venv_gpu/bin/python` 기반 문법 검사, config 로드, checksum, help, fake artifact 생성, fake ICAA vector/scalar 추출 검증이 통과했다.
 - `git -C forWeights status --short` 결과는 비어 있어 기존 `forWeights` 수정은 확인되지 않았다.
+
+## 2026-05-26
+
+- NIMA 모델을 전처리 불일치가 수정된 `nima_mobile_fixed_preproc_fp16.tflite`로 교체했다.
+- RGNet 모델을 PIL 기반 리사이즈가 적용된 AADB 리트레인 버전인 `rgnet_pil_resize_aadb_fp16.tflite`로 교체했다.
+- `rgnet_pil_resize_aadb.metadata.json`이 누락되어 제공된 명세(256x256, RGB float [0,1], ensemble_weight 0.4)에 따라 새로 생성했다.
+- 기본 가중치 구성을 RGNet 0.4, 나머지 0.2(NIMA, A-LAMP, ICAA)로 업데이트하여 RGNet의 비중을 높였다.
+- `HANDOFF.md`, `MODEL_CARD.md`, `READ.md`, `SHA256SUMS.txt` 등 모든 관련 문서를 새 모델 사양에 맞춰 업데이트했다.
+- `photo_score_project/.venv` 환경에서 config 로드 및 모델 파일 존재 여부를 검증하여 설정이 올바름을 확인했다.

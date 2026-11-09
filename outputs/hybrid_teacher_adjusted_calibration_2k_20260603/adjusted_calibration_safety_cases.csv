@@ -1,0 +1,5 @@
+policy,dataset,selected_teacher_source,image_path,quality_score_0_100,target_0_100,safety_case_type
+policy_f_shift_cap5,spaq,mdiqa_xd,/home/omen_pc1/photo_score_project/data/raw/spaq/10619.jpg,39.900000000000006,61.67499303817749,FP
+policy_f_shift_cap5,spaq,mdiqa_xd,/home/omen_pc1/photo_score_project/data/raw/spaq/11003.jpg,26.6,61.21405839920044,FP
+policy_f_shift_cap8,spaq,mdiqa_xd,/home/omen_pc1/photo_score_project/data/raw/spaq/10619.jpg,39.900000000000006,64.67499303817749,FP
+policy_f_shift_cap8,spaq,mdiqa_xd,/home/omen_pc1/photo_score_project/data/raw/spaq/11003.jpg,26.6,64.21405839920044,FP

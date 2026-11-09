@@ -1,0 +1,13 @@
+priority,action,owner,status,note
+High,Keep KonIQ+FLIVE as production technical IQA,Team,Active,Safest stack (0 severe FP); no justified replacement
+High,Keep NIMA+RGNet+A-LAMP v2 as production aesthetic IAA,Team,Active,Calibrated weights NIMA 0.37 / RGNet 0.41 / A-LAMP 0.22
+High,Keep ICAA skipped (weight 0.0 / separate color subscore),Team,Active,~0 rank gain and ~1.1 s latency
+High,Archive MDIQA student outputs as research artifacts,Agent,Pending,No-Go confirmed; mark not-for-production
+High,Do not add MDIQA student to Flutter production path,Team,Active,Do not export TFLite or integrate
+High,Do not integrate ICAA or unsafe TOPIQ+FLIVE into production,Team,Active,Log-only/reference only
+Medium,Use this audit in thesis/capstone writeup,User,Planned,Negative results + safety-over-benchmark argument
+Medium,Verify Mac-side aesthetic asset checksums and Flutter contract parity,User,Pending,production precheck still requires Mac verification
+Low,Locate/produce a consolidated on-device timing report,Team,Pending,Timings currently only in project-context Android logs
+Low,Future research only: domain-aware or multi-head technical student,Team,On Hold,Address single-head interference and cross-dataset label compression
+Low,Future research only: calibrated TOPIQ+FLIVE with severe-FP safety gate,Team,On Hold,Profile on-device runtime/battery before any consideration
+Low,Future research only: ICAA full-integer PTQ for latency,Team,On Hold,Requires float32 IO + parity/iOS verification

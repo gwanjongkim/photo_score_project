@@ -1,0 +1,7 @@
+model,dataset,action,priority,note
+NIMA,AVA,Obtain official paper split IDs and re-evaluate,Medium,Current evaluation uses random 10% split
+NIMA,AVA,Investigate score bias and recalibrate threshold,High,Accuracy 61% is much lower than paper 80% due to distribution shift
+Mobile A-LAMP v2,AVA,Implement saliency-aware adaptive patch selection,High,Current proxy protocol prevents direct comparison with paper
+Mobile A-LAMP v2,AVA,Verify if TFLite model supports original adaptive logic,Critical,TFLite model may lack internal layers needed for full protocol
+ICAA,ICAA17K,Document 0..1 scale convention in report,Low,Author code confirms 0..1 training and eval
+RGNet,AADB,None,Low,Already matches paper split and protocol

@@ -1,0 +1,12 @@
+category,model_or_system,file_path,function_or_class,role,key_lines_or_terms,evidence,confidence,notes
+Hub,A-cut Pipeline,src/infer/run_acut_pipeline.py,run_pipeline,Main entry point,stage5_reference,Code structure,High,Orchestrates scoring and export
+Hub,Ranking Engine,src/infer/select_best_shots.py,rank_records,Fusion & Ranking,DEFAULT_SELECTOR_WEIGHTS,Code structure,High,Handles aesthetic/technical mix
+Aesthetic,NIMA,src/infer/predict_nima.py,main,Inference & Mean score,distribution_mean_score,Code structure,High,224x224 /255 input
+Aesthetic,RGNet,src/infer/predict_quality_bundle.py,predict_bundle_for_image,Inference,rgnet_image_size=256,Code structure,High,256x256 /255 input
+Aesthetic,Mobile A-LAMP v2,src/datasets/native_size_dataset.py,prepare_alamp_inputs,Preprocessing,num_patches=5 global_size=384,Code structure,High,Multi-input 0..255 expected
+Aesthetic,ICAA,forWeights2/configs/aesthetic_weight_lab.yaml,-,Metadata/Config,score_index: 0 (MOS) but Color is Index 1,Config file & Report,High,Verification report confirms Index 1 for Color
+Technical,KonIQ,src/infer/predict_quality_bundle.py,normalize_scores,Scoring,koniq_score / 100.0,Code structure,High,Technical quality baseline
+Technical,FLIVE,src/infer/predict_quality_bundle.py,normalize_scores,Scoring,flive_img_score / 100.0,Code structure,High,Technical quality baseline
+Research,TOPIQ-lite,scripts/technical_iqa/topiq_lite_fidelity_audit.md,-,Candidate IQA,topiq_lite_mixed112,Report,High,Research candidate for future production
+Research,C6 Fusion,run_wsl_c6_parity_with_orientation.py,-,Score correction,C6 parity,File presence,Medium,Log-only / Research candidate
+Research,DistortionGuard,check_severe.py,-,Distortion detection,severe_fp_dist,File presence,Medium,Log-only / Research candidate

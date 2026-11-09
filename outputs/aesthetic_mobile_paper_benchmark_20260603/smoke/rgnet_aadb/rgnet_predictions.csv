@@ -1,0 +1,11 @@
+image,gt_score,pred_score
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_359_20140582926_58cdcdb6b2_b.jpg,0.4,0.5792160630226135
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_369_20201171871_a3da73d8c5_b.jpg,0.6,0.39724040031433105
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_355_20011884909_fa17e6795c_b.jpg,0.45,0.49049171805381775
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_421_20136907258_863462aca1_b.jpg,0.6,0.6708053350448608
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_381_19898140439_410bc0c6c0_b.jpg,0.85,0.49272504448890686
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_269_19943988589_646a5d1dda_b.jpg,0.05,0.055542051792144775
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_281_19660650384_ef37cd7e9b_b.jpg,0.9,0.8227302432060242
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_340_20271367255_6508dbaa20_b.jpg,0.65,0.6594573259353638
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_455_19927288470_6b9443605f_b.jpg,0.5,0.5540213584899902
+/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_276_20267072262_221f11cebc_b.jpg,0.25,0.14581379294395447

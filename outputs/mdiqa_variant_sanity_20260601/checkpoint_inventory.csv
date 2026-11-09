@@ -1,0 +1,12 @@
+category,variant,role,path,present,size_bytes,remote_visible_file_id,notes
+shared,,technology_backbone,/home/omen_pc1/photo_score_project/MDIQA/checkpoints/net_freeze_backbone.pth,True,144754849,1i0tZ6ptiaBIhvuL9Qt0Uri_00NoqGCGQ,
+shared,,technology_head0,/home/omen_pc1/photo_score_project/MDIQA/checkpoints/net_best_koniq10k_val_head0_head0.pth,True,36428809,1eNKeLtOi4nsaLLeZYR26dr2_kuE8NlMq,
+shared,,technology_head1,/home/omen_pc1/photo_score_project/MDIQA/checkpoints/net_best_koniq10k_val_head1_head1.pth,True,36428809,1Y3dG5eNblFdP_f5cf86TapDE-ammqacn,
+shared,,technology_head2,/home/omen_pc1/photo_score_project/MDIQA/checkpoints/net_best_koniq10k_val_head2_head2.pth,True,36428809,1qnS513ilxOHHgUWZ3yOP4W2BXOSehumk,
+shared,,technology_head3,/home/omen_pc1/photo_score_project/MDIQA/checkpoints/net_best_koniq10k_val_head3_head3.pth,True,36428809,1k2bIz3iS_xJBqz6EYAmu6W3QAsQa47_A,
+shared,,technology_head4,/home/omen_pc1/photo_score_project/MDIQA/checkpoints/net_best_koniq10k_val_head4_head4.pth,True,36428809,1Bt5ZGmhIdj0WcjD7gHhAJ7ntzChro3nD,
+shared,,aesthetic_color,/home/omen_pc1/photo_score_project/MDIQA/checkpoints/net_best_PARA_val_color.pth,True,290502209,10skPYtS4-RYoaWEDwAemv8yM8QeEvOaP,
+variant_fusion,mdiqa_koniq,fusion,/home/omen_pc1/photo_score_project/MDIQA/checkpoints/mdiqa_shared_5t_4a_mbv3_koniq_seed1.pth,True,19930987,1AHd8qlMFO7RLwZoeYEP09SidxWExpS3n,selected
+variant_fusion,mdiqa_xd,fusion,/home/omen_pc1/photo_score_project/MDIQA/checkpoints/mdiqa_shared_5t_4a_mbv3_koniq_xd.pth,True,466238667,1z4LbbDhc5ROvibMpdaV3BadTJlj1ayyN,selected
+variant_fusion,mdiqa_unified,fusion,/home/omen_pc1/photo_score_project/MDIQA/checkpoints/net_best.pth,True,105006103,1veLWnwjoMDMRitAP02KalOaUvpBQ8vKS,selected
+remote_visible_unmapped,,,/home/omen_pc1/photo_score_project/MDIQA/checkpoints/mdiqa_shared_5t_4a_clipfeat_localv4_mbv3_koniq_seed1.pth,False,0,1QdqiGR1sdKddfkQduuhUONnF8k_Iem6e,unmapped

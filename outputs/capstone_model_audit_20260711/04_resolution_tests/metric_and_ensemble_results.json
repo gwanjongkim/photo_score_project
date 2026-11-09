@@ -1,0 +1,257 @@
+{
+  "aesthetic_ensemble": {
+    "absolute_differences": {
+      "aadb_srcc": 0.0,
+      "ava_srcc": 0.0,
+      "combined_70_30_srcc": 0.0
+    },
+    "calibration_parameter_differences": {
+      "aadb": {
+        "alamp": {
+          "intercept_abs_diff": 0.18451869156097178,
+          "slope_abs_diff": 0.02405775082084377
+        },
+        "icaa": {
+          "intercept_abs_diff": 0.6122529178192586,
+          "slope_abs_diff": 0.08652559702234486
+        },
+        "nima": {
+          "intercept_abs_diff": 1.0471908445919378,
+          "slope_abs_diff": 0.2222244635844386
+        },
+        "rgnet": {
+          "intercept_abs_diff": 0.21278172226616976,
+          "slope_abs_diff": 0.02152239638218867
+        }
+      },
+      "ava": {
+        "alamp": {
+          "intercept_abs_diff": 0.0,
+          "slope_abs_diff": 0.0
+        },
+        "icaa": {
+          "intercept_abs_diff": 0.0,
+          "slope_abs_diff": 0.0
+        },
+        "nima": {
+          "intercept_abs_diff": 0.0,
+          "slope_abs_diff": 0.0
+        },
+        "rgnet": {
+          "intercept_abs_diff": 0.0,
+          "slope_abs_diff": 0.0
+        }
+      }
+    },
+    "combined_70_30_srcc": 0.6595544856846516,
+    "configured_calibration_parameters": {
+      "aadb_trained": {
+        "alamp": {
+          "intercept": 4.496795810415769,
+          "slope": 0.24552178260890845
+        },
+        "icaa": {
+          "intercept": -3.759025539005643,
+          "slope": 1.5442550787883613
+        },
+        "nima": {
+          "intercept": -3.664942875236074,
+          "slope": 2.1080065059487305
+        },
+        "rgnet": {
+          "intercept": 0.9262182759189835,
+          "slope": 0.8413220059691048
+        }
+      },
+      "ava_trained": {
+        "alamp": {
+          "intercept": 4.649287557538494,
+          "slope": 0.1637207923173385
+        },
+        "icaa": {
+          "intercept": 2.164190003126645,
+          "slope": 0.5362221032903055
+        },
+        "nima": {
+          "intercept": 1.4491882894914891,
+          "slope": 0.8125980377154206
+        },
+        "rgnet": {
+          "intercept": 4.8655913963718245,
+          "slope": 0.08987360035790748
+        }
+      }
+    },
+    "per_dataset": {
+      "aadb": {
+        "calibration_fit_on_train_only": true,
+        "calibration_parameters": {
+          "alamp": {
+            "intercept": 4.312277118854797,
+            "slope": 0.2695795334297522
+          },
+          "icaa": {
+            "intercept": -4.371278456824902,
+            "slope": 1.6307806758107062
+          },
+          "nima": {
+            "intercept": -4.712133719828012,
+            "slope": 2.330230969533169
+          },
+          "rgnet": {
+            "intercept": 0.7134365536528138,
+            "slope": 0.8628444023512934
+          }
+        },
+        "mae": 1.3397967998197915,
+        "n": 200,
+        "original_gt_max": 1.0,
+        "original_gt_min": 0.05,
+        "plcc_raw": 0.6689775872408117,
+        "rmse": 1.65469090691247,
+        "rows_test": 200,
+        "rows_total": 1000,
+        "rows_train": 600,
+        "rows_validation": 200,
+        "srcc": 0.6733368947894228
+      },
+      "ava": {
+        "calibration_fit_on_train_only": true,
+        "calibration_parameters": {
+          "alamp": {
+            "intercept": 4.649287557538494,
+            "slope": 0.1637207923173385
+          },
+          "icaa": {
+            "intercept": 2.164190003126645,
+            "slope": 0.5362221032903055
+          },
+          "nima": {
+            "intercept": 1.4491882894914891,
+            "slope": 0.8125980377154206
+          },
+          "rgnet": {
+            "intercept": 4.8655913963718245,
+            "slope": 0.08987360035790748
+          }
+        },
+        "mae": 0.46050969607587383,
+        "n": 5109,
+        "original_gt_max": 8.09058,
+        "original_gt_min": 1.988764,
+        "plcc_raw": 0.6655397295693233,
+        "rmse": 0.5878860449040674,
+        "rows_test": 5109,
+        "rows_total": 25548,
+        "rows_train": 15329,
+        "rows_validation": 5110,
+        "srcc": 0.653647738925464
+      }
+    },
+    "reported": {
+      "aadb_srcc": 0.6733368947894228,
+      "ava_srcc": 0.653647738925464,
+      "combined_70_30_srcc": 0.6595544856846516
+    },
+    "selection_protocol_static_check": {
+      "calibration_fit_uses_train_idx": true,
+      "conclusion": "Calibration is train-only, but final variant/preparation choice consults the test metric.",
+      "stable_pool_uses_test_metric": true,
+      "winner_selection_sorts_test_metric": true
+    },
+    "weights": {
+      "alamp": 0.22,
+      "icaa": 0.0,
+      "nima": 0.37,
+      "rgnet": 0.41
+    }
+  },
+  "protocol_note": "The fitted PLCC is a diagnostic demonstration only. The supplied paper baseline states that raw Pearson is authoritative unless a specific paper explicitly requires nonlinear fitting.",
+  "runtime_normalization_examples": {
+    "boundary_behavior": {
+      "1.04": 1.0,
+      "1.05": 1.0,
+      "1.06": 0.006666666666666672,
+      "finding": "Value-inferred scale dispatch is discontinuous above 1.05."
+    },
+    "counterfactual_unscaled_weighted_score": 1.7659999999999998,
+    "nima_normalized_expected": 0.5,
+    "normalized_values": {
+      "aadb_score": 0.6,
+      "alamp_score": 0.4,
+      "nima_mean_score": 0.5,
+      "pairwise_recovered_score": 0.8,
+      "rgnet_score": 0.7
+    },
+    "normalized_weighted_score": 0.5660000000000001,
+    "raw_values": {
+      "aadb_score": 0.6,
+      "alamp_score": 0.4,
+      "nima_mean_score": 5.5,
+      "pairwise_recovered_score": 0.8,
+      "rgnet_score": 0.7
+    }
+  },
+  "technical_metrics": {
+    "official_table_join": {
+      "ground_truth_max_abs_diff": 18.3532110091744,
+      "interpretation": "The tables are different protocol snapshots and must not be treated as row-identical.",
+      "joined_rows": 3341,
+      "official_rows": 4967,
+      "prediction_max_abs_diff": 28.185830797467904,
+      "production_rows": 4967
+    },
+    "official_table_recomputation": {
+      "mae": 11.995572549859798,
+      "n": 4967,
+      "plcc_raw": 0.7874128972802444,
+      "rmse": 14.019543044585173,
+      "srcc": 0.7168146787631084
+    },
+    "production_table": {
+      "formula_max_abs_diff": 7.105427357601002e-15,
+      "formula_mean_abs_diff": 3.16861719289032e-16,
+      "ground_truth_column": "quality_score_0_100",
+      "logistic_demonstration": {
+        "mae_fitted": 5.881257994956511,
+        "parameters": [
+          8.687293988739865,
+          0.31093752184387535,
+          55.76266219462695,
+          0.944650055206142
+        ],
+        "plcc_fitted": 0.8643327286416848,
+        "status": "PASS"
+      },
+      "mae": 6.076832097576581,
+      "n": 4967,
+      "plcc_raw": 0.8604135552511851,
+      "rmse": 8.563833263176022,
+      "srcc": 0.7957844525603552
+    },
+    "production_table_columns": [
+      "dataset",
+      "protocol",
+      "run_id",
+      "split",
+      "content_type",
+      "image_id",
+      "image_path",
+      "quality_score_0_100",
+      "flive_standalone",
+      "koniq_standalone",
+      "production_technical_score",
+      "formula_source",
+      "notes",
+      "canonical_path"
+    ],
+    "stored_metric_comparison": {
+      "abs_diff_plcc": 2.220446049250313e-16,
+      "abs_diff_srcc": 0.0,
+      "recomputed_plcc": 0.7874128972802444,
+      "recomputed_srcc": 0.7168146787631084,
+      "stored_plcc": 0.7874128972802447,
+      "stored_srcc": 0.7168146787631084
+    }
+  }
+}

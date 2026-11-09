@@ -1,0 +1,4 @@
+stage,dataset,image_path,error
+sampling,spaq_mdiqa_xd,,"requested 2500, available 1125"
+sampling,flive_image_production,,"requested 4000, available 3981"
+sampling,fallback_proxy_flive_production,,"requested 2394, available 0"

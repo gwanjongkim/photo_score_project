@@ -1,0 +1,7 @@
+audit,group_a,group_b,flags,recommendation
+mdiqa_vs_production_source_range,mdiqa_sources,production_sources,"flag_mean_shift_gt10,flag_std_ratio,flag_gap_mismatch_gt20",Review source range compatibility; use MOS-alignment and dataset-distribution evidence before fitting calibration.
+dataset_boundary_mean_gap,fallback_proxy,koniq10k,flag_mean_shift_gt10,Check whether dataset mean gap follows MOS distribution or indicates artificial source switching.
+dataset_boundary_mean_gap,fallback_proxy,spaq,"flag_mean_shift_gt10,flag_std_ratio,flag_gap_mismatch_gt20",Check whether dataset mean gap follows MOS distribution or indicates artificial source switching.
+dataset_boundary_mean_gap,flive,koniq10k,flag_mean_shift_gt10,Check whether dataset mean gap follows MOS distribution or indicates artificial source switching.
+dataset_boundary_mean_gap,flive,spaq,"flag_mean_shift_gt10,flag_std_ratio,flag_gap_mismatch_gt20",Check whether dataset mean gap follows MOS distribution or indicates artificial source switching.
+dataset_boundary_mean_gap,koniq10k,spaq,"flag_mean_shift_gt10,flag_std_ratio,flag_gap_mismatch_gt20",Check whether dataset mean gap follows MOS distribution or indicates artificial source switching.

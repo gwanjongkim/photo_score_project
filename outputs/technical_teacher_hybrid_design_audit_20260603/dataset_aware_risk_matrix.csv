@@ -1,0 +1,6 @@
+risk_id,risk_description,impact,mitigation
+1,Dataset Bias Overfitting,Student learns to identify dataset name instead of quality,Use dataset-balanced sampling and cross-dataset validation
+2,Inconsistent Gradient,Different targets for similar quality across datasets,Target normalization and range alignment
+3,Mobile Generalization Failure,Unstable predictions on real mobile images (non-dataset),Test on real A-cut holdout set before acceptance
+4,Teacher Range Collapse,Teacher predicts narrow range (Isotonic artifacts),Use raw predictions or better calibrated targets
+5,Protocol Mismatch Drift,Evaluation protocol differences between datasets (resolution/crops),Standardize evaluation pipeline (384x384 or 224x224)

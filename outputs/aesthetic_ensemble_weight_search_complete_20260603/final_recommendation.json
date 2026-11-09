@@ -1,0 +1,71 @@
+{
+  "research_best": {
+    "variant": "group_a",
+    "prep": "calibrated",
+    "objective": "combined_70_30",
+    "weights": {
+      "nima": 0.37,
+      "rgnet": 0.41,
+      "alamp": 0.22,
+      "icaa": 0.0
+    },
+    "test_combined_70_30_srcc": 0.6595544856846516,
+    "test_ava_srcc": 0.653647738925464,
+    "test_aadb_srcc": 0.6733368947894228,
+    "zero_weight_models": ""
+  },
+  "production_candidate": {
+    "variant": "group_a",
+    "prep": "calibrated",
+    "objective": "combined_70_30",
+    "weights": {
+      "nima": 0.37,
+      "rgnet": 0.41,
+      "alamp": 0.22,
+      "icaa": 0.0
+    },
+    "test_combined_70_30_srcc": 0.6595544856846516,
+    "test_ava_srcc": 0.653647738925464,
+    "test_aadb_srcc": 0.6733368947894228,
+    "zero_weight_models": ""
+  },
+  "best_group_a_combined": {
+    "variant": "group_a",
+    "prep": "calibrated",
+    "objective": "combined_70_30",
+    "weights": {
+      "nima": 0.37,
+      "rgnet": 0.41,
+      "alamp": 0.22,
+      "icaa": 0.0
+    },
+    "test_combined_70_30_srcc": 0.6595544856846516,
+    "test_ava_srcc": 0.653647738925464,
+    "test_aadb_srcc": 0.6733368947894228,
+    "zero_weight_models": ""
+  },
+  "best_group_b_combined": {
+    "variant": "group_b_icaa_cap_015",
+    "prep": "calibrated",
+    "objective": "combined_70_30",
+    "weights": {
+      "nima": 0.33,
+      "rgnet": 0.36,
+      "alamp": 0.22,
+      "icaa": 0.09
+    },
+    "test_combined_70_30_srcc": 0.656280932125078,
+    "test_ava_srcc": 0.6541015428631973,
+    "test_aadb_srcc": 0.6613661737361328,
+    "zero_weight_models": ""
+  },
+  "group_b_minus_group_a_combined_70_30_srcc": -0.0032735535595735943,
+  "group_b_minus_group_a_aadb_srcc": -0.011970721053290001,
+  "icaa_decision": "keep_icaa_as_separate_color_subscore",
+  "icaa_decision_reason": "Group B improves Group A by less than +0.005 combined SRCC.",
+  "decision_rules": [
+    "Research-best is highest held-out combined 0.70*AVA_SRCC + 0.30*AADB_SRCC.",
+    "Production candidate is the simplest stable grid weight within 0.003 combined SRCC of research-best.",
+    "ICAA inclusion follows the +0.005 combined SRCC and AADB non-regression rules."
+  ]
+}

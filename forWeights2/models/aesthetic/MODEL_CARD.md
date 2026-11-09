@@ -2,16 +2,18 @@
 
 ## Configured Models
 
-- `nima_mobile.tflite`
+- `nima_mobile_fixed_preproc_fp16.tflite`
   - Score key: `nima_score`.
   - Type: `nima_distribution`.
   - Input: RGB float32 `[1,224,224,3]`, pixel values divided by 255.
   - Output: `[1,10]` distribution over scores 1 through 10. The lab computes the expected score and maps it to 0-1 with `(mean - 1) / 9`.
-- `rgnet_paper_aadb_fp16.tflite`
+  - Note: Fixes previous preprocessing mismatch. SRCC: 0.5894 (AVA).
+- `rgnet_pil_resize_aadb_fp16.tflite`
   - Score key: `rgnet_score`.
   - Type: `scalar_tflite`.
   - Configured input: RGB float32 `[1,256,256,3]`, pixel values divided by 255.
-  - Output: scalar unit aesthetic score.
+  - Output: scalar unit aesthetic score (0-1).
+  - Note: AADB retrain with PIL-like resize preprocessing. Default ensemble weight: 0.4.
 - `mobile_alamp_v2_fp16.tflite`
   - Score key: `alamp_score`.
   - Type: `alamp_signature`.

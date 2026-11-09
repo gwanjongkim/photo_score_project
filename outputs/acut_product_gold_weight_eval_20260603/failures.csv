@@ -1,0 +1,2 @@
+image_path,label_name,label_ordinal_1_3,label_norm_0_1,filename,error
+data/Test_weight/Good/IMG_20240519_215827_510.jpg,Good,3,1.0,IMG_20240519_215827_510.jpg,cannot identify image file 'data/Test_weight/Good/IMG_20240519_215827_510.jpg'

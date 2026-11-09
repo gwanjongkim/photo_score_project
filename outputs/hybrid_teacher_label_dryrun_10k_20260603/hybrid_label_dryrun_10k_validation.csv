@@ -1,0 +1,12 @@
+section,dataset,split,content_type,selected_teacher_source,n,srcc,plcc,mae,linear_aligned_mae,fp,severe_fp,fn,clipping_count,boundary_0_or_100_count,boundary_0_or_100_pct
+row_count,flive,test,image,production,188,,,,,,,,,,
+row_count,flive,train,image,production,2961,,,,,,,,,,
+row_count,flive,val,image,production,832,,,,,,,,,,
+row_count,koniq10k,test,image,mdiqa_seed1_policy_f_shift_cap3,2500,,,,,,,,,,
+row_count,spaq,test,image,mdiqa_xd_policy_f_shift_cap3,1125,,,,,,,,,,
+mos_alignment,flive,,,,3981,0.6302663637104201,0.7566835770151074,3.118415116198543,3.0219910740591582,0.0,0.0,0.0,0.0,0.0,0.0
+mos_alignment,koniq10k,,,,2500,0.9449513497708131,0.9582028416842063,5.371989504997887,2.4808701209052386,0.0,0.0,0.0,0.0,0.0,0.0
+mos_alignment,spaq,,,,1125,0.9136153033944924,0.9187103573041199,6.940617115449906,6.658181553777121,0.0,0.0,0.0,0.0,0.0,0.0
+mos_alignment_by_source,,,,mdiqa_seed1_policy_f_shift_cap3,2500,0.9449513497708131,0.9582028416842063,5.371989504997887,2.4808701209052386,0.0,0.0,0.0,0.0,0.0,0.0
+mos_alignment_by_source,,,,mdiqa_xd_policy_f_shift_cap3,1125,0.9136153033944924,0.9187103573041199,6.940617115449906,6.658181553777121,0.0,0.0,0.0,0.0,0.0,0.0
+mos_alignment_by_source,,,,production,3981,0.6302663637104201,0.7566835770151074,3.118415116198543,3.0219910740591582,0.0,0.0,0.0,0.0,0.0,0.0

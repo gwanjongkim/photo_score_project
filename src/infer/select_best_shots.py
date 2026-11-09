@@ -167,10 +167,40 @@ def is_missing(value) -> bool:
     return value is None or (isinstance(value, float) and np.isnan(value))
 
 
-def normalize_unit_score(value) -> float | None:
+_UNIT_SCALE_MODELS = {
+    "aadb_score",
+    "rgnet_score",
+    "alamp_score",
+    "musiq_score",
+    "pairwise_recovered_score",
+    "icaa_score",
+    "baseline_final_score",
+}
+_TEN_POINT_SCALE_MODELS = {
+    "nima_mean_score",
+    "nima_score_1_to_10",
+}
+_PERCENT_SCALE_MODELS = {
+    "koniq_score",
+    "flive_image_score",
+    "flive_patch_mean",
+    "flive_patch_min",
+    "topiq_score",
+    "mdiqa_score",
+    "student_iqa_score",
+}
+
+
+def normalize_unit_score(value, model_key: str | None = None) -> float | None:
     if is_missing(value):
         return None
     value = float(value)
+    if model_key in _UNIT_SCALE_MODELS:
+        return float(np.clip(value, 0.0, 1.0))
+    if model_key in _TEN_POINT_SCALE_MODELS:
+        return float(np.clip((value - 1.0) / 9.0, 0.0, 1.0))
+    if model_key in _PERCENT_SCALE_MODELS:
+        return float(np.clip(value / 100.0, 0.0, 1.0))
     if -0.05 <= value <= 1.05:
         return float(np.clip(value, 0.0, 1.0))
     if 1.0 <= value <= 10.5:
@@ -280,7 +310,7 @@ def score_component(record: dict[str, object], weights: dict[str, float], compon
 
     for key, weight in weights.items():
         raw_value = record.get(key)
-        normalized = normalize_unit_score(raw_value)
+        normalized = normalize_unit_score(raw_value, model_key=key)
         if normalized is None:
             missing_models.append(key)
             continue

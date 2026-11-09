@@ -1,0 +1,4 @@
+priority,action,status
+1,Run full 10k dry-run after smoke review.,blocked
+2,Do not run 50k/full label generation until 10k gate passes.,open
+3,Replace fallback proxy with real mobile/unknown data before final label policy.,open

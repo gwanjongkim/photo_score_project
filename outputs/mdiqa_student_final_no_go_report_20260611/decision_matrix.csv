@@ -1,0 +1,9 @@
+question,answer,evidence,decision_impact
+Is MDIQA teacher valid?,Yes,0.8227 overall SRCC in official benchmark.,Teacher is a reliable supervision source.
+Is student code obviously broken?,No,Preprocessing and architecture audits passed.,Failure is not due to implementation bugs.
+Is 50k data corrupted?,No,Leakage and duplicate audits passed (0 overlap).,Data quality is sufficient.
+Did dataset weighting fix it?,No,W5-v2 SRCC dropped to 0.51.,Weighting alone cannot rescue the B0 student.
+Did ranking loss fix it?,No,Ranking smoke SRCC dropped to 0.48.,Ranking loss adds instability or amplifies teacher noise.
+Did KonIQ x2 label scaling fix it?,No,S2 smoke SRCC stayed at 0.54.,Label compression is a factor but scaling is not a silver bullet.
+Should we deploy?,No,All 50k student variants are below production.,Production stays on KonIQ+FLIVE.
+Should we continue B1/B2?,No,The gap is too large and simpler fixes failed.,Evidence does not justify further capacity expansion.

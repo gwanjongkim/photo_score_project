@@ -1,0 +1,5 @@
+priority,action,rationale
+1,Draft offline teacher-label script,Implement hybrid logic: MDIQA (K/S) + Production (F/Mobile)
+2,Verify MDIQA on small user-image holdout,Check if teacher behavior is safe for real mobile photos
+3,Finalize student distillation manifest,Select 50k+ images for teacher labeling
+4,Conduct teacher-consistency check,Ensure MDIQA predictions are stable across image orientations

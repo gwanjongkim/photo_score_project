@@ -1,0 +1,6 @@
+{
+  "best_gate": null,
+  "decision": "TOPIQ_FLIVE_GATE_NEEDS_TUNING",
+  "base_severe_fp": 3,
+  "reason": "No gate achieved 0 severe FP while maintaining acceptable SRCC."
+}

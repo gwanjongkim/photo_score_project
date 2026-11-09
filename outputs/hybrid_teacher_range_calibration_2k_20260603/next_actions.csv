@@ -1,0 +1,4 @@
+priority,action,status
+1,Run 10k calibrated dry-run only if decision is ready.,blocked
+2,Replace fallback proxy with real production-scored mobile/unknown data before final label design.,open
+3,Freeze calibration parameters before any larger dry-run.,open

@@ -1,0 +1,9 @@
+experiment:
+  name: raw_lse_then_sigmoid
+  model_variant: rgnet_paper_v1
+  label: RGNet-paper-v1 raw_lse_then_sigmoid ablation
+  output_dir: outputs/rgnet_paper_v1_ablation_20260509/raw_lse_then_sigmoid
+model:
+  aggregation: lse
+  lse_r: 4.0
+  region_score_activation: raw_before_aggregation_then_sigmoid

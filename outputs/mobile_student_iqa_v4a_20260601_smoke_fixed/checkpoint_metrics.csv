@@ -1,0 +1,3 @@
+global_epoch,phase,val_mae,val_rmse,val_srcc,val_plcc,val_fp_count,val_severe_fp_count,val_fn_count,val_severe_fp_rate,composite_score,saved_best_composite,saved_best_mae,saved_best_srcc
+1,head,11.290429645026654,13.7574596093119,0.30883003537466036,0.4431203312617947,1,0,2,0.0,0.1959257389243938,True,True,True
+2,finetune,11.157928047023303,13.631192944773877,0.3174330737435741,0.45412702061939664,1,0,2,0.0,0.20585379327334108,True,True,True

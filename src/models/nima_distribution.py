@@ -58,11 +58,17 @@ def _build_efficientnetv2_backbone(
 def build_nima_distribution_model(
     input_shape: tuple[int, int, int] = (224, 224, 3),
     backbone_weights: str | None = "imagenet",
+    rescale_unit_to_signed: bool = False,
 ) -> tf.keras.Model:
     base = _build_efficientnetv2_backbone(input_shape=input_shape, weights=backbone_weights)
 
     inputs = tf.keras.Input(shape=input_shape)
-    x = base(inputs, training=False)
+    x_in = (
+        tf.keras.layers.Rescaling(2.0, offset=-1.0, name="unit_to_signed")(inputs)
+        if rescale_unit_to_signed
+        else inputs
+    )
+    x = base(x_in, training=False)
     x = tf.keras.layers.GlobalAveragePooling2D()(x)
     x = tf.keras.layers.Dropout(0.3)(x)
     x = tf.keras.layers.Dense(256, activation="relu")(x)

@@ -1,0 +1,5 @@
+case_id,dataset,image_path,teacher_score,note
+"low_spaq_1","spaq","data/raw/spaq/00001.jpg","9.46","Extremely low score for SPAQ."
+"low_flive_1","flive","data/raw/flive/00001.jpg","12.93","Extremely low score for FLIVE."
+"koniq_compressed","koniq10k","various","43-69","Teacher targets for KonIQ are significantly compressed toward the mean."
+"high_flive_1","flive","data/raw/flive/99999.jpg","87.82","Near max teacher score."

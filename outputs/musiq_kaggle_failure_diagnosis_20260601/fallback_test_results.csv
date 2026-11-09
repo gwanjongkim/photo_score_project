@@ -1,0 +1,28 @@
+fallback,variant,success,score,error
+1_original,koniq-10k,False,,"Graph execution error:
+
+Detected at node concat_4 defined at (most recent call last):
+<stack traces unavailable>
+ConcatOp : Dimension 1 in both shapes must be equal: shape[0] = [1,114,3072] vs. shape[1] = [1,342,1]
+	 [[{{node concat_4}}]] [Op:__inference_signature_wrapper_25722]"
+1_original,spaq,False,,"Graph execution error:
+
+Detected at node concat_4 defined at (most recent call last):
+<stack traces unavailable>
+ConcatOp : Dimension 1 in both shapes must be equal: shape[0] = [1,114,3072] vs. shape[1] = [1,342,1]
+	 [[{{node concat_4}}]] [Op:__inference_signature_wrapper_51456]"
+1_original,paq2piq,False,,"Graph execution error:
+
+Detected at node concat_4 defined at (most recent call last):
+<stack traces unavailable>
+ConcatOp : Dimension 1 in both shapes must be equal: shape[0] = [1,114,3072] vs. shape[1] = [1,342,1]
+	 [[{{node concat_4}}]] [Op:__inference_signature_wrapper_77190]"
+2_reencode_rgb,koniq-10k,True,70.640495,
+2_reencode_rgb,spaq,True,60.061275,
+2_reencode_rgb,paq2piq,True,68.77297,
+3_resize_1024,koniq-10k,True,60.240055,
+3_resize_1024,spaq,True,52.168453,
+3_resize_1024,paq2piq,True,65.76325,
+4_resize_768,koniq-10k,True,65.38207,
+4_resize_768,spaq,True,59.008717,
+4_resize_768,paq2piq,True,67.00378,

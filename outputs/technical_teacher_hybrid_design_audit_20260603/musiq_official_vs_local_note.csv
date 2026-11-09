@@ -1,0 +1,4 @@
+implementation,source,status,notes
+Official MUSIQ (Kaggle),Google/Kaggle weights,Candidate (SPAQ-only),High SPAQ SRCC (0.946); weak KonIQ/FLIVE; requires RGB fallback
+Local MUSIQ,Paper-based implementation,Production (AADB mix),Used in selector default weights; trained on AADB dataset
+MUSIQ-AADB,Project checkpoint,Production,Integrated into stage5 bundle

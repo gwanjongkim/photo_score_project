@@ -1,0 +1,7 @@
+dataset,baseline,srcc,plcc,mae,rmse,max_ae,interpretation,concern_level
+koniq10k,koniq_standalone,0.938199,0.957073,5.328998,6.988618,22.335695,Excellent performance on home dataset; matching paper expectations.,Low
+koniq10k,flive_standalone,0.778130,0.814365,9.373174,11.689934,27.464916,Fair generalization; significantly weaker than KonIQ baseline.,Low
+spaq,koniq_standalone,0.854260,0.831029,9.284280,11.749429,37.701601,Strong cross-dataset generalization; better than FLIVE on SPAQ.,Low
+spaq,flive_standalone,0.810263,0.663946,20.759419,24.524923,53.413628,Weak PLCC and high MAE/RMSE; suspect calibration or scale shift on SPAQ.,Medium
+flive,flive_standalone,0.570321,0.712994,4.428959,5.936679,20.774899,Superior on home dataset but low absolute SRCC; typical for difficult FLIVE.,Low
+flive,koniq_standalone,0.455362,0.674402,8.910181,10.884650,27.718584,Poor correlation on FLIVE; KonIQ model lacks coverage for FLIVE distortions.,Low

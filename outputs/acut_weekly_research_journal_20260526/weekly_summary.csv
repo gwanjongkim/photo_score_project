@@ -1,0 +1,7 @@
+week_no,start_date,end_date,main_goal,tasks_done,models_involved,key_metrics,result_status,evidence_paths,next_action
+1,2026.04.20,2026.04.26,모바일 경량 미적 품질 모델 개발,앙상블 교사 모델 증류 학습 및 MobileNetV2 최적화,Stage 5 Student (MobileNetV2),Pairwise Acc 0.90568,성공 (실용적 채택),outputs/student_conservative_aesthetic_full_aadb_20260423/handoff.md,Flutter 통합 테스트
+2,2026.04.27,2026.05.03,VLM 기반 교사 레이블링 탐색,Gemini API를 활용한 미적 품질 평가 레이블 생성,Gemini API / VLM,N/A,진행 중,outputs/gemini_api_teacher_aesthetic3_20260427,데이터셋 확장 및 정제
+3,2026.05.04,2026.05.10,AADB/AVA 미적 품질 베이스라인 수립,RGNet 및 A-LAMP 논문 근접 베이스라인 학습,RGNet / A-LAMP,AADB SRCC 0.6819 / AVA Acc 0.7697,성공,outputs/rgnet_paper_consolidated_20260511/rgnet_paper_oriented_summary.md,레이아웃 인지형 모델 확장
+4,2026.05.11,2026.05.17,레이아웃 및 그래프 기반 미적 평가 실험,Graph Fusion 및 ICAA TF 재구현,A-LAMP Graph Fusion / ICAA,ROC-AUC 0.7067 (4k subset),보류 (과적합 발생),outputs/alamp_paper_fusion_4096_final_report.md,기술적 품질 모델 벤치마크
+5,2026.05.18,2026.05.24,기술적 품질 모델 선정 및 교사 모델 개선,TOPIQ-lite 벤치마크 및 A-LAMP 편향 수정 계획,TOPIQ-lite / A-LAMP Multi-Patch,SPAQ SRCC 0.899 / AVA Acc 0.7633,성공 (실용적 개선),outputs/eval_final_topiq_candidates_vs_existing_technical_20260520/report.md,NIMA 버그 수정 및 최종 검증
+6,2026.05.25,2026.05.26,최종 모델 검증 및 TFLite 배포 준비,NIMA 전처리 버그 수정 및 ICAA 재검증,NIMA / ICAA / RGNet DenseASPP,NIMA SRCC 0.5894 / ICAA SRCC 0.8791,성공 (실용적 완료),outputs/nima_fixed_preproc_eval_20260525/report.md,캡스톤 최종 발표 준비

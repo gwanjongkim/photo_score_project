@@ -1,0 +1,7 @@
+failure_type,evidence,responsible_party
+raw_teacher_weakness,raw_topiq_flive_srcc_0.25,teacher
+teacher_worse_than_production,raw_topiq_koniq_srcc_0.86_vs_production_0.93,teacher
+range_collapse,flive_calibrated_std_3.7_vs_mos_std_4.6,teacher
+student_safety_degradation,v3_severe_fp_28_vs_guarded_0,student
+ranking_loss_stagnation,v4b_overall_srcc_0.648_vs_target_0.96,student
+tautological_label_quality,guarded_srcc_0.92_on_flive_despite_raw_0.25,label_design

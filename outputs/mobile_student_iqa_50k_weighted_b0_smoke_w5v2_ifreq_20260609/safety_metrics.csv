@@ -1,0 +1,13 @@
+split,dataset,n,fp_count,severe_fp_count,fn_count
+train,overall,4000,10,1,2
+train,flive,2712,0,0,2
+train,koniq10k,575,2,1,0
+train,spaq,713,8,0,0
+val,overall,1000,3,0,0
+val,flive,677,0,0,0
+val,koniq10k,144,0,0,0
+val,spaq,179,3,0,0
+test,overall,1000,6,1,1
+test,flive,678,1,1,1
+test,koniq10k,144,0,0,0
+test,spaq,178,5,0,0

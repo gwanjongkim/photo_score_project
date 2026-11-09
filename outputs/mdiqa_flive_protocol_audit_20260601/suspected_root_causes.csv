@@ -1,0 +1,6 @@
+rank,cause,likelihood,evidence
+1,Protocol Mismatch (Patches vs Images),confirmed,Paper evaluates images; WSL sanity mixed 74% patches
+2,Scale Mismatch (Model Bias),confirmed,Model predicts ~0.35 for patches vs ~0.66 for images despite same MOS
+3,Non-representative Sample,likely,Only 1 official test image in sanity sample; mix of train/val images
+4,Implementation Bug,unlikely,SPAQ/KonIQ results are perfect; CLIP branch working
+5,Score Inversion,unlikely,SRCC remains low when inverted

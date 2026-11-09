@@ -1,0 +1,16 @@
+{
+    "experiment_name": "stage5_student_full_run",
+    "manifest_csv": "outputs/distill_exec_20260411/aadb_subset_teacher_labels.csv",
+    "output_dir": "checkpoints/stage5_student_full_run",
+    "data": {
+        "test_splits": ["test"]
+    },
+    "model": {
+        "backbone_weights_path": "weights/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_0.5_224_no_top.h5"
+    },
+    "train": {
+        "epochs": 20,
+        "early_stopping_patience": 5,
+        "reduce_lr_patience": 2
+    }
+}

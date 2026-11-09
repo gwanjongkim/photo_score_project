@@ -1,0 +1,29 @@
+{
+  "best_hybrid_by_composite": "topiq_existing_flive_grid_s08",
+  "best_signal_by_overall_mae": "topiq_existing_flive_grid_s08",
+  "best_signal_by_overall_srcc": "topiq_existing_flive_grid_s07",
+  "coverage_ok": false,
+  "dataset_srcc_deltas_vs_production": [
+    {
+      "dataset": "flive",
+      "srcc_delta_vs_production": -0.03636363636363643
+    },
+    {
+      "dataset": "koniq10k",
+      "srcc_delta_vs_production": 0.2545454545454545
+    },
+    {
+      "dataset": "spaq",
+      "srcc_delta_vs_production": 0.2545454545454545
+    }
+  ],
+  "dataset_stability_pass": false,
+  "final_decision": "TECHNICAL_SIGNAL_COMPARISON_NEEDS_MORE_COVERAGE",
+  "log_only_candidate": false,
+  "production_overall_mae": 14.232808044755874,
+  "production_overall_srcc": 0.5581757508342603,
+  "production_replacement": false,
+  "production_severe_fp_total": 0,
+  "selected_candidate": "topiq_existing_flive_grid_s08",
+  "selected_severe_fp_total": 0
+}

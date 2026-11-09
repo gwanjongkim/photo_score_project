@@ -1,0 +1,1 @@
+safety_case_type,dataset,split,content_type,image_path,quality_score_0_100,selected_teacher_target_0_100,selected_teacher_source,mdiqa_variant,mdiqa_pred_0_100,production_pred_0_100,policy_f_shift_cap3_applied_shift

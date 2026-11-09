@@ -1,0 +1,432 @@
+{
+  "failed": [],
+  "models": {
+    "alamp_practical": {
+      "input_range_used": "zero_to_one",
+      "keras_input_shape": "[(None, 384, 384, 3), (None, 5, 224, 224, 3)]",
+      "keras_output_shape": "(None, 1)",
+      "keras_path": "checkpoints/alamp_aadb_gpu/final_model.keras",
+      "overall_max_abs_diff": 0.009664773941040039,
+      "overall_mean_abs_diff": 0.008573159575462341,
+      "samples": [
+        {
+          "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_286_20013434330_d99ab6b9a0_b.jpg",
+          "max_abs_diff": 0.009664773941040039,
+          "python_output": [
+            0.6746692061424255
+          ],
+          "python_output_sum": 0.6746692061424255,
+          "tflite_output": [
+            0.6843339800834656
+          ],
+          "tflite_output_sum": 0.6843339800834656
+        },
+        {
+          "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_273_19900479178_9c64cca006_b.jpg",
+          "max_abs_diff": 0.0074815452098846436,
+          "python_output": [
+            0.4601806104183197
+          ],
+          "python_output_sum": 0.4601806104183197,
+          "tflite_output": [
+            0.45269906520843506
+          ],
+          "tflite_output_sum": 0.45269906520843506
+        }
+      ],
+      "tflite_inputs": [
+        {
+          "dtype": "<class 'numpy.float32'>",
+          "name": "serving_default_global_view:0",
+          "shape": [
+            1,
+            384,
+            384,
+            3
+          ]
+        },
+        {
+          "dtype": "<class 'numpy.float32'>",
+          "name": "serving_default_patches:0",
+          "shape": [
+            1,
+            5,
+            224,
+            224,
+            3
+          ]
+        }
+      ],
+      "tflite_outputs": [
+        {
+          "dtype": "<class 'numpy.float32'>",
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            1
+          ]
+        }
+      ],
+      "tflite_path": "exports/tflite/alamp_aadb_gpu.tflite"
+    },
+    "flive_image_mobile": {
+      "input_range_used": "zero_to_one",
+      "keras_input_shape": "(None, 224, 224, 3)",
+      "keras_output_shape": "(None, 1)",
+      "keras_path": "checkpoints/technical_flive_image_gpu/final_model.keras",
+      "overall_max_abs_diff": 0.05434417724609375,
+      "overall_mean_abs_diff": 0.0464324951171875,
+      "samples": [
+        {
+          "image_path": "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/AVA__542870.jpg",
+          "max_abs_diff": 0.05434417724609375,
+          "python_output": [
+            67.5625
+          ],
+          "python_output_sum": 67.5625,
+          "tflite_output": [
+            67.5081558227539
+          ],
+          "tflite_output_sum": 67.5081558227539
+        },
+        {
+          "image_path": "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/VOC2012__2010_000242.jpg",
+          "max_abs_diff": 0.03852081298828125,
+          "python_output": [
+            77.125
+          ],
+          "python_output_sum": 77.125,
+          "tflite_output": [
+            77.16352081298828
+          ],
+          "tflite_output_sum": 77.16352081298828
+        }
+      ],
+      "tflite_inputs": [
+        {
+          "dtype": "<class 'numpy.float32'>",
+          "name": "serving_default_keras_tensor_154:0",
+          "shape": [
+            1,
+            224,
+            224,
+            3
+          ]
+        }
+      ],
+      "tflite_outputs": [
+        {
+          "dtype": "<class 'numpy.float32'>",
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            1
+          ]
+        }
+      ],
+      "tflite_path": "exports/tflite/flive_image_mobile.tflite"
+    },
+    "koniq_mobile": {
+      "input_range_used": "zero_to_one",
+      "keras_input_shape": "(None, 224, 224, 3)",
+      "keras_output_shape": "(None, 1)",
+      "keras_path": "checkpoints/technical_koniq_gpu/final_model.keras",
+      "overall_max_abs_diff": 0.4420814514160156,
+      "overall_mean_abs_diff": 0.23741912841796875,
+      "samples": [
+        {
+          "image_path": "/home/omen_pc1/photo_score_project/data/raw/koniq10k/images/6937719329.jpg",
+          "max_abs_diff": 0.032756805419921875,
+          "python_output": [
+            42.8125
+          ],
+          "python_output_sum": 42.8125,
+          "tflite_output": [
+            42.77974319458008
+          ],
+          "tflite_output_sum": 42.77974319458008
+        },
+        {
+          "image_path": "/home/omen_pc1/photo_score_project/data/raw/koniq10k/images/2489209226.jpg",
+          "max_abs_diff": 0.4420814514160156,
+          "python_output": [
+            53.125
+          ],
+          "python_output_sum": 53.125,
+          "tflite_output": [
+            53.567081451416016
+          ],
+          "tflite_output_sum": 53.567081451416016
+        }
+      ],
+      "tflite_inputs": [
+        {
+          "dtype": "<class 'numpy.float32'>",
+          "name": "serving_default_keras_tensor_154:0",
+          "shape": [
+            1,
+            224,
+            224,
+            3
+          ]
+        }
+      ],
+      "tflite_outputs": [
+        {
+          "dtype": "<class 'numpy.float32'>",
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            1
+          ]
+        }
+      ],
+      "tflite_path": "exports/tflite/koniq_mobile.tflite"
+    },
+    "nima_fixed": {
+      "input_range_used": "zero_to_one",
+      "keras_input_shape": "(None, 224, 224, 3)",
+      "keras_output_shape": "(None, 10)",
+      "keras_path": "checkpoints/nima_ava_gpu_fixed_preproc_20260525/final_model.keras",
+      "overall_max_abs_diff": 0.00025127828121185303,
+      "overall_mean_abs_diff": 7.164940470829606e-05,
+      "samples": [
+        {
+          "image_path": "/home/omen_pc1/photo_score_project/data/raw/ava/images/342907.jpg",
+          "max_abs_diff": 0.00025127828121185303,
+          "python_output": [
+            0.025598840788006783,
+            0.040349237620830536,
+            0.08269330859184265,
+            0.18392077088356018,
+            0.2802662253379822,
+            0.20160330832004547,
+            0.09747613966464996,
+            0.045214444398880005,
+            0.025462158024311066,
+            0.01741563156247139
+          ],
+          "python_output_sum": 1.0,
+          "tflite_output": [
+            0.025551674887537956,
+            0.04027976095676422,
+            0.08258231729269028,
+            0.18366949260234833,
+            0.28031447529792786,
+            0.2017676681280136,
+            0.09755751490592957,
+            0.0453089214861393,
+            0.025515003129839897,
+            0.0174531452357769
+          ],
+          "tflite_output_sum": 0.9999999403953552
+        },
+        {
+          "image_path": "/home/omen_pc1/photo_score_project/data/raw/ava/images/458422.jpg",
+          "max_abs_diff": 0.00016751885414123535,
+          "python_output": [
+            0.008194862864911556,
+            0.03347236290574074,
+            0.10203666239976883,
+            0.26232513785362244,
+            0.3407636284828186,
+            0.1621360033750534,
+            0.05639052763581276,
+            0.025091007351875305,
+            0.006365494802594185,
+            0.003224286949262023
+          ],
+          "python_output_sum": 1.0,
+          "tflite_output": [
+            0.008207930251955986,
+            0.03349744528532028,
+            0.10217225551605225,
+            0.2621576189994812,
+            0.34071990847587585,
+            0.16211898624897003,
+            0.05643867701292038,
+            0.025081656873226166,
+            0.006375243421643972,
+            0.0032302946783602238
+          ],
+          "tflite_output_sum": 1.0
+        }
+      ],
+      "tflite_inputs": [
+        {
+          "dtype": "<class 'numpy.float32'>",
+          "name": "serving_default_keras_tensor_268:0",
+          "shape": [
+            1,
+            224,
+            224,
+            3
+          ]
+        }
+      ],
+      "tflite_outputs": [
+        {
+          "dtype": "<class 'numpy.float32'>",
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            10
+          ]
+        }
+      ],
+      "tflite_path": "outputs/nima_fixed_preproc_eval_20260525/nima_mobile_fixed_preproc_fp32.tflite"
+    },
+    "nima_legacy": {
+      "input_range_used": "zero_to_one",
+      "keras_input_shape": "(None, 224, 224, 3)",
+      "keras_output_shape": "(None, 10)",
+      "keras_path": "checkpoints/nima_ava_gpu/final_model.keras",
+      "overall_max_abs_diff": 0.027809888124465942,
+      "overall_mean_abs_diff": 0.005732331238687038,
+      "samples": [
+        {
+          "image_path": "/home/omen_pc1/photo_score_project/data/raw/ava/images/342907.jpg",
+          "max_abs_diff": 0.027809888124465942,
+          "python_output": [
+            0.006998689845204353,
+            0.013192977756261826,
+            0.03767964243888855,
+            0.11662168800830841,
+            0.2563146650791168,
+            0.2743871510028839,
+            0.15507909655570984,
+            0.08386461436748505,
+            0.034006960690021515,
+            0.021854571998119354
+          ],
+          "python_output_sum": 1.0,
+          "tflite_output": [
+            0.008470479398965836,
+            0.015107216313481331,
+            0.042901866137981415,
+            0.12647297978401184,
+            0.2482159584760666,
+            0.24657726287841797,
+            0.15877653658390045,
+            0.09342853724956512,
+            0.039238013327121735,
+            0.020811161026358604
+          ],
+          "tflite_output_sum": 1.0
+        },
+        {
+          "image_path": "/home/omen_pc1/photo_score_project/data/raw/ava/images/458422.jpg",
+          "max_abs_diff": 0.012003183364868164,
+          "python_output": [
+            0.007991072721779346,
+            0.015691425651311874,
+            0.04179254174232483,
+            0.1287374198436737,
+            0.25241541862487793,
+            0.25961294770240784,
+            0.15045645833015442,
+            0.08626487851142883,
+            0.03536173328757286,
+            0.021676110103726387
+          ],
+          "python_output_sum": 1.0,
+          "tflite_output": [
+            0.010924634523689747,
+            0.01914234831929207,
+            0.04842153564095497,
+            0.1346820592880249,
+            0.2463410347700119,
+            0.24760976433753967,
+            0.14976148307323456,
+            0.08599147200584412,
+            0.034036360681056976,
+            0.02308933064341545
+          ],
+          "tflite_output_sum": 1.0
+        }
+      ],
+      "tflite_inputs": [
+        {
+          "dtype": "<class 'numpy.float32'>",
+          "name": "serving_default_keras_tensor_270:0",
+          "shape": [
+            1,
+            224,
+            224,
+            3
+          ]
+        }
+      ],
+      "tflite_outputs": [
+        {
+          "dtype": "<class 'numpy.float32'>",
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            10
+          ]
+        }
+      ],
+      "tflite_path": "exports/tflite/nima_mobile.tflite"
+    },
+    "rgnet_practical": {
+      "input_range_used": "zero_to_one",
+      "keras_input_shape": "(None, 256, 256, 3)",
+      "keras_output_shape": "(None, 1)",
+      "keras_path": "checkpoints/rgnet_aadb_gpu/final_model.keras",
+      "overall_max_abs_diff": 0.02760523557662964,
+      "overall_mean_abs_diff": 0.014929443597793579,
+      "samples": [
+        {
+          "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_286_20013434330_d99ab6b9a0_b.jpg",
+          "max_abs_diff": 0.02760523557662964,
+          "python_output": [
+            0.5306245684623718
+          ],
+          "python_output_sum": 0.5306245684623718,
+          "tflite_output": [
+            0.5582298040390015
+          ],
+          "tflite_output_sum": 0.5582298040390015
+        },
+        {
+          "image_path": "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_273_19900479178_9c64cca006_b.jpg",
+          "max_abs_diff": 0.0022536516189575195,
+          "python_output": [
+            0.5150356292724609
+          ],
+          "python_output_sum": 0.5150356292724609,
+          "tflite_output": [
+            0.5127819776535034
+          ],
+          "tflite_output_sum": 0.5127819776535034
+        }
+      ],
+      "tflite_inputs": [
+        {
+          "dtype": "<class 'numpy.float32'>",
+          "name": "serving_default_keras_tensor_270:0",
+          "shape": [
+            1,
+            256,
+            256,
+            3
+          ]
+        }
+      ],
+      "tflite_outputs": [
+        {
+          "dtype": "<class 'numpy.float32'>",
+          "name": "StatefulPartitionedCall_1:0",
+          "shape": [
+            1,
+            1
+          ]
+        }
+      ],
+      "tflite_path": "exports/tflite/rgnet_aadb_gpu.tflite"
+    }
+  },
+  "scope": "Two manifest-ordered real images per model; Python decoding and identical tensors for Keras/TFLite.",
+  "tensorflow_version": "2.21.0"
+}

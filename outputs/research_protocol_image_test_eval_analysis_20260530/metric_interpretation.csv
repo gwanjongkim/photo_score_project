@@ -1,0 +1,7 @@
+dataset,baseline,srcc,plcc,mae,rmse,max_ae,better_than_other_baseline,interpretation,concern_level
+koniq10k,koniq_standalone,0.936918,0.952237,5.180169,6.863002,23.952619,YES,State-of-the-art performance on KonIQ test set. Highly reliable.,Low
+koniq10k,flive_standalone,0.720587,0.763063,9.641467,11.988582,37.079433,NO,Fair performance but clearly inferior to the home model.,Low
+spaq,koniq_standalone,0.855512,0.845140,9.580660,11.806450,42.466507,YES,Strongest cross-dataset generalization. Well calibrated on SPAQ.,Low
+spaq,flive_standalone,0.826652,0.681455,20.876266,24.984524,53.712317,NO,Good rank correlation but poor linear correlation and high bias (+18.5).,Medium
+flive,flive_standalone,0.660292,0.773241,3.801653,5.050282,31.091163,YES,Excellent performance on home dataset (image-level). Very low bias.,Low
+flive,koniq_standalone,0.486333,0.602447,8.948481,11.305341,52.693375,NO,Weak performance on FLIVE. Struggles with authentic distortions.,Low

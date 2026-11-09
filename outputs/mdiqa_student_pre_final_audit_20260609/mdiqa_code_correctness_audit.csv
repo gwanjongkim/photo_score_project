@@ -1,0 +1,9 @@
+audit_item,status,verification_source,note
+"Correct MDIQA variants used","PASS","scripts/technical_iqa/run_mdiqa_official_image_only_benchmark.py","KonIQ -> seed1, SPAQ/FLIVE -> mdiqa_xd. Matches paper protocol."
+"Image preprocessing (384, BICUBIC)","PASS","scripts/technical_iqa/run_mdiqa_official_image_only_benchmark.py","Consistent with MDIQA official implementation."
+"Score scale 0-100","PASS","outputs/official_protocol_mdiqa_signal_benchmark_20260604/report.md","Internal score 0-1, evaluated as score * 100. Matches MOS scale."
+"FLIVE patch exclusion","PASS","scripts/technical_iqa/run_mdiqa_official_image_only_benchmark.py","Strictly excludes content_type='patch' and path-based patch indicators."
+"Official benchmark metrics","PASS","outputs/official_protocol_mdiqa_signal_benchmark_20260604/report.md","Overall SRCC 0.8227, KonIQ 0.9311, SPAQ 0.9136, FLIVE 0.5692. Verified."
+"50k target variant policy","PASS","scripts/technical_iqa/run_mdiqa_50k_smoke_inference.py","Same protocol used for 50k teacher label generation."
+"No accidental target leakage","PASS","outputs/mdiqa_distillation_50k_full_targets_20260608/report.md","0 rows overlap with official Track B benchmark test set."
+"MDIQA cache consistency","PASS","outputs/mdiqa_distillation_50k_full_targets_20260608/report.md","Merged cached predictions from previous runs correctly."

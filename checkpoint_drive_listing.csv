@@ -1,0 +1,12 @@
+filename,drive_id,notes
+mdiqa_shared_5t_4a_mbv3_koniq_seed1.pth,1AHd8qlMFO7RLwZoeYEP09SidxWExpS3n,Confirmed Koniq Fusion model.
+mdiqa_shared_5t_4a_mbv3_koniq_xd.pth,1z4LbbDhc5ROvibMpdaV3BadTJlj1ayyN,Cross-Dataset Fusion model (intended for FLIVE/SPAQ cross-eval).
+net_best.pth,1veLWnwjoMDMRitAP02KalOaUvpBQ8vKS,Unified best model for evaluation and restoration.
+mdiqa_shared_5t_4a_clipfeat_localv4_mbv3_koniq_seed1.pth,1QdqiGR1sdKddfkQduuhUONnF8k_Iem6e,Alternative Koniq variant with CLIP features.
+net_freeze_backbone.pth,1i0tZ6ptiaBIhvuL9Qt0Uri_00NoqGCGQ,Shared technology backbone (ResNet50).
+net_best_koniq10k_val_head0_head0.pth,1eNKeLtOi4nsaLLeZYR26dr2_kuE8NlMq,Technology head 0 (Brightness).
+net_best_koniq10k_val_head1_head1.pth,1Y3dG5eNblFdP_f5cf86TapDE-ammqacn,Technology head 1 (Colorfulness).
+net_best_koniq10k_val_head2_head2.pth,1qnS513ilxOHHgUWZ3yOP4W2BXOSehumk,Technology head 2 (Contrast).
+net_best_koniq10k_val_head3_head3.pth,1k2bIz3iS_xJBqz6EYAmu6W3QAsQa47_A,Technology head 3 (Noisiness).
+net_best_koniq10k_val_head4_head4.pth,1Bt5ZGmhIdj0WcjD7gHhAJ7ntzChro3nD,Technology head 4 (Sharpness).
+net_best_PARA_val_color.pth,10skPYtS4-RYoaWEDwAemv8yM8QeEvOaP,Aesthetic heads trained on PARA dataset.

@@ -1,0 +1,7 @@
+{
+  "recommended_policy": "Policy B (Balanced)",
+  "total_target_rows": 50000,
+  "missing_inference_rows": 43582,
+  "estimated_runtime_hours": 0.27,
+  "decision": "MDIQA_50K_MANIFEST_READY_FOR_SMOKE"
+}

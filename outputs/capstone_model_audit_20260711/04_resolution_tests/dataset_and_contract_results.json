@@ -1,0 +1,516 @@
+{
+  "ava_distribution_labels": {
+    "test": {
+      "max_abs_error_from_1": 9.992007221626409e-16,
+      "max_sum": 1.0000000000000002,
+      "min_sum": 0.999999999999999,
+      "rows": 25551
+    },
+    "train": {
+      "max_abs_error_from_1": 9.992007221626409e-16,
+      "max_sum": 1.0000000000000002,
+      "min_sum": 0.999999999999999,
+      "rows": 204406
+    },
+    "val": {
+      "max_abs_error_from_1": 8.881784197001252e-16,
+      "max_sum": 1.0000000000000002,
+      "min_sum": 0.9999999999999991,
+      "rows": 25551
+    }
+  },
+  "exact_content_overlap": {
+    "aadb": {
+      "cross_split_duplicate_hash_groups": 4,
+      "duplicate_groups": [
+        {
+          "files": [
+            [
+              "train",
+              "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_319_19993583690_bb361977af_b.jpg"
+            ],
+            [
+              "test",
+              "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_477_19571267684_6730df90e5_b.jpg"
+            ]
+          ],
+          "sha256": "ff0621058220ae1d097446f760ce72cbaa6fa416b682d3c01fb71b0945eaec35"
+        },
+        {
+          "files": [
+            [
+              "train",
+              "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_361_20007022190_d4912c7ef1_b.jpg"
+            ],
+            [
+              "val",
+              "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_261_20006720370_5ba7376351_b.jpg"
+            ]
+          ],
+          "sha256": "165f4944b5de910f782a606eb2122de8ca3a05f1bc9e248c7ddfb40282e6171a"
+        },
+        {
+          "files": [
+            [
+              "train",
+              "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_553_19573746944_7545463c13_b.jpg"
+            ],
+            [
+              "val",
+              "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_335_19569933414_3fcd91f82e_b.jpg"
+            ]
+          ],
+          "sha256": "9ea13252a8bceb43c79b181d82ec16cbe3604d8473ba85d30965c8b7a258be7c"
+        },
+        {
+          "files": [
+            [
+              "train",
+              "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_334_19705278854_c4267fe538_b.jpg"
+            ],
+            [
+              "val",
+              "/home/omen_pc1/photo_score_project/data/raw/aadb/images/farm1_361_20141295019_9fdde0da09_b.jpg"
+            ]
+          ],
+          "sha256": "b35407667cffe3b2ce256e70bacabf804a2b95b7c69afbe1e768a933afe8ee89"
+        }
+      ],
+      "files_statted": 9458,
+      "missing_files": 0,
+      "same_size_candidates_hashed": 129
+    },
+    "ava": {
+      "reason": "255,508 AVA rows exceed the bounded exact-content test; exact-path overlap and label checks were run.",
+      "status": "NOT_RUN"
+    },
+    "flive_image": {
+      "cross_split_duplicate_hash_groups": 9,
+      "duplicate_groups": [
+        {
+          "files": [
+            [
+              "train",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/JPEGImages__2010_006896.jpg"
+            ],
+            [
+              "val",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/JPEGImages__2011_006506.jpg"
+            ]
+          ],
+          "sha256": "a24a8016885f674ba1613327e82fbccfd94e65d9d570321bdc29145e68123008"
+        },
+        {
+          "files": [
+            [
+              "train",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/JPEGImages__2011_000546.jpg"
+            ],
+            [
+              "val",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/VOC2012__2010_001377.jpg"
+            ]
+          ],
+          "sha256": "4a32ed2ef4c08e35c8d89c6fb9de0ed93152f3539b3ffc35ec9770c179a0cac3"
+        },
+        {
+          "files": [
+            [
+              "train",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/JPEGImages__2008_003653.jpg"
+            ],
+            [
+              "test",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/JPEGImages__2010_006206.jpg"
+            ]
+          ],
+          "sha256": "c597137c9bef43f6a824c08d31f4611d80d3d77e894ac79cf403bc7e8e84ce41"
+        },
+        {
+          "files": [
+            [
+              "train",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/VOC2012__2011_001504.jpg"
+            ],
+            [
+              "test",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/JPEGImages__2011_002964.jpg"
+            ]
+          ],
+          "sha256": "f184f71c920247ad5387b8566fe6c3bfed8df9ceed1c054359c868d5573b0fd4"
+        },
+        {
+          "files": [
+            [
+              "train",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/VOC2012__2010_006470.jpg"
+            ],
+            [
+              "val",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/JPEGImages__2011_006197.jpg"
+            ]
+          ],
+          "sha256": "a5e381c5995549076d85f3283207d98c23426e6224a7824c20cf9a2fe1e23012"
+        },
+        {
+          "files": [
+            [
+              "train",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/JPEGImages__2010_006210.jpg"
+            ],
+            [
+              "val",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/JPEGImages__2011_003324.jpg"
+            ]
+          ],
+          "sha256": "946f1b2663e40614cee1597c914d5f672a16685dceb95d31f39230d7a3384e27"
+        },
+        {
+          "files": [
+            [
+              "train",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/VOC2012__2011_003174.jpg"
+            ],
+            [
+              "test",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/VOC2012__2010_005333.jpg"
+            ]
+          ],
+          "sha256": "420cf6a15b3a9d9c961b8ce6bef98ef613b51d287e8197b6f4ac8e4c20d00368"
+        },
+        {
+          "files": [
+            [
+              "train",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/JPEGImages__2010_006953.jpg"
+            ],
+            [
+              "test",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/JPEGImages__2011_005291.jpg"
+            ]
+          ],
+          "sha256": "df8d42c6e124237179fe5f898a51b4374fb8e066fa032a0d78bceb78f74e7875"
+        },
+        {
+          "files": [
+            [
+              "train",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/JPEGImages__2011_006737.jpg"
+            ],
+            [
+              "test",
+              "/home/omen_pc1/photo_score_project/data/raw/paq2piq/voc_emotic_ava/JPEGImages__2010_006140.jpg"
+            ]
+          ],
+          "sha256": "7d6052676cc64b55f898da72422ffc43ce48d4d99a908393ba079aafad15bb42"
+        }
+      ],
+      "files_statted": 39810,
+      "missing_files": 0,
+      "same_size_candidates_hashed": 2986
+    },
+    "koniq": {
+      "cross_split_duplicate_hash_groups": 0,
+      "duplicate_groups": [],
+      "files_statted": 10073,
+      "missing_files": 0,
+      "same_size_candidates_hashed": 72
+    }
+  },
+  "exact_path_overlap": {
+    "aadb": {
+      "train__test": 0,
+      "train__val": 0,
+      "val__test": 0
+    },
+    "ava": {
+      "train__test": 0,
+      "train__val": 0,
+      "val__test": 0
+    },
+    "flive_image": {
+      "train__test": 0,
+      "train__val": 0,
+      "val__test": 0
+    },
+    "koniq": {
+      "train__test": 0,
+      "train__val": 0,
+      "val__test": 0
+    }
+  },
+  "flive_cross_task_parent_overlap": {
+    "image_train__image_test": {
+      "fraction_of_eval_parents": 0.0,
+      "parent_overlap": 0
+    },
+    "image_train__image_val": {
+      "fraction_of_eval_parents": 0.0,
+      "parent_overlap": 0
+    },
+    "image_train__patch_test": {
+      "fraction_of_eval_parents": 0.802752720171115,
+      "parent_overlap": 8632
+    },
+    "image_train__patch_val": {
+      "fraction_of_eval_parents": 0.799778250023099,
+      "parent_overlap": 8656
+    },
+    "patch_train__image_test": {
+      "fraction_of_eval_parents": 0.9897010801306204,
+      "parent_overlap": 3940
+    },
+    "patch_train__image_val": {
+      "fraction_of_eval_parents": 0.9932177844762623,
+      "parent_overlap": 3954
+    },
+    "patch_train__patch_test": {
+      "fraction_of_eval_parents": 0.9720078117734585,
+      "parent_overlap": 10452
+    },
+    "patch_train__patch_val": {
+      "fraction_of_eval_parents": 0.9729280236533309,
+      "parent_overlap": 10530
+    }
+  },
+  "flive_parent_overlap": {
+    "all": {
+      "parent_overlaps": {
+        "train__test": {
+          "fraction_of_test_parents": 0.9953852915323762,
+          "parent_overlap": 13589
+        },
+        "train__val": {
+          "fraction_of_val_parents": 0.9954879557528564,
+          "parent_overlap": 13679
+        },
+        "val__test": {
+          "fraction_of_test_parents": 0.2910196308233226,
+          "parent_overlap": 3973
+        }
+      },
+      "rows": {
+        "test": 15924,
+        "train": 127392,
+        "val": 15924
+      },
+      "unique_parents": {
+        "test": 13652,
+        "train": 39741,
+        "val": 13741
+      }
+    },
+    "image": {
+      "parent_overlaps": {
+        "train__test": {
+          "fraction_of_test_parents": 0.0,
+          "parent_overlap": 0
+        },
+        "train__val": {
+          "fraction_of_val_parents": 0.0,
+          "parent_overlap": 0
+        },
+        "val__test": {
+          "fraction_of_test_parents": 0.0,
+          "parent_overlap": 0
+        }
+      },
+      "rows": {
+        "test": 3981,
+        "train": 31848,
+        "val": 3981
+      },
+      "unique_parents": {
+        "test": 3981,
+        "train": 31848,
+        "val": 3981
+      }
+    },
+    "patch": {
+      "parent_overlaps": {
+        "train__test": {
+          "fraction_of_test_parents": 0.9720078117734585,
+          "parent_overlap": 10452
+        },
+        "train__val": {
+          "fraction_of_val_parents": 0.9729280236533309,
+          "parent_overlap": 10530
+        },
+        "val__test": {
+          "fraction_of_test_parents": 0.19873523667813633,
+          "parent_overlap": 2137
+        }
+      },
+      "rows": {
+        "test": 11943,
+        "train": 95544,
+        "val": 11943
+      },
+      "unique_parents": {
+        "test": 10753,
+        "train": 39467,
+        "val": 10823
+      }
+    }
+  },
+  "koniq_target_mapping": {
+    "builder_selected_column_by_current_loop": "MOS_zscore",
+    "manifest_comparisons": {
+      "MOS": {
+        "matched_rows": 10073,
+        "max_abs_diff": 84.15079365079366,
+        "mean_abs_diff": 55.56762624274653,
+        "raw_max": 4.31,
+        "raw_min": 1.09615384615385
+      },
+      "MOS_zscore": {
+        "matched_rows": 10073,
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "raw_max": 88.3888888888889,
+        "raw_min": 3.91176470588235
+      }
+    },
+    "mos_matching_columns_in_loop_order": [
+      "MOS",
+      "MOS_zscore"
+    ],
+    "raw_column_order": [
+      "image_name",
+      "c1",
+      "c2",
+      "c3",
+      "c4",
+      "c5",
+      "c_total",
+      "MOS",
+      "SD",
+      "MOS_zscore"
+    ]
+  },
+  "label_scales": {
+    "aadb": {
+      "test": {
+        "max": 1.0,
+        "mean": 0.5246259999999999,
+        "min": 0.05,
+        "non_null": 1000,
+        "rows": 1000
+      },
+      "train": {
+        "max": 1.0,
+        "mean": 0.5108594324750394,
+        "min": 0.0,
+        "non_null": 7612,
+        "rows": 7612
+      },
+      "val": {
+        "max": 0.95,
+        "mean": 0.5111950354609929,
+        "min": 0.0,
+        "non_null": 846,
+        "rows": 846
+      }
+    },
+    "ava": {
+      "test": {
+        "max": 8.09058,
+        "mean": 5.393140088524912,
+        "min": 1.988764,
+        "non_null": 25551,
+        "rows": 25551
+      },
+      "train": {
+        "max": 8.571428,
+        "mean": 5.382868146622408,
+        "min": 1.8089888,
+        "non_null": 204406,
+        "rows": 204406
+      },
+      "val": {
+        "max": 8.6,
+        "mean": 5.376929954220969,
+        "min": 2.1409397,
+        "non_null": 25551,
+        "rows": 25551
+      }
+    },
+    "flive_image": {
+      "test": {
+        "max": 89.7896374033182,
+        "mean": 72.19575114003693,
+        "min": 13.02723027917686,
+        "non_null": 3981,
+        "rows": 3981
+      },
+      "train": {
+        "max": 94.3332343725568,
+        "mean": 72.12102311231739,
+        "min": 0.0,
+        "non_null": 31848,
+        "rows": 31848
+      },
+      "val": {
+        "max": 93.1093761480135,
+        "mean": 72.16071402311947,
+        "min": 21.012450896859225,
+        "non_null": 3981,
+        "rows": 3981
+      }
+    },
+    "flive_patch": {
+      "test": {
+        "max": 95.62504016935712,
+        "mean": 72.10437770004835,
+        "min": 31.273238845844286,
+        "non_null": 11943,
+        "rows": 11943
+      },
+      "train": {
+        "max": 100.0,
+        "mean": 72.0523856455481,
+        "min": 14.690263590721308,
+        "non_null": 95544,
+        "rows": 95544
+      },
+      "val": {
+        "max": 98.95993397546376,
+        "mean": 72.09965303022864,
+        "min": 25.9991532320552,
+        "non_null": 11943,
+        "rows": 11943
+      }
+    },
+    "koniq": {
+      "test": {
+        "max": 86.0044642857143,
+        "mean": 58.580290152517605,
+        "min": 7.51680672268908,
+        "non_null": 1008,
+        "rows": 1008
+      },
+      "train": {
+        "max": 88.3888888888889,
+        "mean": 58.73503800037945,
+        "min": 3.91176470588235,
+        "non_null": 8058,
+        "rows": 8058
+      },
+      "val": {
+        "max": 86.35,
+        "mean": 58.835709133650795,
+        "min": 5.08974358974359,
+        "non_null": 1007,
+        "rows": 1007
+      }
+    }
+  },
+  "source_contracts": {
+    "flive_also_builds_combined_all_split": true,
+    "flive_calls_separate_image_split": true,
+    "flive_calls_separate_patch_split": true,
+    "selector_has_0_to_100_normalization": true,
+    "selector_has_1_to_10_normalization": true,
+    "selector_renormalizes_available_weights": true
+  }
+}

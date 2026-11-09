@@ -1,0 +1,4 @@
+priority,action,status
+1,Run 10k dry-run only if final decision is ready.,blocked
+2,Replace fallback proxy with real mobile/unknown production-scored rows when available.,open
+3,Keep Policy B diagnostic-only unless it clearly improves MOS alignment and safety.,open

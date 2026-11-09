@@ -1,0 +1,42 @@
+{
+  "experiment_name": "gemma4_e4b_aesthetic3_smoke",
+  "dataset_dir": "outputs/gemma4_e4b_aesthetic3_smoke",
+  "train_manifest": "train.jsonl",
+  "val_manifest": "val.jsonl",
+  "test_manifests": {
+    "test": "test.jsonl",
+    "test_vila": "test_vila.jsonl"
+  },
+  "output_dir": "outputs/gemma4_e4b_aesthetic3_smoke/train_run",
+  "model_name_or_path": "google/gemma-4-E4B-it",
+  "processor_name_or_path": "google/gemma-4-E4B-it",
+  "allow_remote_model_download": true,
+  "lora": {
+    "enabled": true,
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "target_modules": "all-linear"
+  },
+  "quantization": {
+    "load_in_4bit": false,
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "bnb_4bit_use_double_quant": true
+  },
+  "training": {
+    "num_train_epochs": 3,
+    "per_device_train_batch_size": 1,
+    "per_device_eval_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.0002,
+    "warmup_ratio": 0.03,
+    "logging_steps": 1,
+    "save_steps": 10,
+    "eval_steps": 10,
+    "max_grad_norm": 1.0,
+    "weight_decay": 0.0,
+    "seed": 42,
+    "max_length": null
+  }
+}
